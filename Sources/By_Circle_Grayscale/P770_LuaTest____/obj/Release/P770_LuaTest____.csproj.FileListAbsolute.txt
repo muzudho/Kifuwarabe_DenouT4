@@ -10,7 +10,6 @@ C:\Root_KifuWarabe\CSharp\Sources\By_Circle_Grayscale\P770_LuaTest____\obj\Relea
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\P770_LuaTest____\Grayscale.P770_LuaTest____.exe.config
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\P770_LuaTest____\Grayscale.P770_LuaTest____.exe
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\P770_LuaTest____\Grayscale.P770_LuaTest____.pdb
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P770_LuaTest____\obj\Release\P770_LuaTest____.csprojResolveAssemblyReference.cache
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P770_LuaTest____\obj\Release\Grayscale.P771_LuaTest____.Form1.resources
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P770_LuaTest____\obj\Release\Grayscale.Properties.Resources.resources
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P770_LuaTest____\obj\Release\Grayscale.P771_LuaTest____.Uc_Main1.resources

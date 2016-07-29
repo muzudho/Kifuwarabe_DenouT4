@@ -26,6 +26,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P353_Conv_SasuEx.L500____Converter;
 using Grayscale.P202_GraphicLog_.L500____Util;
 using Grayscale.P554_TansaFukasa.L___500_Struct;
+using Grayscale.P550_timeMan____.L___500_struct__;
 
 
 #if DEBUG
@@ -227,13 +228,15 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                     );
                 int sasitebetuEntry_count = sasitebetuEntry.Count;
 
-                if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(yomiDeep, wideCount2, sasitebetuEntry_count, genjo))
+                if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(yomiDeep, wideCount2, sasitebetuEntry_count, genjo, args.Shogisasi.TimeManager))
                 {
                     // 1手も読まないのなら。
                     // FIXME: エラー？
                     //----------------------------------------
                     // もう深くよまないなら
                     //----------------------------------------
+
+                    // 局面に評価を付けます。
                     Tansaku_FukasaYusen_Routine.Do_Leaf(
                         genjo,
                         node_yomi,
@@ -244,18 +247,16 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                 }
                 else
                 {
+                    a_childrenBest = Tansaku_FukasaYusen_Routine.WAAA_Yomu_Loop(
+                        genjo,
+                        alphabeta_otherBranchDecidedValue,
+                        node_yomi,
+                        sasitebetuEntry.Count,
+                        args,
+                        errH
+                        );
                 }
 
-
-
-                float child_bestScore = Tansaku_FukasaYusen_Routine.WAAA_Yomu_Loop(
-                    genjo,
-                    alphabeta_otherBranchDecidedValue,
-                    node_yomi,
-                    sasitebetuEntry.Count,
-                    args,
-                    errH
-                    );
 
 #if DEBUG
                 exceptionArea = 20;
@@ -300,15 +301,26 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
             }
         }
 
-
+        /// <summary>
+        /// もう次の手は読まない、というときは真☆
+        /// </summary>
+        /// <param name="yomiDeep"></param>
+        /// <param name="wideCount2"></param>
+        /// <param name="sasitebetuEntry_count"></param>
+        /// <param name="genjo"></param>
+        /// <returns></returns>
         public static bool CanNotNextLoop(
             int yomiDeep,
             int wideCount2,
             int sasitebetuEntry_count,
-            Tansaku_Genjo genjo
+            Tansaku_Genjo genjo,
+            TimeManager timeManager
             )
         {
-            return (genjo.Args.YomuLimitter.Length <= yomiDeep + 1)//読みの深さ制限を超えているとき。
+            return
+                timeManager.IsTimeOver()//思考の時間切れ
+                ||
+                (genjo.Args.YomuLimitter.Length <= yomiDeep + 1)//読みの深さ制限を超えているとき。
                 || //または、
                 (1 < yomiDeep && genjo.Args.YomuLimitter[yomiDeep] < wideCount2)//読みの１手目より後で、指定の横幅を超えているとき。
                 || //または、
@@ -458,7 +470,8 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                         yomiDeep2,
                         wideCount1,
                         sasitebetuEntry2.Count,
-                        genjo
+                        genjo,
+                        args.Shogisasi.TimeManager
                     ))
                     {
                         //----------------------------------------

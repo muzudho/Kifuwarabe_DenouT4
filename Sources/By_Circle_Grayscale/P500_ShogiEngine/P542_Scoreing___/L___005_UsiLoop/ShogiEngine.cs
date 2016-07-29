@@ -1,5 +1,4 @@
-﻿using Grayscale.P571_KifuWarabe_.L___490_Option__;
-using System.Collections.Generic;
+﻿using Grayscale.P571_usiFrame1__.L___490_Option__;
 
 namespace Grayscale.P542_Scoreing___.L___005_UsiLoop
 {

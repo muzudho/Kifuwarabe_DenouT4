@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Windows Desktop
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P000_Environment", "P000_Environment\P000_Environment.csproj", "{147B11E0-827B-4D3F-844C-ADF2BEAFA53F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P760_SigmoidTest", "P760_SigmoidTest\P760_SigmoidTest.csproj", "{77E59B81-8B78-45D3-98E4-1BF2269B08A7}"
@@ -37,7 +39,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P140_KifuSfen___", "P140_Ki
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P440_KifuTreeLog", "P440_KifuTreeLog\P440_KifuTreeLog.csproj", "{DA78A967-E248-4FC3-A89C-11EBB03030B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P930_SampleGame", "P930_SampleGame\P930_SampleGame.csproj", "{FC876110-BD0B-483D-8A64-350582B529F3}"
+EndProject
 Global
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -320,6 +327,24 @@ Global
 		{DA78A967-E248-4FC3-A89C-11EBB03030B7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{DA78A967-E248-4FC3-A89C-11EBB03030B7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{DA78A967-E248-4FC3-A89C-11EBB03030B7}.Release|x64.ActiveCfg = Release|Any CPU
+		{FC876110-BD0B-483D-8A64-350582B529F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC876110-BD0B-483D-8A64-350582B529F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC876110-BD0B-483D-8A64-350582B529F3}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FC876110-BD0B-483D-8A64-350582B529F3}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{FC876110-BD0B-483D-8A64-350582B529F3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FC876110-BD0B-483D-8A64-350582B529F3}.Debug|x64.Build.0 = Debug|Any CPU
+		{FC876110-BD0B-483D-8A64-350582B529F3}.LEARN|Any CPU.ActiveCfg = Release|Any CPU
+		{FC876110-BD0B-483D-8A64-350582B529F3}.LEARN|Any CPU.Build.0 = Release|Any CPU
+		{FC876110-BD0B-483D-8A64-350582B529F3}.LEARN|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{FC876110-BD0B-483D-8A64-350582B529F3}.LEARN|Mixed Platforms.Build.0 = Release|Any CPU
+		{FC876110-BD0B-483D-8A64-350582B529F3}.LEARN|x64.ActiveCfg = Release|Any CPU
+		{FC876110-BD0B-483D-8A64-350582B529F3}.LEARN|x64.Build.0 = Release|Any CPU
+		{FC876110-BD0B-483D-8A64-350582B529F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC876110-BD0B-483D-8A64-350582B529F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC876110-BD0B-483D-8A64-350582B529F3}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{FC876110-BD0B-483D-8A64-350582B529F3}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{FC876110-BD0B-483D-8A64-350582B529F3}.Release|x64.ActiveCfg = Release|Any CPU
+		{FC876110-BD0B-483D-8A64-350582B529F3}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

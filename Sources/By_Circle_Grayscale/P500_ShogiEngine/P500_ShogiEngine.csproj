@@ -72,6 +72,8 @@
     <Compile Include="P542_Scoreing___\L250____Args\EvaluationArgsImpl.cs" />
     <Compile Include="P542_Scoreing___\L500____Util\Util_Scoreing.cs" />
     <Compile Include="P542_Scoreing___\L___250_Args\EvaluationArgs.cs" />
+    <Compile Include="P550_timeMan____\L500____struct__\TimeManagerImpl.cs" />
+    <Compile Include="P550_timeMan____\L___500_struct__\TimeManager.cs" />
     <Compile Include="P551_Tansaku____\L500____Struct\Tansaku_ArgsImpl.cs" />
     <Compile Include="P551_Tansaku____\L500____Struct\Tansaku_GenjoImpl.cs" />
     <Compile Include="P551_Tansaku____\L___500_Struct\Tansaku_Args.cs" />
@@ -103,26 +105,30 @@
     <Compile Include="P560_UtilClient_\L500____Util\Util_InClient.cs" />
     <Compile Include="P542_Scoreing___\L___240_Shogisasi\Shogisasi.cs" />
     <Compile Include="P542_Scoreing___\L010____Log\PerformanceMetrics.cs" />
-    <Compile Include="P571_KifuWarabe_\L061____Util\Util_LogBuilder510.cs" />
+    <Compile Include="P575_KifuWarabe_\L061____Util\Util_LogBuilder510.cs" />
     <Compile Include="P542_Scoreing___\L125____ScoreSibori\ScoreSiboriEngine.cs" />
-    <Compile Include="P571_KifuWarabe_\L100____Shogisasi\ShogisasiImpl.cs" />
-    <Compile Include="P571_KifuWarabe_\L125____KingState\Result_KingState.cs" />
-    <Compile Include="P571_KifuWarabe_\L249____Noop\NoopPhase.cs" />
-    <Compile Include="P571_KifuWarabe_\L249____Noop\NoopTimerImpl.cs" />
-    <Compile Include="P571_KifuWarabe_\L250____UsiLoop\PhaseResult_UsiLoop1.cs" />
-    <Compile Include="P571_KifuWarabe_\L250____UsiLoop\UsiLoop1.cs" />
-    <Compile Include="P571_KifuWarabe_\L250____UsiLoop\UsiLoop2.cs" />
-    <Compile Include="P571_KifuWarabe_\L250____UsiLoop\PhaseResult_UsiLoop2.cs" />
-    <Compile Include="P571_KifuWarabe_\L490____Option__\EngineOptionsImpl.cs" />
-    <Compile Include="P571_KifuWarabe_\L490____Option__\EngineOption_StringImpl.cs" />
-    <Compile Include="P571_KifuWarabe_\L490____Option__\EngineOption_BoolImpl.cs" />
-    <Compile Include="P571_KifuWarabe_\L500____KifuWarabe\n500_KifuWarabeImpl.cs" />
+    <Compile Include="P575_KifuWarabe_\L100____Shogisasi\ShogisasiImpl.cs" />
+    <Compile Include="P575_KifuWarabe_\L125____KingState\Result_KingState.cs" />
+    <Compile Include="P575_KifuWarabe_\L249____Noop\NoopPhase.cs" />
+    <Compile Include="P575_KifuWarabe_\L249____Noop\NoopTimerImpl.cs" />
+    <Compile Include="P575_KifuWarabe_\L250____UsiLoop\PhaseResult_UsiLoop1.cs" />
+    <Compile Include="P575_KifuWarabe_\L250____UsiLoop\UsiLoop1.cs" />
+    <Compile Include="P575_KifuWarabe_\L250____UsiLoop\UsiLoop2.cs" />
+    <Compile Include="P575_KifuWarabe_\L250____UsiLoop\PhaseResult_UsiLoop2.cs" />
+    <Compile Include="P571_usiFrame1__\L490____Option__\EngineOptionsImpl.cs" />
+    <Compile Include="P571_usiFrame1__\L490____Option__\EngineOption_NumberImpl.cs" />
+    <Compile Include="P571_usiFrame1__\L490____Option__\EngineOption_StringImpl.cs" />
+    <Compile Include="P571_usiFrame1__\L490____Option__\EngineOption_BoolImpl.cs" />
+    <Compile Include="P575_KifuWarabe_\L500____KifuWarabe\n500_KifuWarabeImpl.cs" />
     <Compile Include="P542_Scoreing___\L___005_UsiLoop\ShogiEngine.cs" />
-    <Compile Include="P571_KifuWarabe_\L___490_Option__\EngineOptionNames.cs" />
-    <Compile Include="P571_KifuWarabe_\L___490_Option__\EngineOptions.cs" />
-    <Compile Include="P571_KifuWarabe_\L___490_Option__\EngineOption_String.cs" />
-    <Compile Include="P571_KifuWarabe_\L___490_Option__\EngineOption_Bool.cs" />
-    <Compile Include="P571_KifuWarabe_\L___490_Option__\EngineOption.cs" />
+    <Compile Include="P571_usiFrame1__\L___490_Option__\EngineOptionNames.cs" />
+    <Compile Include="P571_usiFrame1__\L___490_Option__\EngineOptions.cs" />
+    <Compile Include="P571_usiFrame1__\L___490_Option__\EngineOption_Number.cs" />
+    <Compile Include="P571_usiFrame1__\L___490_Option__\EngineOption_String.cs" />
+    <Compile Include="P571_usiFrame1__\L___490_Option__\EngineOption_Bool.cs" />
+    <Compile Include="P571_usiFrame1__\L___490_Option__\EngineOption.cs" />
+    <Compile Include="P579_usiFrame2__\L500____usiFrame___\UsiFrameworkImpl.cs" />
+    <Compile Include="P579_usiFrame2__\L___500_usiFrame___\UsiFramework.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -159,7 +165,7 @@
     <Folder Include="P540_／／↓点数付け・探索ルーチン\" />
     <Folder Include="P556_／／↑探索ルーチン\" />
     <Folder Include="P570_／／↓きふわらべ\" />
-    <Folder Include="P580_Form_______／／フォーム\" />
+    <Folder Include="P590_Form_______／／フォーム\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
