@@ -1,5 +1,6 @@
 ﻿using Grayscale.P571_usiFrame1__.L___490_Option__;
 using System;
+using System.Collections.Generic;
 
 namespace Grayscale.P571_usiFrame1__.L490____Option__
 {
@@ -7,6 +8,12 @@ namespace Grayscale.P571_usiFrame1__.L490____Option__
     {
         public EngineOption_BoolImpl()
         {
+        }
+
+        public EngineOption_BoolImpl(string value)
+        {
+            this.ParseValue(value);
+            this.m_default_ = this.m_value_;
         }
 
         public EngineOption_BoolImpl(bool value, bool defaultValue)
@@ -33,6 +40,19 @@ namespace Grayscale.P571_usiFrame1__.L490____Option__
         {
             get { return this.m_value_; }
             set { this.m_value_ = value; }
+        }
+
+
+
+        public void Reset(
+            string valueDefault,
+            List<string> valueVars,
+            string valueMin,
+            string valueMax
+            )
+        {
+            this.ParseValue(valueDefault);
+            this.m_default_ = this.m_value_;
         }
 
         /// <summary>

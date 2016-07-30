@@ -1,5 +1,6 @@
 ﻿using Grayscale.P571_usiFrame1__.L___490_Option__;
 using System;
+using System.Collections.Generic;
 
 namespace Grayscale.P571_usiFrame1__.L490____Option__
 {
@@ -30,7 +31,7 @@ namespace Grayscale.P571_usiFrame1__.L490____Option__
         /// <summary>
         /// 既定値
         /// </summary>
-        private string m_default_;
+        protected string m_default_;
         public string Default
         {
             get { return this.m_default_; }
@@ -40,11 +41,22 @@ namespace Grayscale.P571_usiFrame1__.L490____Option__
         /// <summary>
         /// 現在値
         /// </summary>
-        private string m_value_;
+        protected string m_value_;
         public string Value
         {
             get { return this.m_value_; }
             set { this.m_value_ = value; }
+        }
+
+        public void Reset(
+            string valueDefault,
+            List<string> valueVars,
+            string valueMin,
+            string valueMax
+            )
+        {
+            this.m_value_ = valueDefault;
+            this.m_default_ = valueDefault;
         }
 
         /// <summary>

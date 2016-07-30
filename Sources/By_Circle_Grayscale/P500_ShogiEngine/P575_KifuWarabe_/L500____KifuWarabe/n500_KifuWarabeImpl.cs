@@ -46,7 +46,7 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
         /// 将棋エンジンの中の一大要素「思考エンジン」です。
         /// 指す１手の答えを出すのが仕事です。
         /// </summary>
-        private Shogisasi shogisasi;
+        public Shogisasi shogisasi;
 
         /// <summary>
         /// USI「setoption」コマンドのリストです。
@@ -89,9 +89,9 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
             //-------------+----------------------------------------------------------------------------------------------------------
             // 将棋所から送られてくるデータを、一覧表に変えたものです。
             this.EngineOptions = new EngineOptionsImpl();
-            this.EngineOptions.AddEntry(EngineOptionNames.USI_PONDER, new EngineOption_BoolImpl());// ポンダーに対応している将棋サーバーなら真です。
-            this.EngineOptions.AddEntry(EngineOptionNames.NOOPABLE, new EngineOption_BoolImpl());// 独自実装のコマンドなので、ＯＦＦにしておきます。
-            this.EngineOptions.AddEntry(EngineOptionNames.THINKING_MILLI_SECOND, new EngineOption_NumberImpl(4000));
+            this.EngineOptions.AddOption(EngineOptionNames.USI_PONDER, new EngineOption_BoolImpl());// ポンダーに対応している将棋サーバーなら真です。
+            this.EngineOptions.AddOption(EngineOptionNames.NOOPABLE, new EngineOption_BoolImpl());// 独自実装のコマンドなので、ＯＦＦにしておきます。
+            this.EngineOptions.AddOption(EngineOptionNames.THINKING_MILLI_SECOND, new EngineOption_NumberImpl(4000));
         }
         #endregion
 
@@ -217,45 +217,6 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
             }
         }
 
-        public void AtBody(
-            out bool out_isTimeoutShutdown,
-            out bool out_isQuit,
-            KwErrorHandler errH, UsiFramework usiFramework)
-        {
-            out_isTimeoutShutdown = false;
-            out_isQuit = false;
-
-            //************************************************************************************************************************
-            // ループ（１つ目）
-            //************************************************************************************************************************
-            UsiLoop1 usiLoop1 = new UsiLoop1(this);
-            usiLoop1.AtStart();
-            PhaseResult_UsiLoop1 result_UsiLoop1 = usiLoop1.AtBody(out out_isTimeoutShutdown);
-            usiLoop1.AtEnd();
-            if (out_isTimeoutShutdown)
-            {
-                //MessageBox.Show("ループ１で矯正終了するんだぜ☆！");
-                return;//全体ループを抜けます。
-            }
-            else if (result_UsiLoop1 == PhaseResult_UsiLoop1.Quit)
-            {
-                out_isQuit = true;
-                return;//全体ループを抜けます。
-            }
-
-            //************************************************************************************************************************
-            // ループ（２つ目）
-            //************************************************************************************************************************
-            UsiLoop2 usiLoop2 = new UsiLoop2(this.shogisasi, this);
-            usiLoop2.AtBegin();
-            usiLoop2.AtBody(out out_isTimeoutShutdown, errH);
-            usiLoop2.AtEnd();
-            if (out_isTimeoutShutdown)
-            {
-                //MessageBox.Show("ループ２で矯正終了するんだぜ☆！");
-                return;//全体ループを抜けます。
-            }
-        }
 
         public void AtEnd()
         {

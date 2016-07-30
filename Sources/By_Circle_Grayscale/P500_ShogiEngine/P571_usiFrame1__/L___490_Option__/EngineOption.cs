@@ -1,7 +1,15 @@
-﻿namespace Grayscale.P571_usiFrame1__.L___490_Option__
+﻿using System.Collections.Generic;
+
+namespace Grayscale.P571_usiFrame1__.L___490_Option__
 {
     public interface EngineOption
     {
+        void Reset(
+            string valueDefault,
+            List<string> valueVars,
+            string valueMin,
+            string valueMax
+            );
 
         /// <summary>
         /// 現在値（文字列読取）

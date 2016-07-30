@@ -4,29 +4,33 @@ using System.Collections.Generic;
 
 namespace Grayscale.P571_usiFrame1__.L490____Option__
 {
-    public class EngineOption_NumberImpl : EngineOption_Number
+    public class EngineOption_SpinImpl : EngineOption_Spin
     {
-        public EngineOption_NumberImpl()
+        public EngineOption_SpinImpl()
         {
         }
 
-        public EngineOption_NumberImpl(long value)
+        public EngineOption_SpinImpl(string value, string min, string max)
         {
-            this.m_value_ = value;
-            this.m_default_ = value;
+            this.ParseValue(value);
+            this.m_default_ = this.m_value_;
+            this.m_min_ = this.m_value_;
+            this.m_max_ = this.m_value_;
         }
 
-        public EngineOption_NumberImpl(long value, long defaultValue)
+        public EngineOption_SpinImpl(int value, int defaultValue, int min, int max)
         {
             this.m_value_ = value;
             this.m_default_ = defaultValue;
+            this.m_min_ = min;
+            this.m_max_ = max;
         }
 
         /// <summary>
         /// 既定値
         /// </summary>
-        private long m_default_;
-        public long Default
+        private int m_default_;
+        public int Default
         {
             get { return this.m_default_; }
             set { this.m_default_ = value; }
@@ -35,14 +39,32 @@ namespace Grayscale.P571_usiFrame1__.L490____Option__
         /// <summary>
         /// 現在値
         /// </summary>
-        private long m_value_;
-        public long Value
+        private int m_value_;
+        public int Value
         {
             get { return this.m_value_; }
             set { this.m_value_ = value; }
         }
 
+        /// <summary>
+        /// 最小値
+        /// </summary>
+        private int m_min_;
+        public int Min
+        {
+            get { return this.m_min_; }
+            set { this.m_min_ = value; }
+        }
 
+        /// <summary>
+        /// 最大値
+        /// </summary>
+        private int m_max_;
+        public int Max
+        {
+            get { return this.m_max_; }
+            set { this.m_max_ = value; }
+        }
 
         public void Reset(
             string valueDefault,
@@ -51,9 +73,16 @@ namespace Grayscale.P571_usiFrame1__.L490____Option__
             string valueMax
             )
         {
+            this.ParseValue(valueMin);
+            this.m_min_ = this.m_value_;
+
+            this.ParseValue(valueMax);
+            this.m_max_ = this.m_value_;
+
             this.ParseValue(valueDefault);
             this.m_default_ = this.m_value_;
         }
+
 
         /// <summary>
         /// 論理値型でのみ使用可能。論理値型でない場合、エラー。
@@ -70,7 +99,7 @@ namespace Grayscale.P571_usiFrame1__.L490____Option__
         /// <returns></returns>
         public long GetNumber()
         {
-            return this.m_value_;
+            return this.Value;
         }
 
         /// <summary>
@@ -79,8 +108,8 @@ namespace Grayscale.P571_usiFrame1__.L490____Option__
         /// <param name="value"></param>
         public void ParseValue(string value)
         {
-            long result;
-            if (long.TryParse(value, out result))
+            int result;
+            if (int.TryParse(value, out result))
             {
                 this.m_value_ = result;
             }

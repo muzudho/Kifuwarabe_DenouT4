@@ -105,6 +105,14 @@
     <Compile Include="P560_UtilClient_\L500____Util\Util_InClient.cs" />
     <Compile Include="P542_Scoreing___\L___240_Shogisasi\Shogisasi.cs" />
     <Compile Include="P542_Scoreing___\L010____Log\PerformanceMetrics.cs" />
+    <Compile Include="P571_usiFrame1__\L490____Option__\EngineOption_SpinImpl.cs" />
+    <Compile Include="P571_usiFrame1__\L490____Option__\EngineOption_Button.cs" />
+    <Compile Include="P571_usiFrame1__\L490____Option__\EngineOption_FilenameImpl.cs" />
+    <Compile Include="P571_usiFrame1__\L490____Option__\EngineOption_ComboImpl.cs" />
+    <Compile Include="P571_usiFrame1__\L___490_Option__\EngineOption_Spin.cs" />
+    <Compile Include="P571_usiFrame1__\L___490_Option__\EngineOption_Button.cs" />
+    <Compile Include="P571_usiFrame1__\L___490_Option__\EngineOption_Filename.cs" />
+    <Compile Include="P571_usiFrame1__\L___490_Option__\EngineOption_Combo.cs" />
     <Compile Include="P575_KifuWarabe_\L061____Util\Util_LogBuilder510.cs" />
     <Compile Include="P542_Scoreing___\L125____ScoreSibori\ScoreSiboriEngine.cs" />
     <Compile Include="P575_KifuWarabe_\L100____Shogisasi\ShogisasiImpl.cs" />

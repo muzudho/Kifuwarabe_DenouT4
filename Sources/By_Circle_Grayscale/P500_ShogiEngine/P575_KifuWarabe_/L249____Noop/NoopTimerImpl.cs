@@ -37,7 +37,7 @@ namespace Grayscale.P575_KifuWarabe_.L249____Noop
             isTimeoutShutdown = false;
             //errH.Logger.WriteLine_AddMemo("メッセージは届いていませんでした。this.sw_forNoop.Elapsed.Seconds=[" + this.sw_forNoop.Elapsed.Seconds + "]");
 
-            if (owner.EngineOptions.GetEntry(EngineOptionNames.NOOPABLE).IsTrue() && 10 < this.sw_forNoop.Elapsed.Seconds)//0 < this.sw_forNoop.Elapsed.Se.Minutes
+            if (owner.EngineOptions.GetOption(EngineOptionNames.NOOPABLE).IsTrue() && 10 < this.sw_forNoop.Elapsed.Seconds)//0 < this.sw_forNoop.Elapsed.Se.Minutes
             {
                 // 1分以上、サーバーからメッセージが届いていない場合。
                 switch (this.noopPhase)

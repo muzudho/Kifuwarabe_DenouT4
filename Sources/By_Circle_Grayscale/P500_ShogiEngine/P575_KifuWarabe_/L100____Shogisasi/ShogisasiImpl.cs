@@ -51,7 +51,7 @@ namespace Grayscale.P575_KifuWarabe_.L100____Shogisasi
             this.owner = owner;
             this.EdagariEngine = new ScoreSiboriEngine();
             this.FeatureVector = new FeatureVectorImpl();
-            this.TimeManager = new TimeManagerImpl(owner.EngineOptions.GetEntry(EngineOptionNames.THINKING_MILLI_SECOND).GetNumber());
+            this.TimeManager = new TimeManagerImpl(owner.EngineOptions.GetOption(EngineOptionNames.THINKING_MILLI_SECOND).GetNumber());
         }
 
 

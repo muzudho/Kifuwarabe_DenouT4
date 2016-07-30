@@ -4,29 +4,37 @@ using System.Collections.Generic;
 
 namespace Grayscale.P571_usiFrame1__.L490____Option__
 {
-    public class EngineOption_NumberImpl : EngineOption_Number
+    public class EngineOption_ComboImpl : EngineOption_String
     {
-        public EngineOption_NumberImpl()
+        public EngineOption_ComboImpl()
         {
+            this.m_value_ = "";
+            this.m_default_ = "";
         }
 
-        public EngineOption_NumberImpl(long value)
+        /// <summary>
+        /// 最初に入ってきた値を、既定値とします。
+        /// </summary>
+        /// <param name="value"></param>
+        public EngineOption_ComboImpl(string value, List<string> valueVars)
         {
             this.m_value_ = value;
+            this.m_valueVars_ = valueVars;
             this.m_default_ = value;
         }
 
-        public EngineOption_NumberImpl(long value, long defaultValue)
+        public EngineOption_ComboImpl(string value, List<string> valueVars, string defaultValue)
         {
             this.m_value_ = value;
+            this.m_valueVars_ = valueVars;
             this.m_default_ = defaultValue;
         }
 
         /// <summary>
         /// 既定値
         /// </summary>
-        private long m_default_;
-        public long Default
+        protected string m_default_;
+        public string Default
         {
             get { return this.m_default_; }
             set { this.m_default_ = value; }
@@ -35,12 +43,23 @@ namespace Grayscale.P571_usiFrame1__.L490____Option__
         /// <summary>
         /// 現在値
         /// </summary>
-        private long m_value_;
-        public long Value
+        protected string m_value_;
+        public string Value
         {
             get { return this.m_value_; }
             set { this.m_value_ = value; }
         }
+
+        /// <summary>
+        /// 値のリスト
+        /// </summary>
+        protected List<string> m_valueVars_;
+        public List<string> ValueVars
+        {
+            get { return this.m_valueVars_; }
+            set { this.m_valueVars_ = value; }
+        }
+
 
 
 
@@ -53,6 +72,8 @@ namespace Grayscale.P571_usiFrame1__.L490____Option__
         {
             this.ParseValue(valueDefault);
             this.m_default_ = this.m_value_;
+
+            this.m_valueVars_ = valueVars;
         }
 
         /// <summary>
@@ -61,8 +82,15 @@ namespace Grayscale.P571_usiFrame1__.L490____Option__
         /// <returns></returns>
         public bool IsTrue()
         {
+            bool result;
+            if (bool.TryParse(this.m_value_,out result))
+            {
+                return result;
+            }
+
             throw new ApplicationException("型変換エラー");
         }
+
 
         /// <summary>
         /// 数値型でのみ使用可能。数値型でない場合、エラー。
@@ -70,7 +98,13 @@ namespace Grayscale.P571_usiFrame1__.L490____Option__
         /// <returns></returns>
         public long GetNumber()
         {
-            return this.m_value_;
+            long result;
+            if (long.TryParse(this.m_value_, out result))
+            {
+                return result;
+            }
+
+            throw new ApplicationException("型変換エラー");
         }
 
         /// <summary>
@@ -79,11 +113,7 @@ namespace Grayscale.P571_usiFrame1__.L490____Option__
         /// <param name="value"></param>
         public void ParseValue(string value)
         {
-            long result;
-            if (long.TryParse(value, out result))
-            {
-                this.m_value_ = result;
-            }
+            this.m_value_ = value;
         }
     }
 }
