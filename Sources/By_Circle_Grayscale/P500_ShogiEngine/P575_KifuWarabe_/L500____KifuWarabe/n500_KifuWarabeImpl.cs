@@ -20,6 +20,7 @@ using System;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using Grayscale.P571_usiFrame1__.L___500_usiFrame___;//FIXME:
 
 namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
 {
@@ -216,98 +217,44 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
             }
         }
 
-        public void AtBody(out bool out_isTimeoutShutdown, KwErrorHandler errH)
+        public void AtBody(
+            out bool out_isTimeoutShutdown,
+            out bool out_isQuit,
+            KwErrorHandler errH, UsiFramework usiFramework)
         {
             out_isTimeoutShutdown = false;
+            out_isQuit = false;
 
-            try
+            //************************************************************************************************************************
+            // ループ（１つ目）
+            //************************************************************************************************************************
+            UsiLoop1 usiLoop1 = new UsiLoop1(this);
+            usiLoop1.AtStart();
+            PhaseResult_UsiLoop1 result_UsiLoop1 = usiLoop1.AtBody(out out_isTimeoutShutdown);
+            usiLoop1.AtEnd();
+            if (out_isTimeoutShutdown)
             {
-
-                #region ↑詳説
-                // 
-                // 図.
-                // 
-                //     プログラムの開始：  ここの先頭行から始まります。
-                //     プログラムの実行：  この中で、ずっと無限ループし続けています。
-                //     プログラムの終了：  この中の最終行を終えたとき、
-                //                         または途中で Environment.Exit(0); が呼ばれたときに終わります。
-                //                         また、コンソールウィンドウの[×]ボタンを押して強制終了されたときも  ぶつ切り  で突然終わります。
-                #endregion
-
-
-                //************************************************************************************************************************
-                // ループ（全体）
-                //************************************************************************************************************************
-                #region ↓詳説
-                //
-                // 図.
-                //
-                //      無限ループ（全体）
-                //          │
-                //          ├─無限ループ（１）
-                //          │                      将棋エンジンであることが認知されるまで、目で訴え続けます(^▽^)
-                //          │                      認知されると、無限ループ（２）に進みます。
-                //          │
-                //          └─無限ループ（２）
-                //                                  対局中、ずっとです。
-                //                                  対局が終わると、無限ループ（１）に戻ります。
-                //
-                // 無限ループの中に、２つの無限ループが入っています。
-                //
-                #endregion
-
-                while (true)
-                {
-#if DEBUG_STOPPABLE
-            MessageBox.Show("きふわらべのMainの無限ループでブレイク☆！", "デバッグ");
-            System.Diagnostics.Debugger.Break();
-#endif
-                    //************************************************************************************************************************
-                    // ループ（１つ目）
-                    //************************************************************************************************************************
-                    UsiLoop1 usiLoop1 = new UsiLoop1(this);
-                    usiLoop1.AtStart();
-                    bool isTimeoutShutdown_temp;
-                    PhaseResult_UsiLoop1 result_UsiLoop1 = usiLoop1.AtBody(out isTimeoutShutdown_temp);
-                    usiLoop1.AtEnd();
-                    if (isTimeoutShutdown_temp)
-                    {
-                        //MessageBox.Show("ループ１で矯正終了するんだぜ☆！");
-                        out_isTimeoutShutdown = isTimeoutShutdown_temp;
-                        goto gt_EndMethod;
-                    }
-                    else if (result_UsiLoop1 == PhaseResult_UsiLoop1.Quit)
-                    {
-                        goto gt_EndMethod;//全体ループを抜けます。
-                    }
-
-                    //************************************************************************************************************************
-                    // ループ（２つ目）
-                    //************************************************************************************************************************
-                    UsiLoop2 usiLoop2 = new UsiLoop2(this.shogisasi, this);
-                    usiLoop2.AtBegin();
-                    usiLoop2.AtBody(out isTimeoutShutdown_temp, errH);
-                    usiLoop2.AtEnd();
-                    if (isTimeoutShutdown_temp)
-                    {
-                        //MessageBox.Show("ループ２で矯正終了するんだぜ☆！");
-                        out_isTimeoutShutdown = isTimeoutShutdown_temp;
-                        goto gt_EndMethod;//全体ループを抜けます。
-                    }
-                }
-
+                //MessageBox.Show("ループ１で矯正終了するんだぜ☆！");
+                return;//全体ループを抜けます。
             }
-            catch (Exception ex)
+            else if (result_UsiLoop1 == PhaseResult_UsiLoop1.Quit)
             {
-                // エラーが起こりました。
-                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-                // どうにもできないので  ログだけ取って無視します。
-                Util_OwataMinister.ENGINE_DEFAULT.DonimoNaranAkirameta("Program「大外枠でキャッチ」：" + ex.GetType().Name + " " + ex.Message);
+                out_isQuit = true;
+                return;//全体ループを抜けます。
             }
 
-        gt_EndMethod:
-            ;
+            //************************************************************************************************************************
+            // ループ（２つ目）
+            //************************************************************************************************************************
+            UsiLoop2 usiLoop2 = new UsiLoop2(this.shogisasi, this);
+            usiLoop2.AtBegin();
+            usiLoop2.AtBody(out out_isTimeoutShutdown, errH);
+            usiLoop2.AtEnd();
+            if (out_isTimeoutShutdown)
+            {
+                //MessageBox.Show("ループ２で矯正終了するんだぜ☆！");
+                return;//全体ループを抜けます。
+            }
         }
 
         public void AtEnd()

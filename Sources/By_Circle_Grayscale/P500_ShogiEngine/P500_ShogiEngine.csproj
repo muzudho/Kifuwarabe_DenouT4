@@ -128,7 +128,7 @@
     <Compile Include="P571_usiFrame1__\L___490_Option__\EngineOption_Bool.cs" />
     <Compile Include="P571_usiFrame1__\L___490_Option__\EngineOption.cs" />
     <Compile Include="P579_usiFrame2__\L500____usiFrame___\UsiFrameworkImpl.cs" />
-    <Compile Include="P579_usiFrame2__\L___500_usiFrame___\UsiFramework.cs" />
+    <Compile Include="P571_usiFrame1__\L___500_usiFrame___\UsiFramework.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

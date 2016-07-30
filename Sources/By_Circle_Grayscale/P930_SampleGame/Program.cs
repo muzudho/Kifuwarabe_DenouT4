@@ -8,8 +8,6 @@ using Grayscale.P324_KifuTree___.L250____Struct;
 using Grayscale.P542_Scoreing___.L___240_Shogisasi;
 using Grayscale.P575_KifuWarabe_.L100____Shogisasi;
 using Grayscale.P575_KifuWarabe_.L500____KifuWarabe;
-using Grayscale.P579_usiFrame2__.L___500_usiFrame___;
-using Grayscale.P579_usiFrame2__.L500____usiFrame___;
 
 
 namespace P930_SampleGame
