@@ -963,6 +963,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                 // 将棋盤の上に駒がありました。
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+                src_Sky.AssertFinger(foundKoma);
                 RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(foundKoma).Now);
 
                 srcMasuHandle1 = Conv_SyElement.ToMasuNumber(koma.Masu);
@@ -1002,6 +1003,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
 
 
 
+                src_Sky.AssertFinger(hitKoma);
                 RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(hitKoma).Now);
 
                 srcMasuHandle1 = Conv_SyElement.ToMasuNumber(koma.Masu);

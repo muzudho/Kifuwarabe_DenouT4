@@ -22,7 +22,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         {
             RO_Star koma = null;
 
-            Finger fig = Util_Sky_FingersQuery.InMasuNow(src_Sky, masu).ToFirst();
+            Finger fig = Util_Sky_FingersQuery.InMasuNow_Old(src_Sky, masu).ToFirst();
 
             if (Fingers.Error_1 == fig)
             {
@@ -48,7 +48,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         {
             RO_Star koma = null;
 
-            Finger fig = Util_Sky_FingersQuery.InMasuNow(src_Sky, masu).ToFirst();
+            Finger fig = Util_Sky_FingersQuery.InMasuNow_Old(src_Sky, masu).ToFirst();
 
             if (Fingers.Error_1 == fig)
             {
@@ -80,7 +80,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         {
             RO_Star koma = null;
 
-            Finger fig = Util_Sky_FingersQuery.InMasuNow(src_Sky, masu).ToFirst();
+            Finger fig = Util_Sky_FingersQuery.InMasuNow_Old(src_Sky, masu).ToFirst();
 
             if (Fingers.Error_1 == fig)
             {

@@ -191,6 +191,7 @@ namespace Grayscale.P238_Seiza______.L250____Struct
             // 将棋の駒４０個の場所を確認します。
             foreach (Finger finger in src_Sky.Fingers_All().Items)
             {
+                src_Sky.AssertFinger(finger);
                 Starlightable light = src_Sky.StarlightIndexOf(finger).Now;
                 RO_Star komaKs = Util_Starlightable.AsKoma(light);
 

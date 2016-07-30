@@ -45,6 +45,7 @@ namespace Grayscale.P258_UtilSky258_.L250____UtilFingers
 
             foreach (Finger figMotiKoma in figKomas.Items)
             {
+                src_Sky.AssertFinger(figMotiKoma);
                 // 持ち駒の種類
                 Komasyurui14 motikomaSyurui = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figMotiKoma).Now).Komasyurui;
                 if (out_figKomasFirst[(int)motikomaSyurui] == Fingers.Error_1)

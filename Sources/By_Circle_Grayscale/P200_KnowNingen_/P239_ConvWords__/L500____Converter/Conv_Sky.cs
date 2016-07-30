@@ -22,6 +22,7 @@ namespace Grayscale.P239_ConvWords__.L500____Converter
 
             foreach (Finger fig in sky.Fingers_All().Items)
             {
+                sky.AssertFinger(fig);
                 RO_Star koma = Util_Starlightable.AsKoma(sky.StarlightIndexOf(fig).Now);
 
                 // 盤上の駒。 FIXME: 持ち駒はまだ見ていない。

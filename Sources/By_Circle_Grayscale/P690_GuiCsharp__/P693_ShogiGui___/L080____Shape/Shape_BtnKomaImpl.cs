@@ -151,6 +151,7 @@ namespace Grayscale.P693_ShogiGui___.L080____Shape
             }
 
             // この駒について。
+            mainGui.Model_Manual.GuiSkyConst.AssertFinger(this.Finger);
             RO_Star koma = Util_Starlightable.AsKoma(mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(this.Finger).Now);
 
             if(true)

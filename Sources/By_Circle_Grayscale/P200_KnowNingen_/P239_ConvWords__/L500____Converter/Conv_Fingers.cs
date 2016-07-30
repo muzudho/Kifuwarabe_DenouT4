@@ -22,6 +22,7 @@ namespace Grayscale.P239_ConvWords__.L500____Converter
 
             foreach (Finger finger in fingers.Items)
             {
+                src_Sky.AssertFinger(finger);
                 RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
 
 

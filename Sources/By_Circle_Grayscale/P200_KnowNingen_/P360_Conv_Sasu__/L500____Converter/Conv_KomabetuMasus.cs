@@ -43,6 +43,7 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
             {
                 foreach (SyElement masuHandle in value.Elements)
                 {
+                    siteiNode_genzai.Value.KyokumenConst.AssertFinger(key);
                     RO_Star koma = Util_Starlightable.AsKoma(siteiNode_genzai.Value.KyokumenConst.StarlightIndexOf(key).Now);
 
 
@@ -91,6 +92,7 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
 
             komabetuSusumuMasus.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
             {
+                src_Sky.AssertFinger(key);
                 RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(key).Now);
 
 
@@ -133,6 +135,7 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
 
             sMs.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
             {
+                src_Sky.AssertFinger(key);
                 RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(key).Now);
 
 

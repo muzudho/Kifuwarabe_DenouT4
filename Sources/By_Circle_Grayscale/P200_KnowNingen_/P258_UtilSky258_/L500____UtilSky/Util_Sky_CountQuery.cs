@@ -84,6 +84,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 
             foreach (Finger figKoma in komas_moti1p.Items)
             {
+                src_Sky.AssertFinger(figKoma);
                 RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
                 Komasyurui14 syurui = Util_Komasyurui14.NarazuCaseHandle(Util_Komahaiyaku184.Syurui(koma.Haiyaku));
@@ -127,7 +128,8 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             // 後手の持駒
             foreach (Finger figKoma in komas_moti2p.Items)
             {
-                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf((int)figKoma).Now);
+                src_Sky.AssertFinger(figKoma);
+                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
                 
                 Komasyurui14 syurui = Util_Komasyurui14.NarazuCaseHandle(Util_Komahaiyaku184.Syurui(koma.Haiyaku));
 

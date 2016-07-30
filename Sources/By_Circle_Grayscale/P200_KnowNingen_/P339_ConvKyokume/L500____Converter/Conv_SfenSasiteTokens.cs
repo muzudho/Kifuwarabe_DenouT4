@@ -139,7 +139,7 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
                 {
                     //>>>>> 打ではないとき
                     SyElement masu1 = Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan, srcSuji, srcDan);
-                    Fingers komas1 = Util_Sky_FingersQuery.InMasuNow(//これが空っぽになるときがある。
+                    Fingers komas1 = Util_Sky_FingersQuery.InMasuNow_Old(//これが空っぽになるときがある。
                         src_Sky, masu1
                         );
                     koma = komas1.ToFirst();
@@ -229,6 +229,7 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
 
                     Finger srcKoma = Util_Sky_FingerQuery.InOkibaSyuruiNow_IgnoreCase(siteiNode.Value.KyokumenConst, srcOkiba, srcSyurui, errH);
 
+                    src_Sky.AssertFinger(srcKoma);
                     RO_Star dstKoma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(srcKoma).Now);
 
                     srcMasu = dstKoma.Masu;
@@ -237,6 +238,7 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
                 {
                     //>>>>> 盤上の駒を指した場合
 
+                    src_Sky.AssertFinger(koma);
                     RO_Star dstKoma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(koma).Now);
 
 

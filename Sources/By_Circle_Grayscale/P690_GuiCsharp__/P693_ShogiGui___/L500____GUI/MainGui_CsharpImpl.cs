@@ -572,6 +572,7 @@ namespace Grayscale.P693_ShogiGui___.L500____GUI
 
         public virtual RO_Star GetKoma(Finger finger)
         {
+            this.Model_Manual.GuiSkyConst.AssertFinger(finger);
             return Util_Starlightable.AsKoma(this.Model_Manual.GuiSkyConst.StarlightIndexOf(finger).Now);
         }
 

@@ -255,27 +255,30 @@ namespace Grayscale.P224_Sky________.L500____Struct
             }
         }
 
-        public Starlight StarlightIndexOf(
+        public void AssertFinger(
             Finger finger,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
-            [CallerLineNumber] int sourceLineNumber = 0
-        )
+            [CallerLineNumber] int sourceLineNumber = 0)
         {
-            Starlight found;
-
-            if (0<=(int)finger && (int)finger < this.starlights.Count)
+            if (0 <= (int)finger && (int)finger < this.starlights.Count)
             {
-                found = this.starlights[(int)finger];
+                return;
             }
             else
             {
+                // エラー
                 string message = this.GetType().Name + "#StarIndexOf：　スプライト配列の範囲を外れた添え字を指定されましたので、取得できません。スプライト番号=[" + finger + "] / スプライトの数=[" + this.starlights.Count + "]\n memberName=" + memberName + "\n sourceFilePath=" + sourceFilePath + "\n sourceLineNumber=" + sourceLineNumber;
                 Debug.Fail(message);
                 throw new Exception(message);
             }
+        }
 
-            return found;
+        public Starlight StarlightIndexOf(Finger finger)
+        {
+            this.AssertFinger(finger);
+
+            return this.starlights[(int)finger];
         }
 
 

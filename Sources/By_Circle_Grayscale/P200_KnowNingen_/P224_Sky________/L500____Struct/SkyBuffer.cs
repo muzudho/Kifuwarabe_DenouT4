@@ -152,18 +152,16 @@ namespace Grayscale.P224_Sky________.L500____Struct
             });
         }
 
-        public Starlight StarlightIndexOf(
+        public void AssertFinger(
             Finger finger,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
-        )
+            )
         {
-            Starlight found;
-
             if ((int)finger < this.starlights.Count)
             {
-                found = this.starlights[(int)finger];
+
             }
             else
             {
@@ -172,7 +170,21 @@ namespace Grayscale.P224_Sky________.L500____Struct
                 throw new Exception(message);
             }
 
-            return found;
+        }
+
+        public Starlight StarlightIndexOf(
+            Finger finger
+            /*
+            ,
+            [CallerMemberName] string memberName = "",
+            [CallerFilePath] string sourceFilePath = "",
+            [CallerLineNumber] int sourceLineNumber = 0
+            */
+        )
+        {
+            this.AssertFinger(finger);
+
+            return this.starlights[(int)finger];
         }
 
 

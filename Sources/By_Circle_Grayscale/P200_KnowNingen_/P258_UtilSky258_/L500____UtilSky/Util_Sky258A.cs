@@ -19,6 +19,7 @@ using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P335_Move_______.L___500_Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
+using System;
 
 namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 {
@@ -241,8 +242,14 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         /// <param name="masus"></param>
         public static void AddOverwrite(
             Maps_OneAndOne<Finger, SySet<SyElement>> komabetuMasus,
-            Finger finger, SySet<SyElement> masus)
+            Finger finger,
+            SySet<SyElement> masus)
         {
+            if ((int)finger<0)
+            {
+                throw new ApplicationException("fingerに負数が指定されましたが、間違いです(A)。 finger="+ finger);
+            }
+            else
             if (komabetuMasus.Items.ContainsKey(finger))
             {
                 komabetuMasus.Items[finger].AddSupersets(masus);//追加します。
@@ -272,11 +279,17 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             {
                 //Starbeamable nextSasiteOld = Conv_Move.ToSasite( nextNode.Key);
 
-                Finger figKoma = Util_Sky_FingersQuery.InMasuNow(src_Sky,
-                    Conv_Move.ToSrcMasu(nextNode.Key) //Util_Starlightable.AsKoma( nextSasiteOld.LongTimeAgo).Masu
+                Finger figKoma = Util_Sky_FingersQuery.InMasuNow_New(
+                    src_Sky,
+                    nextNode.Key
                     ).ToFirst();
+                if ((int)figKoma<0)
+                {
+                    throw new ApplicationException("駒のハンドルが負数でしたが、間違いです(B)。figKoma="+ (int)figKoma+ " nextNode.Key="+Convert.ToString((int)nextNode.Key,2)+"\n Log="+Conv_Move.ToLog(nextNode.Key));
+                }
 
-                enable_teMap.Put_NewOrOverwrite(figKoma,
+                enable_teMap.Put_NewOrOverwrite(
+                    figKoma,
                     Conv_Move.ToSasite(nextNode.Key) //nextSasiteOld
                     );
             });

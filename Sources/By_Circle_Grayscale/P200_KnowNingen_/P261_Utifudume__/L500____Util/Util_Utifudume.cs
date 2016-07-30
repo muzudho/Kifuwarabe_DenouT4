@@ -51,16 +51,19 @@ namespace Grayscale.P261_Utifudume__.L500____Struct
             Finger figKing_aite;
             Playerside pside_aite;
 
+
             switch (src_Sky.KaisiPside)
             {
                 case Playerside.P1:
                     pside_aite = Playerside.P2;
                     figKing_aite = Finger_Honshogi.GoteOh;
+                    src_Sky.AssertFinger(figKing_aite);
                     king_aite = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKing_aite).Now);
                     break;
                 case Playerside.P2:
                     pside_aite = Playerside.P1;
                     figKing_aite = Finger_Honshogi.SenteOh;
+                    src_Sky.AssertFinger(figKing_aite);
                     king_aite = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKing_aite).Now);
                     break;
                 default: throw new Exception("エラー：打ち歩詰めチェック中。プレイヤー不明。");
@@ -144,6 +147,7 @@ namespace Grayscale.P261_Utifudume__.L500____Struct
                         int masuNumber = Conv_SyElement.ToMasuNumber(element);
                         if (masuNumber == gyokutouMasuNumber)
                         {
+                            src_Sky.AssertFinger(figKoma);
                             ksList.Add(Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now).Komasyurui);
                             break;
                         }

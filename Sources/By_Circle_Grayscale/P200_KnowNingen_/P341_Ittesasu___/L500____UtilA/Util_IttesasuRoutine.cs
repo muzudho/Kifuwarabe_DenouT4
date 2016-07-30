@@ -450,7 +450,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
             //----------
             // 将棋盤上のその場所に駒はあるか
             //----------
-            out_figFoodKoma = Util_Sky_FingersQuery.InMasuNow(susunda_Sky_orNull_before, dstKoma.Masu).ToFirst();//盤上
+            out_figFoodKoma = Util_Sky_FingersQuery.InMasuNow_Old(susunda_Sky_orNull_before, dstKoma.Masu).ToFirst();//盤上
 
 
             if (Fingers.Error_1 != out_figFoodKoma)
@@ -460,6 +460,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                 //
                 // 取られる駒
                 //
+                susunda_Sky_orNull_before.AssertFinger(out_figFoodKoma);
                 out_food_koma = Util_Starlightable.AsKoma(susunda_Sky_orNull_before.StarlightIndexOf(out_figFoodKoma).Now);
 #if DEBUG
                 if (null != errH.Dlgt_OnLog1Append_or_Null)

@@ -33,12 +33,13 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             {
                 for (int dan = 1; dan < 10; dan++)
                 {
-                    Finger koma0 = Util_Sky_FingersQuery.InMasuNow(
+                    Finger koma0 = Util_Sky_FingersQuery.InMasuNow_Old(
                         src_Sky, Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan, suji, dan)
                         ).ToFirst();
 
                     if (Fingers.Error_1 != koma0)
                     {
+                        src_Sky.AssertFinger(koma0);
                         RO_Star koma1 = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(koma0).Now);
 
                         ro_Kyokumen1.Ban[suji,dan] = Util_Komasyurui14.SfenText(
@@ -135,7 +136,7 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
                 for (int suji = 9; suji >= 1; suji--)
                 {
                     // 将棋盤上のどこかにある駒？
-                    Finger koma0 = Util_Sky_FingersQuery.InMasuNow(
+                    Finger koma0 = Util_Sky_FingersQuery.InMasuNow_Old(
                         src_Sky, Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan, suji, dan)
                         ).ToFirst();
 
@@ -148,6 +149,7 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
                         }
 
 
+                        src_Sky.AssertFinger(koma0);
                         RO_Star koma1 = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(koma0).Now);
 
 

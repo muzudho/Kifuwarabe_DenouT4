@@ -100,7 +100,7 @@ namespace Grayscale.P354_Util_SasuEx.L500____Util
                     RO_Star sasitaKoma = Util_Starlightable.AsKoma(newSasite.Now);
 
                     // 指す前の駒を、盤上のマス目で指定
-                    Finger figSasumaenoKoma = Util_Sky_FingersQuery.InMasuNow(src_Sky,
+                    Finger figSasumaenoKoma = Util_Sky_FingersQuery.InMasuNow_Old(src_Sky,
                         sasumaenoKoma.Masu).ToFirst();
 
                     try

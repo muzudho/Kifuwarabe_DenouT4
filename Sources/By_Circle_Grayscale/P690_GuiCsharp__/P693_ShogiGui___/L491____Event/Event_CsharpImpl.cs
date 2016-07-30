@@ -335,12 +335,14 @@ namespace Grayscale.P693_ShogiGui___.L491____Event
                     if (null != movedKoma)
                     {
                         //>>>>> 移動直後の駒があるとき
+                        mainGui3.Model_Manual.GuiSkyConst.AssertFinger(movedKoma.Finger);
                         koma = Util_Starlightable.AsKoma(mainGui3.Model_Manual.GuiSkyConst.StarlightIndexOf(movedKoma.Finger).Now);
                         figKoma = movedKoma.Finger;
                     }
                     else if (null != btnKoma_Selected)
                     {
                         //>>>>> 選択されている駒があるとき
+                        mainGui3.Model_Manual.GuiSkyConst.AssertFinger(btnKoma_Selected.Koma);
                         koma = Util_Starlightable.AsKoma(mainGui3.Model_Manual.GuiSkyConst.StarlightIndexOf(btnKoma_Selected.Koma).Now);
                         figKoma = btnKoma_Selected.Koma;
                     }
@@ -511,6 +513,7 @@ namespace Grayscale.P693_ShogiGui___.L491____Event
                 //------------------------------
                 // 棋譜
 
+                mainGui.Model_Manual.GuiSkyConst.AssertFinger(btnTumandeiruKoma.Finger);
                 Starbeamable sasite = new RO_Starbeam(
                     //btnTumandeiruKoma.Finger,
                     mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now,

@@ -36,8 +36,8 @@ namespace Grayscale.P213_Komasyurui_.L500____Util
         /// 駒の表示文字。
         /// ------------------------------------------------------------------------------------------------------------------------
         /// </summary>
-        public static string[] Ichimoji { get { return Util_Komasyurui14.ichimoji; } }
-        protected static string[] ichimoji;
+        public static string[] KanjiIchimoji { get { return Util_Komasyurui14.kanjiIchimoji; } }
+        protected static string[] kanjiIchimoji;
 
 
         /// <summary>
@@ -271,7 +271,7 @@ namespace Grayscale.P213_Komasyurui_.L500____Util
                 "Ｕ×符",
             };
 
-            Util_Komasyurui14.ichimoji = new string[]{
+            Util_Komasyurui14.kanjiIchimoji = new string[]{
                 "×",//[0]ヌル
                 "歩",
                 "香",
@@ -406,7 +406,7 @@ namespace Grayscale.P213_Komasyurui_.L500____Util
         /// </summary>
         public static string ToIchimoji(Komasyurui14 koma)
         {
-            return Util_Komasyurui14.Ichimoji[(int)koma];
+            return Util_Komasyurui14.KanjiIchimoji[(int)koma];
         }
 
         /// <summary>

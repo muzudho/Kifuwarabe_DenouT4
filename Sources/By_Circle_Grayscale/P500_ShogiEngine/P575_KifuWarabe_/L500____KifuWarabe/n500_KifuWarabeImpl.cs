@@ -210,6 +210,7 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
                 ));
                 this.Kifu_AtLoop2.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
 
+                this.Kifu_AtLoop2.CurNode.Value.KyokumenConst.AssertFinger((Finger)0);
                 Debug.Assert(!Conv_MasuHandle.OnKomabukuro(
                     Conv_SyElement.ToMasuNumber(((RO_Star)this.Kifu_AtLoop2.CurNode.Value.KyokumenConst.StarlightIndexOf((Finger)0).Now).Masu)
                     ), "駒が駒袋にあった。");
@@ -899,7 +900,10 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
                 {
                     result_kingState = Result_KingState.Empty;
 
+                    src_Sky.AssertFinger(Finger_Honshogi.SenteOh);
                     RO_Star king1p = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(Finger_Honshogi.SenteOh).Now);
+
+                    src_Sky.AssertFinger(Finger_Honshogi.GoteOh);
                     RO_Star king2p = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(Finger_Honshogi.GoteOh).Now);
                     //OwataMinister.WARABE_ENGINE.Logger.WriteLine_AddMemo("将棋サーバー「ではここで、王さまがどこにいるか確認してみましょう」");
                     //OwataMinister.WARABE_ENGINE.Logger.WriteLine_AddMemo("▲王の置き場＝" + Conv_SyElement.Masu_ToOkiba(koma1.Masu));

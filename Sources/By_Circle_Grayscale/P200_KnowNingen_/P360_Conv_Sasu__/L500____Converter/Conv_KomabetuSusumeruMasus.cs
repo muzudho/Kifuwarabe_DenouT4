@@ -28,6 +28,7 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
             komaBETUSusumeruMasus.Foreach_Entry((Finger figKoma, SySet<SyElement> susumuMasuSet, ref bool toBreak) =>
             {
                 // 動かす星。
+                src_Sky.AssertFinger(figKoma);
                 RO_Star srcStar = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
                 foreach (SyElement susumuMasu in susumuMasuSet.Elements)// 星が進める升。

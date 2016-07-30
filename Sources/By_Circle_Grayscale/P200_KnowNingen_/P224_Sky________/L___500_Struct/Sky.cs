@@ -9,6 +9,12 @@ namespace Grayscale.P224_Sky________.L___500_Struct
 {
     public interface Sky
     {
+        void AssertFinger(
+            Finger finger,
+            [CallerMemberName] string memberName = "",
+            [CallerFilePath] string sourceFilePath = "",
+            [CallerLineNumber] int sourceLineNumber = 0);
+
         /// <summary>
         /// 手得ヒストリー。
         /// </summary>
@@ -25,10 +31,13 @@ namespace Grayscale.P224_Sky________.L___500_Struct
         int Temezumi { get; }
 
         Starlight StarlightIndexOf(
-            Finger finger,
+            Finger finger
+            /*
+            ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
+            */
         );
 
         void Foreach_Starlights(SkyBuffer.DELEGATE_Sky_Foreach delegate_Sky_Foreach);

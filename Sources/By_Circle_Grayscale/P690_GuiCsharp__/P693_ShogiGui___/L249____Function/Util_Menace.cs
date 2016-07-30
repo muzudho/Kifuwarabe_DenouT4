@@ -38,6 +38,7 @@ namespace Grayscale.P693_ShogiGui___.L249____Function
                 // 全駒
                 foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)
                 {
+                    src_Sky.AssertFinger(figKoma);
                     RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
 

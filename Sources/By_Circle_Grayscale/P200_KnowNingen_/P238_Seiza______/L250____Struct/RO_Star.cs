@@ -100,7 +100,7 @@ namespace Grayscale.P238_Seiza______.L250____Struct
             {
                 string result;
 
-                result = Util_Komasyurui14.Ichimoji[(int)this.komasyurui];//(int)Haiyaku184Array.Syurui(this.Haiyaku)
+                result = Util_Komasyurui14.KanjiIchimoji[(int)this.komasyurui];//(int)Haiyaku184Array.Syurui(this.Haiyaku)
 
                 return result;
             }

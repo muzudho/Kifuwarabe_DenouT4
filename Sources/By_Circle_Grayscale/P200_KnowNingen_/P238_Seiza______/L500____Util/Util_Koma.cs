@@ -29,6 +29,7 @@ namespace Grayscale.P238_Seiza______.L500____Util
         {
             RO_Star koma;
 
+            src_Sky.AssertFinger(finger);
             Starlightable lightable = src_Sky.StarlightIndexOf(finger).Now;
 
             if (lightable is RO_Star)

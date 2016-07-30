@@ -64,6 +64,7 @@ namespace Grayscale.P262_Play2______.L500____Struct
             {
                 if (Fingers.Error_1 != figDaihyo)
                 {
+                    src_Sky.AssertFinger(figDaihyo);
                     RO_Star daihyo = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figDaihyo).Now);
 #if DEBUG
                     Debug.Assert(daihyo != null, "持ち駒の代表がヌル");
@@ -119,6 +120,7 @@ namespace Grayscale.P262_Play2______.L500____Struct
                 bool[] existsFu_sujibetu = new bool[10];
                 foreach (Finger figBanjoJiFu in banjoJiFus.Items)
                 {
+                    src_Sky.AssertFinger(figBanjoJiFu);
                     RO_Star banjoJiFu = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figBanjoJiFu).Now);
                     int suji;//1～9
                     Util_MasuNum.TryMasuToSuji(banjoJiFu.Masu, out suji);

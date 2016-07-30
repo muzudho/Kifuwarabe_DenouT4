@@ -118,6 +118,12 @@ namespace Grayscale.P362_LegalMove__.L500____Util
                 }
             }
 
+            // FIXME: デバッグ用
+            foreach (Finger key in starbetuSusumuMasus.ToKeyList())
+            {
+                src_Sky.AssertFinger(key);
+            }
+
             return starbetuSusumuMasus;
         }
         private static void Log1(
@@ -238,6 +244,7 @@ namespace Grayscale.P362_LegalMove__.L500____Util
             {
                 // 現手番は、後手
 
+                src_Sky.AssertFinger(Finger_Honshogi.GoteOh);
                 RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(Finger_Honshogi.GoteOh).Now);
 
                     genTeban_kingMasuNumber = Conv_SyElement.ToMasuNumber(koma.Masu);
@@ -245,6 +252,7 @@ namespace Grayscale.P362_LegalMove__.L500____Util
             else
             {
                 // 現手番は、先手
+                src_Sky.AssertFinger(Finger_Honshogi.SenteOh);
                 RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(Finger_Honshogi.SenteOh).Now);
 
                     genTeban_kingMasuNumber = Conv_SyElement.ToMasuNumber(koma.Masu);

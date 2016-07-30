@@ -35,6 +35,8 @@ namespace Grayscale.P525_ConvFv_____.L500____Converter
             SyElement masu;
             {
                 Finger figK1 = Util_Sky_FingersQuery.InOkibaPsideKomasyuruiNow(src_Sky, Okiba.ShogiBan, pside, Komasyurui14.H06_Gyoku__).ToFirst();
+
+                src_Sky.AssertFinger(figK1);
                 RO_Star komaK1 = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figK1).Now);
                 masu = komaK1.Masu;
             }

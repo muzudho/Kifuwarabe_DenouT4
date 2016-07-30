@@ -50,6 +50,7 @@ namespace Grayscale.P267_ConvKiki___.L500____Converter
             //
             foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)// 全駒
             {
+                src_Sky.AssertFinger(figKoma);
                 RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
                 result.HMasu_PlayersideList[Conv_SyElement.ToMasuNumber(koma.Masu)] = koma.Pside;
@@ -67,6 +68,7 @@ namespace Grayscale.P267_ConvKiki___.L500____Converter
                 //
                 // 駒
                 //
+                src_Sky.AssertFinger(figKoma);
                 RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
                 // 将棋盤上の戦駒のみ判定

@@ -13,6 +13,9 @@ using System;
 using System.Text;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using Grayscale.P211_WordShogi__.L250____Masu;
+using Grayscale.P212_ConvPside__.L500____Converter;
+using Grayscale.P214_Masu_______.L500____Util;
+
 
 namespace Grayscale.P339_ConvKyokume.L500____Converter
 {
@@ -246,7 +249,45 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             return Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan, dstSuji, dstDan);
         }
 
-        public static Komasyurui14 ToKomasyurui(Move move)
+        public static bool ToPromotion(Move move)
+        {
+            int v = (int)move;              // バリュー
+
+            // TODO: エラーチェック
+            int errorCheck;
+            {
+                int m = (int)MoveMask.ErrorCheck;  // マスク
+                int s = (int)MoveShift.ErrorCheck;   // シフト
+                errorCheck = (v & m) >> s;
+            }
+            if (0 != errorCheck)
+            {
+                return false;//FIXME:
+            }
+
+            // 成らない
+            int promotion;
+            {
+                int m = (int)MoveMask.Promotion;
+                int s = (int)MoveShift.Promotion;
+                promotion = (v & m) >> s;
+            }
+
+            //────────────────────────────────────────
+            // 組み立てフェーズ
+            //────────────────────────────────────────
+
+            if(0!=promotion)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static Komasyurui14 ToSrcKomasyurui(Move move)
         {
             int v = (int)move;              // バリュー
 
@@ -276,6 +317,79 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
 
             // 移動した駒の種類
             return (Komasyurui14)komasyurui;
+        }
+
+        public static Komasyurui14 ToDstKomasyurui(Move move)
+        {
+            int v = (int)move;              // バリュー
+
+            // TODO: エラーチェック
+            int errorCheck;
+            {
+                int m = (int)MoveMask.ErrorCheck;  // マスク
+                int s = (int)MoveShift.ErrorCheck;   // シフト
+                errorCheck = (v & m) >> s;
+            }
+            if (0 != errorCheck)
+            {
+                return Komasyurui14.H00_Null___;
+            }
+
+            // 移動した駒の種類
+            int komasyurui;
+            {
+                int m = (int)MoveMask.Komasyurui;
+                int s = (int)MoveShift.Komasyurui;
+                komasyurui = (v & m) >> s;
+            }
+
+            bool promotion = Conv_Move.ToPromotion(move);
+
+            //────────────────────────────────────────
+            // 組み立てフェーズ
+            //────────────────────────────────────────
+
+            if (promotion)
+            {
+                return Util_Komasyurui14.ToNariCase((Komasyurui14)komasyurui);
+            }
+            else
+            {
+                // 移動した駒の種類
+                return (Komasyurui14)komasyurui;
+            }
+        }
+
+        public static Komasyurui14 ToCaptured(Move move)
+        {
+            int v = (int)move;              // バリュー
+
+            // TODO: エラーチェック
+            int errorCheck;
+            {
+                int m = (int)MoveMask.ErrorCheck;  // マスク
+                int s = (int)MoveShift.ErrorCheck;   // シフト
+                errorCheck = (v & m) >> s;
+            }
+            if (0 != errorCheck)
+            {
+                return Komasyurui14.H00_Null___;
+            }
+
+            // 取った駒の種類
+            int captured;
+            {
+                int m = (int)MoveMask.Captured;
+                int s = (int)MoveShift.Captured;
+                captured = (v & m) >> s;
+            }
+
+            //────────────────────────────────────────────────────────────────────────────────
+            // 組み立てフェーズ
+            //────────────────────────────────────────────────────────────────────────────────
+
+            // 取った駒の種類
+            return (Komasyurui14)captured;
         }
 
         public static Playerside ToPlayerside(Move move)
@@ -317,6 +431,44 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             }
         }
 
+        public static bool ToDrop(Move move)
+        {
+            int v = (int)move;              // バリュー
+
+            // TODO: エラーチェック
+            int errorCheck;
+            {
+                int m = (int)MoveMask.ErrorCheck;  // マスク
+                int s = (int)MoveShift.ErrorCheck;   // シフト
+                errorCheck = (v & m) >> s;
+            }
+            if (0 != errorCheck)
+            {
+                return false;//FIXME:
+            }
+
+            // 打たない
+            int drop;
+            {
+                int m = (int)MoveMask.Drop;
+                int s = (int)MoveShift.Drop;
+                drop = (v & m) >> s;
+            }
+
+            //────────────────────────────────────────────────────────────────────────────────
+            // 組み立てフェーズ
+            //────────────────────────────────────────────────────────────────────────────────
+
+            if (0 != drop)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public static Starbeamable ToSasite(Move move)
         {
             int v = (int)move;              // バリュー
@@ -335,58 +487,126 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             }
 
 
-            // 成らない
-            int promotion;
+            //────────────────────────────────────────────────────────────────────────────────
+            // 組み立てフェーズ
+            //────────────────────────────────────────────────────────────────────────────────
+
+            // 手番
+            Playerside playersideB = Conv_Move.ToPlayerside(move);
+
+            bool drop = Conv_Move.ToDrop(move);
+
+            // 自
+            SyElement srcMasuB;
+            if (drop)
             {
-                int m = (int)MoveMask.Promotion;
-                int s = (int)MoveShift.Promotion;
-                promotion = (v & m) >> s;
+                // 打のときは、とりあえず、元位置を将棋盤以外にしたい。
+                if (Playerside.P1== playersideB)
+                {
+                    srcMasuB = Masu_Honshogi.Masus_All[Masu_Honshogi.nsen01];
+                }
+                else
+                {
+                    srcMasuB = Masu_Honshogi.Masus_All[Masu_Honshogi.ngo01];
+                }
+            }
+            else
+            {
+                srcMasuB = Conv_Move.ToSrcMasu(move);
             }
 
-            // 打たない
-            int drop;
-            {
-                int m = (int)MoveMask.Drop;
-                int s = (int)MoveShift.Drop;
-                drop = (v & m) >> s;
-            }
+            // 至
+            SyElement dstMasuB = Conv_Move.ToDstMasu(move);
+
+            // 移動した駒の種類
+            Komasyurui14 srcKomasyuruiB = Conv_Move.ToSrcKomasyurui(move);
+            Komasyurui14 dstKomasyuruiB = Conv_Move.ToDstKomasyurui(move);
 
             // 取った駒の種類
-            int captured;
+            Komasyurui14 capturedB = Conv_Move.ToCaptured(move);
+
+
+            return new RO_Starbeam(
+                new RO_Star(playersideB, srcMasuB, srcKomasyuruiB),
+                new RO_Star(playersideB, dstMasuB, dstKomasyuruiB),
+                capturedB
+                );
+        }
+
+        public static string ToLog(Move move)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            int v = (int)move;              // バリュー
+
+            // TODO: エラーチェック
+            int errorCheck;
             {
-                int m = (int)MoveMask.Captured;
-                int s = (int)MoveShift.Captured;
-                captured = (v & m) >> s;
+                int m = (int)MoveMask.ErrorCheck;  // マスク
+                int s = (int)MoveShift.ErrorCheck;   // シフト
+                errorCheck = (v & m) >> s;
             }
+            if (0 != errorCheck)
+            {
+                sb.Append("符号エラー");
+                return sb.ToString();
+            }
+
 
             //────────────────────────────────────────────────────────────────────────────────
             // 組み立てフェーズ
             //────────────────────────────────────────────────────────────────────────────────
 
+            // 手番
+            Playerside playersideB = Conv_Move.ToPlayerside(move);
+            sb.Append("playersideB="+ Conv_Playerside.ToKanji(playersideB) );
+
+            bool drop = Conv_Move.ToDrop(move);
+
+
             // 自
-            SyElement srcMasuB = Conv_Move.ToSrcMasu(move);
+            SyElement srcMasuB;
+            if (drop)
+            {
+                sb.Append(" 打");
+                // 打のときは、とりあえず、元位置を将棋盤以外にしたい。
+                if (Playerside.P1 == playersideB)
+                {
+                    srcMasuB = Masu_Honshogi.Masus_All[Masu_Honshogi.nsen01];
+                }
+                else
+                {
+                    srcMasuB = Masu_Honshogi.Masus_All[Masu_Honshogi.ngo01];
+                }
+            }
+            else
+            {
+                srcMasuB = Conv_Move.ToSrcMasu(move);
+                sb.Append(" src=");
+                sb.Append(Util_Masu10.ToSujiKanji(srcMasuB));
+            }
 
             // 至
             SyElement dstMasuB = Conv_Move.ToDstMasu(move);
-
-            // 手番
-            Playerside playersideB = Conv_Move.ToPlayerside(move);
+            sb.Append(" dst=");
+            sb.Append(Util_Masu10.ToSujiKanji(dstMasuB));
 
             // 移動した駒の種類
-            Komasyurui14 komasyuruiB = Conv_Move.ToKomasyurui(move);
+            Komasyurui14 srcKomasyuruiB = Conv_Move.ToSrcKomasyurui(move);
+            sb.Append(" srcKs=");
+            sb.Append(Util_Komasyurui14.KanjiIchimoji[(int)srcKomasyuruiB]);
+            Komasyurui14 dstKomasyuruiB = Conv_Move.ToDstKomasyurui(move);
+            sb.Append(" dstKs=");
+            sb.Append(Util_Komasyurui14.KanjiIchimoji[(int)dstKomasyuruiB]);
 
             // 取った駒の種類
-            Komasyurui14 capturedB;
-            {
-                capturedB = (Komasyurui14)captured;
-            }
+            Komasyurui14 capturedB = Conv_Move.ToCaptured(move);
+            sb.Append(" captured=");
+            sb.Append(Util_Komasyurui14.KanjiIchimoji[(int)capturedB]);
 
 
-            return new RO_Starbeam(
-                new RO_Star(playersideB, srcMasuB, komasyuruiB),
-                new RO_Star(playersideB, dstMasuB, komasyuruiB),
-                capturedB
-                );
+            return sb.ToString();
         }
+
     }
 }

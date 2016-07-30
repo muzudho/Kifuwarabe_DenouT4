@@ -43,6 +43,7 @@ namespace Grayscale.P258_UtilSky258_.L510____UtilLogJson
             km_sasite.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
             {
                 // 駒１つ
+                src_Sky_base.AssertFinger(key);
                 RO_Star koma = Util_Starlightable.AsKoma(src_Sky_base.StarlightIndexOf(key).Now);
 
                 Komasyurui14 ks14 = Util_Komahaiyaku184.Syurui(koma.Haiyaku);
@@ -96,10 +97,10 @@ namespace Grayscale.P258_UtilSky258_.L510____UtilLogJson
             //RO_Star srcKoma = Util_Starlightable.AsKoma(sasiteOld.LongTimeAgo);
             //RO_Star dstKoma = Util_Starlightable.AsKoma(sasiteOld.Now);
             SyElement dstMasu = Conv_Move.ToDstMasu(thisNode.Key);
-            Komasyurui14 ks14 = Conv_Move.ToKomasyurui(thisNode.Key);
+            Komasyurui14 ks14 = Conv_Move.ToDstKomasyurui(thisNode.Key);
             //Komasyurui14 ks14 = Util_Komahaiyaku184.Syurui(dstKoma.Haiyaku);// 駒１つ
 
-            Finger finger = Util_Sky_FingersQuery.InMasuNow(src_Sky_base,
+            Finger finger = Util_Sky_FingersQuery.InMasuNow_Old(src_Sky_base,
                 Conv_Move.ToSrcMasu(thisNode.Key)// srcKoma.Masu
                 ).ToFirst();
 
@@ -154,9 +155,9 @@ namespace Grayscale.P258_UtilSky258_.L510____UtilLogJson
                 //RO_Star dstKoma = Util_Starlightable.AsKoma(sasiteOld.Now);
                 SyElement dstMasu = Conv_Move.ToDstMasu(node.Key);
 
-                Finger srcKoma2 = Util_Sky_FingersQuery.InMasuNow(src_Sky_base, srcMasu).ToFirst();
+                Finger srcKoma2 = Util_Sky_FingersQuery.InMasuNow_Old(src_Sky_base, srcMasu).ToFirst();
 
-                Komasyurui14 ks14 = Conv_Move.ToKomasyurui(node.Key);
+                Komasyurui14 dstKs14 = Conv_Move.ToDstKomasyurui(node.Key);
                 //Komasyurui14 ks14 = Util_Komahaiyaku184.Syurui(dstKoma.Haiyaku);// 駒１つ
 
                 sb.AppendLine("            [");
@@ -201,6 +202,7 @@ namespace Grayscale.P258_UtilSky258_.L510____UtilLogJson
 
             foreach (int hKoma in hKomas)
             {
+                src_Sky.AssertFinger(hKoma);
                 RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(hKoma).Now);
 
 

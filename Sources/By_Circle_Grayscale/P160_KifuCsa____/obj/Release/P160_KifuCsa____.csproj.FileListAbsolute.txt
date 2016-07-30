@@ -16,4 +16,3 @@ E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P160_KifuC
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P160_KifuCsa____\obj\Release\P160_KifuCsa____.csproj.GenerateResource.Cache
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P160_KifuCsa____\obj\Release\Grayscale.P160_KifuCsa____.exe
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P160_KifuCsa____\obj\Release\Grayscale.P160_KifuCsa____.pdb
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P160_KifuCsa____\obj\Release\P160_KifuCsa____.csprojResolveAssemblyReference.cache

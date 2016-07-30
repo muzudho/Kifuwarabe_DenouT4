@@ -128,6 +128,8 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
                 foreach (Finger figKoma in komaGroup.Items)
                 {
                     RO_Star koma1 = Util_Starlightable.AsKoma(ms.Now);
+
+                    src_Sky.AssertFinger(figKoma);
                     RO_Star koma2 = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
 

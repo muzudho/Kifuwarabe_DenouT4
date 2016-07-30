@@ -41,7 +41,7 @@ namespace Grayscale.P341_Ittesasu___.L510____OperationB
                 );
 
             // 移動先に相手の駒がないか、確認します。
-            Finger tottaKoma = Util_Sky_FingersQuery.InMasuNow(src_Sky2, masu).ToFirst();
+            Finger tottaKoma = Util_Sky_FingersQuery.InMasuNow_Old(src_Sky2, masu).ToFirst();
 
             if (tottaKoma != Fingers.Error_1)
             {
@@ -57,7 +57,7 @@ namespace Grayscale.P341_Ittesasu___.L510____OperationB
                     akiMasu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Okiba.Gote_Komadai, src_Sky2);
                 }
 
-
+                sky_buf.AssertFinger(tottaKoma);
                 RO_Star koma = Util_Starlightable.AsKoma(sky_buf.StarlightIndexOf(tottaKoma).Now);
 
                     // FIXME:配役あってるか？
@@ -67,6 +67,7 @@ namespace Grayscale.P341_Ittesasu___.L510____OperationB
             // 駒を１個動かします。
             // FIXME: 取った駒はどうなっている？
             {
+                sky_buf.AssertFinger(finger);
                 RO_Star koma = Util_Starlightable.AsKoma(sky_buf.StarlightIndexOf(finger).Now);
                 Komasyurui14 komaSyurui = koma.Komasyurui;
 

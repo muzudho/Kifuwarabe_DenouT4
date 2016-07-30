@@ -38,7 +38,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
-
+                src_Sky.AssertFinger(finger);
                 Starlight sl = src_Sky.StarlightIndexOf(finger);
 
                 RO_Star koma = Util_Starlightable.AsKoma(sl.Now);
@@ -85,6 +85,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
+                src_Sky.AssertFinger(finger);
                 RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
 
                 if (Conv_SyElement.ToOkiba(koma.Masu) == okiba
@@ -117,7 +118,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
-
+                src_Sky.AssertFinger(finger);
                 Starlight sl = src_Sky.StarlightIndexOf(finger);
 
                 RO_Star koma = Util_Starlightable.AsKoma(sl.Now);

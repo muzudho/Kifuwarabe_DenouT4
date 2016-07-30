@@ -76,6 +76,7 @@ namespace Grayscale.P531_Hyokakansu_.L500____Hyokakansu
 
             for (int i=0; i < Finger_Honshogi.Items_KomaOnly.Length; i++)// 全駒
             {
+                src_Sky.AssertFinger(Finger_Honshogi.Items_KomaOnly[i]);
                 RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(Finger_Honshogi.Items_KomaOnly[i]).Now);
 
                 if (Okiba.ShogiBan == Conv_SyElement.ToOkiba(koma.Masu))

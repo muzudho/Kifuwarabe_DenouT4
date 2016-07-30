@@ -100,6 +100,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
                         // 盤上の駒。
                         figSrcKoma = Util_Sky_FingerQuery.InMasuNow(kaisi_Sky, pside, srcMasu, errH);
                     }
+                    kaisi_Sky.AssertFinger(figSrcKoma);
                     RO_Star srcKoma = Util_Starlightable.AsKoma(kaisi_Sky.StarlightIndexOf(figSrcKoma).Now);
 
                     // 先位置
@@ -114,6 +115,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
                     else
                     {
                         // 駒のある枡
+                        kaisi_Sky.AssertFinger(figFoodKoma);
                         foodKomasyurui = Util_Starlightable.AsKoma(kaisi_Sky.StarlightIndexOf(figFoodKoma).Now).Komasyurui;//取った駒有り。
                     }
                     Starlightable dstKoma = new RO_Star(

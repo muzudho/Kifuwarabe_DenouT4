@@ -417,7 +417,7 @@ namespace Grayscale.P461_Server_____.L250____Util
 
 
             // 取られることになる駒のボタン
-            btnKoma_Food_Koma = Util_Sky_FingersQuery.InMasuNow(model_Manual.GuiSkyConst, foodee_koma.Masu).ToFirst();
+            btnKoma_Food_Koma = Util_Sky_FingersQuery.InMasuNow_Old(model_Manual.GuiSkyConst, foodee_koma.Masu).ToFirst();
             if (Fingers.Error_1 == btnKoma_Food_Koma)
             {
                 koma_Food_after = null;
@@ -434,7 +434,7 @@ namespace Grayscale.P461_Server_____.L250____Util
 
 
 
-
+            model_Manual.GuiSkyConst.AssertFinger(btnKoma_Food_Koma);
             Komasyurui14 koma_Food_pre_Syurui = Util_Starlightable.AsKoma(model_Manual.GuiSkyConst.StarlightIndexOf(btnKoma_Food_Koma).Now).Komasyurui;
 
 
@@ -540,6 +540,7 @@ namespace Grayscale.P461_Server_____.L250____Util
                 //------------------------------
                 // 取られる駒がなかった場合
                 //------------------------------
+                model_Manual.GuiSkyConst.AssertFinger(fig_btnTumandeiruKoma);
                 RO_Star movedKoma = Util_Starlightable.AsKoma(model_Manual.GuiSkyConst.StarlightIndexOf(fig_btnTumandeiruKoma).Now);
 
                 sky2 = SkyConst.NewInstance_OverwriteOrAdd_Light(

@@ -40,7 +40,7 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
                 SyElement srcMasu = srcKoma.Masu;
                 SyElement dstMasu = dstKoma.Masu;
 
-                Finger figKoma = Util_Sky_FingersQuery.InMasuNow(src_Sky_genzai, srcMasu).ToFirst();
+                Finger figKoma = Util_Sky_FingersQuery.InMasuNow_Old(src_Sky_genzai, srcMasu).ToFirst();
 
                 kmList.Add(new Couple<Finger, SyElement>(figKoma, dstMasu));
             });

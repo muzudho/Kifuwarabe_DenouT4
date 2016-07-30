@@ -13,6 +13,8 @@ using Grayscale.P238_Seiza______.L250____Struct;
 using Grayscale.P238_Seiza______.L500____Util;
 using Grayscale.P256_SeizaFinger.L250____Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
+using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 {
@@ -68,6 +70,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 
             foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)
             {
+                src_Sky.AssertFinger(figKoma);
                 RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
 
@@ -95,6 +98,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 
             foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)
             {
+                src_Sky.AssertFinger(figKoma);
                 RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
 
@@ -145,23 +149,93 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         /// ************************************************************************************************************************
         /// 指定のマスにあるスプライトを返します。（本将棋用）
         /// ************************************************************************************************************************
+        /// 
+        /// FIXME: 打に対応したい。
         /// </summary>
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
         /// <returns>スプライト番号。なければエラー番号。</returns>
-        public static Fingers InMasuNow(SkyConst src_Sky, SyElement masu)
+        public static Fingers InMasuNow_Old(SkyConst src_Sky, SyElement masu)//, KwErrorHandler errH
         {
+            // １個入る。
             Fingers found = new Fingers();
 
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
                 RO_Star koma = Util_Koma.FromFinger(src_Sky, finger);
 
-                if (Masu_Honshogi.Basho_Equals(koma.Masu,masu))
+                if (Masu_Honshogi.Basho_Equals(koma.Masu, masu))
                 {
                     found.Add(finger);
                 }
             }
+
+            return found;
+        }
+
+        /// <summary>
+        /// ************************************************************************************************************************
+        /// 指定のマスにあるスプライトを返します。（本将棋用）
+        /// ************************************************************************************************************************
+        /// 
+        /// FIXME: 打に対応したい。
+        /// </summary>
+        /// <param name="masu">マス番号</param>
+        /// <param name="logTag">ログ名</param>
+        /// <returns>スプライト番号。なければエラー番号。</returns>
+        public static Fingers InMasuNow_New(SkyConst src_Sky, Move move)
+        {
+            bool drop = Conv_Move.ToDrop(move);
+            SyElement srcMasu = Conv_Move.ToSrcMasu(move);
+
+            // １個入る。
+            Fingers found = new Fingers();
+
+            if (drop)
+            {
+                // 「打」は、駒台をサーチ☆
+                Playerside pside = Conv_Move.ToPlayerside(move);
+
+                if (Playerside.P1 == pside)//先手
+                {
+                    foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
+                    {
+                        RO_Star koma = Util_Koma.FromFinger(src_Sky, finger);
+
+                        if (Okiba.Sente_Komadai == Conv_SyElement.ToOkiba(koma.Masu))
+                        {
+                            found.Add(finger);
+                        }
+                    }
+                }
+                else// 後手
+                {
+                    foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
+                    {
+                        RO_Star koma = Util_Koma.FromFinger(src_Sky, finger);
+
+                        if (Okiba.Gote_Komadai == Conv_SyElement.ToOkiba(koma.Masu))
+                        {
+                            found.Add(finger);
+                        }
+                    }
+
+                }
+            }
+            // 「打」でなければ。
+            else
+            {
+                foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
+                {
+                    RO_Star koma = Util_Koma.FromFinger(src_Sky, finger);
+
+                    if (Masu_Honshogi.Basho_Equals(koma.Masu, srcMasu))
+                    {
+                        found.Add(finger);
+                    }
+                }
+            }
+
 
             return found;
         }
@@ -183,6 +257,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
+                src_Sky.AssertFinger(finger);
                 RO_Star koma2 = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
 
                 int suji2;
@@ -216,6 +291,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 
             foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)
             {
+                src_Sky.AssertFinger(figKoma);
                 RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
 

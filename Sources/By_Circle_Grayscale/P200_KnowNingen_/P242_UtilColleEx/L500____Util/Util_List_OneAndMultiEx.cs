@@ -44,8 +44,9 @@ namespace Grayscale.P242_UtilColleEx.L500____Util
                     {
                         foreach (SyElement syElement in ((SySet<SyElement>)item.B).Elements)
                         {
+                            skyConst.AssertFinger(item.A as Finger);
                             sb.AppendLine("(" + count + ") a=[" +
-                                Util_Komasyurui14.Ichimoji[(int)Util_Starlightable.AsKoma(skyConst.StarlightIndexOf(item.A as Finger).Now).Komasyurui]
+                                Util_Komasyurui14.KanjiIchimoji[(int)Util_Starlightable.AsKoma(skyConst.StarlightIndexOf(item.A as Finger).Now).Komasyurui]
                                 + "] b=[" +
                                 Util_Masu10.ToSujiKanji(syElement)
                                 + "]");

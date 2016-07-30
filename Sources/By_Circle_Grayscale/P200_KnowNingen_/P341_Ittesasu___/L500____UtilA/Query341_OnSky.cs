@@ -44,6 +44,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
             {
                 foreach (Finger koma1 in Finger_Honshogi.Items_KomaOnly)
                 {
+                    src_Sky.AssertFinger(koma1);
                     RO_Star koma2 = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(koma1).Now);
 
 

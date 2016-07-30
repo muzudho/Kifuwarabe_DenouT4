@@ -84,6 +84,7 @@ namespace Grayscale.P258_UtilSky258_.L505____ConvLogJson
 
             if ((int)finger < Finger_Honshogi.Items_KomaOnly.Length)
             {
+                src_Sky.AssertFinger(finger);
                 RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
 
                 Playerside pside = koma.Pside;

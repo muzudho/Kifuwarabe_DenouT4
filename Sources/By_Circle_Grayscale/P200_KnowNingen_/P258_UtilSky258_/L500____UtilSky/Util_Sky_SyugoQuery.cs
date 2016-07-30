@@ -52,6 +52,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         {
             SySet<SyElement> result;
 
+            src_Sky.AssertFinger(finger);
             RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
 
             //

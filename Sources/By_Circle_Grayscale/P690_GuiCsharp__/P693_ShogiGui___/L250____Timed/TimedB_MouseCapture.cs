@@ -59,7 +59,9 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
         {
             MainGui_Csharp shogiGui = (MainGui_Csharp)obj_shogiGui;
 
+            shogiGui.Model_Manual.GuiSkyConst.AssertFinger(finger);
             Starlight light = shogiGui.Model_Manual.GuiSkyConst.StarlightIndexOf(finger);
+
             shogiGui.Shape_PnlTaikyoku.Shogiban.KikiBan = new SySet_Default<SyElement>("利き盤");// .Clear();
 
             // 駒の利き
@@ -180,6 +182,7 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                             {
                                                 mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
+                                                src_Sky.AssertFinger(btnKoma.Koma);
                                                 RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(btnKoma.Koma).Now);
 
                                                 if (Okiba.ShogiBan == Conv_SyElement.ToOkiba(koma.Masu))
@@ -249,6 +252,7 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
 
                                                     nextPhaseB = SceneName.SceneB_2OkuKoma;
 
+                                                    src_Sky.AssertFinger(btnKoma.Koma);
                                                     mainGui.Shape_PnlTaikyoku.SetMouseStarlightOrNull2(
                                                         src_Sky.StarlightIndexOf(btnKoma.Koma)//TODO:改造
                                                         );
@@ -354,7 +358,8 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                 mainGui.SetFigTumandeiruKoma(-1);
 
 
-                                                RO_Star koma1 = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf((int)btnKoma.Koma).Now);
+                                                src_Sky.AssertFinger(btnKoma.Koma);
+                                                RO_Star koma1 = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(btnKoma.Koma).Now);
 
 
                                                 if (Okiba.ShogiBan == Conv_SyElement.ToOkiba(koma1.Masu))
@@ -372,6 +377,7 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                     Starlight dstStarlight = mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2;
                                                     System.Diagnostics.Debug.Assert(null != dstStarlight, "mouseStarlightがヌル");
 
+                                                    src_Sky.AssertFinger(btnKoma.Koma);
                                                     Starlight srcStarlight = src_Sky.StarlightIndexOf(btnKoma.Koma);
                                                     System.Diagnostics.Debug.Assert(null != srcStarlight, "komaStarlightがヌル");
 
@@ -503,6 +509,7 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                 }
                                                 else
                                                 {
+                                                    src_Sky.AssertFinger(btnKoma.Koma);
                                                     RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(btnKoma.Koma).Now);
 
 
@@ -522,6 +529,7 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                         // 棋譜に符号を追加（マウスボタンが放されたとき）TODO:まだ早い。駒が成るかもしれない。
                                                         //------------------------------
 
+                                                        src_Sky.AssertFinger(btnKoma.Koma);
                                                         Starbeamable sasite = new RO_Starbeam(
                                                             //btnKoma.Koma,
                                                             mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now,
@@ -622,7 +630,8 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
 
                                         //>>>>> 選択されている駒があるとき
 
-                                        Starlight tumandeiruLight = mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf((int)btnTumandeiruKoma.Finger);
+                                        mainGui.Model_Manual.GuiSkyConst.AssertFinger(btnTumandeiruKoma.Finger);
+                                        Starlight tumandeiruLight = mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(btnTumandeiruKoma.Finger);
 
 
                                         //----------
@@ -766,6 +775,7 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                         {
                                             //System.C onsole.WriteLine("駒台上");
 
+                                            mainGui.Model_Manual.GuiSkyConst.AssertFinger(btnTumandeiruKoma.Koma);
                                             RO_Star koma = Util_Starlightable.AsKoma(mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(btnTumandeiruKoma.Koma).Now);
 
                                             mainGui.Model_Manual.SetGuiSky(

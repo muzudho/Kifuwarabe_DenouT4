@@ -52,6 +52,8 @@ namespace Grayscale.P523_UtilFv_____.L510____UtilFvLoad
             );
             kifu.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手
 
+
+            kifu.CurNode.Value.KyokumenConst.AssertFinger((Finger)0);
             Debug.Assert(!Conv_MasuHandle.OnKomabukuro(
                 Conv_SyElement.ToMasuNumber(((RO_Star)kifu.CurNode.Value.KyokumenConst.StarlightIndexOf((Finger)0).Now).Masu)
                 ), "駒が駒袋にあった。");

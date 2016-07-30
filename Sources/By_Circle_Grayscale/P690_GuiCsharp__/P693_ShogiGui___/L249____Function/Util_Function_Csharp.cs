@@ -171,8 +171,8 @@ namespace Grayscale.P693_ShogiGui___.L249____Function
 
             // 置く駒
             {
+                mainGui.Model_Manual.GuiSkyConst.AssertFinger(btnKoma_Selected.Finger);
                 dst = new RO_Starlight(
-                    //btnKoma_Selected.Finger,
                     new RO_Star(
                         Util_Starlightable.AsKoma(mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(btnKoma_Selected.Finger).Now).Pside,
                         btnMasu.Zahyo,
@@ -224,6 +224,7 @@ namespace Grayscale.P693_ShogiGui___.L249____Function
             KwErrorHandler errH
             )
         {
+            mainGui.Model_Manual.GuiSkyConst.AssertFinger(figKoma);
             RO_Star koma = Util_Starlightable.AsKoma(mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(figKoma).Now);
 
             Shape_BtnKoma btnKoma = Conv_Koma_InGui.FingerToKomaBtn(figKoma, mainGui);
