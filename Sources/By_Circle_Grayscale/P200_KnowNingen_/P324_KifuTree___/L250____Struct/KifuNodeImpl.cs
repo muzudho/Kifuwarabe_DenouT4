@@ -117,8 +117,7 @@ namespace Grayscale.P324_KifuTree___.L250____Struct
 #endif
             // SFENをキーに、次ノードを増やします。
 
-            Starbeamable sasiteOld = Conv_Move.ToSasite(newNode.Key);
-            this.PutAdd_ChildNode(Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(sasiteOld), newNode);
+            this.PutAdd_ChildNode(Conv_Move.ToSfen(newNode.Key), newNode);
             //手番はここでは変更できない。
 
             newNode.SetParentNode( this);

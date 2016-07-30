@@ -465,6 +465,11 @@ namespace Grayscale.P211_WordShogi__.L250____Masu
             }
         }
 
+        public static SyElement Query_ErrorMasu()
+        {
+            return Masu_Honshogi.masus_All[Masu_Honshogi.nError];
+        }
+
         public static New_Basho Query_Basho(int masuNumber)
         {
             ulong bitfield = BashoImpl.ToBitfield(masuNumber);

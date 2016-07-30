@@ -92,16 +92,18 @@ namespace Grayscale.P258_UtilSky258_.L510____UtilLogJson
                 goto gt_EndMethod;
             }
 
-            Starbeamable sasiteOld = Conv_Move.ToSasite( thisNode.Key);
+            //Starbeamable sasiteOld = Conv_Move.ToSasite( thisNode.Key);
+            //RO_Star srcKoma = Util_Starlightable.AsKoma(sasiteOld.LongTimeAgo);
+            //RO_Star dstKoma = Util_Starlightable.AsKoma(sasiteOld.Now);
+            SyElement dstMasu = Conv_Move.ToDstMasu(thisNode.Key);
+            Komasyurui14 ks14 = Conv_Move.ToKomasyurui(thisNode.Key);
+            //Komasyurui14 ks14 = Util_Komahaiyaku184.Syurui(dstKoma.Haiyaku);// 駒１つ
 
-            RO_Star srcKoma = Util_Starlightable.AsKoma(sasiteOld.LongTimeAgo);
-            RO_Star dstKoma = Util_Starlightable.AsKoma(sasiteOld.Now);
+            Finger finger = Util_Sky_FingersQuery.InMasuNow(src_Sky_base,
+                Conv_Move.ToSrcMasu(thisNode.Key)// srcKoma.Masu
+                ).ToFirst();
 
 
-            Finger finger = Util_Sky_FingersQuery.InMasuNow(src_Sky_base, srcKoma.Masu).ToFirst();
-
-            // 駒１つ
-            Komasyurui14 ks14 = Util_Komahaiyaku184.Syurui(dstKoma.Haiyaku);
 
             //sb.AppendLine("            [");
 
@@ -109,11 +111,11 @@ namespace Grayscale.P258_UtilSky258_.L510____UtilLogJson
             sb.AppendLine("                { act:\"colorMasu\", style:\"rgba(100,240,100,0.5)\" },");
 
             // マス
-            sb.AppendLine("                { act:\"drawMasu\" , masu:" + Conv_SyElement.ToMasuNumber(dstKoma.Masu) + " },");
+            sb.AppendLine("                { act:\"drawMasu\" , masu:" + Conv_SyElement.ToMasuNumber(dstMasu) + " },");
 
 
             string komaImg = Util_Converter_LogGraphicEx.Finger_ToString(src_Sky_base, finger, "");
-            sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_SyElement.ToMasuNumber(dstKoma.Masu) + " },");//FIXME:おかしい？
+            sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_SyElement.ToMasuNumber(dstMasu) + " },");//FIXME:おかしい？
 
             // コメント
             sb.AppendLine("                { act:\"drawText\", text:\"" + comment + "\"  , x:0, y:20 },");
@@ -145,16 +147,17 @@ namespace Grayscale.P258_UtilSky258_.L510____UtilLogJson
 
             hubNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
             {
-                Starbeamable sasiteOld = Conv_Move.ToSasite( node.Key);
+                //Starbeamable sasiteOld = Conv_Move.ToSasite( node.Key);
 
-                RO_Star srcKoma1 = Util_Starlightable.AsKoma(sasiteOld.LongTimeAgo);
-                RO_Star dstKoma = Util_Starlightable.AsKoma(sasiteOld.Now);
+                SyElement srcMasu = Conv_Move.ToSrcMasu(node.Key);
+                //RO_Star srcKoma1 = Util_Starlightable.AsKoma(sasiteOld.LongTimeAgo);
+                //RO_Star dstKoma = Util_Starlightable.AsKoma(sasiteOld.Now);
+                SyElement dstMasu = Conv_Move.ToDstMasu(node.Key);
 
+                Finger srcKoma2 = Util_Sky_FingersQuery.InMasuNow(src_Sky_base, srcMasu).ToFirst();
 
-                Finger srcKoma2 = Util_Sky_FingersQuery.InMasuNow(src_Sky_base, srcKoma1.Masu).ToFirst();
-
-                // 駒１つ
-                Komasyurui14 ks14 = Util_Komahaiyaku184.Syurui(dstKoma.Haiyaku);
+                Komasyurui14 ks14 = Conv_Move.ToKomasyurui(node.Key);
+                //Komasyurui14 ks14 = Util_Komahaiyaku184.Syurui(dstKoma.Haiyaku);// 駒１つ
 
                 sb.AppendLine("            [");
 
@@ -162,11 +165,11 @@ namespace Grayscale.P258_UtilSky258_.L510____UtilLogJson
                 sb.AppendLine("                { act:\"colorMasu\", style:\"rgba(100,240,100,0.5)\" },");
 
                 // マス
-                sb.AppendLine("                { act:\"drawMasu\" , masu:" + Conv_SyElement.ToMasuNumber(dstKoma.Masu) + " },");
+                sb.AppendLine("                { act:\"drawMasu\" , masu:" + Conv_SyElement.ToMasuNumber(dstMasu) + " },");
 
 
                 string komaImg = Util_Converter_LogGraphicEx.Finger_ToString(src_Sky_base, srcKoma2, "");
-                sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_SyElement.ToMasuNumber(dstKoma.Masu) + " },");//FIXME:おかしい？
+                sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_SyElement.ToMasuNumber(dstMasu) + " },");//FIXME:おかしい？
 
                 // コメント
                 sb.AppendLine("                { act:\"drawText\", text:\"" + comment + "\"  , x:0, y:20 },");

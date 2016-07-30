@@ -270,11 +270,15 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 
             hubNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> nextNode, ref bool toBreak) =>
             {
-                Starbeamable nextSasiteOld = Conv_Move.ToSasite( nextNode.Key);
+                //Starbeamable nextSasiteOld = Conv_Move.ToSasite( nextNode.Key);
 
-                Finger figKoma = Util_Sky_FingersQuery.InMasuNow(src_Sky, Util_Starlightable.AsKoma(nextSasiteOld.LongTimeAgo).Masu).ToFirst();
+                Finger figKoma = Util_Sky_FingersQuery.InMasuNow(src_Sky,
+                    Conv_Move.ToSrcMasu(nextNode.Key) //Util_Starlightable.AsKoma( nextSasiteOld.LongTimeAgo).Masu
+                    ).ToFirst();
 
-                enable_teMap.Put_NewOrOverwrite(figKoma, nextSasiteOld);
+                enable_teMap.Put_NewOrOverwrite(figKoma,
+                    Conv_Move.ToSasite(nextNode.Key) //nextSasiteOld
+                    );
             });
 
             return enable_teMap;

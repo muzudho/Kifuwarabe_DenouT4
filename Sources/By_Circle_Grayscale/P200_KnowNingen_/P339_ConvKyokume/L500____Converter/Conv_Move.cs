@@ -12,6 +12,7 @@ using Grayscale.P335_Move_______.L___500_Struct;
 using System;
 using System.Text;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
+using Grayscale.P211_WordShogi__.L250____Masu;
 
 namespace Grayscale.P339_ConvKyokume.L500____Converter
 {
@@ -165,10 +166,9 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             return sb.ToString();
         }
 
-        public static Starbeamable ToSasite(Move move)
+        public static SyElement ToSrcMasu(Move move)
         {
             int v = (int)move;              // バリュー
-
 
             // TODO: エラーチェック
             int errorCheck;
@@ -177,11 +177,10 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
                 int s = (int)MoveShift.ErrorCheck;   // シフト
                 errorCheck = (v & m) >> s;
             }
-            if (0!= errorCheck)
+            if (0 != errorCheck)
             {
-                return Util_Sky258A.NULL_OBJECT_SASITE;
+                return Masu_Honshogi.Query_ErrorMasu();
             }
-
 
             // 自筋
             int srcSuji;
@@ -197,6 +196,30 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
                 int m = (int)MoveMask.SrcDan;
                 int s = (int)MoveShift.SrcDan;
                 srcDan = (v & m) >> s;
+            }
+
+            //────────────────────────────────────────
+            // 組み立てフェーズ
+            //────────────────────────────────────────
+
+            // 自
+            return Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan, srcSuji, srcDan);
+        }
+
+        public static SyElement ToDstMasu(Move move)
+        {
+            int v = (int)move;              // バリュー
+
+            // TODO: エラーチェック
+            int errorCheck;
+            {
+                int m = (int)MoveMask.ErrorCheck;  // マスク
+                int s = (int)MoveShift.ErrorCheck;   // シフト
+                errorCheck = (v & m) >> s;
+            }
+            if (0 != errorCheck)
+            {
+                return Masu_Honshogi.Query_ErrorMasu();
             }
 
             // 至筋
@@ -215,6 +238,103 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
                 dstDan = (v & m) >> s;
             }
 
+            //────────────────────────────────────────
+            // 組み立てフェーズ
+            //────────────────────────────────────────
+
+            // 至
+            return Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan, dstSuji, dstDan);
+        }
+
+        public static Komasyurui14 ToKomasyurui(Move move)
+        {
+            int v = (int)move;              // バリュー
+
+            // TODO: エラーチェック
+            int errorCheck;
+            {
+                int m = (int)MoveMask.ErrorCheck;  // マスク
+                int s = (int)MoveShift.ErrorCheck;   // シフト
+                errorCheck = (v & m) >> s;
+            }
+            if (0 != errorCheck)
+            {
+                return Komasyurui14.H00_Null___;
+            }
+
+            // 移動した駒の種類
+            int komasyurui;
+            {
+                int m = (int)MoveMask.Komasyurui;
+                int s = (int)MoveShift.Komasyurui;
+                komasyurui = (v & m) >> s;
+            }
+
+            //────────────────────────────────────────
+            // 組み立てフェーズ
+            //────────────────────────────────────────
+
+            // 移動した駒の種類
+            return (Komasyurui14)komasyurui;
+        }
+
+        public static Playerside ToPlayerside(Move move)
+        {
+            int v = (int)move;              // バリュー
+
+            // TODO: エラーチェック
+            int errorCheck;
+            {
+                int m = (int)MoveMask.ErrorCheck;  // マスク
+                int s = (int)MoveShift.ErrorCheck;   // シフト
+                errorCheck = (v & m) >> s;
+            }
+            if (0 != errorCheck)
+            {
+                return Playerside.Empty;
+            }
+
+            // 手番
+            int playerside;
+            {
+                int m = (int)MoveMask.Playerside;
+                int s = (int)MoveShift.Playerside;
+                playerside = (v & m) >> s;
+            }
+
+            //────────────────────────────────────────────────────────────────────────────────
+            // 組み立てフェーズ
+            //────────────────────────────────────────────────────────────────────────────────
+
+            // 手番
+            if (playerside == 1)
+            {
+                return Playerside.P2;
+            }
+            else
+            {
+                return Playerside.P1;
+            }
+        }
+
+        public static Starbeamable ToSasite(Move move)
+        {
+            int v = (int)move;              // バリュー
+
+
+            // TODO: エラーチェック
+            int errorCheck;
+            {
+                int m = (int)MoveMask.ErrorCheck;  // マスク
+                int s = (int)MoveShift.ErrorCheck;   // シフト
+                errorCheck = (v & m) >> s;
+            }
+            if (0!= errorCheck)
+            {
+                return Util_Sky258A.NULL_OBJECT_SASITE;
+            }
+
+
             // 成らない
             int promotion;
             {
@@ -231,22 +351,6 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
                 drop = (v & m) >> s;
             }
 
-            // 手番
-            int playerside;
-            {
-                int m = (int)MoveMask.Playerside;
-                int s = (int)MoveShift.Playerside;
-                playerside = (v & m) >> s;
-            }
-
-            // 移動した駒の種類
-            int komasyurui;
-            {
-                int m = (int)MoveMask.Komasyurui;
-                int s = (int)MoveShift.Komasyurui;
-                komasyurui = (v & m) >> s;
-            }
-
             // 取った駒の種類
             int captured;
             {
@@ -260,35 +364,16 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             //────────────────────────────────────────────────────────────────────────────────
 
             // 自
-            SyElement srcMasuB;
-            {
-                srcMasuB = Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan, srcSuji, srcDan);
-            }
+            SyElement srcMasuB = Conv_Move.ToSrcMasu(move);
 
             // 至
-            SyElement dstMasuB;
-            {
-                dstMasuB = Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan, dstSuji, dstDan);
-            }
+            SyElement dstMasuB = Conv_Move.ToDstMasu(move);
 
             // 手番
-            Playerside playersideB;
-            {
-                if (playerside == 1)
-                {
-                    playersideB = Playerside.P2;
-                }
-                else
-                {
-                    playersideB = Playerside.P1;
-                }
-            }
+            Playerside playersideB = Conv_Move.ToPlayerside(move);
 
             // 移動した駒の種類
-            Komasyurui14 komasyuruiB;
-            {
-                komasyuruiB = (Komasyurui14)komasyurui;
-            }
+            Komasyurui14 komasyuruiB = Conv_Move.ToKomasyurui(move);
 
             // 取った駒の種類
             Komasyurui14 capturedB;

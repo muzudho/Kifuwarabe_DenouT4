@@ -13,6 +13,9 @@ using Grayscale.P292_JsaFugo____.L250____Struct;
 using System.Text;
 using Grayscale.P335_Move_______.L___500_Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P211_WordShogi__.L500____Word;
+using Grayscale.P056_Syugoron___.L___250_Struct;
+using Grayscale.P211_WordShogi__.L250____Masu;
 
 namespace Grayscale.P292_JsaFugo____.L500____Util
 {
@@ -101,24 +104,21 @@ namespace Grayscale.P292_JsaFugo____.L500____Util
             StringBuilder sb = new StringBuilder();
 
             
-            Starbeamable curSasite = Conv_Move.ToSasite(siteiNode.Key);
-            RO_Star curSrcKoma = Util_Starlightable.AsKoma(curSasite.LongTimeAgo);
-            RO_Star curDstKoma = Util_Starlightable.AsKoma(curSasite.Now);
 
+            SyElement dstMasu = Conv_Move.ToDstMasu(siteiNode.Key);
+            Playerside pside = Conv_Move.ToPlayerside(siteiNode.Key);
 
-            sb.Append(Conv_Playerside.ToSankaku(curDstKoma.Pside));
+            sb.Append(Conv_Playerside.ToSankaku(pside));
 
             //------------------------------
             // “同”で表記できるところは、“同”で表記します。それ以外は“筋・段”で表記します。
             //------------------------------
             if (!siteiNode.IsRoot())
             {
-                Starbeamable preSasite = Conv_Move.ToSasite(siteiNode.GetParentNode().Key);
-                if (null != preSasite)
+                SyElement preDstMasu = Conv_Move.ToDstMasu(siteiNode.GetParentNode().Key);
+                if (Masu_Honshogi.Query_ErrorMasu() != preDstMasu)
                 {
-                    //RO_Star_Koma preSrcKoma = Util_Starlightable.AsKoma(preSasite.LongTimeAgo);
-                    RO_Star preDstKoma = Util_Starlightable.AsKoma(preSasite.Now);
-                    if (Conv_SyElement.ToMasuNumber(preDstKoma.Masu)==Conv_SyElement.ToMasuNumber(curDstKoma.Masu))
+                    if (Conv_SyElement.ToMasuNumber(preDstMasu) ==Conv_SyElement.ToMasuNumber(dstMasu))
                     {
                         // “同”
                         sb.Append("同");
@@ -131,8 +131,8 @@ namespace Grayscale.P292_JsaFugo____.L500____Util
                 // “筋・段”
                 int suji;
                 int dan;
-                Util_MasuNum.TryMasuToSuji(curDstKoma.Masu, out suji);
-                Util_MasuNum.TryMasuToDan(curDstKoma.Masu, out dan);
+                Util_MasuNum.TryMasuToSuji(dstMasu, out suji);
+                Util_MasuNum.TryMasuToDan(dstMasu, out dan);
 
                 sb.Append(Conv_Int.ToArabiaSuji(suji));
                 sb.Append(Conv_Int.ToKanSuji(dan));
