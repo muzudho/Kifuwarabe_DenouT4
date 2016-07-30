@@ -8,3 +8,13 @@ C:\Root_KifuWarabe\CSharp\Sources\By_Circle_Grayscale\P780_SgSyugoTest\obj\Debug
 C:\Root_KifuWarabe\CSharp\Sources\By_Circle_Grayscale\P780_SgSyugoTest\obj\Debug\P780_SgSyugoTest.csproj.GenerateResource.Cache
 C:\Root_KifuWarabe\CSharp\Sources\By_Circle_Grayscale\P780_SgSyugoTest\obj\Debug\Grayscale.P780_SgSyugoTest.exe
 C:\Root_KifuWarabe\CSharp\Sources\By_Circle_Grayscale\P780_SgSyugoTest\obj\Debug\Grayscale.P780_SgSyugoTest.pdb
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\P780_SgSyugoTest\Grayscale.P780_SgSyugoTest.exe.config
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\P780_SgSyugoTest\Grayscale.P780_SgSyugoTest.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\P780_SgSyugoTest\Grayscale.P780_SgSyugoTest.pdb
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P780_SgSyugoTest\obj\Debug\P780_SgSyugoTest.csprojResolveAssemblyReference.cache
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P780_SgSyugoTest\obj\Debug\Grayscale.Properties.Resources.resources
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P780_SgSyugoTest\obj\Debug\Grayscale.P780_SgSyugoTest.Ui_SyugoronTestForm.resources
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P780_SgSyugoTest\obj\Debug\Grayscale.P780_SgSyugoTest.Ui_SyugoronTestPanel.resources
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P780_SgSyugoTest\obj\Debug\P780_SgSyugoTest.csproj.GenerateResource.Cache
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P780_SgSyugoTest\obj\Debug\Grayscale.P780_SgSyugoTest.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P780_SgSyugoTest\obj\Debug\Grayscale.P780_SgSyugoTest.pdb

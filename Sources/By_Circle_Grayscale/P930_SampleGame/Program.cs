@@ -1,5 +1,6 @@
 ﻿using Grayscale.P003_Log________.L___500_Struct;
 using Grayscale.P003_Log________.L500____Struct;
+using Grayscale.P031_usiFrame1__.L500____usiFrame___;
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
@@ -24,8 +25,8 @@ namespace P930_SampleGame
 
 
             // 将棋エンジン　きふわらべ
-            KifuWarabeImpl kifuWarabe = new KifuWarabeImpl();
-            kifuWarabe.AtBegin(errH);
+            KifuWarabeImpl kifuWarabe = new KifuWarabeImpl(new UsiFrameworkImpl());
+            kifuWarabe.OnApplicationBegin();
 
 
             // 将棋指しオブジェクト
@@ -44,7 +45,7 @@ namespace P930_SampleGame
             //bool isTimeoutShutdown_temp;
             //kifuWarabe.AtBody(out isTimeoutShutdown_temp, errH);    // 将棋サーバーからのメッセージの受信や、
                                                                     // 思考は、ここで行っています。
-            kifuWarabe.AtEnd();
+            kifuWarabe.OnApplicationEnd();
         }
     }
 }

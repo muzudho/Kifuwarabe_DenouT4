@@ -5,6 +5,8 @@ using Grayscale.P223_TedokuHisto.L___250_Struct;
 using System.Collections.Generic;
 
 #if DEBUG
+using System.IO;
+using Grayscale.P027_Settei_____.L500____Struct;
 using Grayscale.P223_TedokuHisto.L240____Util;
 #endif
 

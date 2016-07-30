@@ -1,40 +1,27 @@
 ﻿using Grayscale.P003_Log________.L___500_Struct;
 using Grayscale.P003_Log________.L500____Struct;
 using Grayscale.P027_Settei_____.L500____Struct;
+using Grayscale.P031_usiFrame1__.L500____usiFrame___;
 using Grayscale.P055_Conv_Sy.L500____Converter;
-using Grayscale.P056_Syugoron___.L___250_Struct;
 using Grayscale.P157_KyokumenPng.L___500_Struct;
 using Grayscale.P157_KyokumenPng.L500____Struct;
 using Grayscale.P158_LogKyokuPng.L500____UtilWriter;
 using Grayscale.P163_KifuCsa____.L___250_Struct;
 using Grayscale.P163_KifuCsa____.L250____Struct;
-using Grayscale.P211_WordShogi__.L250____Masu;
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P212_ConvPside__.L500____Converter;
 using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P213_Komasyurui_.L500____Util;
 using Grayscale.P218_Starlight__.L___500_Struct;
-using Grayscale.P222_Log_Kaisetu.L250____Struct;
 using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P226_Tree_______.L___500_Struct;
 using Grayscale.P236_KomahaiyaTr.L500____Table;
 using Grayscale.P238_Seiza______.L250____Struct;
 using Grayscale.P238_Seiza______.L500____Util;
-using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P248_Michi______.L500____Word;
 using Grayscale.P250_KomahaiyaEx.L500____Util;
-using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using Grayscale.P270_ForcePromot.L250____Struct;
-using Grayscale.P296_ConvJsa____.L500____Converter;
-using Grayscale.P321_KyokumHyoka.L___250_Struct;
 using Grayscale.P324_KifuTree___.L___250_Struct;
-using Grayscale.P324_KifuTree___.L250____Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
-using Grayscale.P341_Ittesasu___.L___250_OperationA;
-using Grayscale.P341_Ittesasu___.L125____UtilB;
-using Grayscale.P341_Ittesasu___.L250____OperationA;
-using Grayscale.P341_Ittesasu___.L500____UtilA;
-using Grayscale.P369_ConvCsa____.L500____Converter;
 using Grayscale.P521_FeatureVect.L___500_Struct;
 using Grayscale.P521_FeatureVect.L500____Struct;
 using Grayscale.P531_Hyokakansu_.L500____Hyokakansu;
@@ -47,11 +34,13 @@ using Grayscale.P575_KifuWarabe_.L100____Shogisasi;
 using Grayscale.P575_KifuWarabe_.L500____KifuWarabe;
 using Grayscale.P743_FvLearn____.L___250_Learn;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+
+#if DEBUG
+using Grayscale.P027_Settei_____.L500____Struct;
+#endif
 
 namespace Grayscale.P743_FvLearn____.L250____Learn
 {
@@ -65,7 +54,7 @@ namespace Grayscale.P743_FvLearn____.L250____Learn
         /// 読み用。
         /// </summary>
         private FeatureVector featureVector_ForYomi = new FeatureVectorImpl();
-        private Shogisasi shogisasi_ForYomi = new ShogisasiImpl(new KifuWarabeImpl());
+        private Shogisasi shogisasi_ForYomi = new ShogisasiImpl(new KifuWarabeImpl(new UsiFrameworkImpl()));
 
         public static KyokumenPngEnvironment REPORT_ENVIRONMENT;
         static LearningDataImpl()
@@ -113,7 +102,7 @@ namespace Grayscale.P743_FvLearn____.L250____Learn
             Array_ForcePromotion.Load(Const_Filepath.m_EXE_TO_CONFIG + "data_forcePromotion_UTF-8.csv", Encoding.UTF8);
 #if DEBUG
             {
-                File.WriteAllText(Const_Filepath.ENGINE_TO_LOGS + "_log_強制転成表.html", Array_ForcePromotion.LogHtml());
+                File.WriteAllText(Const_Filepath.m_EXE_TO_LOGGINGS + "_log_強制転成表.html", Array_ForcePromotion.LogHtml());
             }
 #endif
 
@@ -121,7 +110,7 @@ namespace Grayscale.P743_FvLearn____.L250____Learn
             Data_KomahaiyakuTransition.Load(Const_Filepath.m_EXE_TO_CONFIG + "data_syuruiToHaiyaku.csv", Encoding.UTF8);
 #if DEBUG
             {
-                File.WriteAllText(Const_Filepath.ENGINE_TO_LOGS + "_log_配役転換表.html", Data_KomahaiyakuTransition.Format_LogHtml());
+                File.WriteAllText(Const_Filepath.m_EXE_TO_LOGGINGS + "_log_配役転換表.html", Data_KomahaiyakuTransition.Format_LogHtml());
             }
 #endif
 

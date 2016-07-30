@@ -229,8 +229,11 @@ namespace Grayscale.P743_FvLearn____.L260____View
                 int itemNumber = 0;
                 ((KifuNode)learningData.Kifu.CurNode).Foreach_ChildNodes((string key, Node<Starbeamable, KyokumenWrapper> node, ref bool toBreak) =>
                 {
+#if DEBUG || LEARN
                     KyHyokaMeisai_Koumoku komawariMeisai;
                     KyHyokaMeisai_Koumoku ppMeisai;
+#endif
+
                     learningData.DoScoreing_ForLearning(
                         (KifuNode)node
 #if DEBUG || LEARN

@@ -49,12 +49,9 @@ namespace Grayscale.P531_Hyokakansu_.L500____Hyokakansu
             {
                 case Playerside.P1: out_score = float.MinValue; break;
                 case Playerside.P2: out_score = float.MaxValue; break;
-                default: throw new Exception("千日手判定をしようとしましたが、先後の分からない局面データがありました。"); break;
+                default: throw new Exception("千日手判定をしようとしましたが、先後の分からない局面データがありました。");
             }
 
-
-        gt_EndMethod:
-            ;
 
             //----------------------------------------
             // 明細項目

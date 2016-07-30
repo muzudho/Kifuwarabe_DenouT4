@@ -1,10 +1,10 @@
 ﻿using Grayscale.P003_Log________.L___500_Struct;
 using Grayscale.P003_Log________.L500____Struct;
+using Grayscale.P031_usiFrame1__.L500____usiFrame___;
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P218_Starlight__.L___500_Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
 using Grayscale.P247_KyokumenWra.L500____Struct;
-using Grayscale.P321_KyokumHyoka.L___250_Struct;
 using Grayscale.P324_KifuTree___.L___250_Struct;
 using Grayscale.P440_KifuTreeLog.L500____Struct;
 using Grayscale.P521_FeatureVect.L500____Struct;
@@ -13,18 +13,16 @@ using Grayscale.P542_Scoreing___.L___250_Args;
 using Grayscale.P542_Scoreing___.L250____Args;
 using Grayscale.P575_KifuWarabe_.L100____Shogisasi;
 using Grayscale.P575_KifuWarabe_.L500____KifuWarabe;
+using Grayscale.P743_FvLearn____.L___400_54List;
 using Grayscale.P743_FvLearn____.L250____Learn;
 using Grayscale.P743_FvLearn____.L260____View;
+using Grayscale.P743_FvLearn____.L400____54List;
+using Grayscale.P743_FvLearn____.L420____Inspection;
 using Grayscale.P743_FvLearn____.L460____Scoreing;
 using Grayscale.P743_FvLearn____.L470____StartZero;
-using Grayscale.P743_FvLearn____.L510____AutoKifuRead;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using Grayscale.P743_FvLearn____.L480____Functions;
-using Grayscale.P743_FvLearn____.L420____Inspection;
-using Grayscale.P743_FvLearn____.L___400_54List;
-using Grayscale.P743_FvLearn____.L400____54List;
 
 #if DEBUG || LEARN
 using Grayscale.P523_UtilFv_____.L480____UtilFvEdit;
@@ -329,7 +327,7 @@ namespace Grayscale.P743_FvLearn____.L600____Operation
                 args = new EvaluationArgsImpl(
                     uc_Main.LearningData.Kifu.GetSennititeCounter(),
                     new FeatureVectorImpl(),
-                    new ShogisasiImpl(new KifuWarabeImpl()),
+                    new ShogisasiImpl(new KifuWarabeImpl(new UsiFrameworkImpl())),
                     Util_KifuTreeLogWriter.REPORT_ENVIRONMENT
 #if DEBUG
                     ,

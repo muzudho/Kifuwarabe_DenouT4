@@ -1,5 +1,6 @@
 ﻿
 #if DEBUG
+using Grayscale.P027_Settei_____.L500____Struct;
 using System.IO;
 using System.Text;
 #endif

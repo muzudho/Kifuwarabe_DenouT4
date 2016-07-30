@@ -12,6 +12,9 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
+#if DEBUG
+using Grayscale.P027_Settei_____.L500____Struct;
+#endif
 
 namespace Grayscale.P236_KomahaiyaTr.L500____Table
 {

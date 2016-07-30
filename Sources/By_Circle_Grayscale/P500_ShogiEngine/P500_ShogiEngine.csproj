@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Grayscale</RootNamespace>
     <AssemblyName>Grayscale.P500_ShogiEngine</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x64</PlatformTarget>
@@ -105,38 +106,14 @@
     <Compile Include="P560_UtilClient_\L500____Util\Util_InClient.cs" />
     <Compile Include="P542_Scoreing___\L___240_Shogisasi\Shogisasi.cs" />
     <Compile Include="P542_Scoreing___\L010____Log\PerformanceMetrics.cs" />
-    <Compile Include="P571_usiFrame1__\L490____Option__\EngineOption_SpinImpl.cs" />
-    <Compile Include="P571_usiFrame1__\L490____Option__\EngineOption_Button.cs" />
-    <Compile Include="P571_usiFrame1__\L490____Option__\EngineOption_FilenameImpl.cs" />
-    <Compile Include="P571_usiFrame1__\L490____Option__\EngineOption_ComboImpl.cs" />
-    <Compile Include="P571_usiFrame1__\L___490_Option__\EngineOption_Spin.cs" />
-    <Compile Include="P571_usiFrame1__\L___490_Option__\EngineOption_Button.cs" />
-    <Compile Include="P571_usiFrame1__\L___490_Option__\EngineOption_Filename.cs" />
-    <Compile Include="P571_usiFrame1__\L___490_Option__\EngineOption_Combo.cs" />
     <Compile Include="P575_KifuWarabe_\L061____Util\Util_LogBuilder510.cs" />
     <Compile Include="P542_Scoreing___\L125____ScoreSibori\ScoreSiboriEngine.cs" />
     <Compile Include="P575_KifuWarabe_\L100____Shogisasi\ShogisasiImpl.cs" />
     <Compile Include="P575_KifuWarabe_\L125____KingState\Result_KingState.cs" />
     <Compile Include="P575_KifuWarabe_\L249____Noop\NoopPhase.cs" />
     <Compile Include="P575_KifuWarabe_\L249____Noop\NoopTimerImpl.cs" />
-    <Compile Include="P575_KifuWarabe_\L250____UsiLoop\PhaseResult_UsiLoop1.cs" />
-    <Compile Include="P575_KifuWarabe_\L250____UsiLoop\UsiLoop1.cs" />
-    <Compile Include="P575_KifuWarabe_\L250____UsiLoop\UsiLoop2.cs" />
-    <Compile Include="P575_KifuWarabe_\L250____UsiLoop\PhaseResult_UsiLoop2.cs" />
-    <Compile Include="P571_usiFrame1__\L490____Option__\EngineOptionsImpl.cs" />
-    <Compile Include="P571_usiFrame1__\L490____Option__\EngineOption_NumberImpl.cs" />
-    <Compile Include="P571_usiFrame1__\L490____Option__\EngineOption_StringImpl.cs" />
-    <Compile Include="P571_usiFrame1__\L490____Option__\EngineOption_BoolImpl.cs" />
     <Compile Include="P575_KifuWarabe_\L500____KifuWarabe\n500_KifuWarabeImpl.cs" />
     <Compile Include="P542_Scoreing___\L___005_UsiLoop\ShogiEngine.cs" />
-    <Compile Include="P571_usiFrame1__\L___490_Option__\EngineOptionNames.cs" />
-    <Compile Include="P571_usiFrame1__\L___490_Option__\EngineOptions.cs" />
-    <Compile Include="P571_usiFrame1__\L___490_Option__\EngineOption_Number.cs" />
-    <Compile Include="P571_usiFrame1__\L___490_Option__\EngineOption_String.cs" />
-    <Compile Include="P571_usiFrame1__\L___490_Option__\EngineOption_Bool.cs" />
-    <Compile Include="P571_usiFrame1__\L___490_Option__\EngineOption.cs" />
-    <Compile Include="P579_usiFrame2__\L500____usiFrame___\UsiFrameworkImpl.cs" />
-    <Compile Include="P571_usiFrame1__\L___500_usiFrame___\UsiFramework.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -147,6 +124,10 @@
     <ProjectReference Include="..\P000_Environment\P000_Environment.csproj">
       <Project>{147b11e0-827b-4d3f-844c-adf2beafa53f}</Project>
       <Name>P000_Environment</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P030_UsiFramewor\P030_UsiFramewor.csproj">
+      <Project>{eaae7f89-1539-4aff-bac6-5e9004ad427e}</Project>
+      <Name>P030_UsiFramewor</Name>
     </ProjectReference>
     <ProjectReference Include="..\P140_KifuSfen___\P140_KifuSfen___.csproj">
       <Project>{b0982362-ab7f-45a6-af5f-c9fdfa49f9dd}</Project>
