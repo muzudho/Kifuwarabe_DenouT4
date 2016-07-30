@@ -37,6 +37,7 @@ using System;
 using System.IO;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P258_UtilSky258_.L500____UtilSky;
 
 #if DEBUG
 using Grayscale.P027_Settei_____.L500____Struct;
@@ -255,16 +256,18 @@ namespace Grayscale.P743_FvLearn____.L250____Learn
         {
             int srcMasu_orMinusOne = -1;
             int dstMasu_orMinusOne = -1;
-            if(null!=this.Kifu.CurNode.Key)
+
+            Starbeamable sasiteOld = Conv_Move.ToSasite(this.Kifu.CurNode.Key);
+            if (Util_Sky258A.NULL_OBJECT_SASITE != sasiteOld)
             {
-                srcMasu_orMinusOne = Conv_SyElement.ToMasuNumber(((RO_Star)this.Kifu.CurNode.Key.LongTimeAgo).Masu);
-                dstMasu_orMinusOne = Conv_SyElement.ToMasuNumber(((RO_Star)this.Kifu.CurNode.Key.Now).Masu);
+                srcMasu_orMinusOne = Conv_SyElement.ToMasuNumber(((RO_Star)Conv_Move.ToSasite( this.Kifu.CurNode.Key).LongTimeAgo).Masu);
+                dstMasu_orMinusOne = Conv_SyElement.ToMasuNumber(((RO_Star)Conv_Move.ToSasite( this.Kifu.CurNode.Key).Now).Masu);
             }
 
             KyokumenPngArgs_FoodOrDropKoma foodKoma;
-            if (null != this.Kifu.CurNode.Key.FoodKomaSyurui)
+            if (Util_Sky258A.NULL_OBJECT_SASITE != sasiteOld.FoodKomaSyurui)
             {
-                switch (Util_Komasyurui14.NarazuCaseHandle((Komasyurui14)this.Kifu.CurNode.Key.FoodKomaSyurui))
+                switch (Util_Komasyurui14.NarazuCaseHandle((Komasyurui14) Conv_Move.ToSasite( this.Kifu.CurNode.Key).FoodKomaSyurui))
                 {
                     case Komasyurui14.H00_Null___: foodKoma = KyokumenPngArgs_FoodOrDropKoma.NONE; break;
                     case Komasyurui14.H01_Fu_____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.FU__; break;
@@ -288,7 +291,7 @@ namespace Grayscale.P743_FvLearn____.L250____Learn
                 srcMasu_orMinusOne,
                 dstMasu_orMinusOne,
                 foodKoma,
-                Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(this.Kifu.CurNode.Key),
+                Conv_SasiteStr_Sfen.ToSasiteStr_Sfen( Conv_Move.ToSasite( this.Kifu.CurNode.Key) ),
                 "",
                 "_log_学習局面.png",
                 LearningDataImpl.REPORT_ENVIRONMENT,

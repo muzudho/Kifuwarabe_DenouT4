@@ -21,7 +21,8 @@ using Grayscale.P321_KyokumHyoka.L___250_Struct;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-
+using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P258_UtilSky258_.L500____UtilSky;
 
 #if DEBUG
 using System.Diagnostics;
@@ -96,7 +97,7 @@ namespace Grayscale.P440_KifuTreeLog.L500____Struct
                 // カレントノードまでの符号を使って、フォルダーパスを作成。
                 //----------------------------------------
                 StringBuilder sb_folder = new StringBuilder();
-                kifu.ForeachHonpu(kifu.CurNode, (int temezumi2, KyokumenWrapper kWrap, Node<Starbeamable, KyokumenWrapper> node, ref bool toBreak) =>
+                kifu.ForeachHonpu(kifu.CurNode, (int temezumi2, KyokumenWrapper kWrap, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
                 {
                     sb_folder.Append(Conv_SasiteStr_Sfen.ToSasiteStr_Sfen_ForFilename(node.Key) + "/");
                 });
@@ -170,18 +171,20 @@ namespace Grayscale.P440_KifuTreeLog.L500____Struct
 
                 int logFileCounter_temp = logFileCounter;
                 // 先に奥の枝から。
-                node.Foreach_ChildNodes((string key, Node<Starbeamable, KyokumenWrapper> nextNode, ref bool toBreak) =>
+                node.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> nextNode, ref bool toBreak) =>
                 {
 
                     float score = ((KifuNode)nextNode).Score;
 
+                    Starbeamable sasiteOld = Conv_Move.ToSasite(nextNode.Key);
+
                     // 再帰
                     Util_KifuTreeLogWriter.AA_Write_ForeachLeafs_ForDebug(
                         ref logFileCounter_temp,
-                        nodePath + " " + Conv_SasiteStr_Sfen.ToSasiteStr_Sfen_ForFilename(nextNode.Key),
+                        nodePath + " " + Conv_SasiteStr_Sfen.ToSasiteStr_Sfen_ForFilename(sasiteOld),
                         (KifuNode)nextNode,
                         kifu,
-                        relFolder + ((int)score).ToString() + "点_" + Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(nextNode.Key) + "/",
+                        relFolder + ((int)score).ToString() + "点_" + Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(sasiteOld) + "/",
                         reportEnvironment,
                         errH
                         );
@@ -231,16 +234,19 @@ namespace Grayscale.P440_KifuTreeLog.L500____Struct
                 {
                     int srcMasu_orMinusOne = -1;
                     int dstMasu_orMinusOne = -1;
-                    if (null != node.Key)
+
+                    Starbeamable sasiteOld = Conv_Move.ToSasite(node.Key);
+
+                    if (Util_Sky258A.NULL_OBJECT_SASITE != sasiteOld)
                     {
-                        srcMasu_orMinusOne = Conv_SyElement.ToMasuNumber(((RO_Star)node.Key.LongTimeAgo).Masu);
-                        dstMasu_orMinusOne = Conv_SyElement.ToMasuNumber(((RO_Star)node.Key.Now).Masu);
+                        srcMasu_orMinusOne = Conv_SyElement.ToMasuNumber(((RO_Star)sasiteOld.LongTimeAgo).Masu);
+                        dstMasu_orMinusOne = Conv_SyElement.ToMasuNumber(((RO_Star)sasiteOld.Now).Masu);
                     }
 
                     KyokumenPngArgs_FoodOrDropKoma foodKoma;
-                    if (null != node.Key.FoodKomaSyurui)
+                    if (Komasyurui14.H00_Null___ != (Komasyurui14)sasiteOld.FoodKomaSyurui)
                     {
-                        switch (Util_Komasyurui14.NarazuCaseHandle((Komasyurui14)node.Key.FoodKomaSyurui))
+                        switch (Util_Komasyurui14.NarazuCaseHandle((Komasyurui14)sasiteOld.FoodKomaSyurui))
                         {
                             case Komasyurui14.H00_Null___: foodKoma = KyokumenPngArgs_FoodOrDropKoma.NONE; break;
                             case Komasyurui14.H01_Fu_____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.FU__; break;
@@ -265,7 +271,7 @@ namespace Grayscale.P440_KifuTreeLog.L500____Struct
                         srcMasu_orMinusOne,
                         dstMasu_orMinusOne,
                         foodKoma,
-                        Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(node.Key),
+                        Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(sasiteOld),
                         relFolder,
                         fileName,
                         reportEnvironment,

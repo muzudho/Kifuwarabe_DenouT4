@@ -121,7 +121,7 @@ namespace Grayscale.P699_Form_______
         //    // 先手駒の利きを表にします。
         //    bool[] kikiSTable = new bool[Uc_Form1Main.NSQUARE];
 
-        //    Node<Starbeamable, KyokumenWrapper> siteiNode = this.ShogibanGui.Link_ShogiServer.Model_Operating.Taikyoku.Kifu.NodeAt(
+        //    Node<Move, KyokumenWrapper> siteiNode = this.ShogibanGui.Link_ShogiServer.Model_Operating.Taikyoku.Kifu.NodeAt(
         //        this.ShogibanGui.Link_ShogiServer.Model_Operating.Taikyoku.Kifu.CurNode.Value.ToKyokumenConst.Temezumi
         //        );
 

@@ -11,6 +11,7 @@ using Grayscale.P324_KifuTree___.L250____Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
 using Grayscale.P341_Ittesasu___.L125____UtilB;
 using System.Text;
+using Grayscale.P335_Move_______.L___500_Struct;
 
 namespace Grayscale.P341_Ittesasu___.L250____OperationA
 {
@@ -51,9 +52,11 @@ namespace Grayscale.P341_Ittesasu___.L250____OperationA
             // 採譜用に、新しい対局を用意します。
             KifuTree saifuKifu;
             {
+                Move move = Conv_SasiteStr_Sfen.ToMove(Util_Sky258A.NULL_OBJECT_SASITE);
+
                 saifuKifu = new KifuTreeImpl(
                         new KifuNodeImpl(
-                            Util_Sky258A.ROOT_SASITE,
+                            move,
                             new KyokumenWrapper(Util_SkyWriter.New_Hirate(Playerside.P1))//日本の符号読取時
                         )
                 );
@@ -61,7 +64,7 @@ namespace Grayscale.P341_Ittesasu___.L250____OperationA
                 saifuKifu.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面 // FIXME:平手とは限らないのでは？
             }
 
-            src_kifu.ForeachHonpu(src_kifu.CurNode, (int temezumi, KyokumenWrapper kWrap, Node<Starbeamable, KyokumenWrapper> node, ref bool toBreak) =>
+            src_kifu.ForeachHonpu(src_kifu.CurNode, (int temezumi, KyokumenWrapper kWrap, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
             {
                 if (0 == temezumi)
                 {
@@ -121,7 +124,7 @@ namespace Grayscale.P341_Ittesasu___.L250____OperationA
 
             // 本譜
             int count = 0;
-            src_kifu.ForeachHonpu(src_kifu.CurNode, (int temezumi, KyokumenWrapper kWrap, Node<Starbeamable, KyokumenWrapper> node, ref bool toBreak) =>
+            src_kifu.ForeachHonpu(src_kifu.CurNode, (int temezumi, KyokumenWrapper kWrap, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
             {
                 if (0 == temezumi)
                 {
@@ -129,7 +132,9 @@ namespace Grayscale.P341_Ittesasu___.L250____OperationA
                     goto gt_EndLoop;
                 }
 
-                sb.Append(Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(node.Key));
+                Starbeamable sasiteOld = Conv_Move.ToSasite(node.Key);
+
+                sb.Append(Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(sasiteOld));
 
                 //// TODO:デバッグ用
                 //switch (sasite.TottaKoma)

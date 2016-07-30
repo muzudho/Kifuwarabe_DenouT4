@@ -30,6 +30,7 @@ using Grayscale.P461_Server_____.L250____Util;
 using Grayscale.P211_WordShogi__.L260____Operator;
 using Grayscale.P693_ShogiGui___.L___492_Widgets;
 using Grayscale.P693_ShogiGui___.L___499_Repaint;
+using Grayscale.P335_Move_______.L___500_Struct;
 
 
 #if DEBUG
@@ -66,7 +67,7 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
             //kikiZukei.DebugWrite("駒の利きLv1");
 
             // 味方の駒
-            Node<Starbeamable, KyokumenWrapper> siteiNode = shogiGui.Link_Server.Model_Taikyoku.Kifu.CurNode;
+            Node<Move, KyokumenWrapper> siteiNode = shogiGui.Link_Server.Model_Taikyoku.Kifu.CurNode;
 
             //shogiGui.Model_PnlTaikyoku.Kifu.AssertPside(shogiGui.Model_PnlTaikyoku.Kifu.CurNode, "Check_MouseoverKomaKiki",errH);
             SySet<SyElement> mikataZukei = Util_Sky_SyugoQuery.Masus_Now(siteiNode.Value.KyokumenConst, shogiGui.Link_Server.Model_Taikyoku.Kifu.CurNode.Value.KyokumenConst.KaisiPside);
@@ -386,8 +387,8 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                     //
                                                     SkyBuffer sky_newChild = new SkyBuffer(src_Sky);
                                                     sky_newChild.SetKaisiPside(Conv_Playerside.Reverse(Playerside.P1));//FIXME:人間が先手でハードコーディング中
-                                                    Node<Starbeamable, KyokumenWrapper> newNode = new KifuNodeImpl(
-                                                        sasite,
+                                                    Node<Move, KyokumenWrapper> newNode = new KifuNodeImpl(
+                                                        Conv_SasiteStr_Sfen.ToMove( sasite),
                                                         new KyokumenWrapper( SkyConst.NewInstance(
                                                             sky_newChild,
                                                             mainGui.Model_Manual.GuiTemezumi + 1//1手進ませる。
@@ -399,7 +400,9 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                     //    "デバッグ");
 
                                                     //マウスの左ボタンを放したときです。
-                                                    string sasiteStr = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(newNode.Key);
+                                                    string sasiteStr = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(
+                                                        Conv_Move.ToSasite( newNode.Key)
+                                                        );
                                                     if (!((KifuNode)mainGui.Link_Server.Model_Taikyoku.Kifu.CurNode).HasTuginoitte(sasiteStr))
                                                     {
                                                         //----------------------------------------
@@ -480,7 +483,7 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                 case MouseEventStateName.MouseLeftButtonUp:
                                     {
                                         #region マウス左ボタンアップ
-                                        Node<Starbeamable, KyokumenWrapper> siteiNode = mainGui.Link_Server.Model_Taikyoku.Kifu.CurNode;
+                                        Node<Move, KyokumenWrapper> siteiNode = mainGui.Link_Server.Model_Taikyoku.Kifu.CurNode;
                                         SkyConst src_Sky = mainGui.Model_Manual.GuiSkyConst;
 
 
@@ -530,13 +533,13 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
 
                                                         Starbeamable last;
                                                         {
-                                                            last = siteiNode.Key;
+                                                            last = Conv_Move.ToSasite( siteiNode.Key);
                                                         }
                                                         //ShootingStarlightable previousSasite = last; //符号の追加が行われる前に退避
 
-                                                        Node<Starbeamable, KyokumenWrapper> newNode =
+                                                        Node<Move, KyokumenWrapper> newNode =
                                                             new KifuNodeImpl(
-                                                                sasite,
+                                                                Conv_SasiteStr_Sfen.ToMove( sasite),
                                                                 new KyokumenWrapper(SkyConst.NewInstance(
                                                                     src_Sky,
                                                                     mainGui.Model_Manual.GuiTemezumi + 1//1手進ませる。

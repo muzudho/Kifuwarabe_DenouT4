@@ -20,7 +20,7 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
         /// <returns></returns>
         public static Maps_OneAndMulti<Finger, Starbeamable> ToKomaBETUAllSasites(
             List_OneAndMulti<Finger, SySet<SyElement>> komaBETUSusumeruMasus,
-            SkyConst src_Sky//Node<Starbeamable, KyokumenWrapper> siteiNode
+            SkyConst src_Sky//Node<Move, KyokumenWrapper> siteiNode
             )
         {
             Maps_OneAndMulti<Finger, Starbeamable> result_komabetuAllSasite = new Maps_OneAndMulti<Finger, Starbeamable>();

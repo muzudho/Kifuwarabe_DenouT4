@@ -17,17 +17,21 @@ using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P250_KomahaiyaEx.L500____Util;
 using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 {
     public static class Util_Sky258A
     {
 
+        /*
         public static readonly Starbeamable ROOT_SASITE = new RO_Starbeam(
             new RO_Star(Playerside.Empty, Masu_Honshogi.Query_Basho(Masu_Honshogi.nError), Komasyurui14.H00_Null___),
             new RO_Star(Playerside.Empty, Masu_Honshogi.Query_Basho(Masu_Honshogi.nError), Komasyurui14.H00_Null___),
             null
             );
+            */
 
         public static readonly Starbeamable NULL_OBJECT_SASITE = new RO_Starbeam(
             new RO_Star(Playerside.Empty, Masu_Honshogi.Query_Basho(Masu_Honshogi.nError), Komasyurui14.H00_Null___),
@@ -259,18 +263,18 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         /// <returns>駒毎の、全指し手</returns>
         public static Maps_OneAndMulti<Finger, Starbeamable> SplitSasite_ByStar(
             SkyConst src_Sky,
-            Node<Starbeamable, KyokumenWrapper> hubNode, KwErrorHandler errH)
+            Node<Move, KyokumenWrapper> hubNode, KwErrorHandler errH)
         {
             Maps_OneAndMulti<Finger, Starbeamable> enable_teMap = new Maps_OneAndMulti<Finger, Starbeamable>();
 
 
-            hubNode.Foreach_ChildNodes((string key, Node<Starbeamable, KyokumenWrapper> nextNode, ref bool toBreak) =>
+            hubNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> nextNode, ref bool toBreak) =>
             {
-                Starbeamable nextSasite = nextNode.Key;
+                Starbeamable nextSasiteOld = Conv_Move.ToSasite( nextNode.Key);
 
-                Finger figKoma = Util_Sky_FingersQuery.InMasuNow(src_Sky, Util_Starlightable.AsKoma(nextSasite.LongTimeAgo).Masu).ToFirst();
+                Finger figKoma = Util_Sky_FingersQuery.InMasuNow(src_Sky, Util_Starlightable.AsKoma(nextSasiteOld.LongTimeAgo).Masu).ToFirst();
 
-                enable_teMap.Put_NewOrOverwrite(figKoma, nextSasite);
+                enable_teMap.Put_NewOrOverwrite(figKoma, nextSasiteOld);
             });
 
             return enable_teMap;

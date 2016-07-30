@@ -4,6 +4,8 @@ namespace Grayscale.P218_Starlight__.L___500_Struct
 {
 
     /// <summary>
+    /// TODO: Moveに置き換えていきたい。
+    /// 
     /// 指し手。
     /// 
     /// 「移動前の星」「移動後の星」「取った駒」です。

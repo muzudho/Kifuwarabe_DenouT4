@@ -17,6 +17,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
+using Grayscale.P335_Move_______.L___500_Struct;
 
 namespace Grayscale.P743_FvLearn____.L480____Functions
 {
@@ -174,7 +175,7 @@ namespace Grayscale.P743_FvLearn____.L480____Functions
             //
             // 合法手一覧
             //
-            uc_Main.LearningData.Kifu.CurNode.Foreach_ChildNodes((string key, Node<Starbeamable, KyokumenWrapper> node, ref bool toBreak) =>
+            uc_Main.LearningData.Kifu.CurNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
             {
                 // 本譜手はまだ計算しない。
                 if (key == sfenSasiteStr)

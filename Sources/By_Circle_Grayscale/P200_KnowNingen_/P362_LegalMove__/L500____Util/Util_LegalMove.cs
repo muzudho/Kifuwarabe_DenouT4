@@ -27,6 +27,8 @@ using Grayscale.P361_Util_______.L500____Util;
 using System;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P362_LegalMove__.L500____Util
 {
@@ -59,7 +61,7 @@ namespace Grayscale.P362_LegalMove__.L500____Util
             string hint,
             KwErrorHandler errH)
         {
-            Node<Starbeamable, KyokumenWrapper> hubNode = Conv_StarbetuSasites.ToNextNodes_AsHubNode(
+            Node<Move, KyokumenWrapper> hubNode = Conv_StarbetuSasites.ToNextNodes_AsHubNode(
                 genTeban_komabetuAllSasite1,
                 src_Sky,
                 errH
@@ -119,7 +121,7 @@ namespace Grayscale.P362_LegalMove__.L500____Util
             return starbetuSusumuMasus;
         }
         private static void Log1(
-            Node<Starbeamable, KyokumenWrapper> hubNode,
+            Node<Move, KyokumenWrapper> hubNode,
             int temezumi_yomiGenTeban,
             string hint,
             KwErrorHandler errH
@@ -139,7 +141,7 @@ namespace Grayscale.P362_LegalMove__.L500____Util
         /// </summary>
         public static void LAA_RemoveNextNode_IfMate(
             int yomikaisiTemezumi,
-            Node<Starbeamable, KyokumenWrapper> hubNode,
+            Node<Move, KyokumenWrapper> hubNode,
             int temezumi_yomiGenTeban_forLog,//読み進めている現在の手目
             Playerside pside_genTeban,
 
@@ -151,9 +153,9 @@ namespace Grayscale.P362_LegalMove__.L500____Util
             )
         {
             // Node<,>の形で。
-            Dictionary<string, Node<Starbeamable, KyokumenWrapper>> newNextNodes = new Dictionary<string, Node<Starbeamable, KyokumenWrapper>>();
+            Dictionary<string, Node<Move, KyokumenWrapper>> newNextNodes = new Dictionary<string, Node<Move, KyokumenWrapper>>();
 
-            hubNode.Foreach_ChildNodes((string key, Node<Starbeamable, KyokumenWrapper> node, ref bool toBreak) =>
+            hubNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
             {
                 System.Diagnostics.Debug.Assert(node.Key != null);//指し手がヌルなはず無いはず。
 
@@ -166,7 +168,7 @@ namespace Grayscale.P362_LegalMove__.L500____Util
 #if DEBUG
                     logF_kiki,
 #endif
-                    node.Key,
+                    Conv_Move.ToSasite( node.Key),
                     errH
                     );
 

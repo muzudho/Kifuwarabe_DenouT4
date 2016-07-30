@@ -23,6 +23,8 @@ using Grayscale.P693_ShogiGui___.L060____TextBoxListener;
 using Grayscale.P693_ShogiGui___.P703_ShogiGui___.L101____Conv;
 using System.Drawing;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P693_ShogiGui___.L249____Function
 {
@@ -41,7 +43,7 @@ namespace Grayscale.P693_ShogiGui___.L249____Function
             Playerside firstPside = Playerside.P1;
 
             KifuNode newNode = new KifuNodeImpl(
-                                        Util_Sky258A.ROOT_SASITE,//ルートなので
+                                        Conv_SasiteStr_Sfen.ToMove( Util_Sky258A.NULL_OBJECT_SASITE),//ルートなので
                                         new KyokumenWrapper(Util_SkyWriter.New_Hirate(firstPside))//[初期配置]ボタン押下時
                                         );
 
@@ -115,7 +117,7 @@ namespace Grayscale.P693_ShogiGui___.L249____Function
             // 符号表示
             //------------------------------
             {
-                Node<Starbeamable, KyokumenWrapper> node6 = shogiGui.Link_Server.Model_Taikyoku.Kifu.CurNode;
+                Node<Move, KyokumenWrapper> node6 = shogiGui.Link_Server.Model_Taikyoku.Kifu.CurNode;
 
                 // [コマ送り][再生]ボタン
                 string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(node6,errH);

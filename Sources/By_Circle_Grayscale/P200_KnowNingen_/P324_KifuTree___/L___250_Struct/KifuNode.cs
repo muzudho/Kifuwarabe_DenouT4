@@ -3,6 +3,7 @@ using Grayscale.P218_Starlight__.L___500_Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P321_KyokumHyoka.L___250_Struct;
+using Grayscale.P335_Move_______.L___500_Struct;
 
 
 namespace Grayscale.P324_KifuTree___.L___250_Struct
@@ -11,7 +12,7 @@ namespace Grayscale.P324_KifuTree___.L___250_Struct
     /// <summary>
     /// 棋譜ノード。
     /// </summary>
-    public interface KifuNode : Node<Starbeamable, KyokumenWrapper>
+    public interface KifuNode : Node<Move, KyokumenWrapper>
     {
 
         #region プロパティー
@@ -42,7 +43,7 @@ namespace Grayscale.P324_KifuTree___.L___250_Struct
 
 
         //void PutAppdendNextNodes(
-        //    Node<Starbeamable, KyokumenWrapper> hubNode
+        //    Node<Move, KyokumenWrapper> hubNode
         //    );
 
 
@@ -59,18 +60,18 @@ namespace Grayscale.P324_KifuTree___.L___250_Struct
         /// 
         /// カレントノードは変更しません。
         /// </summary>
-        void PutTuginoitte_New(Node<Starbeamable, KyokumenWrapper> newNode);
+        void PutTuginoitte_New(Node<Move, KyokumenWrapper> newNode);
         /// <summary>
         /// 既存の子要素を上書きします。
         /// </summary>
         /// <param name="existsNode"></param>
-        void PutTuginoitte_Override(Node<Starbeamable, KyokumenWrapper> existsNode);
+        void PutTuginoitte_Override(Node<Move, KyokumenWrapper> existsNode);
         bool HasTuginoitte(string sasiteStr);
 
         ///// <summary>
         ///// 王手がかかった局面は取り除きます。
         ///// </summary>
-        //Maps_OneAndMulti<Finger, Starbeamable> SplitSasite_ByStar(Node<Starbeamable, KyokumenWrapper> hubNode, KwErrorHandler errH);
+        //Maps_OneAndMulti<Finger, Starbeamable> SplitSasite_ByStar(Node<Move, KyokumenWrapper> hubNode, KwErrorHandler errH);
 
         string Json_NextNodes_MultiSky(
             string memo,

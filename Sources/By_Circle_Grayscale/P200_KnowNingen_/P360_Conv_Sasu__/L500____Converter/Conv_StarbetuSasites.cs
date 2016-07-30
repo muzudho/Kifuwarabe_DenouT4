@@ -28,11 +28,13 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
         /// <returns>次の局面一覧を持った、入れ物ノード（ハブ・ノード）</returns>
         public static KifuNode ToNextNodes_AsHubNode(
             Maps_OneAndMulti<Finger,Starbeamable> komabetuAllSasite,
-            SkyConst src_Sky,//Node<Starbeamable, KyokumenWrapper> to_parentNode,//親となる予定のノード
+            SkyConst src_Sky,//Node<Move, KyokumenWrapper> to_parentNode,//親となる予定のノード
             KwErrorHandler errH
             )
         {
-            KifuNode hubNode = new KifuNodeImpl( null, null);//蝶番
+            KifuNode hubNode = new KifuNodeImpl(
+                Conv_SasiteStr_Sfen.ToMove( null),
+                null);//蝶番
 
 #if DEBUG
             string dump = komabetuAllSasite.Dump();
@@ -53,7 +55,10 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
                     else
                     {
                         // 指したあとの次の局面を作るだけ☆
-                        hubNode.PutAdd_ChildNode(Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(sasite), new KifuNodeImpl(sasite, new KyokumenWrapper(
+                        hubNode.PutAdd_ChildNode(Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(sasite),
+                            new KifuNodeImpl(
+                                Conv_SasiteStr_Sfen.ToMove( sasite),
+                                new KyokumenWrapper(
                             Util_Sasu341.Sasu(
                                 src_Sky,// to_parentNode.Value.ToKyokumenConst,//指定局面
                                 figKoma,//動かす駒

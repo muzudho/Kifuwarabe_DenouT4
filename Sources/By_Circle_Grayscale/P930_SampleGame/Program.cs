@@ -11,9 +11,10 @@ using Grayscale.P575_KifuWarabe_.L100____Shogisasi;
 using Grayscale.P575_KifuWarabe_.L500____KifuWarabe;
 using Grayscale.P339_ConvKyokume.L500____Converter;
 using Grayscale.P218_Starlight__.L___500_Struct;
-using Grayscale.P335_Move.L___500_Struct;
+using Grayscale.P335_Move_______.L___500_Struct;
 using System;
 using System.Windows.Forms;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace P930_SampleGame
 {
@@ -39,13 +40,13 @@ namespace P930_SampleGame
             // 棋譜
             KifuTree kifu = new KifuTreeImpl(
                         new KifuNodeImpl(
-                            Util_Sky258A.ROOT_SASITE,
+                            Conv_SasiteStr_Sfen.ToMove( Util_Sky258A.NULL_OBJECT_SASITE),
                             new KyokumenWrapper(Util_SkyWriter.New_Hirate(Playerside.P1))//日本の符号読取時
                         )
                 );
 
             KifuNode bestmoveNode = shogisasi.WA_Bestmove(true, kifu, errH);
-            Starbeamable bestSasite = bestmoveNode.Key;
+            Starbeamable bestSasite = Conv_Move.ToSasite(bestmoveNode.Key);
             string sfenTextA = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(bestSasite);
 
             Move move = Conv_SasiteStr_Sfen.ToMove(bestSasite);

@@ -27,7 +27,7 @@ using Grayscale.P353_Conv_SasuEx.L500____Converter;
 using Grayscale.P202_GraphicLog_.L500____Util;
 using Grayscale.P554_TansaFukasa.L___500_Struct;
 using Grayscale.P550_timeMan____.L___500_struct__;
-
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 #if DEBUG
 using Grayscale.P266_KyokumMoves.L250____Log;
@@ -348,7 +348,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
         {
             out_sasitebetuEntry = Tansaku_FukasaYusen_Routine.WAAAA_Create_ChildNodes(
                 genjo,
-                node_yomi.Key,
+                Conv_Move.ToSasite( node_yomi.Key),
                 node_yomi.Value.KyokumenConst,
                 errH);
 
@@ -716,6 +716,8 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                         errH
                     );
 
+                    exceptionArea = 42;
+
                     //----------------------------------------
                     // 成りの指し手を作成します。（拡張）
                     //----------------------------------------
@@ -724,8 +726,10 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                         sasitebetuEntry,
                         errH);
 
+                    exceptionArea = 44;
+
                     // マージ
-                    foreach(KeyValuePair<string, SasuEntry> entry in b_sasitebetuEntry)
+                    foreach (KeyValuePair<string, SasuEntry> entry in b_sasitebetuEntry)
                     {
                         if (!sasitebetuEntry.ContainsKey(entry.Key))
                         {
@@ -779,7 +783,15 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                         }
                     case 40:
                         {
-                            errH.DonimoNaranAkirameta(ex, "王手局面除去後に成りの指し手を追加していた時です。"); throw ex;
+                            errH.DonimoNaranAkirameta(ex, "王手局面除去後に成りの指し手を追加していた時です。４０。"); throw ex;
+                        }
+                    case 42:
+                        {
+                            errH.DonimoNaranAkirameta(ex, "王手局面除去後に成りの指し手を追加していた時です。４２。"); throw ex;
+                        }
+                    case 44:
+                        {
+                            errH.DonimoNaranAkirameta(ex, "王手局面除去後に成りの指し手を追加していた時です。４４。"); throw ex;
                         }
                     case 50:
                         {

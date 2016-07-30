@@ -9,10 +9,11 @@ using Grayscale.P321_KyokumHyoka.L250____Struct;
 using Grayscale.P324_KifuTree___.L___250_Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
 using System.Text;
+using Grayscale.P335_Move_______.L___500_Struct;
 
 namespace Grayscale.P324_KifuTree___.L250____Struct
 {
-    public class KifuNodeImpl : NodeImpl<Starbeamable, KyokumenWrapper>, KifuNode
+    public class KifuNodeImpl : NodeImpl<Move, KyokumenWrapper>, KifuNode
     {
         #region プロパティー
 
@@ -57,7 +58,7 @@ namespace Grayscale.P324_KifuTree___.L250____Struct
         /// </summary>
         /// <param name="shootingStarlightable"></param>
         /// <param name="kyokumenWrapper"></param>
-        public KifuNodeImpl(Starbeamable shootingStarlightable, KyokumenWrapper kyokumenWrapper)
+        public KifuNodeImpl(Move shootingStarlightable, KyokumenWrapper kyokumenWrapper)
             : base(shootingStarlightable, kyokumenWrapper)
         {
             this.kyHyokaSheet = new KyHyokaSheetImpl();
@@ -68,11 +69,11 @@ namespace Grayscale.P324_KifuTree___.L250____Struct
         ///// </summary>
         ///// <param name="hubNode">追加したいノードの一覧を入れたリスト。</param>
         //public void PutAppdendNextNodes(
-        //    Node<Starbeamable, KyokumenWrapper> hubNode
+        //    Node<Move, KyokumenWrapper> hubNode
         //    )
         //{
 
-        //    hubNode.Foreach_ChildNodes((string key, Node<Starbeamable, KyokumenWrapper> node, ref bool toBreak) =>
+        //    hubNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
         //    {
         //        if (!this.ContainsKey_ChildNodes(key))
         //        {
@@ -102,7 +103,7 @@ namespace Grayscale.P324_KifuTree___.L250____Struct
         /// カレントノードは変更しません。
         /// </summary>
         public void PutTuginoitte_New(
-            Node<Starbeamable, KyokumenWrapper> newNode
+            Node<Move, KyokumenWrapper> newNode
             )
         {
             // 同じ指し手があれば追加してはいけない？
@@ -115,7 +116,9 @@ namespace Grayscale.P324_KifuTree___.L250____Struct
                 );
 #endif
             // SFENをキーに、次ノードを増やします。
-            this.PutAdd_ChildNode(Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(newNode.Key), newNode);
+
+            Starbeamable sasiteOld = Conv_Move.ToSasite(newNode.Key);
+            this.PutAdd_ChildNode(Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(sasiteOld), newNode);
             //手番はここでは変更できない。
 
             newNode.SetParentNode( this);
@@ -125,11 +128,13 @@ namespace Grayscale.P324_KifuTree___.L250____Struct
         /// </summary>
         /// <param name="existsNode"></param>
         public void PutTuginoitte_Override(
-            Node<Starbeamable, KyokumenWrapper> existsNode
+            Node<Move, KyokumenWrapper> existsNode
             )
         {
+            Starbeamable sasiteOld = Conv_Move.ToSasite(existsNode.Key);
+
             // SFENをキーに、次ノードを増やします。
-            this.NextNodes[Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(existsNode.Key)] = existsNode;
+            this.NextNodes[Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(sasiteOld)] = existsNode;
             existsNode.SetParentNode( this);
         }
 
@@ -141,7 +146,7 @@ namespace Grayscale.P324_KifuTree___.L250____Struct
         {
             StringBuilder sb = new StringBuilder();
 
-            this.Foreach_ChildNodes((string key, Node<Starbeamable, KyokumenWrapper> node, ref bool toBreak) =>
+            this.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
             {
                 sb.AppendLine(Util_Sky307.Json_1Sky(
                     node.Value.KyokumenConst,
@@ -175,7 +180,7 @@ namespace Grayscale.P324_KifuTree___.L250____Struct
 
         //        if (currentDeep <= limitDeep)
         //        {
-        //            this.Foreach_ChildNodes((string key, Node<Starbeamable, KyokumenWrapper> node, ref bool toBreak) =>
+        //            this.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
         //            {
         //                ((KifuNode)node).CreateAllFolders(
         //                    folderpath,

@@ -45,7 +45,8 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P031_usiFrame1__.L___250_UsiLoop;
-using Grayscale.P335_Move.L___500_Struct;
+using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 #if DEBUG
 using Grayscale.P157_KyokumenPng.L___500_Struct;
@@ -200,7 +201,7 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
                 // FIXME:平手とは限らないが、平手という前提で作っておく。
                 this.SetKifu_AtLoop2(new KifuTreeImpl(
                         new KifuNodeImpl(
-                            Util_Sky258A.ROOT_SASITE,
+                            Conv_SasiteStr_Sfen.ToMove( Util_Sky258A.NULL_OBJECT_SASITE),
                             new KyokumenWrapper(SkyConst.NewInstance(
                                     Util_SkyWriter.New_Hirate(firstPside),
                                     0 // 初期局面は 0手目済み
@@ -1023,7 +1024,7 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
                             }
                             else
                             {
-                                bestSasite2 = bestKifuNode.Key;
+                                bestSasite2 = Conv_Move.ToSasite(bestKifuNode.Key);
                             }
 
                             exceptionArea = 2400;
@@ -1319,15 +1320,16 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
             sb.Append("ログだせ～（＾▽＾）");
 
             this.Kifu_AtLoop2.ForeachZenpuku(
-                this.Kifu_AtLoop2.GetRoot(), (int temezumi, KyokumenWrapper sky, Node<Starbeamable, KyokumenWrapper> node, ref bool toBreak) =>
+                this.Kifu_AtLoop2.GetRoot(), (int temezumi, KyokumenWrapper sky, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
                 {
                         //sb.AppendLine("(^-^)");
 
-                        if (null != node)
+                    if (null != node)
                     {
-                        if (null != node.Key)
+                        Starbeamable sasiteOld = Conv_Move.ToSasite(node.Key);
+                        if (Util_Sky258A.NULL_OBJECT_SASITE != sasiteOld)
                         {
-                            string sfenText = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(node.Key);
+                            string sfenText = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(sasiteOld);
                             sb.Append(sfenText);
                             sb.AppendLine();
                         }

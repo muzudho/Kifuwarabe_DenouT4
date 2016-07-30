@@ -9,6 +9,7 @@ using Grayscale.P324_KifuTree___.L250____Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Grayscale.P335_Move_______.L___500_Struct;
 
 namespace Grayscale.P341_Ittesasu___.L125____UtilB
 {
@@ -46,13 +47,14 @@ namespace Grayscale.P341_Ittesasu___.L125____UtilB
             //----------------------------------------
             // 本譜の手
             //----------------------------------------
-            string sasiteStr = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(kifu_mutable.CurNode.Key);
+            Starbeamable sasiteOld = Conv_Move.ToSasite(kifu_mutable.CurNode.Key);
+            string sasiteStr = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(sasiteOld);
 
 
             //----------------------------------------
             // １手前の分岐点
             //----------------------------------------
-            Node<Starbeamable, KyokumenWrapper> parentNode = kifu_mutable.CurNode.GetParentNode();
+            Node<Move, KyokumenWrapper> parentNode = kifu_mutable.CurNode.GetParentNode();
 
             //----------------------------------------
             // 選ばなかった変化を、ここに入れます。
@@ -62,7 +64,7 @@ namespace Grayscale.P341_Ittesasu___.L125____UtilB
             //----------------------------------------
             // 選んだ変化と、選ばなかった変化の一覧
             //----------------------------------------
-            parentNode.Foreach_ChildNodes((string key1, Node<Starbeamable, KyokumenWrapper> nextNode1, ref bool toBreak1) =>
+            parentNode.Foreach_ChildNodes((string key1, Node<Move, KyokumenWrapper> nextNode1, ref bool toBreak1) =>
             {
                 if (key1 == sasiteStr)
                 {
@@ -113,7 +115,8 @@ namespace Grayscale.P341_Ittesasu___.L125____UtilB
             KwErrorHandler errH
             )
         {
-            string sasiteStr = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(nextNode_and_nextCurrent.Key);
+            Starbeamable sasiteOld = Conv_Move.ToSasite(nextNode_and_nextCurrent.Key);
+            string sasiteStr = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(sasiteOld);
 
             if (!((KifuNode)kifuRef.CurNode).HasTuginoitte(sasiteStr))
             {

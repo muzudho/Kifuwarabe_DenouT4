@@ -16,6 +16,8 @@ using Grayscale.P258_UtilSky258_.L505____ConvLogJson;
 using System.Collections.Generic;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P258_UtilSky258_.L510____UtilLogJson
 {
@@ -81,7 +83,7 @@ namespace Grayscale.P258_UtilSky258_.L510____UtilLogJson
         /// <param name="comment"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static string JsonElements_Node(bool enableLog, SkyConst src_Sky_base, Node<Starbeamable, KyokumenWrapper> thisNode, string comment, KwErrorHandler errH)
+        public static string JsonElements_Node(bool enableLog, SkyConst src_Sky_base, Node<Move, KyokumenWrapper> thisNode, string comment, KwErrorHandler errH)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -90,10 +92,10 @@ namespace Grayscale.P258_UtilSky258_.L510____UtilLogJson
                 goto gt_EndMethod;
             }
 
-            Starbeamable sasite = thisNode.Key;
+            Starbeamable sasiteOld = Conv_Move.ToSasite( thisNode.Key);
 
-            RO_Star srcKoma = Util_Starlightable.AsKoma(sasite.LongTimeAgo);
-            RO_Star dstKoma = Util_Starlightable.AsKoma(sasite.Now);
+            RO_Star srcKoma = Util_Starlightable.AsKoma(sasiteOld.LongTimeAgo);
+            RO_Star dstKoma = Util_Starlightable.AsKoma(sasiteOld.Now);
 
 
             Finger finger = Util_Sky_FingersQuery.InMasuNow(src_Sky_base, srcKoma.Masu).ToFirst();
@@ -132,7 +134,7 @@ namespace Grayscale.P258_UtilSky258_.L510____UtilLogJson
         /// <param name="comment"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static string JsonKyokumens_NextNodes(bool enableLog, SkyConst src_Sky_base, Node<Starbeamable, KyokumenWrapper> hubNode, string comment, KwErrorHandler errH)
+        public static string JsonKyokumens_NextNodes(bool enableLog, SkyConst src_Sky_base, Node<Move, KyokumenWrapper> hubNode, string comment, KwErrorHandler errH)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -141,12 +143,12 @@ namespace Grayscale.P258_UtilSky258_.L510____UtilLogJson
                 goto gt_EndMethod;
             }
 
-            hubNode.Foreach_ChildNodes((string key, Node<Starbeamable, KyokumenWrapper> node, ref bool toBreak) =>
+            hubNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
             {
-                Starbeamable sasite = node.Key;
+                Starbeamable sasiteOld = Conv_Move.ToSasite( node.Key);
 
-                RO_Star srcKoma1 = Util_Starlightable.AsKoma(sasite.LongTimeAgo);
-                RO_Star dstKoma = Util_Starlightable.AsKoma(sasite.Now);
+                RO_Star srcKoma1 = Util_Starlightable.AsKoma(sasiteOld.LongTimeAgo);
+                RO_Star dstKoma = Util_Starlightable.AsKoma(sasiteOld.Now);
 
 
                 Finger srcKoma2 = Util_Sky_FingersQuery.InMasuNow(src_Sky_base, srcKoma1.Masu).ToFirst();

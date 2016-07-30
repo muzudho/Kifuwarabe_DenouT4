@@ -20,6 +20,8 @@ using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using Grayscale.P324_KifuTree___.L___250_Struct;
 using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P341_Ittesasu___.L500____UtilA
 {
@@ -53,7 +55,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
             KwErrorHandler errH
             )
         {
-            Node<Starbeamable, KyokumenWrapper> siteiNode = kifu.CurNode;
+            Node<Move, KyokumenWrapper> siteiNode = kifu.CurNode;
             SkyConst src_Sky = siteiNode.Value.KyokumenConst;
 
             //------------------------------
@@ -79,7 +81,9 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
             {
                 // 1手前の筋、段を求めるのに使います。
 
-                RO_Star koma = Util_Starlightable.AsKoma(siteiNode.Key.Now);
+                RO_Star koma = Util_Starlightable.AsKoma(
+                    Conv_Move.ToSasite( siteiNode.Key).Now
+                    );
 
                     dstMasu = koma.Masu;
             }

@@ -24,6 +24,7 @@ using Grayscale.P212_ConvPside__.L500____Converter;
 using Grayscale.P239_ConvWords__.L500____Converter;
 using Grayscale.P211_WordShogi__.L___250_Masu;
 using Grayscale.P055_Conv_Sy.L500____Converter;
+using Grayscale.P335_Move_______.L___500_Struct;
 
 #if DEBUG
 using System.Diagnostics;
@@ -56,7 +57,7 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
         {
             sasite = Util_Sky258A.NULL_OBJECT_SASITE;
 
-            Node<Starbeamable, KyokumenWrapper> siteiNode = kifu.CurNode;
+            Node<Move, KyokumenWrapper> siteiNode = kifu.CurNode;
             SkyConst src_Sky = siteiNode.Value.KyokumenConst;
             //kifu.AssertPside(kifu.CurNode, "str1=" + str1, errH);
             Playerside pside1 = src_Sky.KaisiPside;

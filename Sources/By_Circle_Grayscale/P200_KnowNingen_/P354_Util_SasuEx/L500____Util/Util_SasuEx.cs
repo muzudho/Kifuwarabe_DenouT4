@@ -85,7 +85,7 @@ namespace Grayscale.P354_Util_SasuEx.L500____Util
                     ;
                 }
 
-                //hubNode.Foreach_ChildNodes((string key, Node<Starbeamable, KyokumenWrapper> nextNode, ref bool toBreak) =>
+                //hubNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> nextNode, ref bool toBreak) =>
                 //{
                 //});
 

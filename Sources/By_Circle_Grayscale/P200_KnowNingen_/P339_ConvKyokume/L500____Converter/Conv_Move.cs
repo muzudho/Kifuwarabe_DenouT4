@@ -8,9 +8,10 @@ using Grayscale.P218_Starlight__.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P234_Komahaiyaku.L500____Util;
 using Grayscale.P238_Seiza______.L250____Struct;
-using Grayscale.P335_Move.L___500_Struct;
+using Grayscale.P335_Move_______.L___500_Struct;
 using System;
 using System.Text;
+using Grayscale.P258_UtilSky258_.L500____UtilSky;
 
 namespace Grayscale.P339_ConvKyokume.L500____Converter
 {
@@ -166,10 +167,21 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
 
         public static Starbeamable ToSasite(Move move)
         {
-            // TODO: エラーチェック
-            // 無視
-
             int v = (int)move;              // バリュー
+
+
+            // TODO: エラーチェック
+            int errorCheck;
+            {
+                int m = (int)MoveMask.ErrorCheck;  // マスク
+                int s = (int)MoveShift.ErrorCheck;   // シフト
+                errorCheck = (v & m) >> s;
+            }
+            if (0!= errorCheck)
+            {
+                return Util_Sky258A.NULL_OBJECT_SASITE;
+            }
+
 
             // 自筋
             int srcSuji;

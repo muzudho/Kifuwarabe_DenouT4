@@ -11,6 +11,8 @@ using Grayscale.P239_ConvWords__.L500____Converter;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P292_JsaFugo____.L250____Struct;
 using System.Text;
+using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P292_JsaFugo____.L500____Util
 {
@@ -93,13 +95,13 @@ namespace Grayscale.P292_JsaFugo____.L500____Util
         /// <returns></returns>
         public static string ToString_UseDou(
             JsaFugoImpl jsaFugo,
-            Node<Starbeamable, KyokumenWrapper> siteiNode
+            Node<Move, KyokumenWrapper> siteiNode
             )
         {
             StringBuilder sb = new StringBuilder();
 
-
-            Starbeamable curSasite = siteiNode.Key;
+            
+            Starbeamable curSasite = Conv_Move.ToSasite(siteiNode.Key);
             RO_Star curSrcKoma = Util_Starlightable.AsKoma(curSasite.LongTimeAgo);
             RO_Star curDstKoma = Util_Starlightable.AsKoma(curSasite.Now);
 
@@ -111,7 +113,7 @@ namespace Grayscale.P292_JsaFugo____.L500____Util
             //------------------------------
             if (!siteiNode.IsRoot())
             {
-                Starbeamable preSasite = siteiNode.GetParentNode().Key;
+                Starbeamable preSasite = Conv_Move.ToSasite(siteiNode.GetParentNode().Key);
                 if (null != preSasite)
                 {
                     //RO_Star_Koma preSrcKoma = Util_Starlightable.AsKoma(preSasite.LongTimeAgo);

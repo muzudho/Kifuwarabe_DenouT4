@@ -4,6 +4,7 @@ using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P324_KifuTree___.L___250_Struct;
 using Grayscale.P324_KifuTree___.L250____Struct;
 using Grayscale.P341_Ittesasu___.L510____OperationB;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P353_Conv_SasuEx.L500____Converter
 {
@@ -23,7 +24,9 @@ namespace Grayscale.P353_Conv_SasuEx.L500____Converter
             KwErrorHandler errH
             )
         {
-            return new KifuNodeImpl(sasuEntry.NewSasite, new KyokumenWrapper(
+            return new KifuNodeImpl(
+                Conv_SasiteStr_Sfen.ToMove( sasuEntry.NewSasite),
+                new KyokumenWrapper(
                 Util_Sasu341.Sasu(
                     src_Sky,//指定局面
                     sasuEntry.Finger,//指す駒

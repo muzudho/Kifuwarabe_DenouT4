@@ -23,6 +23,8 @@ using Grayscale.P743_FvLearn____.L470____StartZero;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 #if DEBUG || LEARN
 using Grayscale.P523_UtilFv_____.L480____UtilFvEdit;
@@ -65,7 +67,7 @@ namespace Grayscale.P743_FvLearn____.L600____Operation
                     errH.Logger.WriteLine_AddMemo("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(uc_Main.LearningData.Fv));
                     errH.Logger.WriteLine_AddMemo("----------------------------------------");
 #endif
-                    Node<Starbeamable, KyokumenWrapper> nextNode = uc_Main.LearningData.Kifu.CurNode.GetChildNode(sfenSasiteStr);
+                    Node<Move, KyokumenWrapper> nextNode = uc_Main.LearningData.Kifu.CurNode.GetChildNode(sfenSasiteStr);
 
                     // 盤上の駒、持駒を数えます。
                     N54List nextNode_n54List = Util_54List.Calc_54List(nextNode.Value.KyokumenConst, errH);
@@ -97,7 +99,7 @@ namespace Grayscale.P743_FvLearn____.L600____Operation
             // ネクスト・ノードを再作成
             //----------------------------------------
             // TODO:本譜のネクスト・ノードは？
-            uc_Main.LearningData.Aa_Yomi(uc_Main.LearningData.Kifu.CurNode.Key, Util_OwataMinister.LEARNER);
+            uc_Main.LearningData.Aa_Yomi(Conv_Move.ToSasite( uc_Main.LearningData.Kifu.CurNode.Key), Util_OwataMinister.LEARNER);
         }
 
 
@@ -298,7 +300,7 @@ namespace Grayscale.P743_FvLearn____.L600____Operation
             Util_LearnOperation.Load_CsaKifu(uc_Main,errH);
 
             // 合法手を調べます。
-            uc_Main.LearningData.Aa_Yomi(uc_Main.LearningData.Kifu.CurNode.Key, errH);
+            uc_Main.LearningData.Aa_Yomi(Conv_Move.ToSasite( uc_Main.LearningData.Kifu.CurNode.Key), errH);
             // ノード情報の表示
             Util_LearningView.Aa_ShowNode2(uc_Main.LearningData, uc_Main, Util_OwataMinister.LEARNER);
 

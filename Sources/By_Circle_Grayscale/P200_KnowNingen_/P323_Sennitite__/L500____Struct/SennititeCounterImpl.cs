@@ -181,8 +181,8 @@ namespace Grayscale.P323_Sennitite__.L500____Struct
         //    //----------------------------------------
         //    // 初手から、全ノードを取得
         //    //----------------------------------------
-        //    Node<Starbeamable, KyokumenWrapper> node1 = kifuTree.GetRoot();
-        //    List<Node<Starbeamable, KyokumenWrapper>> nodeList = new List<Node<Starbeamable, KyokumenWrapper>>();
+        //    Node<Move, KyokumenWrapper> node1 = kifuTree.GetRoot();
+        //    List<Node<Move, KyokumenWrapper>> nodeList = new List<Node<Move, KyokumenWrapper>>();
         //    this.Recursive(node1, nodeList);
 
         //    //----------------------------------------
@@ -192,9 +192,9 @@ namespace Grayscale.P323_Sennitite__.L500____Struct
 
         //}
 
-        //private void Recursive(Node<Starbeamable, KyokumenWrapper> node1, List<Node<Starbeamable, KyokumenWrapper>> nodeList)
+        //private void Recursive(Node<Move, KyokumenWrapper> node1, List<Node<Move, KyokumenWrapper>> nodeList)
         //{
-        //    node1.Foreach_ChildNodes((string key2, Node<Starbeamable, KyokumenWrapper> node2, ref bool toBreak2) =>
+        //    node1.Foreach_ChildNodes((string key2, Node<Move, KyokumenWrapper> node2, ref bool toBreak2) =>
         //    {
         //        nodeList.Add(node2);
         //        this.Recursive(node2, nodeList);

@@ -15,6 +15,7 @@ using Grayscale.P339_ConvKyokume.L500____Converter;
 using Grayscale.P353_Conv_SasuEx.L500____Converter;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P335_Move_______.L___500_Struct;
 
 namespace Grayscale.P360_Conv_Sasu__.L500____Converter
 {
@@ -30,7 +31,7 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
         /// <returns></returns>
         public static Maps_OneAndMulti<Finger, Starbeamable> ToKomabetuSasite(
             Maps_OneAndOne<Finger, SySet<SyElement>> kmDic_Self,
-            Node<Starbeamable, KyokumenWrapper> siteiNode_genzai
+            Node<Move, KyokumenWrapper> siteiNode_genzai
             )
         {
 
@@ -97,7 +98,6 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
                 {
 
                     Starbeamable sasite = Util_Sky258A.BuildSasite(
-                        //key,
                         new RO_Star(src_Sky.KaisiPside, koma.Masu, koma.Haiyaku),
                         new RO_Star(src_Sky.KaisiPside, dstMasu, koma.Haiyaku),//FIXME:配役は適当。
                         Komasyurui14.H00_Null___

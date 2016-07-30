@@ -30,6 +30,7 @@ using System.Diagnostics;
 using System.Text;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P335_Move_______.L___500_Struct;
 
 namespace Grayscale.P743_FvLearn____.L260____View
 {
@@ -54,7 +55,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
             Playerside firstPside = Playerside.P1;
             KifuTree kifu1 = new KifuTreeImpl(
                 new KifuNodeImpl(
-                    Util_Sky258A.ROOT_SASITE,
+                    Conv_SasiteStr_Sfen.ToMove( Util_Sky258A.NULL_OBJECT_SASITE),
                     new KyokumenWrapper(SkyConst.NewInstance(
                         Util_SkyWriter.New_Hirate(firstPside),
                         0//初期局面は 0手済み。
@@ -158,7 +159,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
                     //kifu1.AssertChildPside(kifu1.CurNode.Value.ToKyokumenConst.KaisiPside, ittesasuResult.Get_SyuryoNode_OrNull.Value.ToKyokumenConst.KaisiPside);
                     Util_IttesasuRoutine.After3_ChangeCurrent(
                         kifu1,
-                        Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(ittesasuResult.Get_SyuryoNode_OrNull.Key),// nextSasiteStr,
+                        Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(Conv_Move.ToSasite( ittesasuResult.Get_SyuryoNode_OrNull.Key)),// nextSasiteStr,
                         ittesasuResult.Get_SyuryoNode_OrNull,
                         errH
                         );
@@ -227,7 +228,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
                 List<GohosyuListItem> list = new List<GohosyuListItem>();
                 //uc_Main.LstGohosyu.Items.Clear();
                 int itemNumber = 0;
-                ((KifuNode)learningData.Kifu.CurNode).Foreach_ChildNodes((string key, Node<Starbeamable, KyokumenWrapper> node, ref bool toBreak) =>
+                ((KifuNode)learningData.Kifu.CurNode).Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
                 {
 #if DEBUG || LEARN
                     KyHyokaMeisai_Koumoku komawariMeisai;
@@ -353,8 +354,8 @@ namespace Grayscale.P743_FvLearn____.L260____View
             {
                 if (learningData.Kifu.CurNode.HasChildNode(sfen))
                 {
-                    Node<Starbeamable, KyokumenWrapper> nextNode = learningData.Kifu.CurNode.GetChildNode(sfen);
-                    nextSasite = nextNode.Key;//次の棋譜ノードのキーが、指し手（きふわらべ式）になっています。
+                    Node<Move, KyokumenWrapper> nextNode = learningData.Kifu.CurNode.GetChildNode(sfen);
+                    nextSasite = Conv_Move.ToSasite( nextNode.Key);//次の棋譜ノードのキーが、指し手（きふわらべ式）になっています。
 
                 }
                 else
@@ -397,7 +398,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
             //this.Kifu.AssertChildPside(this.Kifu.CurNode.Value.ToKyokumenConst.KaisiPside, ittesasuResult.Get_SyuryoNode_OrNull.Value.ToKyokumenConst.KaisiPside);
             Util_IttesasuRoutine.After3_ChangeCurrent(
                 learningData.Kifu,
-                Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(ittesasuResult.Get_SyuryoNode_OrNull.Key),
+                Conv_SasiteStr_Sfen.ToSasiteStr_Sfen( Conv_Move.ToSasite( ittesasuResult.Get_SyuryoNode_OrNull.Key)),
                 ittesasuResult.Get_SyuryoNode_OrNull,
                 errH
                 );
@@ -407,7 +408,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
             //----------------------------------------
             // カレント・ノードより古い、以前読んだ手を削除したい。
             //----------------------------------------
-            System.Console.WriteLine("カレント・ノード＝" + Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(learningData.Kifu.CurNode.Key));
+            System.Console.WriteLine("カレント・ノード＝" + Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(Conv_Move.ToSasite( learningData.Kifu.CurNode.Key)));
             int result_removedCount = Util_KifuTree282.IzennoHenkaCutter(learningData.Kifu, errH);
             System.Console.WriteLine("削除した要素数＝" + result_removedCount);
 

@@ -23,7 +23,7 @@ namespace Grayscale.P542_Scoreing___.L061____Util
         /// 盤１個分のログ。
         /// </summary>
         public static void Build_LogBoard(
-            Node<Starbeamable, KyokumenWrapper> node_forLog,
+            Node<Move, KyokumenWrapper> node_forLog,
             string nodePath,
             KifuNode niniNode,//任意のノード
             //KifuTree kifu_forAssert,

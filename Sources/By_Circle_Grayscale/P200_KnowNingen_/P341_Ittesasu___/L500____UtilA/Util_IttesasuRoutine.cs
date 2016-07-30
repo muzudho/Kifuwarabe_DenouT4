@@ -24,6 +24,7 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P335_Move_______.L___500_Struct;
 
 namespace Grayscale.P341_Ittesasu___.L500____UtilA
 {
@@ -64,7 +65,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                 exceptionArea = 1010;
                 ittesasuResult = new IttesasuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___, null);
                 SkyConst kaisi_Sky = ittesasuArg.KaisiKyokumen.KyokumenConst;// 一手指し開始局面（不変）
-                Node<Starbeamable, KyokumenWrapper> editNodeRef;// 編集対象ノード（巻き戻し時と、進む時で異なる）
+                Node<Move, KyokumenWrapper> editNodeRef;// 編集対象ノード（巻き戻し時と、進む時で異なる）
 
                 exceptionArea = 1040;
                 //------------------------------
@@ -74,7 +75,9 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                     //進むときは、必ずノードの追加と、カレントの移動がある。
 
                     //現局面ノードのクローンを作成します。
-                    editNodeRef = new KifuNodeImpl(ittesasuArg.KorekaranoSasite, new KyokumenWrapper(
+                    editNodeRef = new KifuNodeImpl(
+                        Conv_SasiteStr_Sfen.ToMove( ittesasuArg.KorekaranoSasite),
+                        new KyokumenWrapper(
                         SkyConst.NewInstance_ReversePside(kaisi_Sky,ittesasuArg.KorekaranoTemezumi_orMinus1))
                         );
                     ittesasuResult.Susunda_Sky_orNull = editNodeRef.Value.KyokumenConst;
@@ -238,22 +241,27 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
             KwErrorHandler errH
             )
         {
-            Node<Starbeamable, KyokumenWrapper> editNodeRef = ittesasuReference.Get_SyuryoNode_OrNull;
-            Starbeamable nextSasite = editNodeRef.Key;
+            Node<Move, KyokumenWrapper> editNodeRef = ittesasuReference.Get_SyuryoNode_OrNull;
+            Starbeamable nextSasiteOld = Conv_Move.ToSasite( editNodeRef.Key);
             if (ittesasuReference.FoodKomaSyurui != Komasyurui14.H00_Null___)
             {
                 // 元のキーの、取った駒の種類だけを差替えます。
-                nextSasite = Util_Sky258A.BuildSasite(editNodeRef.Key.LongTimeAgo, editNodeRef.Key.Now, ittesasuReference.FoodKomaSyurui);
+                nextSasiteOld = Util_Sky258A.BuildSasite(
+                    nextSasiteOld.LongTimeAgo,
+                    nextSasiteOld.Now,
+                    ittesasuReference.FoodKomaSyurui);
 
                 // 現手番
                 Playerside genTebanside = ((KifuNode)editNodeRef).Value.KyokumenConst.KaisiPside;
 
                 // キーを差替えたノード
-                editNodeRef = new KifuNodeImpl(nextSasite, new KyokumenWrapper(ittesasuReference.Susunda_Sky_orNull));//, genTebanside
+                editNodeRef = new KifuNodeImpl(
+                    Conv_SasiteStr_Sfen.ToMove( nextSasiteOld),
+                    new KyokumenWrapper(ittesasuReference.Susunda_Sky_orNull));//, genTebanside
             }
 
 
-            string nextSasiteStr = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(nextSasite);
+            string nextSasiteStr = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(nextSasiteOld);
 
 
 
@@ -270,7 +278,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
         public static void After3_ChangeCurrent(
             KifuTree kifu_mutable,
             string nextSasiteStr,
-            Node<Starbeamable, KyokumenWrapper> edit_childNode_Ref,
+            Node<Move, KyokumenWrapper> edit_childNode_Ref,
             KwErrorHandler errH
             )
         {
@@ -292,7 +300,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                 ((KifuNode)kifu_mutable.CurNode).PutTuginoitte_Override(edit_childNode_Ref);//次ノートを上書きします。
             }
 
-            Node<Starbeamable, KyokumenWrapper> temp = kifu_mutable.CurNode;
+            Node<Move, KyokumenWrapper> temp = kifu_mutable.CurNode;
             kifu_mutable.SetCurNode( edit_childNode_Ref);//次ノードを、これからのカレントとします。
             edit_childNode_Ref.SetParentNode( temp);
         }

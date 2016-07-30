@@ -14,6 +14,7 @@ using Grayscale.P481_AimsServer_.L___125_Receiver;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P481_AimsServer_.L125____Receiver
 {
@@ -106,7 +107,7 @@ namespace Grayscale.P481_AimsServer_.L125____Receiver
                                 Playerside firstPside = Playerside.P1;
                                 this.Owner_AimsServer.Model_Taikyoku.SetKifu(new KifuTreeImpl(
                                         new KifuNodeImpl(
-                                            Util_Sky258A.ROOT_SASITE,
+                                            Conv_SasiteStr_Sfen.ToMove( Util_Sky258A.NULL_OBJECT_SASITE),
                                             new KyokumenWrapper(SkyConst.NewInstance(
                                                     Util_SkyWriter.New_Hirate(firstPside),
                                                     0 // 初期局面は 0手目済み

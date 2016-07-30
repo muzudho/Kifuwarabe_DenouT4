@@ -8,6 +8,8 @@ using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P292_JsaFugo____.L250____Struct;
 using Grayscale.P292_JsaFugo____.L500____Util;
 using Grayscale.P295_JsaFugoWrit.L500____Writer;
+using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P296_ConvJsa____.L500____Converter
 {
@@ -21,14 +23,15 @@ namespace Grayscale.P296_ConvJsa____.L500____Converter
         /// <param name="errH"></param>
         /// <returns></returns>
         public static string ToSasiteStr_Jsa(
-            Node<Starbeamable, KyokumenWrapper> node,
-            //KyokumenWrapper kyokumenWrapper,
+            Node<Move, KyokumenWrapper> node,
             KwErrorHandler errH
             )
         {
-            RO_Star koma = Util_Starlightable.AsKoma(((Starbeamable)node.Key).LongTimeAgo);
+            Starbeamable sasiteOld = Conv_Move.ToSasite(node.Key);
 
-            JsaFugoImpl jsaFugo = Array_JsaFugoCreator15.ItemMethods[(int)Util_Komahaiyaku184.Syurui(koma.Haiyaku)](node.Key,
+            RO_Star koma = Util_Starlightable.AsKoma(sasiteOld.LongTimeAgo);
+
+            JsaFugoImpl jsaFugo = Array_JsaFugoCreator15.ItemMethods[(int)Util_Komahaiyaku184.Syurui(koma.Haiyaku)](sasiteOld,
                 node.Value,// kyokumenWrapper,
                 errH);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
 

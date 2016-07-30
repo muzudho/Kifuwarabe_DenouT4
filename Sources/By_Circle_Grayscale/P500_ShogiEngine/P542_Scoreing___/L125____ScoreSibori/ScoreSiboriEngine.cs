@@ -7,6 +7,7 @@ using Grayscale.P324_KifuTree___.L___250_Struct;
 using Grayscale.P542_Scoreing___.L___240_Shogisasi;
 using System.Collections.Generic;
 using System;
+using Grayscale.P335_Move_______.L___500_Struct;
 
 namespace Grayscale.P542_Scoreing___.L125____ScoreSibori
 {
@@ -38,18 +39,18 @@ namespace Grayscale.P542_Scoreing___.L125____ScoreSibori
 
 
                 exception_area = 1000;
-                List<Node<Starbeamable, KyokumenWrapper>> rankedNodes = this.RankingNode_WithJudge_ForeachNextNodes(
+                List<Node<Move, KyokumenWrapper>> rankedNodes = this.RankingNode_WithJudge_ForeachNextNodes(
                     kifu.CurNode, errH);
 
 
                 exception_area = 1500;
-                Dictionary<string, Node<Starbeamable, KyokumenWrapper>> dic = new Dictionary<string, Node<Starbeamable, KyokumenWrapper>>();
+                Dictionary<string, Node<Move, KyokumenWrapper>> dic = new Dictionary<string, Node<Move, KyokumenWrapper>>();
                 if (kifu.CurNode.Value.KyokumenConst.KaisiPside == Playerside.P1)
                 {
                     exception_area = 2000;
                     // 1番高いスコアを調べます。
                     float goodestScore = float.MinValue;
-                    foreach (Node<Starbeamable, KyokumenWrapper> node in rankedNodes)
+                    foreach (Node<Move, KyokumenWrapper> node in rankedNodes)
                     {
                         if (node is KifuNode)
                         {
@@ -64,7 +65,7 @@ namespace Grayscale.P542_Scoreing___.L125____ScoreSibori
 
                     exception_area = 2500;
                     // 1番良いスコアのノードだけ残します。
-                    kifu.CurNode.Foreach_ChildNodes((string key, Node<Starbeamable, KyokumenWrapper> node, ref bool toBreak) =>
+                    kifu.CurNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
                     {
                         float score;
                         if (node is KifuNode)
@@ -88,7 +89,7 @@ namespace Grayscale.P542_Scoreing___.L125____ScoreSibori
 
                     // 2Pは、マイナスの方が良い。
                     float goodestScore = float.MaxValue;
-                    foreach (Node<Starbeamable, KyokumenWrapper> node in rankedNodes)
+                    foreach (Node<Move, KyokumenWrapper> node in rankedNodes)
                     {
                         if (node is KifuNode)
                         {
@@ -103,7 +104,7 @@ namespace Grayscale.P542_Scoreing___.L125____ScoreSibori
 
                     exception_area = 3500;
                     // 1番良いスコアのノードだけ残します。
-                    kifu.CurNode.Foreach_ChildNodes((string key, Node<Starbeamable, KyokumenWrapper> node, ref bool toBreak) =>
+                    kifu.CurNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
                     {
                         float score;
                         if (node is KifuNode)
@@ -142,20 +143,20 @@ namespace Grayscale.P542_Scoreing___.L125____ScoreSibori
         /// </summary>
         /// <param name="nextNodes"></param>
         /// <returns></returns>
-        private List<Node<Starbeamable, KyokumenWrapper>> RankingNode_WithJudge_ForeachNextNodes(
-            Node<Starbeamable, KyokumenWrapper> hubNode,
+        private List<Node<Move, KyokumenWrapper>> RankingNode_WithJudge_ForeachNextNodes(
+            Node<Move, KyokumenWrapper> hubNode,
             KwErrorHandler errH
             )
         {
             int exception_area = 0;
-            List<Node<Starbeamable, KyokumenWrapper>> list = null;
+            List<Node<Move, KyokumenWrapper>> list = null;
 
             try
             {
                 // ランク付けしたあと、リスト構造に移し変えます。
-                list = new List<Node<Starbeamable, KyokumenWrapper>>();
+                list = new List<Node<Move, KyokumenWrapper>>();
 
-                hubNode.Foreach_ChildNodes((string key, Node<Starbeamable, KyokumenWrapper> node, ref bool toBreak) =>
+                hubNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
                 {
                     list.Add(node);
                 });
@@ -174,7 +175,7 @@ namespace Grayscale.P542_Scoreing___.L125____ScoreSibori
         }
 
 
-        private static void Sort(List<Node<Starbeamable, KyokumenWrapper>> items)
+        private static void Sort(List<Node<Move, KyokumenWrapper>> items)
         {
             items.Sort((a, b) =>
             {

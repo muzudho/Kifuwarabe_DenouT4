@@ -18,6 +18,7 @@ using Grayscale.P693_ShogiGui___.L125____Scene;
 using Grayscale.P693_ShogiGui___.L250____Timed;
 using NLua;
 using System;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P693_ShogiGui___.L480____Util
 {
@@ -233,7 +234,7 @@ namespace Grayscale.P693_ShogiGui___.L480____Util
 
             {
                 KifuNode newNode = new KifuNodeImpl(
-                            Util_Sky258A.ROOT_SASITE,//ルートなので
+                            Conv_SasiteStr_Sfen.ToMove( Util_Sky258A.NULL_OBJECT_SASITE),//ルートなので
                             new KyokumenWrapper( SkyConst.NewInstance(
                                 buffer_Sky,
                                 0//空っぽに戻すので、 0手済みに変更。

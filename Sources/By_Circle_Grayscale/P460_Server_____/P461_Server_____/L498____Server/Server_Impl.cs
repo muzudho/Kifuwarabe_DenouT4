@@ -8,6 +8,7 @@ using Grayscale.P461_Server_____.L___125_Receiver;
 using Grayscale.P461_Server_____.L___497_EngineClient;
 using Grayscale.P461_Server_____.L___498_Server;
 using Grayscale.P461_Server_____.L497____EngineClient;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P461_Server_____.L498____Server
 {
@@ -59,7 +60,7 @@ namespace Grayscale.P461_Server_____.L498____Server
             //----------
             this.model_Taikyoku = new Model_TaikyokuImpl(new KifuTreeImpl(
                     new KifuNodeImpl(
-                        Util_Sky258A.ROOT_SASITE,
+                        Conv_SasiteStr_Sfen.ToMove( Util_Sky258A.NULL_OBJECT_SASITE),
                         new KyokumenWrapper(SkyConst.NewInstance(
                             src_Sky,//model_Manual.GuiSkyConst,
                             temezumi//model_Manual.GuiTemezumi

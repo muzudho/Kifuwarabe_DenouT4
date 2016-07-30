@@ -10,6 +10,8 @@ using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P360_Conv_Sasu__.L500____Converter
 {
@@ -22,17 +24,17 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
         /// </summary>
         public static List<Couple<Finger, SyElement>> NextNodes_ToKamList(
             SkyConst src_Sky_genzai,
-            Node<Starbeamable, KyokumenWrapper> hubNode,
+            Node<Move, KyokumenWrapper> hubNode,
             KwErrorHandler errH
             )
         {
             List<Couple<Finger, SyElement>> kmList = new List<Couple<Finger, SyElement>>();
 
             // TODO:
-            hubNode.Foreach_ChildNodes((string key, Node<Starbeamable, KyokumenWrapper> nextNode, ref bool toBreak) =>
+            hubNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> nextNode, ref bool toBreak) =>
             {
-                RO_Star srcKoma = Util_Starlightable.AsKoma(nextNode.Key.LongTimeAgo);
-                RO_Star dstKoma = Util_Starlightable.AsKoma(nextNode.Key.Now);
+                RO_Star srcKoma = Util_Starlightable.AsKoma(Conv_Move.ToSasite( nextNode.Key).LongTimeAgo);
+                RO_Star dstKoma = Util_Starlightable.AsKoma(Conv_Move.ToSasite(nextNode.Key).Now);
 
 
                 SyElement srcMasu = srcKoma.Masu;

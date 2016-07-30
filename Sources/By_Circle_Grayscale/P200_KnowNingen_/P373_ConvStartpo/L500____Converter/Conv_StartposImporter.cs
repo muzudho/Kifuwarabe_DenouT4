@@ -14,6 +14,7 @@ using Grayscale.P355_KifuParserA.L___500_Parser;
 using Grayscale.P372_KyokuParser.L___500_Parser;
 using Grayscale.P372_KyokuParser.L500____Parser;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P373_ConvStartpo.L500____Converter
 {
@@ -53,7 +54,7 @@ namespace Grayscale.P373_ConvStartpo.L500____Converter
             // 駒の配置
             //------------------------------
             parsedKyokumen.KifuNode = new KifuNodeImpl(
-                    Util_Sky258A.ROOT_SASITE,//ルートなので
+                    Conv_SasiteStr_Sfen.ToMove( Util_Sky258A.NULL_OBJECT_SASITE),//ルートなので
                     new KyokumenWrapper(
                         SkyConst.NewInstance(
                             startposImporter.ToSky(

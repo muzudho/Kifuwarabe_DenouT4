@@ -26,6 +26,8 @@ using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P461_Server_____.L250____Util
 {
@@ -47,7 +49,7 @@ namespace Grayscale.P461_Server_____.L250____Util
         public static void SetCurNode_Srv(
             Model_Taikyoku model_Taikyoku,// Taikyokuの内容をManualへ移す。
             Model_Manual model_Manual,
-            Node<Starbeamable, KyokumenWrapper> newNode,
+            Node<Move, KyokumenWrapper> newNode,
             out string jsaFugoStr,
             KwErrorHandler errH
             )
@@ -285,7 +287,7 @@ namespace Grayscale.P461_Server_____.L250____Util
             //------------------------------
             // 棋譜から１手削ります
             //------------------------------
-            Node<Starbeamable, KyokumenWrapper> removeeLeaf = model_Taikyoku.Kifu.CurNode;
+            Node<Move, KyokumenWrapper> removeeLeaf = model_Taikyoku.Kifu.CurNode;
             int korekaranoTemezumi = removeeLeaf.Value.KyokumenConst.Temezumi - 1;//１手前へ。
 
             if (removeeLeaf.IsRoot())
@@ -320,7 +322,7 @@ namespace Grayscale.P461_Server_____.L250____Util
                 Util_IttemodosuRoutine.Before1(
                     new IttemodosuArgImpl(
                         model_Taikyoku.Kifu.CurNode,
-                        removeeLeaf.Key,
+                        Conv_Move.ToSasite( removeeLeaf.Key),
                         korekaranoTemezumi
                     ),
                     out ittemodosuResult,

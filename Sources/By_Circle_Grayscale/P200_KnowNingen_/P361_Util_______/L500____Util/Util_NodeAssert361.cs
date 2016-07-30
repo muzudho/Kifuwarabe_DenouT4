@@ -1,6 +1,7 @@
 ﻿using Grayscale.P218_Starlight__.L___500_Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
 using Grayscale.P247_KyokumenWra.L500____Struct;
+using Grayscale.P335_Move_______.L___500_Struct;
 
 
 namespace Grayscale.P361_Util_______.L500____Util
@@ -9,7 +10,7 @@ namespace Grayscale.P361_Util_______.L500____Util
     {
 
 
-        public static void AssertNariSasite(Node<Starbeamable, KyokumenWrapper> hubNode, string hint)
+        public static void AssertNariSasite(Node<Move, KyokumenWrapper> hubNode, string hint)
         {
             /*
             hubNode.Foreach_NextNodes((string key, Node<ShootingStarlightable, KyokumenWrapper> nextNode, ref bool toBreak) =>

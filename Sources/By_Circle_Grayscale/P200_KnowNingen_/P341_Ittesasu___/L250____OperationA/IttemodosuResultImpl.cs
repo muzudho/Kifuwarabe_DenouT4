@@ -5,6 +5,7 @@ using Grayscale.P226_Tree_______.L___500_Struct;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P341_Ittesasu___.L___250_OperationA;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P335_Move_______.L___500_Struct;
 
 namespace Grayscale.P341_Ittesasu___.L250____OperationA
 {
@@ -14,7 +15,7 @@ namespace Grayscale.P341_Ittesasu___.L250____OperationA
 
         public Finger FigFoodKoma { get; set; }
 
-        public Node<Starbeamable, KyokumenWrapper> SyuryoNode_OrNull { get; set; }
+        public Node<Move, KyokumenWrapper> SyuryoNode_OrNull { get; set; }
 
         public Komasyurui14 FoodKomaSyurui{ get; set; }
 
@@ -23,7 +24,7 @@ namespace Grayscale.P341_Ittesasu___.L250____OperationA
         public IttemodosuResultImpl(
             Finger figMovedKoma,
             Finger figFoodKoma,
-            Node<Starbeamable, KyokumenWrapper> out_newNode_OrNull,
+            Node<Move, KyokumenWrapper> out_newNode_OrNull,
             Komasyurui14 foodKomaSyurui,
             SkyConst susunda_Sky_orNull
             )

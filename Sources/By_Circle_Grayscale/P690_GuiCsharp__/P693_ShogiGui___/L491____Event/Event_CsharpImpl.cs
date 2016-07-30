@@ -22,6 +22,8 @@ using Grayscale.P693_ShogiGui___.L___500_Gui;
 using Grayscale.P693_ShogiGui___.L249____Function;
 using Grayscale.P693_ShogiGui___.L480____Util;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P693_ShogiGui___.L491____Event
 {
@@ -525,7 +527,7 @@ namespace Grayscale.P693_ShogiGui___.L491____Event
                     //
                     StartposImporter.Assert_HirateHonsyogi(new SkyBuffer(mainGui.Model_Manual.GuiSkyConst), "newNode作成前");
                     newNode = new KifuNodeImpl(
-                        sasite,
+                        Conv_SasiteStr_Sfen.ToMove( sasite),
                         new KyokumenWrapper(SkyConst.NewInstance_ReversePside(// 先後を反転させます。
                             mainGui.Model_Manual.GuiSkyConst,
                             mainGui.Model_Manual.GuiSkyConst.Temezumi + 1//１手進める
@@ -586,9 +588,9 @@ namespace Grayscale.P693_ShogiGui___.L491____Event
 
             Starbeamable last;
             {
-                Node<Starbeamable, KyokumenWrapper> kifuElement = mainGui.Link_Server.Model_Taikyoku.Kifu.CurNode;
+                Node<Move, KyokumenWrapper> kifuElement = mainGui.Link_Server.Model_Taikyoku.Kifu.CurNode;
 
-                last = (Starbeamable)kifuElement.Key;
+                last = (Starbeamable)Conv_Move.ToSasite( kifuElement.Key);
             }
             mainGui.ChangedTurn(errH);//マウス左ボタンを押したのでチェンジターンします。
 
