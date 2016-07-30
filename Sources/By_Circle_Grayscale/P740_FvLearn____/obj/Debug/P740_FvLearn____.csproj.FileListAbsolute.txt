@@ -17,3 +17,5 @@ E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P740_FvLea
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P740_FvLearn____\obj\Debug\Grayscale.Properties.Resources.resources
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P740_FvLearn____\obj\Debug\Grayscale.P743_FvLearn____.Uc_Main.resources
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P740_FvLearn____\obj\Debug\P740_FvLearn____.csproj.GenerateResource.Cache
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\P740_FvLearn____\Grayscale.P740_FvLearn____.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\P740_FvLearn____\Grayscale.P740_FvLearn____.pdb

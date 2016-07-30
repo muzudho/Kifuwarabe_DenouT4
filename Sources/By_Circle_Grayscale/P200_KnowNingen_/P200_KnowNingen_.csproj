@@ -88,6 +88,10 @@
     <Compile Include="P325_PnlTaikyoku\L250____Struct\Model_TaikyokuImpl.cs" />
     <Compile Include="P325_PnlTaikyoku\L___250_Struct\Model_Manual.cs" />
     <Compile Include="P325_PnlTaikyoku\L___250_Struct\Model_Taikyoku.cs" />
+    <Compile Include="P335_Move\L___500_Struct\n1_MoveShift.cs" />
+    <Compile Include="P335_Move\L___500_Struct\n3_Move.cs" />
+    <Compile Include="P335_Move\L___500_Struct\n2_MoveMask.cs" />
+    <Compile Include="P339_ConvKyokume\L500____Converter\Conv_Move.cs" />
     <Compile Include="P369_ConvCsa____\L500____Converter\Util_CsaSasite.cs" />
     <Compile Include="P222_Log_Kaisetu\L500____Util\Util_LogWriter022_Json.cs" />
     <Compile Include="P234_Komahaiyaku\L250____Word\Array_Komahaiyaku185.cs" />
@@ -293,6 +297,7 @@
     <Folder Include="P297_／／↑日本将棋連盟の符号\" />
     <Folder Include="P301_／／↓細々\" />
     <Folder Include="P327_／／↑細々\" />
+    <Folder Include="P335_Move\L500____Struct\" />
     <Folder Include="P340_／／↓★一手指すルーチン\" />
     <Folder Include="P348_／／↑一手指すルーチン\" />
     <Folder Include="P350_／／↓SFEN棋譜指示実行\" />

@@ -40,6 +40,9 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
 using Grayscale.P027_Settei_____.L500____Struct;
+using System.Diagnostics;
+using Grayscale.P222_Log_Kaisetu.L250____Struct;
+using Grayscale.P321_KyokumHyoka.L___250_Struct;
 #endif
 
 namespace Grayscale.P743_FvLearn____.L250____Learn

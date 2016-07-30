@@ -45,6 +45,15 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P031_usiFrame1__.L___250_UsiLoop;
+using Grayscale.P335_Move.L___500_Struct;
+
+#if DEBUG
+using Grayscale.P157_KyokumenPng.L___500_Struct;
+using Grayscale.P213_Komasyurui_.L250____Word;
+using Grayscale.P213_Komasyurui_.L500____Util;
+using Grayscale.P158_LogKyokuPng.L500____UtilWriter;
+using Grayscale.P440_KifuTreeLog.L500____Struct;
+#endif
 
 namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
 {
@@ -1020,7 +1029,30 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
                             exceptionArea = 2400;
                             if (Util_Sky_BoolQuery.isEnableSfen(bestSasite2))
                             {
-                                string sfenText = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(bestSasite2);
+                                //string sfenText = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(bestSasite2);
+
+                                // TODO: Ｍｏｖｅを使っていきたい。
+                                Move move = Conv_SasiteStr_Sfen.ToMove(bestSasite2);
+                                string sfenText = Conv_Move.ToSfen(move);
+                                //string sfenTextB = Conv_Move.ToSfen(move);
+                                //Starbeamable bestSasite3 = Conv_Move.ToSasite(move);
+
+                                /*
+                                string sfenText = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(bestSasite3);
+                                {
+                                    string sfenTextB = Conv_Move.ToSfen(move);
+                                    MessageBox.Show("sfenTextA=" + sfenText + "\nsfenTextB=" + sfenTextB+ "\nmove     ="+ Convert.ToString((int)move, 2), "デバッグ中");
+                                }
+                                */
+                                /*
+                                {
+                                    //Move move = Conv_SasiteStr_Sfen.ToMove(bestSasite2);
+                                    //Starbeamable bestSasite3 = Conv_Move.ToSasite(move);
+                                    //string sfenTextB = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(bestSasite3);
+
+                                    MessageBox.Show("sfenTextA="+ sfenText+ "\nsfenTextB="+ sfenTextB + "\nmove     =" + Convert.ToString((int)move, 2), "デバッグ中");
+                                }
+                                //*/
 
                                 // ログが重過ぎる☆！
                                 //OwataMinister.WARABE_ENGINE.Logger.WriteLine_AddMemo("(Warabe)指し手のチョイス： bestmove＝[" + sfenText + "]" +

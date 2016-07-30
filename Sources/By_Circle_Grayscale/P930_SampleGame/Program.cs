@@ -9,7 +9,11 @@ using Grayscale.P324_KifuTree___.L250____Struct;
 using Grayscale.P542_Scoreing___.L___240_Shogisasi;
 using Grayscale.P575_KifuWarabe_.L100____Shogisasi;
 using Grayscale.P575_KifuWarabe_.L500____KifuWarabe;
-
+using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P218_Starlight__.L___500_Struct;
+using Grayscale.P335_Move.L___500_Struct;
+using System;
+using System.Windows.Forms;
 
 namespace P930_SampleGame
 {
@@ -41,10 +45,22 @@ namespace P930_SampleGame
                 );
 
             KifuNode bestmoveNode = shogisasi.WA_Bestmove(true, kifu, errH);
+            Starbeamable bestSasite = bestmoveNode.Key;
+            string sfenTextA = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(bestSasite);
+
+            Move move = Conv_SasiteStr_Sfen.ToMove(bestSasite);
+            System.Console.WriteLine("move=" + Convert.ToString((int)move, 2));
+
+            Starbeamable bestSasiteB = Conv_Move.ToSasite(move);
+            string sfenTextB = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(bestSasiteB);
+
+            MessageBox.Show("sfenTextA=" + sfenTextA + "\nsfenTextB=" + sfenTextB + "\nmove     =" + Convert.ToString((int)move, 2), "デバッグ中");
+
+
 
             //bool isTimeoutShutdown_temp;
             //kifuWarabe.AtBody(out isTimeoutShutdown_temp, errH);    // 将棋サーバーからのメッセージの受信や、
-                                                                    // 思考は、ここで行っています。
+            // 思考は、ここで行っています。
             kifuWarabe.OnApplicationEnd();
         }
     }

@@ -276,6 +276,16 @@ namespace Grayscale.P214_Masu_______.L500____Util
         public const int YUKO_DAN_MIN = 1;
         public const int YUKO_DAN_MAX = 9;
         //------------------------------------------------------------
+
+        public static bool YukoSuji(int suji)
+        {
+            return Util_Masu10.YUKO_SUJI_MIN <= suji && suji <= Util_Masu10.YUKO_SUJI_MAX;
+        }
+
+        public static bool YukoDan(int dan)
+        {
+            return Util_Masu10.YUKO_DAN_MIN <= dan && dan <= Util_Masu10.YUKO_DAN_MAX;
+        }
         #endregion
 
 

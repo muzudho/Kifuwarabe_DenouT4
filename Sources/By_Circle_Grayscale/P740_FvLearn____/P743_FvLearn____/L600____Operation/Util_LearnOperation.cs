@@ -26,6 +26,7 @@ using System.Windows.Forms;
 
 #if DEBUG || LEARN
 using Grayscale.P523_UtilFv_____.L480____UtilFvEdit;
+using Grayscale.P321_KyokumHyoka.L___250_Struct;
 #endif
 
 #if DEBUG
