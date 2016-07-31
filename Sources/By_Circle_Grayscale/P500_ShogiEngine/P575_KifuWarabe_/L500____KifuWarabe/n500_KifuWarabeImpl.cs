@@ -1031,44 +1031,19 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
                             }
 
                             exceptionArea = 2300;
-                            Starbeamable bestSasite2;
-                            if (null == bestKifuNode)
-                            {
-                                // 投了
-                                bestSasite2 = Util_Sky258A.NULL_OBJECT_SASITE;
-                            }
-                            else
-                            {
-                                bestSasite2 = Conv_Move.ToSasite(bestKifuNode.Key);
-                            }
 
                             exceptionArea = 2400;
-                            if (Util_Sky_BoolQuery.isEnableSfen(bestSasite2))
+
+                            if (
+                                // 投了ではなく
+                                null != bestKifuNode
+                                //&&
+                                // src,dstが指定されていれば。
+                                //Util_Sky_BoolQuery.isEnableSfen(bestKifuNode.Key)
+                                )
                             {
-                                //string sfenText = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(bestSasite2);
-
-                                // TODO: Ｍｏｖｅを使っていきたい。
-                                Move move = Conv_SasiteStr_Sfen.ToMove(bestSasite2);
-                                string sfenText = Conv_Move.ToSfen(move);
-                                //string sfenTextB = Conv_Move.ToSfen(move);
-                                //Starbeamable bestSasite3 = Conv_Move.ToSasite(move);
-
-                                /*
-                                string sfenText = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(bestSasite3);
-                                {
-                                    string sfenTextB = Conv_Move.ToSfen(move);
-                                    MessageBox.Show("sfenTextA=" + sfenText + "\nsfenTextB=" + sfenTextB+ "\nmove     ="+ Convert.ToString((int)move, 2), "デバッグ中");
-                                }
-                                */
-                                /*
-                                {
-                                    //Move move = Conv_SasiteStr_Sfen.ToMove(bestSasite2);
-                                    //Starbeamable bestSasite3 = Conv_Move.ToSasite(move);
-                                    //string sfenTextB = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(bestSasite3);
-
-                                    MessageBox.Show("sfenTextA="+ sfenText+ "\nsfenTextB="+ sfenTextB + "\nmove     =" + Convert.ToString((int)move, 2), "デバッグ中");
-                                }
-                                //*/
+                                // Ｍｏｖｅを使っていきたい。
+                                string sfenText = Conv_Move.ToSfen(bestKifuNode.Key);
 
                                 // ログが重過ぎる☆！
                                 //OwataMinister.WARABE_ENGINE.Logger.WriteLine_AddMemo("(Warabe)指し手のチョイス： bestmove＝[" + sfenText + "]" +
@@ -1356,16 +1331,11 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
             this.Kifu_AtLoop2.ForeachZenpuku(
                 this.Kifu_AtLoop2.GetRoot(), (int temezumi, KyokumenWrapper sky, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
                 {
-                        //sb.AppendLine("(^-^)");
-
                     if (null != node)
-                    {
-                        Starbeamable sasiteOld = Conv_Move.ToSasite(node.Key);
-                        if (Util_Sky258A.NULL_OBJECT_SASITE != sasiteOld)
+                    {                        
+                        if (!Conv_Move.ToErrorCheck(node.Key))
                         {
-                            string sfenText = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(sasiteOld);
-                            sb.Append(sfenText);
-                            sb.AppendLine();
+                            sb.AppendLine(Conv_Move.ToSfen(node.Key));
                         }
                     }
                 });

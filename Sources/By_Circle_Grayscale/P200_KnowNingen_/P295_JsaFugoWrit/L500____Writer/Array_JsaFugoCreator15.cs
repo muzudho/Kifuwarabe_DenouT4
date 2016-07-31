@@ -105,7 +105,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
             SyElement dstMasu = Conv_Move.ToDstMasu(move);
-            Starbeamable sasiteOld = Conv_Move.ToSasite(move);
+            bool drop = Conv_Move.ToDrop(move);
 
 
             //************************************************************
@@ -127,16 +127,15 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             //│  │Ｅ│  │
             //└─┴─┴─┘
             SySet<SyElement> srcE = KomanoKidou.SrcIppo_戻引(pside, dstMasu);
-            Starbeamable src = Util_Sky258A.Src(sasiteOld);
 
             //----------
             // 棋譜の現局面：競合駒
             //----------
 
 
-            Fingers kmE; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmE, srcE, src_Sky, pside, sasiteOld, errH);
+            Fingers kmE; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmE, srcE, src_Sky, pside, errH);
 
-            if (Util_Sky_BoolQuery.IsDaAction(sasiteOld))
+            if (drop)
             {
                 // 打と明示されていた
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -145,7 +144,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 migiHidari = MigiHidari.No_Print;
                 daHyoji = DaHyoji.Visible;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcE, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcE, src_Sky, errH))
             {
                 // Ｅにいた
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -165,17 +164,17 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             }
 
             // 「打」解除： 競合範囲全てに競合駒がなければ。
-            if (daHyoji == DaHyoji.Visible && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmE)) { daHyoji = DaHyoji.No_Print; }
+            if (daHyoji == DaHyoji.Visible && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmE)) { daHyoji = DaHyoji.No_Print; }
 
             //----------
             // 成
             //----------
-            if (false == Util_Sky_BoolQuery.IsNari(sasiteOld) && !Util_Sky_BoolQuery.IsDaAction(sasiteOld) && Util_Sky_BoolQuery.InAitejin(sasiteOld))
+            if (false == Util_Sky_BoolQuery.IsNari(move) && !drop && Util_Sky_BoolQuery.InAitejin(move))
             {
                 //成の指定がなく、相手陣内に指したら、非成を明示。
                 nari = NariNarazu.Narazu;
             }
-            else if (Util_Sky_BoolQuery.IsNari(sasiteOld))
+            else if (Util_Sky_BoolQuery.IsNari(move))
             {
                 nari = NariNarazu.Nari;
             }
@@ -204,7 +203,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
             SyElement dstMasu = Conv_Move.ToDstMasu(move);
-            Starbeamable sasiteOld = Conv_Move.ToSasite(move);
+            bool drop = Conv_Move.ToDrop(move);
 
 
             //************************************************************
@@ -235,16 +234,15 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             //  │  │E7│  │
             //  └─┴─┴─┘
             SySet<SyElement> srcE = KomanoKidou.SrcKantu_戻引(pside, dstMasu);
-            Starbeamable src = Util_Sky258A.Src(sasiteOld);
 
             //----------
             // 競合駒
             //----------
 
 
-            Fingers kmE; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmE, srcE, src_Sky, pside, sasiteOld, errH);
+            Fingers kmE; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmE, srcE, src_Sky, pside, errH);
 
-            if (Util_Sky_BoolQuery.IsDaAction(sasiteOld))
+            if (drop)
             {
                 // 打と明示されていた
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -253,7 +251,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 migiHidari = MigiHidari.No_Print;
                 daHyoji = DaHyoji.Visible;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcE, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcE, src_Sky, errH))
             {
                 //----------
                 // 移動前はＥだった
@@ -277,17 +275,17 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             // 「寄」解除： 香に寄はありません。
 
             // 「打」解除： 競合範囲全てに競合駒がなければ。
-            if (daHyoji == DaHyoji.Visible && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmE)) { daHyoji = DaHyoji.No_Print; }
+            if (daHyoji == DaHyoji.Visible && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmE)) { daHyoji = DaHyoji.No_Print; }
 
             //----------
             // 成
             //----------
-            if (false == Util_Sky_BoolQuery.IsNari(sasiteOld) && !Util_Sky_BoolQuery.IsDaAction(sasiteOld) && Util_Sky_BoolQuery.InAitejin(sasiteOld))
+            if (false == Util_Sky_BoolQuery.IsNari(move) && !drop && Util_Sky_BoolQuery.InAitejin(move))
             {
                 //成の指定がなく、相手陣内に指したら、非成を明示。
                 nari = NariNarazu.Narazu;
             }
-            else if (Util_Sky_BoolQuery.IsNari(sasiteOld))
+            else if (Util_Sky_BoolQuery.IsNari(move))
             {
                 nari = NariNarazu.Nari;
             }
@@ -316,7 +314,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
             SyElement dstMasu = Conv_Move.ToDstMasu(move);
-            Starbeamable sasiteOld = Conv_Move.ToSasite(move);
+            bool drop = Conv_Move.ToDrop(move);
 
 
             //************************************************************
@@ -343,16 +341,15 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             //└─┘　└─┘
             SySet<SyElement> srcI = KomanoKidou.SrcKeimatobi_戻跳(pside, dstMasu);
             SySet<SyElement> srcJ = KomanoKidou.SrcKeimatobi_戻駆(pside, dstMasu);
-            Starbeamable src = Util_Sky258A.Src(sasiteOld);
 
             //----------
             // 競合駒
             //----------
 
-            Fingers kmI; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmI, srcI, src_Sky, pside, sasiteOld, errH);
-            Fingers kmJ; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmJ, srcJ, src_Sky, pside, sasiteOld, errH);
+            Fingers kmI; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmI, srcI, src_Sky, pside, errH);
+            Fingers kmJ; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmJ, srcJ, src_Sky, pside, errH);
 
-            if (Util_Sky_BoolQuery.IsDaAction(sasiteOld))
+            if (drop)
             {
                 // 打と明示されていた
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -361,7 +358,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 migiHidari = MigiHidari.No_Print;
                 daHyoji = DaHyoji.Visible;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcI, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcI, src_Sky, errH))
             {
                 //----------
                 // 移動前はＩだった
@@ -369,7 +366,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.No_Print;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcJ, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcJ, src_Sky, errH))
             {
                 //----------
                 // 移動前はＪだった
@@ -387,23 +384,23 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             }
 
             // 「右」解除： Ｊに競合駒がなければ。
-            if (migiHidari == MigiHidari.Migi && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmJ)) { migiHidari = MigiHidari.No_Print; }
+            if (migiHidari == MigiHidari.Migi && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmJ)) { migiHidari = MigiHidari.No_Print; }
 
             // 「左」解除： Ｉに競合駒がなければ。
-            if (migiHidari == MigiHidari.Hidari && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmI)) { migiHidari = MigiHidari.No_Print; }
+            if (migiHidari == MigiHidari.Hidari && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmI)) { migiHidari = MigiHidari.No_Print; }
 
             // 「打」解除： 競合範囲全てに競合駒がなければ。
-            if (daHyoji == DaHyoji.Visible && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmI, kmJ)) { daHyoji = DaHyoji.No_Print; }
+            if (daHyoji == DaHyoji.Visible && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmI, kmJ)) { daHyoji = DaHyoji.No_Print; }
 
             //----------
             // 成
             //----------
-            if (false == Util_Sky_BoolQuery.IsNari(sasiteOld) && !Util_Sky_BoolQuery.IsDaAction(sasiteOld) && Util_Sky_BoolQuery.InAitejin(sasiteOld))
+            if (false == Util_Sky_BoolQuery.IsNari(move) && !drop && Util_Sky_BoolQuery.InAitejin(move))
             {
                 //成の指定がなく、相手陣内に指したら、非成を明示。
                 nari = NariNarazu.Narazu;
             }
-            else if (Util_Sky_BoolQuery.IsNari(sasiteOld))
+            else if (Util_Sky_BoolQuery.IsNari(move))
             {
                 nari = NariNarazu.Nari;
             }
@@ -432,7 +429,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
             SyElement dstMasu = Conv_Move.ToDstMasu(move);
-            Starbeamable sasiteOld = Conv_Move.ToSasite(move);
+            bool drop = Conv_Move.ToDrop(move);
 
             //************************************************************
             // 銀
@@ -457,19 +454,18 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             SySet<SyElement> srcE = KomanoKidou.SrcIppo_戻引(pside, dstMasu);
             SySet<SyElement> srcF = KomanoKidou.SrcIppo_戻降(pside, dstMasu);
             SySet<SyElement> srcH = KomanoKidou.SrcIppo_戻浮(pside, dstMasu);
-            Starbeamable src = Util_Sky258A.Src(sasiteOld);
 
             //----------
             // 競合駒
             //----------
 
-            Fingers kmB; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmB, srcB, src_Sky, pside, sasiteOld, errH);
-            Fingers kmD; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmD, srcD, src_Sky, pside, sasiteOld, errH);
-            Fingers kmE; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmE, srcE, src_Sky, pside, sasiteOld, errH);
-            Fingers kmF; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmF, srcF, src_Sky, pside, sasiteOld, errH);
-            Fingers kmH; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmH, srcH, src_Sky, pside, sasiteOld, errH);
+            Fingers kmB; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmB, srcB, src_Sky, pside, errH);
+            Fingers kmD; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmD, srcD, src_Sky, pside, errH);
+            Fingers kmE; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmE, srcE, src_Sky, pside, errH);
+            Fingers kmF; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmF, srcF, src_Sky, pside, errH);
+            Fingers kmH; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmH, srcH, src_Sky, pside, errH);
 
-            if (Util_Sky_BoolQuery.IsDaAction(sasiteOld))
+            if (drop)
             {
                 // 打と明示されていた
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -478,7 +474,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 migiHidari = MigiHidari.No_Print;
                 daHyoji = DaHyoji.Visible;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcB, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcB, src_Sky, errH))
             {
                 // 移動前はＢだった
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -486,7 +482,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Hiku;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcD, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcD, src_Sky, errH))
             {
                 // 移動前はＤだった
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -494,7 +490,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcE, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcE, src_Sky, errH))
             {
                 // 移動前はＥだった
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -502,7 +498,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Sugu;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcF, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcF, src_Sky, errH))
             {
                 // 移動前はＦだった
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -510,7 +506,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Hidari;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcH, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcH, src_Sky, errH))
             {
                 // 移動前はＨだった
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -531,25 +527,25 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             //              ②Ｈに競合駒がなく引があるなら。
             //              ③Ｅ、Ｆに競合駒がなく上があるなら。
             if (migiHidari == MigiHidari.Migi && (
-                Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmE, kmF, kmH)
-                || (Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmH) && agaruHiku == AgaruHiku.Hiku)
-                || (Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmE, kmF) && agaruHiku == AgaruHiku.Agaru)
+                Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmE, kmF, kmH)
+                || (Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmH) && agaruHiku == AgaruHiku.Hiku)
+                || (Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmE, kmF) && agaruHiku == AgaruHiku.Agaru)
                 )) { migiHidari = MigiHidari.No_Print; }
 
             // 「左」解除： ①Ｂ、Ｄ、Ｅのどこにも競合駒がなければ。
             //              ②Ｂに競合駒がなく引があるなら。
             //              ③Ｄ、Ｅに競合駒がなく上があるなら。
             if (migiHidari == MigiHidari.Hidari && (
-                Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmB, kmD, kmE)
-                || (Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmB) && agaruHiku == AgaruHiku.Hiku)
-                || (Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmD, kmE) && agaruHiku == AgaruHiku.Agaru)
+                Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmB, kmD, kmE)
+                || (Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmB) && agaruHiku == AgaruHiku.Hiku)
+                || (Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmD, kmE) && agaruHiku == AgaruHiku.Agaru)
                 )) { migiHidari = MigiHidari.No_Print; }
 
             // 「直」解除： Ｄ、Ｆのどちらにも競合駒がなければ。
-            if (migiHidari == MigiHidari.Sugu && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmD, kmF)) { migiHidari = MigiHidari.No_Print; }
+            if (migiHidari == MigiHidari.Sugu && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmD, kmF)) { migiHidari = MigiHidari.No_Print; }
 
             // 「上」解除： Ｂ、Ｈのどこにも競合駒がなければ。また、直があるなら。
-            if (agaruHiku == AgaruHiku.Agaru && (Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmB, kmH) || migiHidari == MigiHidari.Sugu)) { agaruHiku = AgaruHiku.No_Print; }
+            if (agaruHiku == AgaruHiku.Agaru && (Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmB, kmH) || migiHidari == MigiHidari.Sugu)) { agaruHiku = AgaruHiku.No_Print; }
 
             // 「引」解除： ①Ｂ、Ｄ、Ｅ、Ｆのどこにも競合駒がなければ。
             //              ②Ｄ、Ｅ、Ｆ、Ｈのどこにも競合駒がなければ。
@@ -557,26 +553,26 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             //              ④Ｆに競合駒がなく、左があるなら。
             if (agaruHiku == AgaruHiku.Hiku &&
                 (
-                Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmB, kmD, kmE, kmF)
-                || Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmD, kmE, kmF, kmH)
-                || (Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmD) && migiHidari == MigiHidari.Migi)
-                || (Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmF) && migiHidari == MigiHidari.Hidari)
+                Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmB, kmD, kmE, kmF)
+                || Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmD, kmE, kmF, kmH)
+                || (Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmD) && migiHidari == MigiHidari.Migi)
+                || (Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmF) && migiHidari == MigiHidari.Hidari)
                 )) { agaruHiku = AgaruHiku.No_Print; }
 
             // 「寄」解除： 銀は寄れません。
 
             // 「打」解除： 競合範囲全てに競合駒がなければ。
-            if (daHyoji == DaHyoji.Visible && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmB, kmD, kmE, kmF, kmH)) { daHyoji = DaHyoji.No_Print; }
+            if (daHyoji == DaHyoji.Visible && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmB, kmD, kmE, kmF, kmH)) { daHyoji = DaHyoji.No_Print; }
 
             //----------
             // 成
             //----------
-            if (false == Util_Sky_BoolQuery.IsNari(sasiteOld) && !Util_Sky_BoolQuery.IsDaAction(sasiteOld) && Util_Sky_BoolQuery.InAitejin(sasiteOld))
+            if (false == Util_Sky_BoolQuery.IsNari(move) && !drop && Util_Sky_BoolQuery.InAitejin(move))
             {
                 //成の指定がなく、相手陣内に指したら、非成を明示。
                 nari = NariNarazu.Narazu;
             }
-            else if (Util_Sky_BoolQuery.IsNari(sasiteOld))
+            else if (Util_Sky_BoolQuery.IsNari(move))
             {
                 nari = NariNarazu.Nari;
             }
@@ -632,7 +628,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             Playerside pside = Conv_Move.ToPlayerside(move);
             SyElement dstMasu = Conv_Move.ToDstMasu(move);
             Komasyurui14 dstKs = Conv_Move.ToDstKomasyurui(move);
-            Starbeamable sasiteOld = Conv_Move.ToSasite(move);
+            bool drop = Conv_Move.ToDrop(move);
 
             //************************************************************
             // △金、△と金、△成香、△成桂、△成銀
@@ -655,21 +651,20 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             SySet<SyElement> srcE = KomanoKidou.SrcIppo_戻引(pside, dstMasu);
             SySet<SyElement> srcF = KomanoKidou.SrcIppo_戻降(pside, dstMasu);
             SySet<SyElement> srcG = KomanoKidou.SrcIppo_戻滑(pside, dstMasu);
-            Starbeamable src = Util_Sky258A.Src(sasiteOld);
 
             //----------
             // 競合駒
             //----------
 
-            Fingers kmA; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmA, srcA, src_Sky, pside, sasiteOld, errH);
-            Fingers kmC; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmC, srcC, src_Sky, pside, sasiteOld, errH);
-            Fingers kmD; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmD, srcD, src_Sky, pside, sasiteOld, errH);
-            Fingers kmE; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmE, srcE, src_Sky, pside, sasiteOld, errH);
-            Fingers kmF; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmF, srcF, src_Sky, pside, sasiteOld, errH);
-            Fingers kmG; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmG, srcG, src_Sky, pside, sasiteOld, errH);
+            Fingers kmA; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmA, srcA, src_Sky, pside, errH);
+            Fingers kmC; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmC, srcC, src_Sky, pside, errH);
+            Fingers kmD; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmD, srcD, src_Sky, pside, errH);
+            Fingers kmE; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmE, srcE, src_Sky, pside, errH);
+            Fingers kmF; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmF, srcF, src_Sky, pside, errH);
+            Fingers kmG; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmG, srcG, src_Sky, pside, errH);
 
 
-            if (Util_Sky_BoolQuery.IsDaAction(sasiteOld))
+            if (drop)
             {
                 // 打と明示されていた
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -678,7 +673,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 migiHidari = MigiHidari.No_Print;
                 daHyoji = DaHyoji.Visible;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcA, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcA, src_Sky, errH))
             {
                 //----------
                 // 移動前はＡだった
@@ -686,7 +681,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Hiku;
                 migiHidari = MigiHidari.No_Print;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcC, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcC, src_Sky, errH))
             {
                 //----------
                 // 移動前はＣだった
@@ -694,7 +689,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Yoru;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcF, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcF, src_Sky, errH))
             {
                 //----------
                 // 移動前はＤだった
@@ -702,7 +697,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Hidari;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcE, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcE, src_Sky, errH))
             {
                 //----------
                 // 移動前はＥだった
@@ -710,7 +705,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Sugu;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcD, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcD, src_Sky, errH))
             {
                 //----------
                 // 移動前はＦだった
@@ -718,7 +713,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcG, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcG, src_Sky, errH))
             {
                 //----------
                 // 移動前はＧだった
@@ -740,22 +735,22 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             //              ②Ｇに競合駒がなく、寄があるなら。
             //              ③上があり、Ｅ、Ｆのどちらにも競合駒がなければ。
             if (migiHidari == MigiHidari.Migi && (
-                Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmE, kmF, kmG)
-                || (Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmG) && agaruHiku == AgaruHiku.Yoru)
-                || (AgaruHiku.Agaru == agaruHiku && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmE, kmF))
+                Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmE, kmF, kmG)
+                || (Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmG) && agaruHiku == AgaruHiku.Yoru)
+                || (AgaruHiku.Agaru == agaruHiku && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmE, kmF))
                 )) { migiHidari = MigiHidari.No_Print; }
 
             // 「左」解除： ①Ｃ、Ｄ、Ｅのどちらにも競合駒がなければ。
             //              ②Ｃに競合駒がなく、寄があるなら。
             //              ③上があり、Ｄ、Ｅのどちらにも競合駒がなければ。
             if (migiHidari == MigiHidari.Hidari && (
-                Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmC, kmD, kmE)
-                || (Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmC) && agaruHiku == AgaruHiku.Yoru)
-                || (AgaruHiku.Agaru == agaruHiku && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmD, kmE))
+                Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmC, kmD, kmE)
+                || (Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmC) && agaruHiku == AgaruHiku.Yoru)
+                || (AgaruHiku.Agaru == agaruHiku && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmD, kmE))
                 )) { migiHidari = MigiHidari.No_Print; }
 
             // 「直」解除： Ｄ、Ｆのどちらにも競合駒がなければ。
-            if (migiHidari == MigiHidari.Sugu && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmD, kmF)) { migiHidari = MigiHidari.No_Print; }
+            if (migiHidari == MigiHidari.Sugu && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmD, kmF)) { migiHidari = MigiHidari.No_Print; }
 
             // 「上」解除： ①Ａ、Ｃ、Ｇのどこにも競合駒がなければ。
             //              ②直があるなら。
@@ -763,21 +758,21 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             //              ④Ｇに競合駒がなく、左があるなら。
             if (agaruHiku == AgaruHiku.Agaru &&
                 (
-                Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmA, kmC, kmG)
+                Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmA, kmC, kmG)
                 || migiHidari == MigiHidari.Sugu
-                || Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmC) && migiHidari == MigiHidari.Migi
-                || Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmG) && migiHidari == MigiHidari.Hidari
+                || Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmC) && migiHidari == MigiHidari.Migi
+                || Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmG) && migiHidari == MigiHidari.Hidari
                 )
                 ) { agaruHiku = AgaruHiku.No_Print; }
 
             // 「引」解除： Ｃ、Ｄ、Ｅ、Ｆ、Ｇのどこにも競合駒がなければ。
-            if (agaruHiku == AgaruHiku.Hiku && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmC, kmD, kmE, kmF, kmG)) { agaruHiku = AgaruHiku.No_Print; }
+            if (agaruHiku == AgaruHiku.Hiku && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmC, kmD, kmE, kmF, kmG)) { agaruHiku = AgaruHiku.No_Print; }
 
             // 「寄」解除： ①Ａ、Ｄ、Ｅ、Ｆのどこにも競合駒がなければ。
-            if (agaruHiku == AgaruHiku.Yoru && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmA, kmD, kmE, kmF)) { agaruHiku = AgaruHiku.No_Print; }
+            if (agaruHiku == AgaruHiku.Yoru && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmA, kmD, kmE, kmF)) { agaruHiku = AgaruHiku.No_Print; }
 
             // 「打」解除： 競合範囲全てに競合駒がなければ。
-            if (daHyoji == DaHyoji.Visible && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmA, kmC, kmD, kmE, kmF, kmG)) { daHyoji = DaHyoji.No_Print; }
+            if (daHyoji == DaHyoji.Visible && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmA, kmC, kmD, kmE, kmF, kmG)) { daHyoji = DaHyoji.No_Print; }
 
             //----------
             // 成れません
@@ -841,7 +836,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
             SyElement dstMasu = Conv_Move.ToDstMasu(move);
-            Starbeamable sasiteOld = Conv_Move.ToSasite(move);
+            bool drop = Conv_Move.ToDrop(move);
 
 
 
@@ -895,18 +890,17 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             SySet<SyElement> srcC = KomanoKidou.SrcKantu_戻射(pside, dstMasu);
             SySet<SyElement> srcE = KomanoKidou.SrcKantu_戻引(pside, dstMasu);
             SySet<SyElement> srcG = KomanoKidou.SrcKantu_戻滑(pside, dstMasu);
-            Starbeamable src = Util_Sky258A.Src(sasiteOld);
 
             //----------
             // 棋譜の現局面：競合駒
             //----------
 
-            Fingers kmA; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmA, srcA, src_Sky, pside, sasiteOld, errH);
-            Fingers kmC; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmC, srcC, src_Sky, pside, sasiteOld, errH);
-            Fingers kmE; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmE, srcE, src_Sky, pside, sasiteOld, errH);
-            Fingers kmG; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmG, srcG, src_Sky, pside, sasiteOld, errH);
+            Fingers kmA; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmA, srcA, src_Sky, pside, errH);
+            Fingers kmC; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmC, srcC, src_Sky, pside, errH);
+            Fingers kmE; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmE, srcE, src_Sky, pside, errH);
+            Fingers kmG; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmG, srcG, src_Sky, pside, errH);
 
-            if (Util_Sky_BoolQuery.IsDaAction(sasiteOld))
+            if (drop)
             {
                 // 打と明示されていた
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -915,7 +909,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 migiHidari = MigiHidari.No_Print;
                 daHyoji = DaHyoji.Visible;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcA, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcA, src_Sky, errH))
             {
                 //----------
                 // Ａにいた
@@ -923,7 +917,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Hiku;
                 migiHidari = MigiHidari.No_Print;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcC, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcC, src_Sky, errH))
             {
                 //----------
                 // Ｃにいた
@@ -931,7 +925,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Yoru;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcE, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcE, src_Sky, errH))
             {
                 //----------
                 // Ｅにいた
@@ -939,7 +933,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.No_Print;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcG, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcG, src_Sky, errH))
             {
                 //----------
                 // Ｇにいた
@@ -957,32 +951,32 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             }
 
             // 「右」解除： Ｇに競合駒がなければ。
-            if (migiHidari == MigiHidari.Migi && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmG)) { migiHidari = MigiHidari.No_Print; }
+            if (migiHidari == MigiHidari.Migi && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmG)) { migiHidari = MigiHidari.No_Print; }
 
             // 「左」解除： Ｃに競合駒がなければ。
-            if (migiHidari == MigiHidari.Hidari && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmC)) { migiHidari = MigiHidari.No_Print; }
+            if (migiHidari == MigiHidari.Hidari && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmC)) { migiHidari = MigiHidari.No_Print; }
 
             // 「上」解除： Ａ、Ｃ、Ｇに競合駒がなければ。
-            if (agaruHiku == AgaruHiku.Agaru && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmA, kmC, kmG)) { agaruHiku = AgaruHiku.No_Print; }
+            if (agaruHiku == AgaruHiku.Agaru && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmA, kmC, kmG)) { agaruHiku = AgaruHiku.No_Print; }
 
             // 「引」解除： Ｃ、Ｅ、Ｇに競合駒がなければ。
-            if (agaruHiku == AgaruHiku.Hiku && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmC, kmE, kmG)) { agaruHiku = AgaruHiku.No_Print; }
+            if (agaruHiku == AgaruHiku.Hiku && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmC, kmE, kmG)) { agaruHiku = AgaruHiku.No_Print; }
 
             // 「寄」解除： Ａ、Ｅに競合駒がなければ。
-            if (agaruHiku == AgaruHiku.Yoru && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmA) && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmE)) { agaruHiku = AgaruHiku.No_Print; }
+            if (agaruHiku == AgaruHiku.Yoru && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmA) && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmE)) { agaruHiku = AgaruHiku.No_Print; }
 
             // 「打」解除： 競合範囲全てに競合駒がなければ。
-            if (daHyoji == DaHyoji.Visible && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmA, kmC, kmE, kmG)) { daHyoji = DaHyoji.No_Print; }
+            if (daHyoji == DaHyoji.Visible && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmA, kmC, kmE, kmG)) { daHyoji = DaHyoji.No_Print; }
 
             //----------
             // 成
             //----------
-            if (false == Util_Sky_BoolQuery.IsNari(sasiteOld) && !Util_Sky_BoolQuery.IsDaAction(sasiteOld) && Util_Sky_BoolQuery.InAitejin(sasiteOld))
+            if (false == Util_Sky_BoolQuery.IsNari(move) && !drop && Util_Sky_BoolQuery.InAitejin(move))
             {
                 //成の指定がなく、相手陣内に指したら、非成を明示。
                 nari = NariNarazu.Narazu;
             }
-            else if (Util_Sky_BoolQuery.IsNari(sasiteOld))
+            else if (Util_Sky_BoolQuery.IsNari(move))
             {
                 nari = NariNarazu.Nari;
             }
@@ -1011,7 +1005,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
             SyElement dstMasu = Conv_Move.ToDstMasu(move);
-            Starbeamable sasiteOld = Conv_Move.ToSasite(move);
+            bool drop = Conv_Move.ToDrop(move);
 
 
             //************************************************************
@@ -1064,19 +1058,18 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             SySet<SyElement> srcD = KomanoKidou.SrcKantu_戻沈(pside, dstMasu);
             SySet<SyElement> srcF = KomanoKidou.SrcKantu_戻降(pside, dstMasu);
             SySet<SyElement> srcH = KomanoKidou.SrcKantu_戻浮(pside, dstMasu);
-            Starbeamable src = Util_Sky258A.Src(sasiteOld);
 
             //----------
             // 競合駒
             //----------
 
-            Fingers kmB; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmB, srcB, src_Sky, pside, sasiteOld, errH);
-            Fingers kmD; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmD, srcD, src_Sky, pside, sasiteOld, errH);
-            Fingers kmF; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmF, srcF, src_Sky, pside, sasiteOld, errH);
-            Fingers kmH; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmH, srcH, src_Sky, pside, sasiteOld, errH);
+            Fingers kmB; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmB, srcB, src_Sky, pside, errH);
+            Fingers kmD; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmD, srcD, src_Sky, pside, errH);
+            Fingers kmF; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmF, srcF, src_Sky, pside, errH);
+            Fingers kmH; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmH, srcH, src_Sky, pside, errH);
 
 
-            if (Util_Sky_BoolQuery.IsDaAction(sasiteOld))
+            if (drop)
             {
                 // 打と明示されていた
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -1085,7 +1078,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 migiHidari = MigiHidari.No_Print;
                 daHyoji = DaHyoji.Visible;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcB, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcB, src_Sky, errH))
             {
                 //----------
                 // 移動前はＢだった
@@ -1093,7 +1086,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Hiku;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcD, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcD, src_Sky, errH))
             {
                 //----------
                 // 移動前はＤだった
@@ -1101,7 +1094,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcF, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcF, src_Sky, errH))
             {
                 //----------
                 // 移動前はＦだった
@@ -1109,7 +1102,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Hidari;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcH, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcH, src_Sky, errH))
             {
                 //----------
                 // 移動前はＨだった
@@ -1127,31 +1120,31 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             }
 
             // 「右」解除： Ｆ、Ｈに競合駒がなければ。
-            if (migiHidari == MigiHidari.Migi && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmF, kmH)) { migiHidari = MigiHidari.No_Print; }
+            if (migiHidari == MigiHidari.Migi && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmF, kmH)) { migiHidari = MigiHidari.No_Print; }
 
             // 「左」解除： Ｂ、Ｄに競合駒がなければ。
-            if (migiHidari == MigiHidari.Hidari && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmB, kmD)) { migiHidari = MigiHidari.No_Print; }
+            if (migiHidari == MigiHidari.Hidari && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmB, kmD)) { migiHidari = MigiHidari.No_Print; }
 
             // 「上」解除： Ｂ、Ｈに競合駒がなければ。
-            if (agaruHiku == AgaruHiku.Agaru && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmB, kmH)) { agaruHiku = AgaruHiku.No_Print; }
+            if (agaruHiku == AgaruHiku.Agaru && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmB, kmH)) { agaruHiku = AgaruHiku.No_Print; }
 
             // 「引」解除： Ｄ、Ｆに競合駒がなければ。
-            if (agaruHiku == AgaruHiku.Hiku && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmD, kmF)) { agaruHiku = AgaruHiku.No_Print; }
+            if (agaruHiku == AgaruHiku.Hiku && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmD, kmF)) { agaruHiku = AgaruHiku.No_Print; }
 
             // 「寄」解除： 角は寄れません。
 
             // 「打」解除： 競合範囲全てに競合駒がなければ。
-            if (daHyoji == DaHyoji.Visible && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmB, kmD, kmF, kmH)) { daHyoji = DaHyoji.No_Print; }
+            if (daHyoji == DaHyoji.Visible && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmB, kmD, kmF, kmH)) { daHyoji = DaHyoji.No_Print; }
 
             //----------
             // 成
             //----------
-            if (false == Util_Sky_BoolQuery.IsNari(sasiteOld) && !Util_Sky_BoolQuery.IsDaAction(sasiteOld) && Util_Sky_BoolQuery.InAitejin(sasiteOld))
+            if (false == Util_Sky_BoolQuery.IsNari(move) && !drop && Util_Sky_BoolQuery.InAitejin(move))
             {
                 //成の指定がなく、相手陣内に指したら、非成を明示。
                 nari = NariNarazu.Narazu;
             }
-            else if (Util_Sky_BoolQuery.IsNari(sasiteOld))
+            else if (Util_Sky_BoolQuery.IsNari(move))
             {
                 nari = NariNarazu.Nari;
             }
@@ -1180,7 +1173,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
             SyElement dstMasu = Conv_Move.ToDstMasu(move);
-            Starbeamable sasiteOld = Conv_Move.ToSasite(move);
+            bool drop = Conv_Move.ToDrop(move);
 
             //************************************************************
             // 竜
@@ -1236,23 +1229,22 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             SySet<SyElement> srcF = KomanoKidou.SrcIppo_戻降(pside, dstMasu);
             SySet<SyElement> srcG = KomanoKidou.SrcKantu_戻滑(pside, dstMasu);
             SySet<SyElement> srcH = KomanoKidou.SrcIppo_戻浮(pside, dstMasu);
-            Starbeamable src = Util_Sky258A.Src(sasiteOld);
 
             //----------
             // 競合駒
             //----------
 
-            Fingers kmA; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmA, srcA, src_Sky, pside, sasiteOld, errH);
-            Fingers kmB; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmB, srcB, src_Sky, pside, sasiteOld, errH);
-            Fingers kmC; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmC, srcC, src_Sky, pside, sasiteOld, errH);
-            Fingers kmD; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmD, srcD, src_Sky, pside, sasiteOld, errH);
-            Fingers kmE; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmE, srcE, src_Sky, pside, sasiteOld, errH);
-            Fingers kmF; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmF, srcF, src_Sky, pside, sasiteOld, errH);
-            Fingers kmG; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmG, srcG, src_Sky, pside, sasiteOld, errH);
-            Fingers kmH; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmH, srcH, src_Sky, pside, sasiteOld, errH);
+            Fingers kmA; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmA, srcA, src_Sky, pside, errH);
+            Fingers kmB; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmB, srcB, src_Sky, pside, errH);
+            Fingers kmC; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmC, srcC, src_Sky, pside, errH);
+            Fingers kmD; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmD, srcD, src_Sky, pside, errH);
+            Fingers kmE; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmE, srcE, src_Sky, pside, errH);
+            Fingers kmF; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmF, srcF, src_Sky, pside, errH);
+            Fingers kmG; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmG, srcG, src_Sky, pside, errH);
+            Fingers kmH; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmH, srcH, src_Sky, pside, errH);
 
 
-            if (Util_Sky_BoolQuery.IsDaAction(sasiteOld))
+            if (drop)
             {
                 // 打と明示されていた
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -1261,7 +1253,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 migiHidari = MigiHidari.No_Print;
                 daHyoji = DaHyoji.Visible;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcA, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcA, src_Sky, errH))
             {
                 //----------
                 // 移動前はＡだった
@@ -1269,7 +1261,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Hiku;
                 migiHidari = MigiHidari.No_Print;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcB, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcB, src_Sky, errH))
             {
                 //----------
                 // 移動前はＢだった
@@ -1277,7 +1269,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Hiku;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcC, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcC, src_Sky, errH))
             {
                 //----------
                 // 移動前はＣだった
@@ -1285,7 +1277,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Yoru;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcD, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcD, src_Sky, errH))
             {
                 //----------
                 // 移動前はＤだった
@@ -1293,7 +1285,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcE, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcE, src_Sky, errH))
             {
                 //----------
                 // 移動前はＥだった
@@ -1301,7 +1293,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.No_Print;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcF, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcF, src_Sky, errH))
             {
                 //----------
                 // 移動前はＦだった
@@ -1309,7 +1301,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Hidari;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcG, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcG, src_Sky, errH))
             {
                 //----------
                 // 移動前はＧだった
@@ -1317,7 +1309,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Yoru;
                 migiHidari = MigiHidari.Hidari;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcH, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcH, src_Sky, errH))
             {
                 //----------
                 // 移動前はＨだった
@@ -1335,22 +1327,22 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             }
 
             // 「右」解除： Ａ、Ｅ、Ｆ、Ｇ、Ｈに１つも競合駒がなければ。
-            if (migiHidari == MigiHidari.Migi && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmA, kmE, kmF, kmG, kmH)) { migiHidari = MigiHidari.No_Print; }
+            if (migiHidari == MigiHidari.Migi && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmA, kmE, kmF, kmG, kmH)) { migiHidari = MigiHidari.No_Print; }
 
             // 「左」解除： Ａ、Ｂ、Ｃ、Ｄ、Ｅに１つも競合駒がなければ。
-            if (migiHidari == MigiHidari.Hidari && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmA, kmB, kmC, kmD, kmE)) { migiHidari = MigiHidari.No_Print; }
+            if (migiHidari == MigiHidari.Hidari && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmA, kmB, kmC, kmD, kmE)) { migiHidari = MigiHidari.No_Print; }
 
             // 「上」解除： Ａ、Ｂ、Ｃ、Ｇ、Ｈに１つも競合駒がなければ。
-            if (agaruHiku == AgaruHiku.Agaru && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmA, kmB, kmC, kmG, kmH)) { agaruHiku = AgaruHiku.No_Print; }
+            if (agaruHiku == AgaruHiku.Agaru && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmA, kmB, kmC, kmG, kmH)) { agaruHiku = AgaruHiku.No_Print; }
 
             // 「引」解除： Ｃ、Ｄ、Ｅ、Ｆ、Ｇに１つも競合駒がなければ。
-            if (agaruHiku == AgaruHiku.Hiku && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmC, kmD, kmE, kmF, kmG)) { agaruHiku = AgaruHiku.No_Print; }
+            if (agaruHiku == AgaruHiku.Hiku && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmC, kmD, kmE, kmF, kmG)) { agaruHiku = AgaruHiku.No_Print; }
 
             // 「寄」解除： Ａ、Ｂ、Ｄ、Ｅ、Ｆ、Ｈに１つも競合駒がなければ。
-            if (agaruHiku == AgaruHiku.Yoru && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmA, kmB, kmD, kmE, kmF, kmH)) { agaruHiku = AgaruHiku.No_Print; }
+            if (agaruHiku == AgaruHiku.Yoru && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmA, kmB, kmD, kmE, kmF, kmH)) { agaruHiku = AgaruHiku.No_Print; }
 
             // 「打」解除： 競合範囲全てに競合駒がなければ。
-            if (daHyoji == DaHyoji.Visible && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmA, kmB, kmC, kmD, kmE, kmF, kmG, kmH)) { daHyoji = DaHyoji.No_Print; }
+            if (daHyoji == DaHyoji.Visible && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmA, kmB, kmC, kmD, kmE, kmF, kmG, kmH)) { daHyoji = DaHyoji.No_Print; }
 
             //----------
             // 成れません
@@ -1377,7 +1369,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
             SyElement dstMasu = Conv_Move.ToDstMasu(move);
-            Starbeamable sasiteOld = Conv_Move.ToSasite(move);
+            bool drop = Conv_Move.ToDrop(move);
 
 
             //************************************************************
@@ -1434,23 +1426,22 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             SySet<SyElement> srcF = KomanoKidou.SrcKantu_戻降(pside, dstMasu);
             SySet<SyElement> srcG = KomanoKidou.SrcIppo_戻滑(pside, dstMasu);
             SySet<SyElement> srcH = KomanoKidou.SrcKantu_戻浮(pside, dstMasu);
-            Starbeamable src = Util_Sky258A.Src(sasiteOld);
 
             //----------
             // 競合駒
             //----------
 
 
-            Fingers kmA; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmA, srcA, src_Sky, pside, sasiteOld, errH);
-            Fingers kmB; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmB, srcB, src_Sky, pside, sasiteOld, errH);
-            Fingers kmC; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmC, srcC, src_Sky, pside, sasiteOld, errH);
-            Fingers kmD; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmD, srcD, src_Sky, pside, sasiteOld, errH);
-            Fingers kmE; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmE, srcE, src_Sky, pside, sasiteOld, errH);
-            Fingers kmF; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmF, srcF, src_Sky, pside, sasiteOld, errH);
-            Fingers kmG; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmG, srcG, src_Sky, pside, sasiteOld, errH);
-            Fingers kmH; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmH, srcH, src_Sky, pside, sasiteOld, errH);
+            Fingers kmA; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmA, srcA, src_Sky, pside, errH);
+            Fingers kmB; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmB, srcB, src_Sky, pside, errH);
+            Fingers kmC; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmC, srcC, src_Sky, pside, errH);
+            Fingers kmD; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmD, srcD, src_Sky, pside, errH);
+            Fingers kmE; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmE, srcE, src_Sky, pside, errH);
+            Fingers kmF; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmF, srcF, src_Sky, pside, errH);
+            Fingers kmG; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmG, srcG, src_Sky, pside, errH);
+            Fingers kmH; Util_Sky_FingersQueryEx.Fingers_EachSrcNow(out kmH, srcH, src_Sky, pside, errH);
 
-            if (Util_Sky_BoolQuery.IsDaAction(sasiteOld))
+            if (drop)
             {
                 // 打と明示されていた
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -1459,7 +1450,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 migiHidari = MigiHidari.No_Print;
                 daHyoji = DaHyoji.Visible;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcB, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcB, src_Sky, errH))
             {
                 //----------
                 // 移動前はＢだった
@@ -1467,7 +1458,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Hiku;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcD, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcD, src_Sky, errH))
             {
                 //----------
                 // 移動前はＤだった
@@ -1475,7 +1466,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcF, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcF, src_Sky, errH))
             {
                 //----------
                 // 移動前はＦだった
@@ -1483,7 +1474,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.Hidari;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcH, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcH, src_Sky, errH))
             {
                 //----------
                 // 移動前はＨだった
@@ -1491,7 +1482,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Hiku;
                 migiHidari = MigiHidari.Hidari;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcA, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcA, src_Sky, errH))
             {
                 //----------
                 // 移動前はＡだった
@@ -1499,7 +1490,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Hiku;
                 migiHidari = MigiHidari.No_Print;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcC, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcC, src_Sky, errH))
             {
                 //----------
                 // 移動前はＣだった
@@ -1507,7 +1498,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Yoru;
                 migiHidari = MigiHidari.Migi;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcE, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcE, src_Sky, errH))
             {
                 //----------
                 // 移動前はＥだった
@@ -1515,7 +1506,7 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
                 agaruHiku = AgaruHiku.Agaru;
                 migiHidari = MigiHidari.No_Print;
             }
-            else if (Util_Sky_BoolQuery.ExistsIn(src, srcG, src_Sky, errH))
+            else if (Util_Sky_BoolQuery.ExistsIn(move, srcG, src_Sky, errH))
             {
                 //----------
                 // 移動前はＧだった
@@ -1533,22 +1524,22 @@ namespace Grayscale.P295_JsaFugoWrit.L500____Writer
             }
 
             // 「右」解除： Ａ、Ｅ、Ｆ、Ｇ、Ｈに競合駒がなければ。
-            if (migiHidari == MigiHidari.Migi && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmA, kmE, kmF, kmG, kmH)) { migiHidari = MigiHidari.No_Print; }
+            if (migiHidari == MigiHidari.Migi && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmA, kmE, kmF, kmG, kmH)) { migiHidari = MigiHidari.No_Print; }
 
             // 「左」解除： Ａ、Ｂ、Ｃ、Ｄ、Ｅに競合駒がなければ。
-            if (migiHidari == MigiHidari.Hidari && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmA, kmB, kmC, kmD, kmE)) { migiHidari = MigiHidari.No_Print; }
+            if (migiHidari == MigiHidari.Hidari && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmA, kmB, kmC, kmD, kmE)) { migiHidari = MigiHidari.No_Print; }
 
             // 「上」解除： Ａ、Ｂ、Ｃ、Ｇ、Ｈに競合駒がなければ。
-            if (agaruHiku == AgaruHiku.Agaru && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmA, kmB, kmC, kmG, kmH)) { agaruHiku = AgaruHiku.No_Print; }
+            if (agaruHiku == AgaruHiku.Agaru && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmA, kmB, kmC, kmG, kmH)) { agaruHiku = AgaruHiku.No_Print; }
 
             // 「引」解除： Ｃ、Ｄ、Ｅ、Ｆ、Ｇに競合駒がなければ。
-            if (agaruHiku == AgaruHiku.Hiku && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmC, kmD, kmE, kmF, kmG)) { agaruHiku = AgaruHiku.No_Print; }
+            if (agaruHiku == AgaruHiku.Hiku && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmC, kmD, kmE, kmF, kmG)) { agaruHiku = AgaruHiku.No_Print; }
 
             // 「寄」解除： Ａ、Ｂ、Ｄ、Ｅ、Ｆ、Ｈに競合駒がなければ。
-            if (agaruHiku == AgaruHiku.Yoru && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmA, kmB, kmD, kmE, kmF, kmH)) { agaruHiku = AgaruHiku.No_Print; }
+            if (agaruHiku == AgaruHiku.Yoru && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmA, kmB, kmD, kmE, kmF, kmH)) { agaruHiku = AgaruHiku.No_Print; }
 
             // 「打」解除： 競合範囲全てに競合駒がなければ。
-            if (daHyoji == DaHyoji.Visible && Util_Sky_BoolQuery.NeverOnaji(sasiteOld, src_Sky, kmA, kmB, kmC, kmD, kmE, kmF, kmG, kmH)) { daHyoji = DaHyoji.No_Print; }
+            if (daHyoji == DaHyoji.Visible && Util_Sky_BoolQuery.NeverOnaji(move, src_Sky, kmA, kmB, kmC, kmD, kmE, kmF, kmG, kmH)) { daHyoji = DaHyoji.No_Print; }
 
             //----------
             // 成れません

@@ -14,6 +14,9 @@ using Grayscale.P238_Seiza______.L500____Util;
 using System;
 using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P213_Komasyurui_.L250____Word;
 
 namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 {
@@ -27,26 +30,25 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         /// </summary>
         /// <param name="masus"></param>
         /// <returns></returns>
-        public static bool ExistsIn(Starlight sl, SySet<SyElement> masus, SkyConst src_Sky, KwErrorHandler errH)
+        public static bool ExistsIn(Move move, SySet<SyElement> masus, SkyConst src_Sky, KwErrorHandler errH)
         {
             bool matched = false;
 
+            SyElement srcMasu = Conv_Move.ToSrcMasu(move);
+            Playerside pside = Conv_Move.ToPlayerside(move);
+
             foreach (SyElement masu in masus.Elements)
             {
-                RO_Star koma = Util_Starlightable.AsKoma(sl.Now);
-
-
-                Finger finger = Util_Sky_FingerQuery.InShogibanMasuNow(src_Sky, koma.Pside, masu, errH);
+                Finger finger = Util_Sky_FingerQuery.InShogibanMasuNow(src_Sky, pside, masu, errH);
 
                 if (
                     finger != Fingers.Error_1  //2014-07-21 先後も見るように追記。
-                    && koma.Masu == masu
+                    && srcMasu == masu
                     )
                 {
                     matched = true;
                     break;
                 }
-
             }
 
             return matched;
@@ -61,82 +63,69 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         ///         先手は 1,2,3 段。
         /// </summary>
         /// <returns></returns>
-        public static bool InAitejin(Starlight ms)
+        public static bool InAitejin(Move move)
         {
-            bool result;
+            int dstDan = Conv_Move.ToDstDan(move);
 
-            RO_Star koma = Util_Starlightable.AsKoma(ms.Now);
-
-            int dan;
-            Util_MasuNum.TryMasuToDan(koma.Masu, out dan);
-
-            result = (Util_Sky_BoolQuery.IsGote(ms) && 7 <= dan) || (Util_Sky_BoolQuery.IsSente(ms) && dan <= 3);
-
-            return result;
+            return (Util_Sky_BoolQuery.IsGote(move) && 7 <= dstDan) || (Util_Sky_BoolQuery.IsSente(move) && dstDan <= 3);
+        }
+        public static bool InAitejin(SyElement dstMasu, Playerside pside)
+        {
+            return Util_Masu10.InAitejin(dstMasu, pside);
         }
 
         /// <summary>
         /// 成り
         /// </summary>
-        public static bool IsNari(Starlight ms)
+        public static bool IsNari(Move move)
         {
-            bool result;
+            Komasyurui14 ks = Conv_Move.ToDstKomasyurui(move);
 
-            RO_Star koma = Util_Starlightable.AsKoma(ms.Now);
-
-            result = Util_Komasyurui14.FlagNari[(int)Util_Komahaiyaku184.Syurui(koma.Haiyaku)];
-
-            return result;
+            return Util_Komasyurui14.FlagNari[(int)ks];
         }
 
         /// <summary>
         /// 不成
         /// </summary>
-        public static bool IsFunari(RO_Starlight ms)
+        public static bool IsFunari(Move move)
         {
-            bool result;
+            Komasyurui14 ks = Conv_Move.ToDstKomasyurui(move);
 
-            RO_Star koma = Util_Starlightable.AsKoma(ms.Now);
-
-            result = !Util_Komasyurui14.FlagNari[(int)Util_Komahaiyaku184.Syurui(koma.Haiyaku)];
-
-            return result;
+            return !Util_Komasyurui14.FlagNari[(int)ks];
         }
 
-        public static bool IsNareruKoma(Starlight ms)
+        public static bool IsNareruKoma(Move move)
         {
-            bool result;
+            Komasyurui14 ks = Conv_Move.ToDstKomasyurui(move);
 
-            RO_Star koma = Util_Starlightable.AsKoma(ms.Now);
-
-            result = Util_Komasyurui14.FlagNareruKoma[(int)Util_Komahaiyaku184.Syurui(koma.Haiyaku)];
-
-
-            return result;
+            return Util_Komasyurui14.FlagNareruKoma[(int)ks];
+        }
+        public static bool IsNareruKoma(Komasyurui14 ks)
+        {
+            return Util_Komasyurui14.FlagNareruKoma[(int)ks];
         }
 
         /// <summary>
         /// 不一致判定：　先後、駒種類  が、自分と同じものが　＜ひとつもない＞
         /// </summary>
         /// <returns></returns>
-        public static bool NeverOnaji(Starlight ms, SkyConst src_Sky, params Fingers[] komaGroupArgs)
+        public static bool NeverOnaji(Move move, SkyConst src_Sky, params Fingers[] komaGroupArgs)
         {
             bool unmatched = true;
+
+            Playerside pside1 = Conv_Move.ToPlayerside(move);
+            Komasyurui14 ks1 = Conv_Move.ToDstKomasyurui(move);
 
             foreach (Fingers komaGroup in komaGroupArgs)
             {
                 foreach (Finger figKoma in komaGroup.Items)
                 {
-                    RO_Star koma1 = Util_Starlightable.AsKoma(ms.Now);
-
                     src_Sky.AssertFinger(figKoma);
                     RO_Star koma2 = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
 
-
-
                     if (
-                            koma1.Pside == koma2.Pside // 誰のものか
-                        && Util_Komahaiyaku184.Syurui(koma1.Haiyaku) == Util_Komahaiyaku184.Syurui(koma2.Haiyaku) // 駒の種類は
+                            pside1 == koma2.Pside // 誰のものか
+                        && ks1 == Util_Komahaiyaku184.Syurui(koma2.Haiyaku) // 駒の種類は
                         )
                     {
                         // １つでも一致するものがあれば、終了します。
@@ -151,23 +140,26 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             return unmatched;
         }
 
+        /*
         /// <summary>
         /// ************************************************************************************************************************
-        /// 駒台の上にあれば真。
+        /// FIXME: 駒台の上にあれば真。
         /// ************************************************************************************************************************
         /// </summary>
         /// <returns></returns>
-        public static bool OnKomadai(RO_Starlight ms)
+        public static bool OnKomadai(Move move)
         {
             bool result;
 
-            RO_Star koma = Util_Starlightable.AsKoma(ms.Now);
+            SyElement dstMasu = Conv_Move.ToDstMasu(move);
 
             result = (Okiba.Sente_Komadai | Okiba.Gote_Komadai).HasFlag(
-                Conv_SyElement.ToOkiba(koma.Masu));
+                Conv_SyElement.ToOkiba(dstMasu)//FIXME: 駒台の筋段は設定できないのでは？
+                );
 
             return result;
         }
+        */
 
         /// <summary>
         /// ************************************************************************************************************************
@@ -176,19 +168,22 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         /// </summary>
         /// <param name="ms2"></param>
         /// <returns></returns>
-        public static bool MatchPside(RO_Starlight ms1, RO_Starlight ms2)
+        public static bool MatchPside(Move move1, Move move2)
         {
-            bool result;
+            Playerside pside1 = Conv_Move.ToPlayerside(move1);
+            Playerside pside2 = Conv_Move.ToPlayerside(move2);
 
-            RO_Star koma1 = Util_Starlightable.AsKoma(ms1.Now);
-            RO_Star koma2 = Util_Starlightable.AsKoma(ms2.Now);
-
-
-            result = koma1.Pside == koma2.Pside;
-
-            return result;
+            return pside1 == pside2;
         }
 
+        /// <summary>
+        /// 先手
+        /// </summary>
+        /// <returns></returns>
+        public static bool IsSente(Move move)
+        {
+            return Playerside.P1 == Conv_Move.ToPlayerside(move);
+        }
         /// <summary>
         /// 先手
         /// </summary>
@@ -204,6 +199,14 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             return result;
         }
 
+        /// <summary>
+        /// 後手
+        /// </summary>
+        /// <returns></returns>
+        public static bool IsGote(Move move)
+        {
+            return Playerside.P2 == Conv_Move.ToPlayerside(move);
+        }
         /// <summary>
         /// 後手
         /// </summary>
@@ -243,22 +246,21 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             return result;
         }
 
-        public static bool isEnableSfen(Starbeamable sasite)
+        public static bool isEnableSfen(Move move)
         {
             bool enable = true;
 
-            RO_Star srcKoma = Util_Starlightable.AsKoma(sasite.LongTimeAgo);
-            RO_Star dstKoma = Util_Starlightable.AsKoma(sasite.Now);
-
+            SyElement srcMasu = Conv_Move.ToSrcMasu(move);
+            SyElement dstMasu = Conv_Move.ToDstMasu(move);
 
             int srcDan;
-            if (!Util_MasuNum.TryMasuToDan(srcKoma.Masu, out srcDan))
+            if (!Util_MasuNum.TryMasuToDan(srcMasu, out srcDan))
             {
                 enable = false;
             }
 
             int dan;
-            if (!Util_MasuNum.TryMasuToDan(dstKoma.Masu, out dan))
+            if (!Util_MasuNum.TryMasuToDan(dstMasu, out dan))
             {
                 enable = false;
             }
@@ -266,6 +268,35 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             return enable;
         }
 
+        /// <summary>
+        /// 成った
+        /// </summary>
+        /// <returns></returns>
+        public static bool IsNatta_Sasite(Move move)
+        {
+            // 元種類が不成、現種類が成　の場合のみ真。
+            bool natta = true;
+
+            Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
+            Komasyurui14 dstKs = Conv_Move.ToDstKomasyurui(move);
+
+
+            // 成立しない条件を１つでも満たしていれば、偽　確定。
+            if (
+                Komasyurui14.H00_Null___ == srcKs
+                ||
+                Komasyurui14.H00_Null___ == dstKs
+                ||
+                Util_Komasyurui14.FlagNari[(int)srcKs]
+                ||
+                !Util_Komasyurui14.FlagNari[(int)dstKs]
+                )
+            {
+                natta = false;
+            }
+
+            return natta;
+        }
         /// <summary>
         /// 成った
         /// </summary>
@@ -303,16 +334,12 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         /// 移動前と、移動後の場所が異なっていれば真。
         /// </summary>
         /// <returns></returns>
-        public static bool DoneMove(RO_Starbeam ss)
+        public static bool DoneMove(Move move)
         {
-            bool result;
+            SyElement srcMasu = Conv_Move.ToSrcMasu(move);
+            SyElement dstMasu = Conv_Move.ToDstMasu(move);
 
-            RO_Star koma1 = Util_Starlightable.AsKoma(ss.Now);
-            RO_Star koma2 = Util_Starlightable.AsKoma(Util_Sky258A.Src(ss).Now);
-
-            result = Conv_SyElement.ToMasuNumber(koma1.Masu) != Conv_SyElement.ToMasuNumber(koma2.Masu);
-
-            return result;
+            return Conv_SyElement.ToMasuNumber(dstMasu) != Conv_SyElement.ToMasuNumber(srcMasu);
         }
 
     }

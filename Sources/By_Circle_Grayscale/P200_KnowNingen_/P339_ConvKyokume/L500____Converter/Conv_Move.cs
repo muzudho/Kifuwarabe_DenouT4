@@ -209,6 +209,34 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             return Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan, srcSuji, srcDan);
         }
 
+
+        public static int ToDstDan(Move move)
+        {
+            int v = (int)move;              // バリュー
+
+            // TODO: エラーチェック
+            int errorCheck;
+            {
+                int m = (int)MoveMask.ErrorCheck;  // マスク
+                int s = (int)MoveShift.ErrorCheck;   // シフト
+                errorCheck = (v & m) >> s;
+            }
+            if (0 != errorCheck)
+            {
+                return Util_Masu10.ERROR_DAN;
+            }
+
+            // 至段
+            int dstDan;
+            {
+                int m = (int)MoveMask.DstDan;
+                int s = (int)MoveShift.DstDan;
+                dstDan = (v & m) >> s;
+            }
+
+            return dstDan;
+        }
+
         public static SyElement ToDstMasu(Move move)
         {
             int v = (int)move;              // バリュー
@@ -233,17 +261,12 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
                 dstSuji = (v & m) >> s;
             }
 
-            // 至段
-            int dstDan;
-            {
-                int m = (int)MoveMask.DstDan;
-                int s = (int)MoveShift.DstDan;
-                dstDan = (v & m) >> s;
-            }
-
             //────────────────────────────────────────
             // 組み立てフェーズ
             //────────────────────────────────────────
+
+            // 至段
+            int dstDan = Conv_Move.ToDstDan(move);
 
             // 至
             return Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan, dstSuji, dstDan);
@@ -460,6 +483,32 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             //────────────────────────────────────────────────────────────────────────────────
 
             if (0 != drop)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool ToErrorCheck(Move move)
+        {
+            int v = (int)move;              // バリュー
+
+            // TODO: エラーチェック
+            int errorCheck;
+            {
+                int m = (int)MoveMask.ErrorCheck;  // マスク
+                int s = (int)MoveShift.ErrorCheck;   // シフト
+                errorCheck = (v & m) >> s;
+            }
+
+            //────────────────────────────────────────────────────────────────────────────────
+            // 組み立てフェーズ
+            //────────────────────────────────────────────────────────────────────────────────
+
+            if (0 != errorCheck)
             {
                 return true;
             }

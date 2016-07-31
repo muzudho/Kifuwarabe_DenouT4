@@ -720,14 +720,13 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                             //
                                             RO_Star koma = Util_Starlightable.AsKoma(tumandeiruLight.Now);
 
-
                                             if (
-                                                    Okiba.ShogiBan == Conv_SyElement.ToOkiba(koma.Masu) && Util_Sky_BoolQuery.IsNareruKoma(tumandeiruLight)
+                                                    Okiba.ShogiBan == Conv_SyElement.ToOkiba(koma.Masu) && Util_Sky_BoolQuery.IsNareruKoma(koma.Komasyurui)
                                                     &&
                                                     (
                                                         Util_Masu10.InAitejin(btnSasitaiMasu.Zahyo, mainGui.Link_Server.Model_Taikyoku.Kifu.CurNode.Value.KyokumenConst.KaisiPside)
                                                         ||
-                                                        Util_Sky_BoolQuery.InAitejin(tumandeiruLight)
+                                                        Util_Sky_BoolQuery.InAitejin(koma.Masu,koma.Pside)
                                                     )
                                                 )
                                             {

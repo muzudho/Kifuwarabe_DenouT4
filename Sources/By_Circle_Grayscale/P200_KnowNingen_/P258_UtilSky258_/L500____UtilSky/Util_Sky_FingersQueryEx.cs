@@ -24,7 +24,9 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         /// </summary>
         /// <param name="km"></param>
         /// <returns></returns>
-        public static void Fingers_EachSrcNow(out Fingers out_fingers, SySet<SyElement> srcList, SkyConst src_Sky, Playerside pside, Starlight itaru, KwErrorHandler errH)
+        public static void Fingers_EachSrcNow(
+            out Fingers out_fingers, SySet<SyElement> srcList, SkyConst src_Sky, Playerside pside,
+            KwErrorHandler errH)
         {
             out_fingers = new Fingers();
 

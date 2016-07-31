@@ -63,6 +63,7 @@ namespace Grayscale.P214_Masu_______.L500____Util
         public const int SHOGIBAN_LAST_SUJI = 9;
         public const int SHOGIBAN_LAST_DAN = 9;
 
+        public const int ERROR_DAN = -1;
 
 
 
