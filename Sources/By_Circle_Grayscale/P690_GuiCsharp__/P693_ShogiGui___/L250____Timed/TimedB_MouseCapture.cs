@@ -381,8 +381,7 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                     Starlight srcStarlight = src_Sky.StarlightIndexOf(btnKoma.Koma);
                                                     System.Diagnostics.Debug.Assert(null != srcStarlight, "komaStarlightがヌル");
 
-
-                                                    Starbeamable sasite = new RO_Starbeam(
+                                                    Move move = Conv_SasiteStr_Sfen.ToMove(
                                                         dstStarlight.Now,
                                                         srcStarlight.Now,
                                                         mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma != null ? mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma.Komasyurui : Komasyurui14.H00_Null___
@@ -394,7 +393,7 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                     SkyBuffer sky_newChild = new SkyBuffer(src_Sky);
                                                     sky_newChild.SetKaisiPside(Conv_Playerside.Reverse(Playerside.P1));//FIXME:人間が先手でハードコーディング中
                                                     Node<Move, KyokumenWrapper> newNode = new KifuNodeImpl(
-                                                        Conv_SasiteStr_Sfen.ToMove( sasite),
+                                                        move,
                                                         new KyokumenWrapper( SkyConst.NewInstance(
                                                             sky_newChild,
                                                             mainGui.Model_Manual.GuiTemezumi + 1//1手進ませる。
@@ -530,24 +529,16 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                         //------------------------------
 
                                                         src_Sky.AssertFinger(btnKoma.Koma);
-                                                        Starbeamable sasite = new RO_Starbeam(
-                                                            //btnKoma.Koma,
+                                                        // あとでMoveに変換する☆
+                                                        Move move = Conv_SasiteStr_Sfen.ToMove(
                                                             mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now,
-
                                                             src_Sky.StarlightIndexOf(btnKoma.Koma).Now,
-
                                                             mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma != null ? mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma.Komasyurui : Komasyurui14.H00_Null___
                                                             );// 選択している駒の元の場所と、移動先
 
-                                                        Starbeamable last;
-                                                        {
-                                                            last = Conv_Move.ToSasite( siteiNode.Key);
-                                                        }
-                                                        //ShootingStarlightable previousSasite = last; //符号の追加が行われる前に退避
-
                                                         Node<Move, KyokumenWrapper> newNode =
                                                             new KifuNodeImpl(
-                                                                Conv_SasiteStr_Sfen.ToMove( sasite),
+                                                                move,
                                                                 new KyokumenWrapper(SkyConst.NewInstance(
                                                                     src_Sky,
                                                                     mainGui.Model_Manual.GuiTemezumi + 1//1手進ませる。

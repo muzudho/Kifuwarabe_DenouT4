@@ -38,6 +38,7 @@ using System.IO;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
+using Grayscale.P056_Syugoron___.L___250_Struct;
 
 #if DEBUG
 using Grayscale.P027_Settei_____.L500____Struct;
@@ -265,15 +266,19 @@ namespace Grayscale.P743_FvLearn____.L250____Learn
             int srcMasu_orMinusOne = -1;
             int dstMasu_orMinusOne = -1;
 
-            Starbeamable sasiteOld = Conv_Move.ToSasite(this.Kifu.CurNode.Key);
-            if (Util_Sky258A.NULL_OBJECT_SASITE != sasiteOld)
+            SyElement srcMasu = Conv_Move.ToSrcMasu(this.Kifu.CurNode.Key);
+            SyElement dstMasu = Conv_Move.ToSrcMasu(this.Kifu.CurNode.Key);
+            Komasyurui14 captured = Conv_Move.ToCaptured(this.Kifu.CurNode.Key);
+            bool errorCheck = Conv_Move.ToErrorCheck(this.Kifu.CurNode.Key);
+
+            if (!errorCheck)
             {
-                srcMasu_orMinusOne = Conv_SyElement.ToMasuNumber(((RO_Star)Conv_Move.ToSasite( this.Kifu.CurNode.Key).LongTimeAgo).Masu);
-                dstMasu_orMinusOne = Conv_SyElement.ToMasuNumber(((RO_Star)Conv_Move.ToSasite( this.Kifu.CurNode.Key).Now).Masu);
+                srcMasu_orMinusOne = Conv_SyElement.ToMasuNumber(srcMasu);
+                dstMasu_orMinusOne = Conv_SyElement.ToMasuNumber(dstMasu);
             }
 
             KyokumenPngArgs_FoodOrDropKoma foodKoma;
-            if (Util_Sky258A.NULL_OBJECT_SASITE != sasiteOld.FoodKomaSyurui)
+            if (Komasyurui14.H00_Null___ != captured)
             {
                 switch (Util_Komasyurui14.NarazuCaseHandle((Komasyurui14) Conv_Move.ToSasite( this.Kifu.CurNode.Key).FoodKomaSyurui))
                 {

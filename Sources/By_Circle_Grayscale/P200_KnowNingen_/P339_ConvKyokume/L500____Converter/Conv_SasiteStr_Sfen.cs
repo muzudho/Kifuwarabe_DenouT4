@@ -23,6 +23,23 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
         /// </summary>
         public const string KIFU_TREE_LOG_ROOT_FOLDER = "temp_root";
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="srcNow">選択している駒の元の場所</param>
+        /// <param name="dstNow">選択している駒の移動先</param>
+        /// <param name="captured">あれば取った駒</param>
+        /// <returns></returns>
+        public static Move ToMove(
+            Starlightable srcNow,
+            Starlightable dstNow,
+            Komasyurui14 captured
+            )
+        {
+            Starbeamable sasiteOld = new RO_Starbeam(srcNow, dstNow, captured);
+            return Conv_SasiteStr_Sfen.ToMove(sasiteOld);
+        }
+
         public static Move ToMove(Starbeamable sasite)
         {
             int v = 0;//バリュー（ビットフィールド）

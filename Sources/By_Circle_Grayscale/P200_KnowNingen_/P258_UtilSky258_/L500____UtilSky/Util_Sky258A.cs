@@ -25,24 +25,11 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 {
     public static class Util_Sky258A
     {
-
-        /*
-        public static readonly Starbeamable ROOT_SASITE = new RO_Starbeam(
-            new RO_Star(Playerside.Empty, Masu_Honshogi.Query_Basho(Masu_Honshogi.nError), Komasyurui14.H00_Null___),
-            new RO_Star(Playerside.Empty, Masu_Honshogi.Query_Basho(Masu_Honshogi.nError), Komasyurui14.H00_Null___),
-            null
-            );
-            */
-
         public static readonly Starbeamable NULL_OBJECT_SASITE = new RO_Starbeam(
             new RO_Star(Playerside.Empty, Masu_Honshogi.Query_Basho(Masu_Honshogi.nError), Komasyurui14.H00_Null___),
             new RO_Star(Playerside.Empty, Masu_Honshogi.Query_Basho(Masu_Honshogi.nError), Komasyurui14.H00_Null___),
             null
             );
-
-
-
-
 
         /// <summary>
         /// 成ケース
@@ -74,41 +61,6 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             return result;
         }
 
-        /// <summary>
-        /// ************************************************************************************************************************
-        /// 元位置。
-        /// ************************************************************************************************************************
-        /// </summary>
-        /// <returns></returns>
-        public static Starbeamable Src(Starbeamable sasite)
-        {
-            RO_Starbeam result;
-
-
-            RO_Star srcKoma = Util_Starlightable.AsKoma(sasite.LongTimeAgo);
-            RO_Star dstKoma = Util_Starlightable.AsKoma(sasite.Now);
-
-
-            result = new RO_Starbeam(
-
-                new RO_Star(
-                    dstKoma.Pside,
-                    Masu_Honshogi.Query_Basho(Masu_Honshogi.nError), // ソースのソースは未定義。
-                    Komasyurui14.H00_Null___
-                ),
-
-                // ソースの目的地はソース
-                new RO_Star(
-                    dstKoma.Pside,
-                    srcKoma.Masu,
-                    srcKoma.Komasyurui
-                ),
-
-                Komasyurui14.H00_Null___
-            );
-
-            return result;
-        }
 
         public static RO_Starbeam BuildSasite(
             Starlightable longTimeAgo,

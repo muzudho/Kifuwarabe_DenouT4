@@ -169,6 +169,21 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             return sb.ToString();
         }
 
+        /// <summary>
+        /// ************************************************************************************************************************
+        /// SFEN符号表記。
+        /// ************************************************************************************************************************
+        /// 
+        /// ファイル名にも使えるように、ファイル名に使えない文字を置換します。
+        /// </summary>
+        /// <returns></returns>
+        public static string ToSfen_ForFilename(Move move)
+        {
+            string moveSfen = Conv_Move.ToSfen(move);
+            return Conv_Filepath.ToEscape(moveSfen);
+        }
+
+
         public static SyElement ToSrcMasu(Move move)
         {
             int v = (int)move;              // バリュー

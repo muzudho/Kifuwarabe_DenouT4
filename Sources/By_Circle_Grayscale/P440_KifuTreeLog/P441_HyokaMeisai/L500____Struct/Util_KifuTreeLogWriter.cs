@@ -23,6 +23,7 @@ using System.IO;
 using System.Text;
 using Grayscale.P335_Move_______.L___500_Struct;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
+using Grayscale.P056_Syugoron___.L___250_Struct;
 
 #if DEBUG
 using System.Diagnostics;
@@ -173,18 +174,15 @@ namespace Grayscale.P440_KifuTreeLog.L500____Struct
                 // 先に奥の枝から。
                 node.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> nextNode, ref bool toBreak) =>
                 {
-
                     float score = ((KifuNode)nextNode).Score;
-
-                    Starbeamable sasiteOld = Conv_Move.ToSasite(nextNode.Key);
 
                     // 再帰
                     Util_KifuTreeLogWriter.AA_Write_ForeachLeafs_ForDebug(
                         ref logFileCounter_temp,
-                        nodePath + " " + Conv_SasiteStr_Sfen.ToSasiteStr_Sfen_ForFilename(sasiteOld),
+                        nodePath + " " + Conv_Move.ToSfen_ForFilename(nextNode.Key),
                         (KifuNode)nextNode,
                         kifu,
-                        relFolder + ((int)score).ToString() + "点_" + Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(sasiteOld) + "/",
+                        relFolder + ((int)score).ToString() + "点_" + Conv_Move.ToSfen(nextNode.Key) + "/",
                         reportEnvironment,
                         errH
                         );
@@ -235,18 +233,21 @@ namespace Grayscale.P440_KifuTreeLog.L500____Struct
                     int srcMasu_orMinusOne = -1;
                     int dstMasu_orMinusOne = -1;
 
-                    Starbeamable sasiteOld = Conv_Move.ToSasite(node.Key);
+                    SyElement srcMasu = Conv_Move.ToSrcMasu(node.Key);
+                    SyElement dstMasu = Conv_Move.ToDstMasu(node.Key);
+                    bool errorCheck = Conv_Move.ToErrorCheck(node.Key);
+                    Komasyurui14 captured = Conv_Move.ToCaptured(node.Key);
 
-                    if (Util_Sky258A.NULL_OBJECT_SASITE != sasiteOld)
+                    if (!errorCheck)
                     {
-                        srcMasu_orMinusOne = Conv_SyElement.ToMasuNumber(((RO_Star)sasiteOld.LongTimeAgo).Masu);
-                        dstMasu_orMinusOne = Conv_SyElement.ToMasuNumber(((RO_Star)sasiteOld.Now).Masu);
+                        srcMasu_orMinusOne = Conv_SyElement.ToMasuNumber(srcMasu);
+                        dstMasu_orMinusOne = Conv_SyElement.ToMasuNumber(dstMasu);
                     }
 
                     KyokumenPngArgs_FoodOrDropKoma foodKoma;
-                    if (Komasyurui14.H00_Null___ != (Komasyurui14)sasiteOld.FoodKomaSyurui)
+                    if (Komasyurui14.H00_Null___ != captured)
                     {
-                        switch (Util_Komasyurui14.NarazuCaseHandle((Komasyurui14)sasiteOld.FoodKomaSyurui))
+                        switch (Util_Komasyurui14.NarazuCaseHandle(captured))
                         {
                             case Komasyurui14.H00_Null___: foodKoma = KyokumenPngArgs_FoodOrDropKoma.NONE; break;
                             case Komasyurui14.H01_Fu_____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.FU__; break;
@@ -271,7 +272,7 @@ namespace Grayscale.P440_KifuTreeLog.L500____Struct
                         srcMasu_orMinusOne,
                         dstMasu_orMinusOne,
                         foodKoma,
-                        Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(sasiteOld),
+                        Conv_Move.ToSfen(node.Key),
                         relFolder,
                         fileName,
                         reportEnvironment,

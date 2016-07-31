@@ -514,12 +514,10 @@ namespace Grayscale.P693_ShogiGui___.L491____Event
                 // 棋譜
 
                 mainGui.Model_Manual.GuiSkyConst.AssertFinger(btnTumandeiruKoma.Finger);
-                Starbeamable sasite = new RO_Starbeam(
-                    //btnTumandeiruKoma.Finger,
+
+                Move move = Conv_SasiteStr_Sfen.ToMove(
                     mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now,
-
                     mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(btnTumandeiruKoma.Finger).Now,
-
                     mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma != null ? mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma.Komasyurui : Komasyurui14.H00_Null___
                     );// 選択している駒の元の場所と、移動先
 
@@ -530,7 +528,7 @@ namespace Grayscale.P693_ShogiGui___.L491____Event
                     //
                     StartposImporter.Assert_HirateHonsyogi(new SkyBuffer(mainGui.Model_Manual.GuiSkyConst), "newNode作成前");
                     newNode = new KifuNodeImpl(
-                        Conv_SasiteStr_Sfen.ToMove( sasite),
+                        move,
                         new KyokumenWrapper(SkyConst.NewInstance_ReversePside(// 先後を反転させます。
                             mainGui.Model_Manual.GuiSkyConst,
                             mainGui.Model_Manual.GuiSkyConst.Temezumi + 1//１手進める
@@ -589,12 +587,6 @@ namespace Grayscale.P693_ShogiGui___.L491____Event
             mainGui.RepaintRequest.SyuturyokuRequest = RepaintRequestGedanTxt.Kifu;
             mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
-            Starbeamable last;
-            {
-                Node<Move, KyokumenWrapper> kifuElement = mainGui.Link_Server.Model_Taikyoku.Kifu.CurNode;
-
-                last = (Starbeamable)Conv_Move.ToSasite( kifuElement.Key);
-            }
             mainGui.ChangedTurn(errH);//マウス左ボタンを押したのでチェンジターンします。
 
             mainGui.Shape_PnlTaikyoku.Request_NaruDialogToShow(false);

@@ -145,7 +145,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
             else
             {
                 //System.Windows.Forms.MessageBox.Show("本番モード");
-                //* ２手の読み。
+                /* ２手の読み。
                 yomuLimitter = new int[]{
                     0,   // 現局面は無視します。
                     600, // 読みの1手目の横幅   // 王手回避漏れのために、１手目は、合法手全読み(約600)は必要です。
@@ -153,7 +153,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                 };
                 // */
 
-                /* ３手の読み。
+                //* ３手の読み。
                 yomuLimitter = new int[]{
                     0,   // 現局面は無視します。
                     600, // 読みの1手目の横幅   // 王手回避漏れのために、１手目は、合法手全読み(約600)は必要です。
@@ -244,7 +244,6 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
 
                     // 局面に評価を付けます。
                     Tansaku_FukasaYusen_Routine.Do_Leaf(
-                        ref searchedNodes,
                         genjo,
                         node_yomi,
                         args,
@@ -383,7 +382,6 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
         /// もう深く読まない場合の処理。
         /// </summary>
         private static void Do_Leaf(
-            ref ulong searchedNodes,
             Tansaku_Genjo genjo,
             KifuNode node_yomi,
             EvaluationArgs args,
@@ -399,7 +397,6 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                 );
             // 局面の評価値。
             out_a_childrenBest = node_yomi.Score;
-            searchedNodes++;
 
 #if DEBUG_ALPHA_METHOD
                     errH.Logger.WriteLine_AddMemo("1. 手(" + node_yomi.Value.ToKyokumenConst.Temezumi + ")読(" + yomiDeep + ") 兄弟最善=[" + a_siblingDecidedValue + "] 子ベスト=[" + a_childrenBest + "]");
@@ -499,7 +496,6 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                         // もう深くよまないなら
                         //----------------------------------------
                         Tansaku_FukasaYusen_Routine.Do_Leaf(
-                            ref searchedNodes,
                             genjo,
                             node_yomi,
                             args,
@@ -516,6 +512,9 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                         // 《９》まだ深く読むなら
                         //----------------------------------------
                         // 《８》カウンターを次局面へ
+
+                        // 探索ノードのカウントを加算☆（＾～＾）少ないほど枝刈りの質が高いぜ☆
+                        searchedNodes++;
 
 
                         // このノードは、途中節か葉か未確定。

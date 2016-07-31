@@ -6,15 +6,12 @@ using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using Grayscale.P324_KifuTree___.L___250_Struct;
 using Grayscale.P324_KifuTree___.L250____Struct;
+using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 using Grayscale.P542_Scoreing___.L___240_Shogisasi;
 using Grayscale.P575_KifuWarabe_.L100____Shogisasi;
 using Grayscale.P575_KifuWarabe_.L500____KifuWarabe;
-using Grayscale.P339_ConvKyokume.L500____Converter;
-using Grayscale.P218_Starlight__.L___500_Struct;
-using Grayscale.P335_Move_______.L___500_Struct;
 using System;
-using System.Windows.Forms;
-using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace P930_SampleGame
 {
@@ -53,17 +50,10 @@ namespace P930_SampleGame
                 ref searchedNodes,
                 searchedPv,
                 true, kifu, errH);
-            Starbeamable bestSasite = Conv_Move.ToSasite(bestmoveNode.Key);
-            string sfenTextA = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(bestSasite);
 
-            Move move = Conv_SasiteStr_Sfen.ToMove(bestSasite);
-            System.Console.WriteLine("move=" + Convert.ToString((int)move, 2));
-
-            Starbeamable bestSasiteB = Conv_Move.ToSasite(move);
-            string sfenTextB = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(bestSasiteB);
-
-            MessageBox.Show("sfenTextA=" + sfenTextA + "\nsfenTextB=" + sfenTextB + "\nmove     =" + Convert.ToString((int)move, 2), "デバッグ中");
-
+            Move move = bestmoveNode.Key;
+            string sfenText = Conv_Move.ToSfen(move);
+            System.Console.WriteLine("sfenText="+ sfenText + " move=" + Convert.ToString((int)move, 2));
 
 
             //bool isTimeoutShutdown_temp;
