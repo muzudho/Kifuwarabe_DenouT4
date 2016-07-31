@@ -7,7 +7,7 @@ namespace Grayscale.P550_timeMan____.L___500_struct__
         /// <summary>
         /// 思考時間。
         /// </summary>
-        long ThinkingMilliSeconds { get; set; }
+        long ThinkableMilliSeconds { get; set; }
 
         /// <summary>
         /// ストップウォッチ

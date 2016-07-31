@@ -417,7 +417,11 @@ namespace Grayscale.P743_FvLearn____.L260____View
             ////----------------------------------------
             //// 合法手一覧を作成したい。
             ////----------------------------------------
-            learningData.Aa_Yomi(nextSasite, errH);
+            int searchedMaxDepth = 0;
+            ulong searchedNodes = 0;
+            learningData.Aa_Yomi(
+                ref searchedMaxDepth,
+                ref searchedNodes, nextSasite, errH);
             // ノード情報の表示
             Util_LearningView.Aa_ShowNode2(uc_Main.LearningData, uc_Main, errH);
 

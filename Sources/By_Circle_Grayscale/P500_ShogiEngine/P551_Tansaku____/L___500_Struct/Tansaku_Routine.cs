@@ -19,6 +19,8 @@ namespace Grayscale.P551_Tansaku____.L___500_Tansaku
         /// <param name="logTag"></param>
         /// <returns></returns>
         void WAA_Yomu_Start(
+            ref int searchedMaxDepth,
+            ref ulong searchedNodes,
             KifuTree kifu,
             bool isHonshogi,
             Mode_Tansaku mode_Tansaku,

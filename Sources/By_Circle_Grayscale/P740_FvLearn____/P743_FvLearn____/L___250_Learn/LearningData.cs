@@ -54,7 +54,10 @@ namespace Grayscale.P743_FvLearn____.L___250_Learn
         /// 合法手を一覧します。
         /// </summary>
         /// <param name="uc_Main"></param>
-        void Aaa_CreateNextNodes_Gohosyu( EvaluationArgs args, KwErrorHandler errH);
+        void Aaa_CreateNextNodes_Gohosyu(
+            ref int searchedMaxDepth,
+            ref ulong searchedNodes,
+            EvaluationArgs args, KwErrorHandler errH);
 
         /// <summary>
         /// 全合法手をダンプ。デバッグ用途。
@@ -79,7 +82,10 @@ namespace Grayscale.P743_FvLearn____.L___250_Learn
         /// <summary>
         /// 合法手一覧を作成したい。
         /// </summary>
-        void Aa_Yomi( Starbeamable sasite, KwErrorHandler errH);
+        void Aa_Yomi(
+            ref int searchedMaxDepth,
+            ref ulong searchedNodes,
+            Starbeamable sasite, KwErrorHandler errH);
 
     }
 }

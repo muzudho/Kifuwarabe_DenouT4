@@ -195,6 +195,8 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
         /// <param name="logTag"></param>
         /// <returns></returns>
         public void WAA_Yomu_Start(
+            ref int searchedMaxDepth,
+            ref ulong searchedNodes,
             KifuTree kifu,
             bool isHonshogi,
             Mode_Tansaku mode_Tansaku,
@@ -222,6 +224,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                     genjo,
                     node_yomi,
                     out sasitebetuEntry,
+                    ref searchedMaxDepth,
                     out yomiDeep,
                     out a_childrenBest,
                     errH
@@ -238,6 +241,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
 
                     // 局面に評価を付けます。
                     Tansaku_FukasaYusen_Routine.Do_Leaf(
+                        ref searchedNodes,
                         genjo,
                         node_yomi,
                         args,
@@ -248,6 +252,8 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                 else
                 {
                     a_childrenBest = Tansaku_FukasaYusen_Routine.WAAA_Yomu_Loop(
+                        ref searchedMaxDepth,
+                        ref searchedNodes,
                         genjo,
                         alphabeta_otherBranchDecidedValue,
                         node_yomi,
@@ -341,6 +347,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
             Tansaku_Genjo genjo,
             KifuNode node_yomi,
             out Dictionary<string, SasuEntry> out_sasitebetuEntry,
+            ref int searchedMaxDepth,
             out int out_yomiDeep,
             out float out_a_childrenBest,
             KwErrorHandler errH
@@ -353,6 +360,10 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                 errH);
 
             out_yomiDeep = node_yomi.Value.KyokumenConst.Temezumi - genjo.YomikaisiTemezumi + 1;
+            if (searchedMaxDepth < out_yomiDeep-1)//これから探索する分をマイナス1しているんだぜ☆（＾～＾）
+            {
+                searchedMaxDepth = out_yomiDeep - 1;
+            }
 
 
             //--------------------------------------------------------------------------------
@@ -368,6 +379,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
         /// もう深く読まない場合の処理。
         /// </summary>
         private static void Do_Leaf(
+            ref ulong searchedNodes,
             Tansaku_Genjo genjo,
             KifuNode node_yomi,
             EvaluationArgs args,
@@ -383,6 +395,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                 );
             // 局面の評価値。
             out_a_childrenBest = node_yomi.Score;
+            searchedNodes++;
 
 #if DEBUG_ALPHA_METHOD
                     errH.Logger.WriteLine_AddMemo("1. 手(" + node_yomi.Value.ToKyokumenConst.Temezumi + ")読(" + yomiDeep + ") 兄弟最善=[" + a_siblingDecidedValue + "] 子ベスト=[" + a_childrenBest + "]");
@@ -426,6 +439,8 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
         /// <param name="errH"></param>
         /// <returns>子の中で最善の点</returns>
         private static float WAAA_Yomu_Loop(
+            ref int searchedMaxDepth,
+            ref ulong searchedNodes,
             Tansaku_Genjo genjo,
             float a_parentsiblingDecidedValue,
             KifuNode node_yomi,
@@ -458,6 +473,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                     genjo,
                     node_yomi,
                     out sasitebetuEntry2,
+                    ref searchedMaxDepth,
                     out yomiDeep2,
                     out a_childrenBest,
                     errH
@@ -478,6 +494,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                         // もう深くよまないなら
                         //----------------------------------------
                         Tansaku_FukasaYusen_Routine.Do_Leaf(
+                            ref searchedNodes,
                             genjo,
                             node_yomi,
                             args,
@@ -517,6 +534,8 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                         // これを呼び出す回数を減らすのが、アルファ法。
                         // 枝か、葉か、確定させにいきます。
                         float a_myScore = Tansaku_FukasaYusen_Routine.WAAA_Yomu_Loop(
+                            ref searchedMaxDepth,
+                            ref searchedNodes,
                             genjo,
                             a_childrenBest,
                             childNode1,

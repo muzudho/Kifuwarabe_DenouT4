@@ -45,7 +45,11 @@ namespace P930_SampleGame
                         )
                 );
 
-            KifuNode bestmoveNode = shogisasi.WA_Bestmove(true, kifu, errH);
+            int searchedMaxDepth = 0;
+            ulong searchedNodes = 0;
+            KifuNode bestmoveNode = shogisasi.WA_Bestmove(
+                ref searchedMaxDepth,
+                ref searchedNodes, true, kifu, errH);
             Starbeamable bestSasite = Conv_Move.ToSasite(bestmoveNode.Key);
             string sfenTextA = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(bestSasite);
 

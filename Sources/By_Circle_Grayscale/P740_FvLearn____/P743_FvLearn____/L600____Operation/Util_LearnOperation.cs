@@ -99,7 +99,12 @@ namespace Grayscale.P743_FvLearn____.L600____Operation
             // ネクスト・ノードを再作成
             //----------------------------------------
             // TODO:本譜のネクスト・ノードは？
-            uc_Main.LearningData.Aa_Yomi(Conv_Move.ToSasite( uc_Main.LearningData.Kifu.CurNode.Key), Util_OwataMinister.LEARNER);
+            int searchedMaxDepth = 0;
+            ulong searchedNodes = 0;
+            uc_Main.LearningData.Aa_Yomi(
+                ref searchedMaxDepth,
+                ref searchedNodes,
+                Conv_Move.ToSasite( uc_Main.LearningData.Kifu.CurNode.Key), Util_OwataMinister.LEARNER);
         }
 
 
@@ -300,7 +305,12 @@ namespace Grayscale.P743_FvLearn____.L600____Operation
             Util_LearnOperation.Load_CsaKifu(uc_Main,errH);
 
             // 合法手を調べます。
-            uc_Main.LearningData.Aa_Yomi(Conv_Move.ToSasite( uc_Main.LearningData.Kifu.CurNode.Key), errH);
+            int searchedMaxDepth = 0;
+            ulong searchedNodes = 0;
+            uc_Main.LearningData.Aa_Yomi(
+                ref searchedMaxDepth,
+                ref searchedNodes,
+                Conv_Move.ToSasite( uc_Main.LearningData.Kifu.CurNode.Key), errH);
             // ノード情報の表示
             Util_LearningView.Aa_ShowNode2(uc_Main.LearningData, uc_Main, Util_OwataMinister.LEARNER);
 
@@ -340,7 +350,12 @@ namespace Grayscale.P743_FvLearn____.L600____Operation
             }
 
             // 合法手を数えたい。
-            uc_Main.LearningData.Aaa_CreateNextNodes_Gohosyu(args, errH);
+            int searchedMaxDepth = 0;
+            ulong searchedNodes = 0;
+            uc_Main.LearningData.Aaa_CreateNextNodes_Gohosyu(
+                ref searchedMaxDepth,
+                ref searchedNodes,
+                args, errH);
 
             // 現局面の合法手表示の更新を要求
             isRequest_ShowGohosyu = true;

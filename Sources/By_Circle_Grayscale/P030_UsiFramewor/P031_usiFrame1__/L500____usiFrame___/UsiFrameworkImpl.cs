@@ -233,13 +233,13 @@ namespace Grayscale.P031_usiFrame1__.L500____usiFrame___
                 //PerformanceMetrics performanceMetrics = new PerformanceMetrics();//使ってない？
 
 #if NOOPABLE
-                                            // サーバーに noop を送ってもよい場合だけ有効にします。
-                                            NoopTimerImpl noopTimer = null;
-                                            if(this.owner.Option_enable_serverNoopable)
-                                            {
-                                                noopTimer = new NoopTimerImpl();
-                                                noopTimer._01_BeforeLoop();
-                                            }
+                // サーバーに noop を送ってもよい場合だけ有効にします。
+                NoopTimerImpl noopTimer = null;
+                if(this.owner.Option_enable_serverNoopable)
+                {
+                    noopTimer = new NoopTimerImpl();
+                    noopTimer._01_BeforeLoop();
+                }
 #endif
 
 
@@ -257,17 +257,17 @@ namespace Grayscale.P031_usiFrame1__.L500____usiFrame___
                         //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 #if NOOPABLE
-                                        if (this.owner.Option_enable_serverNoopable)
-                                        {
-                                            bool isTimeoutShutdown_temp;
-                                            noopTimer._02_AtEmptyMessage(this.owner, out isTimeoutShutdown_temp,errH);
-                                            if (isTimeoutShutdown_temp)
-                                            {
-                                                //MessageBox.Show("ループ２でタイムアウトだぜ☆！");
-                                                result_Usi_Loop2 = PhaseResult_Usi_Loop2.TimeoutShutdown;
-                                                goto end_loop2;
-                                            }
-                                        }
+                        if (this.owner.Option_enable_serverNoopable)
+                        {
+                            bool isTimeoutShutdown_temp;
+                            noopTimer._02_AtEmptyMessage(this.owner, out isTimeoutShutdown_temp,errH);
+                            if (isTimeoutShutdown_temp)
+                            {
+                                //MessageBox.Show("ループ２でタイムアウトだぜ☆！");
+                                result_Usi_Loop2 = PhaseResult_Usi_Loop2.TimeoutShutdown;
+                                goto end_loop2;
+                            }
+                        }
 #endif
 
                         goto gt_NextLine_loop2;

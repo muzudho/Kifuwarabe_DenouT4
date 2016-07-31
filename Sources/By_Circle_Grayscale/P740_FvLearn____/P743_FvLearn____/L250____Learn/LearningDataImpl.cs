@@ -168,7 +168,10 @@ namespace Grayscale.P743_FvLearn____.L250____Learn
         /// <summary>
         /// 合法手一覧を作成したい。
         /// </summary>
-        public void Aa_Yomi(Starbeamable sasite, KwErrorHandler errH)
+        public void Aa_Yomi(
+            ref int searchedMaxDepth,
+            ref ulong searchedNodes,
+            Starbeamable sasite, KwErrorHandler errH)
         {
             //----------------------------------------
             // 合法手のNextNodesを作成します。
@@ -193,7 +196,10 @@ namespace Grayscale.P743_FvLearn____.L250____Learn
 #endif
                     );
             }
-            this.Aaa_CreateNextNodes_Gohosyu(args, errH);
+            this.Aaa_CreateNextNodes_Gohosyu(
+                ref searchedMaxDepth,
+                ref searchedNodes,
+                args, errH);
 #if DEBUG
             sw2.Stop();
             Console.WriteLine("合法手作成　　　 　= {0}", sw2.Elapsed);
@@ -304,6 +310,8 @@ namespace Grayscale.P743_FvLearn____.L250____Learn
         /// </summary>
         /// <param name="uc_Main"></param>
         public void Aaa_CreateNextNodes_Gohosyu(
+            ref int searchedMaxDepth,
+            ref ulong searchedNodes,
             EvaluationArgs args,
             KwErrorHandler errH)
         {
@@ -329,6 +337,8 @@ namespace Grayscale.P743_FvLearn____.L250____Learn
 
 
                 new Tansaku_FukasaYusen_Routine().WAA_Yomu_Start(
+                    ref searchedMaxDepth,
+                    ref searchedNodes,
                     this.Kifu, isHonshogi, Mode_Tansaku.Learning, alphabeta_otherBranchDecidedValue, args, errH);
             }
             catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "棋譜ツリーを作っていたときです。"); throw ex; }

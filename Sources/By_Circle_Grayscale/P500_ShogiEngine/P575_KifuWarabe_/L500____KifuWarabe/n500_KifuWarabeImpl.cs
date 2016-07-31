@@ -978,12 +978,16 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
                             //
                             // FIXME: ログがＭｕｌｔｉＰＶ別になっていないので、混ざって、同じ手を２度指しているみたいに見えてしまう☆
                             //
+                            int searchedMaxDepth = 0;
+                            ulong searchedNodes = 0;
                             int multiPV_Count = 1;// 2;
                             {
                                 // 最善手、次善手、三次善手、四次善手、五次善手
                                 for (int iMultiPV = 0; iMultiPV < multiPV_Count; iMultiPV++)
                                 {
                                     bestKifuNodeList.Add(this.Shogisasi.WA_Bestmove(
+                                        ref searchedMaxDepth,
+                                        ref searchedNodes,
                                         isHonshogi,
                                         this.Kifu_AtLoop2,
                                         this.ErrH)
@@ -1074,7 +1078,7 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
                                         // 符号を逆転
                                         hyojiScore = -hyojiScore;
                                     }
-                                    this.Send("info time 1 depth 1 nodes 1 score cp " + hyojiScore.ToString() + " pv ");//FIXME:
+                                    this.Send("info time "+this.Shogisasi.TimeManager.Stopwatch.ElapsedMilliseconds+" depth "+searchedMaxDepth+" nodes "+searchedNodes+" score cp " + hyojiScore.ToString() + " pv ");//FIXME:
                                                                                                                         //+ " pv 3a3b L*4h 4c4d"
                                 }
 
