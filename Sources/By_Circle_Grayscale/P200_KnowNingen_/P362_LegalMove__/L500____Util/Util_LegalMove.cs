@@ -51,7 +51,7 @@ namespace Grayscale.P362_LegalMove__.L500____Util
         public static Maps_OneAndOne<Finger, SySet<SyElement>> LA_RemoveMate(
             int yomikaisiTemezumi,
             bool isHonshogi,
-            Maps_OneAndMulti<Finger, Starbeamable> genTeban_komabetuAllSasite1,// 指定局面で、どの駒が、どんな手を指すことができるか
+            Maps_OneAndMulti<Finger, Move> genTeban_komabetuAllMoves1,// 指定局面で、どの駒が、どんな手を指すことができるか
             SkyConst src_Sky,//指定局面。
 
 #if DEBUG
@@ -62,7 +62,7 @@ namespace Grayscale.P362_LegalMove__.L500____Util
             KwErrorHandler errH)
         {
             Node<Move, KyokumenWrapper> hubNode = Conv_StarbetuSasites.ToNextNodes_AsHubNode(
-                genTeban_komabetuAllSasite1,
+                genTeban_komabetuAllMoves1,
                 src_Sky,
                 errH
                 );// ハブ・ノード自身はダミーノードなんだが、子ノードに、次のノードが入っている。

@@ -21,7 +21,7 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
 {
     public abstract class Conv_KomabetuMasus
     {
-
+        /*
         /// <summary>
         /// FIXME: 使ってない？
         /// 
@@ -29,13 +29,13 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
         /// </summary>
         /// <param name="kmDic_Self"></param>
         /// <returns></returns>
-        public static Maps_OneAndMulti<Finger, Starbeamable> ToKomabetuSasite(
+        public static Maps_OneAndMulti<Finger, Move> ToKomabetuMove(
             Maps_OneAndOne<Finger, SySet<SyElement>> kmDic_Self,
             Node<Move, KyokumenWrapper> siteiNode_genzai
             )
         {
 
-            Maps_OneAndMulti<Finger, Starbeamable> komaTe = new Maps_OneAndMulti<Finger, Starbeamable>();
+            Maps_OneAndMulti<Finger, Move> komaMove = new Maps_OneAndMulti<Finger, Move>();
 
             //
             //
@@ -46,8 +46,7 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
                     siteiNode_genzai.Value.KyokumenConst.AssertFinger(key);
                     RO_Star koma = Util_Starlightable.AsKoma(siteiNode_genzai.Value.KyokumenConst.StarlightIndexOf(key).Now);
 
-
-                    Starbeamable sasite = new RO_Starbeam(
+                    Move move = Conv_SasiteStr_Sfen.ToMove(
                         //key,
                         // 元
                             koma,
@@ -60,25 +59,24 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
 
                             Komasyurui14.H00_Null___//取った駒不明
                         );
-                    //sbSfen.Append(sbSfen.ToString());
 
-                    if (komaTe.ContainsKey(key))
+                    if (komaMove.ContainsKey(key))
                     {
                         // すでに登録されている駒
-                        komaTe.AddExists(key, sasite);
+                        komaMove.AddExists(key, move);
                     }
                     else
                     {
                         // まだ登録されていない駒
-                        komaTe.AddNew(key, sasite);
+                        komaMove.AddNew(key, move);
                     }
 
                 }
             });
 
-            return komaTe;
+            return komaMove;
         }
-
+        */
 
 
 

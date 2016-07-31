@@ -7,6 +7,8 @@ using Grayscale.P238_Seiza______.L250____Struct;
 using Grayscale.P238_Seiza______.L500____Util;
 using Grayscale.P269_Util_Sasu__.L500____Util;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P360_Conv_Sasu__.L500____Converter
 {
@@ -18,12 +20,12 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
         /// <param name="komaBETUSusumeruMasus">駒別の進める升</param>
         /// <param name="siteiNode">指定ノード</param>
         /// <returns></returns>
-        public static Maps_OneAndMulti<Finger, Starbeamable> ToKomaBETUAllSasites(
+        public static Maps_OneAndMulti<Finger, Move> ToKomaBETUAllSasites(
             List_OneAndMulti<Finger, SySet<SyElement>> komaBETUSusumeruMasus,
-            SkyConst src_Sky//Node<Move, KyokumenWrapper> siteiNode
+            SkyConst src_Sky
             )
         {
-            Maps_OneAndMulti<Finger, Starbeamable> result_komabetuAllSasite = new Maps_OneAndMulti<Finger, Starbeamable>();
+            Maps_OneAndMulti<Finger, Move> result_komabetuAllMoves = new Maps_OneAndMulti<Finger, Move>();
 
             komaBETUSusumeruMasus.Foreach_Entry((Finger figKoma, SySet<SyElement> susumuMasuSet, ref bool toBreak) =>
             {
@@ -40,17 +42,17 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
                         srcStar.Komasyurui// srcStar.Haiyaku//TODO:ここで、駒の種類が「成り」に上書きされているバージョンも考えたい
                     );
 
-                    Starbeamable sasite = new RO_Starbeam(
+                    Move move = Conv_SasiteStr_Sfen.ToMove(
                         srcStar,// 移動元
                         dstStar,// 移動先
                         Komasyurui14.H00_Null___//取った駒不明
-                    );
-                    result_komabetuAllSasite.Put_NewOrOverwrite(figKoma, sasite);//FIXME: １つの駒に指し手は１つ？？
+                        );
+                    result_komabetuAllMoves.Put_NewOrOverwrite(figKoma, move);//FIXME: １つの駒に指し手は１つ？？
 
                     // これが通称【水際のいんちきプログラム】なんだぜ☆
                     // 必要により、【成り】の指し手を追加します。
                     Util_Sasu269.Add_KomaBETUAllNariSasites(
-                        result_komabetuAllSasite,
+                        result_komabetuAllMoves,
                         figKoma,//動かす駒
                         srcStar,//動かす星
                         dstStar//移動先の星
@@ -58,7 +60,7 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
                 }
             });
 
-            return result_komabetuAllSasite;
+            return result_komabetuAllMoves;
         }
 
     }

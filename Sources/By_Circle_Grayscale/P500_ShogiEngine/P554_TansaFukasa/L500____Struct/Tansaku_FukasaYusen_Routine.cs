@@ -28,6 +28,7 @@ using Grayscale.P202_GraphicLog_.L500____Util;
 using Grayscale.P554_TansaFukasa.L___500_Struct;
 using Grayscale.P550_timeMan____.L___500_struct__;
 using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P335_Move_______.L___500_Struct;
 
 #if DEBUG
 using Grayscale.P266_KyokumMoves.L250____Log;
@@ -358,7 +359,6 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
         {
             out_sasitebetuEntry = Tansaku_FukasaYusen_Routine.WAAAA_Create_ChildNodes(
                 genjo,
-                Conv_Move.ToSasite( node_yomi.Key),
                 node_yomi.Value.KyokumenConst,
                 errH);
 
@@ -638,7 +638,6 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
         /// <returns>複数のノードを持つハブ・ノード</returns>
         private static Dictionary<string, SasuEntry> WAAAA_Create_ChildNodes(
             Tansaku_Genjo genjo,
-            Starbeamable src_Sky_sasite,
             SkyConst src_Sky,
             KwErrorHandler errH
             )
@@ -712,7 +711,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                     //----------------------------------------
                     // 指定局面での全ての指し手。
                     //----------------------------------------
-                    Maps_OneAndMulti<Finger, Starbeamable> komaBETUAllSasites = Conv_KomabetuSusumeruMasus.ToKomaBETUAllSasites(
+                    Maps_OneAndMulti<Finger, Move> komaBETUAllSasites = Conv_KomabetuSusumeruMasus.ToKomaBETUAllSasites(
                         komaBETUSusumeruMasus, src_Sky);
 
 //#if DEBUG

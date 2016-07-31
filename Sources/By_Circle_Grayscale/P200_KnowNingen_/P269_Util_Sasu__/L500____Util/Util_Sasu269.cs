@@ -9,6 +9,8 @@ using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P238_Seiza______.L250____Struct;
 using System;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P269_Util_Sasu__.L500____Util
 {
@@ -167,7 +169,7 @@ namespace Grayscale.P269_Util_Sasu__.L500____Util
         /// 必要により、【成り】の指し手を追加します。
         /// </summary>
         public static void Add_KomaBETUAllNariSasites(
-            Maps_OneAndMulti<Finger, Starbeamable> komaBETUAllSasites,
+            Maps_OneAndMulti<Finger, Move> komaBETUAllMoves,
             Finger figKoma,
             RO_Star srcKoma,
             RO_Star dstKoma
@@ -186,8 +188,7 @@ namespace Grayscale.P269_Util_Sasu__.L500____Util
                 {
                     //MessageBox.Show("成りの資格がある駒がありました。 src=["+srcKoma.Masu.Word+"]["+srcKoma.Syurui+"]");
 
-                    Starbeamable sasite = new RO_Starbeam(
-                        //figKoma,//駒
+                    Move move = Conv_SasiteStr_Sfen.ToMove(
                         srcKoma,// 移動元
                         new RO_Star(
                             dstKoma.Pside,
@@ -195,10 +196,10 @@ namespace Grayscale.P269_Util_Sasu__.L500____Util
                             Util_Komasyurui14.ToNariCase(dstKoma.Komasyurui)//強制的に【成り】に駒の種類を変更
                         ),// 移動先
                         Komasyurui14.H00_Null___//取った駒不明
-                    );
+                        );
 
                     // TODO: 一段目の香車のように、既に駒は成っている場合があります。無い指し手だけ追加するようにします。
-                    komaBETUAllSasites.AddNotOverwrite(figKoma, sasite);
+                    komaBETUAllMoves.AddNotOverwrite(figKoma, move);
                 }
 
             gt_EndMethod:
