@@ -10,7 +10,6 @@ using Grayscale.P292_JsaFugo____.L500____Util;
 using Grayscale.P295_JsaFugoWrit.L500____Writer;
 using Grayscale.P335_Move_______.L___500_Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
-using Grayscale.P213_Komasyurui_.L250____Word;
 
 namespace Grayscale.P296_ConvJsa____.L500____Converter
 {
@@ -28,10 +27,11 @@ namespace Grayscale.P296_ConvJsa____.L500____Converter
             KwErrorHandler errH
             )
         {
-            Komasyurui14 ks = Conv_Move.ToSrcKomasyurui(node.Key);
+            Starbeamable sasiteOld = Conv_Move.ToSasite(node.Key);
 
-            JsaFugoImpl jsaFugo = Array_JsaFugoCreator15.ItemMethods[(int)ks](
-                node.Key,
+            RO_Star koma = Util_Starlightable.AsKoma(sasiteOld.LongTimeAgo);
+
+            JsaFugoImpl jsaFugo = Array_JsaFugoCreator15.ItemMethods[(int)Util_Komahaiyaku184.Syurui(koma.Haiyaku)](sasiteOld,
                 node.Value,// kyokumenWrapper,
                 errH);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
 

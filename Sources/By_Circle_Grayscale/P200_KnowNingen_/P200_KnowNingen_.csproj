@@ -297,6 +297,7 @@
     <Folder Include="P297_／／↑日本将棋連盟の符号\" />
     <Folder Include="P301_／／↓細々\" />
     <Folder Include="P327_／／↑細々\" />
+    <Folder Include="P335_Move\L500____Struct\" />
     <Folder Include="P340_／／↓★一手指すルーチン\" />
     <Folder Include="P348_／／↑一手指すルーチン\" />
     <Folder Include="P350_／／↓SFEN棋譜指示実行\" />
