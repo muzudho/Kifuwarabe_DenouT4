@@ -16,7 +16,7 @@ namespace Grayscale.P341_Ittesasu___.L___250_OperationA
         /// <summary>
         /// 指し手。棋譜に記録するために「指す前／指した後」を含めた手。
         /// </summary>
-        Starbeamable Sasite { get; set; }
+        Move Move { get; set; }
 
 
         /// <summary>

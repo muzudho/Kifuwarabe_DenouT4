@@ -1,6 +1,7 @@
 ﻿using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P218_Starlight__.L___500_Struct;
 using Grayscale.P247_KyokumenWra.L500____Struct;
+using Grayscale.P335_Move_______.L___500_Struct;
 
 namespace Grayscale.P341_Ittesasu___.L___250_OperationA
 {
@@ -19,7 +20,7 @@ namespace Grayscale.P341_Ittesasu___.L___250_OperationA
         /// <summary>
         /// 一手指し、終了局面。これから指されるはずの手。棋譜に記録するために「指す前／指した後」を含めた手。
         /// </summary>
-        Starbeamable KorekaranoSasite { get; }// set;
+        Move KorekaranoMove { get; }// set;
 
         /// <summary>
         /// これから作る局面の、手目済み。

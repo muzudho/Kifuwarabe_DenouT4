@@ -83,7 +83,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
             Finger figMovedKoma;
             Util_IttemodosuRoutine.Do25_UgokasuKoma_IdoSakiHe(
                 out figMovedKoma,
-                ittemodosuArg.Sasite,
+                ittemodosuArg.Move,
                 kaisi_tebanside,
                 kaisi_Sky,
                 errH
@@ -100,12 +100,15 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
             //
             // 巻き戻しなら、非成りに戻します。
             //
-            Komasyurui14 syurui2 = Util_IttemodosuRoutine.Do30_MakimodosiNara_HinariNiModosu(ittemodosuArg.Sasite, isMakimodosi);
+            Komasyurui14 syurui2 = Util_IttemodosuRoutine.Do30_MakimodosiNara_HinariNiModosu(
+                ittemodosuArg.Move,
+                isMakimodosi);
 
 
             Starlight dst;
             {
-                dst = Util_IttemodosuRoutine.Do37_KomaOnDestinationMasu(syurui2, ittemodosuArg.Sasite,
+                dst = Util_IttemodosuRoutine.Do37_KomaOnDestinationMasu(syurui2,
+                    ittemodosuArg.Move,
                     kaisi_Sky);
             }
 
@@ -118,7 +121,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
             //------------------------------------------------------------
             Finger figFoodKoma;//取られていた駒
             Util_IttemodosuRoutine.Do62_TorareteitaKoma_ifExists(
-                ittemodosuArg.Sasite,
+                ittemodosuArg.Move,
                 kaisi_Sky,//巻き戻しのとき
                 ittemodosuResult.Susunda_Sky_orNull,
                 out figFoodKoma,//変更される場合あり。
@@ -138,7 +141,10 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                 //------------------------------
                 // 指し手の、取った駒部分を差替えます。
                 //------------------------------
-                RO_Star koma = Util_Starlightable.AsKoma(ittemodosuArg.Sasite.Now);
+                SyElement dstMasu = Conv_Move.ToDstMasu(ittemodosuArg.Move);
+                Playerside pside = Conv_Move.ToPlayerside(ittemodosuArg.Move);
+                Komasyurui14 captured = Conv_Move.ToCaptured(ittemodosuArg.Move);
+
                 kaisi_Sky = SkyConst.NewInstance_OverwriteOrAdd_Light(
                     kaisi_Sky,
                     ittemodosuArg.KorekaranoTemezumi_orMinus1,
@@ -153,9 +159,9 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                     figFoodKoma,
                     new RO_Starlight(
                         new RO_Star(
-                            Conv_Playerside.Reverse(koma.Pside),//先後を逆にして駒台に置きます。
-                            koma.Masu,// マス
-                            (Komasyurui14)ittemodosuArg.Sasite.FoodKomaSyurui
+                            Conv_Playerside.Reverse(pside),//先後を逆にして駒台に置きます。
+                            dstMasu,// マス
+                            captured
                         )
                     ));
             }
@@ -199,11 +205,13 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
             )
         {
             Node<Move, KyokumenWrapper> editNodeRef = ittemodosuReference.SyuryoNode_OrNull;
-            Starbeamable nextSasiteOld = Conv_Move.ToSasite( editNodeRef.Key);
+
+            Move nextMove = editNodeRef.Key;
+
             if (ittemodosuReference.FoodKomaSyurui != Komasyurui14.H00_Null___)
             {
                 // 元のキーの、取った駒の種類だけを差替えます。
-                nextSasiteOld = Util_Sky258A.BuildSasite(
+                nextMove = Conv_SasiteStr_Sfen.ToMove(
                     Conv_Move.ToSasite( editNodeRef.Key).LongTimeAgo,
                     Conv_Move.ToSasite( editNodeRef.Key).Now,
                     ittemodosuReference.FoodKomaSyurui);
@@ -213,12 +221,12 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
 
                 // キーを差替えたノード
                 editNodeRef = new KifuNodeImpl(
-                    Conv_SasiteStr_Sfen.ToMove( nextSasiteOld),
+                    nextMove,
                     new KyokumenWrapper(ittemodosuReference.Susunda_Sky_orNull));//, genTebanside
             }
 
 
-            string nextSasiteStr = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(nextSasiteOld);
+            string nextSasiteStr = Conv_Move.ToSfen(nextMove);
 
 
 
@@ -249,7 +257,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
         /// <param name="isMakimodosi"></param>
         private static void Do25_UgokasuKoma_IdoSakiHe(
             out Finger figMovedKoma,
-            Starbeamable sasite,
+            Move move,
             Playerside kaisi_tebanside,
             SkyConst kaisi_Sky,
             KwErrorHandler errH
@@ -269,13 +277,14 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
 
             // 打った駒も、指した駒も、結局は将棋盤の上にあるはず。
 
-            RO_Star koma = Util_Starlightable.AsKoma(sasite.Now);
+            Playerside pside = Conv_Move.ToPlayerside(move);
+            SyElement dstMasu = Conv_Move.ToDstMasu(move);
 
             // 動かす駒
             figMovedKoma = Util_Sky_FingerQuery.InShogibanMasuNow(
                 kaisi_Sky,
-                koma.Pside,
-                koma.Masu,//[巻戻し]のときは、先位置が　駒の居場所。
+                pside,
+                dstMasu,//[巻戻し]のときは、先位置が　駒の居場所。
                 errH
                 );
             Debug.Assert(figMovedKoma != Fingers.Error_1, "駒を動かせなかった？5");
@@ -291,27 +300,27 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
         /// <returns></returns>
         private static Starlight Do37_KomaOnDestinationMasu(
             Komasyurui14 syurui2,
-            Starbeamable sasite,
+            Move move,
             SkyConst src_Sky
             )
         {
             Starlight dst;
 
-            RO_Star srcKoma = Util_Starlightable.AsKoma(sasite.LongTimeAgo);//移動元
-            RO_Star dstKoma = Util_Starlightable.AsKoma(sasite.Now);//移動先
+            SyElement srcMasu = Conv_Move.ToSrcMasu(move);
+            Playerside pside = Conv_Move.ToPlayerside(move);
 
 
             SyElement masu;
 
             if (
-                Okiba.Gote_Komadai == Conv_SyElement.ToOkiba(srcKoma.Masu)
-                || Okiba.Sente_Komadai == Conv_SyElement.ToOkiba(srcKoma.Masu)
+                Okiba.Gote_Komadai == Conv_SyElement.ToOkiba(srcMasu)
+                || Okiba.Sente_Komadai == Conv_SyElement.ToOkiba(srcMasu)
                 )
             {
                 //>>>>> １手前が駒台なら
 
                 // 駒台の空いている場所
-                masu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Conv_SyElement.ToOkiba(srcKoma.Masu), src_Sky);
+                masu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Conv_SyElement.ToOkiba(srcMasu), src_Sky);
                 // 必ず空いている場所があるものとします。
             }
             else
@@ -319,14 +328,13 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                 //>>>>> １手前が将棋盤上なら
 
                 // その位置
-                masu = srcKoma.Masu;//戻し先
+                masu = srcMasu;//戻し先
             }
 
 
 
             dst = new RO_Starlight(
-                //sasite.Finger,
-                new RO_Star(dstKoma.Pside,
+                new RO_Star(pside,
                 masu,//戻し先
                 syurui2)
                 );
@@ -343,23 +351,24 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
         /// <param name="out_figFoodKoma"></param>
         /// <param name="errH"></param>
         private static void Do62_TorareteitaKoma_ifExists(
-            Starbeamable sasite,
+            Move move,
             SkyConst kaisi_Sky,//巻き戻しのとき
             SkyConst susunda_Sky_orNull,
             out Finger out_figFoodKoma,
             KwErrorHandler errH
         )
         {
-            if (Komasyurui14.H00_Null___ != (Komasyurui14)sasite.FoodKomaSyurui)
+            Komasyurui14 captured = Conv_Move.ToCaptured(move);
+            if (Komasyurui14.H00_Null___ != captured)
             {
                 //----------------------------------------
                 // 取られていた駒があった場合
                 //----------------------------------------
-                RO_Star koma = Util_Starlightable.AsKoma(sasite.Now);
+                Playerside pside = Conv_Move.ToPlayerside(move);
 
                 // 駒台から、駒を検索します。
                 Okiba okiba;
-                if (Playerside.P2 == koma.Pside)
+                if (Playerside.P2 == pside)
                 {
                     okiba = Okiba.Gote_Komadai;
                 }
@@ -371,7 +380,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
 
                 // 取った駒は、種類が同じなら、駒台のどの駒でも同じです。
                 out_figFoodKoma = Util_Sky_FingerQuery.InOkibaSyuruiNow_IgnoreCase(
-                    kaisi_Sky, okiba, (Komasyurui14)sasite.FoodKomaSyurui, errH);
+                    kaisi_Sky, okiba, captured, errH);
             }
             else
             {
@@ -389,7 +398,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
         /// <param name="isBack"></param>
         /// <returns></returns>
         private static Komasyurui14 Do30_MakimodosiNara_HinariNiModosu(
-            Starbeamable sasite,
+            Move move,
             bool isBack)
         {
             //------------------------------------------------------------
@@ -401,24 +410,24 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                 // 成るかどうか
                 //----------
 
-                RO_Star koma = Util_Starlightable.AsKoma(sasite.Now);
+                Komasyurui14 dstKs = Conv_Move.ToDstKomasyurui(move);
 
 
-                if (Util_Sky_BoolQuery.IsNatta_Sasite(sasite))
+                if (Util_Sky_BoolQuery.IsNatta_Sasite(move))
                 {
                     if (isBack)
                     {
                         // 正順で成ったのなら、巻戻しでは「非成」に戻します。
-                        syurui2 = Util_Komasyurui14.NarazuCaseHandle(Util_Komahaiyaku184.Syurui(koma.Haiyaku));
+                        syurui2 = Util_Komasyurui14.NarazuCaseHandle(dstKs);
                     }
                     else
                     {
-                        syurui2 = Util_Komahaiyaku184.Syurui(koma.Haiyaku);
+                        syurui2 = dstKs;
                     }
                 }
                 else
                 {
-                    syurui2 = Util_Komahaiyaku184.Syurui(koma.Haiyaku);
+                    syurui2 = dstKs;
                 }
             }
 

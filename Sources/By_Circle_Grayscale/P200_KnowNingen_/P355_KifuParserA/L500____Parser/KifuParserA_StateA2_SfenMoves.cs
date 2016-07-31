@@ -179,7 +179,7 @@ namespace Grayscale.P355_KifuParserA.L500____Parser
                                 new IttesasuArgImpl(
                                     model_Taikyoku.Kifu.CurNode.Value,
                                     src_Sky.KaisiPside,
-                                    nextTe,//FIXME: if文で分けているので、これがヌルなはずはないと思うが。
+                                    Conv_SasiteStr_Sfen.ToMove( nextTe),//FIXME: if文で分けているので、これがヌルなはずはないと思うが。
                                     korekaranoTemezumi//これから作る局面の、手目済み。
                                 ),
                                 out ittesasuResult,

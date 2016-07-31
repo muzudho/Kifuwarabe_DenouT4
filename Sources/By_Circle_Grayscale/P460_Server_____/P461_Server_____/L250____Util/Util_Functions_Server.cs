@@ -322,7 +322,7 @@ namespace Grayscale.P461_Server_____.L250____Util
                 Util_IttemodosuRoutine.Before1(
                     new IttemodosuArgImpl(
                         model_Taikyoku.Kifu.CurNode,
-                        Conv_Move.ToSasite( removeeLeaf.Key),
+                        removeeLeaf.Key,
                         korekaranoTemezumi
                     ),
                     out ittemodosuResult,

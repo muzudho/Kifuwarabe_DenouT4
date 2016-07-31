@@ -76,7 +76,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
 
                     //現局面ノードのクローンを作成します。
                     editNodeRef = new KifuNodeImpl(
-                        Conv_SasiteStr_Sfen.ToMove( ittesasuArg.KorekaranoSasite),
+                        ittesasuArg.KorekaranoMove,
                         new KyokumenWrapper(
                         SkyConst.NewInstance_ReversePside(kaisi_Sky,ittesasuArg.KorekaranoTemezumi_orMinus1))
                         );
@@ -88,11 +88,11 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                 //------------------------------
                 // 動かす駒を移動先へ。
                 //------------------------------
-                Debug.Assert(null != ittesasuArg.KorekaranoSasite, "これからの指し手がヌルでした。");
+                //Debug.Assert(null != ittesasuArg.KorekaranoSasite, "これからの指し手がヌルでした。");
                 Finger figMovedKoma;
                 Util_IttesasuRoutine.Do24_UgokasuKoma_IdoSakiHe(
                     out figMovedKoma,
-                    ittesasuArg.KorekaranoSasite,
+                    Conv_Move.ToSasite( ittesasuArg.KorekaranoMove),
                     ittesasuArg.KaisiTebanside,
                     kaisi_Sky,
                     errH,
@@ -103,12 +103,13 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
 
 
                 exceptionArea = 1060;
-                RO_Star korekaranoKoma = Util_Starlightable.AsKoma(ittesasuArg.KorekaranoSasite.Now);
+                SyElement dstMasu = Conv_Move.ToDstMasu(ittesasuArg.KorekaranoMove);
+                Komasyurui14 dstKs = Conv_Move.ToDstKomasyurui(ittesasuArg.KorekaranoMove);
                 Starlight afterStar;
                 {
                     afterStar = Util_IttesasuRoutine.Do36_KomaOnDestinationMasu(
-                        korekaranoKoma.Komasyurui,
-                        ittesasuArg.KorekaranoSasite,
+                        dstKs,
+                        Conv_Move.ToSasite( ittesasuArg.KorekaranoMove),
                         ittesasuResult.Susunda_Sky_orNull
                         );
                 }
@@ -197,9 +198,9 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                         //
                         // 手得計算
                         //
-                        korekaranoKoma.Komasyurui,
+                        dstKs,
                         0,// TODO: suji or index
-                        korekaranoKoma.Masu
+                        dstMasu
                         );
                 }
                 editNodeRef.Value.SetKyokumen(ittesasuResult.Susunda_Sky_orNull);

@@ -2,7 +2,7 @@
 using Grayscale.P218_Starlight__.L___500_Struct;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P341_Ittesasu___.L___250_OperationA;
-
+using Grayscale.P335_Move_______.L___500_Struct;
 
 namespace Grayscale.P341_Ittesasu___.L250____OperationA
 {
@@ -21,8 +21,8 @@ namespace Grayscale.P341_Ittesasu___.L250____OperationA
         /// <summary>
         /// これから指されるはずの、指し手。
         /// </summary>
-        public Starbeamable KorekaranoSasite { get { return this.korekaranoSasite; } }// set;
-        private Starbeamable korekaranoSasite;
+        public Move KorekaranoMove { get { return this.m_korekaranoMove_; } }// set;
+        private Move m_korekaranoMove_;
 
         /// <summary>
         /// これから作る局面の、手目済み。
@@ -34,13 +34,13 @@ namespace Grayscale.P341_Ittesasu___.L250____OperationA
         public IttesasuArgImpl(
             KyokumenWrapper kaisiKyokumen,
             Playerside tebanside,
-            Starbeamable korekaranoSasite,
+            Move korekaranoMove,
             int korekaranoTemezumi_orMinus1
             )
         {
             this.KaisiKyokumen = kaisiKyokumen;
             this.KaisiTebanside = tebanside;
-            this.korekaranoSasite = korekaranoSasite;
+            this.m_korekaranoMove_ = korekaranoMove;
             this.korekaranoTemezumi_orMinus1 = korekaranoTemezumi_orMinus1;
         }
     }

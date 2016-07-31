@@ -17,7 +17,7 @@ namespace Grayscale.P341_Ittesasu___.L250____OperationA
         /// <summary>
         /// 指し手。
         /// </summary>
-        public Starbeamable Sasite { get; set; }
+        public Move Move { get; set; }
 
         /// <summary>
         /// これから作る局面の、手目済み。
@@ -27,12 +27,12 @@ namespace Grayscale.P341_Ittesasu___.L250____OperationA
 
         public IttemodosuArgImpl(
             Node<Move, KyokumenWrapper> kaisiNode,
-            Starbeamable sasite,
+            Move move,
             int korekaranoTemezumi_orMinus1
             )
         {
             this.KaisiNode = kaisiNode;
-            this.Sasite = sasite;
+            this.Move = move;
             this.korekaranoTemezumi_orMinus1 = korekaranoTemezumi_orMinus1;
         }
     }

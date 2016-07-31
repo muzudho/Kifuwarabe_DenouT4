@@ -93,12 +93,8 @@ namespace Grayscale.P258_UtilSky258_.L510____UtilLogJson
                 goto gt_EndMethod;
             }
 
-            //Starbeamable sasiteOld = Conv_Move.ToSasite( thisNode.Key);
-            //RO_Star srcKoma = Util_Starlightable.AsKoma(sasiteOld.LongTimeAgo);
-            //RO_Star dstKoma = Util_Starlightable.AsKoma(sasiteOld.Now);
             SyElement dstMasu = Conv_Move.ToDstMasu(thisNode.Key);
             Komasyurui14 ks14 = Conv_Move.ToDstKomasyurui(thisNode.Key);
-            //Komasyurui14 ks14 = Util_Komahaiyaku184.Syurui(dstKoma.Haiyaku);// 駒１つ
 
             Finger finger = Util_Sky_FingersQuery.InMasuNow_Old(src_Sky_base,
                 Conv_Move.ToSrcMasu(thisNode.Key)// srcKoma.Masu
@@ -148,17 +144,13 @@ namespace Grayscale.P258_UtilSky258_.L510____UtilLogJson
 
             hubNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
             {
-                //Starbeamable sasiteOld = Conv_Move.ToSasite( node.Key);
 
                 SyElement srcMasu = Conv_Move.ToSrcMasu(node.Key);
-                //RO_Star srcKoma1 = Util_Starlightable.AsKoma(sasiteOld.LongTimeAgo);
-                //RO_Star dstKoma = Util_Starlightable.AsKoma(sasiteOld.Now);
                 SyElement dstMasu = Conv_Move.ToDstMasu(node.Key);
 
                 Finger srcKoma2 = Util_Sky_FingersQuery.InMasuNow_Old(src_Sky_base, srcMasu).ToFirst();
 
                 Komasyurui14 dstKs14 = Conv_Move.ToDstKomasyurui(node.Key);
-                //Komasyurui14 ks14 = Util_Komahaiyaku184.Syurui(dstKoma.Haiyaku);// 駒１つ
 
                 sb.AppendLine("            [");
 

@@ -130,10 +130,8 @@ namespace Grayscale.P324_KifuTree___.L250____Struct
             Node<Move, KyokumenWrapper> existsNode
             )
         {
-            Starbeamable sasiteOld = Conv_Move.ToSasite(existsNode.Key);
-
             // SFENをキーに、次ノードを増やします。
-            this.NextNodes[Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(sasiteOld)] = existsNode;
+            this.NextNodes[Conv_Move.ToSfen(existsNode.Key)] = existsNode;
             existsNode.SetParentNode( this);
         }
 

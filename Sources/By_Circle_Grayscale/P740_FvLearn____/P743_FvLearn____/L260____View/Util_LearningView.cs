@@ -143,7 +143,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
                         new IttesasuArgImpl(
                             kifu1.CurNode.Value,
                             ((KifuNode)kifu1.CurNode).Value.KyokumenConst.KaisiPside,
-                            nextSasite,
+                            Conv_SasiteStr_Sfen.ToMove( nextSasite),
                             kifu1.CurNode.Value.KyokumenConst.Temezumi + 1//1手進める
                         ),
                         out ittesasuResult,
@@ -382,7 +382,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
                 new IttesasuArgImpl(
                     learningData.Kifu.CurNode.Value,
                     ((KifuNode)learningData.Kifu.CurNode).Value.KyokumenConst.KaisiPside,
-                    nextSasite,// FIXME: これがヌルのことがあるのだろうか？
+                    Conv_SasiteStr_Sfen.ToMove( nextSasite),// FIXME: これがヌルのことがあるのだろうか？
                     learningData.Kifu.CurNode.Value.KyokumenConst.Temezumi + 1//1手進める
                 ),
                 out ittesasuResult,

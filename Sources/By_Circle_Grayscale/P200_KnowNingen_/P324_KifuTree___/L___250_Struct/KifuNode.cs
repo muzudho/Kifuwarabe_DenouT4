@@ -68,11 +68,6 @@ namespace Grayscale.P324_KifuTree___.L___250_Struct
         void PutTuginoitte_Override(Node<Move, KyokumenWrapper> existsNode);
         bool HasTuginoitte(string sasiteStr);
 
-        ///// <summary>
-        ///// 王手がかかった局面は取り除きます。
-        ///// </summary>
-        //Maps_OneAndMulti<Finger, Starbeamable> SplitSasite_ByStar(Node<Move, KyokumenWrapper> hubNode, KwErrorHandler errH);
-
         string Json_NextNodes_MultiSky(
             string memo,
             string hint,
