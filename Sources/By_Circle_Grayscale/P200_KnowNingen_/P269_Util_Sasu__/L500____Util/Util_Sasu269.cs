@@ -210,7 +210,7 @@ namespace Grayscale.P269_Util_Sasu__.L500____Util
                 throw new Exception("Convert04.cs#AddNariSasiteでｴﾗｰ。:" + ex.GetType().Name + ":" + ex.Message);
             }
         }
-        public static void AssertNariSasite(Maps_OneAndMulti<Finger, Starbeamable> komabetuAllSasite, string hint)
+        public static void AssertNariSasite(Maps_OneAndMulti<Finger, Move> komabetuAllSasite, string hint)
         {
             /*
             foreach(KeyValuePair<Finger, List<ShootingStarlightable>> komaAllSasite in komabetuAllSasite.Items)

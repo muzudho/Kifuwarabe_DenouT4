@@ -220,11 +220,11 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         /// <param name="hubNode">指し手一覧</param>
         /// <param name="errH"></param>
         /// <returns>駒毎の、全指し手</returns>
-        public static Maps_OneAndMulti<Finger, Starbeamable> SplitSasite_ByStar(
+        public static Maps_OneAndMulti<Finger, Move> SplitSasite_ByStar(
             SkyConst src_Sky,
             Node<Move, KyokumenWrapper> hubNode, KwErrorHandler errH)
         {
-            Maps_OneAndMulti<Finger, Starbeamable> enable_teMap = new Maps_OneAndMulti<Finger, Starbeamable>();
+            Maps_OneAndMulti<Finger, Move> enable_moveMap = new Maps_OneAndMulti<Finger, Move>();
 
 
             hubNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> nextNode, ref bool toBreak) =>
@@ -240,13 +240,13 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
                     throw new ApplicationException("駒のハンドルが負数でしたが、間違いです(B)。figKoma="+ (int)figKoma+ " nextNode.Key="+Convert.ToString((int)nextNode.Key,2)+"\n Log="+Conv_Move.ToLog(nextNode.Key));
                 }
 
-                enable_teMap.Put_NewOrOverwrite(
+                enable_moveMap.Put_NewOrOverwrite(
                     figKoma,
-                    Conv_Move.ToSasite(nextNode.Key) //nextSasiteOld
+                    nextNode.Key
                     );
             });
 
-            return enable_teMap;
+            return enable_moveMap;
         }
 
     }

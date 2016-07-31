@@ -90,25 +90,25 @@ namespace Grayscale.P362_LegalMove__.L500____Util
 
 
             // 「指し手一覧」を、「星別の全指し手」に分けます。
-            Maps_OneAndMulti<Finger, Starbeamable> starbetuAllSasites2 = Util_Sky258A.SplitSasite_ByStar(src_Sky, hubNode, errH);
+            Maps_OneAndMulti<Finger, Move> starbetuAllSasites2 = Util_Sky258A.SplitSasite_ByStar(src_Sky, hubNode, errH);
             Util_Sasu269.AssertNariSasite(starbetuAllSasites2, "#LA_RemoveMate(3)更に変換後");//ここはok
 
             //
             // 「星別の指し手一覧」を、「星別の進むマス一覧」になるよう、データ構造を変換します。
             //
             Maps_OneAndOne<Finger, SySet<SyElement>> starbetuSusumuMasus = new Maps_OneAndOne<Finger, SySet<SyElement>>();// 「どの星を、どこに進める」の一覧
-            foreach (KeyValuePair<Finger, List<Starbeamable>> entry in starbetuAllSasites2.Items)
+            foreach (KeyValuePair<Finger, List<Move>> entry in starbetuAllSasites2.Items)
             {
                 Finger finger = entry.Key;
-                List<Starbeamable> teList = entry.Value;
+                List<Move> moveList = entry.Value;
 
                 // ポテンシャル・ムーブを調べます。
                 SySet<SyElement> masus_PotentialMove = new SySet_Default<SyElement>("ポテンシャルムーブ");
-                foreach (Starbeamable te in teList)
+                foreach (Move move in moveList)
                 {
-                    RO_Star koma = Util_Starlightable.AsKoma(te.Now);
+                    SyElement dstMasu = Conv_Move.ToDstMasu(move);
 
-                    masus_PotentialMove.AddElement(koma.Masu);
+                    masus_PotentialMove.AddElement(dstMasu);
                 }
 
                 if (!masus_PotentialMove.IsEmptySet())
@@ -163,7 +163,7 @@ namespace Grayscale.P362_LegalMove__.L500____Util
 
             hubNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
             {
-                System.Diagnostics.Debug.Assert(node.Key != null);//指し手がヌルなはず無いはず。
+                //System.Diagnostics.Debug.Assert(node.Key != null);//指し手がヌルなはず無いはず。
 
                 // 王様が利きに飛び込んだか？
                 bool kingSuicide = Util_LegalMove.LAAA_KingSuicide(
