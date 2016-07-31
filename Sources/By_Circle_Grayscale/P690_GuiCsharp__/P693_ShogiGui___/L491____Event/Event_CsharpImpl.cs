@@ -515,10 +515,14 @@ namespace Grayscale.P693_ShogiGui___.L491____Event
 
                 mainGui.Model_Manual.GuiSkyConst.AssertFinger(btnTumandeiruKoma.Finger);
 
-                Move move = Conv_SasiteStr_Sfen.ToMove(
-                    mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now,
-                    mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(btnTumandeiruKoma.Finger).Now,
-                    mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma != null ? mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma.Komasyurui : Komasyurui14.H00_Null___
+                Move move = Conv_Move.ToMove(
+                    ((RO_Star)mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now).Masu,
+                    ((RO_Star)mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(btnTumandeiruKoma.Finger).Now).Masu,
+                    ((RO_Star)mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now).Komasyurui,
+                    ((RO_Star)mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(btnTumandeiruKoma.Finger).Now).Komasyurui,//これで成りかどうか判定
+                    mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma != null ? mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma.Komasyurui : Komasyurui14.H00_Null___,
+                    ((RO_Star)mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now).Pside,
+                    false
                     );// 選択している駒の元の場所と、移動先
 
                 KifuNode newNode;

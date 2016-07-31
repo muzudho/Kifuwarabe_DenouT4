@@ -200,18 +200,15 @@ namespace Grayscale.P269_Util_Sasu__.L500____Util
                 {
                     //MessageBox.Show("成りの資格がある駒がありました。 src=["+srcKoma.Masu.Word+"]["+srcKoma.Syurui+"]");
 
-                    Move move = Conv_SasiteStr_Sfen.ToMove(
-                        new RO_Star(// 移動元はそのまま
-                            pside,
-                            srcMasu,
-                            srcKs
-                        ),// 移動先
-                        new RO_Star(
-                            pside,
-                            dstMasu,
-                            Util_Komasyurui14.ToNariCase(dstKs)//強制的に【成り】に駒の種類を変更
-                        ),// 移動先
-                        Komasyurui14.H00_Null___//取った駒不明
+                    Move move = Conv_Move.ToMove(
+                        srcMasu,
+                        dstMasu,
+                        srcKs,
+                        Komasyurui14.H00_Null___,//取った駒不明
+                        true,//Util_Komasyurui14.ToNariCase(dstKs)//強制的に【成り】に駒の種類を変更
+                        false,//成り駒を作るので、ドロップの可能性は無いぜ☆（＾▽＾）
+                        pside,
+                        false
                         );
 
                     // TODO: 一段目の香車のように、既に駒は成っている場合があります。無い指し手だけ追加するようにします。

@@ -52,7 +52,7 @@ namespace Grayscale.P341_Ittesasu___.L250____OperationA
             // 採譜用に、新しい対局を用意します。
             KifuTree saifuKifu;
             {
-                Move move = Conv_SasiteStr_Sfen.ToMove(Util_Sky258A.NULL_OBJECT_SASITE);
+                Move move = Conv_Move.GetErrorMove();
 
                 saifuKifu = new KifuTreeImpl(
                         new KifuNodeImpl(

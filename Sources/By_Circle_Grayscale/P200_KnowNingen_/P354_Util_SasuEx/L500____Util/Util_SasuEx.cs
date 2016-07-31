@@ -71,18 +71,15 @@ namespace Grayscale.P354_Util_SasuEx.L500____Util
 
                     if (isPromotionable)
                     {
-                        Move move = Conv_SasiteStr_Sfen.ToMove(
-                            new RO_Star(// 移動元はそのまま
-                                pside,
-                                srcMasu,
-                                srcKs
-                                ),
-                            new RO_Star(
-                                pside,
-                                dstMasu,
-                                Util_Komasyurui14.ToNariCase(dstKs)//強制的に【成り】に駒の種類を変更
-                            ),// 移動先
-                            Komasyurui14.H00_Null___//取った駒不明
+                        Move move = Conv_Move.ToMove(
+                            srcMasu,
+                            dstMasu,
+                            srcKs,
+                            Komasyurui14.H00_Null___,//取った駒不明
+                            true,//Util_Komasyurui14.ToNariCase(dstKs)//強制的に【成り】に駒の種類を変更
+                            false,//成りなのでドロップは無いぜ☆（＾▽＾）
+                            pside,
+                            false                            
                         );
 
                         // TODO: 一段目の香車のように、既に駒は成っている場合があります。無い指し手だけ追加するようにします。

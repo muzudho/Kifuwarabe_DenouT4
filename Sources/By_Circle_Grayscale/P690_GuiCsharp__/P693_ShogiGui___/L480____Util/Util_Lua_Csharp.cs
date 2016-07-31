@@ -234,7 +234,7 @@ namespace Grayscale.P693_ShogiGui___.L480____Util
 
             {
                 KifuNode newNode = new KifuNodeImpl(
-                            Conv_SasiteStr_Sfen.ToMove( Util_Sky258A.NULL_OBJECT_SASITE),//ルートなので
+                            Conv_Move.GetErrorMove(),//ルートなので
                             new KyokumenWrapper( SkyConst.NewInstance(
                                 buffer_Sky,
                                 0//空っぽに戻すので、 0手済みに変更。

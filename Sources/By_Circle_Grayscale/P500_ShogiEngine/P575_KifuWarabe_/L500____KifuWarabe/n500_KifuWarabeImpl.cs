@@ -207,7 +207,7 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
                 // FIXME:平手とは限らないが、平手という前提で作っておく。
                 this.SetKifu_AtLoop2(new KifuTreeImpl(
                         new KifuNodeImpl(
-                            Conv_SasiteStr_Sfen.ToMove( Util_Sky258A.NULL_OBJECT_SASITE),
+                            Conv_Move.GetErrorMove(),
                             new KyokumenWrapper(SkyConst.NewInstance(
                                     Util_SkyWriter.New_Hirate(firstPside),
                                     0 // 初期局面は 0手目済み

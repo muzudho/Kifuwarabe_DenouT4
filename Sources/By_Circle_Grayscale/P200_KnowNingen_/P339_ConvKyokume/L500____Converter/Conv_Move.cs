@@ -313,14 +313,7 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             // 組み立てフェーズ
             //────────────────────────────────────────
 
-            if(0!=promotion)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return 0 != promotion;
         }
 
         public static Komasyurui14 ToSrcKomasyurui(Move move)
@@ -604,6 +597,66 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
         public static Move ToMove(
             SyElement srcMasu,
             SyElement dstMasu,
+            Komasyurui14 srcKs,
+            Komasyurui14 dstKs,//成り判定用
+            Komasyurui14 captured,
+            //bool promotion,
+            //bool drop,
+            Playerside pside,
+            bool errorCheck
+            )
+        {
+            bool promotion;
+            {
+                // 元種類が不成、現種類が成　の場合のみ真。
+
+                // 成立しない条件を１つでも満たしていれば、偽　確定。
+                if (
+                    Komasyurui14.H00_Null___ == srcKs
+                    ||
+                    Komasyurui14.H00_Null___ == dstKs
+                    ||
+                    Util_Komasyurui14.FlagNari[(int)srcKs]
+                    ||
+                    !Util_Komasyurui14.FlagNari[(int)dstKs]
+                    )
+                {
+                    promotion = false;
+                }
+                else
+                {
+                    promotion = true;
+                }
+            }
+
+            bool drop;
+            try
+            {
+                drop = Okiba.ShogiBan != Conv_SyElement.ToOkiba(srcMasu)//駒台（駒袋）から打ったとき。
+                    && Okiba.Empty != Conv_SyElement.ToOkiba(srcMasu);//初期配置から移動しても、打にはしません。
+            }
+            catch (Exception ex)
+            {
+                drop = false;
+                //Util_OwataMinister.ERROR.DonimoNaranAkirameta(ex, "IsDaAction:");// exceptionArea=" + exceptionArea
+                throw ex;
+            }
+
+            return Conv_Move.ToMove(
+                srcMasu,
+                dstMasu,
+                srcKs,
+                captured,
+                promotion,
+                drop,
+                pside,
+                errorCheck
+                );
+        }
+
+        public static Move ToMove(
+            SyElement srcMasu,
+            SyElement dstMasu,
             Komasyurui14 moved,
             Komasyurui14 captured,
             bool promotion,
@@ -650,6 +703,11 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             }
 
             return (Move)v;
+        }
+
+        public static Move GetErrorMove()
+        {
+            return (Move)(1 << (int)MoveShift.ErrorCheck);//エラー
         }
 
         public static string ToLog(Move move)

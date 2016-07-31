@@ -40,7 +40,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
         /// ＜[再生]、[コマ送り]で呼び出されます＞
         /// </summary>
         /// <returns></returns>
-        public static void ToSasite(
+        public static void ToMove(
             string strPside, //▲△
             string strSuji, //123…9、１２３…９、一二三…九
             string strDan, //123…9、１２３…９、一二三…九
@@ -50,7 +50,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
             string strAgaruHiku, // 上|引
             string strNariNarazu, //成|不成
             string strDaHyoji, //打
-            out Starbeamable sasite,
+            out Move move,
             KifuTree kifu,
             KwErrorHandler errH
             )
@@ -953,11 +953,12 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                 }
             }
 
-        gt_EndSyurui:
+            gt_EndSyurui:
 
 
             int srcMasuHandle1;
 
+            bool drop = false;
             if (Fingers.Error_1 != foundKoma)
             {
                 // 将棋盤の上に駒がありました。
@@ -972,6 +973,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
             {
                 // （符号に書かれていませんが）「打」のとき。
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                drop = true;
 
                 switch (pside)
                 {
@@ -1011,10 +1013,12 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
 
 
             Komasyurui14 dstSyurui;
+            bool promotion = false;
             if (NariNarazu.Nari == nariNarazu)
             {
                 // 成ります
                 dstSyurui = Util_Komasyurui14.NariCaseHandle[(int)srcSyurui];
+                promotion = true;
             }
             else
             {
@@ -1024,24 +1028,16 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
 
 
             // １手を、データにします。
-            sasite = new RO_Starbeam(
-                //foundKoma,//TODO:
-
-                new RO_Star(
-                    pside,
-                    Conv_MasuHandle.ToMasu(srcMasuHandle1),
-                    srcSyurui
-                ),
-
-                new RO_Star(
-                    pside,
-                    dstMasu,//符号は将棋盤の升目です。
-                    dstSyurui
-                ),
-
-                Komasyurui14.H00_Null___ // 符号からは、取った駒の種類は分からないんだぜ☆　だがバグではない☆　あとで調べる☆
+            move = Conv_Move.ToMove(
+                Conv_MasuHandle.ToMasu(srcMasuHandle1),
+                dstMasu,//符号は将棋盤の升目です。
+                srcSyurui,//dstSyurui
+                Komasyurui14.H00_Null___, // 符号からは、取った駒の種類は分からないんだぜ☆　だがバグではない☆　あとで調べる☆
+                promotion,
+                drop,
+                pside,
+                false
             );
         }
-
     }
 }

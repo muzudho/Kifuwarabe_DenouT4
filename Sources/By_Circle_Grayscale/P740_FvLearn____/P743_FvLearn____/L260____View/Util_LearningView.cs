@@ -56,7 +56,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
             Playerside firstPside = Playerside.P1;
             KifuTree kifu1 = new KifuTreeImpl(
                 new KifuNodeImpl(
-                    Conv_SasiteStr_Sfen.ToMove( Util_Sky258A.NULL_OBJECT_SASITE),
+                    Conv_Move.GetErrorMove(),
                     new KyokumenWrapper(SkyConst.NewInstance(
                         Util_SkyWriter.New_Hirate(firstPside),
                         0//初期局面は 0手済み。
@@ -74,7 +74,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
                 //
                 // csaSasite を データ指し手 に変換するには？
                 //
-                Starbeamable nextSasite;
+                Move nextMove;
                 {
                     Playerside pside = Util_CsaSasite.ToPside(csaSasite);
 
@@ -119,16 +119,20 @@ namespace Grayscale.P743_FvLearn____.L260____View
                         kaisi_Sky.AssertFinger(figFoodKoma);
                         foodKomasyurui = Util_Starlightable.AsKoma(kaisi_Sky.StarlightIndexOf(figFoodKoma).Now).Komasyurui;//取った駒有り。
                     }
-                    Starlightable dstKoma = new RO_Star(
+                    RO_Star dstKoma = new RO_Star(
                         pside,
                         dstMasu,
                         Util_CsaSasite.ToKomasyurui(csaSasite)
                     );
 
-                    nextSasite = new RO_Starbeam(
-                        srcKoma,// 移動元
-                        dstKoma,// 移動先
-                        foodKomasyurui////取った駒
+                    nextMove = Conv_Move.ToMove(
+                        srcKoma.Masu,// 移動元
+                        dstKoma.Masu,// 移動先
+                        srcKoma.Komasyurui,
+                        dstKoma.Komasyurui,//これで成りかどうか判定
+                        foodKomasyurui,////取った駒
+                        srcKoma.Pside,
+                        false
                     );
                 }
 
@@ -143,7 +147,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
                         new IttesasuArgImpl(
                             kifu1.CurNode.Value,
                             ((KifuNode)kifu1.CurNode).Value.KyokumenConst.KaisiPside,
-                            Conv_SasiteStr_Sfen.ToMove( nextSasite),
+                            nextMove,
                             kifu1.CurNode.Value.KyokumenConst.Temezumi + 1//1手進める
                         ),
                         out ittesasuResult,
@@ -162,7 +166,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
                     //kifu1.AssertChildPside(kifu1.CurNode.Value.ToKyokumenConst.KaisiPside, ittesasuResult.Get_SyuryoNode_OrNull.Value.ToKyokumenConst.KaisiPside);
                     Util_IttesasuRoutine.After3_ChangeCurrent(
                         kifu1,
-                        Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(Conv_Move.ToSasite( ittesasuResult.Get_SyuryoNode_OrNull.Key)),// nextSasiteStr,
+                        Conv_Move.ToSfen( ittesasuResult.Get_SyuryoNode_OrNull.Key),
                         ittesasuResult.Get_SyuryoNode_OrNull,
                         errH
                         );
@@ -353,17 +357,17 @@ namespace Grayscale.P743_FvLearn____.L260____View
             // 合法手の一覧は既に作成されているものとします。
             // 次の手に進みます。
             //
-            Starbeamable nextSasite;
+            Move nextMove;
             {
                 if (learningData.Kifu.CurNode.HasChildNode(sfen))
                 {
                     Node<Move, KyokumenWrapper> nextNode = learningData.Kifu.CurNode.GetChildNode(sfen);
-                    nextSasite = Conv_Move.ToSasite( nextNode.Key);//次の棋譜ノードのキーが、指し手（きふわらべ式）になっています。
+                    nextMove = nextNode.Key;//次の棋譜ノードのキーが、指し手（きふわらべ式）になっています。
 
                 }
                 else
                 {
-                    nextSasite = null;
+                    nextMove = Conv_Move.GetErrorMove();
                     StringBuilder sb = new StringBuilder();
                     sb.Append("指し手[" + sfen + "]はありませんでした。\n" + learningData.DumpToAllGohosyu(learningData.Kifu.CurNode.Value.KyokumenConst));
 
@@ -382,7 +386,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
                 new IttesasuArgImpl(
                     learningData.Kifu.CurNode.Value,
                     ((KifuNode)learningData.Kifu.CurNode).Value.KyokumenConst.KaisiPside,
-                    Conv_SasiteStr_Sfen.ToMove( nextSasite),// FIXME: これがヌルのことがあるのだろうか？
+                    nextMove,// FIXME: エラールートだと、これがヌル
                     learningData.Kifu.CurNode.Value.KyokumenConst.Temezumi + 1//1手進める
                 ),
                 out ittesasuResult,
@@ -401,7 +405,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
             //this.Kifu.AssertChildPside(this.Kifu.CurNode.Value.ToKyokumenConst.KaisiPside, ittesasuResult.Get_SyuryoNode_OrNull.Value.ToKyokumenConst.KaisiPside);
             Util_IttesasuRoutine.After3_ChangeCurrent(
                 learningData.Kifu,
-                Conv_SasiteStr_Sfen.ToSasiteStr_Sfen( Conv_Move.ToSasite( ittesasuResult.Get_SyuryoNode_OrNull.Key)),
+                Conv_Move.ToSfen( ittesasuResult.Get_SyuryoNode_OrNull.Key),
                 ittesasuResult.Get_SyuryoNode_OrNull,
                 errH
                 );
@@ -411,7 +415,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
             //----------------------------------------
             // カレント・ノードより古い、以前読んだ手を削除したい。
             //----------------------------------------
-            System.Console.WriteLine("カレント・ノード＝" + Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(Conv_Move.ToSasite( learningData.Kifu.CurNode.Key)));
+            System.Console.WriteLine("カレント・ノード＝" + Conv_Move.ToSfen( learningData.Kifu.CurNode.Key));
             int result_removedCount = Util_KifuTree282.IzennoHenkaCutter(learningData.Kifu, errH);
             System.Console.WriteLine("削除した要素数＝" + result_removedCount);
 
@@ -425,7 +429,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
                 ref searchedMaxDepth,
                 ref searchedNodes,
                 searchedPv,
-                nextSasite, errH);
+                errH);
             // ノード情報の表示
             Util_LearningView.Aa_ShowNode2(uc_Main.LearningData, uc_Main, errH);
 

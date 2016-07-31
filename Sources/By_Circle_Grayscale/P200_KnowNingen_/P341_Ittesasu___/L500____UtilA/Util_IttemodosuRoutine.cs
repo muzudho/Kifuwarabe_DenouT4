@@ -211,10 +211,16 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
             if (ittemodosuReference.FoodKomaSyurui != Komasyurui14.H00_Null___)
             {
                 // 元のキーの、取った駒の種類だけを差替えます。
-                nextMove = Conv_SasiteStr_Sfen.ToMove(
-                    Conv_Move.ToSasite( editNodeRef.Key).LongTimeAgo,
-                    Conv_Move.ToSasite( editNodeRef.Key).Now,
-                    ittemodosuReference.FoodKomaSyurui);
+                nextMove = Conv_Move.ToMove(
+                    Conv_Move.ToSrcMasu(editNodeRef.Key),
+                    Conv_Move.ToDstMasu(editNodeRef.Key),
+                    Conv_Move.ToSrcKomasyurui(editNodeRef.Key),
+                    ittemodosuReference.FoodKomaSyurui,//ここだけ差し替えるぜ☆（＾▽＾）
+                    Conv_Move.ToPromotion(editNodeRef.Key),
+                    Conv_Move.ToDrop(editNodeRef.Key),
+                    Conv_Move.ToPlayerside(editNodeRef.Key),
+                    Conv_Move.ToErrorCheck(editNodeRef.Key)
+                );
 
                 // 現手番
                 Playerside genTebanside = ((KifuNode)editNodeRef).Value.KyokumenConst.KaisiPside;

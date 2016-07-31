@@ -381,11 +381,15 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                     Starlight srcStarlight = src_Sky.StarlightIndexOf(btnKoma.Koma);
                                                     System.Diagnostics.Debug.Assert(null != srcStarlight, "komaStarlightがヌル");
 
-                                                    Move move = Conv_SasiteStr_Sfen.ToMove(
-                                                        dstStarlight.Now,
-                                                        srcStarlight.Now,
-                                                        mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma != null ? mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma.Komasyurui : Komasyurui14.H00_Null___
-                                                        );// 選択している駒の元の場所と、移動先
+                                                    Move move = Conv_Move.ToMove(
+                                                        ((RO_Star)dstStarlight.Now).Masu,
+                                                        ((RO_Star)srcStarlight.Now).Masu,
+                                                        ((RO_Star)dstStarlight.Now).Komasyurui,
+                                                        ((RO_Star)srcStarlight.Now).Komasyurui,//これで成りかどうか判定
+                                                        mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma != null ? mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma.Komasyurui : Komasyurui14.H00_Null___,
+                                                        ((RO_Star)dstStarlight.Now).Pside,
+                                                        false
+                                                    );// 選択している駒の元の場所と、移動先
 
                                                     //
                                                     // TODO: 一手[巻戻し]のときは追加したくない
@@ -405,9 +409,7 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                     //    "デバッグ");
 
                                                     //マウスの左ボタンを放したときです。
-                                                    string sasiteStr = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(
-                                                        Conv_Move.ToSasite( newNode.Key)
-                                                        );
+                                                    string sasiteStr = Conv_Move.ToSfen(newNode.Key);
                                                     if (!((KifuNode)mainGui.Link_Server.Model_Taikyoku.Kifu.CurNode).HasTuginoitte(sasiteStr))
                                                     {
                                                         //----------------------------------------
@@ -529,11 +531,15 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                         //------------------------------
 
                                                         src_Sky.AssertFinger(btnKoma.Koma);
-                                                        // あとでMoveに変換する☆
-                                                        Move move = Conv_SasiteStr_Sfen.ToMove(
-                                                            mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now,
-                                                            src_Sky.StarlightIndexOf(btnKoma.Koma).Now,
-                                                            mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma != null ? mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma.Komasyurui : Komasyurui14.H00_Null___
+                                                        
+                                                        Move move = Conv_Move.ToMove(
+                                                            ((RO_Star)mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now).Masu,
+                                                            ((RO_Star)src_Sky.StarlightIndexOf(btnKoma.Koma).Now).Masu,
+                                                            ((RO_Star)mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now).Komasyurui,
+                                                            ((RO_Star)src_Sky.StarlightIndexOf(btnKoma.Koma).Now).Komasyurui,//これで成りかどうか判定
+                                                            mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma != null ? mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma.Komasyurui : Komasyurui14.H00_Null___,
+                                                            ((RO_Star)mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now).Pside,
+                                                            false
                                                             );// 選択している駒の元の場所と、移動先
 
                                                         Node<Move, KyokumenWrapper> newNode =

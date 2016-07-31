@@ -42,20 +42,20 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
         /// ＜[再生]、[コマ送り]で呼び出されます＞
         /// </summary>
         /// <returns></returns>
-        public static void ToSasite(
+        public static void ToMove(
             bool isHonshogi,
             string str1, //123456789 か、 PLNSGKRB
             string str2, //abcdefghi か、 *
             string str3, //123456789
             string str4, //abcdefghi
             string strNari, //+
-            out Starbeamable sasite,
+            out Move move,
             KifuTree kifu,
             string hint,
             KwErrorHandler errH
             )
         {
-            sasite = Util_Sky258A.NULL_OBJECT_SASITE;
+            move = Move.Empty;
 
             Node<Move, KyokumenWrapper> siteiNode = kifu.CurNode;
             SkyConst src_Sky = siteiNode.Value.KyokumenConst;
@@ -206,10 +206,11 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
                 Okiba srcOkiba;
                 SyElement srcMasu;
 
-
+                bool drop = false;
                 if ("*" == str2)
                 {
                     //>>>>> 打った駒の場合
+                    drop = true;
 
                     dstSyurui = uttaSyurui;
                     srcSyurui = uttaSyurui;
@@ -252,9 +253,11 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
                 //------------------------------
                 // 5
                 //------------------------------
+                bool promotion = false;
                 if ("+" == strNari)
                 {
                     // 成りました
+                    promotion = true;
                     dstSyurui = Util_Komasyurui14.NariCaseHandle[(int)dstSyurui];
                 }
 
@@ -263,22 +266,15 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
                 // 結果
                 //------------------------------
                 // 棋譜
-                sasite = new RO_Starbeam(
-                    //koma,//TODO:
-
-                    new RO_Star(
-                        pside1,
-                        srcMasu,//FIXME:升ハンドルにしたい
-                        srcSyurui
-                    ),
-
-                    new RO_Star(
-                        pside1,
-                        Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan, suji, dan),//符号は将棋盤の升目です。 FIXME:升ハンドルにしたい
-                        dstSyurui
-                        ),
-
-                    Komasyurui14.H00_Null___//符号からは、取った駒は分からない
+                move = Conv_Move.ToMove(
+                    srcMasu,//FIXME:升ハンドルにしたい
+                    Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan, suji, dan),//符号は将棋盤の升目です。 FIXME:升ハンドルにしたい
+                    srcSyurui,//dstSyurui
+                    Komasyurui14.H00_Null___,//符号からは、取った駒は分からない
+                    promotion,
+                    drop,
+                    pside1,
+                    false
                 );
             }
             catch (Exception ex) { Util_OwataMinister.ERROR.DonimoNaranAkirameta(ex, "moves解析中☆　str1=「" + str1 + "」　str2=「" + str2 + "」　str3=「" + str3 + "」　str4=「" + str4 + "」　strNari=「" + strNari + "」　"); throw ex; }

@@ -173,7 +173,7 @@ namespace Grayscale.P743_FvLearn____.L250____Learn
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
             string[] searchedPv,
-            Starbeamable sasite, KwErrorHandler errH)
+            KwErrorHandler errH)
         {
             //----------------------------------------
             // 合法手のNextNodesを作成します。
@@ -304,7 +304,7 @@ namespace Grayscale.P743_FvLearn____.L250____Learn
                 srcMasu_orMinusOne,
                 dstMasu_orMinusOne,
                 foodKoma,
-                Conv_SasiteStr_Sfen.ToSasiteStr_Sfen( Conv_Move.ToSasite( this.Kifu.CurNode.Key) ),
+                Conv_Move.ToSfen( this.Kifu.CurNode.Key),
                 "",
                 "_log_学習局面.png",
                 LearningDataImpl.REPORT_ENVIRONMENT,

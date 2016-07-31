@@ -5,5 +5,6 @@
     /// </summary>
     public enum Move
     {
+        Empty = 0
     }
 }

@@ -43,7 +43,7 @@ namespace Grayscale.P693_ShogiGui___.L249____Function
             Playerside firstPside = Playerside.P1;
 
             KifuNode newNode = new KifuNodeImpl(
-                                        Conv_SasiteStr_Sfen.ToMove( Util_Sky258A.NULL_OBJECT_SASITE),//ルートなので
+                                        Conv_Move.GetErrorMove(),//ルートなので
                                         new KyokumenWrapper(Util_SkyWriter.New_Hirate(firstPside))//[初期配置]ボタン押下時
                                         );
 

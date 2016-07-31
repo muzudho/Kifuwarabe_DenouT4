@@ -87,7 +87,7 @@ namespace Grayscale.P743_FvLearn____.L___250_Learn
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
             string[] searchedPv,
-            Starbeamable sasite, KwErrorHandler errH);
+            KwErrorHandler errH);
 
     }
 }

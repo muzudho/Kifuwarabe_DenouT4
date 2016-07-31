@@ -43,7 +43,7 @@ namespace Grayscale.P523_UtilFv_____.L510____UtilFvLoad
             // 棋譜
             kifu = new KifuTreeImpl(
                     new KifuNodeImpl(
-                        Conv_SasiteStr_Sfen.ToMove( Util_Sky258A.NULL_OBJECT_SASITE),
+                        Conv_Move.GetErrorMove(),
                         new KyokumenWrapper(SkyConst.NewInstance(
                             Util_SkyWriter.New_Hirate(firstPside),
                             0//初期局面なので、0手目済み。

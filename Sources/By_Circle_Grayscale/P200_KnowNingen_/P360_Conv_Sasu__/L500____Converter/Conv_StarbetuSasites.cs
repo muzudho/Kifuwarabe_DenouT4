@@ -35,7 +35,7 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
             )
         {
             KifuNode hubNode = new KifuNodeImpl(
-                Conv_SasiteStr_Sfen.ToMove( null),
+                Conv_Move.GetErrorMove(),
                 null);//蝶番
 
 #if DEBUG

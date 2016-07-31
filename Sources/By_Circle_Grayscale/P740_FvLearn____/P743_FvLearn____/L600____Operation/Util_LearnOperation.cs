@@ -106,7 +106,7 @@ namespace Grayscale.P743_FvLearn____.L600____Operation
                 ref searchedMaxDepth,
                 ref searchedNodes,
                 searchedPv,
-                Conv_Move.ToSasite( uc_Main.LearningData.Kifu.CurNode.Key), Util_OwataMinister.LEARNER);
+                Util_OwataMinister.LEARNER);
         }
 
 
@@ -314,7 +314,7 @@ namespace Grayscale.P743_FvLearn____.L600____Operation
                 ref searchedMaxDepth,
                 ref searchedNodes,
                 searchedPv,
-                Conv_Move.ToSasite( uc_Main.LearningData.Kifu.CurNode.Key), errH);
+                errH);
             // ノード情報の表示
             Util_LearningView.Aa_ShowNode2(uc_Main.LearningData, uc_Main, Util_OwataMinister.LEARNER);
 

@@ -40,13 +40,17 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
                     RO_Star dstStar = new RO_Star(
                         srcStar.Pside,
                         susumuMasu,//Masu_Honshogi.Items_All[Util_Masu10.AsMasuNumber(susumuMasu)],
-                        srcStar.Komasyurui// srcStar.Haiyaku//TODO:ここで、駒の種類が「成り」に上書きされているバージョンも考えたい
+                        srcStar.Komasyurui// srcStar.Haiyaku
                     );
 
-                    Move move = Conv_SasiteStr_Sfen.ToMove(
-                        srcStar,// 移動元
-                        dstStar,// 移動先
-                        Komasyurui14.H00_Null___//取った駒不明
+                    Move move = Conv_Move.ToMove(
+                        srcStar.Masu,
+                        dstStar.Masu,
+                        srcStar.Komasyurui,
+                        dstStar.Komasyurui,//これで成りかどうか判定
+                        Komasyurui14.H00_Null___,//取った駒不明
+                        srcStar.Pside,
+                        false
                         );
                     result_komabetuAllMoves.Put_NewOrOverwrite(figKoma, move);//FIXME: １つの駒に指し手は１つ？？
 

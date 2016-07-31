@@ -60,7 +60,7 @@ namespace Grayscale.P461_Server_____.L498____Server
             //----------
             this.model_Taikyoku = new Model_TaikyokuImpl(new KifuTreeImpl(
                     new KifuNodeImpl(
-                        Conv_SasiteStr_Sfen.ToMove( Util_Sky258A.NULL_OBJECT_SASITE),
+                        Conv_Move.GetErrorMove(),
                         new KyokumenWrapper(SkyConst.NewInstance(
                             src_Sky,//model_Manual.GuiSkyConst,
                             temezumi//model_Manual.GuiTemezumi

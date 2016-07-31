@@ -36,18 +36,14 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             Komasyurui14 captured
             )
         {
-            Starbeamable sasiteOld = new RO_Starbeam(srcNow, dstNow, captured);
-            return Conv_SasiteStr_Sfen.ToMove(sasiteOld);
-        }
+            Starbeamable sasite = new RO_Starbeam(srcNow, dstNow, captured);
 
-        public static Move ToMove(Starbeamable sasite)
-        {
             int v = 0;//バリュー（ビットフィールド）
             //System.Console.WriteLine("(1) move=" + Convert.ToString(v, 2));
 
             try
             {
-                if (null==sasite || Util_Sky258A.NULL_OBJECT_SASITE == sasite)
+                if (null == sasite || Util_Sky258A.NULL_OBJECT_SASITE == sasite)
                 {
                     v |= 1 << (int)MoveShift.ErrorCheck;//エラー
                     //System.Console.WriteLine("(2) move=" + Convert.ToString(v, 2));
@@ -187,185 +183,5 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
 
             return (Move)v;
         }
-
-        /// <summary>
-        /// ************************************************************************************************************************
-        /// SFEN符号表記。
-        /// ************************************************************************************************************************
-        /// </summary>
-        /// <returns></returns>
-        public static string ToSasiteStr_Sfen(
-            Starbeamable sasite,
-            [CallerMemberName] string memberName = "",
-            [CallerFilePath] string sourceFilePath = "",
-            [CallerLineNumber] int sourceLineNumber = 0
-            )
-        {
-            StringBuilder sb = new StringBuilder();
-
-            try
-            {
-                if (Util_Sky258A.NULL_OBJECT_SASITE == sasite)
-                {
-                    sb.Append( Conv_SasiteStr_Sfen.KIFU_TREE_LOG_ROOT_FOLDER);
-                    goto gt_EndMethod;
-                }
-
-                RO_Star srcKoma = Util_Starlightable.AsKoma(sasite.LongTimeAgo);
-                RO_Star dstKoma = Util_Starlightable.AsKoma(sasite.Now);
-
-
-
-                //int srcDan;
-                //if (!Util_MasuNum.TryMasuToDan(srcKoma.Masu, out srcDan))
-                //{
-                //    string message = "指定の元マス[" + Util_Masu10.AsMasuNumber(srcKoma.Masu) + "]は、段に変換できません。　：　" + memberName + "." + sourceFilePath + "." + sourceLineNumber;
-                //    //LarabeLogger.GetInstance().WriteLineError(LarabeLoggerList.ERROR, message);
-                //    throw new Exception(message);
-                //}
-
-                //int dan;
-                //if (!Util_MasuNum.TryMasuToDan(dstKoma.Masu, out dan))
-                //{
-                //    string message = "指定の先マス[" + Util_Masu10.AsMasuNumber(dstKoma.Masu) + "]は、段に変換できません。　：　" + memberName + "." + sourceFilePath + "." + sourceLineNumber;
-                //    //LarabeLogger.GetInstance().WriteLineError(LarabeLoggerList.ERROR, message);
-                //    throw new Exception(message);
-                //}
-
-
-                if (Util_Sky_BoolQuery.IsDaAction(sasite))
-                {
-                    // 打でした。
-                    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-                    // (自)筋・(自)段は書かずに、「P*」といった表記で埋めます。
-                    sb.Append(Util_Komasyurui14.SfenDa[(int)Util_Komahaiyaku184.Syurui(srcKoma.Haiyaku)]);
-                    sb.Append("*");
-                }
-                else
-                {
-                    //------------------------------------------------------------
-                    // (自)筋
-                    //------------------------------------------------------------
-                    string strSrcSuji;
-                    int srcSuji;
-                    if (Util_MasuNum.TryMasuToSuji(srcKoma.Masu, out srcSuji))
-                    {
-                        strSrcSuji = srcSuji.ToString();
-                    }
-                    else
-                    {
-                        strSrcSuji = "Ｎ筋";//エラー表現
-                    }
-                    sb.Append(strSrcSuji);
-
-                    //------------------------------------------------------------
-                    // (自)段
-                    //------------------------------------------------------------
-                    string strSrcDan2;
-                    int srcDan2;
-                    if (Util_MasuNum.TryMasuToDan(srcKoma.Masu, out srcDan2))
-                    {
-                        strSrcDan2 = Conv_Int.ToAlphabet(srcDan2);
-                    }
-                    else
-                    {
-                        strSrcDan2 = "Ｎ段";//エラー表現
-                    }
-                    sb.Append(strSrcDan2);
-                }
-
-                //------------------------------------------------------------
-                // (至)筋
-                //------------------------------------------------------------
-                string strSuji;
-                int suji2;
-                if (Util_MasuNum.TryMasuToSuji(dstKoma.Masu, out suji2))
-                {
-                    strSuji = suji2.ToString();
-                }
-                else
-                {
-                    strSuji = "Ｎ筋";//エラー表現
-                }
-                sb.Append(strSuji);
-
-
-                //------------------------------------------------------------
-                // (至)段
-                //------------------------------------------------------------
-                string strDan;
-                int dan2;
-                if (Util_MasuNum.TryMasuToDan(dstKoma.Masu, out dan2))
-                {
-                    strDan = Conv_Int.ToAlphabet(dan2);
-                }
-                else
-                {
-                    strDan = "Ｎ段";//エラー表現
-                }
-                sb.Append(strDan);
-
-
-                //------------------------------------------------------------
-                // 成
-                //------------------------------------------------------------
-                if (Util_Sky_BoolQuery.IsNatta_Sasite(sasite))
-                {
-                    sb.Append("+");
-                }
-            }
-            catch (Exception e)
-            {
-                sb.Append(e.Message);//FIXME:
-            }
-
-        gt_EndMethod:
-            ;
-            return sb.ToString();
-        }
-
-        /// <summary>
-        /// ************************************************************************************************************************
-        /// SFEN符号表記。（取った駒付き）
-        /// ************************************************************************************************************************
-        /// </summary>
-        /// <returns></returns>
-        public static string ToSasiteStr_Sfen_WithTottaKomasyurui(RO_Starbeam ss)
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(ss));
-            if (Komasyurui14.H00_Null___ != (Komasyurui14)ss.FoodKomaSyurui)
-            {
-                sb.Append("(");
-                sb.Append(ss.FoodKomaSyurui);
-                sb.Append(")");
-            }
-
-            return sb.ToString();
-        }
-
-
-        /// <summary>
-        /// ************************************************************************************************************************
-        /// SFEN符号表記。
-        /// ************************************************************************************************************************
-        /// 
-        /// ファイル名にも使えるように、ファイル名に使えない文字を置換します。
-        /// </summary>
-        /// <returns></returns>
-        public static string ToSasiteStr_Sfen_ForFilename(
-            Starbeamable sasite,
-            [CallerMemberName] string memberName = "",
-            [CallerFilePath] string sourceFilePath = "",
-            [CallerLineNumber] int sourceLineNumber = 0
-            )
-        {
-            string sasiteText = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(sasite);
-            sasiteText = Conv_Filepath.ToEscape(sasiteText);
-            return sasiteText;
-        }
-
-
     }
 }

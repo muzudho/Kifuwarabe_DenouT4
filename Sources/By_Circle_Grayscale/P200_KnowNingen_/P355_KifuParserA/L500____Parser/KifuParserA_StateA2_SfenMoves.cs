@@ -13,6 +13,7 @@ using Grayscale.P341_Ittesasu___.L500____UtilA;
 using Grayscale.P355_KifuParserA.L___500_Parser;
 using System;
 using System.Windows.Forms;
+using Grayscale.P335_Move_______.L___500_Struct;
 
 namespace Grayscale.P355_KifuParserA.L500____Parser
 {
@@ -41,6 +42,16 @@ namespace Grayscale.P355_KifuParserA.L500____Parser
         {
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="result"></param>
+        /// <param name="model_Taikyoku"></param>
+        /// <param name="nextState"></param>
+        /// <param name="owner"></param>
+        /// <param name="genjo"></param>
+        /// <param name="errH"></param>
+        /// <returns></returns>
         public string Execute(
             ref KifuParserA_Result result,
             Model_Taikyoku model_Taikyoku,
@@ -68,7 +79,7 @@ namespace Grayscale.P355_KifuParserA.L500____Parser
             {
                 if (0 < genjo.InputLine.Trim().Length)
                 {
-                    Starbeamable nextTe = Util_Sky258A.NULL_OBJECT_SASITE;
+                    Move nextMove = Move.Empty;
                     string rest;
 
                     try
@@ -90,14 +101,14 @@ namespace Grayscale.P355_KifuParserA.L500____Parser
                             )
                         {
 
-                            Conv_SfenSasiteTokens.ToSasite(
+                            Conv_SfenSasiteTokens.ToMove(
                                 isHonshogi,
                                 str1,  //123456789 か、 PLNSGKRB
                                 str2,  //abcdefghi か、 *
                                 str3,  //123456789
                                 str4,  //abcdefghi
                                 str5,  //+
-                                out nextTe,
+                                out nextMove,
                                 model_Taikyoku.Kifu,
                                 "棋譜パーサーA_SFENパース1",
                                 errH
@@ -113,7 +124,7 @@ namespace Grayscale.P355_KifuParserA.L500____Parser
                             {
                                 if (!(str1 == "" && str2 == "" && str3 == "" && str4 == "" && str5 == "" && str6 == "" && str7 == "" && str8 == "" && str9 == ""))
                                 {
-                                    Conv_JsaFugoTokens.ToSasite(
+                                    Conv_JsaFugoTokens.ToMove(
                                         str1,  //▲△
                                         str2,  //123…9、１２３…９、一二三…九
                                         str3,  //123…9、１２３…９、一二三…九
@@ -123,7 +134,7 @@ namespace Grayscale.P355_KifuParserA.L500____Parser
                                         str7,  // 上|引
                                         str8, //成|不成
                                         str9,  //打
-                                        out nextTe,
+                                        out nextMove,
                                         model_Taikyoku.Kifu,
                                         errH
                                         );
@@ -148,7 +159,7 @@ namespace Grayscale.P355_KifuParserA.L500____Parser
 
 
 
-                    if (null != nextTe)
+                    if (Move.Empty != nextMove)
                     {
                         exceptionArea = 1000;
 
@@ -179,7 +190,7 @@ namespace Grayscale.P355_KifuParserA.L500____Parser
                                 new IttesasuArgImpl(
                                     model_Taikyoku.Kifu.CurNode.Value,
                                     src_Sky.KaisiPside,
-                                    Conv_SasiteStr_Sfen.ToMove( nextTe),//FIXME: if文で分けているので、これがヌルなはずはないと思うが。
+                                    nextMove,//FIXME: if文で分けているので、これがヌルなはずはないと思うが。
                                     korekaranoTemezumi//これから作る局面の、手目済み。
                                 ),
                                 out ittesasuResult,
@@ -202,7 +213,7 @@ namespace Grayscale.P355_KifuParserA.L500____Parser
                             exceptionArea = 1070;
                             Util_IttesasuRoutine.After3_ChangeCurrent(
                                 model_Taikyoku.Kifu,
-                                Conv_SasiteStr_Sfen.ToSasiteStr_Sfen( Conv_Move.ToSasite( ittesasuResult.Get_SyuryoNode_OrNull.Key)),
+                                Conv_Move.ToSfen( ittesasuResult.Get_SyuryoNode_OrNull.Key),
                                 ittesasuResult.Get_SyuryoNode_OrNull,
                                 errH
                                 );
