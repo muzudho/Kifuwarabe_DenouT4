@@ -11,8 +11,9 @@ using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P266_KyokumMoves.L500____Util;
 using Grayscale.P324_KifuTree___.L___250_Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-
 using Grayscale.P266_KyokumMoves.L250____Log;
+using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P335_Move_______.L___500_Struct;
 
 namespace Grayscale.P542_Scoreing___.L061____Util
 {
@@ -55,13 +56,13 @@ namespace Grayscale.P542_Scoreing___.L061____Util
                         0,//読み開始手目済み
                         logBrd_move1,
                         0,//現在の手済み
-                        niniNode.Key,
+                        Conv_Move.ToSasite(niniNode.Key),
                         errH
                     )
 //#endif
                 );
 
-                logBrd_move1.sasiteOrNull = niniNode.Key;
+                logBrd_move1.sasiteOrNull = Conv_Move.ToSasite(niniNode.Key);
 
                 logBrd_move1.YomikaisiTemezumi = niniNode.Value.KyokumenConst.Temezumi;//読み開始手目済み    // int.MinValue;
                 logBrd_move1.Temezumi = int.MinValue;

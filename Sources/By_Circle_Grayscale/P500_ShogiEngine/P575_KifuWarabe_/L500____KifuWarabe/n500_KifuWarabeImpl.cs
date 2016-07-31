@@ -49,6 +49,7 @@ using Grayscale.P335_Move_______.L___500_Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
 
 #if DEBUG
+using Grayscale.P056_Syugoron___.L___250_Struct;
 using Grayscale.P157_KyokumenPng.L___500_Struct;
 using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P213_Komasyurui_.L500____Util;
@@ -1443,18 +1444,16 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
                 // 出力先
                 string fileName = "_log_直近の指し手.png";
 
-                int srcMasu_orMinusOne = -1;
-                int dstMasu_orMinusOne = -1;
-                if (null != kifuNode.Key)
-                {
-                    srcMasu_orMinusOne = Conv_SyElement.ToMasuNumber(((RO_Star)kifuNode.Key.LongTimeAgo).Masu);
-                    dstMasu_orMinusOne = Conv_SyElement.ToMasuNumber(((RO_Star)kifuNode.Key.Now).Masu);
-                }
+                SyElement srcMasu = Conv_Move.ToSrcMasu(kifuNode.Key);
+                SyElement dstMasu = Conv_Move.ToDstMasu(kifuNode.Key);
+                Komasyurui14 captured = Conv_Move.ToCaptured(kifuNode.Key);
+                int srcMasuNum = Conv_SyElement.ToMasuNumber(srcMasu);
+                int dstMasuNum = Conv_SyElement.ToMasuNumber(dstMasu);
 
                 KyokumenPngArgs_FoodOrDropKoma foodKoma;
-                if (null != kifuNode.Key.FoodKomaSyurui)
+                if (Komasyurui14.H00_Null___ != captured)
                 {
-                    switch (Util_Komasyurui14.NarazuCaseHandle((Komasyurui14)kifuNode.Key.FoodKomaSyurui))
+                    switch (Util_Komasyurui14.NarazuCaseHandle(captured))
                     {
                         case Komasyurui14.H00_Null___: foodKoma = KyokumenPngArgs_FoodOrDropKoma.NONE; break;
                         case Komasyurui14.H01_Fu_____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.FU__; break;
@@ -1475,10 +1474,10 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
                 // 直近の指し手。
                 Util_KyokumenPng_Writer.Write1(
                     Conv_KifuNode.ToRO_Kyokumen1(kifuNode, errH),
-                    srcMasu_orMinusOne,
-                    dstMasu_orMinusOne,
+                    srcMasuNum,
+                    dstMasuNum,
                     foodKoma,
-                    Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(kifuNode.Key),//Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(kifuNode, kifuNode.Value, errH),
+                    Conv_Move.ToSfen(kifuNode.Key),
                     "",
                     fileName,
                     Util_KifuTreeLogWriter.REPORT_ENVIRONMENT,

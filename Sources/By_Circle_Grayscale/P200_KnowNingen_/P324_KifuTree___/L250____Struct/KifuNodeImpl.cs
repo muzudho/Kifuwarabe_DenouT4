@@ -108,7 +108,7 @@ namespace Grayscale.P324_KifuTree___.L250____Struct
         {
             // 同じ指し手があれば追加してはいけない？
 #if DEBUG
-            string sasiteStr = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(newNode.Key);
+            string sasiteStr = Conv_Move.ToSfen(newNode.Key);
 
             System.Diagnostics.Debug.Assert(
                 !this.HasTuginoitte(sasiteStr),

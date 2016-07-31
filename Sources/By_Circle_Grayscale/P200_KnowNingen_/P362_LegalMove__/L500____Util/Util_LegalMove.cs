@@ -174,7 +174,7 @@ namespace Grayscale.P362_LegalMove__.L500____Util
 #if DEBUG
                     logF_kiki,
 #endif
-                    Conv_Move.ToSasite( node.Key),
+                    node.Key,
                     errH
                     );
 
@@ -212,7 +212,7 @@ namespace Grayscale.P362_LegalMove__.L500____Util
 #if DEBUG
             KaisetuBoards logF_kiki,
 #endif
-            Starbeamable sasite_forLog,
+            Move move_forLog,
             KwErrorHandler errH
             )
         {
@@ -233,7 +233,7 @@ namespace Grayscale.P362_LegalMove__.L500____Util
 #endif
                 "玉自殺ﾁｪｯｸ",
                 temezumi_yomiCur_forLog,
-                sasite_forLog,
+                move_forLog,
                 errH);
 
             
@@ -298,7 +298,7 @@ namespace Grayscale.P362_LegalMove__.L500____Util
 #endif
             string logBrd_caption,
             int temezumi_yomiCur_forLog,
-            Starbeamable sasite_forLog,
+            Move move_forLog,
             KwErrorHandler errH
             )
         {

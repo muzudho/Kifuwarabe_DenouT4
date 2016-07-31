@@ -360,6 +360,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
             out_sasitebetuEntry = Tansaku_FukasaYusen_Routine.WAAAA_Create_ChildNodes(
                 genjo,
                 node_yomi.Value.KyokumenConst,
+                node_yomi.Key,//ログ用
                 errH);
 
             out_yomiDeep = node_yomi.Value.KyokumenConst.Temezumi - genjo.YomikaisiTemezumi + 1;
@@ -639,6 +640,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
         private static Dictionary<string, SasuEntry> WAAAA_Create_ChildNodes(
             Tansaku_Genjo genjo,
             SkyConst src_Sky,
+            Move move_ForLog,
             KwErrorHandler errH
             )
         {
@@ -666,7 +668,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
 #if DEBUG
                 MmLogGenjoImpl mm_log_orNull = null;
                 KaisetuBoard logBrd_move1;
-                Tansaku_FukasaYusen_Routine.Log1(genjo, src_Sky_sasite, src_Sky, out mm_log_orNull, out logBrd_move1, errH);
+                Tansaku_FukasaYusen_Routine.Log1(genjo, move_ForLog, src_Sky, out mm_log_orNull, out logBrd_move1, errH);
 #endif
 
                 //----------------------------------------
@@ -836,7 +838,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
 #if DEBUG
         private static void Log1(
             Tansaku_Genjo genjo,
-            Starbeamable src_Sky_sasite,
+            Move move_forLog,
             SkyConst src_Sky,
             out MmLogGenjoImpl out_mm_log,
             out KaisetuBoard out_logBrd_move1,
@@ -851,7 +853,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                         genjo.YomikaisiTemezumi,
                         out_logBrd_move1,//ログ？
                         src_Sky.Temezumi,//手済み
-                        src_Sky_sasite,//指し手
+                        Conv_Move.ToSasite( move_forLog),//指し手
                         errH//ログ
                     );
             }
@@ -869,7 +871,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
         {
             try
             {
-                logBrd_move1.sasiteOrNull = node_yomi.Key;
+                logBrd_move1.sasiteOrNull = Conv_Move.ToSasite(node_yomi.Key);
 
 
                 RO_Star srcKoma = Util_Starlightable.AsKoma(logBrd_move1.sasiteOrNull.LongTimeAgo);

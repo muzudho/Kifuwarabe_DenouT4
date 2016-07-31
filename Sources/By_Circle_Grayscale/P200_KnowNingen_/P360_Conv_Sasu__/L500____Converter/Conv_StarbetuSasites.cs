@@ -39,7 +39,7 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
                 null);//蝶番
 
 #if DEBUG
-            string dump = komabetuAllSasite.Dump();
+            string dump = komabetuAllMoves.Dump();
 #endif
 
             foreach (KeyValuePair<Finger, List<Move>> entry1 in komabetuAllMoves.Items)

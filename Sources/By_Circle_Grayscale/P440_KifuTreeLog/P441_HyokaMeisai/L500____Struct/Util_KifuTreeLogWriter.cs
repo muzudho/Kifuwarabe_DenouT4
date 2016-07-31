@@ -100,11 +100,11 @@ namespace Grayscale.P440_KifuTreeLog.L500____Struct
                 StringBuilder sb_folder = new StringBuilder();
                 kifu.ForeachHonpu(kifu.CurNode, (int temezumi2, KyokumenWrapper kWrap, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
                 {
-                    sb_folder.Append(Conv_SasiteStr_Sfen.ToSasiteStr_Sfen_ForFilename(node.Key) + "/");
+                    sb_folder.Append(Conv_Move.ToSfen_ForFilename(node.Key) + "/");
                 });
                 //sb_folder.Append( Conv_SasiteStr_Sfen.ToSasiteStr_Sfen_ForFilename(kifu.CurNode.Key) + "/");
 
-                string sasiteText1 = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(kifu.CurNode.Key);
+                string sasiteText1 = Conv_Move.ToSfen(kifu.CurNode.Key);
                 KifuNode kifuNode1 = (KifuNode)kifu.CurNode;
 
                 // 評価明細のログ出力。

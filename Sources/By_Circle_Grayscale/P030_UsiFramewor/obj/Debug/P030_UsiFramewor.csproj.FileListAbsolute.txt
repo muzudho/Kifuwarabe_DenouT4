@@ -3,3 +3,4 @@ E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\P030_UsiFramewor\Gra
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\P030_UsiFramewor\Grayscale.P030_UsiFramewor.pdb
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P030_UsiFramewor\obj\Debug\Grayscale.P030_UsiFramewor.exe
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P030_UsiFramewor\obj\Debug\Grayscale.P030_UsiFramewor.pdb
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P030_UsiFramewor\obj\Debug\P030_UsiFramewor.csprojResolveAssemblyReference.cache
