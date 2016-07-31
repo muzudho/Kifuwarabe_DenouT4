@@ -38,6 +38,7 @@ namespace Grayscale.P542_Scoreing___.L___240_Shogisasi
         KifuNode WA_Bestmove(
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
+            string[] searchedPv,
             bool isHonshogi,
             KifuTree kifu,
             KwErrorHandler errH

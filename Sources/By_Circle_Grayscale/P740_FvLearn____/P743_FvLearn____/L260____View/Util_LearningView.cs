@@ -31,6 +31,7 @@ using System.Text;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P575_KifuWarabe_.L500____KifuWarabe;
 
 namespace Grayscale.P743_FvLearn____.L260____View
 {
@@ -419,9 +420,12 @@ namespace Grayscale.P743_FvLearn____.L260____View
             ////----------------------------------------
             int searchedMaxDepth = 0;
             ulong searchedNodes = 0;
+            string[] searchedPv = new string[KifuWarabeImpl.SEARCHED_PV_LENGTH];
             learningData.Aa_Yomi(
                 ref searchedMaxDepth,
-                ref searchedNodes, nextSasite, errH);
+                ref searchedNodes,
+                searchedPv,
+                nextSasite, errH);
             // ノード情報の表示
             Util_LearningView.Aa_ShowNode2(uc_Main.LearningData, uc_Main, errH);
 

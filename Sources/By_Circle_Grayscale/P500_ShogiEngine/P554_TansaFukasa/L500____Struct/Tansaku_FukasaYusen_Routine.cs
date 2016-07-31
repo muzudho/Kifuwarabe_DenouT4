@@ -145,7 +145,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
             else
             {
                 //System.Windows.Forms.MessageBox.Show("本番モード");
-                /* // ２手の読み。
+                //* ２手の読み。
                 yomuLimitter = new int[]{
                     0,   // 現局面は無視します。
                     600, // 読みの1手目の横幅   // 王手回避漏れのために、１手目は、合法手全読み(約600)は必要です。
@@ -153,7 +153,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                 };
                 // */
 
-                //* // ３手の読み。
+                /* ３手の読み。
                 yomuLimitter = new int[]{
                     0,   // 現局面は無視します。
                     600, // 読みの1手目の横幅   // 王手回避漏れのために、１手目は、合法手全読み(約600)は必要です。
@@ -162,7 +162,9 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                 };
                 // */
 
-                /* // ４手の読み。               
+                // 読みを深くすると、玉の手しか読めなかった、ということがある。
+
+                /* ４手の読み。
                 yomuLimitter = new int[]{
                     0,   // 現局面は無視します。
                     600, // 読みの1手目の横幅   // 王手回避漏れのために、１手目は、合法手全読み(約600)は必要です。
@@ -197,6 +199,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
         public void WAA_Yomu_Start(
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
+            string[] searchedPv,
             KifuTree kifu,
             bool isHonshogi,
             Mode_Tansaku mode_Tansaku,
@@ -254,6 +257,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                     a_childrenBest = Tansaku_FukasaYusen_Routine.WAAA_Yomu_Loop(
                         ref searchedMaxDepth,
                         ref searchedNodes,
+                        searchedPv,
                         genjo,
                         alphabeta_otherBranchDecidedValue,
                         node_yomi,
@@ -441,6 +445,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
         private static float WAAA_Yomu_Loop(
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
+            string[] searchedPv,
             Tansaku_Genjo genjo,
             float a_parentsiblingDecidedValue,
             KifuNode node_yomi,
@@ -480,7 +485,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                     );
 
                 int wideCount1 = 0;
-                foreach (KeyValuePair<string, SasuEntry> entry in sasitebetuEntry2)
+                foreach (KeyValuePair<string, SasuEntry> entry in sasitebetuEntry2)//次に読む手
                 {
                     if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(
                         yomiDeep2,
@@ -536,6 +541,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                         float a_myScore = Tansaku_FukasaYusen_Routine.WAAA_Yomu_Loop(
                             ref searchedMaxDepth,
                             ref searchedNodes,
+                            searchedPv,
                             genjo,
                             a_childrenBest,
                             childNode1,
@@ -546,6 +552,12 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                             a_myScore,//a_childrenBest,
                             node_yomi//mutable
                             );
+
+                        //----------------------------------------
+                        // 子要素の検索が終わった時点で、読み筋を格納☆
+                        //----------------------------------------
+                        searchedPv[yomiDeep2] = entry.Key; //FIXME:
+                        searchedPv[yomiDeep2 + 1] = "";//後ろの１手を消しておいて 終端子扱いにする。
 
                         //----------------------------------------
                         // 子要素の検索が終わった時点

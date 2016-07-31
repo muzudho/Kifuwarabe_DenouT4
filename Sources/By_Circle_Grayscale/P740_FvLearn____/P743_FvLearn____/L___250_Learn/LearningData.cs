@@ -57,6 +57,7 @@ namespace Grayscale.P743_FvLearn____.L___250_Learn
         void Aaa_CreateNextNodes_Gohosyu(
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
+            string[] searchedPv,
             EvaluationArgs args, KwErrorHandler errH);
 
         /// <summary>
@@ -85,6 +86,7 @@ namespace Grayscale.P743_FvLearn____.L___250_Learn
         void Aa_Yomi(
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
+            string[] searchedPv,
             Starbeamable sasite, KwErrorHandler errH);
 
     }

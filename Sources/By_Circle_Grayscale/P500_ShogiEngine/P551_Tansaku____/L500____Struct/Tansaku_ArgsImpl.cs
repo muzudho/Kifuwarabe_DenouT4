@@ -12,20 +12,20 @@ namespace Grayscale.P551_Tansaku____.L500____Struct
         /// <summary>
         /// 本将棋なら真。
         /// </summary>
-        public bool IsHonshogi { get { return this.isHonshogi; } }
-        private bool isHonshogi;
+        public bool IsHonshogi { get { return this.m_isHonshogi_; } }
+        private bool m_isHonshogi_;
 
         /// <summary>
         /// 読みの上限の様々な設定☆（深さ優先探索で使用☆）
         /// </summary>
-        public int[] YomuLimitter { get { return this.yomuLimitter; } }
-        private int[] yomuLimitter;
+        public int[] YomuLimitter { get { return this.m_yomuLimitter_; } }
+        private int[] m_yomuLimitter_;
 
         /// <summary>
         /// ログ用☆
         /// </summary>
-        public KaisetuBoards LogF_moveKiki { get { return this.logF_moveKiki; } }
-        private KaisetuBoards logF_moveKiki;
+        public KaisetuBoards LogF_moveKiki { get { return this.m_logF_moveKiki_; } }
+        private KaisetuBoards m_logF_moveKiki_;
 
         public Tansaku_ArgsImpl(
             bool isHonshogi,
@@ -33,9 +33,9 @@ namespace Grayscale.P551_Tansaku____.L500____Struct
             KaisetuBoards logF_moveKiki
             )
         {
-            this.isHonshogi = isHonshogi;
-            this.yomuLimitter = yomuLimitter;
-            this.logF_moveKiki = logF_moveKiki;
+            this.m_isHonshogi_ = isHonshogi;
+            this.m_yomuLimitter_ = yomuLimitter;
+            this.m_logF_moveKiki_ = logF_moveKiki;
         }
     }
 

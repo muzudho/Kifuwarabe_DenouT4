@@ -77,6 +77,7 @@ namespace Grayscale.P575_KifuWarabe_.L100____Shogisasi
         public KifuNode WA_Bestmove(
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
+            string[] searchedPv,
             bool isHonshogi,
             KifuTree kifu,
             KwErrorHandler errH
@@ -123,6 +124,7 @@ namespace Grayscale.P575_KifuWarabe_.L100____Shogisasi
                 new Tansaku_FukasaYusen_Routine().WAA_Yomu_Start(
                     ref searchedMaxDepth,
                     ref searchedNodes,
+                    searchedPv,
                     kifu, isHonshogi, Mode_Tansaku.Shogi_ENgine, alphabeta_otherBranchDecidedValue, args, errH);
             }
             catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "棋譜ツリーを作っていたときです。"); throw ex; }

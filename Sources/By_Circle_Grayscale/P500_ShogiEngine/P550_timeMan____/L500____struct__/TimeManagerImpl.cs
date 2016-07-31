@@ -8,16 +8,16 @@ namespace Grayscale.P550_timeMan____.L500____struct__
     /// </summary>
     public class TimeManagerImpl : TimeManager
     {
-        public TimeManagerImpl(long thinkingMilliSeconds)
+        public TimeManagerImpl(long thinkableMilliSeconds)
         {
             this.Stopwatch = new Stopwatch();
-            this.ThinkingMilliSeconds = thinkingMilliSeconds;
+            this.ThinkableMilliSeconds = thinkableMilliSeconds;
         }
 
         /// <summary>
-        /// 思考時間。
+        /// 思考用に配分した使っていい時間。
         /// </summary>
-        public long ThinkingMilliSeconds { get; set; }
+        public long ThinkableMilliSeconds { get; set; }
 
         /// <summary>
         /// ストップウォッチ
@@ -30,7 +30,7 @@ namespace Grayscale.P550_timeMan____.L500____struct__
         /// <returns></returns>
         public bool IsTimeOver()
         {
-            return this.ThinkingMilliSeconds < this.Stopwatch.ElapsedMilliseconds;
+            return this.ThinkableMilliSeconds < this.Stopwatch.ElapsedMilliseconds;
         }
 
     }

@@ -101,9 +101,11 @@ namespace Grayscale.P743_FvLearn____.L600____Operation
             // TODO:本譜のネクスト・ノードは？
             int searchedMaxDepth = 0;
             ulong searchedNodes = 0;
+            string[] searchedPv = new string[KifuWarabeImpl.SEARCHED_PV_LENGTH];
             uc_Main.LearningData.Aa_Yomi(
                 ref searchedMaxDepth,
                 ref searchedNodes,
+                searchedPv,
                 Conv_Move.ToSasite( uc_Main.LearningData.Kifu.CurNode.Key), Util_OwataMinister.LEARNER);
         }
 
@@ -307,9 +309,11 @@ namespace Grayscale.P743_FvLearn____.L600____Operation
             // 合法手を調べます。
             int searchedMaxDepth = 0;
             ulong searchedNodes = 0;
+            string[] searchedPv = new string[KifuWarabeImpl.SEARCHED_PV_LENGTH];
             uc_Main.LearningData.Aa_Yomi(
                 ref searchedMaxDepth,
                 ref searchedNodes,
+                searchedPv,
                 Conv_Move.ToSasite( uc_Main.LearningData.Kifu.CurNode.Key), errH);
             // ノード情報の表示
             Util_LearningView.Aa_ShowNode2(uc_Main.LearningData, uc_Main, Util_OwataMinister.LEARNER);
@@ -352,9 +356,11 @@ namespace Grayscale.P743_FvLearn____.L600____Operation
             // 合法手を数えたい。
             int searchedMaxDepth = 0;
             ulong searchedNodes = 0;
+            string[] searchedPv = new string[KifuWarabeImpl.SEARCHED_PV_LENGTH];
             uc_Main.LearningData.Aaa_CreateNextNodes_Gohosyu(
                 ref searchedMaxDepth,
                 ref searchedNodes,
+                searchedPv,
                 args, errH);
 
             // 現局面の合法手表示の更新を要求

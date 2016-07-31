@@ -79,6 +79,11 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
         public KwErrorHandler ErrH { get; set; }
 
         /// <summary>
+        /// 読み筋を格納する配列の容量。
+        /// </summary>
+        public const int SEARCHED_PV_LENGTH = 2048;
+
+        /// <summary>
         /// 将棋エンジンの中の一大要素「思考エンジン」です。
         /// 指す１手の答えを出すのが仕事です。
         /// </summary>
@@ -980,6 +985,7 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
                             //
                             int searchedMaxDepth = 0;
                             ulong searchedNodes = 0;
+                            string[] searchedPv = new string[KifuWarabeImpl.SEARCHED_PV_LENGTH];
                             int multiPV_Count = 1;// 2;
                             {
                                 // 最善手、次善手、三次善手、四次善手、五次善手
@@ -988,6 +994,7 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
                                     bestKifuNodeList.Add(this.Shogisasi.WA_Bestmove(
                                         ref searchedMaxDepth,
                                         ref searchedNodes,
+                                        searchedPv,
                                         isHonshogi,
                                         this.Kifu_AtLoop2,
                                         this.ErrH)
@@ -1078,8 +1085,27 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
                                         // 符号を逆転
                                         hyojiScore = -hyojiScore;
                                     }
-                                    this.Send("info time "+this.Shogisasi.TimeManager.Stopwatch.ElapsedMilliseconds+" depth "+searchedMaxDepth+" nodes "+searchedNodes+" score cp " + hyojiScore.ToString() + " pv ");//FIXME:
-                                                                                                                        //+ " pv 3a3b L*4h 4c4d"
+
+                                    // infostring
+                                    StringBuilder sb = new StringBuilder();
+                                    sb.Append("info time ");
+                                    sb.Append(this.Shogisasi.TimeManager.Stopwatch.ElapsedMilliseconds);
+                                    sb.Append(" depth ");
+                                    sb.Append(searchedMaxDepth);
+                                    sb.Append(" nodes ");
+                                    sb.Append(searchedNodes);
+                                    sb.Append(" score cp ");
+                                    sb.Append(hyojiScore.ToString());
+                                    sb.Append(" pv ");//+ " pv 3a3b L*4h 4c4d"
+                                    foreach (string sfen in searchedPv)
+                                    {
+                                        if ("" != sfen)
+                                        {
+                                            sb.Append(sfen);
+                                            sb.Append(" ");
+                                        }
+                                    }
+                                    this.Send(sb.ToString());//FIXME:                                                                                           
                                 }
 
 
