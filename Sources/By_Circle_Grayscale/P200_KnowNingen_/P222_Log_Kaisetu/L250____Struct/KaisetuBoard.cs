@@ -1,6 +1,7 @@
 ﻿using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P218_Starlight__.L___500_Struct;
 using System.Collections.Generic;
+using Grayscale.P335_Move_______.L___500_Struct;
 
 namespace Grayscale.P222_Log_Kaisetu.L250____Struct
 {
@@ -10,10 +11,74 @@ namespace Grayscale.P222_Log_Kaisetu.L250____Struct
     /// </summary>
     public class KaisetuBoard
     {
+        public KaisetuBoard()
+        {
+            this.Caption = "";
+
+            this.Move = (Move)MoveMask.ErrorCheck;
+            this.NounaiSeme = Gkl_NounaiSeme.Empty;
+            this.KomaMasu1 = new List<Gkl_KomaMasu>();
+            this.KomaMasu2 = new List<Gkl_KomaMasu>();
+            this.KomaMasu3 = new List<Gkl_KomaMasu>();
+            this.KomaMasu4 = new List<Gkl_KomaMasu>();
+
+            this.Temezumi = int.MinValue;
+            this.GenTeban = Playerside.Empty;
+            this.YomikaisiTemezumi = int.MinValue;
+            this.Score = float.MinValue;
+
+            this.Masu_theMove = new List<int>();
+            this.Masu_theEffect = new List<int>();
+            this.Masu_3 = new List<int>();
+            this.Masu_4 = new List<int>();
+
+            this.MarkMasu1 = new List<int>();
+            this.MarkMasu2 = new List<int>();
+            this.MarkMasu3 = new List<int>();
+            this.MarkMasu4 = new List<int>();
+
+            this.Arrow = new List<Gkl_Arrow>();
+        }
+
+        public KaisetuBoard(KaisetuBoard src)
+        {
+            this.Caption = src.Caption;
+
+            this.Move = src.Move;
+            this.NounaiSeme = src.NounaiSeme;
+            this.KomaMasu1 = src.KomaMasu1;
+            this.KomaMasu2 = src.KomaMasu2;
+            this.KomaMasu3 = src.KomaMasu3;
+            this.KomaMasu4 = src.KomaMasu4;
+
+            this.Temezumi = src.Temezumi;
+            this.GenTeban = src.GenTeban;
+            this.YomikaisiTemezumi = src.YomikaisiTemezumi;
+            this.Score = src.Score;
+
+            this.Masu_theMove = src.Masu_theMove;
+            this.Masu_theEffect = src.Masu_theEffect;
+            this.Masu_3 = src.Masu_3;
+            this.Masu_4 = src.Masu_4;
+
+            this.MarkMasu1 = src.MarkMasu1;
+            this.MarkMasu2 = src.MarkMasu2;
+            this.MarkMasu3 = src.MarkMasu3;
+            this.MarkMasu4 = src.MarkMasu4;
+
+            this.Arrow = src.Arrow;
+        }
+
+        public KaisetuBoard Clone()
+        {
+            KaisetuBoard clone = new KaisetuBoard(this);
+            return clone;
+        }
+
         /// <summary>
-        /// あれば指し手。なければヌル。
+        /// 指し手。
         /// </summary>
-        public Starbeamable sasiteOrNull{get;set;}
+        public Move Move{get;set;}
 
         /// <summary>
         /// 説明文章（１行）。
@@ -62,67 +127,6 @@ namespace Grayscale.P222_Log_Kaisetu.L250____Struct
         public List<Gkl_Arrow> Arrow { get; set; }
 
 
-        public KaisetuBoard()
-        {
-            this.Caption = "";
-
-            this.NounaiSeme = Gkl_NounaiSeme.Empty;
-            this.KomaMasu1 = new List<Gkl_KomaMasu>();
-            this.KomaMasu2 = new List<Gkl_KomaMasu>();
-            this.KomaMasu3 = new List<Gkl_KomaMasu>();
-            this.KomaMasu4 = new List<Gkl_KomaMasu>();
-
-            this.Temezumi = int.MinValue;
-            this.GenTeban = Playerside.Empty;
-            this.YomikaisiTemezumi = int.MinValue;
-            this.Score = float.MinValue;
-
-            this.Masu_theMove = new List<int>();
-            this.Masu_theEffect = new List<int>();
-            this.Masu_3 = new List<int>();
-            this.Masu_4 = new List<int>();
-
-            this.MarkMasu1 = new List<int>();
-            this.MarkMasu2 = new List<int>();
-            this.MarkMasu3 = new List<int>();
-            this.MarkMasu4 = new List<int>();
-
-            this.Arrow = new List<Gkl_Arrow>();
-        }
-
-        public KaisetuBoard(KaisetuBoard src)
-        {
-            this.Caption = src.Caption;
-
-            this.NounaiSeme = src.NounaiSeme;
-            this.KomaMasu1 = src.KomaMasu1;
-            this.KomaMasu2 = src.KomaMasu2;
-            this.KomaMasu3 = src.KomaMasu3;
-            this.KomaMasu4 = src.KomaMasu4;
-
-            this.Temezumi = src.Temezumi;
-            this.GenTeban = src.GenTeban;
-            this.YomikaisiTemezumi = src.YomikaisiTemezumi;
-            this.Score = src.Score;
-
-            this.Masu_theMove = src.Masu_theMove;
-            this.Masu_theEffect = src.Masu_theEffect;
-            this.Masu_3 = src.Masu_3;
-            this.Masu_4 = src.Masu_4;
-
-            this.MarkMasu1 = src.MarkMasu1;
-            this.MarkMasu2 = src.MarkMasu2;
-            this.MarkMasu3 = src.MarkMasu3;
-            this.MarkMasu4 = src.MarkMasu4;
-
-            this.Arrow = src.Arrow;
-        }
-
-        public KaisetuBoard Clone()
-        {
-            KaisetuBoard clone = new KaisetuBoard(this);
-            return clone;
-        }
 
 
     }

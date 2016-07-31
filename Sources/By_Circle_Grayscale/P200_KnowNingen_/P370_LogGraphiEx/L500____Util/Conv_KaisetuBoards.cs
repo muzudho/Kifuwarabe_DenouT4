@@ -18,7 +18,7 @@ namespace Grayscale.P370_LogGraphiEx.L500____Util
             foreach (KaisetuBoard board1 in boards1.boards)
             {
                 // 指し手。分かれば。
-                string sasiteStr = Conv_Sasite.Sasite_To_KsString_ForLog(board1.sasiteOrNull, board1.GenTeban);
+                string sasiteStr = Conv_Sasite.Sasite_To_KsString_ForLog(board1.Move, board1.GenTeban);
 
                 //string oldCaption = boardLog1.Caption;
                 //boardLog1.Caption += "_" + sasiteStr;

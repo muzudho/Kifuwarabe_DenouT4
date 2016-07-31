@@ -229,8 +229,6 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 
             hubNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> nextNode, ref bool toBreak) =>
             {
-                //Starbeamable nextSasiteOld = Conv_Move.ToSasite( nextNode.Key);
-
                 Finger figKoma = Util_Sky_FingersQuery.InMasuNow_New(
                     src_Sky,
                     nextNode.Key

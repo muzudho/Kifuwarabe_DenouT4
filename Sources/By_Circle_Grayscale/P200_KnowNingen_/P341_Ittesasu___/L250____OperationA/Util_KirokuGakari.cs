@@ -132,9 +132,7 @@ namespace Grayscale.P341_Ittesasu___.L250____OperationA
                     goto gt_EndLoop;
                 }
 
-                Starbeamable sasiteOld = Conv_Move.ToSasite(node.Key);
-
-                sb.Append(Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(sasiteOld));
+                sb.Append(Conv_Move.ToSfen(node.Key));
 
                 //// TODO:デバッグ用
                 //switch (sasite.TottaKoma)

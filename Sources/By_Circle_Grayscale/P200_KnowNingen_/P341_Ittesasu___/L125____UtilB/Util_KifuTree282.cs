@@ -47,8 +47,7 @@ namespace Grayscale.P341_Ittesasu___.L125____UtilB
             //----------------------------------------
             // 本譜の手
             //----------------------------------------
-            Starbeamable sasiteOld = Conv_Move.ToSasite(kifu_mutable.CurNode.Key);
-            string sasiteStr = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(sasiteOld);
+            string sasiteStr = Conv_Move.ToSfen(kifu_mutable.CurNode.Key);
 
 
             //----------------------------------------
@@ -115,8 +114,7 @@ namespace Grayscale.P341_Ittesasu___.L125____UtilB
             KwErrorHandler errH
             )
         {
-            Starbeamable sasiteOld = Conv_Move.ToSasite(nextNode_and_nextCurrent.Key);
-            string sasiteStr = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(sasiteOld);
+            string sasiteStr = Conv_Move.ToSfen(nextNode_and_nextCurrent.Key);
 
             if (!((KifuNode)kifuRef.CurNode).HasTuginoitte(sasiteStr))
             {

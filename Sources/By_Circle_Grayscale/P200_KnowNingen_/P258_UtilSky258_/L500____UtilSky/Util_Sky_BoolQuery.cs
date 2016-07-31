@@ -245,6 +245,28 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 
             return result;
         }
+        /// <summary>
+        /// “打” ＜アクション時＞
+        /// </summary>
+        /// <returns></returns>
+        public static bool IsDaAction(Move move)
+        {
+            bool result;
+
+            try
+            {
+                SyElement srcMasu = Conv_Move.ToSrcMasu(move);
+                result = Okiba.ShogiBan != Conv_SyElement.ToOkiba(srcMasu)//駒台（駒袋）から打ったとき。
+                    && Okiba.Empty != Conv_SyElement.ToOkiba(srcMasu);//初期配置から移動しても、打にはしません。
+            }
+            catch (Exception ex)
+            {
+                Util_OwataMinister.ERROR.DonimoNaranAkirameta(ex, "IsDaAction:");// exceptionArea=" + exceptionArea
+                throw ex;
+            }
+
+            return result;
+        }
 
         public static bool isEnableSfen(Move move)
         {
