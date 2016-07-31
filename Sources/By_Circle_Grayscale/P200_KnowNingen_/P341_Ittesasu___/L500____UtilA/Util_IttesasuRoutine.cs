@@ -92,7 +92,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                 Finger figMovedKoma;
                 Util_IttesasuRoutine.Do24_UgokasuKoma_IdoSakiHe(
                     out figMovedKoma,
-                    Conv_Move.ToSasite( ittesasuArg.KorekaranoMove),
+                    ittesasuArg.KorekaranoMove,
                     ittesasuArg.KaisiTebanside,
                     kaisi_Sky,
                     errH,
@@ -109,7 +109,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                 {
                     afterStar = Util_IttesasuRoutine.Do36_KomaOnDestinationMasu(
                         dstKs,
-                        Conv_Move.ToSasite( ittesasuArg.KorekaranoMove),
+                        ittesasuArg.KorekaranoMove,
                         ittesasuResult.Susunda_Sky_orNull
                         );
                 }
@@ -243,29 +243,33 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
             )
         {
             Node<Move, KyokumenWrapper> editNodeRef = ittesasuReference.Get_SyuryoNode_OrNull;
-            Starbeamable nextSasiteOld = Conv_Move.ToSasite( editNodeRef.Key);
+
+            Move move = editNodeRef.Key;
             if (ittesasuReference.FoodKomaSyurui != Komasyurui14.H00_Null___)
             {
                 // 元のキーの、取った駒の種類だけを差替えます。
-                nextSasiteOld = Util_Sky258A.BuildSasite(
-                    nextSasiteOld.LongTimeAgo,
-                    nextSasiteOld.Now,
-                    ittesasuReference.FoodKomaSyurui);
+                move = Conv_Move.ToMove(
+                    Conv_Move.ToSrcMasu(move),
+                    Conv_Move.ToDstMasu(move),
+                    Conv_Move.ToSrcKomasyurui(move),
+                    ittesasuReference.FoodKomaSyurui,//ここだけ差し替えるんだぜ☆（＾～＾）
+                    Conv_Move.ToPromotion(move),
+                    Conv_Move.ToDrop(move),
+                    Conv_Move.ToPlayerside(move),
+                    Conv_Move.ToErrorCheck(move)
+                    );
 
                 // 現手番
                 Playerside genTebanside = ((KifuNode)editNodeRef).Value.KyokumenConst.KaisiPside;
 
                 // キーを差替えたノード
                 editNodeRef = new KifuNodeImpl(
-                    Conv_SasiteStr_Sfen.ToMove( nextSasiteOld),
+                    move,
                     new KyokumenWrapper(ittesasuReference.Susunda_Sky_orNull));//, genTebanside
             }
 
 
-            string nextSasiteStr = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(nextSasiteOld);
-
-
-
+            //string nextSasiteStr = Conv_Move.ToSfen(move);
             ittesasuReference.Set_SyuryoNode_OrNull = editNodeRef;// この変数を返すのがポイント。棋譜とは別に、現局面。
         }
 
@@ -317,7 +321,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
         /// <param name="isMakimodosi"></param>
         private static void Do24_UgokasuKoma_IdoSakiHe(
             out Finger figMovedKoma,
-            Starbeamable sasite,
+            Move move,
             Playerside kaisi_tebanside,
             SkyConst kaisi_Sky,
             KwErrorHandler errH,
@@ -342,23 +346,22 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 //Debug.Assert(null != sasite, "Sasu24_UgokasuKoma_IdoSakiHe: 指し手がヌルでした。");
-                if (Util_Sky_BoolQuery.IsDaAction(sasite))// 多分、ここで sasite がヌルになるエラーがある☆
+                if (Util_Sky_BoolQuery.IsDaAction(move))// 多分、ここで sasite がヌルになるエラーがある☆
                 {
                     //----------
                     // 駒台から “打”
                     //----------
                     exceptionArea = 99002000;
 
-                    RO_Star srcKoma = Util_Starlightable.AsKoma(sasite.LongTimeAgo);
-                    RO_Star dstKoma = Util_Starlightable.AsKoma(sasite.Now);
-
+                    SyElement srcMasu = Conv_Move.ToSrcMasu(move);
+                    Komasyurui14 dstKs14 = Conv_Move.ToDstKomasyurui(move);
 
                     exceptionArea = 99002100;
                     // FIXME: 駒台の、どの駒を拾うか？
                     figMovedKoma = Util_Sky_FingerQuery.InOkibaSyuruiNow_IgnoreCase(
                         kaisi_Sky,
-                        Conv_SyElement.ToOkiba(srcKoma.Masu),
-                        Util_Komahaiyaku184.Syurui(dstKoma.Haiyaku),
+                        Conv_SyElement.ToOkiba(srcMasu),
+                        dstKs14,
                         errH
                         );
                     Debug.Assert(figMovedKoma != Fingers.Error_1, "駒を動かせなかった？14");
@@ -370,18 +373,18 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                     // 将棋盤から
                     //----------
 
-                    RO_Star srcKoma = Util_Starlightable.AsKoma(sasite.LongTimeAgo);
-                    Debug.Assert( !Masu_Honshogi.IsErrorBasho( srcKoma.Masu), "srcKoma.Masuエラー。15");
-                    RO_Star dstKoma = Util_Starlightable.AsKoma(sasite.Now);
-
+                    SyElement srcMasu = Conv_Move.ToSrcMasu(move);
+                    Debug.Assert( !Masu_Honshogi.IsErrorBasho(srcMasu), "srcKoma.Masuエラー。15");
+                    SyElement dstMasu = Conv_Move.ToDstMasu(move);
+                    Playerside pside = Conv_Move.ToPlayerside(move);
 
                     exceptionArea = 99003100;
                     figMovedKoma = Util_Sky_FingerQuery.InShogibanMasuNow(
                         kaisi_Sky,
-                        dstKoma.Pside,
+                        pside,
                         Util_Masu10.OkibaSujiDanToMasu(
-                            Conv_SyElement.ToOkiba(Masu_Honshogi.Masus_All[Conv_SyElement.ToMasuNumber(dstKoma.Masu)]),
-                            Conv_SyElement.ToMasuNumber(srcKoma.Masu)
+                            Conv_SyElement.ToOkiba(Masu_Honshogi.Masus_All[Conv_SyElement.ToMasuNumber(dstMasu)]),
+                            Conv_SyElement.ToMasuNumber(srcMasu)
                             ),
                             errH
                             );
@@ -411,24 +414,18 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
         /// <returns></returns>
         private static Starlight Do36_KomaOnDestinationMasu(
             Komasyurui14 syurui2,
-            Starbeamable sasite,
+            Move move,
             SkyConst src_Sky)
         {
-            Starlight dst;
-
-            RO_Star srcKoma = Util_Starlightable.AsKoma(sasite.LongTimeAgo);//移動元
-            RO_Star dstKoma = Util_Starlightable.AsKoma(sasite.Now);//移動先
+            Playerside pside = Conv_Move.ToPlayerside(move);
+            SyElement dstMasu = Conv_Move.ToDstMasu(move);
 
             // 次の位置
-
-
-            dst = new RO_Starlight(
-                new RO_Star(dstKoma.Pside,
-                dstKoma.Masu,
+            return new RO_Starlight(
+                new RO_Star(pside,
+                dstMasu,
                 syurui2)
                 );
-
-            return dst;
         }
 
 

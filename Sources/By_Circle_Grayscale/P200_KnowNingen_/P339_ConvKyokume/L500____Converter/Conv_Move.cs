@@ -396,6 +396,12 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             }
         }
 
+        /*
+        public static Move SetCaptured(Move move,Komasyurui14 captured)
+        {
+        }
+        */
+
         public static Komasyurui14 ToCaptured(Move move)
         {
             int v = (int)move;              // バリュー
@@ -593,6 +599,57 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
                 new RO_Star(playersideB, dstMasuB, dstKomasyuruiB),
                 capturedB
                 );
+        }
+
+        public static Move ToMove(
+            SyElement srcMasu,
+            SyElement dstMasu,
+            Komasyurui14 moved,
+            Komasyurui14 captured,
+            bool promotion,
+            bool drop,
+            Playerside pside,
+            bool errorCheck
+            )
+        {
+            int srcSuji;
+            Util_MasuNum.TryMasuToSuji(srcMasu,out srcSuji);
+            int srcDan;
+            Util_MasuNum.TryMasuToDan(srcMasu, out srcDan);
+            int dstSuji;
+            Util_MasuNum.TryMasuToSuji(dstMasu, out dstSuji);
+            int dstDan;
+            Util_MasuNum.TryMasuToDan(dstMasu, out dstDan);
+
+            // バリュー
+            int v = 0;
+            v |= srcSuji << (int)MoveShift.SrcSuji;
+            v |= srcDan << (int)MoveShift.SrcDan;
+            v |= dstSuji << (int)MoveShift.DstSuji;
+            v |= dstDan << (int)MoveShift.DstDan;
+            v |= (int)moved << (int)MoveShift.Komasyurui;
+            v |= (int)captured << (int)MoveShift.Captured;
+            if (promotion)
+            {
+                v |= 1 << (int)MoveShift.Promotion;
+            }
+
+            if (drop)
+            {
+                v |= 1 << (int)MoveShift.Drop;
+            }
+
+            if (Playerside.P2==pside)
+            {
+                v |= 1 << (int)MoveShift.Playerside;
+            }
+
+            if (errorCheck)
+            {
+                v |= 1 << (int)MoveShift.ErrorCheck;
+            }
+
+            return (Move)v;
         }
 
         public static string ToLog(Move move)
