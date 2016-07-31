@@ -96,21 +96,20 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
 
                 foreach (SyElement dstMasu in value.Elements)
                 {
-
-                    Starbeamable sasite = Util_Sky258A.BuildSasite(
+                    Move move = Conv_SasiteStr_Sfen.ToMove(
                         new RO_Star(src_Sky.KaisiPside, koma.Masu, koma.Haiyaku),
                         new RO_Star(src_Sky.KaisiPside, dstMasu, koma.Haiyaku),//FIXME:配役は適当。
                         Komasyurui14.H00_Null___
                         );
 
-                    string sasiteStr = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(sasite);//重複防止用のキー
+                    string sasiteStr = Conv_Move.ToSfen(move);//重複防止用のキー
 
                     if (!result_komabetuEntry.ContainsKey(sasiteStr))
                     {
                         result_komabetuEntry.Add(
                             sasiteStr,
                             new SasuEntry(
-                                sasite,
+                                move,
                                 key,//動かす駒
                                 dstMasu,//移動先升
                                 false//成りません
@@ -139,15 +138,15 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
 
                 foreach (SyElement dstMasu in value.Elements)
                 {
-                    Starbeamable sasite = Util_Sky258A.BuildSasite(
+                    Move move = Conv_SasiteStr_Sfen.ToMove(
                         new RO_Star(src_Sky.KaisiPside, koma.Masu, koma.Haiyaku),
                         new RO_Star(src_Sky.KaisiPside, dstMasu, koma.Haiyaku),//FIXME:配役は適当。
                         Komasyurui14.H00_Null___
                         );
 
-                    string sasiteStr = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(sasite);//重複防止用のキー
+                    string sasiteStr = Conv_Move.ToSfen(move);//重複防止用のキー
                     SasuEntry sasuEntry = new SasuEntry(
-                        sasite,
+                        move,
                         key,//動かす駒
                         dstMasu,//移動先升
                         false//成りません。

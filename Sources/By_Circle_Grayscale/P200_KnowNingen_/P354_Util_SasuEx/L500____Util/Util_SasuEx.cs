@@ -13,6 +13,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P056_Syugoron___.L___250_Struct;
+using Grayscale.P211_WordShogi__.L500____Word;
 
 namespace Grayscale.P354_Util_SasuEx.L500____Util
 {
@@ -27,7 +30,7 @@ namespace Grayscale.P354_Util_SasuEx.L500____Util
 
         /// <summary>
         /// これが通称【水際のいんちきプログラム】なんだぜ☆
-        /// 必要により、【成り】の指し手を追加します。
+        /// 必要により、【成り】の指し手を追加するぜ☆
         /// </summary>
         public static Dictionary<string, SasuEntry> CreateNariSasite(
             SkyConst src_Sky,
@@ -42,7 +45,7 @@ namespace Grayscale.P354_Util_SasuEx.L500____Util
 
             try
             {
-                Dictionary<string, Starbeamable> newSasiteList = new Dictionary<string, Starbeamable>();
+                Dictionary<string, Move> newSasiteList = new Dictionary<string, Move>();
 
                 foreach(KeyValuePair<string, SasuEntry> entry in a_sasitebetuEntry)
                 {
@@ -50,12 +53,17 @@ namespace Grayscale.P354_Util_SasuEx.L500____Util
                     // ・移動元の駒
                     // ・移動先の駒
                     //
-                    RO_Star srcKoma = Util_Starlightable.AsKoma(entry.Value.NewSasite.LongTimeAgo);
-                    RO_Star dstKoma = Util_Starlightable.AsKoma(entry.Value.NewSasite.Now);
+                    Move move1 = entry.Value.NewMove;
+
+                    SyElement srcMasu = Conv_Move.ToSrcMasu(move1);
+                    SyElement dstMasu = Conv_Move.ToDstMasu(move1);
+                    Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move1);
+                    Komasyurui14 dstKs = Conv_Move.ToDstKomasyurui(move1);
+                    Playerside pside = Conv_Move.ToPlayerside(move1);
 
                     // 成りができる動きなら真。
                     bool isPromotionable;
-                    if (!Util_Sasu269.IsPromotionable(out isPromotionable, srcKoma, dstKoma))
+                    if (!Util_Sasu269.IsPromotionable(out isPromotionable, srcMasu, dstMasu, srcKs, pside))
                     {
                         // ｴﾗｰ
                         goto gt_Next1;
@@ -63,21 +71,25 @@ namespace Grayscale.P354_Util_SasuEx.L500____Util
 
                     if (isPromotionable)
                     {
-                        Starbeamable sasite = new RO_Starbeam(
-                            srcKoma,// 移動元
+                        Move move = Conv_SasiteStr_Sfen.ToMove(
+                            new RO_Star(// 移動元はそのまま
+                                pside,
+                                srcMasu,
+                                srcKs
+                                ),
                             new RO_Star(
-                                dstKoma.Pside,
-                                dstKoma.Masu,
-                                Util_Komasyurui14.ToNariCase(dstKoma.Komasyurui)//強制的に【成り】に駒の種類を変更
+                                pside,
+                                dstMasu,
+                                Util_Komasyurui14.ToNariCase(dstKs)//強制的に【成り】に駒の種類を変更
                             ),// 移動先
                             Komasyurui14.H00_Null___//取った駒不明
                         );
 
                         // TODO: 一段目の香車のように、既に駒は成っている場合があります。無い指し手だけ追加するようにします。
-                        string sasiteStr = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(sasite);//重複防止用のキー
+                        string sasiteStr = Conv_Move.ToSfen(move);//重複防止用のキー
                         if (!newSasiteList.ContainsKey(sasiteStr))
                         {
-                            newSasiteList.Add(sasiteStr, sasite);
+                            newSasiteList.Add(sasiteStr, move);
                         }
                     }
 
@@ -91,28 +103,27 @@ namespace Grayscale.P354_Util_SasuEx.L500____Util
 
 
                 // 新しく作った【成り】の指し手を追加します。
-                foreach (Starbeamable newSasite in newSasiteList.Values)
+                foreach (Move newMove in newSasiteList.Values)
                 {
                     // 指す前の駒
-                    RO_Star sasumaenoKoma = Util_Starlightable.AsKoma(newSasite.LongTimeAgo);
+                    SyElement srcMasu = Conv_Move.ToSrcMasu(newMove);
 
                     // 指した駒
-                    RO_Star sasitaKoma = Util_Starlightable.AsKoma(newSasite.Now);
+                    SyElement dstMasu = Conv_Move.ToDstMasu(newMove);
 
                     // 指す前の駒を、盤上のマス目で指定
-                    Finger figSasumaenoKoma = Util_Sky_FingersQuery.InMasuNow_Old(src_Sky,
-                        sasumaenoKoma.Masu).ToFirst();
+                    Finger figSasumaenoKoma = Util_Sky_FingersQuery.InMasuNow_Old(src_Sky, srcMasu).ToFirst();
 
                     try
                     {
-                        string sasiteStr = Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(newSasite);
+                        string sasiteStr = Conv_Move.ToSfen(newMove);
 
                         if (!result_komabetuEntry.ContainsKey(sasiteStr))
                         {
                             // 指し手が既存でない局面だけを追加します。
 
                             // 『進める駒』と、『移動先升』
-                            result_komabetuEntry.Add(sasiteStr, new SasuEntry(newSasite, figSasumaenoKoma, sasitaKoma.Masu,true));
+                            result_komabetuEntry.Add(sasiteStr, new SasuEntry(newMove, figSasumaenoKoma, dstMasu, true));
                         }
 
                     }
@@ -124,13 +135,13 @@ namespace Grayscale.P354_Util_SasuEx.L500____Util
                             foreach (KeyValuePair<string, SasuEntry> entry in a_sasitebetuEntry)
                             {
                                 sb.Append("「");
-                                sb.Append(Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(entry.Value.NewSasite));
+                                sb.Append(Conv_Move.ToSfen(entry.Value.NewMove));
                                 sb.Append("」");
                             }
                         }
 
                         //>>>>> エラーが起こりました。
-                        errH.DonimoNaranAkirameta(ex, "新しく作った「成りの指し手」を既存ノードに追加していた時です。：追加したい指し手=「" + Conv_SasiteStr_Sfen.ToSasiteStr_Sfen(newSasite) + "」既存の手=" + sb.ToString());
+                        errH.DonimoNaranAkirameta(ex, "新しく作った「成りの指し手」を既存ノードに追加していた時です。：追加したい指し手=「" + Conv_Move.ToSfen(newMove) + "」既存の手=" + sb.ToString());
                         throw ex;
                     }
 

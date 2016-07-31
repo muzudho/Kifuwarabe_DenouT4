@@ -25,7 +25,7 @@ namespace Grayscale.P353_Conv_SasuEx.L500____Converter
             )
         {
             return new KifuNodeImpl(
-                Conv_SasiteStr_Sfen.ToMove( sasuEntry.NewSasite),
+                sasuEntry.NewMove,
                 new KyokumenWrapper(
                 Util_Sasu341.Sasu(
                     src_Sky,//指定局面

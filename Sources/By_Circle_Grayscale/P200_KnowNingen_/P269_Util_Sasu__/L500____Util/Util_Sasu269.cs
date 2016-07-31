@@ -11,6 +11,7 @@ using System;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P335_Move_______.L___500_Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P056_Syugoron___.L___250_Struct;
 
 namespace Grayscale.P269_Util_Sasu__.L500____Util
 {
@@ -89,20 +90,23 @@ namespace Grayscale.P269_Util_Sasu__.L500____Util
         /// <returns></returns>
         public static bool IsPromotionable(
             out bool isPromotionable,
-            RO_Star srcKoma,
-            RO_Star dstKoma
+            SyElement srcMasu,//             RO_Star srcKoma,
+            SyElement dstMasu,
+            Komasyurui14 srcKs,
+            Playerside pside
+            //RO_Star dstKoma
             )
         {
             bool successful = true;
             isPromotionable = false;
 
-            if (Okiba.ShogiBan != Conv_SyElement.ToOkiba(srcKoma.Masu))
+            if (Okiba.ShogiBan != Conv_SyElement.ToOkiba(srcMasu))//srcKoma.Masu
             {
                 successful = false;
                 goto gt_EndMethod;
             }
 
-            if (Util_Komasyurui14.IsNari(srcKoma.Komasyurui))
+            if (Util_Komasyurui14.IsNari(srcKs))//srcKoma.Komasyurui
             {
                 // 既に成っている駒は、「成り」の指し手を追加すると重複エラーになります。
                 // 成りになれない、で正常終了します。
@@ -110,19 +114,19 @@ namespace Grayscale.P269_Util_Sasu__.L500____Util
             }
 
             int srcDan;
-            if (!Util_MasuNum.TryMasuToDan(srcKoma.Masu, out srcDan))
+            if (!Util_MasuNum.TryMasuToDan(srcMasu, out srcDan))
             {
                 throw new Exception("段に変換失敗");
             }
 
             int dstDan;
-            if (!Util_MasuNum.TryMasuToDan(dstKoma.Masu, out dstDan))
+            if (!Util_MasuNum.TryMasuToDan(dstMasu, out dstDan))
             {
                 throw new Exception("段に変換失敗");
             }
 
             // 先手か、後手かで大きく処理を分けます。
-            switch (dstKoma.Pside)
+            switch (pside)
             {
                 case Playerside.P1:
                     {
@@ -171,14 +175,22 @@ namespace Grayscale.P269_Util_Sasu__.L500____Util
         public static void Add_KomaBETUAllNariSasites(
             Maps_OneAndMulti<Finger, Move> komaBETUAllMoves,
             Finger figKoma,
-            RO_Star srcKoma,
-            RO_Star dstKoma
+            SyElement srcMasu,
+            SyElement dstMasu,
+            Komasyurui14 srcKs,
+            Komasyurui14 dstKs,
+            Playerside pside
             )
         {
             try
             {
                 bool isPromotionable;
-                if (!Util_Sasu269.IsPromotionable(out isPromotionable, srcKoma, dstKoma))
+                if (!Util_Sasu269.IsPromotionable(out isPromotionable,
+                    srcMasu,
+                    dstMasu,
+                    srcKs,
+                    pside
+                    ))
                 {
                     goto gt_EndMethod;
                 }
@@ -189,11 +201,15 @@ namespace Grayscale.P269_Util_Sasu__.L500____Util
                     //MessageBox.Show("成りの資格がある駒がありました。 src=["+srcKoma.Masu.Word+"]["+srcKoma.Syurui+"]");
 
                     Move move = Conv_SasiteStr_Sfen.ToMove(
-                        srcKoma,// 移動元
+                        new RO_Star(// 移動元はそのまま
+                            pside,
+                            srcMasu,
+                            srcKs
+                        ),// 移動先
                         new RO_Star(
-                            dstKoma.Pside,
-                            dstKoma.Masu,
-                            Util_Komasyurui14.ToNariCase(dstKoma.Komasyurui)//強制的に【成り】に駒の種類を変更
+                            pside,
+                            dstMasu,
+                            Util_Komasyurui14.ToNariCase(dstKs)//強制的に【成り】に駒の種類を変更
                         ),// 移動先
                         Komasyurui14.H00_Null___//取った駒不明
                         );

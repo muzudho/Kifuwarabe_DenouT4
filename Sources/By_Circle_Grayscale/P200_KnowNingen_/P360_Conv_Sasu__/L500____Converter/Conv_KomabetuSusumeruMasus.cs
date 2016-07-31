@@ -9,6 +9,7 @@ using Grayscale.P269_Util_Sasu__.L500____Util;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P335_Move_______.L___500_Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P211_WordShogi__.L500____Word;
 
 namespace Grayscale.P360_Conv_Sasu__.L500____Converter
 {
@@ -49,13 +50,23 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
                         );
                     result_komabetuAllMoves.Put_NewOrOverwrite(figKoma, move);//FIXME: １つの駒に指し手は１つ？？
 
+
+
                     // これが通称【水際のいんちきプログラム】なんだぜ☆
                     // 必要により、【成り】の指し手を追加します。
+                    SyElement srcMasu = Conv_Move.ToSrcMasu(move);
+                    SyElement dstMasu = Conv_Move.ToDstMasu(move);
+                    Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
+                    Komasyurui14 dstKs = Conv_Move.ToDstKomasyurui(move);
+                    Playerside pside = Conv_Move.ToPlayerside(move);
                     Util_Sasu269.Add_KomaBETUAllNariSasites(
                         result_komabetuAllMoves,
                         figKoma,//動かす駒
-                        srcStar,//動かす星
-                        dstStar//移動先の星
+                        srcMasu,
+                        dstMasu,
+                        srcKs,
+                        dstKs,
+                        pside
                         );
                 }
             });
