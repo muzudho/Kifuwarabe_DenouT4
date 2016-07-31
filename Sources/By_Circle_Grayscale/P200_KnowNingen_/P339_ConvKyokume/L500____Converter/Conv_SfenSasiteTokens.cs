@@ -24,7 +24,7 @@ using Grayscale.P212_ConvPside__.L500____Converter;
 using Grayscale.P239_ConvWords__.L500____Converter;
 using Grayscale.P211_WordShogi__.L___250_Masu;
 using Grayscale.P055_Conv_Sy.L500____Converter;
-using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 
 #if DEBUG
 using System.Diagnostics;

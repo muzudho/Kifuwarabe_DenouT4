@@ -45,7 +45,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P031_usiFrame1__.L___250_UsiLoop;
-using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
 
 #if DEBUG

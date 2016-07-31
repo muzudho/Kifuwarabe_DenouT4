@@ -5,7 +5,7 @@ using Grayscale.P226_Tree_______.L___500_Struct;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P341_Ittesasu___.L___250_OperationA;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P341_Ittesasu___.L250____OperationA
 {

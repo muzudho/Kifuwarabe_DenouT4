@@ -17,7 +17,7 @@ using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P250_KomahaiyaEx.L500____Util;
 using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
 using System;
 
@@ -25,12 +25,6 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 {
     public static class Util_Sky258A
     {
-        public static readonly Starbeamable NULL_OBJECT_SASITE = new RO_Starbeam(
-            new RO_Star(Playerside.Empty, Masu_Honshogi.Query_Basho(Masu_Honshogi.nError), Komasyurui14.H00_Null___),
-            new RO_Star(Playerside.Empty, Masu_Honshogi.Query_Basho(Masu_Honshogi.nError), Komasyurui14.H00_Null___),
-            null
-            );
-
         /// <summary>
         /// 成ケース
         /// </summary>

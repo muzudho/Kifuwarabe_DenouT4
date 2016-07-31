@@ -27,7 +27,7 @@ using Grayscale.P361_Util_______.L500____Util;
 using System;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P362_LegalMove__.L500____Util

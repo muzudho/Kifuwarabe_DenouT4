@@ -23,7 +23,7 @@ using Grayscale.P743_FvLearn____.L470____StartZero;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
 
 #if DEBUG || LEARN

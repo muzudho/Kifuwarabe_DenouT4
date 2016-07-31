@@ -21,7 +21,7 @@ using Grayscale.P321_KyokumHyoka.L___250_Struct;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using Grayscale.P056_Syugoron___.L___250_Struct;
 
@@ -76,7 +76,7 @@ namespace Grayscale.P440_KifuTreeLog.L500____Struct
                 // 既存の棋譜ツリー・ログを空に。
                 //----------------------------------------
                 {
-                    string rootFolder = Path.Combine(Util_KifuTreeLogWriter.REPORT_ENVIRONMENT.OutFolder, Conv_SasiteStr_Sfen.KIFU_TREE_LOG_ROOT_FOLDER);
+                    string rootFolder = Path.Combine(Util_KifuTreeLogWriter.REPORT_ENVIRONMENT.OutFolder, Conv_Move.KIFU_TREE_LOG_ROOT_FOLDER);
                     if (Directory.Exists(rootFolder))
                     {
                         try

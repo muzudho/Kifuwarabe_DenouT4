@@ -7,7 +7,7 @@ using Grayscale.P324_KifuTree___.L___250_Struct;
 using Grayscale.P542_Scoreing___.L___240_Shogisasi;
 using System.Collections.Generic;
 using System;
-using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P542_Scoreing___.L125____ScoreSibori
 {

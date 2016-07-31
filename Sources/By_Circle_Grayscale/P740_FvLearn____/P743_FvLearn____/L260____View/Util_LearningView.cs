@@ -30,7 +30,7 @@ using System.Diagnostics;
 using System.Text;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P575_KifuWarabe_.L500____KifuWarabe;
 
 namespace Grayscale.P743_FvLearn____.L260____View

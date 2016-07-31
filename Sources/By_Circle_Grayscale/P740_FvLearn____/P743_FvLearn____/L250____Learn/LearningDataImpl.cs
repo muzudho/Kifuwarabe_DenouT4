@@ -280,7 +280,7 @@ namespace Grayscale.P743_FvLearn____.L250____Learn
             KyokumenPngArgs_FoodOrDropKoma foodKoma;
             if (Komasyurui14.H00_Null___ != captured)
             {
-                switch (Util_Komasyurui14.NarazuCaseHandle((Komasyurui14) Conv_Move.ToSasite( this.Kifu.CurNode.Key).FoodKomaSyurui))
+                switch (Util_Komasyurui14.NarazuCaseHandle(captured))
                 {
                     case Komasyurui14.H00_Null___: foodKoma = KyokumenPngArgs_FoodOrDropKoma.NONE; break;
                     case Komasyurui14.H01_Fu_____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.FU__; break;

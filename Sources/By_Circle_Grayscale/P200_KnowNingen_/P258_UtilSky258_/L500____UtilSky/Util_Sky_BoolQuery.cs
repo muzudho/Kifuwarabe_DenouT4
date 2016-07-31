@@ -14,7 +14,7 @@ using Grayscale.P238_Seiza______.L500____Util;
 using System;
 using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
 using Grayscale.P213_Komasyurui_.L250____Word;
 
@@ -226,29 +226,6 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         /// “打” ＜アクション時＞
         /// </summary>
         /// <returns></returns>
-        public static bool IsDaAction(Starbeamable sasite)
-        {
-            Debug.Assert(null != sasite, "指し手がヌルでした。");
-            bool result;
-
-            try
-            {
-                RO_Star srcKoma = Util_Starlightable.AsKoma(sasite.LongTimeAgo);
-                result = Okiba.ShogiBan != Conv_SyElement.ToOkiba(srcKoma.Masu)//駒台（駒袋）から打ったとき。
-                    && Okiba.Empty != Conv_SyElement.ToOkiba(srcKoma.Masu);//初期配置から移動しても、打にはしません。
-            }
-            catch (Exception ex)
-            {
-                Util_OwataMinister.ERROR.DonimoNaranAkirameta(ex, "IsDaAction:");// exceptionArea=" + exceptionArea
-                throw ex;
-            }
-
-            return result;
-        }
-        /// <summary>
-        /// “打” ＜アクション時＞
-        /// </summary>
-        /// <returns></returns>
         public static bool IsDaAction(Move move)
         {
             bool result;
@@ -312,38 +289,6 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
                 Util_Komasyurui14.FlagNari[(int)srcKs]
                 ||
                 !Util_Komasyurui14.FlagNari[(int)dstKs]
-                )
-            {
-                natta = false;
-            }
-
-            return natta;
-        }
-        /// <summary>
-        /// 成った
-        /// </summary>
-        /// <returns></returns>
-        public static bool IsNatta_Sasite(Starbeamable sasite)
-        {
-            // 元種類が不成、現種類が成　の場合のみ真。
-            bool natta = true;
-
-
-            RO_Star srcKoma = Util_Starlightable.AsKoma(sasite.LongTimeAgo);
-            RO_Star dstKoma = Util_Starlightable.AsKoma(sasite.Now);
-
-
-            // 成立しない条件を１つでも満たしていれば、偽　確定。
-            if (
-                Komahaiyaku185.n000_未設定 == srcKoma.Haiyaku
-                //Ks14.H00_Null == Haiyaku184Array.Syurui[(int)this.SrcHaiyaku]
-                ||
-                Komahaiyaku185.n000_未設定 == dstKoma.Haiyaku
-                //Ks14.H15_ErrorKoma == Haiyaku184Array.Syurui[(int)this.Haiyaku]
-                ||
-                Util_Komasyurui14.FlagNari[(int)Util_Komahaiyaku184.Syurui(srcKoma.Haiyaku)]
-                ||
-                !Util_Komasyurui14.FlagNari[(int)Util_Komahaiyaku184.Syurui(dstKoma.Haiyaku)]
                 )
             {
                 natta = false;

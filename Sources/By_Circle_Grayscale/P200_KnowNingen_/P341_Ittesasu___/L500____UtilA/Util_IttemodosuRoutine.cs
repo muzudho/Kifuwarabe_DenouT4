@@ -20,7 +20,7 @@ using Grayscale.P341_Ittesasu___.L250____OperationA;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P341_Ittesasu___.L500____UtilA
 {

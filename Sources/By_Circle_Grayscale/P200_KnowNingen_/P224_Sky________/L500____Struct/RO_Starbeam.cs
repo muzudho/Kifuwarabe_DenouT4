@@ -27,7 +27,7 @@ namespace Grayscale.P224_Sky________.L500____Struct
     /// ・駒種類：「歩」「と金」など。補助で容易。
     /// </summary>
     [Serializable]
-    public class RO_Starbeam : RO_Starlight, Starbeamable
+    public class RO_Starbeam : RO_Starlight
     {
 
 

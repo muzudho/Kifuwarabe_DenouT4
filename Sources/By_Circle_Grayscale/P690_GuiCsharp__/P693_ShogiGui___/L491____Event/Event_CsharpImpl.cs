@@ -22,7 +22,7 @@ using Grayscale.P693_ShogiGui___.L___500_Gui;
 using Grayscale.P693_ShogiGui___.L249____Function;
 using Grayscale.P693_ShogiGui___.L480____Util;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P693_ShogiGui___.L491____Event

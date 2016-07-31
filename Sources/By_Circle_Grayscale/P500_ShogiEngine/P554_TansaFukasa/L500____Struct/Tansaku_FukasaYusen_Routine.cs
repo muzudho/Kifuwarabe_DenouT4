@@ -28,7 +28,7 @@ using Grayscale.P202_GraphicLog_.L500____Util;
 using Grayscale.P554_TansaFukasa.L___500_Struct;
 using Grayscale.P550_timeMan____.L___500_struct__;
 using Grayscale.P339_ConvKyokume.L500____Converter;
-using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 
 #if DEBUG
 using Grayscale.P266_KyokumMoves.L250____Log;
@@ -853,7 +853,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                         genjo.YomikaisiTemezumi,
                         out_logBrd_move1,//ログ？
                         src_Sky.Temezumi,//手済み
-                        Conv_Move.ToSasite( move_forLog),//指し手
+                        move_forLog,//指し手
                         errH//ログ
                     );
             }
@@ -871,15 +871,14 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
         {
             try
             {
-                logBrd_move1.sasiteOrNull = Conv_Move.ToSasite(node_yomi.Key);
+                logBrd_move1.Move = node_yomi.Key;
 
-
-                RO_Star srcKoma = Util_Starlightable.AsKoma(logBrd_move1.sasiteOrNull.LongTimeAgo);
-                RO_Star dstKoma = Util_Starlightable.AsKoma(logBrd_move1.sasiteOrNull.Now);
-
+                SyElement srcMasu = Conv_Move.ToSrcMasu(logBrd_move1.Move);
+                SyElement dstMasu = Conv_Move.ToDstMasu(logBrd_move1.Move);
 
                 // ログ試し
-                logBrd_move1.Arrow.Add(new Gkl_Arrow(Conv_SyElement.ToMasuNumber(srcKoma.Masu), Conv_SyElement.ToMasuNumber(dstKoma.Masu)));
+                logBrd_move1.Arrow.Add(new Gkl_Arrow(Conv_SyElement.ToMasuNumber(srcMasu),
+                    Conv_SyElement.ToMasuNumber(dstMasu)));
                 genjo.Args.LogF_moveKiki.boards.Add(logBrd_move1);
             }
             catch (Exception ex)

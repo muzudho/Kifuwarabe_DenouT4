@@ -15,6 +15,7 @@ using Grayscale.P239_ConvWords__.L500____Converter;
 using Grayscale.P258_UtilSky258_.L505____ConvLogJson;
 using Grayscale.P266_KyokumMoves.L___250_Log;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P335_Move_______.L___500_Struct;
 
 namespace Grayscale.P266_KyokumMoves.L250____Log
 {
@@ -36,8 +37,8 @@ namespace Grayscale.P266_KyokumMoves.L250____Log
         private int yomikaisiTemezumi;
 
 
-        public Starbeamable Sasite { get { return this.sasite; } }
-        private Starbeamable sasite;
+        public Move Move { get { return this.m_move_; } }
+        private Move m_move_;
 
         public KwErrorHandler ErrH { get { return this.errH; } }
         private KwErrorHandler errH;
@@ -47,20 +48,20 @@ namespace Grayscale.P266_KyokumMoves.L250____Log
             int yomikaisiTemezumi,
             KaisetuBoard brdMove,
             int temezumi_yomiCur,
-            Starbeamable sasite,
+            Move move,
             KwErrorHandler errH
             )
         {
             this.BrdMove = brdMove;
             this.yomikaisiTemezumi = yomikaisiTemezumi;
             this.temezumi_yomiCur = temezumi_yomiCur;
-            this.sasite = sasite;
+            this.m_move_ = move;
             this.errH = errH;
         }
 
         public void Log1(Playerside pside_genTeban3)
         {
-            this.BrdMove.Caption = "移動可能_" + Conv_Sasite.Sasite_To_KsString_ForLog(this.Sasite, pside_genTeban3);
+            this.BrdMove.Caption = "移動可能_" + Conv_Sasite.Sasite_To_KsString_ForLog(this.Move, pside_genTeban3);
             this.BrdMove.Temezumi = this.Temezumi_yomiCur;
             this.BrdMove.YomikaisiTemezumi = this.YomikaisiTemezumi;
             this.BrdMove.GenTeban = pside_genTeban3;// 現手番

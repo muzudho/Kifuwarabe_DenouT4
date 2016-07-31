@@ -88,9 +88,9 @@
     <Compile Include="P325_PnlTaikyoku\L250____Struct\Model_TaikyokuImpl.cs" />
     <Compile Include="P325_PnlTaikyoku\L___250_Struct\Model_Manual.cs" />
     <Compile Include="P325_PnlTaikyoku\L___250_Struct\Model_Taikyoku.cs" />
-    <Compile Include="P335_Move\L___500_Struct\n1_MoveShift.cs" />
-    <Compile Include="P335_Move\L___500_Struct\n3_Move.cs" />
-    <Compile Include="P335_Move\L___500_Struct\n2_MoveMask.cs" />
+    <Compile Include="P219_Move\L___500_Struct\n1_MoveShift.cs" />
+    <Compile Include="P219_Move\L___500_Struct\n3_Move.cs" />
+    <Compile Include="P219_Move\L___500_Struct\n2_MoveMask.cs" />
     <Compile Include="P339_ConvKyokume\L500____Converter\Conv_Move.cs" />
     <Compile Include="P369_ConvCsa____\L500____Converter\Util_CsaSasite.cs" />
     <Compile Include="P222_Log_Kaisetu\L500____Util\Util_LogWriter022_Json.cs" />
@@ -115,7 +115,6 @@
     <Compile Include="P216_ZobrishHash\L500____Struct\Util_ZobristHashing.cs" />
     <Compile Include="P323_Sennitite__\L500____Struct\SennititeConfirmerImpl.cs" />
     <Compile Include="P323_Sennitite__\L___500_Struct\SennititeConfirmer.cs" />
-    <Compile Include="P339_ConvKyokume\L500____Converter\Conv_SasiteStr_Sfen.cs" />
     <Compile Include="P307_UtilSky____\L500____Util\Conv_Sfenstring307.cs" />
     <Compile Include="P307_UtilSky____\L500____Util\Conv_Starlight.cs" />
     <Compile Include="P321_KyokumHyoka\L___250_Struct\HyokakansuName.cs" />
@@ -147,7 +146,6 @@
     <Compile Include="P211_WordShogi__\L500____Word\Hogaku.cs" />
     <Compile Include="P211_WordShogi__\L500____Word\Okiba.cs" />
     <Compile Include="P211_WordShogi__\L500____Word\Playerside.cs" />
-    <Compile Include="P218_Starlight__\L___500_Struct\Starbeamable.cs" />
     <Compile Include="P218_Starlight__\L___500_Struct\Starlight.cs" />
     <Compile Include="P218_Starlight__\L___500_Struct\Starlightable.cs" />
     <Compile Include="P222_Log_Kaisetu\L250____Struct\KaisetuBoard.cs" />

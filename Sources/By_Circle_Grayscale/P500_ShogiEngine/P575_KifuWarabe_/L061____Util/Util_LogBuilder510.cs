@@ -56,13 +56,13 @@ namespace Grayscale.P542_Scoreing___.L061____Util
                         0,//読み開始手目済み
                         logBrd_move1,
                         0,//現在の手済み
-                        Conv_Move.ToSasite(niniNode.Key),
+                        niniNode.Key,
                         errH
                     )
 //#endif
                 );
 
-                logBrd_move1.sasiteOrNull = Conv_Move.ToSasite(niniNode.Key);
+                logBrd_move1.Move = niniNode.Key;
 
                 logBrd_move1.YomikaisiTemezumi = niniNode.Value.KyokumenConst.Temezumi;//読み開始手目済み    // int.MinValue;
                 logBrd_move1.Temezumi = int.MinValue;

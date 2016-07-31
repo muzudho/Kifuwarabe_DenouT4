@@ -6,7 +6,7 @@ using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P324_KifuTree___.L___250_Struct;
 using Grayscale.P323_Sennitite__.L500____Struct;
 using Grayscale.P323_Sennitite__.L___500_Struct;
-using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 
 #if DEBUG
 using System.Diagnostics;

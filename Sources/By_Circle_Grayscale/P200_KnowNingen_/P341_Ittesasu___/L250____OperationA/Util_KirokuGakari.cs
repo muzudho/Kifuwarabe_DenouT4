@@ -11,7 +11,7 @@ using Grayscale.P324_KifuTree___.L250____Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
 using Grayscale.P341_Ittesasu___.L125____UtilB;
 using System.Text;
-using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P341_Ittesasu___.L250____OperationA
 {

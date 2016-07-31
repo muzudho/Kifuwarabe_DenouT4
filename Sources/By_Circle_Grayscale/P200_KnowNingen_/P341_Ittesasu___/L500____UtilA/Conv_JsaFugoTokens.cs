@@ -20,7 +20,7 @@ using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using Grayscale.P324_KifuTree___.L___250_Struct;
 using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P341_Ittesasu___.L500____UtilA
@@ -80,12 +80,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
             if ("同" == strDou)
             {
                 // 1手前の筋、段を求めるのに使います。
-
-                RO_Star koma = Util_Starlightable.AsKoma(
-                    Conv_Move.ToSasite( siteiNode.Key).Now
-                    );
-
-                    dstMasu = koma.Masu;
+                dstMasu = Conv_Move.ToDstMasu(siteiNode.Key);
             }
             else
             {

@@ -13,7 +13,7 @@ using Grayscale.P341_Ittesasu___.L500____UtilA;
 using Grayscale.P355_KifuParserA.L___500_Parser;
 using System;
 using System.Windows.Forms;
-using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P355_KifuParserA.L500____Parser
 {

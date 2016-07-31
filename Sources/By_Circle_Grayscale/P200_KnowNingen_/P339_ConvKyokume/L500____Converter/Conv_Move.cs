@@ -10,7 +10,7 @@ using Grayscale.P218_Starlight__.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P238_Seiza______.L250____Struct;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
-using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using System;
 using System.Text;
 
@@ -19,6 +19,11 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
 {
     public abstract class Conv_Move
     {
+        /// <summary>
+        /// もともとは、自動で削除される、棋譜ツリー・ログのルートフォルダー名。
+        /// </summary>
+        public const string KIFU_TREE_LOG_ROOT_FOLDER = "temp_root";
+
         /// <summary>
         /// ************************************************************************************************************************
         /// SFEN符号表記。
@@ -35,7 +40,7 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             {
                 if (0 != ((v & (int)MoveMask.ErrorCheck)))
                 {
-                    sb.Append(Conv_SasiteStr_Sfen.KIFU_TREE_LOG_ROOT_FOLDER);
+                    sb.Append(Conv_Move.KIFU_TREE_LOG_ROOT_FOLDER);
                     goto gt_EndMethod;
                 }
 
@@ -530,69 +535,6 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             }
         }
 
-        public static Starbeamable ToSasite(Move move)
-        {
-            int v = (int)move;              // バリュー
-
-
-            // TODO: エラーチェック
-            int errorCheck;
-            {
-                int m = (int)MoveMask.ErrorCheck;  // マスク
-                int s = (int)MoveShift.ErrorCheck;   // シフト
-                errorCheck = (v & m) >> s;
-            }
-            if (0!= errorCheck)
-            {
-                return Util_Sky258A.NULL_OBJECT_SASITE;
-            }
-
-
-            //────────────────────────────────────────────────────────────────────────────────
-            // 組み立てフェーズ
-            //────────────────────────────────────────────────────────────────────────────────
-
-            // 手番
-            Playerside playersideB = Conv_Move.ToPlayerside(move);
-
-            bool drop = Conv_Move.ToDrop(move);
-
-            // 自
-            SyElement srcMasuB;
-            if (drop)
-            {
-                // 打のときは、とりあえず、元位置を将棋盤以外にしたい。
-                if (Playerside.P1== playersideB)
-                {
-                    srcMasuB = Masu_Honshogi.Masus_All[Masu_Honshogi.nsen01];
-                }
-                else
-                {
-                    srcMasuB = Masu_Honshogi.Masus_All[Masu_Honshogi.ngo01];
-                }
-            }
-            else
-            {
-                srcMasuB = Conv_Move.ToSrcMasu(move);
-            }
-
-            // 至
-            SyElement dstMasuB = Conv_Move.ToDstMasu(move);
-
-            // 移動した駒の種類
-            Komasyurui14 srcKomasyuruiB = Conv_Move.ToSrcKomasyurui(move);
-            Komasyurui14 dstKomasyuruiB = Conv_Move.ToDstKomasyurui(move);
-
-            // 取った駒の種類
-            Komasyurui14 capturedB = Conv_Move.ToCaptured(move);
-
-
-            return new RO_Starbeam(
-                new RO_Star(playersideB, srcMasuB, srcKomasyuruiB),
-                new RO_Star(playersideB, dstMasuB, dstKomasyuruiB),
-                capturedB
-                );
-        }
 
         public static Move ToMove(
             SyElement srcMasu,

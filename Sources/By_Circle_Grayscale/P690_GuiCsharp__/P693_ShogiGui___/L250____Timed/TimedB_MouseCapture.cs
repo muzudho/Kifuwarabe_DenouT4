@@ -30,7 +30,7 @@ using Grayscale.P461_Server_____.L250____Util;
 using Grayscale.P211_WordShogi__.L260____Operator;
 using Grayscale.P693_ShogiGui___.L___492_Widgets;
 using Grayscale.P693_ShogiGui___.L___499_Repaint;
-using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 
 
 #if DEBUG
