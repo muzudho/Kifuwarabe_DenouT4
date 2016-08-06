@@ -143,7 +143,9 @@ namespace Grayscale.P262_Play2______.L500____Struct
 
                         // 駒種類別、置こうとする升
                         aMasus[(int)Komasyurui14.H01_Fu_____] = aMasus[(int)Komasyurui14.H01_Fu_____].Minus_Closed(
-                            Masu_Honshogi.BAN_SUJIS[suji], Util_SyElement_BinaryOperator.Dlgt_Equals_MasuNumber);
+                            Masu_Honshogi.BAN_SUJIS[suji],
+                            Util_SyElement_BinaryOperator.Dlgt_Equals_MasuNumber
+                            );
                     }
                 }
 #if DEBUG

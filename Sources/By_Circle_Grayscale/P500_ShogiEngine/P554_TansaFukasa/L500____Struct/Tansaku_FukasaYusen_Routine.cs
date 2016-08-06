@@ -707,12 +707,12 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                 //----------------------------------------
                 // ①現手番の駒の移動可能場所_被王手含む
                 //----------------------------------------
-                exceptionArea = 10;
+                exceptionArea = 10000;
 
                 //----------------------------------------
                 // 盤１個分のログの準備
                 //----------------------------------------
-                exceptionArea = 20;
+                exceptionArea = 20000;
 #if DEBUG
                 MmLogGenjoImpl mm_log_orNull = null;
                 KaisetuBoard logBrd_move1;
@@ -736,15 +736,16 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
 #endif
                 );
 
-//#if DEBUG
-//                System.Console.WriteLine("komaBETUSusumeruMasusの全要素＝" + Util_List_OneAndMultiEx<Finger, SySet<SyElement>>.CountAllElements(komaBETUSusumeruMasus));
-//#endif
-//#if DEBUG
-//                string jsaSasiteStr = Util_Translator_Sasite.ToSasite(genjo.Node_yomiNext, genjo.Node_yomiNext.Value, errH);
-//                System.Console.WriteLine("[" + jsaSasiteStr + "]の駒別置ける升 調べ\n" + Util_List_OneAndMultiEx<Finger, SySet<SyElement>>.Dump(komaBETUSusumeruMasus, genjo.Node_yomiNext.Value.ToKyokumenConst));
-//#endif
+                //#if DEBUG
+                //                System.Console.WriteLine("komaBETUSusumeruMasusの全要素＝" + Util_List_OneAndMultiEx<Finger, SySet<SyElement>>.CountAllElements(komaBETUSusumeruMasus));
+                //#endif
+                //#if DEBUG
+                //                string jsaSasiteStr = Util_Translator_Sasite.ToSasite(genjo.Node_yomiNext, genjo.Node_yomiNext.Value, errH);
+                //                System.Console.WriteLine("[" + jsaSasiteStr + "]の駒別置ける升 調べ\n" + Util_List_OneAndMultiEx<Finger, SySet<SyElement>>.Dump(komaBETUSusumeruMasus, genjo.Node_yomiNext.Value.ToKyokumenConst));
+                //#endif
                 //Sasiteseisei_FukasaYusen_Routine.Log2(genjo, logBrd_move1, errH);//ログ試し
 
+                exceptionArea = 29000;
 
 
 
@@ -757,7 +758,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                     // 本将棋
                     //----------------------------------------
 
-                    exceptionArea = 30;
+                    exceptionArea = 30000;
                     //----------------------------------------
                     // 指定局面での全ての指し手。
                     //----------------------------------------
@@ -783,7 +784,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                         "読みNextルーチン",
                         errH);
 
-                    exceptionArea = 40;
+                    exceptionArea = 40000;
 
                     //----------------------------------------
                     // 『駒別升ズ』を、ハブ・ノードへ変換。
@@ -795,7 +796,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                         errH
                     );
 
-                    exceptionArea = 42;
+                    exceptionArea = 42000;
 
                     //----------------------------------------
                     // 成りの指し手を作成します。（拡張）
@@ -805,7 +806,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                         sasitebetuEntry,
                         errH);
 
-                    exceptionArea = 44;
+                    exceptionArea = 44000;
 
                     // マージ
                     foreach (KeyValuePair<string, SasuEntry> entry in b_sasitebetuEntry)
@@ -821,7 +822,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                     //----------------------------------------
                     // 本将棋じゃないもの
                     //----------------------------------------
-                    exceptionArea = 50;
+                    exceptionArea = 50000;
 
                     //----------------------------------------
                     // 駒別置ける升　→　指し手別局面
@@ -841,47 +842,17 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
 //#endif
                 }
 
-                exceptionArea = 0;
+                exceptionArea = 1000000;
 
             }
             catch (Exception ex)
             {
-                switch (exceptionArea)
-                {
-                    case 10:
-                        {
-                            errH.DonimoNaranAkirameta(ex, "棋譜ツリーの読みループの作成次ノードの前半１０です。"); throw ex;
-                        }
-                    case 20:
-                        {
-                            errH.DonimoNaranAkirameta(ex, "棋譜ツリーの読みループの作成次ノードの前半３０です。"); throw ex;
-                        }
-                    case 30:
-                        {
-                            errH.DonimoNaranAkirameta(ex, "棋譜ツリーの読みループの作成次ノードの中盤５０です。"); throw ex;
-                        }
-                    case 40:
-                        {
-                            errH.DonimoNaranAkirameta(ex, "王手局面除去後に成りの指し手を追加していた時です。４０。"); throw ex;
-                        }
-                    case 42:
-                        {
-                            errH.DonimoNaranAkirameta(ex, "王手局面除去後に成りの指し手を追加していた時です。４２。"); throw ex;
-                        }
-                    case 44:
-                        {
-                            errH.DonimoNaranAkirameta(ex, "王手局面除去後に成りの指し手を追加していた時です。４４。"); throw ex;
-                        }
-                    case 50:
-                        {
-                            errH.DonimoNaranAkirameta(ex, "棋譜ツリーの読みループの作成次ノードの後半９０です。"); throw ex;
-                        }
-                    default: throw ex;
-                }
+                errH.DonimoNaranAkirameta(ex, "探索深さルーチンでエラー☆ exceptionArea=" + exceptionArea);
+                throw ex;
             }
 
 
-            return sasitebetuEntry;// result_hubNode;
+            return sasitebetuEntry;
         }
 #if DEBUG
         private static void Log1(

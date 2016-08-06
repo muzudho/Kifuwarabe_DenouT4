@@ -15,6 +15,8 @@ using Grayscale.P258_UtilSky258_.L505____ConvLogJson;
 using Grayscale.P266_KyokumMoves.L___250_Log;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P266_KyokumMoves.L250____Log
 {
@@ -96,43 +98,43 @@ namespace Grayscale.P266_KyokumMoves.L250____Log
             KaisetuBoard boardLog_clone = new KaisetuBoard(this.BrdMove);
             foreach (Finger finger in fingers_seme_IKUSA.Items)
             {
-                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
+                Busstop koma = src_Sky.StarlightIndexOf(finger).Now;
 
                 Gkl_KomaMasu km = new Gkl_KomaMasu(
-                    Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanSeme, Util_Komahaiyaku184.Syurui(koma.Haiyaku), ""),
-                    Conv_SyElement.ToMasuNumber(koma.Masu)
+                    Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanSeme, Conv_Busstop.ToKomasyurui(koma), ""),
+                    Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( koma))
                     );
                 boardLog_clone.KomaMasu1.Add(km);
             }
 
             foreach (Finger finger in fingers_kurau_IKUSA.Items)
             {
-                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
+                Busstop koma = src_Sky.StarlightIndexOf(finger).Now;
 
                 this.BrdMove.KomaMasu2.Add(new Gkl_KomaMasu(
-                    Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanKurau, Util_Komahaiyaku184.Syurui(koma.Haiyaku), ""),
-                    Conv_SyElement.ToMasuNumber(koma.Masu)
+                    Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanKurau, Conv_Busstop.ToKomasyurui(koma), ""),
+                    Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu(koma))
                     ));
             }
 
             foreach (Finger finger in fingers_seme_MOTI.Items)
             {
-                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
+                Busstop koma = src_Sky.StarlightIndexOf(finger).Now;
 
                 Gkl_KomaMasu km = new Gkl_KomaMasu(
-                    Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanSeme, Util_Komahaiyaku184.Syurui(koma.Haiyaku), ""),
-                    Conv_SyElement.ToMasuNumber(koma.Masu)
+                    Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanSeme, Conv_Busstop.ToKomasyurui(koma), ""),
+                    Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu(koma))
                     );
                 this.BrdMove.KomaMasu3.Add(km);
             }
 
             foreach (Finger finger in fingers_kurau_MOTI.Items)
             {
-                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
+                Busstop koma = src_Sky.StarlightIndexOf(finger).Now;
 
                 this.BrdMove.KomaMasu4.Add(new Gkl_KomaMasu(
-                    Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanKurau, Util_Komahaiyaku184.Syurui(koma.Haiyaku), ""),
-                    Conv_SyElement.ToMasuNumber(koma.Masu)
+                    Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanKurau, Conv_Busstop.ToKomasyurui(koma), ""),
+                    Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu(koma))
                     ));
             }
             this.BrdMove = boardLog_clone;
@@ -148,9 +150,9 @@ namespace Grayscale.P266_KyokumMoves.L250____Log
             KaisetuBoard boardLog_clone = new KaisetuBoard(this.BrdMove);
             kmMove_seme_IKUSA.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
             {
-                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(key).Now);
+                Busstop koma = src_Sky.StarlightIndexOf(key).Now;
 
-                string komaImg = Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanSeme, Util_Komahaiyaku184.Syurui(koma.Haiyaku), "");
+                string komaImg = Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanSeme, Conv_Busstop.ToKomasyurui(koma), "");
 
                 foreach (New_Basho masu in value.Elements)
                 {

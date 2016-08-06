@@ -465,7 +465,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
 #if DEBUG
                 if (null != errH.Dlgt_OnLog1Append_or_Null)
                 {
-                    errH.Dlgt_OnLog1Append_or_Null("駒取った=" + out_food_koma.Komasyurui + Environment.NewLine);
+                    errH.Dlgt_OnLog1Append_or_Null("駒取った=" + Conv_Busstop.ToKomasyurui( out_food_koma) + Environment.NewLine);
                 }
 #endif
                 //

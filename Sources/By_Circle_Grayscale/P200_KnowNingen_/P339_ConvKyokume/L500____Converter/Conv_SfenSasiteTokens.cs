@@ -63,7 +63,7 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             Playerside pside1 = src_Sky.KaisiPside;
 
 #if DEBUG
-            Debug.Assert(!Conv_MasuHandle.OnKomabukuro(Conv_SyElement.ToMasuNumber(((RO_Star)src_Sky.StarlightIndexOf((Finger)0).Now).Masu)), "[" + src_Sky.Temezumi + "]手目、駒が駒袋にあった。");
+            Debug.Assert(!Conv_MasuHandle.OnKomabukuro(Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu(src_Sky.StarlightIndexOf((Finger)0).Now))), "[" + src_Sky.Temezumi + "]手目、駒が駒袋にあった。");
 #endif
 
             try
