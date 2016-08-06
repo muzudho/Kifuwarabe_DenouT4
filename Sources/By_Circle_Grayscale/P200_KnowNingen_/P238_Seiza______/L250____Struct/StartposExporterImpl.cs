@@ -11,6 +11,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P238_Seiza______.L250____Struct
 {
@@ -23,7 +25,7 @@ namespace Grayscale.P238_Seiza______.L250____Struct
         /// <summary>
         /// 盤上の駒。
         /// </summary>
-        public Dictionary<int, RO_Star> BanObject201;//Masu
+        public Dictionary<int, Busstop> BanObject201;
 
 
 
@@ -174,7 +176,7 @@ namespace Grayscale.P238_Seiza______.L250____Struct
         {
             Debug.Assert(src_Sky.Count == 40, "sourceSky.Starlights.Count=[" + src_Sky.Count + "]");//将棋の駒の数
 
-            this.BanObject201 = new Dictionary<int, RO_Star>();//Masu
+            this.BanObject201 = new Dictionary<int, Busstop>();
 
             this.ToBanObject201(src_Sky);
         }
@@ -198,20 +200,20 @@ namespace Grayscale.P238_Seiza______.L250____Struct
                 Debug.Assert(Conv_MasuHandle.OnAll(Conv_SyElement.ToMasuNumber(komaKs.Masu)), "(int)koma.Masu=[" + Conv_SyElement.ToMasuNumber(komaKs.Masu) + "]");//升番号
 
                 this.AddKoma(komaKs.Masu,
-                    new RO_Star(komaKs)
+                    Conv_Busstop.ToBusstop(komaKs)
                 );
             }
         }
 
 
 
-        private void AddKoma(SyElement masu, RO_Star koma)// Ks14 komaSyurui
+        private void AddKoma(SyElement masu, Busstop busstop)
         {
 
             Debug.Assert(!this.BanObject201.ContainsKey(Conv_SyElement.ToMasuNumber(masu)), "既に駒がある枡に、駒を置こうとしています。[" + Conv_SyElement.ToMasuNumber(masu) + "]");
 
 
-            this.BanObject201.Add(Conv_SyElement.ToMasuNumber(masu), koma);
+            this.BanObject201.Add(Conv_SyElement.ToMasuNumber(masu), busstop);
 
             if (Conv_MasuHandle.OnShogiban(Conv_SyElement.ToMasuNumber(masu)))
             {
@@ -222,7 +224,7 @@ namespace Grayscale.P238_Seiza______.L250____Struct
             else if (Conv_MasuHandle.OnSenteKomadai(Conv_SyElement.ToMasuNumber(masu)))
             {
                 // 先手駒台
-                switch (koma.Komasyurui)
+                switch (Conv_Busstop.ToKomasyurui(busstop))
                 {
                     case Komasyurui14.H01_Fu_____:
                         this.moti1P++;
@@ -253,7 +255,7 @@ namespace Grayscale.P238_Seiza______.L250____Struct
             else if (Conv_MasuHandle.OnGoteKomadai(Conv_SyElement.ToMasuNumber(masu)))
             {
                 // 後手駒台
-                switch (koma.Komasyurui)
+                switch (Conv_Busstop.ToKomasyurui(busstop))
                 {
                     case Komasyurui14.H01_Fu_____:
                         this.moti2p++;
@@ -284,7 +286,7 @@ namespace Grayscale.P238_Seiza______.L250____Struct
             else
             {
                 // 駒袋
-                switch (koma.Komasyurui)
+                switch (Conv_Busstop.ToKomasyurui(busstop))
                 {
                     case Komasyurui14.H01_Fu_____:
                         this.fukuroP++;
@@ -319,7 +321,7 @@ namespace Grayscale.P238_Seiza______.L250____Struct
         {
             StringBuilder sb = new StringBuilder();
 
-            List<RO_Star> list = new List<RO_Star>();
+            List<Busstop> list = new List<Busstop>();
             for (int masuNumber = leftestMasu; masuNumber >= 0; masuNumber -= 9)
             {
                 if (this.BanObject201.ContainsKey(masuNumber))
@@ -328,14 +330,14 @@ namespace Grayscale.P238_Seiza______.L250____Struct
                 }
                 else
                 {
-                    list.Add(null);
+                    list.Add(Busstop.Empty);
                 }
             }
 
             int spaceCount = 0;
-            foreach (RO_Star koma in list)
+            foreach (Busstop koma in list)
             {
-                if (koma == null)
+                if (koma == Busstop.Empty)
                 {
                     spaceCount++;
                 }
@@ -348,13 +350,13 @@ namespace Grayscale.P238_Seiza______.L250____Struct
                     }
 
                     // 駒の種類だけだと先手ゴマになってしまう。先後も判定した。
-                    switch(koma.Pside)
+                    switch(Conv_Busstop.ToPlayerside( koma))
                     {
                         case Playerside.P1:
-                            sb.Append(Util_Komasyurui14.Sfen1P[(int)koma.Komasyurui]);
+                            sb.Append(Util_Komasyurui14.Sfen1P[(int)Conv_Busstop.ToKomasyurui( koma)]);
                             break;
                         case Playerside.P2:
-                            sb.Append(Util_Komasyurui14.Sfen2P[(int)koma.Komasyurui]);
+                            sb.Append(Util_Komasyurui14.Sfen2P[(int)Conv_Busstop.ToKomasyurui(koma)]);
                             break;
                         default:
                             throw new Exception("ない手番");

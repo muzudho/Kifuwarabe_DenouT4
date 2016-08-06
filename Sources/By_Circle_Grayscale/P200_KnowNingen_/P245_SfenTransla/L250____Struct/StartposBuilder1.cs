@@ -94,10 +94,6 @@ namespace Grayscale.P245_SfenTransla.L250____Struct
                 }
             }
 
-            foreach (RO_Star koma in list)
-            {
-            }
-
             return sb.ToString();
         }
 

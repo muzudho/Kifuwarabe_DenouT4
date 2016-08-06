@@ -119,7 +119,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
                         kaisi_Sky.AssertFinger(figFoodKoma);
                         foodKomasyurui = Util_Starlightable.AsKoma(kaisi_Sky.StarlightIndexOf(figFoodKoma).Now).Komasyurui;//取った駒有り。
                     }
-                    RO_Star dstKoma = new RO_Star(
+                    Busstop busstop = Conv_Busstop.ToBusstop(
                         pside,
                         dstMasu,
                         Util_CsaSasite.ToKomasyurui(csaSasite)
@@ -127,9 +127,9 @@ namespace Grayscale.P743_FvLearn____.L260____View
 
                     nextMove = Conv_Move.ToMove(
                         srcKoma.Masu,// 移動元
-                        dstKoma.Masu,// 移動先
+                        Conv_Busstop.ToMasu(busstop),// 移動先
                         srcKoma.Komasyurui,
-                        dstKoma.Komasyurui,//これで成りかどうか判定
+                        Conv_Busstop.ToKomasyurui(busstop),//これで成りかどうか判定
                         foodKomasyurui,////取った駒
                         srcKoma.Pside,
                         false

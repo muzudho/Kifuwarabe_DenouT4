@@ -22,7 +22,7 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             int v = 0;
 
             int suji;
-            if(!Util_MasuNum.TryMasuToSuji(star.Masu, out suji))
+            if (!Util_MasuNum.TryMasuToSuji(star.Masu, out suji))
             {
                 errorCheck = 1;
             }
@@ -50,6 +50,42 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             return (Busstop)v;
         }
 
+        public static Busstop ToBusstop(Playerside pside, SyElement masu, Komasyurui14 komasyrui)
+        {
+            int errorCheck = 0;
+
+            // バリュー（ビット・フィールド）
+            int v = 0;
+
+            int suji;
+            if(!Util_MasuNum.TryMasuToSuji(masu, out suji))
+            {
+                errorCheck = 1;
+            }
+
+            int dan;
+            if (!Util_MasuNum.TryMasuToDan(masu, out dan))
+            {
+                errorCheck = 1;
+            }
+
+            int komasyurui2 = (int)komasyrui;
+
+            int komadai = Okiba.ShogiBan != Conv_SyElement.ToOkiba(masu) ? 1 : 0;
+
+            int playerside = Playerside.P1 == pside ? 0 : 1;
+
+
+            v |= suji << (int)BusstopShift.Suji;
+            v |= dan << (int)BusstopShift.Dan;
+            v |= komasyurui2 << (int)BusstopShift.Komasyurui;
+            v |= komadai << (int)BusstopShift.Komadai;
+            v |= playerside << (int)BusstopShift.Playerside;
+            v |= errorCheck << (int)BusstopShift.ErrorCheck;
+
+            return (Busstop)v;
+        }
+
         public static RO_Star ToStar(Busstop busstop)
         {
             Playerside pside = Conv_Busstop.ToPlayerside(busstop);
@@ -59,6 +95,30 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             Komasyurui14 syurui = Conv_Busstop.ToKomasyurui(busstop);
 
             return new RO_Star(pside, masu, syurui);
+        }
+
+        public static Okiba ToOkiba(Busstop busstop)
+        {
+            if (Conv_Busstop.ToKomadai(busstop))
+            {
+                if (Playerside.P1 == Conv_Busstop.ToPlayerside(busstop))
+                {
+                    return Okiba.Sente_Komadai;
+                }
+                else if (Playerside.P2 == Conv_Busstop.ToPlayerside(busstop))
+                {
+                    return Okiba.Gote_Komadai;
+                }
+                else
+                {
+                    //TODO: エラーチェック
+                    return Okiba.Empty;
+                }
+            }
+            else
+            {
+                return Okiba.ShogiBan;
+            }
         }
 
         /// <summary>
@@ -76,29 +136,14 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
                 return Masu_Honshogi.Query_ErrorMasu();
             }
 
-            Okiba okiba;
-
             // 打かどうか。
-            if (Conv_Busstop.ToKomadai(busstop))
+            Okiba okiba = Conv_Busstop.ToOkiba(busstop);
+            if (Okiba.Empty == okiba)
             {
-                if (Playerside.P1 == Conv_Busstop.ToPlayerside(busstop))
-                {
-                    okiba = Okiba.Sente_Komadai;
-                }
-                else if (Playerside.P2 == Conv_Busstop.ToPlayerside(busstop))
-                {
-                    okiba = Okiba.Gote_Komadai;
-                }
-                else
-                {
-                    //TODO: エラーチェック
-                    return Masu_Honshogi.Query_ErrorMasu();
-                }
+                // TODO: エラーチェック
+                return Masu_Honshogi.Query_ErrorMasu();
             }
-            else
-            {
-                okiba = Okiba.ShogiBan;
-            }
+
 
             // 筋
             int suji;

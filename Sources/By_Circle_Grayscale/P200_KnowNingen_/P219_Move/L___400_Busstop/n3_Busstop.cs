@@ -7,6 +7,9 @@
     /// </summary>
     public enum Busstop
     {
+        /// <summary>
+        /// ヌルの代わりに使う☆
+        /// </summary>
         Empty = 0
     }
 }

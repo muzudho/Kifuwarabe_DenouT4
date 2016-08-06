@@ -87,7 +87,7 @@ namespace Grayscale.P238_Seiza______.L250____Struct
         /// <returns></returns>
         public Komasyurui14 ToNarazuCase()
         {
-            return Util_Komasyurui14.NarazuCaseHandle(this.komasyurui);// Haiyaku184Array.Syurui(this.Haiyaku)
+            return Util_Komasyurui14.NarazuCaseHandle(this.komasyurui);
         }
 
         /// <summary>

@@ -121,11 +121,11 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
                 foreach (Finger figKoma in komaGroup.Items)
                 {
                     src_Sky.AssertFinger(figKoma);
-                    RO_Star koma2 = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
+                    Busstop busstop = Conv_Busstop.ToBusstop( Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now));
 
                     if (
-                            pside1 == koma2.Pside // 誰のものか
-                        && ks1 == Util_Komahaiyaku184.Syurui(koma2.Haiyaku) // 駒の種類は
+                            pside1 == Conv_Busstop.ToPlayerside(busstop) // 誰のものか
+                        && ks1 == Conv_Busstop.ToKomasyurui(busstop) // 駒の種類は
                         )
                     {
                         // １つでも一致するものがあれば、終了します。
