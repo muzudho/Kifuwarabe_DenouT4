@@ -10,10 +10,11 @@ using Grayscale.P238_Seiza______.L250____Struct;
 namespace Grayscale.P339_ConvKyokume.L500____Converter
 {
     /// <summary>
-    /// RO_Star と Busstop の変換☆
+    /// ＲＯ＿Ｓｔａｒ と Busstop の変換☆
     /// </summary>
     public abstract class Conv_Busstop
     {
+        /*
         public static Busstop ToBusstop(RO_Star star)
         {
             int errorCheck = 0;
@@ -49,6 +50,7 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
 
             return (Busstop)v;
         }
+        */
 
         public static Busstop ToBusstop(Playerside pside, SyElement masu, Komasyurui14 komasyrui)
         {
@@ -85,19 +87,6 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
 
             return (Busstop)v;
         }
-
-        /*
-        public static RO_Star ToStar(Busstop busstop)
-        {
-            Playerside pside = Conv_Busstop.ToPlayerside(busstop);
-
-            SyElement masu = Conv_Busstop.ToMasu(busstop);
-
-            Komasyurui14 syurui = Conv_Busstop.ToKomasyurui(busstop);
-
-            return Conv_Busstop.ToBusstop(pside, masu, syurui);
-        }
-        */
 
         public static Okiba ToOkiba(Busstop busstop)
         {

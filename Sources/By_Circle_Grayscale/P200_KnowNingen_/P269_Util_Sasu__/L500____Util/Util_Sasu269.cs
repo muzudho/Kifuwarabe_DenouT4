@@ -90,11 +90,10 @@ namespace Grayscale.P269_Util_Sasu__.L500____Util
         /// <returns></returns>
         public static bool IsPromotionable(
             out bool isPromotionable,
-            SyElement srcMasu,//             RO_Star srcKoma,
+            SyElement srcMasu,
             SyElement dstMasu,
             Komasyurui14 srcKs,
             Playerside pside
-            //RO_Star dstKoma
             )
         {
             bool successful = true;
@@ -222,28 +221,6 @@ namespace Grayscale.P269_Util_Sasu__.L500____Util
             {
                 throw new Exception("Convert04.cs#AddNariSasiteでｴﾗｰ。:" + ex.GetType().Name + ":" + ex.Message);
             }
-        }
-        public static void AssertNariSasite(Maps_OneAndMulti<Finger, Move> komabetuAllSasite, string hint)
-        {
-            /*
-            foreach(KeyValuePair<Finger, List<ShootingStarlightable>> komaAllSasite in komabetuAllSasite.Items)
-            {
-                foreach(ShootingStarlightable sasite in komaAllSasite.Value)
-                {
-                    Starlightable lightable = sasite.Now;
-                    RO_Star_Koma koma = Util_Starlightable.AsKoma(lightable);
-
-                    if (KomaSyurui14Array.IsNari(koma.Syurui))
-                    {
-                        MessageBox.Show("指し手に成りが含まれています。[" + koma.Masu.Word + "][" + koma.Syurui + "]", "デバッグ:" + hint);
-                        //System.Console.WriteLine("指し手に成りが含まれています。");
-                        goto gt_EndMethod;
-                    }
-                }
-            }
-        gt_EndMethod:
-            ;
-             */
         }
 
 

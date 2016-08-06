@@ -4,6 +4,8 @@ using Grayscale.P238_Seiza______.L250____Struct;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P245_SfenTransla.L250____Struct
 {
@@ -21,7 +23,7 @@ namespace Grayscale.P245_SfenTransla.L250____Struct
         /// <summary>
         /// 盤上の駒。
         /// </summary>
-        private Dictionary<int, RO_Star> ban81;
+        private Dictionary<int, Busstop> ban81;
 
         /// <summary>
         /// 先手の持ち駒の数。
@@ -36,7 +38,7 @@ namespace Grayscale.P245_SfenTransla.L250____Struct
         public StartposBuilder1()
         {
             this.psideIsBlack = true;
-            this.ban81 = new Dictionary<int, RO_Star>();
+            this.ban81 = new Dictionary<int, Busstop>();
             this.motiBlack = new Dictionary<Komasyurui14, int>();
             this.motiWhite = new Dictionary<Komasyurui14, int>();
         }
@@ -46,7 +48,7 @@ namespace Grayscale.P245_SfenTransla.L250____Struct
         /// </summary>
         /// <param name="masuNumber"></param>
         /// <param name="koma"></param>
-        public void AddKoma(int masuNumber, RO_Star koma)
+        public void AddKoma(int masuNumber, Busstop koma)
         {
             if (Conv_MasuHandle.OnShogiban(masuNumber))
             {
@@ -54,24 +56,24 @@ namespace Grayscale.P245_SfenTransla.L250____Struct
             }
             else if (Conv_MasuHandle.OnSenteKomadai(masuNumber))
             {
-                if (this.motiBlack.ContainsKey(koma.Komasyurui))
+                if (this.motiBlack.ContainsKey(Conv_Busstop.ToKomasyurui( koma)))
                 {
-                    this.motiBlack[koma.Komasyurui] = this.motiBlack[koma.Komasyurui];
+                    this.motiBlack[Conv_Busstop.ToKomasyurui( koma)] = this.motiBlack[Conv_Busstop.ToKomasyurui( koma)];
                 }
                 else
                 {
-                    this.motiBlack.Add(koma.Komasyurui, 0);
+                    this.motiBlack.Add(Conv_Busstop.ToKomasyurui( koma), 0);
                 }
             }
             else if (Conv_MasuHandle.OnGoteKomadai(masuNumber))
             {
-                if (this.motiWhite.ContainsKey(koma.Komasyurui))
+                if (this.motiWhite.ContainsKey(Conv_Busstop.ToKomasyurui( koma)))
                 {
-                    this.motiWhite[koma.Komasyurui] = this.motiWhite[koma.Komasyurui];
+                    this.motiWhite[Conv_Busstop.ToKomasyurui( koma)] = this.motiWhite[Conv_Busstop.ToKomasyurui( koma)];
                 }
                 else
                 {
-                    this.motiWhite.Add(koma.Komasyurui, 0);
+                    this.motiWhite.Add(Conv_Busstop.ToKomasyurui( koma), 0);
                 }
             }
         }
@@ -81,7 +83,7 @@ namespace Grayscale.P245_SfenTransla.L250____Struct
         {
             StringBuilder sb = new StringBuilder();
 
-            List<RO_Star> list = new List<RO_Star>();
+            List<Busstop> list = new List<Busstop>();
             for (int masuNumber = leftestMasu; masuNumber >= 0; masuNumber -= 9)
             {
                 if (this.ban81.ContainsKey(masuNumber))
@@ -90,7 +92,7 @@ namespace Grayscale.P245_SfenTransla.L250____Struct
                 }
                 else
                 {
-                    list.Add(null);
+                    list.Add(Busstop.Empty);
                 }
             }
 

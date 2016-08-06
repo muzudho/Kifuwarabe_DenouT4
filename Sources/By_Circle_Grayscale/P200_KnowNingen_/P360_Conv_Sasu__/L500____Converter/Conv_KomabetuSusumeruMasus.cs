@@ -38,7 +38,7 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
                 foreach (SyElement susumuMasu in susumuMasuSet.Elements)// 星が進める升。
                 {
                     // 移動先の星（升の変更）
-                    RO_Star dstStar = new RO_Star(
+                    Busstop dstStar = Conv_Busstop.ToBusstop(
                         Conv_Busstop.ToPlayerside( srcStar),
                         susumuMasu,
                         Conv_Busstop.ToKomasyurui( srcStar)
@@ -47,9 +47,9 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
                     // 打かどうかは元位置（駒台）から判定してくれだぜ☆（＾▽＾）
                     Move move = Conv_Move.ToMove(
                         Conv_Busstop.ToMasu( srcStar),
-                        dstStar.Masu,
+                        Conv_Busstop.ToMasu(dstStar),
                         Conv_Busstop.ToKomasyurui( srcStar),
-                        dstStar.Komasyurui,//これで成りかどうか判定
+                        Conv_Busstop.ToKomasyurui(dstStar),//これで成りかどうか判定
                         Komasyurui14.H00_Null___,//取った駒不明
                         Conv_Busstop.ToPlayerside( srcStar),
                         false

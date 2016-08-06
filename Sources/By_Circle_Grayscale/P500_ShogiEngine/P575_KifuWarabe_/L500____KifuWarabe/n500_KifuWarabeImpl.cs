@@ -5,17 +5,16 @@ using Grayscale.P003_Log________.L___500_Struct;
 using Grayscale.P003_Log________.L500____Struct;
 using Grayscale.P005_Tushin_____.L500____Util;
 using Grayscale.P027_Settei_____.L500____Struct;
+using Grayscale.P031_usiFrame1__.L___250_UsiLoop;
 using Grayscale.P031_usiFrame1__.L___490_Option__;
 using Grayscale.P031_usiFrame1__.L___500_usiFrame___;//FIXME:
 using Grayscale.P031_usiFrame1__.L490____Option__;
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P212_ConvPside__.L500____Converter;
-using Grayscale.P218_Starlight__.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
 using Grayscale.P236_KomahaiyaTr.L500____Table;
-using Grayscale.P238_Seiza______.L250____Struct;
-using Grayscale.P238_Seiza______.L500____Util;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P248_Michi______.L500____Word;
 using Grayscale.P250_KomahaiyaEx.L500____Util;
@@ -44,9 +43,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P031_usiFrame1__.L___250_UsiLoop;
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
 
 #if DEBUG
 using Grayscale.P056_Syugoron___.L___250_Struct;

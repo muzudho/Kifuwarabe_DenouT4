@@ -7,28 +7,25 @@ using Grayscale.P211_WordShogi__.L___250_Masu;
 using Grayscale.P211_WordShogi__.L250____Masu;
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P212_ConvPside__.L500____Converter;
-using Grayscale.P218_Starlight__.L___500_Struct;
-using Grayscale.P222_Log_Kaisetu.L250____Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
-using Grayscale.P234_Komahaiyaku.L500____Util;
-using Grayscale.P238_Seiza______.L250____Struct;
-using Grayscale.P238_Seiza______.L500____Util;
 using Grayscale.P239_ConvWords__.L500____Converter;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P256_SeizaFinger.L250____Struct;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
-using Grayscale.P258_UtilSky258_.L505____ConvLogJson;
 using Grayscale.P260_Play_______.L500____Query;
-using Grayscale.P269_Util_Sasu__.L500____Util;
 using Grayscale.P324_KifuTree___.L___250_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 using Grayscale.P360_Conv_Sasu__.L500____Converter;
-using Grayscale.P361_Util_______.L500____Util;
 using System;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
+
+#if DEBUG
+using Grayscale.P222_Log_Kaisetu.L250____Struct;
+using Grayscale.P258_UtilSky258_.L505____ConvLogJson;
+#endif
 
 namespace Grayscale.P362_LegalMove__.L500____Util
 {
@@ -66,7 +63,6 @@ namespace Grayscale.P362_LegalMove__.L500____Util
                 src_Sky,
                 errH
                 );// ハブ・ノード自身はダミーノードなんだが、子ノードに、次のノードが入っている。
-            Util_NodeAssert361.AssertNariSasite(hubNode, "#LA_RemoveMate(1)");//ここはok
 #if DEBUG
             Util_LegalMove.Log1(hubNode, src_Sky.Temezumi, hint, errH);
 #endif
@@ -86,12 +82,10 @@ namespace Grayscale.P362_LegalMove__.L500____Util
 #endif
                     errH);
             }
-            Util_NodeAssert361.AssertNariSasite(hubNode, "#LA_RemoveMate(2)王手局面削除直後");//ここはok
 
 
             // 「指し手一覧」を、「星別の全指し手」に分けます。
             Maps_OneAndMulti<Finger, Move> starbetuAllSasites2 = Util_Sky258A.SplitSasite_ByStar(src_Sky, hubNode, errH);
-            Util_Sasu269.AssertNariSasite(starbetuAllSasites2, "#LA_RemoveMate(3)更に変換後");//ここはok
 
             //
             // 「星別の指し手一覧」を、「星別の進むマス一覧」になるよう、データ構造を変換します。

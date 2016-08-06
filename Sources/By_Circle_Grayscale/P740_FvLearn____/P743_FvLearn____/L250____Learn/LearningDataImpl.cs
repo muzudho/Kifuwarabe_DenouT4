@@ -3,6 +3,7 @@ using Grayscale.P003_Log________.L500____Struct;
 using Grayscale.P027_Settei_____.L500____Struct;
 using Grayscale.P031_usiFrame1__.L500____usiFrame___;
 using Grayscale.P055_Conv_Sy.L500____Converter;
+using Grayscale.P056_Syugoron___.L___250_Struct;
 using Grayscale.P157_KyokumenPng.L___500_Struct;
 using Grayscale.P157_KyokumenPng.L500____Struct;
 using Grayscale.P158_LogKyokuPng.L500____UtilWriter;
@@ -13,10 +14,9 @@ using Grayscale.P212_ConvPside__.L500____Converter;
 using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P213_Komasyurui_.L500____Util;
 using Grayscale.P218_Starlight__.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P236_KomahaiyaTr.L500____Table;
-using Grayscale.P238_Seiza______.L250____Struct;
-using Grayscale.P238_Seiza______.L500____Util;
 using Grayscale.P248_Michi______.L500____Word;
 using Grayscale.P250_KomahaiyaEx.L500____Util;
 using Grayscale.P270_ForcePromot.L250____Struct;
@@ -37,10 +37,6 @@ using System;
 using System.IO;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P258_UtilSky258_.L500____UtilSky;
-using Grayscale.P056_Syugoron___.L___250_Struct;
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
 
 #if DEBUG
 using Grayscale.P027_Settei_____.L500____Struct;

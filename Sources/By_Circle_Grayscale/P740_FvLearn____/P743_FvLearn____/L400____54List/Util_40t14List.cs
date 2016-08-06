@@ -34,16 +34,6 @@ namespace Grayscale.P743_FvLearn____.L400____54List
             sb.AppendLine("Conv_SyElement.ToOkiba(koma1.Masu)=[" + Conv_Busstop.ToOkiba(busstop) + "]");
             errH.DonimoNaranAkirameta(sb.ToString());
         }
-        private static void Error1(RO_Star koma, KwErrorHandler errH)
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("Util_40t14List#Error1：２駒関係FVの配列添え字がわからないぜ☆！処理は続けられない。");
-            sb.AppendLine("koma1.Pside=[" + koma.Pside + "]");
-            sb.AppendLine("koma1.Komasyurui=[" + koma.Komasyurui + "]");
-            sb.AppendLine("koma1.Masu=[" + koma.Masu + "]");
-            sb.AppendLine("Conv_SyElement.ToOkiba(koma1.Masu)=[" + Conv_SyElement.ToOkiba(koma.Masu) + "]");
-            errH.DonimoNaranAkirameta(sb.ToString());
-        }
 
         /// <summary>
         /// 54駒のリスト。

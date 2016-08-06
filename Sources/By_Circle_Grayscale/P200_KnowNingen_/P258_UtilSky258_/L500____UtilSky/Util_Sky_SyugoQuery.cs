@@ -51,8 +51,6 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         /// <returns></returns>
         public static SySet<SyElement> KomaKidou_Potential(Finger finger, SkyConst src_Sky)
         {
-            SySet<SyElement> result;
-
             src_Sky.AssertFinger(finger);
             Busstop koma = src_Sky.StarlightIndexOf(finger).Now;
 
@@ -61,9 +59,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             //
             // FIXME: 成香が横に進めることが分かっているか？
             //
-            result = Array_Rule01_PotentialMove15.ItemMethods[(int)Conv_Busstop.ToKomasyurui( koma)](Conv_Busstop.ToPlayerside( koma), Conv_Busstop.ToMasu( koma));
-
-            return result;
+            return Array_Rule01_PotentialMove15.ItemMethods[(int)Conv_Busstop.ToKomasyurui( koma)](Conv_Busstop.ToPlayerside( koma), Conv_Busstop.ToMasu( koma));
         }
 
     }

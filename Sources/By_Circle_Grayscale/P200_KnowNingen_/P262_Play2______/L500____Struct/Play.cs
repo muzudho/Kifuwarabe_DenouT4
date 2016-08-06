@@ -69,7 +69,7 @@ namespace Grayscale.P262_Play2______.L500____Struct
                     src_Sky.AssertFinger(figDaihyo);
                     Busstop daihyo = src_Sky.StarlightIndexOf(figDaihyo).Now;
 #if DEBUG
-                    Debug.Assert(daihyo != null, "持ち駒の代表がヌル");
+                    Debug.Assert(daihyo != Busstop.Empty, "持ち駒の代表がヌル");
 #endif
                     // 駒種類別、置こうとする駒
                     aDaihyo[(int)Conv_Busstop.ToKomasyurui( daihyo)] = daihyo;
@@ -81,7 +81,7 @@ namespace Grayscale.P262_Play2______.L500____Struct
             }
 
 
-            if (aDaihyo[(int)Komasyurui14.H01_Fu_____] != null)// 攻め手が、歩を持っているなら
+            if (aDaihyo[(int)Komasyurui14.H01_Fu_____] != Busstop.Empty)// 攻め手が、歩を持っているなら
             {
                 //----------------------------------------
                 // 二歩チェック
@@ -142,10 +142,13 @@ namespace Grayscale.P262_Play2______.L500____Struct
                         // 筋一列を、クリアーします。
 
                         // 駒種類別、置こうとする升
-                        aMasus[(int)Komasyurui14.H01_Fu_____] = aMasus[(int)Komasyurui14.H01_Fu_____].Minus_Closed(
-                            Masu_Honshogi.BAN_SUJIS[suji],
-                            Util_SyElement_BinaryOperator.Dlgt_Equals_MasuNumber
-                            );
+                        SySet<SyElement> arg1 = Masu_Honshogi.BAN_SUJIS[suji];
+
+                        DLGT_SyElement_BynaryOperate arg2 = Util_SyElement_BinaryOperator.Dlgt_Equals_MasuNumber;
+
+                        SySet<SyElement> obj1 = aMasus[(int)Komasyurui14.H01_Fu_____];//FIXME: ここでヌル☆
+
+                        aMasus[(int)Komasyurui14.H01_Fu_____] = obj1.Minus_Closed(arg1, arg2);
                     }
                 }
 #if DEBUG
@@ -183,7 +186,7 @@ namespace Grayscale.P262_Play2______.L500____Struct
             foreach (Komasyurui14 ks in Array_Komasyurui.MotiKoma7Syurui)
             {
                 // 置こうとする駒があれば
-                if (null != aDaihyo[(int)ks])
+                if (Busstop.Empty != aDaihyo[(int)ks])
                 {
                     // 置けない升を引きます。
                     aMasus[(int)ks] = aMasus[(int)ks].Minus_Closed(

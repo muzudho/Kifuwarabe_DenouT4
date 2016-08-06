@@ -130,7 +130,6 @@
     <Compile Include="P353_Conv_SasuEx\L500____Converter\SasuEntry.cs" />
     <Compile Include="P360_Conv_Sasu__\L500____Converter\Conv_KomabetuSusumeruMasus.cs" />
     <Compile Include="P360_Conv_Sasu__\L500____Converter\Conv_SasitebetuKyokumenwrappers361.cs" />
-    <Compile Include="P361_Util_______\L500____Util\Util_NodeAssert361.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,7 +170,6 @@
     <Compile Include="P234_Komahaiyaku\L500____Util\Util_Komahaiyaku184.cs" />
     <Compile Include="P234_Komahaiyaku\L250____Word\Komahaiyaku185.cs" />
     <Compile Include="P236_KomahaiyaTr\L500____Table\Data_KomahaiyakuTransition.cs" />
-    <Compile Include="P238_Seiza______\L250____Struct\RO_Star.cs" />
     <Compile Include="P238_Seiza______\L250____Struct\StartposExporterImpl.cs" />
     <Compile Include="P238_Seiza______\L500____Util\Util_Koma.cs" />
     <Compile Include="P245_SfenTransla\L250____Struct\StartposBuilder1.cs" />

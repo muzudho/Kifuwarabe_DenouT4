@@ -24,10 +24,7 @@ namespace Grayscale.P531_Hyokakansu_.L___500_Hyokakansu
         /// <returns></returns>
         void Evaluate(
             out float score,
-#if DEBUG
-            out KyHyokaMeisai_Koumoku kyokumenScore,
-#endif
-#if LEARN
+#if DEBUG || LEARN
             out KyHyokaMeisai_Koumoku kyokumenScore,
 #endif
             SkyConst src_Sky,
