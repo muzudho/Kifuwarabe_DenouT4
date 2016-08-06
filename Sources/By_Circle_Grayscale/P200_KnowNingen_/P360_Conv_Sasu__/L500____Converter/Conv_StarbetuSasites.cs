@@ -28,7 +28,7 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
         /// <returns>次の局面一覧を持った、入れ物ノード（ハブ・ノード）</returns>
         public static KifuNode ToNextNodes_AsHubNode(
             Maps_OneAndMulti<Finger,Move> komabetuAllMoves,
-            SkyConst src_Sky,//Node<Move, KyokumenWrapper> to_parentNode,//親となる予定のノード
+            SkyConst src_Sky,
             KwErrorHandler errH
             )
         {
@@ -46,18 +46,17 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
 
                 foreach (Move move in entry1.Value)// 駒の動ける升
                 {
-                    string sfenText = Conv_Move.ToSfen(move);
-                    if (hubNode.ContainsKey_ChildNodes(sfenText))
+                    if (hubNode.ContainsKey_ChildNodes(move))
                     {
                         // 既存の指し手なら無視
-                        System.Console.WriteLine("既存の指し手なので無視します1。sfenText=[" + sfenText + "]");
+                        System.Console.WriteLine("既存の指し手なので無視します1。sfenText=[" + Conv_Move.ToSfen(move) + "]");
                     }
                     else
                     {
                         SyElement dstMasu = Conv_Move.ToDstMasu(move);
 
                         // 指したあとの次の局面を作るだけ☆
-                        hubNode.PutAdd_ChildNode(sfenText,
+                        hubNode.PutAdd_ChildNode(move,
                             new KifuNodeImpl(
                                 move,
                                 new KyokumenWrapper(

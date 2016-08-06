@@ -52,12 +52,12 @@ namespace Grayscale.P743_FvLearn____.L600____Operation
             //----------------------------------------
             foreach (GohosyuListItem item in uc_Main.LstGohosyu.SelectedItems)
             {
-                string sfenSasiteStr = item.Sfen;
+                Move move1 = item.Move;
 #if DEBUG
                 errH.Logger.WriteLine_AddMemo("sfenSasiteStr=" + sfenSasiteStr);
 #endif
 
-                if (uc_Main.LearningData.Kifu.CurNode.HasChildNode(sfenSasiteStr))
+                if (uc_Main.LearningData.Kifu.CurNode.HasChildNode(move1))
                 {
 #if DEBUG
                     errH.Logger.WriteLine_AddMemo("----------------------------------------");
@@ -65,7 +65,7 @@ namespace Grayscale.P743_FvLearn____.L600____Operation
                     errH.Logger.WriteLine_AddMemo("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(uc_Main.LearningData.Fv));
                     errH.Logger.WriteLine_AddMemo("----------------------------------------");
 #endif
-                    Node<Move, KyokumenWrapper> nextNode = uc_Main.LearningData.Kifu.CurNode.GetChildNode(sfenSasiteStr);
+                    Node<Move, KyokumenWrapper> nextNode = uc_Main.LearningData.Kifu.CurNode.GetChildNode(move1);
 
                     // 盤上の駒、持駒を数えます。
                     N54List nextNode_n54List = Util_54List.Calc_54List(nextNode.Value.KyokumenConst, errH);

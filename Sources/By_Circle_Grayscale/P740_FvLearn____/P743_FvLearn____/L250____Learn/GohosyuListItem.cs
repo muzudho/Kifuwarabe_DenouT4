@@ -1,6 +1,7 @@
 ﻿using Grayscale.P321_KyokumHyoka.L___250_Struct;
 using System;
 using System.Text;
+using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P743_FvLearn____.L250____Learn
 {
@@ -17,10 +18,10 @@ namespace Grayscale.P743_FvLearn____.L250____Learn
         private int count;
 
         /// <summary>
-        /// SFEN符号
+        /// 指し手（SFEN符号に変換できるもの）
         /// </summary>
-        public string Sfen { get { return this.sfen; } }
-        private string sfen;
+        public Move Move { get { return this.m_move_; } }
+        private Move m_move_;
 
         /// <summary>
         /// JSAの指し手符号
@@ -42,7 +43,7 @@ namespace Grayscale.P743_FvLearn____.L250____Learn
         private KyHyokaMeisai_Koumoku ppMeisai;
 #endif
 
-        public GohosyuListItem(int count, string sfen, string jsaSasiteStr
+        public GohosyuListItem(int count, Move move, string jsaSasiteStr
 #if DEBUG || LEARN
 ,
             KyHyokaMeisai_Koumoku komawariMeisai,
@@ -51,7 +52,7 @@ namespace Grayscale.P743_FvLearn____.L250____Learn
 )
         {
             this.count = count;
-            this.sfen = sfen;
+            this.m_move_ = move;
             this.jsaSasiteStr = jsaSasiteStr;
 #if DEBUG || LEARN
             this.komawariMeisai = komawariMeisai;
@@ -80,7 +81,7 @@ namespace Grayscale.P743_FvLearn____.L250____Learn
                 default: break;
             }
             sb.Append("　");
-            sb.Append(String.Format("{0,-5}", this.Sfen));
+            sb.Append(String.Format("{0,-5}", this.Move));
 
             //----------------------------------------
             // 二駒関係の評価値

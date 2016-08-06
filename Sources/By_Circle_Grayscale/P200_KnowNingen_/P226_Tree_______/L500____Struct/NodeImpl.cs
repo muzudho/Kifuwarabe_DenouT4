@@ -1,5 +1,6 @@
 ﻿using Grayscale.P226_Tree_______.L___500_Struct;
 using System.Collections.Generic;
+using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P226_Tree_______.L500____Struct
 {
@@ -48,32 +49,27 @@ namespace Grayscale.P226_Tree_______.L500____Struct
         private T1 teSasite;
 
         /// <summary>
-        /// キー：SFEN ※この仕様は暫定
-        /// 値：ノード
+        /// 次の局面への全ての候補手
         /// </summary>
-        protected Dictionary<string, Node<T1, T2>> NextNodes { get; set; }
-        public delegate void DELEGATE_NextNodes(string key, Node<T1, T2> node, ref bool toBreak);
+        protected Dictionary<Move, Node<T1, T2>> NextNodes { get; set; }
+        public delegate void DELEGATE_NextNodes(Move key, Node<T1, T2> node, ref bool toBreak);
 
-        public bool HasChildNode(string key)
+        public bool HasChildNode(Move key)
         {
             return this.NextNodes.ContainsKey(key);
         }
 
-        public Node<T1, T2> GetChildNode(string key)
+        public Node<T1, T2> GetChildNode(Move key)
         {
             return this.NextNodes[key];
         }
-
-        //public NodeImpl()
-        //{
-        //}
 
 
         public void Foreach_ChildNodes(NodeImpl<T1, T2>.DELEGATE_NextNodes delegate_NextNodes)
         {
             bool toBreak = false;
 
-            foreach (KeyValuePair<string, Node<T1, T2>> entry in this.NextNodes)//Foreach
+            foreach (KeyValuePair<Move, Node<T1, T2>> entry in this.NextNodes)
             {
                 delegate_NextNodes(entry.Key, entry.Value, ref toBreak);
 
@@ -89,18 +85,18 @@ namespace Grayscale.P226_Tree_______.L500____Struct
             this.NextNodes.Clear();
         }
 
-        public bool ContainsKey_ChildNodes(string key)
+        public bool ContainsKey_ChildNodes(Move key)
         {
             return this.NextNodes.ContainsKey(key);
         }
 
-        public void PutAdd_ChildNode(string key,Node<T1, T2> newNode)
+        public void PutAdd_ChildNode(Move key,Node<T1, T2> newNode)
         {
             this.NextNodes.Add(key,newNode);
             newNode.SetParentNode( this);
         }
 
-        public void PutSet_ChildNodes(Dictionary<string, Node<T1, T2>> newNextNodes)
+        public void PutSet_ChildNodes(Dictionary<Move, Node<T1, T2>> newNextNodes)
         {
             this.NextNodes = newNextNodes;
             foreach(Node<T1,T2> child in this.NextNodes.Values)
@@ -123,19 +119,16 @@ namespace Grayscale.P226_Tree_______.L500____Struct
             this.SetParentNode( null);
             this.teSasite = teSasite;
             this.Value = sky;
-            this.NextNodes = new Dictionary<string, Node<T1, T2>>();
+            this.NextNodes = new Dictionary<Move, Node<T1, T2>>();
         }
 
         /// <summary>
         /// 子ノードの削除。
-        /// 
-        /// キー：SFEN ※この仕様は暫定
-        /// 値：ノード
         /// </summary>
         /// <param name="key"></param>
-        public bool RemoveChild(string key_sfen)
+        public bool RemoveChild(Move key)
         {
-            return this.NextNodes.Remove(key_sfen);
+            return this.NextNodes.Remove(key);
         }
 
         /// <summary>

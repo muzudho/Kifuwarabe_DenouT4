@@ -28,7 +28,7 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
             List<Couple<Finger, SyElement>> kmList = new List<Couple<Finger, SyElement>>();
 
             // TODO:
-            hubNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> nextNode, ref bool toBreak) =>
+            hubNode.Foreach_ChildNodes((Move key, Node<Move, KyokumenWrapper> nextNode, ref bool toBreak) =>
             {
                 SyElement srcMasu = Conv_Move.ToSrcMasu(nextNode.Key);
                 SyElement dstMasu = Conv_Move.ToDstMasu(nextNode.Key);

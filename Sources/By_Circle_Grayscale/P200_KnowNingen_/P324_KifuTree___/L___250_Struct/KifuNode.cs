@@ -41,11 +41,6 @@ namespace Grayscale.P324_KifuTree___.L___250_Struct
         void Lock_Kyokumendata();
 
 
-        //void PutAppdendNextNodes(
-        //    Node<Move, KyokumenWrapper> hubNode
-        //    );
-
-
         /// <summary>
         /// ************************************************************************************************************************
         /// 棋譜に　次の一手　を追加します。
@@ -65,7 +60,7 @@ namespace Grayscale.P324_KifuTree___.L___250_Struct
         /// </summary>
         /// <param name="existsNode"></param>
         void PutTuginoitte_Override(Node<Move, KyokumenWrapper> existsNode);
-        bool HasTuginoitte(string sasiteStr);
+        bool HasTuginoitte(Move sasiteStr);
 
         string Json_NextNodes_MultiSky(
             string memo,
@@ -75,13 +70,5 @@ namespace Grayscale.P324_KifuTree___.L___250_Struct
             );
 
         bool IsLeaf { get; }
-
-
-        ///// <summary>
-        ///// この木の、全てのノードを、フォルダーとして作成します。
-        ///// </summary>
-        ///// <returns></returns>
-        //void CreateAllFolders(string folderpath, int currentDeep, int limitDeep);
-
     }
 }

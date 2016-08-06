@@ -194,6 +194,5 @@ namespace Grayscale.P369_ConvCsa____.L500____Converter
 
             return sb.ToString();
         }
-
     }
 }

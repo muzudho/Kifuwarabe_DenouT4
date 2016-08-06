@@ -532,12 +532,12 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                             //
                             exceptionArea = 4020;
                             if (
-                                node_yomi.ContainsKey_ChildNodes(Conv_Move.ToSfen( move))//FIXME:ここでエラー？
+                                node_yomi.ContainsKey_ChildNodes( move)//FIXME:ここでエラー？
                                 )
                             {
                                 exceptionArea = 4100;
 
-                                childNode1 = (KifuNode)node_yomi.GetChildNode(Conv_Move.ToSfen(move));
+                                childNode1 = (KifuNode)node_yomi.GetChildNode( move);
 
                                 exceptionArea = 4200;
                             }
@@ -550,7 +550,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
 
                                 exceptionArea = 4400;
 
-                                node_yomi.PutAdd_ChildNode(Conv_Move.ToSfen(move), childNode1);
+                                node_yomi.PutAdd_ChildNode( move, childNode1);
 
 
                                 exceptionArea = 4500;

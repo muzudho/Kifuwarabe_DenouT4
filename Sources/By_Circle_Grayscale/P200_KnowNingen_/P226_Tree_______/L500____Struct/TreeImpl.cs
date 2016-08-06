@@ -1,6 +1,7 @@
 ﻿using Grayscale.P226_Tree_______.L___500_Struct;
 using System;
 using System.Collections.Generic;
+using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P226_Tree_______.L500____Struct
 {
@@ -227,7 +228,7 @@ namespace Grayscale.P226_Tree_______.L500____Struct
             }
 
             // 次のノード
-            node1.Foreach_ChildNodes((string key2, Node<T1, T2> node2, ref bool toBreak2) =>
+            node1.Foreach_ChildNodes((Move key2, Node<T1, T2> node2, ref bool toBreak2) =>
             {
                 bool toFinish_ZenpukuTansaku2 = false;
                 this.Recursive_Node_NextNode(temezumi1 + 1, node2, delegate_Foreach1, ref toFinish_ZenpukuTansaku2);

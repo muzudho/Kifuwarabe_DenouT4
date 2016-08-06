@@ -153,9 +153,9 @@ namespace Grayscale.P362_LegalMove__.L500____Util
             )
         {
             // Node<,>の形で。
-            Dictionary<string, Node<Move, KyokumenWrapper>> newNextNodes = new Dictionary<string, Node<Move, KyokumenWrapper>>();
+            Dictionary<Move, Node<Move, KyokumenWrapper>> newNextNodes = new Dictionary<Move, Node<Move, KyokumenWrapper>>();
 
-            hubNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
+            hubNode.Foreach_ChildNodes((Move key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
             {
                 //System.Diagnostics.Debug.Assert(node.Key != null);//指し手がヌルなはず無いはず。
 

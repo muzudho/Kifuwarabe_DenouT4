@@ -19,7 +19,7 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             List<KifuNode> list = new List<KifuNode>();
 
             // TODO:
-            hubNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
+            hubNode.Foreach_ChildNodes((Move key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
             {
                 list.Add((KifuNode)node);
             });

@@ -1,5 +1,6 @@
 ﻿using Grayscale.P226_Tree_______.L500____Struct;
 using System.Collections.Generic;
+using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P226_Tree_______.L___500_Struct
 {
@@ -35,30 +36,27 @@ namespace Grayscale.P226_Tree_______.L___500_Struct
         /// <returns></returns>
         bool IsRoot();
 
-        bool HasChildNode(string key);
+        bool HasChildNode(Move key);
         /// <summary>
         /// sfenがキーなのは暫定。
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        Node<T1, T2> GetChildNode(string key);
+        Node<T1, T2> GetChildNode(Move key);
 
         int Count_ChildNodes{get;}
         void Clear_ChildNodes();
-        bool ContainsKey_ChildNodes(string key);
-        void PutAdd_ChildNode(string key, Node<T1, T2> newNode);
-        void PutSet_ChildNodes(Dictionary< string, Node<T1, T2>> newNextNodes);
+        bool ContainsKey_ChildNodes(Move key);
+        void PutAdd_ChildNode(Move key, Node<T1, T2> newNode);
+        void PutSet_ChildNodes(Dictionary<Move, Node<T1, T2>> newNextNodes);
 
         void Foreach_ChildNodes(NodeImpl<T1, T2>.DELEGATE_NextNodes d);
 
         /// <summary>
         /// 子ノードの削除。
-        /// 
-        /// キー：SFEN ※この仕様は暫定
-        /// 値：ノード
         /// </summary>
         /// <param name="key"></param>
-        bool RemoveChild(string key_sfen);
+        bool RemoveChild(Move key);
 
         /// <summary>
         /// この木の、全てのノード数を数えます。

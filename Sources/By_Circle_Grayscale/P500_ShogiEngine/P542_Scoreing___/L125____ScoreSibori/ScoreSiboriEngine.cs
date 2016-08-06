@@ -43,7 +43,7 @@ namespace Grayscale.P542_Scoreing___.L125____ScoreSibori
 
 
                 exception_area = 1500;
-                Dictionary<string, Node<Move, KyokumenWrapper>> dic = new Dictionary<string, Node<Move, KyokumenWrapper>>();
+                Dictionary<Move, Node<Move, KyokumenWrapper>> dic = new Dictionary<Move, Node<Move, KyokumenWrapper>>();
                 if (kifu.CurNode.Value.KyokumenConst.KaisiPside == Playerside.P1)
                 {
                     exception_area = 2000;
@@ -64,7 +64,7 @@ namespace Grayscale.P542_Scoreing___.L125____ScoreSibori
 
                     exception_area = 2500;
                     // 1番良いスコアのノードだけ残します。
-                    kifu.CurNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
+                    kifu.CurNode.Foreach_ChildNodes((Move key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
                     {
                         float score;
                         if (node is KifuNode)
@@ -103,7 +103,7 @@ namespace Grayscale.P542_Scoreing___.L125____ScoreSibori
 
                     exception_area = 3500;
                     // 1番良いスコアのノードだけ残します。
-                    kifu.CurNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
+                    kifu.CurNode.Foreach_ChildNodes((Move key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
                     {
                         float score;
                         if (node is KifuNode)
@@ -155,7 +155,7 @@ namespace Grayscale.P542_Scoreing___.L125____ScoreSibori
                 // ランク付けしたあと、リスト構造に移し変えます。
                 list = new List<Node<Move, KyokumenWrapper>>();
 
-                hubNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
+                hubNode.Foreach_ChildNodes((Move key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
                 {
                     list.Add(node);
                 });

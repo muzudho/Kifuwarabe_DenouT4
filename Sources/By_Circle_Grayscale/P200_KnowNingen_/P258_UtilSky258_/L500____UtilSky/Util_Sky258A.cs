@@ -197,7 +197,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             Maps_OneAndMulti<Finger, Move> enable_moveMap = new Maps_OneAndMulti<Finger, Move>();
 
 
-            hubNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> nextNode, ref bool toBreak) =>
+            hubNode.Foreach_ChildNodes((Move key, Node<Move, KyokumenWrapper> nextNode, ref bool toBreak) =>
             {
                 Finger figKoma = Util_Sky_FingersQuery.InMasuNow_New(
                     src_Sky,

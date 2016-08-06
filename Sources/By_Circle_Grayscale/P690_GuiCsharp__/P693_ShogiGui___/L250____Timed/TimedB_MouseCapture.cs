@@ -405,8 +405,7 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                     //    "デバッグ");
 
                                                     //マウスの左ボタンを放したときです。
-                                                    string sasiteStr = Conv_Move.ToSfen(newNode.Key);
-                                                    if (!((KifuNode)mainGui.Link_Server.Model_Taikyoku.Kifu.CurNode).HasTuginoitte(sasiteStr))
+                                                    if (!((KifuNode)mainGui.Link_Server.Model_Taikyoku.Kifu.CurNode).HasTuginoitte(newNode.Key))
                                                     {
                                                         //----------------------------------------
                                                         // 次ノード追加

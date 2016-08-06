@@ -210,7 +210,7 @@ namespace Grayscale.P355_KifuParserA.L500____Parser
                             exceptionArea = 1070;
                             Util_IttesasuRoutine.After3_ChangeCurrent(
                                 model_Taikyoku.Kifu,
-                                Conv_Move.ToSfen( ittesasuResult.Get_SyuryoNode_OrNull.Key),
+                                ittesasuResult.Get_SyuryoNode_OrNull.Key,
                                 ittesasuResult.Get_SyuryoNode_OrNull,
                                 errH
                                 );

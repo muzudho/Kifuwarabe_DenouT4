@@ -162,7 +162,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
                     //kifu1.AssertChildPside(kifu1.CurNode.Value.ToKyokumenConst.KaisiPside, ittesasuResult.Get_SyuryoNode_OrNull.Value.ToKyokumenConst.KaisiPside);
                     Util_IttesasuRoutine.After3_ChangeCurrent(
                         kifu1,
-                        Conv_Move.ToSfen( ittesasuResult.Get_SyuryoNode_OrNull.Key),
+                        ittesasuResult.Get_SyuryoNode_OrNull.Key,
                         ittesasuResult.Get_SyuryoNode_OrNull,
                         errH
                         );
@@ -171,16 +171,17 @@ namespace Grayscale.P743_FvLearn____.L260____View
                 }
 
 
-                string sfen;
+                Move move;
                 if (kifu1.CurNode.IsRoot())
                 {
-                    sfen = Util_CsaSasite.ToSfen(csaSasite, null);
+                    move = Move.Empty;
                 }
                 else
                 {
-                    sfen = Util_CsaSasite.ToSfen(csaSasite, kifu1.CurNode.GetParentNode().Value.KyokumenConst);
+                    // FIXME: 未テスト。
+                    move = Conv_Move.ToMove_ByCsa(csaSasite, kifu1.CurNode.GetParentNode().Value.KyokumenConst);
                 }
-                HonpuSasiteListItemImpl listItem = new HonpuSasiteListItemImpl(csaSasite, sfen);
+                HonpuSasiteListItemImpl listItem = new HonpuSasiteListItemImpl(csaSasite, move);
                 uc_Main.LstSasite.Items.Add(listItem);
             }
 
@@ -231,7 +232,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
                 List<GohosyuListItem> list = new List<GohosyuListItem>();
                 //uc_Main.LstGohosyu.Items.Clear();
                 int itemNumber = 0;
-                ((KifuNode)learningData.Kifu.CurNode).Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
+                ((KifuNode)learningData.Kifu.CurNode).Foreach_ChildNodes((Move key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
                 {
 #if DEBUG || LEARN
                     KyHyokaMeisai_Koumoku komawariMeisai;
@@ -338,10 +339,10 @@ namespace Grayscale.P743_FvLearn____.L260____View
 
             // リストボックスの先頭から指し手をSFEN形式で１つ取得。
             HonpuSasiteListItemImpl item = (HonpuSasiteListItemImpl)uc_Main.LstSasite.Items[0];
-            string sfen = item.Sfen;
+            Move move = item.Move;
             if (null != errH.Dlgt_OnLog1Append_or_Null)
             {
-                errH.Dlgt_OnLog1Append_or_Null("sfen=" + sfen + Environment.NewLine);
+                errH.Dlgt_OnLog1Append_or_Null("sfen=" + Conv_Move.ToSfen(move) + Environment.NewLine);
             }
 
             //
@@ -355,9 +356,9 @@ namespace Grayscale.P743_FvLearn____.L260____View
             //
             Move nextMove;
             {
-                if (learningData.Kifu.CurNode.HasChildNode(sfen))
+                if (learningData.Kifu.CurNode.HasChildNode(move))
                 {
-                    Node<Move, KyokumenWrapper> nextNode = learningData.Kifu.CurNode.GetChildNode(sfen);
+                    Node<Move, KyokumenWrapper> nextNode = learningData.Kifu.CurNode.GetChildNode(move);
                     nextMove = nextNode.Key;//次の棋譜ノードのキーが、指し手（きふわらべ式）になっています。
 
                 }
@@ -365,7 +366,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
                 {
                     nextMove = Conv_Move.GetErrorMove();
                     StringBuilder sb = new StringBuilder();
-                    sb.Append("指し手[" + sfen + "]はありませんでした。\n" + learningData.DumpToAllGohosyu(learningData.Kifu.CurNode.Value.KyokumenConst));
+                    sb.Append("指し手[" + Conv_Move.ToSfen(move) + "]はありませんでした。\n" + learningData.DumpToAllGohosyu(learningData.Kifu.CurNode.Value.KyokumenConst));
 
                     //Debug.Fail(sb.ToString());
                     errH.DonimoNaranAkirameta("Util_LearningView#Ittesasu_ByBtnClick：" + sb.ToString());
@@ -401,7 +402,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
             //this.Kifu.AssertChildPside(this.Kifu.CurNode.Value.ToKyokumenConst.KaisiPside, ittesasuResult.Get_SyuryoNode_OrNull.Value.ToKyokumenConst.KaisiPside);
             Util_IttesasuRoutine.After3_ChangeCurrent(
                 learningData.Kifu,
-                Conv_Move.ToSfen( ittesasuResult.Get_SyuryoNode_OrNull.Key),
+                ittesasuResult.Get_SyuryoNode_OrNull.Key,
                 ittesasuResult.Get_SyuryoNode_OrNull,
                 errH
                 );

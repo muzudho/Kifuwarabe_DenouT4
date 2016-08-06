@@ -63,29 +63,11 @@ namespace Grayscale.P324_KifuTree___.L250____Struct
             this.kyHyokaSheet = new KyHyokaSheetImpl();
         }
 
-        ///// <summary>
-        ///// 
-        ///// </summary>
-        ///// <param name="hubNode">追加したいノードの一覧を入れたリスト。</param>
-        //public void PutAppdendNextNodes(
-        //    Node<Move, KyokumenWrapper> hubNode
-        //    )
-        //{
-
-        //    hubNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
-        //    {
-        //        if (!this.ContainsKey_ChildNodes(key))
-        //        {
-        //            this.PutAdd_ChildNode(key, node);
-        //        }
-        //    });
-        //}
-
         public bool HasTuginoitte(
-            string sasiteStr
+            Move key
             )
         {
-            return this.ContainsKey_ChildNodes(sasiteStr);
+            return this.ContainsKey_ChildNodes(key);
         }
 
         /// <summary>
@@ -116,7 +98,7 @@ namespace Grayscale.P324_KifuTree___.L250____Struct
 #endif
             // SFENをキーに、次ノードを増やします。
 
-            this.PutAdd_ChildNode(Conv_Move.ToSfen(newNode.Key), newNode);
+            this.PutAdd_ChildNode(newNode.Key, newNode);
             //手番はここでは変更できない。
 
             newNode.SetParentNode( this);
@@ -130,7 +112,7 @@ namespace Grayscale.P324_KifuTree___.L250____Struct
             )
         {
             // SFENをキーに、次ノードを増やします。
-            this.NextNodes[Conv_Move.ToSfen(existsNode.Key)] = existsNode;
+            this.NextNodes[existsNode.Key] = existsNode;
             existsNode.SetParentNode( this);
         }
 
@@ -142,11 +124,11 @@ namespace Grayscale.P324_KifuTree___.L250____Struct
         {
             StringBuilder sb = new StringBuilder();
 
-            this.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
+            this.Foreach_ChildNodes((Move key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
             {
                 sb.AppendLine(Util_Sky307.Json_1Sky(
                     node.Value.KyokumenConst,
-                    memo + "：" + key,
+                    memo + "：" + Conv_Move.ToSfen( key),
                     hint + "_SF解1",
                     temezumi_yomiGenTeban_forLog
                     ));// 局面をテキストで作成

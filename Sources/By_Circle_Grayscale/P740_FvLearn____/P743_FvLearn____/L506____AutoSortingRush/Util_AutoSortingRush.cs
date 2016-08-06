@@ -15,6 +15,7 @@ using Grayscale.P743_FvLearn____.L___490_StopLearning;
 using Grayscale.P743_FvLearn____.L490____StopLearning;
 using Grayscale.P743_FvLearn____.L508____AutoSasiteRush;
 using Grayscale.P743_FvLearn____.L506____AutoSasiteSort;
+using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P743_FvLearn____.L506____AutoSasiteSort
 {
@@ -31,7 +32,7 @@ namespace Grayscale.P743_FvLearn____.L506____AutoSasiteSort
         /// <param name="ref_isRequestDoEvents"></param>
         /// <param name="loopLimit"></param>
         /// <param name="ref_tyoseiryo"></param>
-        /// <param name="sfenSasiteStr"></param>
+        /// <param name="move1"></param>
         /// <param name="uc_Main"></param>
         /// <param name="errH"></param>
         public static void Do_SortSasiteRush(
@@ -42,7 +43,7 @@ namespace Grayscale.P743_FvLearn____.L506____AutoSasiteSort
             ref bool ref_isRequestDoEvents,
             int loopLimit,
             ref float ref_tyoseiryo,
-            string sfenSasiteStr,
+            Move move1,
             Uc_Main uc_Main, KwErrorHandler errH
             )
         {
@@ -69,7 +70,7 @@ namespace Grayscale.P743_FvLearn____.L506____AutoSasiteSort
                 {
                     GohosyuListItem gohosyuItem = (GohosyuListItem)uc_Main.LstGohosyu.Items[0];
 
-                    if (sfenSasiteStr == gohosyuItem.Sfen)
+                    if (move1 == gohosyuItem.Move)
                     {
                         // 1位なら終了
 #if DEBUG
@@ -80,7 +81,7 @@ namespace Grayscale.P743_FvLearn____.L506____AutoSasiteSort
                 }
 
                 // １位ではないのでランクアップ。
-                Util_LearnFunctions.Do_RankUpHonpu(ref ref_isRequest_ShowGohosyu, uc_Main, sfenSasiteStr, ref_tyoseiryo);
+                Util_LearnFunctions.Do_RankUpHonpu(ref ref_isRequest_ShowGohosyu, uc_Main, move1, ref_tyoseiryo);
 
                 // 調整量の自動調整
                 if (uc_Main.ChkTyoseiryoAuto.Checked)

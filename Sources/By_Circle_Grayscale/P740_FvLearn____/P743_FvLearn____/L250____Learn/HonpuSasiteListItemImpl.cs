@@ -1,6 +1,6 @@
 ﻿using Grayscale.P163_KifuCsa____.L___250_Struct;
 using System.Text;
-
+using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P743_FvLearn____.L250____Learn
 {
@@ -15,14 +15,14 @@ namespace Grayscale.P743_FvLearn____.L250____Learn
         private CsaKifuSasite CsaSasite { get; set; }
 
         /// <summary>
-        /// SFEN符号
+        /// 指し手（SFEN符号に変換できるもの）
         /// </summary>
-        public string Sfen { get; set; }
+        public Move Move { get; set; }
 
-        public HonpuSasiteListItemImpl(CsaKifuSasite sasite, string sfen)
+        public HonpuSasiteListItemImpl(CsaKifuSasite sasite, Move move)
         {
             this.CsaSasite = sasite;
-            this.Sfen = sfen;// 
+            this.Move = move;// 
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace Grayscale.P743_FvLearn____.L250____Learn
             sb.Append(" ");
             sb.Append(this.CsaSasite.Syurui);
             sb.Append(" ");
-            sb.Append(this.Sfen);
+            sb.Append(this.Move);
 
             return sb.ToString();
         }

@@ -15,6 +15,7 @@ using Grayscale.P743_FvLearn____.L___490_StopLearning;
 using Grayscale.P743_FvLearn____.L490____StopLearning;
 using Grayscale.P743_FvLearn____.L508____AutoSasiteRush;
 using Grayscale.P743_FvLearn____.L506____AutoSasiteSort;
+using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P743_FvLearn____.L508____AutoSasiteRush
 {
@@ -58,10 +59,10 @@ namespace Grayscale.P743_FvLearn____.L508____AutoSasiteRush
                 float.TryParse(uc_Main.TxtTyoseiryo.Text, out tyoseiryo);
 
                 HonpuSasiteListItemImpl sasiteItem = (HonpuSasiteListItemImpl)uc_Main.LstSasite.Items[0];
-                string sfenSasiteStr = sasiteItem.Sfen;
+                Move move1 = sasiteItem.Move;
 
 
-                if (sfenSasiteStr == "")
+                if (move1 == Move.Empty)
                 {
                     goto gt_EndSasiteList;
                 }
@@ -112,7 +113,7 @@ namespace Grayscale.P743_FvLearn____.L508____AutoSasiteRush
                     ref isRequestDoEvents,
                     loopLimit,
                     ref tyoseiryo,
-                    sfenSasiteStr,
+                    move1,
                     uc_Main, errH
                     );
 

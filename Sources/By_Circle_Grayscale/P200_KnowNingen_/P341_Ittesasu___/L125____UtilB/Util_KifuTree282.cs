@@ -46,7 +46,7 @@ namespace Grayscale.P341_Ittesasu___.L125____UtilB
             //----------------------------------------
             // 本譜の手
             //----------------------------------------
-            string sasiteStr = Conv_Move.ToSfen(kifu_mutable.CurNode.Key);
+            Move move1 = kifu_mutable.CurNode.Key;
 
 
             //----------------------------------------
@@ -57,14 +57,14 @@ namespace Grayscale.P341_Ittesasu___.L125____UtilB
             //----------------------------------------
             // 選ばなかった変化を、ここに入れます。
             //----------------------------------------
-            List<string> removeeList = new List<string>();
+            List<Move> removeeList = new List<Move>();
 
             //----------------------------------------
             // 選んだ変化と、選ばなかった変化の一覧
             //----------------------------------------
-            parentNode.Foreach_ChildNodes((string key1, Node<Move, KyokumenWrapper> nextNode1, ref bool toBreak1) =>
+            parentNode.Foreach_ChildNodes((Move key1, Node<Move, KyokumenWrapper> nextNode1, ref bool toBreak1) =>
             {
-                if (key1 == sasiteStr)
+                if (key1 == move1)
                 {
                     //----------------------------------------
                     // 本譜の手はスキップ
@@ -91,7 +91,7 @@ namespace Grayscale.P341_Ittesasu___.L125____UtilB
             // どんどん削除
             //----------------------------------------
             result_removedCount = removeeList.Count;
-            foreach (string key in removeeList)
+            foreach (Move key in removeeList)
             {
                 parentNode.RemoveChild(key);
             }
@@ -113,9 +113,9 @@ namespace Grayscale.P341_Ittesasu___.L125____UtilB
             KwErrorHandler errH
             )
         {
-            string sasiteStr = Conv_Move.ToSfen(nextNode_and_nextCurrent.Key);
+            Move move1 = nextNode_and_nextCurrent.Key;
 
-            if (!((KifuNode)kifuRef.CurNode).HasTuginoitte(sasiteStr))
+            if (!((KifuNode)kifuRef.CurNode).HasTuginoitte(move1))
             {
                 //----------------------------------------
                 // 次ノート追加

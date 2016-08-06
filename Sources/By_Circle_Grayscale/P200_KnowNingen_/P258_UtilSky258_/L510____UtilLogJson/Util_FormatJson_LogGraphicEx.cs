@@ -138,7 +138,7 @@ namespace Grayscale.P258_UtilSky258_.L510____UtilLogJson
                 goto gt_EndMethod;
             }
 
-            hubNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
+            hubNode.Foreach_ChildNodes((Move key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
             {
 
                 SyElement srcMasu = Conv_Move.ToSrcMasu(node.Key);

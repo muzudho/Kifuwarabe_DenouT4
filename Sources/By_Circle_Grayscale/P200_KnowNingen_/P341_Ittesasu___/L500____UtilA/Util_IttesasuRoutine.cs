@@ -273,18 +273,18 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
         /// 棋譜ツリーのカレントを変更します。
         /// </summary>
         /// <param name="kifu_mutable"></param>
-        /// <param name="nextSasiteStr"></param>
+        /// <param name="nextMove1"></param>
         /// <param name="edit_childNode_Ref"></param>
         /// <param name="errH"></param>
         public static void After3_ChangeCurrent(
             KifuTree kifu_mutable,
-            string nextSasiteStr,
+            Move nextMove1,
             Node<Move, KyokumenWrapper> edit_childNode_Ref,
             KwErrorHandler errH
             )
         {
 
-            if (!((KifuNode)kifu_mutable.CurNode).HasTuginoitte(nextSasiteStr))
+            if (!((KifuNode)kifu_mutable.CurNode).HasTuginoitte(nextMove1))
             {
                 //----------------------------------------
                 // 次ノード追加（なければ）

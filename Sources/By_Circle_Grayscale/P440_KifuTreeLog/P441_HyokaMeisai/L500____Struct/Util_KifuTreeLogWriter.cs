@@ -167,7 +167,7 @@ namespace Grayscale.P440_KifuTreeLog.L500____Struct
 
                 int logFileCounter_temp = logFileCounter;
                 // 先に奥の枝から。
-                node.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> nextNode, ref bool toBreak) =>
+                node.Foreach_ChildNodes((Move key, Node<Move, KyokumenWrapper> nextNode, ref bool toBreak) =>
                 {
                     float score = ((KifuNode)nextNode).Score;
 
