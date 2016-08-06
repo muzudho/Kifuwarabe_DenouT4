@@ -29,6 +29,7 @@ using Grayscale.P554_TansaFukasa.L___500_Struct;
 using Grayscale.P550_timeMan____.L___500_struct__;
 using Grayscale.P339_ConvKyokume.L500____Converter;
 using Grayscale.P219_Move_______.L___500_Struct;
+using System.Text;
 
 #if DEBUG
 using Grayscale.P266_KyokumMoves.L250____Log;
@@ -457,14 +458,12 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
 
             try
             {
-                exceptionArea = 10;
+                exceptionArea = 1000;
                 //
                 // まず前提として、
                 // 現手番の「被王手の局面」だけがピックアップされます。
                 // これはつまり、次の局面がないときは、その枝は投了ということです。
                 //
-
-
 
 
                 // 
@@ -482,8 +481,14 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                     errH
                     );
 
+                exceptionArea = 2000;
+
                 int wideCount1 = 0;
-                foreach (KeyValuePair<string, SasuEntry> entry in sasitebetuEntry2)//次に読む手
+                foreach (
+                    KeyValuePair<string, SasuEntry> entry // このキーで、先手駒台2つ目の持ち駒「角」（1b）を打とうとして
+                    // 1b2c のようなSFEN符号を作ってしまうというバグがあった。正しくは R*2c。
+                    in sasitebetuEntry2
+                    )//次に読む手
                 {
                     if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(
                         yomiDeep2,
@@ -493,6 +498,9 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                         args.Shogisasi.TimeManager
                     ))
                     {
+
+                        exceptionArea = 3000;
+
                         //----------------------------------------
                         // もう深くよまないなら
                         //----------------------------------------
@@ -509,32 +517,74 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                     }
                     else
                     {
-                        //----------------------------------------
-                        // 《９》まだ深く読むなら
-                        //----------------------------------------
-                        // 《８》カウンターを次局面へ
-
-                        // 探索ノードのカウントを加算☆（＾～＾）少ないほど枝刈りの質が高いぜ☆
-                        searchedNodes++;
-
-
-                        // このノードは、途中節か葉か未確定。
-
-                        //
-                        // （２）指し手を、ノードに変換し、現在の局面に継ぎ足します。
-                        //
                         KifuNode childNode1;
 
-                        if (node_yomi.ContainsKey_ChildNodes(entry.Key))
+                        try
                         {
-                            childNode1 = (KifuNode)node_yomi.GetChildNode(entry.Key);
+                            exceptionArea = 4010;
+
+                            //----------------------------------------
+                            // 《９》まだ深く読むなら
+                            //----------------------------------------
+                            // 《８》カウンターを次局面へ
+
+                            // 探索ノードのカウントを加算☆（＾～＾）少ないほど枝刈りの質が高いぜ☆
+                            searchedNodes++;
+
+                            // このノードは、途中節か葉か未確定。
+
+                            //
+                            // （２）指し手を、ノードに変換し、現在の局面に継ぎ足します。
+                            //
+                            exceptionArea = 4020;
+                            if (
+                                node_yomi.ContainsKey_ChildNodes(entry.Key)//FIXME:ここでエラー？
+                                )
+                            {
+                                exceptionArea = 4100;
+
+                                childNode1 = (KifuNode)node_yomi.GetChildNode(entry.Key);
+
+                                exceptionArea = 4200;
+                            }
+                            else
+                            {
+                                exceptionArea = 4300;
+
+                                // 既存でなければ、作成・追加
+                                childNode1 = Conv_SasuEntry.ToKifuNode(entry.Value, node_yomi.Value.KyokumenConst, errH);
+
+                                exceptionArea = 4400;
+
+                                node_yomi.PutAdd_ChildNode(entry.Key, childNode1);
+
+
+                                exceptionArea = 4500;
+                            }
                         }
-                        else
+                        catch (Exception ex)
                         {
-                            // 既存でなければ、作成・追加
-                            childNode1 = Conv_SasuEntry.ToKifuNode(entry.Value, node_yomi.Value.KyokumenConst, errH);
-                            node_yomi.PutAdd_ChildNode(entry.Key, childNode1);
+                            StringBuilder sb = new StringBuilder();
+
+                            int i = 0;
+                            foreach(KeyValuePair<string, SasuEntry> entry2 in sasitebetuEntry2)
+                            {
+                                sb.Append(entry2.Key);
+                                sb.Append(",");
+                                if (0 == i % 15)
+                                {
+                                    sb.AppendLine();
+                                }
+                                i++;
+                            }
+
+                            errH.DonimoNaranAkirameta(ex, "棋譜ツリーで例外です(A)。exceptionArea=" + exceptionArea
+                                + " entry.Key=" + entry.Key + " node_yomi.CountAllNodes=" + node_yomi.CountAllNodes()
+                                + " 指し手候補="+sb.ToString()); throw ex;
+
                         }
+
+                        exceptionArea = 5000;
 
                         // これを呼び出す回数を減らすのが、アルファ法。
                         // 枝か、葉か、確定させにいきます。
@@ -548,16 +598,25 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                             sasitebetuEntry2.Count,
                             args,
                             errH);
+
+                        exceptionArea = 6000;
+
                         Util_Scoreing.Update_Branch(
                             a_myScore,//a_childrenBest,
                             node_yomi//mutable
                             );
+
+
+                        exceptionArea = 7000;
 
                         //----------------------------------------
                         // 子要素の検索が終わった時点で、読み筋を格納☆
                         //----------------------------------------
                         searchedPv[yomiDeep2] = entry.Key; //FIXME:
                         searchedPv[yomiDeep2 + 1] = "";//後ろの１手を消しておいて 終端子扱いにする。
+
+
+                        exceptionArea = 8000;
 
                         //----------------------------------------
                         // 子要素の検索が終わった時点
@@ -571,6 +630,9 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                             ref a_childrenBest,
                             out alpha_cut
                             );
+
+
+                        exceptionArea = 9000;
 
                         wideCount1++;
 
@@ -593,31 +655,17 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                         }
                     }
 
+                    exceptionArea = 10000;
 
-                //gt_NextLoop:
-                //    ;
+                    //gt_NextLoop:
+                    //    ;
                 }
 
 
             }
             catch (Exception ex)
             {
-                switch (exceptionArea)
-                {
-                    case 10:
-                        {
-                            errH.DonimoNaranAkirameta(ex, "棋譜ツリーの読みループの前半１０です。"); throw ex;
-                        }
-                    case 20:
-                        {
-                            errH.DonimoNaranAkirameta(ex, "棋譜ツリーの読みループの前半２０です。"); throw ex;
-                        }
-                    case 30:
-                        {
-                            errH.DonimoNaranAkirameta(ex, "棋譜ツリーの読みループの後半７０です。"); throw ex;
-                        }
-                    default: throw ex;
-                }
+                errH.DonimoNaranAkirameta(ex, "棋譜ツリーで例外です(B)。exceptionArea=" + exceptionArea); throw ex;
             }
 
             return a_childrenBest;

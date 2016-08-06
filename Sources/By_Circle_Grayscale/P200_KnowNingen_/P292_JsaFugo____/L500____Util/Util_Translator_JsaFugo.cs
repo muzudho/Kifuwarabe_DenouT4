@@ -36,22 +36,23 @@ namespace Grayscale.P292_JsaFugo____.L500____Util
         /// <returns></returns>
         public static string ToString_NoUseDou(
             JsaFugoImpl jsaFugo,
-            RO_Starbeam sasite
+            Move move
             )
         {
             StringBuilder sb = new StringBuilder();
 
-            RO_Star koma = Util_Starlightable.AsKoma(sasite.Now);
+            Playerside pside = Conv_Move.ToPlayerside(move);
+            SyElement dstMasu = Conv_Move.ToDstMasu(move);
 
-            sb.Append(Conv_Playerside.ToSankaku(koma.Pside));
+            sb.Append(Conv_Playerside.ToSankaku(pside));
 
             //------------------------------
             // “同”に変換せず、“筋・段”をそのまま出します。
             //------------------------------
             int suji;
             int dan;
-            Util_MasuNum.TryMasuToSuji(koma.Masu, out suji);
-            Util_MasuNum.TryMasuToDan(koma.Masu, out dan);
+            Util_MasuNum.TryMasuToSuji(dstMasu, out suji);
+            Util_MasuNum.TryMasuToDan(dstMasu, out dan);
 
             sb.Append(Conv_Int.ToArabiaSuji(suji));
             sb.Append(Conv_Int.ToKanSuji(dan));

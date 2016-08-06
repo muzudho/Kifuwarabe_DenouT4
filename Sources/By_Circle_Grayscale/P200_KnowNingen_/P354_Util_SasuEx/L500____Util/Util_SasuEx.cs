@@ -49,15 +49,14 @@ namespace Grayscale.P354_Util_SasuEx.L500____Util
 
                 foreach(KeyValuePair<string, SasuEntry> entry in a_sasitebetuEntry)
                 {
-                    // 
-                    // ・移動元の駒
-                    // ・移動先の駒
-                    //
                     Move move1 = entry.Value.NewMove;
 
+                    // ・移動元の駒
                     SyElement srcMasu = Conv_Move.ToSrcMasu(move1);
-                    SyElement dstMasu = Conv_Move.ToDstMasu(move1);
                     Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move1);
+
+                    // ・移動先の駒
+                    SyElement dstMasu = Conv_Move.ToDstMasu(move1);
                     Komasyurui14 dstKs = Conv_Move.ToDstKomasyurui(move1);
                     Playerside pside = Conv_Move.ToPlayerside(move1);
 
@@ -93,10 +92,6 @@ namespace Grayscale.P354_Util_SasuEx.L500____Util
                 gt_Next1:
                     ;
                 }
-
-                //hubNode.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> nextNode, ref bool toBreak) =>
-                //{
-                //});
 
 
                 // 新しく作った【成り】の指し手を追加します。

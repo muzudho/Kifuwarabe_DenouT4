@@ -13,7 +13,7 @@ using Grayscale.P324_KifuTree___.L___250_Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P266_KyokumMoves.L250____Log;
 using Grayscale.P339_ConvKyokume.L500____Converter;
-using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P542_Scoreing___.L061____Util
 {

@@ -7,7 +7,7 @@ using Grayscale.P218_Starlight__.L___500_Struct;
 using Grayscale.P222_Log_Kaisetu.L250____Struct;
 using Grayscale.P224_Sky________.L500____Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P335_Move_______.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P266_KyokumMoves.L___250_Log
 {

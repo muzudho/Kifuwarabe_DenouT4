@@ -153,7 +153,6 @@
     <Compile Include="P224_Sky________\L___500_Struct\Sky.cs" />
     <Compile Include="P224_Sky________\L500____Struct\Fingers.cs" />
     <Compile Include="P224_Sky________\L500____Struct\RO_Starlight.cs" />
-    <Compile Include="P224_Sky________\L500____Struct\RO_Starbeam.cs" />
     <Compile Include="P224_Sky________\L500____Struct\SkyBuffer.cs" />
     <Compile Include="P224_Sky________\L500____Struct\SkyConst.cs" />
     <Compile Include="P226_Tree_______\L___500_Struct\Node.cs" />

@@ -55,7 +55,7 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
                     {
                         int m = (int)MoveMask.Komasyurui;   // マスク
                         int s = (int)MoveShift.Komasyurui;    // シフト
-                        komasyurui = (v& m) >> s;
+                        komasyurui = (v & m) >> s;
                     }
 
                     // (自)筋・(自)段は書かずに、「P*」といった表記で埋めます。
@@ -535,6 +535,27 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             }
         }
 
+        /*
+        public static Move ToMove_ByDrop(
+            SyElement dstMasu,
+            Komasyurui14 srcKs,
+            Playerside pside
+        )
+        {
+            // 打と分かっていれば、成りはないぜ☆（＾▽＾）
+
+            return Conv_Move.ToMove(
+                Masu_Honshogi.Query_ErrorMasu(),//元位置は指定なしだぜ☆（＾▽＾）
+                dstMasu,
+                srcKs,
+                Komasyurui14.H00_Null___,//打で取れる駒は無いぜ☆（＾▽＾）
+                false,//成りは無い☆
+                true,//打と決まっているぜ☆（＾▽＾）
+                pside,
+                false//とりあえずエラーは無しということで☆（＾▽＾）
+                );
+        }
+        */
 
         public static Move ToMove(
             SyElement srcMasu,
@@ -629,10 +650,26 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
                 v |= 1 << (int)MoveShift.Promotion;
             }
 
+            //*
             if (drop)
             {
                 v |= 1 << (int)MoveShift.Drop;
             }
+            //*/
+            /*自動判定
+            bool drop;
+            try
+            {
+                drop = Okiba.ShogiBan != Conv_SyElement.ToOkiba(srcMasu)//駒台（駒袋）から打ったとき。
+                    && Okiba.Empty != Conv_SyElement.ToOkiba(srcMasu);//初期配置から移動しても、打にはしません。
+            }
+            catch (Exception ex)
+            {
+                drop = false;
+                //Util_OwataMinister.ERROR.DonimoNaranAkirameta(ex, "IsDaAction:");// exceptionArea=" + exceptionArea
+                throw ex;
+            }
+            */
 
             if (Playerside.P2==pside)
             {

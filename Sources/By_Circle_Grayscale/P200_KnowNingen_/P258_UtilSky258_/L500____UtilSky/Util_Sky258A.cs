@@ -29,40 +29,21 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         /// 成ケース
         /// </summary>
         /// <returns></returns>
-        public static Komasyurui14 ToNariCase(RO_Starlight ms)
+        public static Komasyurui14 ToNariCase(Move move)
         {
-            Komasyurui14 result;
-
-            RO_Star koma = Util_Starlightable.AsKoma(ms.Now);
-
-            result = Util_Komasyurui14.NariCaseHandle[(int)Util_Komahaiyaku184.Syurui(koma.Haiyaku)];
-
-            return result;
+            return Util_Komasyurui14.NariCaseHandle[(int)Conv_Move.ToDstKomasyurui(move)];
         }
 
         /// <summary>
         /// 外字を利用した、デバッグ用の駒の名前１文字だぜ☆
         /// </summary>
         /// <returns></returns>
-        public static char ToGaiji(RO_Starlight ms)
+        public static char ToGaiji(Move move)
         {
-            char result;
+            Komasyurui14 dstKs = Conv_Move.ToDstKomasyurui(move);
+            Playerside pside = Conv_Move.ToPlayerside(move);
 
-            RO_Star koma = Util_Starlightable.AsKoma(ms.Now);
-
-            result = Util_Komasyurui14.ToGaiji(Util_Komahaiyaku184.Syurui(koma.Haiyaku), koma.Pside);
-
-            return result;
-        }
-
-
-        public static RO_Starbeam BuildSasite(
-            Starlightable longTimeAgo,
-            Starlightable now,
-            Komasyurui14 tottaKomaSyurui
-        )
-        {
-            return new RO_Starbeam(longTimeAgo, now, tottaKomaSyurui);
+            return Util_Komasyurui14.ToGaiji(dstKs, pside);
         }
 
         public static void Assert_Honshogi(SkyConst src_Sky)
