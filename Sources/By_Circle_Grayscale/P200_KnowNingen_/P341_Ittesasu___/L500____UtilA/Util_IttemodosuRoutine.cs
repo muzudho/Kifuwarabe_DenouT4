@@ -213,6 +213,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                 // 元のキーの、取った駒の種類だけを差替えます。
                 nextMove = Conv_Move.ToMove(
                     Conv_Move.ToSrcMasu(editNodeRef.Key),
+                    //Conv_MasuHandle.ToMasu((int)Conv_Move.ToSrcMasu(editNodeRef.Key)),
                     Conv_Move.ToDstMasu(editNodeRef.Key),
                     Conv_Move.ToSrcKomasyurui(editNodeRef.Key),
                     ittemodosuReference.FoodKomaSyurui,//ここだけ差し替えるぜ☆（＾▽＾）

@@ -250,6 +250,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                 // 元のキーの、取った駒の種類だけを差替えます。
                 move = Conv_Move.ToMove(
                     Conv_Move.ToSrcMasu(move),
+                    //Conv_MasuHandle.ToMasu((int)Conv_Move.ToSrcMasu(move)),
                     Conv_Move.ToDstMasu(move),
                     Conv_Move.ToSrcKomasyurui(move),
                     ittesasuReference.FoodKomaSyurui,//ここだけ差し替えるんだぜ☆（＾～＾）

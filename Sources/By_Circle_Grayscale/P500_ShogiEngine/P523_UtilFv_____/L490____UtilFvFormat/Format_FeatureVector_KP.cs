@@ -262,7 +262,7 @@ namespace Grayscale.P523_UtilFv_____.L490____UtilFvFormat
                         //----------------------------------------
                         for (int pSuji = 9; pSuji > 0; pSuji--)
                         {
-                            int pMasu = Util_Masu10.Handle_OkibaSujiDanToMasu(Okiba.ShogiBan, pSuji, pDan);
+                            int pMasu = Util_Masu10.ToMasuHandle_FromOkibaSujiDan(Okiba.ShogiBan, pSuji, pDan);
 
                             if (Const_FeatureVectorFormat.PARAMETER_INDEX_OUTPUT)
                             {

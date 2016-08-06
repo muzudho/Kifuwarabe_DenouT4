@@ -83,7 +83,7 @@ namespace Grayscale.P214_Masu_______.L500____Util
         /// <param name="suji"></param>
         /// <param name="dan"></param>
         /// <returns></returns>
-        public static int Handle_OkibaSujiDanToMasu(Okiba okiba, int suji, int dan)
+        public static int ToMasuHandle_FromOkibaSujiDan(Okiba okiba, int suji, int dan)
         {
             int masuHandle = -1;
 
@@ -122,7 +122,7 @@ namespace Grayscale.P214_Masu_______.L500____Util
         /// <returns></returns>
         public static SyElement OkibaSujiDanToMasu(Okiba okiba, int suji, int dan)
         {
-            int masuHandle = Util_Masu10.Handle_OkibaSujiDanToMasu(okiba,suji,dan);
+            int masuHandle = Util_Masu10.ToMasuHandle_FromOkibaSujiDan(okiba,suji,dan);
 
 
             SyElement masu = Masu_Honshogi.Query_Basho(Masu_Honshogi.nError);//範囲外が指定されることもあります。

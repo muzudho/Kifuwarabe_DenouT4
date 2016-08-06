@@ -13,7 +13,7 @@ using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using Grayscale.P219_Move_______.L___500_Struct;
 using System;
 using System.Text;
-
+using Grayscale.P211_WordShogi__.L___250_Masu;
 
 namespace Grayscale.P339_ConvKyokume.L500____Converter
 {
@@ -186,21 +186,45 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             return Conv_Filepath.ToEscape(moveSfen);
         }
 
-
-        public static SyElement ToSrcMasu(Move move)
+        /// <summary>
+        /// 置き場の情報は欠損していることに注意すること☆（＾～＾）
+        /// </summary>
+        /// <param name="move"></param>
+        /// <returns></returns>
+        public static SyElement ToSrcMasu(Move move)//BanjoMasu
         {
             int v = (int)move;              // バリュー
 
             // TODO: エラーチェック
-            int errorCheck;
+            if (Conv_Move.ToErrorCheck(move))
             {
-                int m = (int)MoveMask.ErrorCheck;  // マスク
-                int s = (int)MoveShift.ErrorCheck;   // シフト
-                errorCheck = (v & m) >> s;
-            }
-            if (0 != errorCheck)
-            {
+                //return BanjoMasu.Error;
                 return Masu_Honshogi.Query_ErrorMasu();
+            }
+
+            Okiba okiba;
+
+            // 打かどうか。
+            if (Conv_Move.ToDrop(move))
+            {
+                if (Playerside.P1 == Conv_Move.ToPlayerside(move))
+                {
+                    okiba = Okiba.Sente_Komadai;
+                }
+                else if(Playerside.P2 == Conv_Move.ToPlayerside(move))
+                {
+                    okiba = Okiba.Gote_Komadai;
+                }
+                else
+                {
+                    //TODO: エラーチェック
+                    //return BanjoMasu.Error;
+                    return Masu_Honshogi.Query_ErrorMasu();
+                }
+            }
+            else
+            {
+                okiba = Okiba.ShogiBan;
             }
 
             // 自筋
@@ -224,7 +248,8 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             //────────────────────────────────────────
 
             // 自
-            return Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan, srcSuji, srcDan);
+            return Util_Masu10.OkibaSujiDanToMasu(okiba, srcSuji, srcDan);
+            //return (BanjoMasu)Util_Masu10.ToMasuHandle_FromOkibaSujiDan(okiba, srcSuji, srcDan);
         }
 
 
@@ -394,12 +419,6 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             }
         }
 
-        /*
-        public static Move SetCaptured(Move move,Komasyurui14 captured)
-        {
-        }
-        */
-
         public static Komasyurui14 ToCaptured(Move move)
         {
             int v = (int)move;              // バリュー
@@ -437,13 +456,8 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             int v = (int)move;              // バリュー
 
             // TODO: エラーチェック
-            int errorCheck;
-            {
-                int m = (int)MoveMask.ErrorCheck;  // マスク
-                int s = (int)MoveShift.ErrorCheck;   // シフト
-                errorCheck = (v & m) >> s;
-            }
-            if (0 != errorCheck)
+            bool errorCheck = Conv_Move.ToErrorCheck(move);
+            if (errorCheck)
             {
                 return Playerside.Empty;
             }
@@ -476,37 +490,14 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             int v = (int)move;              // バリュー
 
             // TODO: エラーチェック
-            int errorCheck;
-            {
-                int m = (int)MoveMask.ErrorCheck;  // マスク
-                int s = (int)MoveShift.ErrorCheck;   // シフト
-                errorCheck = (v & m) >> s;
-            }
-            if (0 != errorCheck)
+            bool errorCheck = (0 != (v & (int)MoveMask.ErrorCheck));
+            if (errorCheck)
             {
                 return false;//FIXME:
             }
 
             // 打たない
-            int drop;
-            {
-                int m = (int)MoveMask.Drop;
-                int s = (int)MoveShift.Drop;
-                drop = (v & m) >> s;
-            }
-
-            //────────────────────────────────────────────────────────────────────────────────
-            // 組み立てフェーズ
-            //────────────────────────────────────────────────────────────────────────────────
-
-            if (0 != drop)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return 0 != (v & (int)MoveMask.Drop);
         }
 
         public static bool ToErrorCheck(Move move)
@@ -514,25 +505,7 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             int v = (int)move;              // バリュー
 
             // TODO: エラーチェック
-            int errorCheck;
-            {
-                int m = (int)MoveMask.ErrorCheck;  // マスク
-                int s = (int)MoveShift.ErrorCheck;   // シフト
-                errorCheck = (v & m) >> s;
-            }
-
-            //────────────────────────────────────────────────────────────────────────────────
-            // 組み立てフェーズ
-            //────────────────────────────────────────────────────────────────────────────────
-
-            if (0 != errorCheck)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return 0 != (v & (int)MoveMask.ErrorCheck);
         }
 
         /*
@@ -743,6 +716,7 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             else
             {
                 srcMasuB = Conv_Move.ToSrcMasu(move);
+                //srcMasuB = Conv_MasuHandle.ToMasu((int)Conv_Move.ToSrcMasu(move));
                 sb.Append(" src=");
                 sb.Append(Util_Masu10.ToSujiKanji(srcMasuB));
             }

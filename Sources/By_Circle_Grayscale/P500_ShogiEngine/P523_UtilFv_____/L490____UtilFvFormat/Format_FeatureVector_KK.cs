@@ -89,7 +89,7 @@ namespace Grayscale.P523_UtilFv_____.L490____UtilFvFormat
                         //----------------------------------------
                         for (int k2suji = 9; k2suji > 0; k2suji--)
                         {
-                            int k2masu = Util_Masu10.Handle_OkibaSujiDanToMasu(Okiba.ShogiBan, k2suji, k2dan);
+                            int k2masu = Util_Masu10.ToMasuHandle_FromOkibaSujiDan(Okiba.ShogiBan, k2suji, k2dan);
 
                             Conv_FvKoumoku522.Converter_KK_to_PP(k1dan, k2dan, k1suji, k2suji, out p1, out p2);
 

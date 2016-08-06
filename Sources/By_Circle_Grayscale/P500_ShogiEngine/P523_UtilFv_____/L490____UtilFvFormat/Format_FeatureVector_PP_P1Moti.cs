@@ -591,7 +591,7 @@ namespace Grayscale.P523_UtilFv_____.L490____UtilFvFormat
                         for (int smallSuji = 9; smallSuji > 0; smallSuji--)
                         {
                             // 0～80
-                            int smallMasu = Util_Masu10.Handle_OkibaSujiDanToMasu(Okiba.ShogiBan, smallSuji, smallDan);
+                            int smallMasu = Util_Masu10.ToMasuHandle_FromOkibaSujiDan(Okiba.ShogiBan, smallSuji, smallDan);
 
                             int p1 = p1_base_motiFu + maisu;
                             int p2 = p2Item.P2_base + smallMasu;
@@ -691,7 +691,7 @@ namespace Grayscale.P523_UtilFv_____.L490____UtilFvFormat
                         //----------------------------------------
                         for (int p2Suji = 9; p2Suji > 0; p2Suji--)
                         {
-                            int pMasu = Util_Masu10.Handle_OkibaSujiDanToMasu(Okiba.ShogiBan, p2Suji, p2Dan);
+                            int pMasu = Util_Masu10.ToMasuHandle_FromOkibaSujiDan(Okiba.ShogiBan, p2Suji, p2Dan);
 
                             int p1 = p1_base + maisu;
                             int p2 = p2Item.P2_base + pMasu;

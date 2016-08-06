@@ -132,7 +132,8 @@ namespace Grayscale.P266_KyokumMoves.L500____Util
                 Fingers fingers_kurau_MOTI;// 持駒（喰らう側）
                 {
                     Util_Sky_FingersQueryFx.Split_BanjoSeme_BanjoKurau_MotiSeme_MotiKurau(
-                        out fingers_seme_BANJO, out fingers_kurau_BANJO, out fingers_seme_MOTI, out fingers_kurau_MOTI, src_Sky, tebanSeme, tebanKurau,
+                        out fingers_seme_BANJO, out fingers_kurau_BANJO, out fingers_seme_MOTI,
+                        out fingers_kurau_MOTI, src_Sky, tebanSeme, tebanKurau,
                         errH);
 //#if DEBUG
 //                    System.Console.WriteLine("◇fingers_seme_BANJOの要素数=" + fingers_seme_BANJO.Count);
