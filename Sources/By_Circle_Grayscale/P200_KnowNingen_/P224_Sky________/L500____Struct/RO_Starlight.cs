@@ -9,7 +9,7 @@ namespace Grayscale.P224_Sky________.L500____Struct
     /// 
     /// 動かない星の光。
     /// </summary>
-    public class RO_Starlight : DoubleBusstopable
+    public class SingleBusstop : DoubleBusstopable
     {
         #region プロパティー類
 
@@ -32,10 +32,9 @@ namespace Grayscale.P224_Sky________.L500____Struct
         /// </summary>
         /// <param name="masu"></param>
         /// <param name="syurui"></param>
-        public RO_Starlight(Busstop nowStar)
+        public SingleBusstop(Busstop nowStar)
         {
             this.now = nowStar;
         }
-
     }
 }

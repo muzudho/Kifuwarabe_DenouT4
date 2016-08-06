@@ -485,11 +485,9 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                 int komaHandle = 0;
                 foreach (Busstop koma in komas)
                 {
-                    dst_Sky.PutOverwriteOrAdd_Starlight(
+                    dst_Sky.PutOverwriteOrAdd_Busstop(
                         komaHandle,
-                        new RO_Starlight(
-                            koma
-                        )
+                        koma
                     );
                     komaHandle++;
                 }

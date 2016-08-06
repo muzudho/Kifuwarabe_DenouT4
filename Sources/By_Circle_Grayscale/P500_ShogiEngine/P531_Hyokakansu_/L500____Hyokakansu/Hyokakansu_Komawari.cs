@@ -49,12 +49,8 @@ namespace Grayscale.P531_Hyokakansu_.L500____Hyokakansu
 
 
 
-            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable light, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, Busstop koma, ref bool toBreak) =>
             {
-                RO_Starlight ms = (RO_Starlight)light;
-
-                Busstop koma = ms.Now;
-
                 // 駒の種類による点数
                 float komaScore_temp = fv.Komawari[(int)Conv_Busstop.ToKomasyurui( koma)];
 

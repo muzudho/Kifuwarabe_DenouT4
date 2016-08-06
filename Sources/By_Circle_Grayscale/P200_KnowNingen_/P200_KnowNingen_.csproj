@@ -78,7 +78,6 @@
     <Compile Include="P211_WordShogi__\L500____Word\Array_Playerside.cs" />
     <Compile Include="P212_ConvPside__\L500____Converter\Conv_Playerside.cs" />
     <Compile Include="P213_Komasyurui_\L250____Word\Array_Komasyurui.cs" />
-    <Compile Include="P218_Starlight__\L___500_Struct\Startype.cs" />
     <Compile Include="P223_TedokuHisto\L___250_Struct\TedokuHistory.cs" />
     <Compile Include="P223_TedokuHisto\L250____Struct\TedokuHisotryConst.cs" />
     <Compile Include="P223_TedokuHisto\L250____Struct\TedokuHisotryBuffer.cs" />
@@ -148,7 +147,7 @@
     <Compile Include="P211_WordShogi__\L500____Word\Hogaku.cs" />
     <Compile Include="P211_WordShogi__\L500____Word\Okiba.cs" />
     <Compile Include="P211_WordShogi__\L500____Word\Playerside.cs" />
-    <Compile Include="P218_Starlight__\L___500_Struct\Starlight.cs" />
+    <Compile Include="P218_Starlight__\L___500_Struct\DoubleBusstopable.cs" />
     <Compile Include="P222_Log_Kaisetu\L250____Struct\KaisetuBoard.cs" />
     <Compile Include="P222_Log_Kaisetu\L250____Struct\KaisetuBoards.cs" />
     <Compile Include="P224_Sky________\L___500_Struct\Sky.cs" />

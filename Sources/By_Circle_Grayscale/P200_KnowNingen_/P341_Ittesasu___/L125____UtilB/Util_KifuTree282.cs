@@ -166,7 +166,7 @@ namespace Grayscale.P341_Ittesasu___.L125____UtilB
             ShootingStarlightable motoKey = (ShootingStarlightable)kifu282.PopCurrentNode().Key;
 
             // 元のキーの、取った駒の種類だけを差替えます。
-            RO_ShootingStarlight swapedSasite = Util_Sky258A.BuildSasite(motoKey.LongTimeAgo, motoKey.Now, tottaSyurui);
+            RO_ShootingStarlight swapedSasite = Util_Sky258A.BuildSasite(motoKey.LongTimeAgo, motoKey, tottaSyurui);
 
             // キーを差替えたノード
             out_swapedNode = new KifuNodeImpl(swapedSasite, new KyokumenWrapper(src_Sky), genTebanside);

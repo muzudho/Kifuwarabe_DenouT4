@@ -336,14 +336,14 @@ namespace Grayscale.P693_ShogiGui___.L491____Event
                     {
                         //>>>>> 移動直後の駒があるとき
                         mainGui3.Model_Manual.GuiSkyConst.AssertFinger(movedKoma.Finger);
-                        koma = mainGui3.Model_Manual.GuiSkyConst.StarlightIndexOf(movedKoma.Finger).Now;
+                        koma = mainGui3.Model_Manual.GuiSkyConst.StarlightIndexOf(movedKoma.Finger);
                         figKoma = movedKoma.Finger;
                     }
                     else if (null != btnKoma_Selected)
                     {
                         //>>>>> 選択されている駒があるとき
                         mainGui3.Model_Manual.GuiSkyConst.AssertFinger(btnKoma_Selected.Koma);
-                        koma = mainGui3.Model_Manual.GuiSkyConst.StarlightIndexOf(btnKoma_Selected.Koma).Now;
+                        koma = mainGui3.Model_Manual.GuiSkyConst.StarlightIndexOf(btnKoma_Selected.Koma);
                         figKoma = btnKoma_Selected.Koma;
                     }
                     else
@@ -360,12 +360,10 @@ namespace Grayscale.P693_ShogiGui___.L491____Event
                                     mainGui3.Model_Manual.GuiSkyConst,
                                     -1,//そのまま
                                     figKoma,
-                                    new RO_Starlight(
-                                        Conv_Busstop.ToBusstop(
-                                            Conv_Playerside.Reverse(Conv_Busstop.ToPlayerside( koma)),//向きを逆さにします。
-                                            Conv_Busstop.ToMasu( koma),
-                                            Conv_Busstop.ToKomasyurui(koma)
-                                        )
+                                    Conv_Busstop.ToBusstop(
+                                        Conv_Playerside.Reverse(Conv_Busstop.ToPlayerside( koma)),//向きを逆さにします。
+                                        Conv_Busstop.ToMasu( koma),
+                                        Conv_Busstop.ToKomasyurui(koma)
                                     )
                                 )
                             )
@@ -516,12 +514,12 @@ namespace Grayscale.P693_ShogiGui___.L491____Event
                 mainGui.Model_Manual.GuiSkyConst.AssertFinger(btnTumandeiruKoma.Finger);
 
                 Move move = Conv_Move.ToMove(
-                    Conv_Busstop.ToMasu(mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now),
-                    Conv_Busstop.ToMasu(mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(btnTumandeiruKoma.Finger).Now),
-                    Conv_Busstop.ToKomasyurui(mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now),
-                    Conv_Busstop.ToKomasyurui(mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(btnTumandeiruKoma.Finger).Now),//これで成りかどうか判定
+                    Conv_Busstop.ToMasu(mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2),
+                    Conv_Busstop.ToMasu(mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(btnTumandeiruKoma.Finger)),
+                    Conv_Busstop.ToKomasyurui(mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2),
+                    Conv_Busstop.ToKomasyurui(mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(btnTumandeiruKoma.Finger)),//これで成りかどうか判定
                     mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma != Busstop.Empty ? Conv_Busstop.ToKomasyurui( mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma) : Komasyurui14.H00_Null___,
-                    Conv_Busstop.ToPlayerside(mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now),
+                    Conv_Busstop.ToPlayerside(mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2),
                     false
                     );// 選択している駒の元の場所と、移動先
 

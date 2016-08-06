@@ -49,10 +49,8 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             Fingers fs_motiSeme_temp = new Fingers();// （３）持ち駒_攻め手
             Fingers fs_motiKurau_temp = new Fingers();// （４）持ち駒_食らう側
 
-            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable light, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, Busstop star, ref bool toBreak) =>
             {
-                Busstop star = light.Now;//駒
-
                 if (Conv_Busstop.ToOkiba(star) == Okiba.ShogiBan)
                 {
                     //
@@ -140,10 +138,8 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             Fingers fingers_moti1p_temp = new Fingers();// （３）持ち駒_攻め手
             Fingers fingers_moti2p_temp = new Fingers();// （４）持ち駒_食らう側
 
-            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable dd, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, Busstop koma, ref bool toBreak) =>
             {
-                Busstop koma = dd.Now;
-
                 if (Conv_Busstop.ToOkiba(koma) == Okiba.Sente_Komadai)
                 {
                     //
@@ -175,10 +171,8 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             Busstop koma_Jigyoku_temp = Busstop.Empty;
             Busstop koma_Aitegyoku_temp = Busstop.Empty;
 
-            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable ds, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, Busstop koma, ref bool toBreak) =>
             {
-                Busstop koma = ds.Now;
-
                 if (
                     Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma)
                     && jiPside == Conv_Busstop.ToPlayerside( koma)
@@ -221,10 +215,8 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             Busstop koma_1PGyoku_temp = Busstop.Empty;
             Busstop koma_2PGyoku_temp = Busstop.Empty;
 
-            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable ds, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, Busstop koma, ref bool toBreak) =>
             {
-                Busstop koma = ds.Now;
-
                 if(
                     Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma)
                     && Komasyurui14.H06_Gyoku__ == Conv_Busstop.ToKomasyurui( koma)

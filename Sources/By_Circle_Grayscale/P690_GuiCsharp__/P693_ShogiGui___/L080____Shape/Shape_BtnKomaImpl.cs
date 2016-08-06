@@ -158,7 +158,7 @@ namespace Grayscale.P693_ShogiGui___.L080____Shape
 
             // この駒について。
             mainGui.Model_Manual.GuiSkyConst.AssertFinger(this.Finger);
-            Busstop koma = mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(this.Finger).Now;
+            Busstop koma = mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(this.Finger);
 
             if(true)
             {

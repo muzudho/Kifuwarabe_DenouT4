@@ -65,7 +65,7 @@ namespace Grayscale.P269_Util_Sasu__.L500____Util
         //    foreach(KeyValuePair<ShootingStarlightable,SkyBuffer> entry in ss)
         //    {
         //        RO_Star_Koma srcKoma = Util_Starlightable.AsKoma(entry.Key.LongTimeAgo);
-        //        RO_Star_Koma dstKoma = Util_Starlightable.AsKoma(entry.Key.Now);
+        //        RO_Star_Koma dstKoma = Util_Starlightable.AsKoma(entry.Key);
 
 
         //            Masu srcMasu = srcKoma.Masu;

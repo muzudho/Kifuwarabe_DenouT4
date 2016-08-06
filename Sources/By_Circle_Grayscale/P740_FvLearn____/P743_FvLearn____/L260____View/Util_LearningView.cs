@@ -102,7 +102,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
                         figSrcKoma = Util_Sky_FingerQuery.InMasuNow(kaisi_Sky, pside, srcMasu, errH);
                     }
                     kaisi_Sky.AssertFinger(figSrcKoma);
-                    Busstop srcKoma = kaisi_Sky.StarlightIndexOf(figSrcKoma).Now;
+                    Busstop srcKoma = kaisi_Sky.StarlightIndexOf(figSrcKoma);
 
                     // 先位置
                     SyElement dstMasu = Util_CsaSasite.ToDstMasu(csaSasite);
@@ -117,7 +117,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
                     {
                         // 駒のある枡
                         kaisi_Sky.AssertFinger(figFoodKoma);
-                        foodKomasyurui = Conv_Busstop.ToKomasyurui(kaisi_Sky.StarlightIndexOf(figFoodKoma).Now);//取った駒有り。
+                        foodKomasyurui = Conv_Busstop.ToKomasyurui(kaisi_Sky.StarlightIndexOf(figFoodKoma));//取った駒有り。
                     }
                     Busstop busstop = Conv_Busstop.ToBusstop(
                         pside,

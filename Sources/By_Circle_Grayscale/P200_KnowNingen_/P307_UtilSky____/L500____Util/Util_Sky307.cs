@@ -43,9 +43,9 @@ namespace Grayscale.P307_UtilSky____.L500____Util
             Json_Obj obj = new Json_Obj();
 
             Json_Arr arr = new Json_Arr();
-            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable light, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, Busstop light, ref bool toBreak) =>
             {
-                if (null != light)
+                if (Busstop.Empty != light)
                 {
                     arr.Add(Conv_Starlight.ToJsonVal(light));
                 }
@@ -98,11 +98,8 @@ namespace Grayscale.P307_UtilSky____.L500____Util
             int hMasu_gote = 121;
 
             // 全駒
-            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable light, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, Busstop koma, ref bool toBreak) =>
             {
-
-                Busstop koma = light.Now;
-
                 if (Conv_Busstop.ToOkiba(koma) == Okiba.Gote_Komadai)
                 {
                     // 後手持ち駒

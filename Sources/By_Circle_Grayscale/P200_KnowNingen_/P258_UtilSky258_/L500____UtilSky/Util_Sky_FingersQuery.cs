@@ -38,10 +38,8 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         {
             Fingers fingers = new Fingers();
 
-            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable dd, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, Busstop koma, ref bool toBreak) =>
             {
-                Busstop koma = dd.Now;
-
                 if (Conv_Busstop.ToOkiba(koma) == okiba
                     && Conv_Busstop.ToPlayerside(koma)== pside
                     )
@@ -71,7 +69,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)
             {
                 src_Sky.AssertFinger(figKoma);
-                Busstop koma = src_Sky.StarlightIndexOf(figKoma).Now;
+                Busstop koma = src_Sky.StarlightIndexOf(figKoma);
 
 
                 if (Util_Komasyurui14.Matches(syurui, Conv_Busstop.ToKomasyurui(koma)))
@@ -99,7 +97,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)
             {
                 src_Sky.AssertFinger(figKoma);
-                Busstop koma = src_Sky.StarlightIndexOf(figKoma).Now;
+                Busstop koma = src_Sky.StarlightIndexOf(figKoma);
 
 
                 if (
@@ -128,10 +126,8 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         {
             Fingers fingers = new Fingers();
 
-            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable light, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, Busstop koma, ref bool toBreak) =>
             {
-                Busstop koma = light.Now;
-
                 if (
                     okiba == Conv_Busstop.ToOkiba(koma)
                     && pside == Conv_Busstop.ToPlayerside( koma)
@@ -258,7 +254,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
                 src_Sky.AssertFinger(finger);
-                Busstop koma2 = src_Sky.StarlightIndexOf(finger).Now;
+                Busstop koma2 = src_Sky.StarlightIndexOf(finger);
 
                 int suji2;
                 Util_MasuNum.TryMasuToSuji(Conv_Busstop.ToMasu( koma2), out suji2);
@@ -292,7 +288,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)
             {
                 src_Sky.AssertFinger(figKoma);
-                Busstop koma = src_Sky.StarlightIndexOf(figKoma).Now;
+                Busstop koma = src_Sky.StarlightIndexOf(figKoma);
 
                 if (okiba == Conv_Busstop.ToOkiba(koma))
                 {
@@ -315,10 +311,8 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         {
             Fingers fingers = new Fingers();
 
-            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable ds, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, Busstop koma, ref bool toBreak) =>
             {
-                Busstop koma = ds.Now;
-
                 if (pside == Conv_Busstop.ToPlayerside( koma))
                 {
                     fingers.Add(finger);

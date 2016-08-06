@@ -152,18 +152,17 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                     // 指されていた駒
                     //
                     figMovedKoma,
-                    dst,
+                    dst.Now,
                     //
                     // 取られていた駒
                     //
                     figFoodKoma,
-                    new RO_Starlight(
-                        Conv_Busstop.ToBusstop(
-                            Conv_Playerside.Reverse(pside),//先後を逆にして駒台に置きます。
-                            dstMasu,// マス
-                            captured
-                        )
-                    ));
+                    Conv_Busstop.ToBusstop(
+                        Conv_Playerside.Reverse(pside),//先後を逆にして駒台に置きます。
+                        dstMasu,// マス
+                        captured
+                    )
+                    );
             }
             else
             {
@@ -177,7 +176,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                     // 指されていた駒
                     //
                     figMovedKoma,
-                    dst
+                    dst.Now
                     );
             }
             editNodeRef.Value.SetKyokumen(kaisi_Sky);
@@ -340,7 +339,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
 
 
 
-            dst = new RO_Starlight(
+            dst = new SingleBusstop(
                 Conv_Busstop.ToBusstop(pside,
                 masu,//戻し先
                 syurui2)

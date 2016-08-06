@@ -33,7 +33,7 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
             {
                 // 動かす星。
                 src_Sky.AssertFinger(figKoma);
-                Busstop srcStar = src_Sky.StarlightIndexOf(figKoma).Now;
+                Busstop srcStar = src_Sky.StarlightIndexOf(figKoma);
 
                 foreach (SyElement susumuMasu in susumuMasuSet.Elements)// 星が進める升。
                 {

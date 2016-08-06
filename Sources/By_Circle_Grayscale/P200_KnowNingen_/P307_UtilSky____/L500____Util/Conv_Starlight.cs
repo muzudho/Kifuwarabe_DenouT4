@@ -14,13 +14,9 @@ namespace Grayscale.P307_UtilSky____.L500____Util
     public abstract class Conv_Starlight
     {
 
-        public static Json_Val ToJsonVal(DoubleBusstopable light)
+        public static Json_Val ToJsonVal(Busstop koma)
         {
             Json_Obj obj = new Json_Obj();
-
-
-            Busstop koma = light.Now;
-
 
             // プレイヤーサイド
             obj.Add(new Json_Prop("pside", Conv_Playerside.ToSankaku(Conv_Busstop.ToPlayerside( koma))));// ▲△

@@ -41,9 +41,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
                 src_Sky.AssertFinger(finger);
-                DoubleBusstopable sl = src_Sky.StarlightIndexOf(finger);
-
-                Busstop koma = sl.Now;
+                Busstop koma = src_Sky.StarlightIndexOf(finger);
 
                 int suji1;
                 int suji2;
@@ -88,7 +86,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
                 src_Sky.AssertFinger(finger);
-                Busstop koma = src_Sky.StarlightIndexOf(finger).Now;
+                Busstop koma = src_Sky.StarlightIndexOf(finger);
 
                 if (Conv_Busstop.ToOkiba(koma) == okiba
                     && Util_Komasyurui14.Matches(Util_Komasyurui14.NarazuCaseHandle(Conv_Busstop.ToKomasyurui(koma)), syuruiNarazuCase))
@@ -121,9 +119,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
                 src_Sky.AssertFinger(finger);
-                DoubleBusstopable sl = src_Sky.StarlightIndexOf(finger);
-
-                Busstop koma = sl.Now;
+                Busstop koma = src_Sky.StarlightIndexOf(finger);
 
                 int suji1;
                 int suji2;

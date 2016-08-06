@@ -58,7 +58,7 @@ namespace Grayscale.P803_GuiCsharpVs.L500____Gui
         /// <summary>
         /// コンピューターの先手
         /// </summary>
-        public virtual void Do_ComputerSente(KwErrorHandler errH)
+        public override void Do_ComputerSente(KwErrorHandler errH)
         {
             this.Link_Server.EngineClient.ShogiEngineProcessWrapper.Send_Position(
                 Util_KirokuGakari.ToSfen_PositionCommand(this.Link_Server.Model_Taikyoku.Kifu), errH);

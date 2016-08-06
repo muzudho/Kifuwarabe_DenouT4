@@ -66,7 +66,7 @@ namespace Grayscale.P355_KifuParserA.L500____Parser
 
             // 現局面。
             SkyConst src_Sky = model_Taikyoku.Kifu.CurNode.Value.KyokumenConst;
-//            Debug.Assert(!Util_MasuNum.OnKomabukuro((int)((RO_Star_Koma)src_Sky.StarlightIndexOf((Finger)0).Now).Masu), "カレント、駒が駒袋にあった。");
+//            Debug.Assert(!Util_MasuNum.OnKomabukuro((int)((RO_Star_Koma)src_Sky.StarlightIndexOf((Finger)0)).Masu), "カレント、駒が駒袋にあった。");
 
             bool isHonshogi = true;//FIXME:暫定
 

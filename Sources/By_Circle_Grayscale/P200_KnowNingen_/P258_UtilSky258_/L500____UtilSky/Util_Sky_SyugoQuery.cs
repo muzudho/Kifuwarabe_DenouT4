@@ -25,10 +25,8 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         {
             SySet_Default<SyElement> masus = new SySet_Default<SyElement>("今の升");
 
-            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable mlLight, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, Busstop koma, ref bool toBreak) =>
             {
-                Busstop koma = mlLight.Now;
-
                 if (Conv_Busstop.ToPlayerside( koma) == pside && Conv_Busstop.ToOkiba(koma) == Okiba.ShogiBan)
                 {
                     masus.AddElement(Conv_Busstop.ToMasu( koma));
@@ -52,7 +50,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         public static SySet<SyElement> KomaKidou_Potential(Finger finger, SkyConst src_Sky)
         {
             src_Sky.AssertFinger(finger);
-            Busstop koma = src_Sky.StarlightIndexOf(finger).Now;
+            Busstop koma = src_Sky.StarlightIndexOf(finger);
 
             //
             // ポテンシャルなので、貫通しているのは仕様通り。

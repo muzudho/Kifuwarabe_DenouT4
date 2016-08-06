@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
+using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P224_Sky________.L500____Struct
 {
@@ -49,9 +50,9 @@ namespace Grayscale.P224_Sky________.L500____Struct
         private int temezumi;
 
         /// <summary>
-        /// 「置き場に置けるものの素性」リストです。駒だけとは限りませんので、４０個以上になることもあります。
+        /// 
         /// </summary>
-        private List<DoubleBusstopable> starlights;
+        private List<Busstop> m_busstops_;
 
         #endregion
 
@@ -68,7 +69,7 @@ namespace Grayscale.P224_Sky________.L500____Struct
         {
             get
             {
-                return this.starlights.Count;
+                return this.m_busstops_.Count;
             }
         }
 
@@ -84,7 +85,7 @@ namespace Grayscale.P224_Sky________.L500____Struct
 
         public static SkyConst NewInstance(Sky src, int temezumi_orMinus1)
         {
-            SkyConst result = new SkyConst(src, false, temezumi_orMinus1, new Finger[] { Fingers.Error_1 }, new DoubleBusstopable[] { null },
+            SkyConst result = new SkyConst(src, false, temezumi_orMinus1, new Finger[] { Fingers.Error_1 }, new Busstop[] { Busstop.Empty },
                 // 手得計算
                 Komasyurui14.H00_Null___, 0, Masu_Honshogi.Query_Basho(Masu_Honshogi.nError)
                 );
@@ -93,7 +94,7 @@ namespace Grayscale.P224_Sky________.L500____Struct
 
         public static SkyConst NewInstance_ReversePside(Sky src, int temezumi_orMinus1)
         {
-            SkyConst result = new SkyConst(src, true, temezumi_orMinus1, new Finger[]{Fingers.Error_1},new DoubleBusstopable[]{null},
+            SkyConst result = new SkyConst(src, true, temezumi_orMinus1, new Finger[]{Fingers.Error_1},new Busstop[]{Busstop.Empty},
                 // 手得計算
                 Komasyurui14.H00_Null___, 0, Masu_Honshogi.Query_Basho(Masu_Honshogi.nError)
                 );
@@ -108,11 +109,11 @@ namespace Grayscale.P224_Sky________.L500____Struct
         /// </summary>
         /// <param name="src"></param>
         /// <param name="finger1"></param>
-        /// <param name="light1"></param>
+        /// <param name="busstop1"></param>
         /// <returns></returns>
-        public static SkyConst NewInstance_OverwriteOrAdd_Light(Sky src, int temezumi_orMinus1, Finger finger1, DoubleBusstopable light1)
+        public static SkyConst NewInstance_OverwriteOrAdd_Light(Sky src, int temezumi_orMinus1, Finger finger1, Busstop busstop1)
         {
-            SkyConst result = new SkyConst(src, false, temezumi_orMinus1, new Finger[]{finger1},new DoubleBusstopable[]{light1},
+            SkyConst result = new SkyConst(src, false, temezumi_orMinus1, new Finger[]{finger1},new Busstop[]{busstop1},
                 // 手得計算
                 Komasyurui14.H00_Null___, 0, Masu_Honshogi.Query_Basho(Masu_Honshogi.nError)
                 );
@@ -127,14 +128,14 @@ namespace Grayscale.P224_Sky________.L500____Struct
         /// </summary>
         /// <param name="src"></param>
         /// <param name="finger1"></param>
-        /// <param name="light1"></param>
+        /// <param name="busstop1"></param>
         /// <returns></returns>
-        public static SkyConst NewInstance_OverwriteOrAdd_Light(Sky src, int temezumi_orMinus1, Finger finger1, DoubleBusstopable light1,
+        public static SkyConst NewInstance_OverwriteOrAdd_Light(Sky src, int temezumi_orMinus1, Finger finger1, Busstop busstop1,
             // 手得計算
             Komasyurui14 tedokuKeisan_komasyurui, int tedokukeisan_index, SyElement tedokukeisan_sasitamasu
             )
         {
-            SkyConst result = new SkyConst(src, false, temezumi_orMinus1, new Finger[] { finger1 }, new DoubleBusstopable[] { light1 },
+            SkyConst result = new SkyConst(src, false, temezumi_orMinus1, new Finger[] { finger1 }, new Busstop[] { busstop1 },
                 // 手得計算
                 tedokuKeisan_komasyurui, tedokukeisan_index, tedokukeisan_sasitamasu
                 );
@@ -147,13 +148,13 @@ namespace Grayscale.P224_Sky________.L500____Struct
         /// </summary>
         /// <param name="src"></param>
         /// <param name="finger1">指した駒、指されていた駒</param>
-        /// <param name="light1"></param>
+        /// <param name="busstops1"></param>
         /// <param name="finger2">取った駒、取っていた駒</param>
-        /// <param name="light2"></param>
+        /// <param name="busstops2"></param>
         /// <returns></returns>
-        public static SkyConst NewInstance_OverwriteOrAdd_Light(Sky src, int temezumi_orMinus1, Finger finger1, DoubleBusstopable light1, Finger finger2, DoubleBusstopable light2)
+        public static SkyConst NewInstance_OverwriteOrAdd_Light(Sky src, int temezumi_orMinus1, Finger finger1, Busstop busstops1, Finger finger2, Busstop busstops2)
         {
-            SkyConst result = new SkyConst(src, false, temezumi_orMinus1, new Finger[] { finger1, finger2 }, new DoubleBusstopable[] { light1, light2 },
+            SkyConst result = new SkyConst(src, false, temezumi_orMinus1, new Finger[] { finger1, finger2 }, new Busstop[] { busstops1, busstops2 },
                 // 手得計算
                 Komasyurui14.H00_Null___, 0, Masu_Honshogi.Query_Basho(Masu_Honshogi.nError)
                 );
@@ -164,7 +165,7 @@ namespace Grayscale.P224_Sky________.L500____Struct
         /// クローンを作ります。
         /// </summary>
         /// <param name="src"></param>
-        private SkyConst(Sky src, bool toReversePlayerside, int update_temezumi_orMinus1, Finger[] finger1, DoubleBusstopable[] light1,
+        private SkyConst(Sky src, bool toReversePlayerside, int update_temezumi_orMinus1, Finger[] finger1, Busstop[] busstops1,
             //
             // 手得計算
             //
@@ -220,10 +221,10 @@ namespace Grayscale.P224_Sky________.L500____Struct
             }
 
             // 星々のクローン
-            this.starlights = new List<DoubleBusstopable>();
-            src.Foreach_Starlights((Finger finger2, DoubleBusstopable light2, ref bool toBreak2) =>
+            this.m_busstops_ = new List<Busstop>();
+            src.Foreach_Starlights((Finger finger2, Busstop busstop2, ref bool toBreak2) =>
             {
-                this.starlights.Add(light2);
+                this.m_busstops_.Add(busstop2);
             });
 
             //
@@ -233,23 +234,23 @@ namespace Grayscale.P224_Sky________.L500____Struct
             {
                 if (finger1[i] != Fingers.Error_1)
                 {
-                    if (this.starlights.Count == (int)finger1[i])
+                    if (this.m_busstops_.Count == (int)finger1[i])
                     {
                         // オブジェクトを追加します。
-                        this.starlights.Add(light1[i]);
+                        this.m_busstops_.Add(busstops1[i]);
                     }
-                    else if (this.starlights.Count + 1 <= (int)finger1[i])
+                    else if (this.m_busstops_.Count + 1 <= (int)finger1[i])
                     {
                         // エラー
-                        Debug.Assert((int)finger1[i] < this.starlights.Count, "要素の個数より2大きいインデックスを指定しました。 インデックス[" + (int)finger1[i] + "]　要素の個数[" + this.starlights.Count + "]");
+                        Debug.Assert((int)finger1[i] < this.m_busstops_.Count, "要素の個数より2大きいインデックスを指定しました。 インデックス[" + (int)finger1[i] + "]　要素の個数[" + this.m_busstops_.Count + "]");
 
-                        string message = this.GetType().Name + "#SetStarPos：　リストの要素より2多いインデックスを指定されましたので、追加しません。starIndex=[" + finger1[i] + "] / this.stars.Count=[" + this.starlights.Count + "]";
+                        string message = this.GetType().Name + "#SetStarPos：　リストの要素より2多いインデックスを指定されましたので、追加しません。starIndex=[" + finger1[i] + "] / this.stars.Count=[" + this.m_busstops_.Count + "]";
                         //LarabeLogger.GetInstance().WriteLineError(LarabeLoggerList.ERROR, message);
                         throw new Exception(message);
                     }
                     else
                     {
-                        this.starlights[(int)finger1[i]] = light1[i];
+                        this.m_busstops_[(int)finger1[i]] = busstops1[i];
                     }
                 }
             }
@@ -261,24 +262,24 @@ namespace Grayscale.P224_Sky________.L500____Struct
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0)
         {
-            if (0 <= (int)finger && (int)finger < this.starlights.Count)
+            if (0 <= (int)finger && (int)finger < this.m_busstops_.Count)
             {
                 return;
             }
             else
             {
                 // エラー
-                string message = this.GetType().Name + "#StarIndexOf：　スプライト配列の範囲を外れた添え字を指定されましたので、取得できません。スプライト番号=[" + finger + "] / スプライトの数=[" + this.starlights.Count + "]\n memberName=" + memberName + "\n sourceFilePath=" + sourceFilePath + "\n sourceLineNumber=" + sourceLineNumber;
+                string message = this.GetType().Name + "#StarIndexOf：　スプライト配列の範囲を外れた添え字を指定されましたので、取得できません。スプライト番号=[" + finger + "] / スプライトの数=[" + this.m_busstops_.Count + "]\n memberName=" + memberName + "\n sourceFilePath=" + sourceFilePath + "\n sourceLineNumber=" + sourceLineNumber;
                 Debug.Fail(message);
                 throw new Exception(message);
             }
         }
 
-        public DoubleBusstopable StarlightIndexOf(Finger finger)
+        public Busstop StarlightIndexOf(Finger finger)
         {
             this.AssertFinger(finger);
 
-            return this.starlights[(int)finger];
+            return this.m_busstops_[(int)finger];
         }
 
 
@@ -287,9 +288,9 @@ namespace Grayscale.P224_Sky________.L500____Struct
             bool toBreak = false;
 
             Finger finger = 0;
-            foreach (DoubleBusstopable light in this.starlights)
+            foreach (Busstop busstop in this.m_busstops_)
             {
-                delegate_Sky_Foreach(finger, light, ref toBreak);
+                delegate_Sky_Foreach(finger, busstop, ref toBreak);
 
                 finger = (int)finger + 1;
                 if (toBreak)
@@ -312,7 +313,7 @@ namespace Grayscale.P224_Sky________.L500____Struct
         {
             Fingers fingers = new Fingers();
 
-            this.Foreach_Starlights((Finger finger, DoubleBusstopable light, ref bool toBreak) =>
+            this.Foreach_Starlights((Finger finger, Busstop light, ref bool toBreak) =>
             {
                 fingers.Add(finger);
             });

@@ -110,9 +110,9 @@ namespace Grayscale.P693_ShogiGui___.L081____Canvas
         /// 棋譜[再生]中は使いません。
         /// 
         /// </summary>
-        public DoubleBusstopable MouseStarlightOrNull2 { get { return this.mouseStarlightOrNull2; } }
-        public void SetMouseStarlightOrNull2(DoubleBusstopable mouseDd) { this.mouseStarlightOrNull2 = mouseDd; }
-        private DoubleBusstopable mouseStarlightOrNull2;
+        public Busstop MouseStarlightOrNull2 { get { return this.mouseStarlightOrNull2; } }
+        public void SetMouseStarlightOrNull2(Busstop mouseDd) { this.mouseStarlightOrNull2 = mouseDd; }
+        private Busstop mouseStarlightOrNull2;
 
         /// <summary>
         /// 「取った駒_巻戻し用」

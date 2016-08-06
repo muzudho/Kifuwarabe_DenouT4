@@ -67,7 +67,7 @@ namespace Grayscale.P262_Play2______.L500____Struct
                 if (Fingers.Error_1 != figDaihyo)
                 {
                     src_Sky.AssertFinger(figDaihyo);
-                    Busstop daihyo = src_Sky.StarlightIndexOf(figDaihyo).Now;
+                    Busstop daihyo = src_Sky.StarlightIndexOf(figDaihyo);
 #if DEBUG
                     Debug.Assert(daihyo != Busstop.Empty, "持ち駒の代表がヌル");
 #endif
@@ -123,7 +123,7 @@ namespace Grayscale.P262_Play2______.L500____Struct
                 foreach (Finger figBanjoJiFu in banjoJiFus.Items)
                 {
                     src_Sky.AssertFinger(figBanjoJiFu);
-                    Busstop banjoJiFu = src_Sky.StarlightIndexOf(figBanjoJiFu).Now;
+                    Busstop banjoJiFu = src_Sky.StarlightIndexOf(figBanjoJiFu);
                     int suji;//1～9
                     Util_MasuNum.TryMasuToSuji(Conv_Busstop.ToMasu( banjoJiFu), out suji);
                     existsFu_sujibetu[suji] = true;

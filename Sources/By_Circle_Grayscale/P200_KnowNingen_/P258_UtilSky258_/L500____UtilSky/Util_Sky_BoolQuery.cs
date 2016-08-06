@@ -121,7 +121,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
                 foreach (Finger figKoma in komaGroup.Items)
                 {
                     src_Sky.AssertFinger(figKoma);
-                    Busstop busstop = src_Sky.StarlightIndexOf(figKoma).Now;
+                    Busstop busstop = src_Sky.StarlightIndexOf(figKoma);
 
                     if (
                             pside1 == Conv_Busstop.ToPlayerside(busstop) // 誰のものか

@@ -48,7 +48,7 @@ namespace Grayscale.P242_UtilColleEx.L500____Util
                         {
                             skyConst.AssertFinger(item.A as Finger);
                             sb.AppendLine("(" + count + ") a=[" +
-                                Util_Komasyurui14.KanjiIchimoji[(int)Conv_Busstop.ToKomasyurui( skyConst.StarlightIndexOf(item.A as Finger).Now)]
+                                Util_Komasyurui14.KanjiIchimoji[(int)Conv_Busstop.ToKomasyurui( skyConst.StarlightIndexOf(item.A as Finger))]
                                 + "] b=[" +
                                 Util_Masu10.ToSujiKanji(syElement)
                                 + "]");

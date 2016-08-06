@@ -55,10 +55,8 @@ namespace Grayscale.P743_FvLearn____.L400____54List
             int p14Next = 0;
             int[] p14List = new int[14];
 
-            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable light, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, Busstop koma, ref bool toBreak) =>
             {
-                Busstop koma = light.Now;
-
                 //----------------------------------------
                 // まず、p を調べます。
                 //----------------------------------------

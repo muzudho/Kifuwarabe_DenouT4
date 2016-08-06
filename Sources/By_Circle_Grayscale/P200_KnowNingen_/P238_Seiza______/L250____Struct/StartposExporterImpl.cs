@@ -194,7 +194,7 @@ namespace Grayscale.P238_Seiza______.L250____Struct
             foreach (Finger finger in src_Sky.Fingers_All().Items)
             {
                 src_Sky.AssertFinger(finger);
-                Busstop komaKs = src_Sky.StarlightIndexOf(finger).Now;
+                Busstop komaKs = src_Sky.StarlightIndexOf(finger);
 
                 Debug.Assert(Conv_MasuHandle.OnAll(Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( komaKs))), "(int)koma.Masu=[" + Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( komaKs)) + "]");//升番号
 

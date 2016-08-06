@@ -87,7 +87,7 @@ namespace Grayscale.P258_UtilSky258_.L505____ConvLogJson
             if ((int)finger < Finger_Honshogi.Items_KomaOnly.Length)
             {
                 src_Sky.AssertFinger(finger);
-                Busstop koma = src_Sky.StarlightIndexOf(finger).Now;
+                Busstop koma = src_Sky.StarlightIndexOf(finger);
 
                 Playerside pside = Conv_Busstop.ToPlayerside( koma);
                 Komasyurui14 ks14 = Conv_Busstop.ToKomasyurui(koma);

@@ -230,14 +230,12 @@ namespace Grayscale.P743_FvLearn____.L250____Learn
             //sb.AppendLine("--------------------");
             //sb.AppendLine("カレントノード内部データ");
             //sb.AppendLine("--------------------");
-            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable light, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, Busstop koma, ref bool toBreak) =>
             {
                 // 番号
                 sb.Append("Fig.");
                 sb.Append(finger);
                 sb.Append("　");
-
-                Busstop koma = light.Now;
 
                 // P1,P2
                 sb.Append(Conv_Busstop.ToPlayerside( koma));

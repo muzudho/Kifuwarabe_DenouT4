@@ -960,7 +960,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 src_Sky.AssertFinger(foundKoma);
-                Busstop koma = src_Sky.StarlightIndexOf(foundKoma).Now;
+                Busstop koma = src_Sky.StarlightIndexOf(foundKoma);
 
                 srcMasuHandle1 = Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( koma));
             }
@@ -1001,7 +1001,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
 
 
                 src_Sky.AssertFinger(hitKoma);
-                Busstop koma = src_Sky.StarlightIndexOf(hitKoma).Now;
+                Busstop koma = src_Sky.StarlightIndexOf(hitKoma);
 
                 srcMasuHandle1 = Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( koma));
             }

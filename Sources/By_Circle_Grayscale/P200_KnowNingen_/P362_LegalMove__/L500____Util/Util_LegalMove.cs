@@ -239,7 +239,7 @@ namespace Grayscale.P362_LegalMove__.L500____Util
                 // 現手番は、後手
 
                 src_Sky.AssertFinger(Finger_Honshogi.GoteOh);
-                Busstop koma = src_Sky.StarlightIndexOf(Finger_Honshogi.GoteOh).Now;
+                Busstop koma = src_Sky.StarlightIndexOf(Finger_Honshogi.GoteOh);
 
                     genTeban_kingMasuNumber = Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( koma));
             }
@@ -247,7 +247,7 @@ namespace Grayscale.P362_LegalMove__.L500____Util
             {
                 // 現手番は、先手
                 src_Sky.AssertFinger(Finger_Honshogi.SenteOh);
-                Busstop koma = src_Sky.StarlightIndexOf(Finger_Honshogi.SenteOh).Now;
+                Busstop koma = src_Sky.StarlightIndexOf(Finger_Honshogi.SenteOh);
 
                     genTeban_kingMasuNumber = Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu(koma));
             }
@@ -360,7 +360,7 @@ namespace Grayscale.P362_LegalMove__.L500____Util
                 KaisetuBoard boardLog_clone = new KaisetuBoard(logBrd_kiki);
                 foreach (Finger finger in fingers_seme_BANJO.Items)
                 {
-                    Busstop koma = src_Sky.StarlightIndexOf(finger).Now;
+                    Busstop koma = src_Sky.StarlightIndexOf(finger);
 
 
                         Gkl_KomaMasu km = new Gkl_KomaMasu(
@@ -371,7 +371,7 @@ namespace Grayscale.P362_LegalMove__.L500____Util
                 }
                 foreach (Finger finger in fingers_kurau_BANJO.Items)
                 {
-                    Busstop koma = src_Sky.StarlightIndexOf(finger).Now;
+                    Busstop koma = src_Sky.StarlightIndexOf(finger);
 
 
                         logBrd_kiki.KomaMasu2.Add(new Gkl_KomaMasu(
@@ -406,7 +406,7 @@ namespace Grayscale.P362_LegalMove__.L500____Util
                 logBrd_kiki = new KaisetuBoard(logBrd_kiki);
                 kmEffect_seme_BANJO.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
                 {
-                    Busstop koma = src_Sky.StarlightIndexOf(key).Now;
+                    Busstop koma = src_Sky.StarlightIndexOf(key);
 
 
                     string komaImg = Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanSeme, Conv_Busstop.ToKomasyurui(koma), "");

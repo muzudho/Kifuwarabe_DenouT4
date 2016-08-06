@@ -53,7 +53,7 @@ namespace Grayscale.P267_ConvKiki___.L500____Converter
             foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)// 全駒
             {
                 src_Sky.AssertFinger(figKoma);
-                Busstop koma = src_Sky.StarlightIndexOf(figKoma).Now;
+                Busstop koma = src_Sky.StarlightIndexOf(figKoma);
 
                 result.HMasu_PlayersideList[Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( koma))] = Conv_Busstop.ToPlayerside( koma);
             }
@@ -71,7 +71,7 @@ namespace Grayscale.P267_ConvKiki___.L500____Converter
                 // 駒
                 //
                 src_Sky.AssertFinger(figKoma);
-                Busstop koma = src_Sky.StarlightIndexOf(figKoma).Now;
+                Busstop koma = src_Sky.StarlightIndexOf(figKoma);
 
                 // 将棋盤上の戦駒のみ判定
                 if (Okiba.ShogiBan != Conv_Busstop.ToOkiba(koma))

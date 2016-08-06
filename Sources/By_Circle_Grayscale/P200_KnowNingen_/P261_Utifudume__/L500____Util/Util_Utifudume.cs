@@ -60,13 +60,13 @@ namespace Grayscale.P261_Utifudume__.L500____Struct
                     pside_aite = Playerside.P2;
                     figKing_aite = Finger_Honshogi.GoteOh;
                     src_Sky.AssertFinger(figKing_aite);
-                    king_aite = src_Sky.StarlightIndexOf(figKing_aite).Now;
+                    king_aite = src_Sky.StarlightIndexOf(figKing_aite);
                     break;
                 case Playerside.P2:
                     pside_aite = Playerside.P1;
                     figKing_aite = Finger_Honshogi.SenteOh;
                     src_Sky.AssertFinger(figKing_aite);
-                    king_aite = src_Sky.StarlightIndexOf(figKing_aite).Now;
+                    king_aite = src_Sky.StarlightIndexOf(figKing_aite);
                     break;
                 default: throw new Exception("エラー：打ち歩詰めチェック中。プレイヤー不明。");
             }
@@ -150,7 +150,7 @@ namespace Grayscale.P261_Utifudume__.L500____Struct
                         if (masuNumber == gyokutouMasuNumber)
                         {
                             src_Sky.AssertFinger(figKoma);
-                            ksList.Add(Conv_Busstop.ToKomasyurui(src_Sky.StarlightIndexOf(figKoma).Now));
+                            ksList.Add(Conv_Busstop.ToKomasyurui(src_Sky.StarlightIndexOf(figKoma)));
                             break;
                         }
                     }

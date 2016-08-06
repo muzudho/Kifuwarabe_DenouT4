@@ -24,7 +24,7 @@ namespace Grayscale.P258_UtilSky258_.L250____UtilFingers
         //    foreach (Finger figMotiKoma in figKomas.Items)
         //    {
         //        // 持ち駒の種類
-        //        Komasyurui14 motikomaSyurui = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figMotiKoma).Now).Komasyurui;
+        //        Komasyurui14 motikomaSyurui = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figMotiKoma)).Komasyurui;
         //        out_komasyuruisCount[(int)motikomaSyurui]++;
         //    }
         //}
@@ -49,7 +49,7 @@ namespace Grayscale.P258_UtilSky258_.L250____UtilFingers
             {
                 src_Sky.AssertFinger(figMotiKoma);
                 // 持ち駒の種類
-                Komasyurui14 motikomaSyurui = Conv_Busstop.ToKomasyurui(src_Sky.StarlightIndexOf(figMotiKoma).Now);
+                Komasyurui14 motikomaSyurui = Conv_Busstop.ToKomasyurui(src_Sky.StarlightIndexOf(figMotiKoma));
                 if (out_figKomasFirst[(int)motikomaSyurui] == Fingers.Error_1)
                 {
                     out_figKomasFirst[(int)motikomaSyurui] = figMotiKoma;

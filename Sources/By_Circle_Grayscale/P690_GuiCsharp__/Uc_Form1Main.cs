@@ -371,7 +371,7 @@ namespace Grayscale.P699_Form_______
             //------------------------------------------------------------
             if (mainGui.RepaintRequest.Is_StarlightsRecalculateRequested())
             {
-                this.MainGui.Model_Manual.GuiSkyConst.Foreach_Starlights((Finger finger, DoubleBusstopable light, ref bool toBreak) =>
+                this.MainGui.Model_Manual.GuiSkyConst.Foreach_Starlights((Finger finger, Busstop light, ref bool toBreak) =>
                 {
                     Util_Function_Csharp.Redraw_KomaLocation(finger, this.MainGui, errH);
                 });
@@ -509,10 +509,8 @@ namespace Grayscale.P699_Form_______
 
             SkyConst siteiSky = mainGui.Model_Manual.GuiSkyConst;
 
-            siteiSky.Foreach_Starlights((Finger finger, DoubleBusstopable ml, ref bool toBreak) =>
+            siteiSky.Foreach_Starlights((Finger finger, Busstop koma, ref bool toBreak) =>
             {
-                Busstop koma = ml.Now;
-
                 if (Conv_Busstop.ToOkiba(koma) == Okiba.Gote_Komadai)
                 {
                     sb.Append(Util_Komasyurui14.Fugo[(int)Conv_Busstop.ToKomasyurui(koma)]);
@@ -532,11 +530,8 @@ namespace Grayscale.P699_Form_______
                 {
                     bool isSpace = true;
 
-                    siteiSky.Foreach_Starlights((Finger finger, DoubleBusstopable ml, ref bool toBreak) =>
+                    siteiSky.Foreach_Starlights((Finger finger, Busstop koma2, ref bool toBreak) =>
                     {
-                        Busstop koma2 = ml.Now;
-
-
                         int suji2;
                         Util_MasuNum.TryMasuToSuji(Conv_Busstop.ToMasu( koma2), out suji2);
 
@@ -585,10 +580,8 @@ namespace Grayscale.P699_Form_______
             sb.AppendLine("        <div style=\"margin-top:10px; width:30px;\">");
             sb.Append("            ");
 
-            siteiSky.Foreach_Starlights((Finger finger, DoubleBusstopable ml, ref bool toBreak) =>
+            siteiSky.Foreach_Starlights((Finger finger, Busstop koma, ref bool toBreak) =>
             {
-                Busstop koma = ml.Now;
-
                 if (Conv_Busstop.ToOkiba(koma) == Okiba.Sente_Komadai)
                 {
                     sb.Append(Util_Komasyurui14.Fugo[(int)Conv_Busstop.ToKomasyurui(koma)]);

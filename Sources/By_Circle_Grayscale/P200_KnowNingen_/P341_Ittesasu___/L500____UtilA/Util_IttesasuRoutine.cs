@@ -168,17 +168,15 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                         // 指した駒
                         //
                         figMovedKoma,//指した駒番号
-                        afterStar,//指した駒
+                        afterStar.Now,//指した駒
                         //
                         // 取った駒
                         //
                         figFoodKoma,
-                        new RO_Starlight(
-                            Conv_Busstop.ToBusstop(
-                                food_pside,
-                                food_akiMasu,//駒台の空きマスへ
-                                Util_Komasyurui14.NarazuCaseHandle(Conv_Busstop.ToKomasyurui( food_koma))// 取られた駒の種類。表面を上に向ける。
-                            )
+                        Conv_Busstop.ToBusstop(
+                            food_pside,
+                            food_akiMasu,//駒台の空きマスへ
+                            Util_Komasyurui14.NarazuCaseHandle(Conv_Busstop.ToKomasyurui( food_koma))// 取られた駒の種類。表面を上に向ける。
                         )
                     );
                 }
@@ -195,7 +193,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                         // 指した駒
                         //
                         figMovedKoma,
-                        afterStar,
+                        afterStar.Now,
                         //
                         // 手得計算
                         //
@@ -423,7 +421,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
             SyElement dstMasu = Conv_Move.ToDstMasu(move);
 
             // 次の位置
-            return new RO_Starlight(
+            return new SingleBusstop(
                 Conv_Busstop.ToBusstop(pside,
                 dstMasu,
                 syurui2)
@@ -461,7 +459,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                 // 取られる駒
                 //
                 susunda_Sky_orNull_before.AssertFinger(out_figFoodKoma);
-                out_food_koma = susunda_Sky_orNull_before.StarlightIndexOf(out_figFoodKoma).Now;
+                out_food_koma = susunda_Sky_orNull_before.StarlightIndexOf(out_figFoodKoma);
 #if DEBUG
                 if (null != errH.Dlgt_OnLog1Append_or_Null)
                 {
@@ -543,10 +541,8 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
             bool[] exists = new bool[Util_Masu10.KOMADAI_KOMABUKURO_SPACE_LENGTH];//駒台スペースは40マスです。
 
 
-            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable komaP, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, Busstop koma, ref bool toBreak) =>
             {
-                Busstop koma = komaP.Now;
-
                 if (Conv_Busstop.ToOkiba(koma) == okiba)
                 {
                     exists[

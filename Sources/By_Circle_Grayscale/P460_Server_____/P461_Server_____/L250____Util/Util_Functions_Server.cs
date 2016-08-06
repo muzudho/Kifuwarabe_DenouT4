@@ -435,7 +435,7 @@ namespace Grayscale.P461_Server_____.L250____Util
 
 
             model_Manual.GuiSkyConst.AssertFinger(btnKoma_Food_Koma);
-            Komasyurui14 koma_Food_pre_Syurui = Conv_Busstop.ToKomasyurui(model_Manual.GuiSkyConst.StarlightIndexOf(btnKoma_Food_Koma).Now);
+            Komasyurui14 koma_Food_pre_Syurui = Conv_Busstop.ToKomasyurui(model_Manual.GuiSkyConst.StarlightIndexOf(btnKoma_Food_Koma));
 
 
             // その駒は、駒置き場に移動させます。
@@ -525,14 +525,12 @@ namespace Grayscale.P461_Server_____.L250____Util
                         // 指した駒
                         //
                         fig_btnTumandeiruKoma,
-                        dst,
+                        dst.Now,
                         //
                         // 取られた駒
                         //
                         btnKoma_Food_Koma,
-                        new RO_Starlight(
-                            koma_Food_after
-                        )
+                        koma_Food_after
                     );
             }
             else
@@ -541,7 +539,7 @@ namespace Grayscale.P461_Server_____.L250____Util
                 // 取られる駒がなかった場合
                 //------------------------------
                 model_Manual.GuiSkyConst.AssertFinger(fig_btnTumandeiruKoma);
-                Busstop movedKoma = model_Manual.GuiSkyConst.StarlightIndexOf(fig_btnTumandeiruKoma).Now;
+                Busstop movedKoma = model_Manual.GuiSkyConst.StarlightIndexOf(fig_btnTumandeiruKoma);
 
                 sky2 = SkyConst.NewInstance_OverwriteOrAdd_Light(
                         model_Manual.GuiSkyConst,
@@ -550,7 +548,7 @@ namespace Grayscale.P461_Server_____.L250____Util
                         // 指した駒
                         //
                         fig_btnTumandeiruKoma,
-                        dst,
+                        dst.Now,
                         //
                         // 手得計算
                         //

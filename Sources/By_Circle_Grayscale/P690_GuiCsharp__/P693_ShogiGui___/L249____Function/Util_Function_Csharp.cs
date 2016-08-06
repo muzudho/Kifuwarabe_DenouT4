@@ -159,22 +159,22 @@ namespace Grayscale.P693_ShogiGui___.L249____Function
             {
                 // 成ります
 
-                toSyurui = Util_Komasyurui14.NariCaseHandle[(int)Conv_Busstop.ToKomasyurui(mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now)];
+                toSyurui = Util_Komasyurui14.NariCaseHandle[(int)Conv_Busstop.ToKomasyurui(mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2)];
                 mainGui.SetNaruFlag(false);
             }
             else
             {
                 // そのまま
-                toSyurui = Conv_Busstop.ToKomasyurui(mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now);
+                toSyurui = Conv_Busstop.ToKomasyurui(mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2);
             }
 
 
             // 置く駒
             {
                 mainGui.Model_Manual.GuiSkyConst.AssertFinger(btnKoma_Selected.Finger);
-                dst = new RO_Starlight(
+                dst = new SingleBusstop(
                     Conv_Busstop.ToBusstop(
-                        Conv_Busstop.ToPlayerside(mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(btnKoma_Selected.Finger).Now),
+                        Conv_Busstop.ToPlayerside(mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(btnKoma_Selected.Finger)),
                         btnMasu.Zahyo,
                         toSyurui
                         )
@@ -225,7 +225,7 @@ namespace Grayscale.P693_ShogiGui___.L249____Function
             )
         {
             mainGui.Model_Manual.GuiSkyConst.AssertFinger(figKoma);
-            Busstop koma = mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(figKoma).Now;
+            Busstop koma = mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(figKoma);
 
             Shape_BtnKoma btnKoma = Conv_Koma_InGui.FingerToKomaBtn(figKoma, mainGui);
 

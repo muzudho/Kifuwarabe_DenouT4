@@ -36,7 +36,7 @@ namespace Grayscale.P693_ShogiGui___.L___081_Canvas
         /// 棋譜[再生]中は使いません。
         /// 
         /// </summary>
-        DoubleBusstopable MouseStarlightOrNull2 { get; }
+        Busstop MouseStarlightOrNull2 { get; }
 
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace Grayscale.P693_ShogiGui___.L___081_Canvas
 
         void SetHMovedKoma(Finger value);
 
-        void SetMouseStarlightOrNull2(DoubleBusstopable mouseDd);
+        void SetMouseStarlightOrNull2(Busstop mouseDd);
 
         void SetNaruMasu(Shape_BtnMasu naruMasu);
 

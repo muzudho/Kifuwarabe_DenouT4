@@ -47,21 +47,20 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                 foreach (Finger koma1 in Finger_Honshogi.Items_KomaOnly)
                 {
                     src_Sky.AssertFinger(koma1);
-                    Busstop koma2 = src_Sky.StarlightIndexOf(koma1).Now;
+                    Busstop koma2 = src_Sky.StarlightIndexOf(koma1);
 
-
-                        if (pside == Conv_Busstop.ToPlayerside( koma2)
-                            && Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma2)
-                            && Util_Komasyurui14.Matches(syurui, Conv_Busstop.ToKomasyurui(koma2))
-                            && masu1 == Conv_Busstop.ToMasu( koma2)
-                            )
-                        {
-                            // 候補マスにいた
-                            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-                            hit = true;
-                            foundKoma = koma1;
-                            break;
-                        }
+                    if (pside == Conv_Busstop.ToPlayerside( koma2)
+                        && Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma2)
+                        && Util_Komasyurui14.Matches(syurui, Conv_Busstop.ToKomasyurui(koma2))
+                        && masu1 == Conv_Busstop.ToMasu( koma2)
+                        )
+                    {
+                        // 候補マスにいた
+                        //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                        hit = true;
+                        foundKoma = koma1;
+                        break;
+                    }
                 }
             }
 

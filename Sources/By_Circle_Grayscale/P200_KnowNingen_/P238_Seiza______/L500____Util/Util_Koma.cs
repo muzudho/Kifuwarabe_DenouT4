@@ -29,7 +29,7 @@ namespace Grayscale.P238_Seiza______.L500____Util
         public static Busstop FromFinger(SkyConst src_Sky,Finger finger)
         {
             src_Sky.AssertFinger(finger);
-            return src_Sky.StarlightIndexOf(finger).Now;
+            return src_Sky.StarlightIndexOf(finger);
         }
 
     }

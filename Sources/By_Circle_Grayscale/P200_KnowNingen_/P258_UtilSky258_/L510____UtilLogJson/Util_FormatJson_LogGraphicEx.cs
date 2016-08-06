@@ -44,7 +44,7 @@ namespace Grayscale.P258_UtilSky258_.L510____UtilLogJson
             {
                 // 駒１つ
                 src_Sky_base.AssertFinger(key);
-                Busstop koma = src_Sky_base.StarlightIndexOf(key).Now;
+                Busstop koma = src_Sky_base.StarlightIndexOf(key);
 
                 Komasyurui14 ks14 = Conv_Busstop.ToKomasyurui(koma);
 
@@ -195,7 +195,7 @@ namespace Grayscale.P258_UtilSky258_.L510____UtilLogJson
             foreach (int hKoma in hKomas)
             {
                 src_Sky.AssertFinger(hKoma);
-                Busstop koma = src_Sky.StarlightIndexOf(hKoma).Now;
+                Busstop koma = src_Sky.StarlightIndexOf(hKoma);
 
 
                 string komaImg = Util_Converter_LogGraphicEx.Finger_ToString(src_Sky, hKoma, "");
