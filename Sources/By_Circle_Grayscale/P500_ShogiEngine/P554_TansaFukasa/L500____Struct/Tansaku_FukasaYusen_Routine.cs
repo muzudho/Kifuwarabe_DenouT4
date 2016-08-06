@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 #if DEBUG
 using Grayscale.P266_KyokumMoves.L250____Log;
@@ -216,21 +217,20 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                 // 
                 // （１）合法手に一対一対応した子ノードを作成し、ハブ・ノードにぶら下げます。
                 //
-                Dictionary<string, SasuEntry> sasitebetuEntry;
+                List<Move> movelist;
                 int yomiDeep;
                 float a_childrenBest;
                 Tansaku_FukasaYusen_Routine.CreateEntries_BeforeLoop(
                     genjo,
                     node_yomi,
-                    out sasitebetuEntry,
+                    out movelist,
                     ref searchedMaxDepth,
                     out yomiDeep,
                     out a_childrenBest,
                     errH
                     );
-                int sasitebetuEntry_count = sasitebetuEntry.Count;
 
-                if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(yomiDeep, wideCount2, sasitebetuEntry_count, genjo, args.Shogisasi.TimeManager))
+                if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(yomiDeep, wideCount2, movelist.Count, genjo, args.Shogisasi.TimeManager))
                 {
                     // 1手も読まないのなら。
                     // FIXME: エラー？
@@ -256,7 +256,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                         genjo,
                         alphabeta_otherBranchDecidedValue,
                         node_yomi,
-                        sasitebetuEntry.Count,
+                        movelist.Count,
                         args,
                         errH
                         );
@@ -311,13 +311,13 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
         /// </summary>
         /// <param name="yomiDeep"></param>
         /// <param name="wideCount2"></param>
-        /// <param name="sasitebetuEntry_count"></param>
+        /// <param name="movelist_count"></param>
         /// <param name="genjo"></param>
         /// <returns></returns>
         public static bool CanNotNextLoop(
             int yomiDeep,
             int wideCount2,
-            int sasitebetuEntry_count,
+            int movelist_count,
             Tansaku_Genjo genjo,
             TimeManager timeManager
             )
@@ -329,7 +329,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                 || //または、
                 (1 < yomiDeep && genjo.Args.YomuLimitter[yomiDeep] < wideCount2)//読みの１手目より後で、指定の横幅を超えているとき。
                 || //または、
-                (sasitebetuEntry_count < 1)//合法手がないとき
+                (movelist_count < 1)//合法手がないとき
                 ;
         }
 
@@ -338,21 +338,21 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
         /// </summary>
         /// <param name="genjo"></param>
         /// <param name="node_yomi"></param>
-        /// <param name="out_sasitebetuEntry"></param>
+        /// <param name="out_movelist"></param>
         /// <param name="out_yomiDeep"></param>
         /// <param name="out_a_childrenBest"></param>
         /// <param name="errH"></param>
         private static void CreateEntries_BeforeLoop(
             Tansaku_Genjo genjo,
             KifuNode node_yomi,
-            out Dictionary<string, SasuEntry> out_sasitebetuEntry,
+            out List<Move> out_movelist,
             ref int searchedMaxDepth,
             out int out_yomiDeep,
             out float out_a_childrenBest,
             KwErrorHandler errH
             )
         {
-            out_sasitebetuEntry = Tansaku_FukasaYusen_Routine.WAAAA_Create_ChildNodes(
+            out_movelist = Tansaku_FukasaYusen_Routine.WAAAA_Create_ChildNodes(
                 genjo,
                 node_yomi.Value.KyokumenConst,
                 node_yomi.Key,//ログ用
@@ -442,7 +442,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
             Tansaku_Genjo genjo,
             float a_parentsiblingDecidedValue,
             KifuNode node_yomi,
-            int sasitebetuEntry_count,
+            int movelist_count,
             EvaluationArgs args,
             KwErrorHandler errH
             )
@@ -463,12 +463,12 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                 // 
                 // （１）合法手に一対一対応した子ノードを作成し、ハブ・ノードにぶら下げます。
                 //
-                Dictionary<string, SasuEntry> sasitebetuEntry2;
+                List<Move> movelist2;
                 int yomiDeep2;
                 Tansaku_FukasaYusen_Routine.CreateEntries_BeforeLoop(
                     genjo,
                     node_yomi,
-                    out sasitebetuEntry2,
+                    out movelist2,
                     ref searchedMaxDepth,
                     out yomiDeep2,
                     out a_childrenBest,
@@ -479,15 +479,15 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
 
                 int wideCount1 = 0;
                 foreach (
-                    KeyValuePair<string, SasuEntry> entry // このキーで、先手駒台2つ目の持ち駒「角」（1b）を打とうとして
+                    Move move // このキーで、先手駒台2つ目の持ち駒「角」（1b）を打とうとして
                     // 1b2c のようなSFEN符号を作ってしまうというバグがあった。正しくは R*2c。
-                    in sasitebetuEntry2
+                    in movelist2
                     )//次に読む手
                 {
                     if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(
                         yomiDeep2,
                         wideCount1,
-                        sasitebetuEntry2.Count,
+                        movelist2.Count,
                         genjo,
                         args.Shogisasi.TimeManager
                     ))
@@ -532,12 +532,12 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                             //
                             exceptionArea = 4020;
                             if (
-                                node_yomi.ContainsKey_ChildNodes(entry.Key)//FIXME:ここでエラー？
+                                node_yomi.ContainsKey_ChildNodes(Conv_Move.ToSfen( move))//FIXME:ここでエラー？
                                 )
                             {
                                 exceptionArea = 4100;
 
-                                childNode1 = (KifuNode)node_yomi.GetChildNode(entry.Key);
+                                childNode1 = (KifuNode)node_yomi.GetChildNode(Conv_Move.ToSfen(move));
 
                                 exceptionArea = 4200;
                             }
@@ -546,11 +546,11 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                                 exceptionArea = 4300;
 
                                 // 既存でなければ、作成・追加
-                                childNode1 = Conv_SasuEntry.ToKifuNode(entry.Value, node_yomi.Value.KyokumenConst, errH);
+                                childNode1 = Conv_SasuEntry.ToKifuNode(move, node_yomi.Value.KyokumenConst, errH);
 
                                 exceptionArea = 4400;
 
-                                node_yomi.PutAdd_ChildNode(entry.Key, childNode1);
+                                node_yomi.PutAdd_ChildNode(Conv_Move.ToSfen(move), childNode1);
 
 
                                 exceptionArea = 4500;
@@ -561,9 +561,9 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                             StringBuilder sb = new StringBuilder();
 
                             int i = 0;
-                            foreach(KeyValuePair<string, SasuEntry> entry2 in sasitebetuEntry2)
+                            foreach(Move entry2 in movelist2)
                             {
-                                sb.Append(entry2.Key);
+                                sb.Append(Conv_Move.ToSfen(entry2));
                                 sb.Append(",");
                                 if (0 == i % 15)
                                 {
@@ -573,7 +573,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                             }
 
                             errH.DonimoNaranAkirameta(ex, "棋譜ツリーで例外です(A)。exceptionArea=" + exceptionArea
-                                + " entry.Key=" + entry.Key + " node_yomi.CountAllNodes=" + node_yomi.CountAllNodes()
+                                + " entry.Key=" + Conv_Move.ToSfen(move) + " node_yomi.CountAllNodes=" + node_yomi.CountAllNodes()
                                 + " 指し手候補="+sb.ToString()); throw ex;
 
                         }
@@ -589,7 +589,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                             genjo,
                             a_childrenBest,
                             childNode1,
-                            sasitebetuEntry2.Count,
+                            movelist2.Count,
                             args,
                             errH);
 
@@ -606,7 +606,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                         //----------------------------------------
                         // 子要素の検索が終わった時点で、読み筋を格納☆
                         //----------------------------------------
-                        searchedPv[yomiDeep2] = entry.Key; //FIXME:
+                        searchedPv[yomiDeep2] = Conv_Move.ToSfen(move); //FIXME:
                         searchedPv[yomiDeep2 + 1] = "";//後ろの１手を消しておいて 終端子扱いにする。
 
 
@@ -679,7 +679,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
         /// <param name="logF_moveKiki"></param>
         /// <param name="logTag"></param>
         /// <returns>複数のノードを持つハブ・ノード</returns>
-        private static Dictionary<string, SasuEntry> WAAAA_Create_ChildNodes(
+        private static List<Move> WAAAA_Create_ChildNodes(
             Tansaku_Genjo genjo,
             SkyConst src_Sky,
             Move move_ForLog,
@@ -694,7 +694,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
             //
             // このハブ・ノード自身は空っぽで、ハブ・ノードの次ノードが、次局面のリストになっています。
             //
-            Dictionary<string, SasuEntry> sasitebetuEntry;
+            List<Move> movelist;
 
             try
             {
@@ -784,7 +784,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                     // 『駒別升ズ』を、ハブ・ノードへ変換。
                     //----------------------------------------
                     //成り以外の手
-                    sasitebetuEntry = Conv_KomabetuMasus.ToSasitebetuSky1(
+                    movelist = Conv_KomabetuMasus.ToSasitebetuSky1(
                         starbetuSusumuMasus,
                         src_Sky,
                         errH
@@ -796,18 +796,18 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                     // 成りの指し手を作成します。（拡張）
                     //----------------------------------------
                     //成りの手
-                    Dictionary<string, SasuEntry> b_sasitebetuEntry = Util_SasuEx.CreateNariSasite(src_Sky,
-                        sasitebetuEntry,
+                    List<Move> b_movelist = Util_SasuEx.CreateNariSasite(src_Sky,
+                        movelist,
                         errH);
 
                     exceptionArea = 44000;
 
                     // マージ
-                    foreach (KeyValuePair<string, SasuEntry> entry in b_sasitebetuEntry)
+                    foreach ( Move move in b_movelist)
                     {
-                        if (!sasitebetuEntry.ContainsKey(entry.Key))
+                        if (!movelist.Contains(move))
                         {
-                            sasitebetuEntry.Add(entry.Key, entry.Value);
+                            movelist.Add(move);
                         }
                     }
                 }
@@ -824,7 +824,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                     //
                     // １対１変換
                     //
-                    sasitebetuEntry = Conv_KomabetuMasus.KomabetuMasus_ToSasitebetuSky(
+                    movelist = Conv_KomabetuMasus.KomabetuMasus_ToSasitebetuSky(
                         komaBETUSusumeruMasus,
                         src_Sky,
                         errH
@@ -846,7 +846,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
             }
 
 
-            return sasitebetuEntry;
+            return movelist;
         }
 #if DEBUG
         private static void Log1(

@@ -13,13 +13,13 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
 {
     public abstract class Conv_KomabetuMasus
     {
-        public static Dictionary<string, SasuEntry> ToSasitebetuSky1(
+        public static List<Move> ToSasitebetuSky1(
             Maps_OneAndOne<Finger, SySet<SyElement>> komabetuSusumuMasus,
             SkyConst src_Sky,
             KwErrorHandler errH
         )
         {
-            Dictionary<string, SasuEntry> result_komabetuEntry = new Dictionary<string, SasuEntry>();
+            List<Move> result_komabetuEntry = new List<Move>();
 
             komabetuSusumuMasus.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
             {
@@ -39,15 +39,10 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
                         false
                         );
 
-                    string sasiteStr = Conv_Move.ToSfen(move);//重複防止用のキー
-
-                    if (!result_komabetuEntry.ContainsKey(sasiteStr))
+                    if (!result_komabetuEntry.Contains(move))
                     {
                         result_komabetuEntry.Add(
-                            sasiteStr,
-                            new SasuEntry(
-                                move//成らない手
-                                )
+                            move//成らない手
                             );
                     }
                 }
@@ -57,10 +52,10 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
         }
 
 
-        public static Dictionary<string, SasuEntry> KomabetuMasus_ToSasitebetuSky(
+        public static List<Move> KomabetuMasus_ToSasitebetuSky(
             List_OneAndMulti<Finger, SySet<SyElement>> sMs, SkyConst src_Sky, KwErrorHandler errH)
         {
-            Dictionary<string, SasuEntry> sasitebetuEntry = new Dictionary<string, SasuEntry>();
+            List<Move> sasitebetuEntry = new List<Move>();
 
 
             sMs.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
@@ -82,13 +77,11 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
                         false
                         );
 
-                    string sasiteStr = Conv_Move.ToSfen(move);//重複防止用のキー
-                    SasuEntry sasuEntry = new SasuEntry(
-                        move//成らない手
-                        );
-                    if (!sasitebetuEntry.ContainsKey(sasiteStr))
+                    if (!sasitebetuEntry.Contains(move))
                     {
-                        sasitebetuEntry.Add(sasiteStr, sasuEntry);
+                        sasitebetuEntry.Add(
+                            move//成らない手
+                            );
                     }
                 }
             });

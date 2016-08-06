@@ -124,7 +124,6 @@
     <Compile Include="P339_ConvKyokume\L500____Converter\Conv_SfenSasiteTokens.cs" />
     <Compile Include="P341_Ittesasu___\L500____UtilA\Util_IttemodosuRoutine.cs" />
     <Compile Include="P353_Conv_SasuEx\L500____Converter\Conv_SasuEntry.cs" />
-    <Compile Include="P353_Conv_SasuEx\L500____Converter\SasuEntry.cs" />
     <Compile Include="P360_Conv_Sasu__\L500____Converter\Conv_KomabetuSusumeruMasus.cs" />
     <Compile Include="P360_Conv_Sasu__\L500____Converter\Conv_SasitebetuKyokumenwrappers361.cs" />
     <Compile Include="Form1.cs">

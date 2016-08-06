@@ -28,25 +28,23 @@ namespace Grayscale.P354_Util_SasuEx.L500____Util
         /// これが通称【水際のいんちきプログラム】なんだぜ☆
         /// 必要により、【成り】の指し手を追加するぜ☆
         /// </summary>
-        public static Dictionary<string, SasuEntry> CreateNariSasite(
+        public static List<Move> CreateNariSasite(
             SkyConst src_Sky,
-            Dictionary<string, SasuEntry> a_sasitebetuEntry,
+            List<Move> a_sasitebetuEntry,
             KwErrorHandler errH
             )
         {
             //----------------------------------------
             // 『進める駒』と、『移動先升』
             //----------------------------------------
-            Dictionary<string, SasuEntry> result_komabetuEntry = new Dictionary<string, SasuEntry>();
+            List<Move> result_komabetuEntry = new List<Move>();
 
             try
             {
                 Dictionary<string, Move> newSasiteList = new Dictionary<string, Move>();
 
-                foreach(KeyValuePair<string, SasuEntry> entry in a_sasitebetuEntry)
+                foreach(Move move1 in a_sasitebetuEntry)
                 {
-                    Move move1 = entry.Value.NewMove;
-
                     // ・移動元の駒
                     SyElement srcMasu = Conv_Move.ToSrcMasu(move1);
                     Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move1);
@@ -98,16 +96,14 @@ namespace Grayscale.P354_Util_SasuEx.L500____Util
 
                     try
                     {
-                        string sasiteStr = Conv_Move.ToSfen(newMove);
-
-                        if (!result_komabetuEntry.ContainsKey(sasiteStr))
+                        if (!result_komabetuEntry.Contains(newMove))
                         {
                             // 指し手が既存でない局面だけを追加します。
 
                             // 『進める駒』と、『移動先升』
-                            result_komabetuEntry.Add(sasiteStr, new SasuEntry(
+                            result_komabetuEntry.Add( 
                                 newMove//成りの手
-                                ));
+                                );
                         }
 
                     }
@@ -116,10 +112,10 @@ namespace Grayscale.P354_Util_SasuEx.L500____Util
                         // 既存の指し手
                         StringBuilder sb = new StringBuilder();
                         {
-                            foreach (KeyValuePair<string, SasuEntry> entry in a_sasitebetuEntry)
+                            foreach (Move entry in a_sasitebetuEntry)
                             {
                                 sb.Append("「");
-                                sb.Append(Conv_Move.ToSfen(entry.Value.NewMove));
+                                sb.Append(Conv_Move.ToSfen(entry));
                                 sb.Append("」");
                             }
                         }
