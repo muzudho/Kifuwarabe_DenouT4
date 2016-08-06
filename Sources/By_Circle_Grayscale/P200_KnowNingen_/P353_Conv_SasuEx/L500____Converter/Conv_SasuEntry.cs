@@ -5,6 +5,8 @@ using Grayscale.P324_KifuTree___.L___250_Struct;
 using Grayscale.P324_KifuTree___.L250____Struct;
 using Grayscale.P341_Ittesasu___.L510____OperationB;
 using Grayscale.P339_ConvKyokume.L500____Converter;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P258_UtilSky258_.L500____UtilSky;
 
 namespace Grayscale.P353_Conv_SasuEx.L500____Converter
 {
@@ -24,14 +26,17 @@ namespace Grayscale.P353_Conv_SasuEx.L500____Converter
             KwErrorHandler errH
             )
         {
+            // 指す前の駒を、盤上のマス目で指定
+            Finger figSasumaenoKoma = Util_Sky_FingersQuery.InMasuNow_Old(src_Sky, Conv_Move.ToSrcMasu(sasuEntry.NewMove)).ToFirst();
+
             return new KifuNodeImpl(
                 sasuEntry.NewMove,
                 new KyokumenWrapper(
                 Util_Sasu341.Sasu(
                     src_Sky,//指定局面
-                    sasuEntry.Finger,//指す駒
-                    sasuEntry.Masu,//移動先升
-                    sasuEntry.Naru,//成ります。
+                    figSasumaenoKoma,//指す駒
+                    Conv_Move.ToDstMasu(sasuEntry.NewMove),//移動先升
+                    Conv_Move.ToPromotion(sasuEntry.NewMove),//成るか。
                     errH
             )));
         }

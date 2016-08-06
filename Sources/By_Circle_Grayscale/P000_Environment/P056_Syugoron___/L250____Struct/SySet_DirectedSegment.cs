@@ -316,16 +316,5 @@ namespace Grayscale.P056_Syugoron___.L250____Struct
         }
 
         #endregion
-
-
-
-
-        //public bool BynaryOperate(SyElement operand1, SyElement operand2, DLGT_SyElement_BynaryOperate dlgt_SyElement_Operate)
-        //{
-        //    return dlgt_SyElement_Operate(operand1, operand2);
-        //}
-
     }
-
-
 }

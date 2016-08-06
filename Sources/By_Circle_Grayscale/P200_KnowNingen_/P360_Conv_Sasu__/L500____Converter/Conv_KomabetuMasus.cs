@@ -46,10 +46,7 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
                         result_komabetuEntry.Add(
                             sasiteStr,
                             new SasuEntry(
-                                move,
-                                key,//動かす駒
-                                dstMasu,//移動先升
-                                false//成りません
+                                move//成らない手
                                 )
                             );
                     }
@@ -87,10 +84,7 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
 
                     string sasiteStr = Conv_Move.ToSfen(move);//重複防止用のキー
                     SasuEntry sasuEntry = new SasuEntry(
-                        move,
-                        key,//動かす駒
-                        dstMasu,//移動先升
-                        false//成りません。
+                        move//成らない手
                         );
                     if (!sasitebetuEntry.ContainsKey(sasiteStr))
                     {

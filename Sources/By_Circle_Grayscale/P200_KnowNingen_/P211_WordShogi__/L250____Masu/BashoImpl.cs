@@ -29,12 +29,6 @@ namespace Grayscale.P211_WordShogi__.L250____Masu
             this.bitfield = bitfield;
         }
 
-        //public bool BynaryOperate(SyElement element2, DLGT_SyElement_BynaryOperate dlgt_SyElement_Operate)
-        //{
-        //    return dlgt_SyElement_Operate(this, element2);
-        //}
-
-
         public override int GetHashCode()
         {
             return this.MasuNumber;

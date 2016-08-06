@@ -71,7 +71,7 @@ namespace Grayscale.P354_Util_SasuEx.L500____Util
                             dstMasu,
                             srcKs,
                             Komasyurui14.H00_Null___,//取った駒不明
-                            true,//Util_Komasyurui14.ToNariCase(dstKs)//強制的に【成り】に駒の種類を変更
+                            true,//強制的に【成り】に駒の種類を変更
                             false,//成りなのでドロップは無いぜ☆（＾▽＾）
                             pside,
                             false                            
@@ -96,12 +96,6 @@ namespace Grayscale.P354_Util_SasuEx.L500____Util
                     // 指す前の駒
                     SyElement srcMasu = Conv_Move.ToSrcMasu(newMove);
 
-                    // 指した駒
-                    SyElement dstMasu = Conv_Move.ToDstMasu(newMove);
-
-                    // 指す前の駒を、盤上のマス目で指定
-                    Finger figSasumaenoKoma = Util_Sky_FingersQuery.InMasuNow_Old(src_Sky, srcMasu).ToFirst();
-
                     try
                     {
                         string sasiteStr = Conv_Move.ToSfen(newMove);
@@ -111,7 +105,9 @@ namespace Grayscale.P354_Util_SasuEx.L500____Util
                             // 指し手が既存でない局面だけを追加します。
 
                             // 『進める駒』と、『移動先升』
-                            result_komabetuEntry.Add(sasiteStr, new SasuEntry(newMove, figSasumaenoKoma, dstMasu, true));
+                            result_komabetuEntry.Add(sasiteStr, new SasuEntry(
+                                newMove//成りの手
+                                ));
                         }
 
                     }

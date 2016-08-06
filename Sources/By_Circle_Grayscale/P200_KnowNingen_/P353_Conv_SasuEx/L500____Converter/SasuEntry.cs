@@ -8,26 +8,11 @@ namespace Grayscale.P353_Conv_SasuEx.L500____Converter
     {
         public Move NewMove { get; set; }
 
-        public Finger Finger { get; set; }
-
-        public SyElement Masu { get; set; }
-
-        /// <summary>
-        /// 成るなら真。
-        /// </summary>
-        public bool Naru { get; set; }
-
         public SasuEntry(
-            Move newMove,
-            Finger finger,
-            SyElement masu,
-            bool naru
+            Move newMove
             )
         {
             this.NewMove = newMove;
-            this.Finger = finger;
-            this.Masu = masu;
-            this.Naru = naru;
         }
     }
 }

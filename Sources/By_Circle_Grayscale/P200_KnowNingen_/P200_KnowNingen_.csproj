@@ -97,7 +97,6 @@
     <Compile Include="P369_ConvCsa____\L500____Converter\Util_CsaSasite.cs" />
     <Compile Include="P222_Log_Kaisetu\L500____Util\Util_LogWriter022_Json.cs" />
     <Compile Include="P234_Komahaiyaku\L250____Word\Array_Komahaiyaku185.cs" />
-    <Compile Include="P242_UtilColleEx\L500____Util\Util_List_OneAndMultiEx.cs" />
     <Compile Include="P258_UtilSky258_\L250____UtilFingers\Util_Fingers_KomasyuruiQuery.cs" />
     <Compile Include="P258_UtilSky258_\L500____UtilSky\Util_Sky_FingerQuery.cs" />
     <Compile Include="P258_UtilSky258_\L500____UtilSky\Util_Sky_FingersQueryEx.cs" />
