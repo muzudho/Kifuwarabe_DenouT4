@@ -43,6 +43,7 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
                         srcStar.Komasyurui// srcStar.Haiyaku
                     );
 
+                    // 打かどうかは元位置（駒台）から判定してくれだぜ☆（＾▽＾）
                     Move move = Conv_Move.ToMove(
                         srcStar.Masu,
                         dstStar.Masu,

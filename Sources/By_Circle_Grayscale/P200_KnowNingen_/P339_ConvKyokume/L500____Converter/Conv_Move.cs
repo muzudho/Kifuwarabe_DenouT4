@@ -628,6 +628,7 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             bool errorCheck
             )
         {
+            Okiba srcOkiba = Conv_SyElement.ToOkiba(srcMasu);
             int srcSuji;
             Util_MasuNum.TryMasuToSuji(srcMasu,out srcSuji);
             int srcDan;
@@ -651,8 +652,12 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             }
 
             //*
-            if (drop)
-            {
+            if (drop || 
+                (Okiba.Sente_Komadai== srcOkiba
+                |
+                Okiba.Gote_Komadai== srcOkiba
+                )
+            ){
                 v |= 1 << (int)MoveShift.Drop;
             }
             //*/

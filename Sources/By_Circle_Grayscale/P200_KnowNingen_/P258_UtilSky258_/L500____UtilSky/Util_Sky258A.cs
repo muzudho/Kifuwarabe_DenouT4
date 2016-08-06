@@ -210,7 +210,9 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
                     ).ToFirst();
                 if ((int)figKoma<0)
                 {
-                    throw new ApplicationException("駒のハンドルが負数でしたが、間違いです(B)。figKoma="+ (int)figKoma+ " nextNode.Key="+Convert.ToString((int)nextNode.Key,2)+"\n Log="+Conv_Move.ToLog(nextNode.Key));
+                    throw new ApplicationException("駒のハンドルが負数でしたが、間違いです(B)。figKoma="+ (int)figKoma+
+                        " nextNode.Key="+Convert.ToString((int)nextNode.Key,2)+
+                        "\n Log="+Conv_Move.ToLog(nextNode.Key));
                 }
 
                 enable_moveMap.Put_NewOrOverwrite(

@@ -98,12 +98,6 @@ namespace Grayscale.P266_KyokumMoves.L500____Util
                     }
 #endif
 
-            //if (null != log_orNull)
-            //{
-            //    log_orNull.Log1(mmGenjo.Pside_genTeban3);
-            //}
-
-
             // 《１》 移動可能場所
             out_komaBETUSusumeruMasus = new List_OneAndMulti<Finger, SySet<SyElement>>();
             {
@@ -118,10 +112,6 @@ namespace Grayscale.P266_KyokumMoves.L500____Util
                 Playerside tebanKurau;  //手番（喰らう側）
                 {
                     Util_KyokumenMoves.SplitGroup_Teban(out tebanSeme, out tebanKurau, isAiteban, pside_genTeban3);
-                    //if (null != log_orNull)
-                    //{
-                    //    log_orNull.Log2(tebanSeme, tebanKurau);
-                    //}
                 }
 
 
