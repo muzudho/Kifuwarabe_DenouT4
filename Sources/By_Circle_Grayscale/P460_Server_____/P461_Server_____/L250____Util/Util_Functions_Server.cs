@@ -403,10 +403,10 @@ namespace Grayscale.P461_Server_____.L250____Util
         /// </summary>
         public static void Komamove1a_50Srv(
             out bool torareruKomaAri,
-            out RO_Star koma_Food_after,
-            Starlight dst,
+            out Busstop koma_Food_after,
+            DoubleBusstopable dst,
             Finger fig_btnTumandeiruKoma,
-            RO_Star foodee_koma,//取られる対象の駒
+            Busstop foodee_koma,//取られる対象の駒
             Model_Manual model_Manual,
             KwErrorHandler errH
             )
@@ -417,10 +417,10 @@ namespace Grayscale.P461_Server_____.L250____Util
 
 
             // 取られることになる駒のボタン
-            btnKoma_Food_Koma = Util_Sky_FingersQuery.InMasuNow_Old(model_Manual.GuiSkyConst, foodee_koma.Masu).ToFirst();
+            btnKoma_Food_Koma = Util_Sky_FingersQuery.InMasuNow_Old(model_Manual.GuiSkyConst, Conv_Busstop.ToMasu( foodee_koma)).ToFirst();
             if (Fingers.Error_1 == btnKoma_Food_Koma)
             {
-                koma_Food_after = null;
+                koma_Food_after = Busstop.Empty;
                 torareruKomaAri = false;
                 btnKoma_Food_Koma = Fingers.Error_1;
                 goto gt_EndBlock1;
@@ -435,12 +435,12 @@ namespace Grayscale.P461_Server_____.L250____Util
 
 
             model_Manual.GuiSkyConst.AssertFinger(btnKoma_Food_Koma);
-            Komasyurui14 koma_Food_pre_Syurui = Util_Starlightable.AsKoma(model_Manual.GuiSkyConst.StarlightIndexOf(btnKoma_Food_Koma).Now).Komasyurui;
+            Komasyurui14 koma_Food_pre_Syurui = Conv_Busstop.ToKomasyurui(model_Manual.GuiSkyConst.StarlightIndexOf(btnKoma_Food_Koma).Now);
 
 
             // その駒は、駒置き場に移動させます。
             SyElement akiMasu;
-            switch (foodee_koma.Pside)
+            switch (Conv_Busstop.ToPlayerside( foodee_koma))
             {
                 case Playerside.P2:
 
@@ -449,7 +449,7 @@ namespace Grayscale.P461_Server_____.L250____Util
                     {
                         // 駒台に空きスペースがありました。
                         //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-                        koma_Food_after = new RO_Star(
+                        koma_Food_after = Conv_Busstop.ToBusstop(
                             Playerside.P2,
                             akiMasu,//駒台へ
                             Util_Komasyurui14.NarazuCaseHandle(koma_Food_pre_Syurui)
@@ -460,7 +460,7 @@ namespace Grayscale.P461_Server_____.L250____Util
                         // エラー：　駒台に空きスペースがありませんでした。
                         //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-                        koma_Food_after = new RO_Star(
+                        koma_Food_after = Conv_Busstop.ToBusstop(
                             Playerside.P2,
                             Util_Masu10.OkibaSujiDanToMasu(
                                 Okiba.Gote_Komadai,
@@ -482,7 +482,7 @@ namespace Grayscale.P461_Server_____.L250____Util
                         // 駒台に空きスペースがありました。
                         //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-                        koma_Food_after = new RO_Star(
+                        koma_Food_after = Conv_Busstop.ToBusstop(
                             Playerside.P1,
                             akiMasu,//駒台へ
                             Util_Komasyurui14.NarazuCaseHandle(koma_Food_pre_Syurui)
@@ -493,7 +493,7 @@ namespace Grayscale.P461_Server_____.L250____Util
                         // エラー：　駒台に空きスペースがありませんでした。
                         //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-                        koma_Food_after = new RO_Star(
+                        koma_Food_after = Conv_Busstop.ToBusstop(
                             Playerside.P1,
                             Util_Masu10.OkibaSujiDanToMasu(
                                 Okiba.Sente_Komadai,
@@ -541,7 +541,7 @@ namespace Grayscale.P461_Server_____.L250____Util
                 // 取られる駒がなかった場合
                 //------------------------------
                 model_Manual.GuiSkyConst.AssertFinger(fig_btnTumandeiruKoma);
-                RO_Star movedKoma = Util_Starlightable.AsKoma(model_Manual.GuiSkyConst.StarlightIndexOf(fig_btnTumandeiruKoma).Now);
+                Busstop movedKoma = model_Manual.GuiSkyConst.StarlightIndexOf(fig_btnTumandeiruKoma).Now;
 
                 sky2 = SkyConst.NewInstance_OverwriteOrAdd_Light(
                         model_Manual.GuiSkyConst,
@@ -554,9 +554,9 @@ namespace Grayscale.P461_Server_____.L250____Util
                         //
                         // 手得計算
                         //
-                        movedKoma.Komasyurui,
+                        Conv_Busstop.ToKomasyurui( movedKoma),
                         0,
-                        movedKoma.Masu
+                        Conv_Busstop.ToMasu( movedKoma)
                     );
             }
 

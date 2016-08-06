@@ -231,19 +231,19 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
                     Finger srcKoma = Util_Sky_FingerQuery.InOkibaSyuruiNow_IgnoreCase(siteiNode.Value.KyokumenConst, srcOkiba, srcSyurui, errH);
 
                     src_Sky.AssertFinger(srcKoma);
-                    RO_Star dstKoma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(srcKoma).Now);
+                    Busstop dstKoma = src_Sky.StarlightIndexOf(srcKoma).Now;
 
-                    srcMasu = dstKoma.Masu;
+                    srcMasu = Conv_Busstop.ToMasu( dstKoma);
                 }
                 else
                 {
                     //>>>>> 盤上の駒を指した場合
 
                     src_Sky.AssertFinger(koma);
-                    RO_Star dstKoma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(koma).Now);
+                    Busstop dstKoma = src_Sky.StarlightIndexOf(koma).Now;
 
 
-                    dstSyurui = Util_Komahaiyaku184.Syurui(dstKoma.Haiyaku);
+                    dstSyurui = Conv_Busstop.ToKomasyurui(dstKoma);
                     srcSyurui = dstSyurui; //駒は「元・種類」を記憶していませんので、「現・種類」を指定します。
                     srcOkiba = Okiba.ShogiBan;
                     srcMasu = Util_Masu10.OkibaSujiDanToMasu(srcOkiba, srcSuji, srcDan);

@@ -121,7 +121,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
                 foreach (Finger figKoma in komaGroup.Items)
                 {
                     src_Sky.AssertFinger(figKoma);
-                    Busstop busstop = Conv_Busstop.ToBusstop( Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now));
+                    Busstop busstop = src_Sky.StarlightIndexOf(figKoma).Now;
 
                     if (
                             pside1 == Conv_Busstop.ToPlayerside(busstop) // 誰のものか
@@ -188,15 +188,9 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         /// 先手
         /// </summary>
         /// <returns></returns>
-        public static bool IsSente(Starlight ms)
+        public static bool IsSente(DoubleBusstopable ms)
         {
-            bool result;
-
-            RO_Star koma = Util_Starlightable.AsKoma(ms.Now);
-
-            result = Playerside.P1 == koma.Pside;
-
-            return result;
+            return Playerside.P1 == Conv_Busstop.ToPlayerside(ms.Now);
         }
 
         /// <summary>
@@ -211,15 +205,9 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         /// 後手
         /// </summary>
         /// <returns></returns>
-        public static bool IsGote(Starlight ms)
+        public static bool IsGote(DoubleBusstopable ms)
         {
-            bool result;
-
-            RO_Star koma = Util_Starlightable.AsKoma(ms.Now);
-
-            result = Playerside.P2 == koma.Pside;
-
-            return result;
+            return Playerside.P2 == Conv_Busstop.ToPlayerside(ms.Now);
         }
 
         /// <summary>

@@ -33,25 +33,25 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
             {
                 // 動かす星。
                 src_Sky.AssertFinger(figKoma);
-                RO_Star srcStar = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
+                Busstop srcStar = src_Sky.StarlightIndexOf(figKoma).Now;
 
                 foreach (SyElement susumuMasu in susumuMasuSet.Elements)// 星が進める升。
                 {
                     // 移動先の星（升の変更）
                     RO_Star dstStar = new RO_Star(
-                        srcStar.Pside,
+                        Conv_Busstop.ToPlayerside( srcStar),
                         susumuMasu,
-                        srcStar.Komasyurui
+                        Conv_Busstop.ToKomasyurui( srcStar)
                     );
 
                     // 打かどうかは元位置（駒台）から判定してくれだぜ☆（＾▽＾）
                     Move move = Conv_Move.ToMove(
-                        srcStar.Masu,
+                        Conv_Busstop.ToMasu( srcStar),
                         dstStar.Masu,
-                        srcStar.Komasyurui,
+                        Conv_Busstop.ToKomasyurui( srcStar),
                         dstStar.Komasyurui,//これで成りかどうか判定
                         Komasyurui14.H00_Null___,//取った駒不明
-                        srcStar.Pside,
+                        Conv_Busstop.ToPlayerside( srcStar),
                         false
                         );
                     result_komabetuAllMoves.Put_NewOrOverwrite(figKoma, move);//FIXME: １つの駒に指し手は１つ？？
@@ -63,7 +63,7 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
                     // 必要により、【成り】の指し手を追加します。
                     // FIXME: ここ以外で、成りの指し手を追加している☆？（＾～＾）？
 
-                    Okiba srcOkiba = Conv_SyElement.ToOkiba(srcStar.Masu);//Moveは置き場情報を欠損している。
+                    Okiba srcOkiba = Conv_Busstop.ToOkiba(srcStar);//Moveは置き場情報を欠損している。
                     if (Okiba.ShogiBan == srcOkiba)
                     //if(Conv_Move.ToDrop(move))
                     {

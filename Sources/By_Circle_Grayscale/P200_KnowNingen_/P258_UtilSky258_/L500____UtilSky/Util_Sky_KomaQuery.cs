@@ -5,6 +5,8 @@ using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P238_Seiza______.L250____Struct;
 using Grayscale.P238_Seiza______.L500____Util;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 {
@@ -18,9 +20,9 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
         /// <returns>スプライト番号。なければエラー番号。</returns>
-        public static RO_Star InMasuNow(SkyConst src_Sky, SyElement masu)
+        public static Busstop InMasuNow(SkyConst src_Sky, SyElement masu)
         {
-            RO_Star koma = null;
+            Busstop koma = Busstop.Empty;
 
             Finger fig = Util_Sky_FingersQuery.InMasuNow_Old(src_Sky, masu).ToFirst();
 
@@ -44,9 +46,9 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
         /// <returns>スプライト番号。なければエラー番号。</returns>
-        public static RO_Star InMasuPsideNow(SkyConst src_Sky, SyElement masu, Playerside pside)
+        public static Busstop InMasuPsideNow(SkyConst src_Sky, SyElement masu, Playerside pside)
         {
-            RO_Star koma = null;
+            Busstop koma = Busstop.Empty;
 
             Finger fig = Util_Sky_FingersQuery.InMasuNow_Old(src_Sky, masu).ToFirst();
 
@@ -57,10 +59,10 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             }
 
             koma = Util_Koma.FromFinger(src_Sky, fig);
-            if (koma.Pside != pside)
+            if (Conv_Busstop.ToPlayerside( koma) != pside)
             {
                 // サイドが異なる
-                koma = null;
+                koma = Busstop.Empty;
                 goto gt_EndMethod;
             }
 
@@ -76,9 +78,9 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
         /// <returns>スプライト番号。なければエラー番号。</returns>
-        public static RO_Star InMasuPsideKomasyuruiNow(SkyConst src_Sky, SyElement masu, Playerside pside, Komasyurui14 syurui)
+        public static Busstop InMasuPsideKomasyuruiNow(SkyConst src_Sky, SyElement masu, Playerside pside, Komasyurui14 syurui)
         {
-            RO_Star koma = null;
+            Busstop koma = Busstop.Empty;
 
             Finger fig = Util_Sky_FingersQuery.InMasuNow_Old(src_Sky, masu).ToFirst();
 
@@ -89,10 +91,10 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             }
 
             koma = Util_Koma.FromFinger(src_Sky, fig);
-            if (koma.Pside != pside || koma.Komasyurui != syurui)
+            if (Conv_Busstop.ToPlayerside( koma) != pside || Conv_Busstop.ToKomasyurui( koma) != syurui)
             {
                 // サイド または駒の種類が異なる
-                koma = null;
+                koma = Busstop.Empty;
                 goto gt_EndMethod;
             }
 

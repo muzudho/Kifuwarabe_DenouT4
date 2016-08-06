@@ -44,9 +44,9 @@ namespace Grayscale.P258_UtilSky258_.L510____UtilLogJson
             {
                 // 駒１つ
                 src_Sky_base.AssertFinger(key);
-                RO_Star koma = Util_Starlightable.AsKoma(src_Sky_base.StarlightIndexOf(key).Now);
+                Busstop koma = src_Sky_base.StarlightIndexOf(key).Now;
 
-                Komasyurui14 ks14 = Util_Komahaiyaku184.Syurui(koma.Haiyaku);
+                Komasyurui14 ks14 = Conv_Busstop.ToKomasyurui(koma);
 
                 sb.AppendLine("            [");
 
@@ -61,7 +61,7 @@ namespace Grayscale.P258_UtilSky258_.L510____UtilLogJson
 
 
                 string komaImg = Util_Converter_LogGraphicEx.Finger_ToString(src_Sky_base, key, "");
-                sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_SyElement.ToMasuNumber(koma.Masu) + " },");//FIXME:おかしい？
+                sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( koma)) + " },");//FIXME:おかしい？
 
                 // コメント
                 sb.AppendLine("                { act:\"drawText\", text:\"" + comment + "\"  , x:0, y:20 },");
@@ -195,11 +195,11 @@ namespace Grayscale.P258_UtilSky258_.L510____UtilLogJson
             foreach (int hKoma in hKomas)
             {
                 src_Sky.AssertFinger(hKoma);
-                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(hKoma).Now);
+                Busstop koma = src_Sky.StarlightIndexOf(hKoma).Now;
 
 
                 string komaImg = Util_Converter_LogGraphicEx.Finger_ToString(src_Sky, hKoma, "");
-                sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_SyElement.ToMasuNumber(koma.Masu) + " },");//FIXME:おかしい？
+                sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( koma)) + " },");//FIXME:おかしい？
             }
 
 

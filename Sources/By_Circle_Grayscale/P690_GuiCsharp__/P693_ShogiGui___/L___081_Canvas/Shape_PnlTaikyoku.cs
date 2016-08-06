@@ -2,6 +2,7 @@
 using Grayscale.P238_Seiza______.L250____Struct;
 using Grayscale.P693_ShogiGui___.L___080_Shape;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P693_ShogiGui___.L___081_Canvas
 {
@@ -25,7 +26,7 @@ namespace Grayscale.P693_ShogiGui___.L___081_Canvas
         /// <summary>
         /// 「取った駒_巻戻し用」
         /// </summary>
-        RO_Star MousePos_FoodKoma { get; set; }
+        Busstop MousePos_FoodKoma { get; set; }
 
         /// <summary>
         /// ------------------------------------------------------------------------------------------------------------------------
@@ -35,7 +36,7 @@ namespace Grayscale.P693_ShogiGui___.L___081_Canvas
         /// 棋譜[再生]中は使いません。
         /// 
         /// </summary>
-        Starlight MouseStarlightOrNull2 { get; }
+        DoubleBusstopable MouseStarlightOrNull2 { get; }
 
 
         /// <summary>
@@ -83,7 +84,7 @@ namespace Grayscale.P693_ShogiGui___.L___081_Canvas
 
         void SetHMovedKoma(Finger value);
 
-        void SetMouseStarlightOrNull2(Starlight mouseDd);
+        void SetMouseStarlightOrNull2(DoubleBusstopable mouseDd);
 
         void SetNaruMasu(Shape_BtnMasu naruMasu);
 

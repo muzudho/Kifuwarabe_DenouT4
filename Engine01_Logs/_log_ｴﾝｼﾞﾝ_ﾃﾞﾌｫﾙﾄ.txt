@@ -1,0 +1,14 @@
+2016/08/06 18:36:30  > noop from server
+2016/08/06 18:36:34  > noop from server
+2016/08/06 18:36:38  > noop from server
+2016/08/06 18:36:42  > noop from server
+2016/08/06 18:36:45  > noop from server
+2016/08/06 18:36:49  > noop from server
+2016/08/06 18:36:53  > noop from server
+2016/08/06 18:36:57  > noop from server
+2016/08/06 18:37:01  > noop from server
+2016/08/06 18:37:04  > position startpos moves 2g2f 
+2016/08/06 18:37:04  > go
+Error:   NullReferenceException オブジェクト参照がオブジェクト インスタンスに設定されていません。：棋譜ツリーの読みループの作成次ノードの前半３０です。
+Error:   NullReferenceException オブジェクト参照がオブジェクト インスタンスに設定されていません。：棋譜ツリーの読みの中盤５０です。：
+Error:   NullReferenceException オブジェクト参照がオブジェクト インスタンスに設定されていません。：棋譜ツリーを作っていたときです。

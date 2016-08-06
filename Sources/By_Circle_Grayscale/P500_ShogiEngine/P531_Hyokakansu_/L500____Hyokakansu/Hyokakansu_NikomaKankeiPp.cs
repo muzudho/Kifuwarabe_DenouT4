@@ -12,6 +12,8 @@ using Grayscale.P531_Hyokakansu_.L499____UtilFv;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using System;
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 
 #if DEBUG || LEARN
@@ -77,9 +79,9 @@ namespace Grayscale.P531_Hyokakansu_.L500____Hyokakansu
             for (int i=0; i < Finger_Honshogi.Items_KomaOnly.Length; i++)// 全駒
             {
                 src_Sky.AssertFinger(Finger_Honshogi.Items_KomaOnly[i]);
-                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(Finger_Honshogi.Items_KomaOnly[i]).Now);
+                Busstop koma = src_Sky.StarlightIndexOf(Finger_Honshogi.Items_KomaOnly[i]).Now;
 
-                if (Okiba.ShogiBan == Conv_SyElement.ToOkiba(koma.Masu))
+                if (Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma))
                 {
                     // 盤上
                     komokuArray_unsorted[nextIndex] = Util_FvParamIndex.ParamIndex_Banjo(koma);

@@ -11,6 +11,8 @@ using Grayscale.P238_Seiza______.L250____Struct;
 using Grayscale.P238_Seiza______.L500____Util;
 using Grayscale.P256_SeizaFinger.L250____Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 {
@@ -39,21 +41,21 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
                 src_Sky.AssertFinger(finger);
-                Starlight sl = src_Sky.StarlightIndexOf(finger);
+                DoubleBusstopable sl = src_Sky.StarlightIndexOf(finger);
 
-                RO_Star koma = Util_Starlightable.AsKoma(sl.Now);
+                Busstop koma = sl.Now;
 
                 int suji1;
                 int suji2;
                 int dan1;
                 int dan2;
-                Util_MasuNum.TryMasuToSuji(koma.Masu, out suji1);
+                Util_MasuNum.TryMasuToSuji(Conv_Busstop.ToMasu( koma), out suji1);
                 Util_MasuNum.TryMasuToSuji(masu, out suji2);
-                Util_MasuNum.TryMasuToDan(koma.Masu, out dan1);
+                Util_MasuNum.TryMasuToDan(Conv_Busstop.ToMasu(koma), out dan1);
                 Util_MasuNum.TryMasuToDan(masu, out dan2);
 
                 if (
-                    koma.Pside == pside
+                    Conv_Busstop.ToPlayerside(koma) == pside
                     && suji1 == suji2
                     && dan1 == dan2
                     )
@@ -86,10 +88,10 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
                 src_Sky.AssertFinger(finger);
-                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
+                Busstop koma = src_Sky.StarlightIndexOf(finger).Now;
 
-                if (Conv_SyElement.ToOkiba(koma.Masu) == okiba
-                    && Util_Komasyurui14.Matches(koma.ToNarazuCase(), syuruiNarazuCase))
+                if (Conv_Busstop.ToOkiba(koma) == okiba
+                    && Util_Komasyurui14.Matches(Util_Komasyurui14.NarazuCaseHandle(Conv_Busstop.ToKomasyurui(koma)), syuruiNarazuCase))
                 {
                     found = finger;
                     break;
@@ -119,23 +121,23 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
                 src_Sky.AssertFinger(finger);
-                Starlight sl = src_Sky.StarlightIndexOf(finger);
+                DoubleBusstopable sl = src_Sky.StarlightIndexOf(finger);
 
-                RO_Star koma = Util_Starlightable.AsKoma(sl.Now);
+                Busstop koma = sl.Now;
 
                 int suji1;
                 int suji2;
                 int dan1;
                 int dan2;
-                Util_MasuNum.TryMasuToSuji(koma.Masu, out suji1);
+                Util_MasuNum.TryMasuToSuji(Conv_Busstop.ToMasu(koma), out suji1);
                 Util_MasuNum.TryMasuToSuji(masu, out suji2);
-                Util_MasuNum.TryMasuToDan(koma.Masu, out dan1);
+                Util_MasuNum.TryMasuToDan(Conv_Busstop.ToMasu(koma), out dan1);
                 Util_MasuNum.TryMasuToDan(masu, out dan2);
 
                 // 先後は見ますが、将棋盤限定です。
                 if (
-                    koma.Pside == pside
-                    && Conv_SyElement.ToOkiba(koma.Masu) == Okiba.ShogiBan
+                    Conv_Busstop.ToPlayerside( koma) == pside
+                    && Conv_Busstop.ToOkiba(koma) == Okiba.ShogiBan
                     && suji1 == suji2
                     && dan1 == dan2
                     )

@@ -1,4 +1,6 @@
-﻿namespace Grayscale.P218_Starlight__.L___500_Struct
+﻿using Grayscale.P219_Move_______.L___500_Struct;
+
+namespace Grayscale.P218_Starlight__.L___500_Struct
 {
 
     /// <summary>
@@ -6,13 +8,13 @@
     /// 
     /// 通常、今の星の位置を示していますが、拡張バージョンでは、前の星の位置も示すようになります。
     /// </summary>
-    public interface Starlight
+    public interface DoubleBusstopable
     {
         /// <summary>
         /// ------------------------------------------------------------------------------------------------------------------------
         /// 先後、升、配役
         /// ------------------------------------------------------------------------------------------------------------------------
         /// </summary>
-        Starlightable Now { get; }
+        Busstop Now { get; }
     }
 }

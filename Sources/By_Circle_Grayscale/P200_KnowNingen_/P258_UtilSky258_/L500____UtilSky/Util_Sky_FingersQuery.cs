@@ -38,12 +38,12 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         {
             Fingers fingers = new Fingers();
 
-            src_Sky.Foreach_Starlights((Finger finger, Starlight dd, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable dd, ref bool toBreak) =>
             {
-                RO_Star koma = Util_Starlightable.AsKoma(dd.Now);
+                Busstop koma = dd.Now;
 
-                if (Conv_SyElement.ToOkiba(koma.Masu) == okiba
-                    && pside == koma.Pside
+                if (Conv_Busstop.ToOkiba(koma) == okiba
+                    && Conv_Busstop.ToPlayerside(koma)== pside
                     )
                 {
                     fingers.Add(finger);
@@ -71,10 +71,10 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)
             {
                 src_Sky.AssertFinger(figKoma);
-                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
+                Busstop koma = src_Sky.StarlightIndexOf(figKoma).Now;
 
 
-                if (Util_Komasyurui14.Matches(syurui, Util_Komahaiyaku184.Syurui(koma.Haiyaku)))
+                if (Util_Komasyurui14.Matches(syurui, Conv_Busstop.ToKomasyurui(koma)))
                 {
                     figKomas.Add(figKoma);
                 }
@@ -99,12 +99,12 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)
             {
                 src_Sky.AssertFinger(figKoma);
-                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
+                Busstop koma = src_Sky.StarlightIndexOf(figKoma).Now;
 
 
                 if (
-                    okiba == Conv_SyElement.ToOkiba(koma.Masu)
-                    && Util_Komasyurui14.Matches(syurui, koma.Komasyurui)// Util_Komahaiyaku184.Syurui(koma.Haiyaku)
+                    okiba == Conv_Busstop.ToOkiba(koma)
+                    && Util_Komasyurui14.Matches(syurui, Conv_Busstop.ToKomasyurui( koma))
                     )
                 {
                     komas.Add(figKoma);
@@ -128,14 +128,14 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         {
             Fingers fingers = new Fingers();
 
-            src_Sky.Foreach_Starlights((Finger finger, Starlight light, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable light, ref bool toBreak) =>
             {
-                RO_Star koma = Util_Starlightable.AsKoma(light.Now);
+                Busstop koma = light.Now;
 
                 if (
-                    okiba == Conv_SyElement.ToOkiba(koma.Masu)
-                    && pside == koma.Pside
-                    && komaSyurui == koma.Komasyurui
+                    okiba == Conv_Busstop.ToOkiba(koma)
+                    && pside == Conv_Busstop.ToPlayerside( koma)
+                    && komaSyurui == Conv_Busstop.ToKomasyurui( koma)
                     )
                 {
                     fingers.Add(finger);
@@ -162,9 +162,9 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
-                RO_Star koma = Util_Koma.FromFinger(src_Sky, finger);
+                Busstop koma = Util_Koma.FromFinger(src_Sky, finger);
 
-                if (Masu_Honshogi.Basho_Equals(koma.Masu, masu))
+                if (Masu_Honshogi.Basho_Equals(Conv_Busstop.ToMasu( koma), masu))
                 {
                     found.Add(finger);
                 }
@@ -200,9 +200,9 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
                 {
                     foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
                     {
-                        RO_Star koma = Util_Koma.FromFinger(src_Sky, finger);
+                        Busstop koma = Util_Koma.FromFinger(src_Sky, finger);
 
-                        if (Okiba.Sente_Komadai == Conv_SyElement.ToOkiba(koma.Masu))
+                        if (Okiba.Sente_Komadai == Conv_SyElement.ToOkiba(Conv_Busstop.ToMasu( koma)))
                         {
                             found.Add(finger);
                         }
@@ -212,9 +212,9 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
                 {
                     foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
                     {
-                        RO_Star koma = Util_Koma.FromFinger(src_Sky, finger);
+                        Busstop koma = Util_Koma.FromFinger(src_Sky, finger);
 
-                        if (Okiba.Gote_Komadai == Conv_SyElement.ToOkiba(koma.Masu))
+                        if (Okiba.Gote_Komadai == Conv_SyElement.ToOkiba(Conv_Busstop.ToMasu( koma)))
                         {
                             found.Add(finger);
                         }
@@ -227,9 +227,9 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             {
                 foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
                 {
-                    RO_Star koma = Util_Koma.FromFinger(src_Sky, finger);
+                    Busstop koma = Util_Koma.FromFinger(src_Sky, finger);
 
-                    if (Masu_Honshogi.Basho_Equals(koma.Masu, srcMasu))
+                    if (Masu_Honshogi.Basho_Equals(Conv_Busstop.ToMasu( koma), srcMasu))
                     {
                         found.Add(finger);
                     }
@@ -258,15 +258,15 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
                 src_Sky.AssertFinger(finger);
-                RO_Star koma2 = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
+                Busstop koma2 = src_Sky.StarlightIndexOf(finger).Now;
 
                 int suji2;
-                Util_MasuNum.TryMasuToSuji(koma2.Masu, out suji2);
+                Util_MasuNum.TryMasuToSuji(Conv_Busstop.ToMasu( koma2), out suji2);
 
                 if (
-                    Conv_SyElement.ToOkiba(koma2.Masu)==okiba
-                    && koma2.Pside == pside
-                    && koma2.Komasyurui == ks
+                    Conv_Busstop.ToOkiba(koma2)==okiba
+                    && Conv_Busstop.ToPlayerside( koma2) == pside
+                    && Conv_Busstop.ToKomasyurui( koma2) == ks
                     && suji2 == suji
                     )
                 {
@@ -292,10 +292,9 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)
             {
                 src_Sky.AssertFinger(figKoma);
-                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
+                Busstop koma = src_Sky.StarlightIndexOf(figKoma).Now;
 
-
-                if (okiba == Conv_SyElement.ToOkiba(koma.Masu))
+                if (okiba == Conv_Busstop.ToOkiba(koma))
                 {
                     komas.Add(figKoma);
                 }
@@ -316,16 +315,14 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         {
             Fingers fingers = new Fingers();
 
-            src_Sky.Foreach_Starlights((Finger finger, Starlight ds, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable ds, ref bool toBreak) =>
             {
+                Busstop koma = ds.Now;
 
-                RO_Star koma = Util_Starlightable.AsKoma(ds.Now);
-
-                if (pside == koma.Pside)
+                if (pside == Conv_Busstop.ToPlayerside( koma))
                 {
                     fingers.Add(finger);
                 }
-
             });
 
             return fingers;

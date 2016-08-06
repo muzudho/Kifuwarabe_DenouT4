@@ -218,7 +218,9 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
 
                 this.Kifu_AtLoop2.CurNode.Value.KyokumenConst.AssertFinger((Finger)0);
                 Debug.Assert(!Conv_MasuHandle.OnKomabukuro(
-                    Conv_SyElement.ToMasuNumber(((RO_Star)this.Kifu_AtLoop2.CurNode.Value.KyokumenConst.StarlightIndexOf((Finger)0).Now).Masu)
+                    Conv_SyElement.ToMasuNumber(
+                        Conv_Busstop.ToMasu(this.Kifu_AtLoop2.CurNode.Value.KyokumenConst.StarlightIndexOf((Finger)0).Now)
+                        )
                     ), "駒が駒袋にあった。");
             }
 
@@ -907,20 +909,20 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
                     result_kingState = Result_KingState.Empty;
 
                     src_Sky.AssertFinger(Finger_Honshogi.SenteOh);
-                    RO_Star king1p = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(Finger_Honshogi.SenteOh).Now);
+                    Busstop king1p = src_Sky.StarlightIndexOf(Finger_Honshogi.SenteOh).Now;
 
                     src_Sky.AssertFinger(Finger_Honshogi.GoteOh);
-                    RO_Star king2p = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(Finger_Honshogi.GoteOh).Now);
+                    Busstop king2p = src_Sky.StarlightIndexOf(Finger_Honshogi.GoteOh).Now;
                     //OwataMinister.WARABE_ENGINE.Logger.WriteLine_AddMemo("将棋サーバー「ではここで、王さまがどこにいるか確認してみましょう」");
                     //OwataMinister.WARABE_ENGINE.Logger.WriteLine_AddMemo("▲王の置き場＝" + Conv_SyElement.Masu_ToOkiba(koma1.Masu));
                     //OwataMinister.WARABE_ENGINE.Logger.WriteLine_AddMemo("△王の置き場＝" + Conv_SyElement.Masu_ToOkiba(koma2.Masu));
 
-                    if (Conv_SyElement.ToOkiba(king1p.Masu) != Okiba.ShogiBan)
+                    if (Conv_Busstop.ToOkiba(king1p) != Okiba.ShogiBan)
                     {
                         // 先手の王さまが将棋盤上にいないとき☆
                         result_kingState = Result_KingState.Lost_SenteOh;
                     }
-                    else if (Conv_SyElement.ToOkiba(king2p.Masu) != Okiba.ShogiBan)
+                    else if (Conv_Busstop.ToOkiba(king2p) != Okiba.ShogiBan)
                     {
                         // または、後手の王さまが将棋盤上にいないとき☆
                         result_kingState = Result_KingState.Lost_GoteOh;

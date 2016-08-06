@@ -245,17 +245,17 @@ namespace Grayscale.P362_LegalMove__.L500____Util
                 // 現手番は、後手
 
                 src_Sky.AssertFinger(Finger_Honshogi.GoteOh);
-                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(Finger_Honshogi.GoteOh).Now);
+                Busstop koma = src_Sky.StarlightIndexOf(Finger_Honshogi.GoteOh).Now;
 
-                    genTeban_kingMasuNumber = Conv_SyElement.ToMasuNumber(koma.Masu);
+                    genTeban_kingMasuNumber = Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( koma));
             }
             else
             {
                 // 現手番は、先手
                 src_Sky.AssertFinger(Finger_Honshogi.SenteOh);
-                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(Finger_Honshogi.SenteOh).Now);
+                Busstop koma = src_Sky.StarlightIndexOf(Finger_Honshogi.SenteOh).Now;
 
-                    genTeban_kingMasuNumber = Conv_SyElement.ToMasuNumber(koma.Masu);
+                    genTeban_kingMasuNumber = Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu(koma));
             }
 
 

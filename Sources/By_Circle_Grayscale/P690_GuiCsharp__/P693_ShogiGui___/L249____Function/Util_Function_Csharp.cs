@@ -148,7 +148,7 @@ namespace Grayscale.P693_ShogiGui___.L249____Function
 
         public static void Komamove1a_49Gui(
             out Komasyurui14 toSyurui,
-            out Starlight dst,
+            out DoubleBusstopable dst,
             Shape_BtnKoma btnKoma_Selected,
             Shape_BtnMasu btnMasu,
             MainGui_Csharp mainGui
@@ -159,13 +159,13 @@ namespace Grayscale.P693_ShogiGui___.L249____Function
             {
                 // 成ります
 
-                toSyurui = Util_Komasyurui14.NariCaseHandle[(int)Util_Komahaiyaku184.Syurui(Util_Starlightable.AsKoma(mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now).Haiyaku)];
+                toSyurui = Util_Komasyurui14.NariCaseHandle[(int)Conv_Busstop.ToKomasyurui(mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now)];
                 mainGui.SetNaruFlag(false);
             }
             else
             {
                 // そのまま
-                toSyurui = Util_Komahaiyaku184.Syurui(Util_Starlightable.AsKoma(mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now).Haiyaku);
+                toSyurui = Conv_Busstop.ToKomasyurui(mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now);
             }
 
 
@@ -173,8 +173,8 @@ namespace Grayscale.P693_ShogiGui___.L249____Function
             {
                 mainGui.Model_Manual.GuiSkyConst.AssertFinger(btnKoma_Selected.Finger);
                 dst = new RO_Starlight(
-                    new RO_Star(
-                        Util_Starlightable.AsKoma(mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(btnKoma_Selected.Finger).Now).Pside,
+                    Conv_Busstop.ToBusstop(
+                        Conv_Busstop.ToPlayerside(mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(btnKoma_Selected.Finger).Now),
                         btnMasu.Zahyo,
                         toSyurui
                         )
@@ -185,7 +185,7 @@ namespace Grayscale.P693_ShogiGui___.L249____Function
             //------------------------------------------------------------
             // 「取った駒種類_巻戻し用」をクリアーします。
             //------------------------------------------------------------
-            mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma = null;
+            mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma = Busstop.Empty;
 
         }
 
@@ -196,7 +196,7 @@ namespace Grayscale.P693_ShogiGui___.L249____Function
         /// <param name="shogiGui"></param>
         public static void Komamove1a_51Gui(
             bool torareruKomaAri,
-            RO_Star koma_Food_after,
+            Busstop koma_Food_after,
             MainGui_Csharp shogiGui
         )
         {
@@ -225,7 +225,7 @@ namespace Grayscale.P693_ShogiGui___.L249____Function
             )
         {
             mainGui.Model_Manual.GuiSkyConst.AssertFinger(figKoma);
-            RO_Star koma = Util_Starlightable.AsKoma(mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(figKoma).Now);
+            Busstop koma = mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(figKoma).Now;
 
             Shape_BtnKoma btnKoma = Conv_Koma_InGui.FingerToKomaBtn(figKoma, mainGui);
 
@@ -235,10 +235,10 @@ namespace Grayscale.P693_ShogiGui___.L249____Function
 
             int suji;
             int dan;
-            Util_MasuNum.TryMasuToSuji(koma.Masu, out suji);
-            Util_MasuNum.TryMasuToDan(koma.Masu, out dan);
+            Util_MasuNum.TryMasuToSuji(Conv_Busstop.ToMasu( koma), out suji);
+            Util_MasuNum.TryMasuToDan(Conv_Busstop.ToMasu(koma), out dan);
 
-            switch (Conv_SyElement.ToOkiba(koma.Masu))
+            switch (Conv_Busstop.ToOkiba(koma))
             {
                 case Okiba.ShogiBan:
                     btnKoma.SetBounds(new Rectangle(

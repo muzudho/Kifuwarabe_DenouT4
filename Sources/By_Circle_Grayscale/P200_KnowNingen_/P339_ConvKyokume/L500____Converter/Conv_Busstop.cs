@@ -86,6 +86,7 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
             return (Busstop)v;
         }
 
+        /*
         public static RO_Star ToStar(Busstop busstop)
         {
             Playerside pside = Conv_Busstop.ToPlayerside(busstop);
@@ -94,8 +95,9 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
 
             Komasyurui14 syurui = Conv_Busstop.ToKomasyurui(busstop);
 
-            return new RO_Star(pside, masu, syurui);
+            return Conv_Busstop.ToBusstop(pside, masu, syurui);
         }
+        */
 
         public static Okiba ToOkiba(Busstop busstop)
         {

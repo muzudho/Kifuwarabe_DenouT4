@@ -30,6 +30,8 @@ using System;
 using System.Text;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P699_Form_______
 {
@@ -369,7 +371,7 @@ namespace Grayscale.P699_Form_______
             //------------------------------------------------------------
             if (mainGui.RepaintRequest.Is_StarlightsRecalculateRequested())
             {
-                this.MainGui.Model_Manual.GuiSkyConst.Foreach_Starlights((Finger finger, Starlight light, ref bool toBreak) =>
+                this.MainGui.Model_Manual.GuiSkyConst.Foreach_Starlights((Finger finger, DoubleBusstopable light, ref bool toBreak) =>
                 {
                     Util_Function_Csharp.Redraw_KomaLocation(finger, this.MainGui, errH);
                 });
@@ -507,14 +509,13 @@ namespace Grayscale.P699_Form_______
 
             SkyConst siteiSky = mainGui.Model_Manual.GuiSkyConst;
 
-            siteiSky.Foreach_Starlights((Finger finger, Starlight ml, ref bool toBreak) =>
+            siteiSky.Foreach_Starlights((Finger finger, DoubleBusstopable ml, ref bool toBreak) =>
             {
-                RO_Star koma = Util_Starlightable.AsKoma(ml.Now);
+                Busstop koma = ml.Now;
 
-
-                if (Conv_SyElement.ToOkiba(koma.Masu) == Okiba.Gote_Komadai)
+                if (Conv_Busstop.ToOkiba(koma) == Okiba.Gote_Komadai)
                 {
-                    sb.Append(Util_Komasyurui14.Fugo[(int)Util_Komahaiyaku184.Syurui(koma.Haiyaku)]);
+                    sb.Append(Util_Komasyurui14.Fugo[(int)Conv_Busstop.ToKomasyurui(koma)]);
                 }
             });
 
@@ -531,34 +532,34 @@ namespace Grayscale.P699_Form_______
                 {
                     bool isSpace = true;
 
-                    siteiSky.Foreach_Starlights((Finger finger, Starlight ml, ref bool toBreak) =>
+                    siteiSky.Foreach_Starlights((Finger finger, DoubleBusstopable ml, ref bool toBreak) =>
                     {
-                        RO_Star koma2 = Util_Starlightable.AsKoma(ml.Now);
+                        Busstop koma2 = ml.Now;
 
 
                         int suji2;
-                        Util_MasuNum.TryMasuToSuji(koma2.Masu, out suji2);
+                        Util_MasuNum.TryMasuToSuji(Conv_Busstop.ToMasu( koma2), out suji2);
 
                         int dan2;
-                        Util_MasuNum.TryMasuToDan(koma2.Masu, out dan2);
+                        Util_MasuNum.TryMasuToDan(Conv_Busstop.ToMasu(koma2), out dan2);
 
                         if (
-                            Conv_SyElement.ToOkiba(koma2.Masu) == Okiba.ShogiBan //盤上
+                            Conv_Busstop.ToOkiba(koma2) == Okiba.ShogiBan //盤上
                             && suji2 == suji
                             && dan2 == dan
                         )
                         {
-                            if (Playerside.P2 == koma2.Pside)
+                            if (Playerside.P2 == Conv_Busstop.ToPlayerside( koma2))
                             {
                                 sb.Append("<td><span class=\"koma2x\">");
-                                sb.Append(Util_Komasyurui14.Fugo[(int)Util_Komahaiyaku184.Syurui(koma2.Haiyaku)]);
+                                sb.Append(Util_Komasyurui14.Fugo[(int)Conv_Busstop.ToKomasyurui(koma2)]);
                                 sb.Append("</span></td>");
                                 isSpace = false;
                             }
                             else
                             {
                                 sb.Append("<td><span class=\"koma1x\">");
-                                sb.Append(Util_Komasyurui14.Fugo[(int)Util_Komahaiyaku184.Syurui(koma2.Haiyaku)]);
+                                sb.Append(Util_Komasyurui14.Fugo[(int)Conv_Busstop.ToKomasyurui(koma2)]);
                                 sb.Append("</span></td>");
                                 isSpace = false;
                             }
@@ -584,13 +585,13 @@ namespace Grayscale.P699_Form_______
             sb.AppendLine("        <div style=\"margin-top:10px; width:30px;\">");
             sb.Append("            ");
 
-            siteiSky.Foreach_Starlights((Finger finger, Starlight ml, ref bool toBreak) =>
+            siteiSky.Foreach_Starlights((Finger finger, DoubleBusstopable ml, ref bool toBreak) =>
             {
-                RO_Star koma = Util_Starlightable.AsKoma(ml.Now);
+                Busstop koma = ml.Now;
 
-                if (Conv_SyElement.ToOkiba(koma.Masu) == Okiba.Sente_Komadai)
+                if (Conv_Busstop.ToOkiba(koma) == Okiba.Sente_Komadai)
                 {
-                    sb.Append(Util_Komasyurui14.Fugo[(int)Util_Komahaiyaku184.Syurui(koma.Haiyaku)]);
+                    sb.Append(Util_Komasyurui14.Fugo[(int)Conv_Busstop.ToKomasyurui(koma)]);
                 }
             });
 

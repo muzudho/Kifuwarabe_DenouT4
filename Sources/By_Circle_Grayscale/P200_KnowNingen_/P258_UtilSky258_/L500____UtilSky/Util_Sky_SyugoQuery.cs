@@ -8,6 +8,8 @@ using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P238_Seiza______.L250____Struct;
 using Grayscale.P238_Seiza______.L500____Util;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 {
@@ -23,14 +25,13 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         {
             SySet_Default<SyElement> masus = new SySet_Default<SyElement>("今の升");
 
-            src_Sky.Foreach_Starlights((Finger finger, Starlight mlLight, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable mlLight, ref bool toBreak) =>
             {
-                RO_Star koma = Util_Starlightable.AsKoma(mlLight.Now);
+                Busstop koma = mlLight.Now;
 
-
-                if (koma.Pside == pside && Conv_SyElement.ToOkiba(koma.Masu) == Okiba.ShogiBan)
+                if (Conv_Busstop.ToPlayerside( koma) == pside && Conv_Busstop.ToOkiba(koma) == Okiba.ShogiBan)
                 {
-                    masus.AddElement(koma.Masu);
+                    masus.AddElement(Conv_Busstop.ToMasu( koma));
                 }
             });
 
@@ -53,14 +54,14 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             SySet<SyElement> result;
 
             src_Sky.AssertFinger(finger);
-            RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
+            Busstop koma = src_Sky.StarlightIndexOf(finger).Now;
 
             //
             // ポテンシャルなので、貫通しているのは仕様通り。
             //
             // FIXME: 成香が横に進めることが分かっているか？
             //
-            result = Array_Rule01_PotentialMove15.ItemMethods[(int)koma.Komasyurui](koma.Pside, koma.Masu);
+            result = Array_Rule01_PotentialMove15.ItemMethods[(int)Conv_Busstop.ToKomasyurui( koma)](Conv_Busstop.ToPlayerside( koma), Conv_Busstop.ToMasu( koma));
 
             return result;
         }

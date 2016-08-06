@@ -1,4 +1,5 @@
 ﻿using Grayscale.P218_Starlight__.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P224_Sky________.L500____Struct
 {
@@ -8,7 +9,7 @@ namespace Grayscale.P224_Sky________.L500____Struct
     /// 
     /// 動かない星の光。
     /// </summary>
-    public class RO_Starlight : Starlight
+    public class RO_Starlight : DoubleBusstopable
     {
         #region プロパティー類
 
@@ -17,8 +18,8 @@ namespace Grayscale.P224_Sky________.L500____Struct
         /// 先後、升、配役
         /// ------------------------------------------------------------------------------------------------------------------------
         /// </summary>
-        public Starlightable Now { get { return this.now; } }
-        protected Starlightable now;
+        public Busstop Now { get { return this.now; } }
+        protected Busstop now;
 
         #endregion
 
@@ -31,7 +32,7 @@ namespace Grayscale.P224_Sky________.L500____Struct
         /// </summary>
         /// <param name="masu"></param>
         /// <param name="syurui"></param>
-        public RO_Starlight(Starlightable nowStar)
+        public RO_Starlight(Busstop nowStar)
         {
             this.now = nowStar;
         }

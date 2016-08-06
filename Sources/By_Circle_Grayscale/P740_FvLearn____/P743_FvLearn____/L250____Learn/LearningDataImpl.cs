@@ -39,6 +39,8 @@ using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using Grayscale.P056_Syugoron___.L___250_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 #if DEBUG
 using Grayscale.P027_Settei_____.L500____Struct;
@@ -232,25 +234,25 @@ namespace Grayscale.P743_FvLearn____.L250____Learn
             //sb.AppendLine("--------------------");
             //sb.AppendLine("カレントノード内部データ");
             //sb.AppendLine("--------------------");
-            src_Sky.Foreach_Starlights((Finger finger, Starlight light, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable light, ref bool toBreak) =>
             {
                 // 番号
                 sb.Append("Fig.");
                 sb.Append(finger);
                 sb.Append("　");
 
-                RO_Star koma = Util_Starlightable.AsKoma(light.Now);
+                Busstop koma = light.Now;
 
                 // P1,P2
-                sb.Append(koma.Pside);
+                sb.Append(Conv_Busstop.ToPlayerside( koma));
                 sb.Append("　");
 
                 // 升00
-                sb.Append(Conv_Sy.Query_Word( koma.Masu.Bitfield));
+                sb.Append(Conv_Sy.Query_Word(Conv_Busstop.ToMasu( koma).Bitfield));
                 sb.Append("　");
 
                 // 歩、香…
-                sb.Append(Util_Komasyurui14.ToIchimoji(koma.Komasyurui));
+                sb.Append(Util_Komasyurui14.ToIchimoji(Conv_Busstop.ToKomasyurui( koma)));
 
                 sb.AppendLine();
             });

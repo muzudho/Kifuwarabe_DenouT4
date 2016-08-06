@@ -12,6 +12,7 @@ using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using Grayscale.P324_KifuTree___.L___250_Struct;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P339_ConvKyokume.L500____Converter
 {
@@ -40,11 +41,11 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
                     if (Fingers.Error_1 != koma0)
                     {
                         src_Sky.AssertFinger(koma0);
-                        RO_Star koma1 = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(koma0).Now);
+                        Busstop koma1 = src_Sky.StarlightIndexOf(koma0).Now;
 
                         ro_Kyokumen1.Ban[suji,dan] = Util_Komasyurui14.SfenText(
-                            Util_Komahaiyaku184.Syurui(koma1.Haiyaku),
-                            koma1.Pside
+                            Conv_Busstop.ToKomasyurui(koma1),
+                            Conv_Busstop.ToPlayerside( koma1)
                             );
                     }
                 }
@@ -150,13 +151,13 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
 
 
                         src_Sky.AssertFinger(koma0);
-                        RO_Star koma1 = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(koma0).Now);
+                        Busstop koma1 = src_Sky.StarlightIndexOf(koma0).Now;
 
 
 
                         sb.Append(Util_Komasyurui14.SfenText(
-                            Util_Komahaiyaku184.Syurui(koma1.Haiyaku),
-                            koma1.Pside
+                            Conv_Busstop.ToKomasyurui(koma1),
+                            Conv_Busstop.ToPlayerside( koma1)
                             ));
                     }
                     else

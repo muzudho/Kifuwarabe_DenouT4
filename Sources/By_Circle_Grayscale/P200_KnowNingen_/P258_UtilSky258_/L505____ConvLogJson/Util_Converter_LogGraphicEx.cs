@@ -6,6 +6,8 @@ using Grayscale.P238_Seiza______.L250____Struct;
 using Grayscale.P238_Seiza______.L500____Util;
 using Grayscale.P256_SeizaFinger.L250____Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P258_UtilSky258_.L505____ConvLogJson
 {
@@ -85,10 +87,10 @@ namespace Grayscale.P258_UtilSky258_.L505____ConvLogJson
             if ((int)finger < Finger_Honshogi.Items_KomaOnly.Length)
             {
                 src_Sky.AssertFinger(finger);
-                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
+                Busstop koma = src_Sky.StarlightIndexOf(finger).Now;
 
-                Playerside pside = koma.Pside;
-                Komasyurui14 ks14 = Util_Komahaiyaku184.Syurui(koma.Haiyaku);
+                Playerside pside = Conv_Busstop.ToPlayerside( koma);
+                Komasyurui14 ks14 = Conv_Busstop.ToKomasyurui(koma);
 
                 komaImg = Util_Converter_LogGraphicEx.PsideKs14_ToString(pside, ks14, extentionWithDot);
             }

@@ -91,15 +91,14 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
             komabetuSusumuMasus.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
             {
                 src_Sky.AssertFinger(key);
-                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(key).Now);
-
+                Busstop koma = src_Sky.StarlightIndexOf(key).Now;
 
                 foreach (SyElement dstMasu in value.Elements)
                 {
                     Move move = Conv_Move.ToMove(
-                        koma.Masu,
+                        Conv_Busstop.ToMasu( koma),
                         dstMasu,
-                        koma.Komasyurui,
+                        Conv_Busstop.ToKomasyurui( koma),
                         Komasyurui14.H00_Null___,
                         false,//成らない
                         false,//ドロップしない
@@ -137,15 +136,15 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
             sMs.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
             {
                 src_Sky.AssertFinger(key);
-                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(key).Now);
+                Busstop koma = src_Sky.StarlightIndexOf(key).Now;
 
 
                 foreach (SyElement dstMasu in value.Elements)
                 {
                     Move move = Conv_Move.ToMove(
-                        koma.Masu,
+                        Conv_Busstop.ToMasu( koma),
                         dstMasu,
-                        koma.Komasyurui,
+                        Conv_Busstop.ToKomasyurui( koma),
                         Komasyurui14.H00_Null___,
                         false,//成らない
                         false,//多分打たない

@@ -102,7 +102,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
                         figSrcKoma = Util_Sky_FingerQuery.InMasuNow(kaisi_Sky, pside, srcMasu, errH);
                     }
                     kaisi_Sky.AssertFinger(figSrcKoma);
-                    RO_Star srcKoma = Util_Starlightable.AsKoma(kaisi_Sky.StarlightIndexOf(figSrcKoma).Now);
+                    Busstop srcKoma = kaisi_Sky.StarlightIndexOf(figSrcKoma).Now;
 
                     // 先位置
                     SyElement dstMasu = Util_CsaSasite.ToDstMasu(csaSasite);
@@ -117,7 +117,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
                     {
                         // 駒のある枡
                         kaisi_Sky.AssertFinger(figFoodKoma);
-                        foodKomasyurui = Util_Starlightable.AsKoma(kaisi_Sky.StarlightIndexOf(figFoodKoma).Now).Komasyurui;//取った駒有り。
+                        foodKomasyurui = Conv_Busstop.ToKomasyurui(kaisi_Sky.StarlightIndexOf(figFoodKoma).Now);//取った駒有り。
                     }
                     Busstop busstop = Conv_Busstop.ToBusstop(
                         pside,
@@ -126,12 +126,12 @@ namespace Grayscale.P743_FvLearn____.L260____View
                     );
 
                     nextMove = Conv_Move.ToMove(
-                        srcKoma.Masu,// 移動元
+                        Conv_Busstop.ToMasu( srcKoma),// 移動元
                         Conv_Busstop.ToMasu(busstop),// 移動先
-                        srcKoma.Komasyurui,
+                        Conv_Busstop.ToKomasyurui( srcKoma),
                         Conv_Busstop.ToKomasyurui(busstop),//これで成りかどうか判定
                         foodKomasyurui,////取った駒
-                        srcKoma.Pside,
+                        Conv_Busstop.ToPlayerside( srcKoma),
                         false
                     );
                 }

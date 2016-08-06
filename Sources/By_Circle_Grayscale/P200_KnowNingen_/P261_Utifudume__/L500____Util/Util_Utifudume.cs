@@ -17,6 +17,8 @@ using Grayscale.P267_ConvKiki___.L500____Converter;
 using System;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 #if DEBUG
 
@@ -47,7 +49,7 @@ namespace Grayscale.P261_Utifudume__.L500____Struct
             Playerside pside_seme = src_Sky.KaisiPside;
 
             // 相手の王の位置
-            RO_Star king_aite;
+            Busstop king_aite;
             Finger figKing_aite;
             Playerside pside_aite;
 
@@ -58,13 +60,13 @@ namespace Grayscale.P261_Utifudume__.L500____Struct
                     pside_aite = Playerside.P2;
                     figKing_aite = Finger_Honshogi.GoteOh;
                     src_Sky.AssertFinger(figKing_aite);
-                    king_aite = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKing_aite).Now);
+                    king_aite = src_Sky.StarlightIndexOf(figKing_aite).Now;
                     break;
                 case Playerside.P2:
                     pside_aite = Playerside.P1;
                     figKing_aite = Finger_Honshogi.SenteOh;
                     src_Sky.AssertFinger(figKing_aite);
-                    king_aite = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKing_aite).Now);
+                    king_aite = src_Sky.StarlightIndexOf(figKing_aite).Now;
                     break;
                 default: throw new Exception("エラー：打ち歩詰めチェック中。プレイヤー不明。");
             }
@@ -72,7 +74,7 @@ namespace Grayscale.P261_Utifudume__.L500____Struct
             // 相手の玉頭の升。
             SyElement masu_gyokutou = null;
             {
-                SySet<SyElement> sySet = KomanoKidou.DstIppo_上(pside_aite, king_aite.Masu);
+                SySet<SyElement> sySet = KomanoKidou.DstIppo_上(pside_aite, Conv_Busstop.ToMasu( king_aite));
                 foreach (SyElement element2 in sySet.Elements)//最初の１件を取る。
                 {
                     masu_gyokutou = element2;
@@ -148,7 +150,7 @@ namespace Grayscale.P261_Utifudume__.L500____Struct
                         if (masuNumber == gyokutouMasuNumber)
                         {
                             src_Sky.AssertFinger(figKoma);
-                            ksList.Add(Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now).Komasyurui);
+                            ksList.Add(Conv_Busstop.ToKomasyurui(src_Sky.StarlightIndexOf(figKoma).Now));
                             break;
                         }
                     }

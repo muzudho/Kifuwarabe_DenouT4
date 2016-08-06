@@ -9,6 +9,8 @@ using Grayscale.P521_FeatureVect.L___500_Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using System;
 using Grayscale.P212_ConvPside__.L500____Converter;
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 #if DEBUG || LEARN
 using System.Text;
@@ -47,18 +49,18 @@ namespace Grayscale.P531_Hyokakansu_.L500____Hyokakansu
 
 
 
-            src_Sky.Foreach_Starlights((Finger finger, Starlight light, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable light, ref bool toBreak) =>
             {
                 RO_Starlight ms = (RO_Starlight)light;
 
-                RO_Star koma = Util_Starlightable.AsKoma(ms.Now);
+                Busstop koma = ms.Now;
 
                 // 駒の種類による点数
-                float komaScore_temp = fv.Komawari[(int)koma.Komasyurui];
+                float komaScore_temp = fv.Komawari[(int)Conv_Busstop.ToKomasyurui( koma)];
 
                 // 持ち駒は、価値を高めます。（ボーナス）序盤に駒をぽんぽん打つのを防ぐため。
                 if(
-                    (Okiba.Sente_Komadai | Okiba.Gote_Komadai).HasFlag( Conv_SyElement.ToOkiba(koma.Masu))
+                    (Okiba.Sente_Komadai | Okiba.Gote_Komadai).HasFlag(Conv_Busstop.ToOkiba(koma))
                     )
                 {
                     //komaScore_temp *= 1.05f;// 1.05倍だと、相手の桂馬の利きに、桂馬をタダ捨てした。足りてないか。
@@ -67,7 +69,7 @@ namespace Grayscale.P531_Hyokakansu_.L500____Hyokakansu
                 }
 
 
-                if (koma.Pside == Playerside.P1)
+                if (Conv_Busstop.ToPlayerside( koma) == Playerside.P1)
                 {
                     score_p1 += komaScore_temp;
                 }

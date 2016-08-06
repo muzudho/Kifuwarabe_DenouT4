@@ -267,7 +267,7 @@ namespace Grayscale.P373_ConvStartpo.L500____Converter
                         parsedKyokumen.buffer_Sky.PutOverwriteOrAdd_Starlight(
                             koma,
                             new RO_Starlight(
-                                new RO_Star(
+                                Conv_Busstop.ToBusstop(
                                     itaruPside,
                                     akiMasu,
                                     parsedKyokumen.MotiList[i].Komasyurui

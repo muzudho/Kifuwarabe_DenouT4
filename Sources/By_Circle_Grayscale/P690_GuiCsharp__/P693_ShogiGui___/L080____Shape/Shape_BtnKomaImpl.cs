@@ -12,6 +12,10 @@ using System;
 using System.Drawing;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P236_KomahaiyaTr.L500____Table;
+using Grayscale.P213_Komasyurui_.L500____Util;
 
 namespace Grayscale.P693_ShogiGui___.L080____Shape
 {
@@ -64,19 +68,21 @@ namespace Grayscale.P693_ShogiGui___.L080____Shape
         }
 
 
-        private void PaintText(Graphics g, RO_Star komaKs, Point location)
+        private void PaintText(Graphics g, Busstop komaKs, Point location)
         {
-            if (null == komaKs)
+            if (Busstop.Empty == komaKs)
             {
                 goto gt_EndMethod;
             }
 
-            Komahaiyaku185 haiyaku = komaKs.Haiyaku;
+            Komahaiyaku185 haiyaku = Data_KomahaiyakuTransition.ToHaiyaku( Conv_Busstop.ToKomasyurui( komaKs), Conv_Busstop.ToMasu(komaKs), Conv_Busstop.ToPlayerside(komaKs));
 
             if (haiyaku == Komahaiyaku185.n000_未設定)
             {
                 // 配役未設定時は、普通に駒を描画します。
-                g.DrawString(komaKs.Text_Label, new Font(FontFamily.GenericSerif, 20.0f), Brushes.Black, location);
+                g.DrawString(
+                    Util_Komasyurui14.KanjiIchimoji[(int)Conv_Busstop.ToKomasyurui(komaKs)],
+                    new Font(FontFamily.GenericSerif, 20.0f), Brushes.Black, location);
             }
             else
             {
@@ -152,7 +158,7 @@ namespace Grayscale.P693_ShogiGui___.L080____Shape
 
             // この駒について。
             mainGui.Model_Manual.GuiSkyConst.AssertFinger(this.Finger);
-            RO_Star koma = Util_Starlightable.AsKoma(mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(this.Finger).Now);
+            Busstop koma = mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(this.Finger).Now;
 
             if(true)
             {
@@ -161,11 +167,11 @@ namespace Grayscale.P693_ShogiGui___.L080____Shape
                 //----------
                 StringBuilder sb = new StringBuilder();
                 sb.Append(Const_Filepath.m_EXE_TO_CONFIG + "img/koma/");
-                sb.Append(Conv_Komasyurui.ToStr_ImageName(koma.Komasyurui));
+                sb.Append(Conv_Komasyurui.ToStr_ImageName(Conv_Busstop.ToKomasyurui( koma)));
                 sb.Append(".png");
                 Image img = Image.FromFile(sb.ToString());
 
-                if (koma.Pside == Playerside.P2)
+                if (Conv_Busstop.ToPlayerside( koma) == Playerside.P2)
                 {
                     // 画像を180度回転させたい☆
                     img.RotateFlip(RotateFlipType.Rotate180FlipNone);
@@ -183,11 +189,14 @@ namespace Grayscale.P693_ShogiGui___.L080____Shape
                 //----------
                 StringBuilder sb = new StringBuilder();
                 sb.Append( Const_Filepath.m_EXE_TO_CONFIG + "img/mobility/");
-                sb.Append((int)koma.Haiyaku);//配役番号
+                sb.Append((int)
+                    Data_KomahaiyakuTransition.ToHaiyaku(Conv_Busstop.ToKomasyurui(koma), Conv_Busstop.ToMasu(koma), Conv_Busstop.ToPlayerside(koma))
+                    //koma.Haiyaku
+                    );//配役番号
                 sb.Append(".png");
                 Image img = Image.FromFile(sb.ToString());
 
-                if (koma.Pside == Playerside.P2)
+                if (Conv_Busstop.ToPlayerside( koma) == Playerside.P2)
                 {
                     // 画像を180度回転させたい☆
                     img.RotateFlip(RotateFlipType.Rotate180FlipNone);
@@ -223,7 +232,7 @@ namespace Grayscale.P693_ShogiGui___.L080____Shape
             //----------
             if(false)
             {
-                if (koma.Pside == Playerside.P1)
+                if (Conv_Busstop.ToPlayerside( koma) == Playerside.P1)
                 {
                     //----------
                     // 先手

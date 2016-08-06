@@ -6,6 +6,8 @@ using Grayscale.P234_Komahaiyaku.L500____Util;
 using Grayscale.P238_Seiza______.L250____Struct;
 using Grayscale.P238_Seiza______.L500____Util;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 {
@@ -85,9 +87,9 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             foreach (Finger figKoma in komas_moti1p.Items)
             {
                 src_Sky.AssertFinger(figKoma);
-                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
+                Busstop busstop = src_Sky.StarlightIndexOf(figKoma).Now;
 
-                Komasyurui14 syurui = Util_Komasyurui14.NarazuCaseHandle(Util_Komahaiyaku184.Syurui(koma.Haiyaku));
+                Komasyurui14 syurui = Util_Komasyurui14.NarazuCaseHandle(Conv_Busstop.ToKomasyurui(busstop));
                 if (Komasyurui14.H06_Gyoku__ == syurui)
                 {
                     mK++;
@@ -129,9 +131,9 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             foreach (Finger figKoma in komas_moti2p.Items)
             {
                 src_Sky.AssertFinger(figKoma);
-                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
+                Busstop busstop = src_Sky.StarlightIndexOf(figKoma).Now;
                 
-                Komasyurui14 syurui = Util_Komasyurui14.NarazuCaseHandle(Util_Komahaiyaku184.Syurui(koma.Haiyaku));
+                Komasyurui14 syurui = Util_Komasyurui14.NarazuCaseHandle(Conv_Busstop.ToKomasyurui(busstop));
 
                 if (Komasyurui14.H06_Gyoku__ == syurui)
                 {

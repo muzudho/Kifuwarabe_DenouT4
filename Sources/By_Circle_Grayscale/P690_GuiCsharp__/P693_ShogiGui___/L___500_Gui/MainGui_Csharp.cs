@@ -10,7 +10,7 @@ using Grayscale.P693_ShogiGui___.L___499_Repaint;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-
+using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P693_ShogiGui___.L___500_Gui
 {
@@ -62,7 +62,7 @@ namespace Grayscale.P693_ShogiGui___.L___500_Gui
         void Do_ComputerSente( KwErrorHandler errH);
 
 
-        RO_Star GetKoma(Finger finger);
+        Busstop GetKoma(Finger finger);
 
 
         /// <summary>

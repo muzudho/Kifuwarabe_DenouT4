@@ -4,6 +4,8 @@ using Grayscale.P224_Sky________.L___500_Struct;
 using Grayscale.P238_Seiza______.L250____Struct;
 using Grayscale.P238_Seiza______.L500____Util;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P239_ConvWords__.L500____Converter
 {
@@ -23,13 +25,13 @@ namespace Grayscale.P239_ConvWords__.L500____Converter
             foreach (Finger fig in sky.Fingers_All().Items)
             {
                 sky.AssertFinger(fig);
-                RO_Star koma = Util_Starlightable.AsKoma(sky.StarlightIndexOf(fig).Now);
+                Busstop koma = sky.StarlightIndexOf(fig).Now;
 
                 // 盤上の駒。 FIXME: 持ち駒はまだ見ていない。
                 ulong value = Util_ZobristHashing.GetValue(
-                    Conv_SyElement.ToMasuNumber(koma.Masu),
-                    koma.Pside,
-                    koma.Komasyurui
+                    Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu(koma)),
+                    Conv_Busstop.ToPlayerside(koma),
+                    Conv_Busstop.ToKomasyurui(koma)
                     );
 
                 hash ^= value;

@@ -12,6 +12,8 @@ using Grayscale.P258_UtilSky258_.L505____ConvLogJson;
 using System.Diagnostics;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P307_UtilSky____.L500____Util
 {
@@ -41,7 +43,7 @@ namespace Grayscale.P307_UtilSky____.L500____Util
             Json_Obj obj = new Json_Obj();
 
             Json_Arr arr = new Json_Arr();
-            src_Sky.Foreach_Starlights((Finger finger, Starlight light, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable light, ref bool toBreak) =>
             {
                 if (null != light)
                 {
@@ -96,27 +98,27 @@ namespace Grayscale.P307_UtilSky____.L500____Util
             int hMasu_gote = 121;
 
             // 全駒
-            src_Sky.Foreach_Starlights((Finger finger, Starlight light, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable light, ref bool toBreak) =>
             {
 
-                RO_Star koma = Util_Starlightable.AsKoma(light.Now);
+                Busstop koma = light.Now;
 
-                if (Conv_SyElement.ToOkiba(koma.Masu) == Okiba.Gote_Komadai)
+                if (Conv_Busstop.ToOkiba(koma) == Okiba.Gote_Komadai)
                 {
                     // 後手持ち駒
-                    sb.AppendLine("    { act:\"drawImg\", img:\"" + Util_Converter_LogGraphicEx.PsideKs14_ToString(koma.Pside, koma.Komasyurui, "") + "\", masu: " + hMasu_gote + " },");//FIXME: \記号が入ってなければいいが☆
+                    sb.AppendLine("    { act:\"drawImg\", img:\"" + Util_Converter_LogGraphicEx.PsideKs14_ToString(Conv_Busstop.ToPlayerside( koma), Conv_Busstop.ToKomasyurui( koma), "") + "\", masu: " + hMasu_gote + " },");//FIXME: \記号が入ってなければいいが☆
                     hMasu_gote++;
                 }
-                else if (Conv_SyElement.ToOkiba(koma.Masu) == Okiba.Sente_Komadai)
+                else if (Conv_Busstop.ToOkiba(koma) == Okiba.Sente_Komadai)
                 {
                     // 先手持ち駒
-                    sb.AppendLine("    { act:\"drawImg\", img:\"" + Util_Converter_LogGraphicEx.PsideKs14_ToString(koma.Pside, koma.Komasyurui, "") + "\", masu: " + hMasu_sente + " },");//FIXME: \記号が入ってなければいいが☆
+                    sb.AppendLine("    { act:\"drawImg\", img:\"" + Util_Converter_LogGraphicEx.PsideKs14_ToString(Conv_Busstop.ToPlayerside(koma), Conv_Busstop.ToKomasyurui(koma), "") + "\", masu: " + hMasu_sente + " },");//FIXME: \記号が入ってなければいいが☆
                     hMasu_sente++;
                 }
-                else if (Conv_SyElement.ToOkiba(koma.Masu) == Okiba.ShogiBan)
+                else if (Conv_Busstop.ToOkiba(koma) == Okiba.ShogiBan)
                 {
                     // 盤上
-                    sb.AppendLine("    { act:\"drawImg\", img:\"" + Util_Converter_LogGraphicEx.PsideKs14_ToString(koma.Pside, koma.Komasyurui, "") + "\", masu: " + Conv_SyElement.ToMasuNumber(koma.Masu) + " },");//FIXME: \記号が入ってなければいいが☆
+                    sb.AppendLine("    { act:\"drawImg\", img:\"" + Util_Converter_LogGraphicEx.PsideKs14_ToString(Conv_Busstop.ToPlayerside(koma), Conv_Busstop.ToKomasyurui(koma), "") + "\", masu: " + Conv_SyElement.ToMasuNumber( Conv_Busstop.ToMasu( koma)) + " },");//FIXME: \記号が入ってなければいいが☆
                 }
 
                 hKoma++;

@@ -2,6 +2,8 @@
 using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P238_Seiza______.L500____Util;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P258_UtilSky258_.L250____UtilFingers
 {
@@ -47,7 +49,7 @@ namespace Grayscale.P258_UtilSky258_.L250____UtilFingers
             {
                 src_Sky.AssertFinger(figMotiKoma);
                 // 持ち駒の種類
-                Komasyurui14 motikomaSyurui = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figMotiKoma).Now).Komasyurui;
+                Komasyurui14 motikomaSyurui = Conv_Busstop.ToKomasyurui(src_Sky.StarlightIndexOf(figMotiKoma).Now);
                 if (out_figKomasFirst[(int)motikomaSyurui] == Fingers.Error_1)
                 {
                     out_figKomasFirst[(int)motikomaSyurui] = figMotiKoma;

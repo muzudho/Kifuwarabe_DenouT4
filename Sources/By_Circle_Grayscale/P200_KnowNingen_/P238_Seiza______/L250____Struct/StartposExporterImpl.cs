@@ -194,13 +194,13 @@ namespace Grayscale.P238_Seiza______.L250____Struct
             foreach (Finger finger in src_Sky.Fingers_All().Items)
             {
                 src_Sky.AssertFinger(finger);
-                Starlightable light = src_Sky.StarlightIndexOf(finger).Now;
-                RO_Star komaKs = Util_Starlightable.AsKoma(light);
+                Busstop komaKs = src_Sky.StarlightIndexOf(finger).Now;
 
-                Debug.Assert(Conv_MasuHandle.OnAll(Conv_SyElement.ToMasuNumber(komaKs.Masu)), "(int)koma.Masu=[" + Conv_SyElement.ToMasuNumber(komaKs.Masu) + "]");//升番号
+                Debug.Assert(Conv_MasuHandle.OnAll(Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( komaKs))), "(int)koma.Masu=[" + Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( komaKs)) + "]");//升番号
 
-                this.AddKoma(komaKs.Masu,
-                    Conv_Busstop.ToBusstop(komaKs)
+                this.AddKoma(
+                    Conv_Busstop.ToMasu( komaKs),
+                    komaKs
                 );
             }
         }

@@ -8,7 +8,8 @@ using Grayscale.P238_Seiza______.L250____Struct;
 using Grayscale.P238_Seiza______.L500____Util;
 using System;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
-
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 {
@@ -48,25 +49,25 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             Fingers fs_motiSeme_temp = new Fingers();// （３）持ち駒_攻め手
             Fingers fs_motiKurau_temp = new Fingers();// （４）持ち駒_食らう側
 
-            src_Sky.Foreach_Starlights((Finger finger, Starlight light, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable light, ref bool toBreak) =>
             {
-                RO_Star star = Util_Starlightable.AsKoma(light.Now);//駒
+                Busstop star = light.Now;//駒
 
-                if (Conv_SyElement.ToOkiba(star.Masu) == Okiba.ShogiBan)
+                if (Conv_Busstop.ToOkiba(star) == Okiba.ShogiBan)
                 {
                     //
                     // 盤上
                     //
-                    if (tebanSeme == star.Pside)
+                    if (tebanSeme == Conv_Busstop.ToPlayerside( star))
                     {
                         fs_banjoSeme_temp.Add(finger);// （１）盤上駒_攻め手
                     }
-                    else if (tebanKurau == star.Pside)
+                    else if (tebanKurau == Conv_Busstop.ToPlayerside( star))
                     {
                         fs_banjoKurau_temp.Add(finger);// （２）盤上駒_食らう側
                     }
                 }
-                else if (Conv_SyElement.ToOkiba(star.Masu) == Okiba.Sente_Komadai)
+                else if (Conv_Busstop.ToOkiba(star) == Okiba.Sente_Komadai)
                 {
                     //
                     // P1駒台
@@ -86,7 +87,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
                         throw new Exception("駒台の持ち駒を調べようとしましたが、先手でも、後手でもない指定でした。");
                     }
                 }
-                else if (Conv_SyElement.ToOkiba(star.Masu) == Okiba.Gote_Komadai)
+                else if (Conv_Busstop.ToOkiba(star) == Okiba.Gote_Komadai)
                 {
                     //
                     // P2駒台
@@ -139,18 +140,18 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             Fingers fingers_moti1p_temp = new Fingers();// （３）持ち駒_攻め手
             Fingers fingers_moti2p_temp = new Fingers();// （４）持ち駒_食らう側
 
-            src_Sky.Foreach_Starlights((Finger finger, Starlight dd, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable dd, ref bool toBreak) =>
             {
-                RO_Star koma = Util_Starlightable.AsKoma(dd.Now);
+                Busstop koma = dd.Now;
 
-                if (Conv_SyElement.ToOkiba(koma.Masu) == Okiba.Sente_Komadai)
+                if (Conv_Busstop.ToOkiba(koma) == Okiba.Sente_Komadai)
                 {
                     //
                     // 1P 駒台
                     //
                     fingers_moti1p_temp.Add(finger);
                 }
-                else if (Conv_SyElement.ToOkiba(koma.Masu) == Okiba.Gote_Komadai)
+                else if (Conv_Busstop.ToOkiba(koma) == Okiba.Gote_Komadai)
                 {
                     //
                     // 2P 駒台
@@ -164,24 +165,24 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 
 
         public static void Split_Jigyoku_Aitegyoku(
-            out RO_Star koma_Jigyoku_orNull,
-            out RO_Star koma_Aitegyoku_orNull,
+            out Busstop koma_Jigyoku_orNull,
+            out Busstop koma_Aitegyoku_orNull,
             SkyConst src_Sky,
             Playerside jiPside,
             Playerside aitePside
             )
         {
-            RO_Star koma_Jigyoku_temp = null;
-            RO_Star koma_Aitegyoku_temp = null;
+            Busstop koma_Jigyoku_temp = Busstop.Empty;
+            Busstop koma_Aitegyoku_temp = Busstop.Empty;
 
-            src_Sky.Foreach_Starlights((Finger finger, Starlight ds, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable ds, ref bool toBreak) =>
             {
-                RO_Star koma = Util_Starlightable.AsKoma(ds.Now);
+                Busstop koma = ds.Now;
 
                 if (
-                    Okiba.ShogiBan == Conv_SyElement.ToOkiba(koma.Masu)
-                    && jiPside == koma.Pside
-                    && Komasyurui14.H06_Gyoku__ == koma.Komasyurui
+                    Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma)
+                    && jiPside == Conv_Busstop.ToPlayerside( koma)
+                    && Komasyurui14.H06_Gyoku__ == Conv_Busstop.ToKomasyurui( koma)
                     )
                 {
                     //
@@ -190,9 +191,9 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
                     koma_Jigyoku_temp = koma;
                 }
                 else if (
-                    Okiba.ShogiBan == Conv_SyElement.ToOkiba(koma.Masu)
-                    && aitePside == koma.Pside
-                    && Komasyurui14.H06_Gyoku__ == koma.Komasyurui
+                    Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma)
+                    && aitePside == Conv_Busstop.ToPlayerside(koma)
+                    && Komasyurui14.H06_Gyoku__ == Conv_Busstop.ToKomasyurui(koma)
                     )
                 {
                     //
@@ -212,28 +213,28 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         /// <param name="koma_2PGyoku_orNull"></param>
         /// <param name="src_Sky"></param>
         public static void Split_1PGyoku_2PGyoku(
-            out RO_Star koma_1PGyoku_orNull,
-            out RO_Star koma_2PGyoku_orNull,
+            out Busstop koma_1PGyoku_orNull,
+            out Busstop koma_2PGyoku_orNull,
             SkyConst src_Sky
         )
         {
-            RO_Star koma_1PGyoku_temp = null;
-            RO_Star koma_2PGyoku_temp = null;
+            Busstop koma_1PGyoku_temp = Busstop.Empty;
+            Busstop koma_2PGyoku_temp = Busstop.Empty;
 
-            src_Sky.Foreach_Starlights((Finger finger, Starlight ds, ref bool toBreak) =>
+            src_Sky.Foreach_Starlights((Finger finger, DoubleBusstopable ds, ref bool toBreak) =>
             {
-                RO_Star koma = Util_Starlightable.AsKoma(ds.Now);
+                Busstop koma = ds.Now;
 
                 if(
-                    Okiba.ShogiBan == Conv_SyElement.ToOkiba(koma.Masu)
-                    && Komasyurui14.H06_Gyoku__ == koma.Komasyurui
+                    Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma)
+                    && Komasyurui14.H06_Gyoku__ == Conv_Busstop.ToKomasyurui( koma)
                     )
                 {
-                    if (Playerside.P1 == koma.Pside)
+                    if (Playerside.P1 == Conv_Busstop.ToPlayerside( koma))
                     {
                         koma_1PGyoku_temp = koma;// 1P玉の位置
                     }
-                    else if (Playerside.P2 == koma.Pside)
+                    else if (Playerside.P2 == Conv_Busstop.ToPlayerside(koma))
                     {
                         koma_2PGyoku_temp = koma;// 2P玉の位置
                     }

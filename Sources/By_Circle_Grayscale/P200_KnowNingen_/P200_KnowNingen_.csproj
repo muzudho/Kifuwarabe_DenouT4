@@ -65,7 +65,6 @@
     <Compile Include="P219_Move\L___400_Busstop\n1_BusstopShift.cs" />
     <Compile Include="P219_Move\L___400_Busstop\n2_BusstopMask.cs" />
     <Compile Include="P219_Move\L___400_Busstop\n3_Busstop.cs" />
-    <Compile Include="P238_Seiza______\L500____Util\Util_Starlightable.cs" />
     <Compile Include="P258_UtilSky258_\L500____UtilSky\Util_Sky_BoolQuery.cs" />
     <Compile Include="P260_Play_______\L250____Calc\Query_SkyFingers.cs" />
     <Compile Include="P239_ConvWords__\L500____Converter\Conv_Fingers.cs" />
@@ -151,7 +150,6 @@
     <Compile Include="P211_WordShogi__\L500____Word\Okiba.cs" />
     <Compile Include="P211_WordShogi__\L500____Word\Playerside.cs" />
     <Compile Include="P218_Starlight__\L___500_Struct\Starlight.cs" />
-    <Compile Include="P218_Starlight__\L___500_Struct\Starlightable.cs" />
     <Compile Include="P222_Log_Kaisetu\L250____Struct\KaisetuBoard.cs" />
     <Compile Include="P222_Log_Kaisetu\L250____Struct\KaisetuBoards.cs" />
     <Compile Include="P224_Sky________\L___500_Struct\Sky.cs" />

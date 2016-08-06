@@ -11,6 +11,8 @@ using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using Grayscale.P693_ShogiGui___.L___500_Gui;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P693_ShogiGui___.L249____Function
 {
@@ -39,13 +41,13 @@ namespace Grayscale.P693_ShogiGui___.L249____Function
                 foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)
                 {
                     src_Sky.AssertFinger(figKoma);
-                    RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
+                    Busstop koma = src_Sky.StarlightIndexOf(figKoma).Now;
 
 
                     if (
-                        Okiba.ShogiBan == Conv_SyElement.ToOkiba(koma.Masu)
+                        Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma)
                         &&
-                        mainGui.Model_Manual.GuiPside != koma.Pside
+                        mainGui.Model_Manual.GuiPside != Conv_Busstop.ToPlayerside( koma)
                         )
                     {
                         // 駒の利き

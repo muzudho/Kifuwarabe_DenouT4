@@ -9,6 +9,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P276_SeizaStartp.L500____Struct
 {
@@ -21,7 +23,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
         /// 盤上の駒。
         /// key:升番号
         /// </summary>
-        private Dictionary<int, RO_Star> masubetuKoma_banjo;
+        private Dictionary<int, Busstop> masubetuKoma_banjo;
 
         public RO_Kyokumen2_ForTokenize RO_SfenStartpos { get; set; }
 
@@ -62,7 +64,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
 
         private void StringToObject()
         {
-            this.masubetuKoma_banjo = new Dictionary<int, RO_Star>();
+            this.masubetuKoma_banjo = new Dictionary<int, Busstop>();
 
             // 将棋の駒４０個の場所を確認します。
 
@@ -70,35 +72,35 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
             {
                 switch (masuString)
                 {
-                    case "P": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H01_Fu_____)); break;
-                    case "L": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H02_Kyo____)); break;
-                    case "N": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H03_Kei____)); break;
-                    case "S": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H04_Gin____)); break;
-                    case "G": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H05_Kin____)); break;
-                    case "K": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H06_Gyoku__)); break;
-                    case "R": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H07_Hisya__)); break;
-                    case "B": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H08_Kaku___)); break;
-                    case "+P": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H11_Tokin__)); break;
-                    case "+L": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H12_NariKyo)); break;
-                    case "+N": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H13_NariKei)); break;
-                    case "+S": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H14_NariGin)); break;
-                    case "+R": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H09_Ryu____)); break;
-                    case "+B": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H10_Uma____)); break;
+                    case "P": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H01_Fu_____)); break;
+                    case "L": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H02_Kyo____)); break;
+                    case "N": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H03_Kei____)); break;
+                    case "S": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H04_Gin____)); break;
+                    case "G": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H05_Kin____)); break;
+                    case "K": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H06_Gyoku__)); break;
+                    case "R": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H07_Hisya__)); break;
+                    case "B": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H08_Kaku___)); break;
+                    case "+P": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H11_Tokin__)); break;
+                    case "+L": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H12_NariKyo)); break;
+                    case "+N": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H13_NariKei)); break;
+                    case "+S": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H14_NariGin)); break;
+                    case "+R": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H09_Ryu____)); break;
+                    case "+B": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P1, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H10_Uma____)); break;
 
-                    case "p": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H01_Fu_____)); break;
-                    case "l": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H02_Kyo____)); break;
-                    case "n": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H03_Kei____)); break;
-                    case "s": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H04_Gin____)); break;
-                    case "g": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H05_Kin____)); break;
-                    case "k": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H06_Gyoku__)); break;
-                    case "r": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H07_Hisya__)); break;
-                    case "b": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H08_Kaku___)); break;
-                    case "+p": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H11_Tokin__)); break;
-                    case "+l": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H12_NariKyo)); break;
-                    case "+n": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H13_NariKei)); break;
-                    case "+s": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H14_NariGin)); break;
-                    case "+r": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H09_Ryu____)); break;
-                    case "+b": this.masubetuKoma_banjo.Add(masuHandle, new RO_Star(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H10_Uma____)); break;
+                    case "p": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H01_Fu_____)); break;
+                    case "l": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H02_Kyo____)); break;
+                    case "n": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H03_Kei____)); break;
+                    case "s": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H04_Gin____)); break;
+                    case "g": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H05_Kin____)); break;
+                    case "k": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H06_Gyoku__)); break;
+                    case "r": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H07_Hisya__)); break;
+                    case "b": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H08_Kaku___)); break;
+                    case "+p": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H11_Tokin__)); break;
+                    case "+l": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H12_NariKyo)); break;
+                    case "+n": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H13_NariKei)); break;
+                    case "+s": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H14_NariGin)); break;
+                    case "+r": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H09_Ryu____)); break;
+                    case "+b": this.masubetuKoma_banjo.Add(masuHandle, Conv_Busstop.ToBusstop(Playerside.P2, Masu_Honshogi.Query_Basho(masuHandle), Komasyurui14.H10_Uma____)); break;
 
                     case "":
                         // 空っぽの升。
@@ -155,7 +157,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
             //SkyBuffer dst_Sky = new SkyBuffer(Util_Sky.New_Komabukuro());// SFENインポート時
 
 
-            Dictionary<Finger, RO_Star> komaDic = new Dictionary<Finger, RO_Star>();
+            Dictionary<Finger, Busstop> komaDic = new Dictionary<Finger, Busstop>();
 
 
             // ・インクリメントするので、Finger型ではなく int型で。
@@ -188,15 +190,15 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
             //
             // どの升に、どの駒がいるか
             //
-            foreach (KeyValuePair<int, RO_Star> entry in this.masubetuKoma_banjo)
+            foreach (KeyValuePair<int, Busstop> entry in this.masubetuKoma_banjo)
             {
                 int int_finger;
 
                 // 今回のカウント
-                switch (entry.Value.Komasyurui)
+                switch (Conv_Busstop.ToKomasyurui( entry.Value))
                 {
                     case Komasyurui14.H01_Fu_____:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside( entry.Value))
                         {
                             case Playerside.P1: int_finger = int_fingerP1; break;
                             case Playerside.P2: int_finger = int_fingerP2; break;
@@ -205,7 +207,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H02_Kyo____:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside( entry.Value))
                         {
                             case Playerside.P1: int_finger = int_fingerL1; break;
                             case Playerside.P2: int_finger = int_fingerL2; break;
@@ -214,7 +216,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H03_Kei____:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_finger = int_fingerN1; break;
                             case Playerside.P2: int_finger = int_fingerN2; break;
@@ -223,7 +225,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H04_Gin____:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_finger = int_fingerS1; break;
                             case Playerside.P2: int_finger = int_fingerS2; break;
@@ -232,7 +234,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H05_Kin____:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_finger = int_fingerG1; break;
                             case Playerside.P2: int_finger = int_fingerG2; break;
@@ -241,7 +243,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H06_Gyoku__:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_finger = int_fingerK1; break;
                             case Playerside.P2: int_finger = int_fingerK2; break;
@@ -250,7 +252,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H07_Hisya__:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_finger = int_fingerR1; break;
                             case Playerside.P2: int_finger = int_fingerR2; break;
@@ -259,7 +261,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H08_Kaku___:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_finger = int_fingerB1; break;
                             case Playerside.P2: int_finger = int_fingerB2; break;
@@ -268,7 +270,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H09_Ryu____:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_finger = int_fingerR1; break;
                             case Playerside.P2: int_finger = int_fingerR2; break;
@@ -277,7 +279,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H10_Uma____:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_finger = int_fingerB1; break;
                             case Playerside.P2: int_finger = int_fingerB2; break;
@@ -286,7 +288,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H11_Tokin__:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_finger = int_fingerP1; break;
                             case Playerside.P2: int_finger = int_fingerP2; break;
@@ -295,7 +297,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H12_NariKyo:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_finger = int_fingerL1; break;
                             case Playerside.P2: int_finger = int_fingerL2; break;
@@ -304,7 +306,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H13_NariKei:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_finger = int_fingerN1; break;
                             case Playerside.P2: int_finger = int_fingerN2; break;
@@ -313,7 +315,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H14_NariGin:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_finger = int_fingerS1; break;
                             case Playerside.P2: int_finger = int_fingerS2; break;
@@ -321,7 +323,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         }
                         break;
 
-                    default: throw new Exception("未対応の駒種類=[" + entry.Value.Komasyurui + "]");
+                    default: throw new Exception("未対応の駒種類=[" + Conv_Busstop.ToKomasyurui( entry.Value) + "]");
                 }
 
                 Debug.Assert(0<=int_finger && int_finger<=39, "finger=["+int_finger+"]" );
@@ -332,10 +334,10 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
 
 
                 // カウントアップ
-                switch (entry.Value.Komasyurui)
+                switch (Conv_Busstop.ToKomasyurui( entry.Value))
                 {
                     case Komasyurui14.H01_Fu_____:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside( entry.Value))
                         {
                             case Playerside.P1: int_fingerP1++; break;
                             case Playerside.P2: int_fingerP2++; break;
@@ -344,7 +346,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H02_Kyo____:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_fingerL1++; break;
                             case Playerside.P2: int_fingerL2++; break;
@@ -353,7 +355,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H03_Kei____:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_fingerN1++; break;
                             case Playerside.P2: int_fingerN2++; break;
@@ -362,7 +364,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H04_Gin____:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_fingerS1++; break;
                             case Playerside.P2: int_fingerS2++; break;
@@ -371,7 +373,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H05_Kin____:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_fingerG1++; break;
                             case Playerside.P2: int_fingerG2++; break;
@@ -380,7 +382,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H06_Gyoku__:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_fingerK1++; break;
                             case Playerside.P2: int_fingerK2++; break;
@@ -389,7 +391,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H07_Hisya__:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_fingerR1++; break;
                             case Playerside.P2: int_fingerR2++; break;
@@ -398,7 +400,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H08_Kaku___:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_fingerB1++; break;
                             case Playerside.P2: int_fingerB2++; break;
@@ -407,7 +409,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H09_Ryu____:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_fingerR1++; break;
                             case Playerside.P2: int_fingerR2++; break;
@@ -416,7 +418,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H10_Uma____:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_fingerB1++; break;
                             case Playerside.P2: int_fingerB2++; break;
@@ -425,7 +427,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H11_Tokin__:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_fingerP1++; break;
                             case Playerside.P2: int_fingerP2++; break;
@@ -434,7 +436,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H12_NariKyo:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_fingerL1++; break;
                             case Playerside.P2: int_fingerL2++; break;
@@ -443,7 +445,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H13_NariKei:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_fingerN1++; break;
                             case Playerside.P2: int_fingerN2++; break;
@@ -452,7 +454,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     case Komasyurui14.H14_NariGin:
-                        switch (entry.Value.Pside)
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_fingerS1++; break;
                             case Playerside.P2: int_fingerS2++; break;
@@ -461,7 +463,7 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
                         break;
 
                     default:
-                        throw new Exception("未対応の駒種類=[" + entry.Value.Komasyurui + "]");
+                        throw new Exception("未対応の駒種類=[" + Conv_Busstop.ToKomasyurui( entry.Value) + "]");
                 }
             }
 
@@ -470,9 +472,9 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
             //
             {
                 // finger の順に並べる。
-                RO_Star[] komas = new RO_Star[40];
+                Busstop[] komas = new Busstop[40];
 
-                foreach (KeyValuePair<Finger, RO_Star> entry in komaDic)
+                foreach (KeyValuePair<Finger, Busstop> entry in komaDic)
                 {
                     Debug.Assert(0 <= (int)entry.Key && (int)entry.Key <= 39, "entry.Key=[" + (int)entry.Key + "]");
 
@@ -481,12 +483,11 @@ namespace Grayscale.P276_SeizaStartp.L500____Struct
 
                 // finger の順に追加。
                 int komaHandle = 0;
-                foreach (RO_Star koma in komas)
+                foreach (Busstop koma in komas)
                 {
                     dst_Sky.PutOverwriteOrAdd_Starlight(
                         komaHandle,
                         new RO_Starlight(
-                            //komaHandle,
                             koma
                         )
                     );

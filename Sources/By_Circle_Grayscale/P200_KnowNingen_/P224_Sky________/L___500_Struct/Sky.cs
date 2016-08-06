@@ -30,7 +30,7 @@ namespace Grayscale.P224_Sky________.L___500_Struct
         /// </summary>
         int Temezumi { get; }
 
-        Starlight StarlightIndexOf(
+        DoubleBusstopable StarlightIndexOf(
             Finger finger
             /*
             ,

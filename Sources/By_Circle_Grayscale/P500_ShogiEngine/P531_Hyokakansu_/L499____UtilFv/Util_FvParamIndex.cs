@@ -8,6 +8,8 @@ using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using Grayscale.P521_FeatureVect.L___500_Struct;
 using Grayscale.P521_FeatureVect.L500____Struct;
 using System.Diagnostics;
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 
 
@@ -79,15 +81,15 @@ namespace Grayscale.P531_Hyokakansu_.L499____UtilFv
         /// </summary>
         /// <param name="p_koma"></param>
         /// <returns></returns>
-        public static int ParamIndex_Banjo(RO_Star p_koma)
+        public static int ParamIndex_Banjo(Busstop p_koma)
         {
             int koumokuP;
 
             // 駒Ｐのマス番号
-            int p_masuHandle = Conv_SyElement.ToMasuNumber(p_koma.Masu);
+            int p_masuHandle = Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( p_koma));
 
-            int index_playerside = Util_FvParamIndex.paramIndex_Playerside[(int)p_koma.Pside];
-            int index_komasyurui = Util_FvParamIndex.paramIndex_KomaSyrui_Banjo[(int)p_koma.Komasyurui];
+            int index_playerside = Util_FvParamIndex.paramIndex_Playerside[(int)Conv_Busstop.ToPlayerside(p_koma)];
+            int index_komasyurui = Util_FvParamIndex.paramIndex_KomaSyrui_Banjo[(int)Conv_Busstop.ToKomasyurui(p_koma)];
 
             if (index_playerside == -1)
             {

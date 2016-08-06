@@ -31,7 +31,7 @@ using Grayscale.P211_WordShogi__.L260____Operator;
 using Grayscale.P693_ShogiGui___.L___492_Widgets;
 using Grayscale.P693_ShogiGui___.L___499_Repaint;
 using Grayscale.P219_Move_______.L___500_Struct;
-
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 #if DEBUG
 using System.Windows.Forms;
@@ -60,7 +60,7 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
             MainGui_Csharp shogiGui = (MainGui_Csharp)obj_shogiGui;
 
             shogiGui.Model_Manual.GuiSkyConst.AssertFinger(finger);
-            Starlight light = shogiGui.Model_Manual.GuiSkyConst.StarlightIndexOf(finger);
+            DoubleBusstopable light = shogiGui.Model_Manual.GuiSkyConst.StarlightIndexOf(finger);
 
             shogiGui.Shape_PnlTaikyoku.Shogiban.KikiBan = new SySet_Default<SyElement>("利き盤");// .Clear();
 
@@ -183,9 +183,9 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                 mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
                                                 src_Sky.AssertFinger(btnKoma.Koma);
-                                                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(btnKoma.Koma).Now);
+                                                Busstop koma = src_Sky.StarlightIndexOf(btnKoma.Koma).Now;
 
-                                                if (Okiba.ShogiBan == Conv_SyElement.ToOkiba(koma.Masu))
+                                                if (Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma))
                                                 {
                                                     // マウスオーバーした駒の利き
                                                     TimedB_MouseCapture.Check_MouseoverKomaKiki(mainGui, btnKoma.Koma, eventState.Flg_logTag);
@@ -359,10 +359,10 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
 
 
                                                 src_Sky.AssertFinger(btnKoma.Koma);
-                                                RO_Star koma1 = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(btnKoma.Koma).Now);
+                                                Busstop koma1 = src_Sky.StarlightIndexOf(btnKoma.Koma).Now;
 
 
-                                                if (Okiba.ShogiBan == Conv_SyElement.ToOkiba(koma1.Masu))
+                                                if (Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma1))
                                                 {
                                                     //----------
                                                     // 移動済表示
@@ -374,20 +374,20 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                     //------------------------------
                                                     // 棋譜
 
-                                                    Starlight dstStarlight = mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2;
+                                                    DoubleBusstopable dstStarlight = mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2;
                                                     System.Diagnostics.Debug.Assert(null != dstStarlight, "mouseStarlightがヌル");
 
                                                     src_Sky.AssertFinger(btnKoma.Koma);
-                                                    Starlight srcStarlight = src_Sky.StarlightIndexOf(btnKoma.Koma);
+                                                    DoubleBusstopable srcStarlight = src_Sky.StarlightIndexOf(btnKoma.Koma);
                                                     System.Diagnostics.Debug.Assert(null != srcStarlight, "komaStarlightがヌル");
 
                                                     Move move = Conv_Move.ToMove(
-                                                        ((RO_Star)dstStarlight.Now).Masu,
-                                                        ((RO_Star)srcStarlight.Now).Masu,
-                                                        ((RO_Star)dstStarlight.Now).Komasyurui,
-                                                        ((RO_Star)srcStarlight.Now).Komasyurui,//これで成りかどうか判定
-                                                        mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma != null ? mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma.Komasyurui : Komasyurui14.H00_Null___,
-                                                        ((RO_Star)dstStarlight.Now).Pside,
+                                                        Conv_Busstop.ToMasu(dstStarlight.Now),
+                                                        Conv_Busstop.ToMasu(srcStarlight.Now),
+                                                        Conv_Busstop.ToKomasyurui(dstStarlight.Now),
+                                                        Conv_Busstop.ToKomasyurui(srcStarlight.Now),//これで成りかどうか判定
+                                                        mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma != Busstop.Empty ? Conv_Busstop.ToKomasyurui( mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma) : Komasyurui14.H00_Null___,
+                                                        Conv_Busstop.ToPlayerside(dstStarlight.Now),
                                                         false
                                                     );// 選択している駒の元の場所と、移動先
 
@@ -511,10 +511,10 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                 else
                                                 {
                                                     src_Sky.AssertFinger(btnKoma.Koma);
-                                                    RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(btnKoma.Koma).Now);
+                                                    Busstop koma = src_Sky.StarlightIndexOf(btnKoma.Koma).Now;
 
 
-                                                    if (Okiba.ShogiBan == Conv_SyElement.ToOkiba(koma.Masu))
+                                                    if (Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma))
                                                     {
                                                         //>>>>> 将棋盤の上に置いてあった駒から、指を放しました
                                                         //System.C onsole.WriteLine("つまんでいる駒を放します。(4)");
@@ -533,12 +533,12 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                         src_Sky.AssertFinger(btnKoma.Koma);
                                                         
                                                         Move move = Conv_Move.ToMove(
-                                                            ((RO_Star)mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now).Masu,
-                                                            ((RO_Star)src_Sky.StarlightIndexOf(btnKoma.Koma).Now).Masu,
-                                                            ((RO_Star)mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now).Komasyurui,
-                                                            ((RO_Star)src_Sky.StarlightIndexOf(btnKoma.Koma).Now).Komasyurui,//これで成りかどうか判定
-                                                            mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma != null ? mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma.Komasyurui : Komasyurui14.H00_Null___,
-                                                            ((RO_Star)mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now).Pside,
+                                                            Conv_Busstop.ToMasu(mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now),
+                                                            Conv_Busstop.ToMasu(src_Sky.StarlightIndexOf(btnKoma.Koma).Now),
+                                                            Conv_Busstop.ToKomasyurui(mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now),
+                                                            Conv_Busstop.ToKomasyurui(src_Sky.StarlightIndexOf(btnKoma.Koma).Now),//これで成りかどうか判定
+                                                            mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma != Busstop.Empty ? Conv_Busstop.ToKomasyurui( mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma) : Komasyurui14.H00_Null___,
+                                                            Conv_Busstop.ToPlayerside(mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2.Now),
                                                             false
                                                             );// 選択している駒の元の場所と、移動先
 
@@ -628,7 +628,7 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                         //>>>>> 選択されている駒があるとき
 
                                         mainGui.Model_Manual.GuiSkyConst.AssertFinger(btnTumandeiruKoma.Finger);
-                                        Starlight tumandeiruLight = mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(btnTumandeiruKoma.Finger);
+                                        DoubleBusstopable tumandeiruLight = mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(btnTumandeiruKoma.Finger);
 
 
                                         //----------
@@ -668,11 +668,11 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                 {
                                                     bool match = false;
 
-                                                    mainGui.Model_Manual.GuiSkyConst.Foreach_Starlights((Finger finger, Starlight ml, ref bool toBreak) =>
+                                                    mainGui.Model_Manual.GuiSkyConst.Foreach_Starlights((Finger finger, DoubleBusstopable ml, ref bool toBreak) =>
                                                     {
-                                                        RO_Star koma = Util_Starlightable.AsKoma(ml.Now);
+                                                        Busstop koma = ml.Now;
 
-                                                        if (koma.Masu == btnSasitaiMasu2.Zahyo)
+                                                        if (Conv_Busstop.ToMasu( koma) == btnSasitaiMasu2.Zahyo)
                                                         {
                                                             //>>>>> そこに駒が置いてあった。
 #if DEBUG
@@ -715,15 +715,15 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                             //
                                             //      盤上の、不成の駒で、　／　相手陣に入るものか、相手陣から出てくる駒　※先手・後手区別なし
                                             //
-                                            RO_Star koma = Util_Starlightable.AsKoma(tumandeiruLight.Now);
+                                            Busstop koma = tumandeiruLight.Now;
 
                                             if (
-                                                    Okiba.ShogiBan == Conv_SyElement.ToOkiba(koma.Masu) && Util_Sky_BoolQuery.IsNareruKoma(koma.Komasyurui)
+                                                    Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma) && Util_Sky_BoolQuery.IsNareruKoma(Conv_Busstop.ToKomasyurui(koma))
                                                     &&
                                                     (
                                                         Util_Masu10.InAitejin(btnSasitaiMasu.Zahyo, mainGui.Link_Server.Model_Taikyoku.Kifu.CurNode.Value.KyokumenConst.KaisiPside)
                                                         ||
-                                                        Util_Sky_BoolQuery.InAitejin(koma.Masu,koma.Pside)
+                                                        Util_Sky_BoolQuery.InAitejin(Conv_Busstop.ToMasu( koma),Conv_Busstop.ToPlayerside( koma))
                                                     )
                                                 )
                                             {
@@ -749,14 +749,14 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                 {
                                                     // GuiからServerへ渡す情報
                                                     Komasyurui14 syurui;
-                                                    Starlight dst;
+                                                    DoubleBusstopable dst;
                                                     
                                                     Util_Function_Csharp.Komamove1a_49Gui(out syurui, out dst, btnTumandeiruKoma, btnSasitaiMasu, mainGui);
 
                                                     // ServerからGuiへ渡す情報
                                                     bool torareruKomaAri;
-                                                    RO_Star koma_Food_after;
-                                                    Util_Functions_Server.Komamove1a_50Srv(out torareruKomaAri, out koma_Food_after, dst, btnTumandeiruKoma.Koma, Util_Starlightable.AsKoma(dst.Now), mainGui.Model_Manual, eventState.Flg_logTag);
+                                                    Busstop koma_Food_after;
+                                                    Util_Functions_Server.Komamove1a_50Srv(out torareruKomaAri, out koma_Food_after, dst, btnTumandeiruKoma.Koma, dst.Now, mainGui.Model_Manual, eventState.Flg_logTag);
 
                                                     Util_Function_Csharp.Komamove1a_51Gui(torareruKomaAri, koma_Food_after, mainGui);
                                                 }
@@ -772,7 +772,7 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                             //System.C onsole.WriteLine("駒台上");
 
                                             mainGui.Model_Manual.GuiSkyConst.AssertFinger(btnTumandeiruKoma.Koma);
-                                            RO_Star koma = Util_Starlightable.AsKoma(mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(btnTumandeiruKoma.Koma).Now);
+                                            Busstop koma = mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(btnTumandeiruKoma.Koma).Now;
 
                                             mainGui.Model_Manual.SetGuiSky(
                                                 SkyConst.NewInstance_OverwriteOrAdd_Light(
@@ -780,10 +780,10 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                     mainGui.Model_Manual.GuiTemezumi + 1,//1手進める。
                                                     btnTumandeiruKoma.Koma,
                                                     new RO_Starlight(
-                                                        new RO_Star(
+                                                        Conv_Busstop.ToBusstop(
                                                             Conv_Okiba.ToPside(Conv_SyElement.ToOkiba(btnSasitaiMasu.Zahyo)),// 先手の駒置きに駒を置けば、先手の向きに揃えます。
                                                             btnSasitaiMasu.Zahyo,
-                                                            Util_Komasyurui14.NarazuCaseHandle(koma.Komasyurui)
+                                                            Util_Komasyurui14.NarazuCaseHandle(Conv_Busstop.ToKomasyurui( koma))
                                                         )
                                                     )
                                                 )

@@ -6,6 +6,8 @@ using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P238_Seiza______.L500____Util;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P242_UtilColleEx.L500____Util
 {
@@ -46,7 +48,7 @@ namespace Grayscale.P242_UtilColleEx.L500____Util
                         {
                             skyConst.AssertFinger(item.A as Finger);
                             sb.AppendLine("(" + count + ") a=[" +
-                                Util_Komasyurui14.KanjiIchimoji[(int)Util_Starlightable.AsKoma(skyConst.StarlightIndexOf(item.A as Finger).Now).Komasyurui]
+                                Util_Komasyurui14.KanjiIchimoji[(int)Conv_Busstop.ToKomasyurui( skyConst.StarlightIndexOf(item.A as Finger).Now)]
                                 + "] b=[" +
                                 Util_Masu10.ToSujiKanji(syElement)
                                 + "]");

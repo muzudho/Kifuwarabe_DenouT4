@@ -50,14 +50,14 @@ namespace Grayscale.P224_Sky________.L500____Struct
         /// <summary>
         /// 「置き場に置けるものの素性」リストです。駒だけとは限りませんので、４０個以上になることもあります。
         /// </summary>
-        public List<Starlight> Starlights
+        public List<DoubleBusstopable> Starlights
         {
             get
             {
                 return this.starlights;
             }
         }
-        private List<Starlight> starlights;
+        private List<DoubleBusstopable> starlights;
 
         #endregion
 
@@ -88,7 +88,7 @@ namespace Grayscale.P224_Sky________.L500____Struct
         /// <param name="kifu"></param>
         /// <param name="finger"></param>
         /// <param name="light"></param>
-        public void PutOverwriteOrAdd_Starlight(Finger finger, Starlight light)
+        public void PutOverwriteOrAdd_Starlight(Finger finger, DoubleBusstopable light)
         {
             if(this.starlights.Count==(int)finger)
             {
@@ -128,7 +128,7 @@ namespace Grayscale.P224_Sky________.L500____Struct
 
             this.kaisiPside = kaisiPside;
             this.temezumi = temezumi;
-            this.starlights = new List<Starlight>();
+            this.starlights = new List<DoubleBusstopable>();
         }
 
         /// <summary>
@@ -145,8 +145,8 @@ namespace Grayscale.P224_Sky________.L500____Struct
             this.temezumi = src.Temezumi;
 
             // 星々のクローン
-            this.starlights = new List<Starlight>();
-            src.Foreach_Starlights((Finger finger, Starlight light, ref bool toBreak) =>
+            this.starlights = new List<DoubleBusstopable>();
+            src.Foreach_Starlights((Finger finger, DoubleBusstopable light, ref bool toBreak) =>
             {
                 this.starlights.Add(light);
             });
@@ -172,7 +172,7 @@ namespace Grayscale.P224_Sky________.L500____Struct
 
         }
 
-        public Starlight StarlightIndexOf(
+        public DoubleBusstopable StarlightIndexOf(
             Finger finger
             /*
             ,
@@ -188,13 +188,13 @@ namespace Grayscale.P224_Sky________.L500____Struct
         }
 
 
-        public delegate void DELEGATE_Sky_Foreach(Finger finger, Starlight light, ref bool toBreak);
+        public delegate void DELEGATE_Sky_Foreach(Finger finger, DoubleBusstopable light, ref bool toBreak);
         public void Foreach_Starlights(DELEGATE_Sky_Foreach delegate_Sky_Foreach)
         {
             bool toBreak = false;
 
             Finger finger = 0;
-            foreach (Starlight light in this.Starlights)
+            foreach (DoubleBusstopable light in this.Starlights)
             {
                 delegate_Sky_Foreach(finger, light, ref toBreak);
 
@@ -219,7 +219,7 @@ namespace Grayscale.P224_Sky________.L500____Struct
         {
             Fingers fingers = new Fingers();
 
-            this.Foreach_Starlights((Finger finger, Starlight light, ref bool toBreak) =>
+            this.Foreach_Starlights((Finger finger, DoubleBusstopable light, ref bool toBreak) =>
             {
                 fingers.Add(finger);
             });

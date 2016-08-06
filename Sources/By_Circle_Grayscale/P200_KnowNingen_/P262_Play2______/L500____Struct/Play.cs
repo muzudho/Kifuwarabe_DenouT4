@@ -13,6 +13,8 @@ using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P261_Utifudume__.L500____Struct;
 using Grayscale.P211_WordShogi__.L260____Operator;
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 #if DEBUG
 using System.Diagnostics;
@@ -49,7 +51,7 @@ namespace Grayscale.P262_Play2______.L500____Struct
             // 駒種類別、置こうとする升
             SySet<SyElement>[] aMasus = new SySet<SyElement>[Array_Komasyurui.Items_AllElements.Length];
             // 駒種類別、置こうとする駒（持駒の代表）
-            RO_Star[] aDaihyo = new RO_Star[Array_Komasyurui.Items_AllElements.Length];
+            Busstop[] aDaihyo = new Busstop[Array_Komasyurui.Items_AllElements.Length];
             // 駒種類別、置こうとする駒番号
             Finger[] aFigKoma = new Finger[Array_Komasyurui.Items_AllElements.Length];
 
@@ -65,16 +67,16 @@ namespace Grayscale.P262_Play2______.L500____Struct
                 if (Fingers.Error_1 != figDaihyo)
                 {
                     src_Sky.AssertFinger(figDaihyo);
-                    RO_Star daihyo = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figDaihyo).Now);
+                    Busstop daihyo = src_Sky.StarlightIndexOf(figDaihyo).Now;
 #if DEBUG
                     Debug.Assert(daihyo != null, "持ち駒の代表がヌル");
 #endif
                     // 駒種類別、置こうとする駒
-                    aDaihyo[(int)daihyo.Komasyurui] = daihyo;
+                    aDaihyo[(int)Conv_Busstop.ToKomasyurui( daihyo)] = daihyo;
                     // 駒種類別、置こうとする升
-                    aMasus[(int)daihyo.Komasyurui] = Util_Sky_SyugoQuery.KomaKidou_Potential(figDaihyo, src_Sky);
+                    aMasus[(int)Conv_Busstop.ToKomasyurui(daihyo)] = Util_Sky_SyugoQuery.KomaKidou_Potential(figDaihyo, src_Sky);
                     // 駒種類別、置こうとする駒番号
-                    aFigKoma[(int)daihyo.Komasyurui] = figDaihyo;
+                    aFigKoma[(int)Conv_Busstop.ToKomasyurui(daihyo)] = figDaihyo;
                 }
             }
 
@@ -100,7 +102,7 @@ namespace Grayscale.P262_Play2______.L500____Struct
                 Fingers banjoJiFus = Util_Sky_FingersQuery.InOkibaPsideKomasyuruiNow(
                     src_Sky,//指定局面
                     Okiba.ShogiBan,//将棋盤上の
-                    aDaihyo[(int)Komasyurui14.H01_Fu_____].Pside,//持駒を持っているプレイヤー側の
+                    Conv_Busstop.ToPlayerside( aDaihyo[(int)Komasyurui14.H01_Fu_____]),//持駒を持っているプレイヤー側の
                     Komasyurui14.H01_Fu_____//歩
                     );
                     
@@ -121,9 +123,9 @@ namespace Grayscale.P262_Play2______.L500____Struct
                 foreach (Finger figBanjoJiFu in banjoJiFus.Items)
                 {
                     src_Sky.AssertFinger(figBanjoJiFu);
-                    RO_Star banjoJiFu = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figBanjoJiFu).Now);
+                    Busstop banjoJiFu = src_Sky.StarlightIndexOf(figBanjoJiFu).Now;
                     int suji;//1～9
-                    Util_MasuNum.TryMasuToSuji(banjoJiFu.Masu, out suji);
+                    Util_MasuNum.TryMasuToSuji(Conv_Busstop.ToMasu( banjoJiFu), out suji);
                     existsFu_sujibetu[suji] = true;
                 }
 

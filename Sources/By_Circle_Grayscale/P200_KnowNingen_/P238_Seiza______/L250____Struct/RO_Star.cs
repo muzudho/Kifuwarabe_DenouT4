@@ -16,7 +16,7 @@ namespace Grayscale.P238_Seiza______.L250____Struct
     /// 盤上に置けるものです。
     /// 駒、矢印、色付きマスなどを想定していますが、現状では　駒　しかありません。
     /// </summary>
-    public class RO_Star : Starlightable
+    public class RO_Star // : Starlightable
     {
         public RO_Star(Playerside pside, SyElement masu, Komasyurui14 syurui)
         {
@@ -99,7 +99,7 @@ namespace Grayscale.P238_Seiza______.L250____Struct
             {
                 string result;
 
-                result = Util_Komasyurui14.KanjiIchimoji[(int)this.komasyurui];//(int)Haiyaku184Array.Syurui(this.Haiyaku)
+                result = Util_Komasyurui14.KanjiIchimoji[(int)this.komasyurui];
 
                 return result;
             }

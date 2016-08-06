@@ -12,6 +12,8 @@ using Grayscale.P238_Seiza______.L250____Struct;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using System.Diagnostics;
 using System.Text;
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P369_ConvCsa____.L500____Converter
 {
@@ -180,10 +182,10 @@ namespace Grayscale.P369_ConvCsa____.L500____Converter
                     //});
 
                     SyElement srcMasu = Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan,srcSuji,srcDan);
-                    RO_Star srcKoma = Util_Sky_KomaQuery.InMasuNow(ittemae_Sky_orNull, srcMasu);
-                    Debug.Assert(null!=srcKoma,"元位置の駒を取得できなかった。1");
+                    Busstop srcKoma = Util_Sky_KomaQuery.InMasuNow(ittemae_Sky_orNull, srcMasu);
+                    Debug.Assert(Busstop.Empty!= srcKoma,"元位置の駒を取得できなかった。1");
 
-                    if (!Util_Komasyurui14.IsNari(srcKoma.Komasyurui) && nari)//移動元で「成り」でなかった駒が、移動後に「成駒」になっていた場合。
+                    if (!Util_Komasyurui14.IsNari(Conv_Busstop.ToKomasyurui( srcKoma)) && nari)//移動元で「成り」でなかった駒が、移動後に「成駒」になっていた場合。
                     {
                         sb.Append("+");
                     }

@@ -10,6 +10,8 @@ using Grayscale.P256_SeizaFinger.L250____Struct;
 using Grayscale.P266_KyokumMoves.L500____Util;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P267_ConvKiki___.L500____Converter
 {
@@ -51,9 +53,9 @@ namespace Grayscale.P267_ConvKiki___.L500____Converter
             foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)// 全駒
             {
                 src_Sky.AssertFinger(figKoma);
-                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
+                Busstop koma = src_Sky.StarlightIndexOf(figKoma).Now;
 
-                result.HMasu_PlayersideList[Conv_SyElement.ToMasuNumber(koma.Masu)] = koma.Pside;
+                result.HMasu_PlayersideList[Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( koma))] = Conv_Busstop.ToPlayerside( koma);
             }
 
             //
@@ -69,10 +71,10 @@ namespace Grayscale.P267_ConvKiki___.L500____Converter
                 // 駒
                 //
                 src_Sky.AssertFinger(figKoma);
-                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(figKoma).Now);
+                Busstop koma = src_Sky.StarlightIndexOf(figKoma).Now;
 
                 // 将棋盤上の戦駒のみ判定
-                if (Okiba.ShogiBan != Conv_SyElement.ToOkiba(koma.Masu))
+                if (Okiba.ShogiBan != Conv_Busstop.ToOkiba(koma))
                 {
                     goto gt_Next1;
                 }
@@ -91,7 +93,7 @@ namespace Grayscale.P267_ConvKiki___.L500____Converter
                         {
                             // 駒のないマスは無視。
                         }
-                        else if (Playerside.P1 == koma.Pside)
+                        else if (Playerside.P1 == Conv_Busstop.ToPlayerside( koma))
                         {
                             // 利きのあるマスにある駒と、この駒のプレイヤーサイドが同じ。
                             result.Kikisu_AtMasu_1P[Conv_SyElement.ToMasuNumber(masu)] += 1;

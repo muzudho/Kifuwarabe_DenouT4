@@ -4,6 +4,8 @@ using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P238_Seiza______.L250____Struct;
 using Grayscale.P238_Seiza______.L500____Util;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P239_ConvWords__.L500____Converter
 {
@@ -23,10 +25,10 @@ namespace Grayscale.P239_ConvWords__.L500____Converter
             foreach (Finger finger in fingers.Items)
             {
                 src_Sky.AssertFinger(finger);
-                RO_Star koma = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(finger).Now);
+                Busstop koma = src_Sky.StarlightIndexOf(finger).Now;
 
 
-                masus.AddElement(koma.Masu);
+                masus.AddElement(Conv_Busstop.ToMasu( koma));
             }
 
             return masus;

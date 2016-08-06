@@ -105,7 +105,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                 isMakimodosi);
 
 
-            Starlight dst;
+            DoubleBusstopable dst;
             {
                 dst = Util_IttemodosuRoutine.Do37_KomaOnDestinationMasu(syurui2,
                     ittemodosuArg.Move,
@@ -158,7 +158,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                     //
                     figFoodKoma,
                     new RO_Starlight(
-                        new RO_Star(
+                        Conv_Busstop.ToBusstop(
                             Conv_Playerside.Reverse(pside),//先後を逆にして駒台に置きます。
                             dstMasu,// マス
                             captured
@@ -305,13 +305,13 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
         /// <param name="kifu"></param>
         /// <param name="isMakimodosi"></param>
         /// <returns></returns>
-        private static Starlight Do37_KomaOnDestinationMasu(
+        private static DoubleBusstopable Do37_KomaOnDestinationMasu(
             Komasyurui14 syurui2,
             Move move,
             SkyConst src_Sky
             )
         {
-            Starlight dst;
+            DoubleBusstopable dst;
 
             SyElement srcMasu = Conv_Move.ToSrcMasu(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
@@ -341,7 +341,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
 
 
             dst = new RO_Starlight(
-                new RO_Star(pside,
+                Conv_Busstop.ToBusstop(pside,
                 masu,//戻し先
                 syurui2)
                 );

@@ -11,6 +11,8 @@ using Grayscale.P238_Seiza______.L250____Struct;
 using Grayscale.P238_Seiza______.L500____Util;
 using Grayscale.P256_SeizaFinger.L250____Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P341_Ittesasu___.L500____UtilA
 {
@@ -45,13 +47,13 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                 foreach (Finger koma1 in Finger_Honshogi.Items_KomaOnly)
                 {
                     src_Sky.AssertFinger(koma1);
-                    RO_Star koma2 = Util_Starlightable.AsKoma(src_Sky.StarlightIndexOf(koma1).Now);
+                    Busstop koma2 = src_Sky.StarlightIndexOf(koma1).Now;
 
 
-                        if (pside == koma2.Pside
-                            && Okiba.ShogiBan == Conv_SyElement.ToOkiba(koma2.Masu)
-                            && Util_Komasyurui14.Matches(syurui, Util_Komahaiyaku184.Syurui(koma2.Haiyaku))
-                            && masu1 == koma2.Masu
+                        if (pside == Conv_Busstop.ToPlayerside( koma2)
+                            && Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma2)
+                            && Util_Komasyurui14.Matches(syurui, Conv_Busstop.ToKomasyurui(koma2))
+                            && masu1 == Conv_Busstop.ToMasu( koma2)
                             )
                         {
                             // 候補マスにいた

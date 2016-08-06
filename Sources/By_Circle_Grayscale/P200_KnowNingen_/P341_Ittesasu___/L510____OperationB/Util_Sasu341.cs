@@ -10,6 +10,8 @@ using Grayscale.P238_Seiza______.L500____Util;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using Grayscale.P341_Ittesasu___.L500____UtilA;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P341_Ittesasu___.L510____OperationB
 {
@@ -58,25 +60,25 @@ namespace Grayscale.P341_Ittesasu___.L510____OperationB
                 }
 
                 sky_buf.AssertFinger(tottaKoma);
-                RO_Star koma = Util_Starlightable.AsKoma(sky_buf.StarlightIndexOf(tottaKoma).Now);
+                Busstop koma = sky_buf.StarlightIndexOf(tottaKoma).Now;
 
                     // FIXME:配役あってるか？
-                sky_buf.PutOverwriteOrAdd_Starlight(tottaKoma, new RO_Starlight(new RO_Star(src_Sky.KaisiPside, akiMasu, koma.Komasyurui)));//tottaKoma,
+                sky_buf.PutOverwriteOrAdd_Starlight(tottaKoma, new RO_Starlight(Conv_Busstop.ToBusstop(src_Sky.KaisiPside, akiMasu, Conv_Busstop.ToKomasyurui( koma))));
             }
 
             // 駒を１個動かします。
             // FIXME: 取った駒はどうなっている？
             {
                 sky_buf.AssertFinger(finger);
-                RO_Star koma = Util_Starlightable.AsKoma(sky_buf.StarlightIndexOf(finger).Now);
-                Komasyurui14 komaSyurui = koma.Komasyurui;
+                Busstop koma = sky_buf.StarlightIndexOf(finger).Now;
+                Komasyurui14 komaSyurui = Conv_Busstop.ToKomasyurui( koma);
 
                 if (toNaru)
                 {
                     komaSyurui = Util_Komasyurui14.ToNariCase(komaSyurui);
                 }
 
-                sky_buf.PutOverwriteOrAdd_Starlight(finger, new RO_Starlight(new RO_Star(src_Sky.KaisiPside, masu, komaSyurui)));
+                sky_buf.PutOverwriteOrAdd_Starlight(finger, new RO_Starlight(Conv_Busstop.ToBusstop(src_Sky.KaisiPside, masu, komaSyurui)));
             }
 
             return SkyConst.NewInstance( sky_buf,

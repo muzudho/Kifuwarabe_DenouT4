@@ -3,6 +3,7 @@ using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P238_Seiza______.L250____Struct;
 using System;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
+using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P238_Seiza______.L500____Util
 {
@@ -25,23 +26,10 @@ namespace Grayscale.P238_Seiza______.L500____Util
 
 
 
-        public static RO_Star FromFinger(SkyConst src_Sky,Finger finger)
+        public static Busstop FromFinger(SkyConst src_Sky,Finger finger)
         {
-            RO_Star koma;
-
             src_Sky.AssertFinger(finger);
-            Starlightable lightable = src_Sky.StarlightIndexOf(finger).Now;
-
-            if (lightable is RO_Star)
-            {
-                koma = (RO_Star)lightable;
-            }
-            else
-            {
-                throw new Exception("未対応の星の光クラス");
-            }
-
-            return koma;
+            return src_Sky.StarlightIndexOf(finger).Now;
         }
 
     }
