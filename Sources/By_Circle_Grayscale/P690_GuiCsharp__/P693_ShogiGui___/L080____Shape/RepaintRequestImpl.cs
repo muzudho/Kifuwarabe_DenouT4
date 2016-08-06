@@ -143,17 +143,17 @@ namespace Grayscale.P693_ShogiGui___.L080____Shape
         /// </summary>
         public void SetFlag_RecalculateRequested()
         {
-            this.starlightsRecalculateRequested = true;
+            this.komasRecalculateRequested = true;
         }
-        public void Clear_StarlightsRecalculateRequested()
+        public void Clear_KomasRecalculateRequested()
         {
-            this.starlightsRecalculateRequested = false;
+            this.komasRecalculateRequested = false;
         }
-        public bool Is_StarlightsRecalculateRequested()
+        public bool Is_KomasRecalculateRequested()
         {
-            return this.starlightsRecalculateRequested;
+            return this.komasRecalculateRequested;
         }
-        private bool starlightsRecalculateRequested;
+        private bool komasRecalculateRequested;
 
         #endregion
 

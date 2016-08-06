@@ -1,5 +1,5 @@
 ﻿using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P218_Starlight__.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
 using Grayscale.P226_Tree_______.L500____Struct;
 using Grayscale.P247_KyokumenWra.L500____Struct;
@@ -9,7 +9,6 @@ using Grayscale.P321_KyokumHyoka.L250____Struct;
 using Grayscale.P324_KifuTree___.L___250_Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
 using System.Text;
-using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P324_KifuTree___.L250____Struct
 {

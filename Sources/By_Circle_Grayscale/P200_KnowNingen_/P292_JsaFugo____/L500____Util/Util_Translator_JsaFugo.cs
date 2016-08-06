@@ -1,21 +1,17 @@
-﻿using Grayscale.P062_ConvText___.L500____Converter;
+﻿using Grayscale.P056_Syugoron___.L___250_Struct;
+using Grayscale.P062_ConvText___.L500____Converter;
+using Grayscale.P211_WordShogi__.L250____Masu;
+using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P212_ConvPside__.L500____Converter;
 using Grayscale.P213_Komasyurui_.L500____Util;
 using Grayscale.P214_Masu_______.L500____Util;
-using Grayscale.P218_Starlight__.L___500_Struct;
-using Grayscale.P224_Sky________.L500____Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
-using Grayscale.P238_Seiza______.L250____Struct;
-using Grayscale.P238_Seiza______.L500____Util;
 using Grayscale.P239_ConvWords__.L500____Converter;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P292_JsaFugo____.L250____Struct;
-using System.Text;
-using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
-using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P056_Syugoron___.L___250_Struct;
-using Grayscale.P211_WordShogi__.L250____Masu;
+using System.Text;
 
 namespace Grayscale.P292_JsaFugo____.L500____Util
 {

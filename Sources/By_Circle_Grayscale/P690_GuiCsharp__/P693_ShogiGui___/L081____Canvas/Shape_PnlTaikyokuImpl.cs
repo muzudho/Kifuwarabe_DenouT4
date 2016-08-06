@@ -1,9 +1,8 @@
 ﻿using Grayscale.P003_Log________.L___500_Struct;
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P212_ConvPside__.L500____Converter;
-using Grayscale.P218_Starlight__.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P238_Seiza______.L250____Struct;
 using Grayscale.P256_SeizaFinger.L250____Struct;
 using Grayscale.P693_ShogiGui___.L___080_Shape;
 using Grayscale.P693_ShogiGui___.L___081_Canvas;
@@ -11,7 +10,6 @@ using Grayscale.P693_ShogiGui___.L___500_Gui;
 using Grayscale.P693_ShogiGui___.L080____Shape;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P693_ShogiGui___.L081____Canvas
 {
@@ -110,9 +108,9 @@ namespace Grayscale.P693_ShogiGui___.L081____Canvas
         /// 棋譜[再生]中は使いません。
         /// 
         /// </summary>
-        public Busstop MouseStarlightOrNull2 { get { return this.mouseStarlightOrNull2; } }
-        public void SetMouseStarlightOrNull2(Busstop mouseDd) { this.mouseStarlightOrNull2 = mouseDd; }
-        private Busstop mouseStarlightOrNull2;
+        public Busstop MouseBusstopOrNull2 { get { return this.m_mouseBusstopOrNull2_; } }
+        public void SetMouseBusstopOrNull2(Busstop mouseDd) { this.m_mouseBusstopOrNull2_ = mouseDd; }
+        private Busstop m_mouseBusstopOrNull2_;
 
         /// <summary>
         /// 「取った駒_巻戻し用」

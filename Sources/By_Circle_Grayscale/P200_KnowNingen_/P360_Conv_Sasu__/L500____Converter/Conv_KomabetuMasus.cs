@@ -24,7 +24,7 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
             komabetuSusumuMasus.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
             {
                 src_Sky.AssertFinger(key);
-                Busstop koma = src_Sky.StarlightIndexOf(key);
+                Busstop koma = src_Sky.BusstopIndexOf(key);
 
                 foreach (SyElement dstMasu in value.Elements)
                 {
@@ -69,7 +69,7 @@ namespace Grayscale.P360_Conv_Sasu__.L500____Converter
             sMs.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
             {
                 src_Sky.AssertFinger(key);
-                Busstop koma = src_Sky.StarlightIndexOf(key);
+                Busstop koma = src_Sky.BusstopIndexOf(key);
 
 
                 foreach (SyElement dstMasu in value.Elements)

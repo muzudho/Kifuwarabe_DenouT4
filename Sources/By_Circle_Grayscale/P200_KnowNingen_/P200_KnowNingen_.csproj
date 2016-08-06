@@ -98,7 +98,6 @@
     <Compile Include="P222_Log_Kaisetu\L500____Util\Util_LogWriter022_Json.cs" />
     <Compile Include="P234_Komahaiyaku\L250____Word\Array_Komahaiyaku185.cs" />
     <Compile Include="P242_UtilColleEx\L500____Util\Util_List_OneAndMultiEx.cs" />
-    <Compile Include="P242_UtilColleEx\L500____Util\Util_Maps_OneAndMultiEx.cs" />
     <Compile Include="P258_UtilSky258_\L250____UtilFingers\Util_Fingers_KomasyuruiQuery.cs" />
     <Compile Include="P258_UtilSky258_\L500____UtilSky\Util_Sky_FingerQuery.cs" />
     <Compile Include="P258_UtilSky258_\L500____UtilSky\Util_Sky_FingersQueryEx.cs" />
@@ -147,12 +146,10 @@
     <Compile Include="P211_WordShogi__\L500____Word\Hogaku.cs" />
     <Compile Include="P211_WordShogi__\L500____Word\Okiba.cs" />
     <Compile Include="P211_WordShogi__\L500____Word\Playerside.cs" />
-    <Compile Include="P218_Starlight__\L___500_Struct\DoubleBusstopable.cs" />
     <Compile Include="P222_Log_Kaisetu\L250____Struct\KaisetuBoard.cs" />
     <Compile Include="P222_Log_Kaisetu\L250____Struct\KaisetuBoards.cs" />
     <Compile Include="P224_Sky________\L___500_Struct\Sky.cs" />
     <Compile Include="P224_Sky________\L500____Struct\Fingers.cs" />
-    <Compile Include="P224_Sky________\L500____Struct\RO_Starlight.cs" />
     <Compile Include="P224_Sky________\L500____Struct\SkyBuffer.cs" />
     <Compile Include="P224_Sky________\L500____Struct\SkyConst.cs" />
     <Compile Include="P226_Tree_______\L___500_Struct\Node.cs" />

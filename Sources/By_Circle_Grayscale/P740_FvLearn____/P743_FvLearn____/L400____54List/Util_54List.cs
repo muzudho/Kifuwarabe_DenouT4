@@ -2,19 +2,16 @@
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P212_ConvPside__.L500____Converter;
 using Grayscale.P213_Komasyurui_.L250____Word;
-using Grayscale.P218_Starlight__.L___500_Struct;
+using Grayscale.P213_Komasyurui_.L500____Util;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P238_Seiza______.L250____Struct;
-using Grayscale.P238_Seiza______.L500____Util;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 using Grayscale.P521_FeatureVect.L500____Struct;
 using Grayscale.P525_ConvFv_____.L500____Converter;
 using Grayscale.P743_FvLearn____.L___400_54List;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
-using Grayscale.P339_ConvKyokume.L500____Converter;
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P213_Komasyurui_.L500____Util;
 
 namespace Grayscale.P743_FvLearn____.L400____54List
 {
@@ -50,7 +47,7 @@ namespace Grayscale.P743_FvLearn____.L400____54List
             int p54Next = 0;
             int[] p54List = new int[54];
 
-            src_Sky.Foreach_Starlights((Finger finger, Busstop busstop, ref bool toBreak) =>
+            src_Sky.Foreach_Busstops((Finger finger, Busstop busstop, ref bool toBreak) =>
             {
                 //----------------------------------------
                 // まず、p を調べます。

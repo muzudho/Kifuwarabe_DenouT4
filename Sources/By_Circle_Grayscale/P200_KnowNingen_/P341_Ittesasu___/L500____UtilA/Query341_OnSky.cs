@@ -47,7 +47,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                 foreach (Finger koma1 in Finger_Honshogi.Items_KomaOnly)
                 {
                     src_Sky.AssertFinger(koma1);
-                    Busstop koma2 = src_Sky.StarlightIndexOf(koma1);
+                    Busstop koma2 = src_Sky.BusstopIndexOf(koma1);
 
                     if (pside == Conv_Busstop.ToPlayerside( koma2)
                         && Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma2)

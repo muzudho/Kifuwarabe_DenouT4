@@ -1,17 +1,14 @@
 ﻿using Grayscale.P035_Collection_.L500____Struct;
+using Grayscale.P056_Syugoron___.L___250_Struct;
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P212_ConvPside__.L500____Converter;
 using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P213_Komasyurui_.L500____Util;
 using Grayscale.P214_Masu_______.L500____Util;
-using Grayscale.P218_Starlight__.L___500_Struct;
-using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P238_Seiza______.L250____Struct;
-using System;
-using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
-using Grayscale.P056_Syugoron___.L___250_Struct;
+using System;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.P269_Util_Sasu__.L500____Util
 {

@@ -41,7 +41,7 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
                     if (Fingers.Error_1 != koma0)
                     {
                         src_Sky.AssertFinger(koma0);
-                        Busstop koma1 = src_Sky.StarlightIndexOf(koma0);
+                        Busstop koma1 = src_Sky.BusstopIndexOf(koma0);
 
                         ro_Kyokumen1.Ban[suji,dan] = Util_Komasyurui14.SfenText(
                             Conv_Busstop.ToKomasyurui(koma1),
@@ -151,7 +151,7 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
 
 
                         src_Sky.AssertFinger(koma0);
-                        Busstop koma1 = src_Sky.StarlightIndexOf(koma0);
+                        Busstop koma1 = src_Sky.BusstopIndexOf(koma0);
 
                         sb.Append(Util_Komasyurui14.SfenText(
                             Conv_Busstop.ToKomasyurui(koma1),

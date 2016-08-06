@@ -1,15 +1,11 @@
 ﻿using Grayscale.P003_Log________.L___500_Struct;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P212_ConvPside__.L500____Converter;
 using Grayscale.P213_Komasyurui_.L250____Word;
-using Grayscale.P218_Starlight__.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P238_Seiza______.L250____Struct;
-using Grayscale.P238_Seiza______.L500____Util;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 using System;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 {
@@ -49,7 +45,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             Fingers fs_motiSeme_temp = new Fingers();// （３）持ち駒_攻め手
             Fingers fs_motiKurau_temp = new Fingers();// （４）持ち駒_食らう側
 
-            src_Sky.Foreach_Starlights((Finger finger, Busstop star, ref bool toBreak) =>
+            src_Sky.Foreach_Busstops((Finger finger, Busstop star, ref bool toBreak) =>
             {
                 if (Conv_Busstop.ToOkiba(star) == Okiba.ShogiBan)
                 {
@@ -138,7 +134,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             Fingers fingers_moti1p_temp = new Fingers();// （３）持ち駒_攻め手
             Fingers fingers_moti2p_temp = new Fingers();// （４）持ち駒_食らう側
 
-            src_Sky.Foreach_Starlights((Finger finger, Busstop koma, ref bool toBreak) =>
+            src_Sky.Foreach_Busstops((Finger finger, Busstop koma, ref bool toBreak) =>
             {
                 if (Conv_Busstop.ToOkiba(koma) == Okiba.Sente_Komadai)
                 {
@@ -171,7 +167,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             Busstop koma_Jigyoku_temp = Busstop.Empty;
             Busstop koma_Aitegyoku_temp = Busstop.Empty;
 
-            src_Sky.Foreach_Starlights((Finger finger, Busstop koma, ref bool toBreak) =>
+            src_Sky.Foreach_Busstops((Finger finger, Busstop koma, ref bool toBreak) =>
             {
                 if (
                     Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma)
@@ -215,7 +211,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             Busstop koma_1PGyoku_temp = Busstop.Empty;
             Busstop koma_2PGyoku_temp = Busstop.Empty;
 
-            src_Sky.Foreach_Starlights((Finger finger, Busstop koma, ref bool toBreak) =>
+            src_Sky.Foreach_Busstops((Finger finger, Busstop koma, ref bool toBreak) =>
             {
                 if(
                     Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma)

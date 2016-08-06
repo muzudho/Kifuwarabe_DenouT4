@@ -1,20 +1,16 @@
 ﻿using Grayscale.P003_Log________.L___500_Struct;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P212_ConvPside__.L500____Converter;
 using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P213_Komasyurui_.L500____Util;
 using Grayscale.P214_Masu_______.L500____Util;
-using Grayscale.P218_Starlight__.L___500_Struct;
-using Grayscale.P224_Sky________.L500____Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
-using Grayscale.P234_Komahaiyaku.L500____Util;
-using Grayscale.P238_Seiza______.L250____Struct;
-using Grayscale.P238_Seiza______.L500____Util;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using Grayscale.P296_ConvJsa____.L500____Converter;
 using Grayscale.P324_KifuTree___.L___250_Struct;
 using Grayscale.P324_KifuTree___.L250____Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 using Grayscale.P461_Server_____.L250____Util;
 using Grayscale.P693_ShogiGui___.L___080_Shape;
 using Grayscale.P693_ShogiGui___.L___499_Repaint;
@@ -23,8 +19,6 @@ using Grayscale.P693_ShogiGui___.L060____TextBoxListener;
 using Grayscale.P693_ShogiGui___.P703_ShogiGui___.L101____Conv;
 using System.Drawing;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P693_ShogiGui___.L249____Function
 {
@@ -148,7 +142,7 @@ namespace Grayscale.P693_ShogiGui___.L249____Function
 
         public static void Komamove1a_49Gui(
             out Komasyurui14 toSyurui,
-            out DoubleBusstopable dst,
+            out Busstop dst,
             Shape_BtnKoma btnKoma_Selected,
             Shape_BtnMasu btnMasu,
             MainGui_Csharp mainGui
@@ -159,26 +153,24 @@ namespace Grayscale.P693_ShogiGui___.L249____Function
             {
                 // 成ります
 
-                toSyurui = Util_Komasyurui14.NariCaseHandle[(int)Conv_Busstop.ToKomasyurui(mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2)];
+                toSyurui = Util_Komasyurui14.NariCaseHandle[(int)Conv_Busstop.ToKomasyurui(mainGui.Shape_PnlTaikyoku.MouseBusstopOrNull2)];
                 mainGui.SetNaruFlag(false);
             }
             else
             {
                 // そのまま
-                toSyurui = Conv_Busstop.ToKomasyurui(mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2);
+                toSyurui = Conv_Busstop.ToKomasyurui(mainGui.Shape_PnlTaikyoku.MouseBusstopOrNull2);
             }
 
 
             // 置く駒
             {
                 mainGui.Model_Manual.GuiSkyConst.AssertFinger(btnKoma_Selected.Finger);
-                dst = new SingleBusstop(
-                    Conv_Busstop.ToBusstop(
-                        Conv_Busstop.ToPlayerside(mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(btnKoma_Selected.Finger)),
+                dst = Conv_Busstop.ToBusstop(
+                        Conv_Busstop.ToPlayerside(mainGui.Model_Manual.GuiSkyConst.BusstopIndexOf(btnKoma_Selected.Finger)),
                         btnMasu.Zahyo,
                         toSyurui
-                        )
-                );
+                        );
             }
 
 
@@ -225,7 +217,7 @@ namespace Grayscale.P693_ShogiGui___.L249____Function
             )
         {
             mainGui.Model_Manual.GuiSkyConst.AssertFinger(figKoma);
-            Busstop koma = mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(figKoma);
+            Busstop koma = mainGui.Model_Manual.GuiSkyConst.BusstopIndexOf(figKoma);
 
             Shape_BtnKoma btnKoma = Conv_Koma_InGui.FingerToKomaBtn(figKoma, mainGui);
 

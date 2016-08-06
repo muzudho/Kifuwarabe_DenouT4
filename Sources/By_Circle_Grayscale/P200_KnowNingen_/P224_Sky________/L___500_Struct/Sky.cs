@@ -1,10 +1,9 @@
 ﻿using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P218_Starlight__.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P223_TedokuHisto.L___250_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
 using System.Runtime.CompilerServices;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
-using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P224_Sky________.L___500_Struct
 {
@@ -31,7 +30,7 @@ namespace Grayscale.P224_Sky________.L___500_Struct
         /// </summary>
         int Temezumi { get; }
 
-        Busstop StarlightIndexOf(
+        Busstop BusstopIndexOf(
             Finger finger
             /*
             ,
@@ -41,7 +40,7 @@ namespace Grayscale.P224_Sky________.L___500_Struct
             */
         );
 
-        void Foreach_Starlights(SkyBuffer.DELEGATE_Sky_Foreach delegate_Sky_Foreach);
+        void Foreach_Busstops(SkyBuffer.DELEGATE_Sky_Foreach delegate_Sky_Foreach);
 
         int Count
         {

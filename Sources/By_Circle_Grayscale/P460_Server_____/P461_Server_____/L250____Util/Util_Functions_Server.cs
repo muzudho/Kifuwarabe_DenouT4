@@ -6,15 +6,15 @@ using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P213_Komasyurui_.L500____Util;
 using Grayscale.P214_Masu_______.L500____Util;
-using Grayscale.P218_Starlight__.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
-using Grayscale.P238_Seiza______.L250____Struct;
 using Grayscale.P238_Seiza______.L500____Util;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using Grayscale.P296_ConvJsa____.L500____Converter;
 using Grayscale.P325_PnlTaikyoku.L___250_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 using Grayscale.P341_Ittesasu___.L___250_OperationA;
 using Grayscale.P341_Ittesasu___.L250____OperationA;
 using Grayscale.P341_Ittesasu___.L500____UtilA;
@@ -26,8 +26,6 @@ using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P461_Server_____.L250____Util
 {
@@ -404,7 +402,7 @@ namespace Grayscale.P461_Server_____.L250____Util
         public static void Komamove1a_50Srv(
             out bool torareruKomaAri,
             out Busstop koma_Food_after,
-            DoubleBusstopable dst,
+            Busstop dst,
             Finger fig_btnTumandeiruKoma,
             Busstop foodee_koma,//取られる対象の駒
             Model_Manual model_Manual,
@@ -435,7 +433,7 @@ namespace Grayscale.P461_Server_____.L250____Util
 
 
             model_Manual.GuiSkyConst.AssertFinger(btnKoma_Food_Koma);
-            Komasyurui14 koma_Food_pre_Syurui = Conv_Busstop.ToKomasyurui(model_Manual.GuiSkyConst.StarlightIndexOf(btnKoma_Food_Koma));
+            Komasyurui14 koma_Food_pre_Syurui = Conv_Busstop.ToKomasyurui(model_Manual.GuiSkyConst.BusstopIndexOf(btnKoma_Food_Koma));
 
 
             // その駒は、駒置き場に移動させます。
@@ -525,7 +523,7 @@ namespace Grayscale.P461_Server_____.L250____Util
                         // 指した駒
                         //
                         fig_btnTumandeiruKoma,
-                        dst.Now,
+                        dst,
                         //
                         // 取られた駒
                         //
@@ -539,7 +537,7 @@ namespace Grayscale.P461_Server_____.L250____Util
                 // 取られる駒がなかった場合
                 //------------------------------
                 model_Manual.GuiSkyConst.AssertFinger(fig_btnTumandeiruKoma);
-                Busstop movedKoma = model_Manual.GuiSkyConst.StarlightIndexOf(fig_btnTumandeiruKoma);
+                Busstop movedKoma = model_Manual.GuiSkyConst.BusstopIndexOf(fig_btnTumandeiruKoma);
 
                 sky2 = SkyConst.NewInstance_OverwriteOrAdd_Light(
                         model_Manual.GuiSkyConst,
@@ -548,7 +546,7 @@ namespace Grayscale.P461_Server_____.L250____Util
                         // 指した駒
                         //
                         fig_btnTumandeiruKoma,
-                        dst.Now,
+                        dst,
                         //
                         // 手得計算
                         //

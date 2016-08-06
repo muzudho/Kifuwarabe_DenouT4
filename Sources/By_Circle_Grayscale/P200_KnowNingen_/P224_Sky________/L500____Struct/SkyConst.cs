@@ -3,7 +3,7 @@ using Grayscale.P211_WordShogi__.L250____Masu;
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P212_ConvPside__.L500____Converter;
 using Grayscale.P213_Komasyurui_.L250____Word;
-using Grayscale.P218_Starlight__.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P223_TedokuHisto.L___250_Struct;
 using Grayscale.P223_TedokuHisto.L250____Struct;
 using Grayscale.P224_Sky________.L___500_Struct;
@@ -12,7 +12,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
-using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P224_Sky________.L500____Struct
 {
@@ -222,7 +221,7 @@ namespace Grayscale.P224_Sky________.L500____Struct
 
             // 星々のクローン
             this.m_busstops_ = new List<Busstop>();
-            src.Foreach_Starlights((Finger finger2, Busstop busstop2, ref bool toBreak2) =>
+            src.Foreach_Busstops((Finger finger2, Busstop busstop2, ref bool toBreak2) =>
             {
                 this.m_busstops_.Add(busstop2);
             });
@@ -275,7 +274,7 @@ namespace Grayscale.P224_Sky________.L500____Struct
             }
         }
 
-        public Busstop StarlightIndexOf(Finger finger)
+        public Busstop BusstopIndexOf(Finger finger)
         {
             this.AssertFinger(finger);
 
@@ -283,7 +282,7 @@ namespace Grayscale.P224_Sky________.L500____Struct
         }
 
 
-        public void Foreach_Starlights(SkyBuffer.DELEGATE_Sky_Foreach delegate_Sky_Foreach)
+        public void Foreach_Busstops(SkyBuffer.DELEGATE_Sky_Foreach delegate_Sky_Foreach)
         {
             bool toBreak = false;
 
@@ -313,7 +312,7 @@ namespace Grayscale.P224_Sky________.L500____Struct
         {
             Fingers fingers = new Fingers();
 
-            this.Foreach_Starlights((Finger finger, Busstop light, ref bool toBreak) =>
+            this.Foreach_Busstops((Finger finger, Busstop light, ref bool toBreak) =>
             {
                 fingers.Add(finger);
             });

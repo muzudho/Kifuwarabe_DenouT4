@@ -575,7 +575,7 @@ namespace Grayscale.P693_ShogiGui___.L500____GUI
         public virtual Busstop GetKoma(Finger finger)
         {
             this.Model_Manual.GuiSkyConst.AssertFinger(finger);
-            return this.Model_Manual.GuiSkyConst.StarlightIndexOf(finger);
+            return this.Model_Manual.GuiSkyConst.BusstopIndexOf(finger);
         }
 
     }

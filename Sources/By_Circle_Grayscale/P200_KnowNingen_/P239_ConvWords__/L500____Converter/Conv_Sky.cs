@@ -25,7 +25,7 @@ namespace Grayscale.P239_ConvWords__.L500____Converter
             foreach (Finger fig in sky.Fingers_All().Items)
             {
                 sky.AssertFinger(fig);
-                Busstop koma = sky.StarlightIndexOf(fig);
+                Busstop koma = sky.BusstopIndexOf(fig);
 
                 // 盤上の駒。 FIXME: 持ち駒はまだ見ていない。
                 ulong value = Util_ZobristHashing.GetValue(

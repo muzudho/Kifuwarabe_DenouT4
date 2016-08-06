@@ -1,17 +1,20 @@
 ﻿using Grayscale.P003_Log________.L___500_Struct;
 using Grayscale.P003_Log________.L500____Struct;
+using Grayscale.P055_Conv_Sy.L500____Converter;
 using Grayscale.P056_Syugoron___.L___250_Struct;
 using Grayscale.P062_ConvText___.L500____Converter;
+using Grayscale.P211_WordShogi__.L___250_Masu;
 using Grayscale.P211_WordShogi__.L500____Word;
+using Grayscale.P212_ConvPside__.L500____Converter;
 using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P213_Komasyurui_.L500____Util;
 using Grayscale.P214_Masu_______.L500____Util;
-using Grayscale.P218_Starlight__.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
-using Grayscale.P234_Komahaiyaku.L500____Util;
 using Grayscale.P238_Seiza______.L250____Struct;
 using Grayscale.P238_Seiza______.L500____Util;
+using Grayscale.P239_ConvWords__.L500____Converter;
 using Grayscale.P245_SfenTransla.L500____Util;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
@@ -20,11 +23,6 @@ using Grayscale.P324_KifuTree___.L___250_Struct;
 using System;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P212_ConvPside__.L500____Converter;
-using Grayscale.P239_ConvWords__.L500____Converter;
-using Grayscale.P211_WordShogi__.L___250_Masu;
-using Grayscale.P055_Conv_Sy.L500____Converter;
-using Grayscale.P219_Move_______.L___500_Struct;
 
 #if DEBUG
 using System.Diagnostics;
@@ -231,7 +229,7 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
                     Finger srcKoma = Util_Sky_FingerQuery.InOkibaSyuruiNow_IgnoreCase(siteiNode.Value.KyokumenConst, srcOkiba, srcSyurui, errH);
 
                     src_Sky.AssertFinger(srcKoma);
-                    Busstop dstKoma = src_Sky.StarlightIndexOf(srcKoma);
+                    Busstop dstKoma = src_Sky.BusstopIndexOf(srcKoma);
 
                     srcMasu = Conv_Busstop.ToMasu( dstKoma);
                 }
@@ -240,7 +238,7 @@ namespace Grayscale.P339_ConvKyokume.L500____Converter
                     //>>>>> 盤上の駒を指した場合
 
                     src_Sky.AssertFinger(koma);
-                    Busstop dstKoma = src_Sky.StarlightIndexOf(koma);
+                    Busstop dstKoma = src_Sky.BusstopIndexOf(koma);
 
 
                     dstSyurui = Conv_Busstop.ToKomasyurui(dstKoma);

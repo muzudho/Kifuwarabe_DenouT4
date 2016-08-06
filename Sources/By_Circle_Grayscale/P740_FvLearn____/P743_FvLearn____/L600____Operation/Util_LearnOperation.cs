@@ -2,7 +2,7 @@
 using Grayscale.P003_Log________.L500____Struct;
 using Grayscale.P031_usiFrame1__.L500____usiFrame___;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P218_Starlight__.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P324_KifuTree___.L___250_Struct;
@@ -23,8 +23,6 @@ using Grayscale.P743_FvLearn____.L470____StartZero;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
 
 #if DEBUG || LEARN
 using Grayscale.P523_UtilFv_____.L480____UtilFvEdit;

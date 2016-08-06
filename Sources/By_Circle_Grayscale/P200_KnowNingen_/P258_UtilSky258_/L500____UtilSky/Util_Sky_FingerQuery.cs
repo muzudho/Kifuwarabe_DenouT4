@@ -1,18 +1,14 @@
 ﻿using Grayscale.P003_Log________.L___500_Struct;
 using Grayscale.P056_Syugoron___.L___250_Struct;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P212_ConvPside__.L500____Converter;
 using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P213_Komasyurui_.L500____Util;
 using Grayscale.P214_Masu_______.L500____Util;
-using Grayscale.P218_Starlight__.L___500_Struct;
-using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P238_Seiza______.L250____Struct;
-using Grayscale.P238_Seiza______.L500____Util;
-using Grayscale.P256_SeizaFinger.L250____Struct;
-using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P224_Sky________.L500____Struct;
+using Grayscale.P256_SeizaFinger.L250____Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 {
@@ -41,7 +37,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
                 src_Sky.AssertFinger(finger);
-                Busstop koma = src_Sky.StarlightIndexOf(finger);
+                Busstop koma = src_Sky.BusstopIndexOf(finger);
 
                 int suji1;
                 int suji2;
@@ -86,7 +82,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
                 src_Sky.AssertFinger(finger);
-                Busstop koma = src_Sky.StarlightIndexOf(finger);
+                Busstop koma = src_Sky.BusstopIndexOf(finger);
 
                 if (Conv_Busstop.ToOkiba(koma) == okiba
                     && Util_Komasyurui14.Matches(Util_Komasyurui14.NarazuCaseHandle(Conv_Busstop.ToKomasyurui(koma)), syuruiNarazuCase))
@@ -119,7 +115,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
                 src_Sky.AssertFinger(finger);
-                Busstop koma = src_Sky.StarlightIndexOf(finger);
+                Busstop koma = src_Sky.BusstopIndexOf(finger);
 
                 int suji1;
                 int suji2;

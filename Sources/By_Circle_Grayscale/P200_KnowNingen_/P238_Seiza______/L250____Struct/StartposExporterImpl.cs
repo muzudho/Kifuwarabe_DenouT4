@@ -3,16 +3,14 @@ using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P212_ConvPside__.L500____Converter;
 using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P213_Komasyurui_.L500____Util;
-using Grayscale.P218_Starlight__.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P238_Seiza______.L500____Util;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P238_Seiza______.L250____Struct
 {
@@ -194,7 +192,7 @@ namespace Grayscale.P238_Seiza______.L250____Struct
             foreach (Finger finger in src_Sky.Fingers_All().Items)
             {
                 src_Sky.AssertFinger(finger);
-                Busstop komaKs = src_Sky.StarlightIndexOf(finger);
+                Busstop komaKs = src_Sky.BusstopIndexOf(finger);
 
                 Debug.Assert(Conv_MasuHandle.OnAll(Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( komaKs))), "(int)koma.Masu=[" + Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( komaKs)) + "]");//升番号
 

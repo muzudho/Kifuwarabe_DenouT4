@@ -79,7 +79,7 @@ namespace Grayscale.P531_Hyokakansu_.L500____Hyokakansu
             for (int i=0; i < Finger_Honshogi.Items_KomaOnly.Length; i++)// 全駒
             {
                 src_Sky.AssertFinger(Finger_Honshogi.Items_KomaOnly[i]);
-                Busstop koma = src_Sky.StarlightIndexOf(Finger_Honshogi.Items_KomaOnly[i]);
+                Busstop koma = src_Sky.BusstopIndexOf(Finger_Honshogi.Items_KomaOnly[i]);
 
                 if (Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma))
                 {

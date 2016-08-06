@@ -3,20 +3,14 @@ using Grayscale.P003_Log________.L500____Struct;
 using Grayscale.P056_Syugoron___.L___250_Struct;
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P212_ConvPside__.L500____Converter;
+using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P213_Komasyurui_.L500____Util;
 using Grayscale.P214_Masu_______.L500____Util;
-using Grayscale.P218_Starlight__.L___500_Struct;
-using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P234_Komahaiyaku.L250____Word;
-using Grayscale.P234_Komahaiyaku.L500____Util;
-using Grayscale.P238_Seiza______.L250____Struct;
-using Grayscale.P238_Seiza______.L500____Util;
-using System;
-using System.Diagnostics;
-using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
-using Grayscale.P213_Komasyurui_.L250____Word;
+using System;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 {
@@ -121,7 +115,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
                 foreach (Finger figKoma in komaGroup.Items)
                 {
                     src_Sky.AssertFinger(figKoma);
-                    Busstop busstop = src_Sky.StarlightIndexOf(figKoma);
+                    Busstop busstop = src_Sky.BusstopIndexOf(figKoma);
 
                     if (
                             pside1 == Conv_Busstop.ToPlayerside(busstop) // 誰のものか
@@ -188,9 +182,9 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         /// 先手
         /// </summary>
         /// <returns></returns>
-        public static bool IsSente(DoubleBusstopable ms)
+        public static bool IsSente(Busstop ms)
         {
-            return Playerside.P1 == Conv_Busstop.ToPlayerside(ms.Now);
+            return Playerside.P1 == Conv_Busstop.ToPlayerside(ms);
         }
 
         /// <summary>
@@ -205,9 +199,9 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
         /// 後手
         /// </summary>
         /// <returns></returns>
-        public static bool IsGote(DoubleBusstopable ms)
+        public static bool IsGote(Busstop ms)
         {
-            return Playerside.P2 == Conv_Busstop.ToPlayerside(ms.Now);
+            return Playerside.P2 == Conv_Busstop.ToPlayerside(ms);
         }
 
         /// <summary>

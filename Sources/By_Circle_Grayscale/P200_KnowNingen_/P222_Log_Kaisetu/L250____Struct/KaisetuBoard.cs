@@ -1,7 +1,6 @@
 ﻿using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P218_Starlight__.L___500_Struct;
-using System.Collections.Generic;
 using Grayscale.P219_Move_______.L___500_Struct;
+using System.Collections.Generic;
 
 namespace Grayscale.P222_Log_Kaisetu.L250____Struct
 {

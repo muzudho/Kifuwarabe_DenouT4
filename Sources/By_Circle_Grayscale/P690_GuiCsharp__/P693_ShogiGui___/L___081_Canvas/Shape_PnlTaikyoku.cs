@@ -1,8 +1,6 @@
-﻿using Grayscale.P218_Starlight__.L___500_Struct;
-using Grayscale.P238_Seiza______.L250____Struct;
+﻿using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P693_ShogiGui___.L___080_Shape;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P693_ShogiGui___.L___081_Canvas
 {
@@ -36,7 +34,7 @@ namespace Grayscale.P693_ShogiGui___.L___081_Canvas
         /// 棋譜[再生]中は使いません。
         /// 
         /// </summary>
-        Busstop MouseStarlightOrNull2 { get; }
+        Busstop MouseBusstopOrNull2 { get; }
 
 
         /// <summary>
@@ -84,7 +82,7 @@ namespace Grayscale.P693_ShogiGui___.L___081_Canvas
 
         void SetHMovedKoma(Finger value);
 
-        void SetMouseStarlightOrNull2(Busstop mouseDd);
+        void SetMouseBusstopOrNull2(Busstop mouseDd);
 
         void SetNaruMasu(Shape_BtnMasu naruMasu);
 

@@ -25,7 +25,7 @@ namespace Grayscale.P239_ConvWords__.L500____Converter
             foreach (Finger finger in fingers.Items)
             {
                 src_Sky.AssertFinger(finger);
-                Busstop koma = src_Sky.StarlightIndexOf(finger);
+                Busstop koma = src_Sky.BusstopIndexOf(finger);
 
 
                 masus.AddElement(Conv_Busstop.ToMasu( koma));

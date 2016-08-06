@@ -4,12 +4,9 @@ using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P212_ConvPside__.L500____Converter;
 using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P213_Komasyurui_.L500____Util;
-using Grayscale.P218_Starlight__.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
-using Grayscale.P234_Komahaiyaku.L500____Util;
-using Grayscale.P238_Seiza______.L250____Struct;
-using Grayscale.P238_Seiza______.L500____Util;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using Grayscale.P324_KifuTree___.L___250_Struct;
@@ -20,7 +17,6 @@ using Grayscale.P341_Ittesasu___.L250____OperationA;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P341_Ittesasu___.L500____UtilA
 {
@@ -105,7 +101,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                 isMakimodosi);
 
 
-            DoubleBusstopable dst;
+            Busstop dst;
             {
                 dst = Util_IttemodosuRoutine.Do37_KomaOnDestinationMasu(syurui2,
                     ittemodosuArg.Move,
@@ -152,7 +148,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                     // 指されていた駒
                     //
                     figMovedKoma,
-                    dst.Now,
+                    dst,
                     //
                     // 取られていた駒
                     //
@@ -176,7 +172,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                     // 指されていた駒
                     //
                     figMovedKoma,
-                    dst.Now
+                    dst
                     );
             }
             editNodeRef.Value.SetKyokumen(kaisi_Sky);
@@ -304,17 +300,14 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
         /// <param name="kifu"></param>
         /// <param name="isMakimodosi"></param>
         /// <returns></returns>
-        private static DoubleBusstopable Do37_KomaOnDestinationMasu(
+        private static Busstop Do37_KomaOnDestinationMasu(
             Komasyurui14 syurui2,
             Move move,
             SkyConst src_Sky
             )
         {
-            DoubleBusstopable dst;
-
             SyElement srcMasu = Conv_Move.ToSrcMasu(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
-
 
             SyElement masu;
 
@@ -339,13 +332,9 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
 
 
 
-            dst = new SingleBusstop(
-                Conv_Busstop.ToBusstop(pside,
+            return Conv_Busstop.ToBusstop(pside,
                 masu,//戻し先
-                syurui2)
-                );
-
-            return dst;
+                syurui2);
         }
 
         /// <summary>

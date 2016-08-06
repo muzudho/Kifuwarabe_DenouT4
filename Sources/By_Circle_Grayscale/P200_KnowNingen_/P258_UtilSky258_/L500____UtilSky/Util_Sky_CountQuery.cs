@@ -87,7 +87,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             foreach (Finger figKoma in komas_moti1p.Items)
             {
                 src_Sky.AssertFinger(figKoma);
-                Busstop busstop = src_Sky.StarlightIndexOf(figKoma);
+                Busstop busstop = src_Sky.BusstopIndexOf(figKoma);
 
                 Komasyurui14 syurui = Util_Komasyurui14.NarazuCaseHandle(Conv_Busstop.ToKomasyurui(busstop));
                 if (Komasyurui14.H06_Gyoku__ == syurui)
@@ -131,7 +131,7 @@ namespace Grayscale.P258_UtilSky258_.L500____UtilSky
             foreach (Finger figKoma in komas_moti2p.Items)
             {
                 src_Sky.AssertFinger(figKoma);
-                Busstop busstop = src_Sky.StarlightIndexOf(figKoma);
+                Busstop busstop = src_Sky.BusstopIndexOf(figKoma);
                 
                 Komasyurui14 syurui = Util_Komasyurui14.NarazuCaseHandle(Conv_Busstop.ToKomasyurui(busstop));
 

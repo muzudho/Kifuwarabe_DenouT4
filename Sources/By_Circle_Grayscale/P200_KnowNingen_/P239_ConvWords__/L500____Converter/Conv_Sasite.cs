@@ -1,29 +1,13 @@
 ﻿using Grayscale.P211_WordShogi__.L500____Word;
+using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P213_Komasyurui_.L500____Util;
-using Grayscale.P218_Starlight__.L___500_Struct;
-using Grayscale.P234_Komahaiyaku.L500____Util;
-using Grayscale.P238_Seiza______.L250____Struct;
-using Grayscale.P238_Seiza______.L500____Util;
 using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
-using Grayscale.P213_Komasyurui_.L250____Word;
 
 namespace Grayscale.P239_ConvWords__.L500____Converter
 {
     public abstract class Conv_Sasite
     {
-        /*
-        /// <summary>
-        /// FIXME:使ってない？
-        /// </summary>
-        /// <param name="sasite"></param>
-        /// <returns></returns>
-        public static string Sasite_To_KsString_ForLog(Move move)
-        {
-            return Util_Komasyurui14.ToIchimoji(Conv_Move.ToSrcKomasyurui(move));
-        }
-        */
-
         public static string Sasite_To_KsString_ForLog(Move move, Playerside pside_genTeban)
         {
             string result;

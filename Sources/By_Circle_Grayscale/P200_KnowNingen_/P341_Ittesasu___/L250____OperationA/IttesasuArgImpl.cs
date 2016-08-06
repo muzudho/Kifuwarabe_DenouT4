@@ -1,8 +1,7 @@
 ﻿using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P218_Starlight__.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P341_Ittesasu___.L___250_OperationA;
-using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P341_Ittesasu___.L250____OperationA
 {

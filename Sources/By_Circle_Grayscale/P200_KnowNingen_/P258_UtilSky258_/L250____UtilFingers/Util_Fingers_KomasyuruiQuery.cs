@@ -49,7 +49,7 @@ namespace Grayscale.P258_UtilSky258_.L250____UtilFingers
             {
                 src_Sky.AssertFinger(figMotiKoma);
                 // 持ち駒の種類
-                Komasyurui14 motikomaSyurui = Conv_Busstop.ToKomasyurui(src_Sky.StarlightIndexOf(figMotiKoma));
+                Komasyurui14 motikomaSyurui = Conv_Busstop.ToKomasyurui(src_Sky.BusstopIndexOf(figMotiKoma));
                 if (out_figKomasFirst[(int)motikomaSyurui] == Fingers.Error_1)
                 {
                     out_figKomasFirst[(int)motikomaSyurui] = figMotiKoma;

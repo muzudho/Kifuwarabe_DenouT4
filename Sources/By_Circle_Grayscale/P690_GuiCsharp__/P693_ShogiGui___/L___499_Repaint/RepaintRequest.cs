@@ -56,8 +56,8 @@ namespace Grayscale.P693_ShogiGui___.L___499_Repaint
 
         #region 駒の座標の再計算
 
-        void Clear_StarlightsRecalculateRequested();
-        bool Is_StarlightsRecalculateRequested();
+        void Clear_KomasRecalculateRequested();
+        bool Is_KomasRecalculateRequested();
         void SetFlag_RecalculateRequested();
 
         #endregion

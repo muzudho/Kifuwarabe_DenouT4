@@ -41,7 +41,7 @@ namespace Grayscale.P693_ShogiGui___.L249____Function
                 foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)
                 {
                     src_Sky.AssertFinger(figKoma);
-                    Busstop koma = src_Sky.StarlightIndexOf(figKoma);
+                    Busstop koma = src_Sky.BusstopIndexOf(figKoma);
 
 
                     if (

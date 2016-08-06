@@ -2,9 +2,8 @@
 using Grayscale.P003_Log________.L500____Struct;
 using Grayscale.P146_ConvSfen___.L500____Converter;
 using Grayscale.P213_Komasyurui_.L250____Word;
-using Grayscale.P218_Starlight__.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using Grayscale.P325_PnlTaikyoku.L___250_Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
 using Grayscale.P341_Ittesasu___.L___250_OperationA;
@@ -12,8 +11,6 @@ using Grayscale.P341_Ittesasu___.L250____OperationA;
 using Grayscale.P341_Ittesasu___.L500____UtilA;
 using Grayscale.P355_KifuParserA.L___500_Parser;
 using System;
-using System.Windows.Forms;
-using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P355_KifuParserA.L500____Parser
 {

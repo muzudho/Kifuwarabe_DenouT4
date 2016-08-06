@@ -1,13 +1,12 @@
 ﻿using Grayscale.P003_Log________.L___500_Struct;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P218_Starlight__.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P324_KifuTree___.L___250_Struct;
 using Grayscale.P542_Scoreing___.L___240_Shogisasi;
-using System.Collections.Generic;
 using System;
-using Grayscale.P219_Move_______.L___500_Struct;
+using System.Collections.Generic;
 
 namespace Grayscale.P542_Scoreing___.L125____ScoreSibori
 {

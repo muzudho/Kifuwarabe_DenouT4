@@ -13,7 +13,6 @@ using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P212_ConvPside__.L500____Converter;
 using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P213_Komasyurui_.L500____Util;
-using Grayscale.P218_Starlight__.L___500_Struct;
 using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P236_KomahaiyaTr.L500____Table;
@@ -230,7 +229,7 @@ namespace Grayscale.P743_FvLearn____.L250____Learn
             //sb.AppendLine("--------------------");
             //sb.AppendLine("カレントノード内部データ");
             //sb.AppendLine("--------------------");
-            src_Sky.Foreach_Starlights((Finger finger, Busstop koma, ref bool toBreak) =>
+            src_Sky.Foreach_Busstops((Finger finger, Busstop koma, ref bool toBreak) =>
             {
                 // 番号
                 sb.Append("Fig.");

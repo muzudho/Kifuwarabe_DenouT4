@@ -1,9 +1,6 @@
-﻿using Grayscale.P218_Starlight__.L___500_Struct;
+﻿using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P238_Seiza______.L250____Struct;
-using System;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
-using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P238_Seiza______.L500____Util
 {
@@ -29,7 +26,7 @@ namespace Grayscale.P238_Seiza______.L500____Util
         public static Busstop FromFinger(SkyConst src_Sky,Finger finger)
         {
             src_Sky.AssertFinger(finger);
-            return src_Sky.StarlightIndexOf(finger);
+            return src_Sky.BusstopIndexOf(finger);
         }
 
     }

@@ -1,7 +1,7 @@
 ﻿using Grayscale.P003_Log________.L___500_Struct;
 using Grayscale.P003_Log________.L500____Struct;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P218_Starlight__.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P521_FeatureVect.L___500_Struct;
@@ -17,7 +17,6 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
-using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P743_FvLearn____.L480____Functions
 {

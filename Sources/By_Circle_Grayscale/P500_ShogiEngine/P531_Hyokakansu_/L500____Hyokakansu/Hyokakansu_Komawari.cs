@@ -1,16 +1,11 @@
 ﻿using Grayscale.P003_Log________.L___500_Struct;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P218_Starlight__.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P238_Seiza______.L250____Struct;
-using Grayscale.P238_Seiza______.L500____Util;
 using Grayscale.P321_KyokumHyoka.L___250_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 using Grayscale.P521_FeatureVect.L___500_Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using System;
-using Grayscale.P212_ConvPside__.L500____Converter;
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
 
 #if DEBUG || LEARN
 using System.Text;
@@ -49,7 +44,7 @@ namespace Grayscale.P531_Hyokakansu_.L500____Hyokakansu
 
 
 
-            src_Sky.Foreach_Starlights((Finger finger, Busstop koma, ref bool toBreak) =>
+            src_Sky.Foreach_Busstops((Finger finger, Busstop koma, ref bool toBreak) =>
             {
                 // 駒の種類による点数
                 float komaScore_temp = fv.Komawari[(int)Conv_Busstop.ToKomasyurui( koma)];

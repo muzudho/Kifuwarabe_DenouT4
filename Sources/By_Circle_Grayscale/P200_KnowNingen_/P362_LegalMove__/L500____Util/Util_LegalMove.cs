@@ -239,7 +239,7 @@ namespace Grayscale.P362_LegalMove__.L500____Util
                 // 現手番は、後手
 
                 src_Sky.AssertFinger(Finger_Honshogi.GoteOh);
-                Busstop koma = src_Sky.StarlightIndexOf(Finger_Honshogi.GoteOh);
+                Busstop koma = src_Sky.BusstopIndexOf(Finger_Honshogi.GoteOh);
 
                     genTeban_kingMasuNumber = Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( koma));
             }
@@ -247,7 +247,7 @@ namespace Grayscale.P362_LegalMove__.L500____Util
             {
                 // 現手番は、先手
                 src_Sky.AssertFinger(Finger_Honshogi.SenteOh);
-                Busstop koma = src_Sky.StarlightIndexOf(Finger_Honshogi.SenteOh);
+                Busstop koma = src_Sky.BusstopIndexOf(Finger_Honshogi.SenteOh);
 
                     genTeban_kingMasuNumber = Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu(koma));
             }

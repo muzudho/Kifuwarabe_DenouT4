@@ -5,15 +5,12 @@ using Grayscale.P211_WordShogi__.L250____Masu;
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P213_Komasyurui_.L500____Util;
-using Grayscale.P218_Starlight__.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
-using Grayscale.P238_Seiza______.L250____Struct;
-using Grayscale.P238_Seiza______.L500____Util;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using Grayscale.P296_ConvJsa____.L500____Converter;
-using Grayscale.P321_KyokumHyoka.L___250_Struct;
 using Grayscale.P324_KifuTree___.L___250_Struct;
 using Grayscale.P324_KifuTree___.L250____Struct;
 using Grayscale.P339_ConvKyokume.L500____Converter;
@@ -22,6 +19,7 @@ using Grayscale.P341_Ittesasu___.L125____UtilB;
 using Grayscale.P341_Ittesasu___.L250____OperationA;
 using Grayscale.P341_Ittesasu___.L500____UtilA;
 using Grayscale.P369_ConvCsa____.L500____Converter;
+using Grayscale.P575_KifuWarabe_.L500____KifuWarabe;
 using Grayscale.P743_FvLearn____.L___250_Learn;
 using Grayscale.P743_FvLearn____.L250____Learn;
 using System;
@@ -30,8 +28,6 @@ using System.Diagnostics;
 using System.Text;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P575_KifuWarabe_.L500____KifuWarabe;
 
 namespace Grayscale.P743_FvLearn____.L260____View
 {
@@ -102,7 +98,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
                         figSrcKoma = Util_Sky_FingerQuery.InMasuNow(kaisi_Sky, pside, srcMasu, errH);
                     }
                     kaisi_Sky.AssertFinger(figSrcKoma);
-                    Busstop srcKoma = kaisi_Sky.StarlightIndexOf(figSrcKoma);
+                    Busstop srcKoma = kaisi_Sky.BusstopIndexOf(figSrcKoma);
 
                     // 先位置
                     SyElement dstMasu = Util_CsaSasite.ToDstMasu(csaSasite);
@@ -117,7 +113,7 @@ namespace Grayscale.P743_FvLearn____.L260____View
                     {
                         // 駒のある枡
                         kaisi_Sky.AssertFinger(figFoodKoma);
-                        foodKomasyurui = Conv_Busstop.ToKomasyurui(kaisi_Sky.StarlightIndexOf(figFoodKoma));//取った駒有り。
+                        foodKomasyurui = Conv_Busstop.ToKomasyurui(kaisi_Sky.BusstopIndexOf(figFoodKoma));//取った駒有り。
                     }
                     Busstop busstop = Conv_Busstop.ToBusstop(
                         pside,

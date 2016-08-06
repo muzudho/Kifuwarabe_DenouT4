@@ -7,7 +7,6 @@ using Grayscale.P212_ConvPside__.L500____Converter;
 using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P213_Komasyurui_.L500____Util;
 using Grayscale.P214_Masu_______.L500____Util;
-using Grayscale.P218_Starlight__.L___500_Struct;
 using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
@@ -57,7 +56,7 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
             MainGui_Csharp shogiGui = (MainGui_Csharp)obj_shogiGui;
 
             shogiGui.Model_Manual.GuiSkyConst.AssertFinger(finger);
-            Busstop light = shogiGui.Model_Manual.GuiSkyConst.StarlightIndexOf(finger);
+            Busstop busstop = shogiGui.Model_Manual.GuiSkyConst.BusstopIndexOf(finger);
 
             shogiGui.Shape_PnlTaikyoku.Shogiban.KikiBan = new SySet_Default<SyElement>("利き盤");// .Clear();
 
@@ -180,7 +179,7 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                 mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
                                                 src_Sky.AssertFinger(btnKoma.Koma);
-                                                Busstop koma = src_Sky.StarlightIndexOf(btnKoma.Koma);
+                                                Busstop koma = src_Sky.BusstopIndexOf(btnKoma.Koma);
 
                                                 if (Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma))
                                                 {
@@ -250,8 +249,8 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                     nextPhaseB = SceneName.SceneB_2OkuKoma;
 
                                                     src_Sky.AssertFinger(btnKoma.Koma);
-                                                    mainGui.Shape_PnlTaikyoku.SetMouseStarlightOrNull2(
-                                                        src_Sky.StarlightIndexOf(btnKoma.Koma)//TODO:改造
+                                                    mainGui.Shape_PnlTaikyoku.SetMouseBusstopOrNull2(
+                                                        src_Sky.BusstopIndexOf(btnKoma.Koma)//TODO:改造
                                                         );
 
                                                     mainGui.Shape_PnlTaikyoku.SetHMovedKoma(Fingers.Error_1);
@@ -356,7 +355,7 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
 
 
                                                 src_Sky.AssertFinger(btnKoma.Koma);
-                                                Busstop koma1 = src_Sky.StarlightIndexOf(btnKoma.Koma);
+                                                Busstop koma1 = src_Sky.BusstopIndexOf(btnKoma.Koma);
 
 
                                                 if (Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma1))
@@ -371,11 +370,11 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                     //------------------------------
                                                     // 棋譜
 
-                                                    Busstop dstStarlight = mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2;
+                                                    Busstop dstStarlight = mainGui.Shape_PnlTaikyoku.MouseBusstopOrNull2;
                                                     System.Diagnostics.Debug.Assert(Busstop.Empty != dstStarlight, "mouseStarlightがヌル");
 
                                                     src_Sky.AssertFinger(btnKoma.Koma);
-                                                    Busstop srcStarlight = src_Sky.StarlightIndexOf(btnKoma.Koma);
+                                                    Busstop srcStarlight = src_Sky.BusstopIndexOf(btnKoma.Koma);
                                                     System.Diagnostics.Debug.Assert(Busstop.Empty != srcStarlight, "komaStarlightがヌル");
 
                                                     Move move = Conv_Move.ToMove(
@@ -508,7 +507,7 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                 else
                                                 {
                                                     src_Sky.AssertFinger(btnKoma.Koma);
-                                                    Busstop koma = src_Sky.StarlightIndexOf(btnKoma.Koma);
+                                                    Busstop koma = src_Sky.BusstopIndexOf(btnKoma.Koma);
 
 
                                                     if (Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma))
@@ -530,12 +529,12 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                         src_Sky.AssertFinger(btnKoma.Koma);
                                                         
                                                         Move move = Conv_Move.ToMove(
-                                                            Conv_Busstop.ToMasu(mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2),
-                                                            Conv_Busstop.ToMasu(src_Sky.StarlightIndexOf(btnKoma.Koma)),
-                                                            Conv_Busstop.ToKomasyurui(mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2),
-                                                            Conv_Busstop.ToKomasyurui(src_Sky.StarlightIndexOf(btnKoma.Koma)),//これで成りかどうか判定
+                                                            Conv_Busstop.ToMasu(mainGui.Shape_PnlTaikyoku.MouseBusstopOrNull2),
+                                                            Conv_Busstop.ToMasu(src_Sky.BusstopIndexOf(btnKoma.Koma)),
+                                                            Conv_Busstop.ToKomasyurui(mainGui.Shape_PnlTaikyoku.MouseBusstopOrNull2),
+                                                            Conv_Busstop.ToKomasyurui(src_Sky.BusstopIndexOf(btnKoma.Koma)),//これで成りかどうか判定
                                                             mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma != Busstop.Empty ? Conv_Busstop.ToKomasyurui( mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma) : Komasyurui14.H00_Null___,
-                                                            Conv_Busstop.ToPlayerside(mainGui.Shape_PnlTaikyoku.MouseStarlightOrNull2),
+                                                            Conv_Busstop.ToPlayerside(mainGui.Shape_PnlTaikyoku.MouseBusstopOrNull2),
                                                             false
                                                             );// 選択している駒の元の場所と、移動先
 
@@ -625,7 +624,7 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                         //>>>>> 選択されている駒があるとき
 
                                         mainGui.Model_Manual.GuiSkyConst.AssertFinger(btnTumandeiruKoma.Finger);
-                                        Busstop tumandeiruLight = mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(btnTumandeiruKoma.Finger);
+                                        Busstop tumandeiruLight = mainGui.Model_Manual.GuiSkyConst.BusstopIndexOf(btnTumandeiruKoma.Finger);
 
 
                                         //----------
@@ -665,7 +664,7 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                 {
                                                     bool match = false;
 
-                                                    mainGui.Model_Manual.GuiSkyConst.Foreach_Starlights((Finger finger, Busstop koma, ref bool toBreak) =>
+                                                    mainGui.Model_Manual.GuiSkyConst.Foreach_Busstops((Finger finger, Busstop koma, ref bool toBreak) =>
                                                     {
                                                         if (Conv_Busstop.ToMasu( koma) == btnSasitaiMasu2.Zahyo)
                                                         {
@@ -744,14 +743,14 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                                 {
                                                     // GuiからServerへ渡す情報
                                                     Komasyurui14 syurui;
-                                                    DoubleBusstopable dst;
+                                                    Busstop dst;
                                                     
                                                     Util_Function_Csharp.Komamove1a_49Gui(out syurui, out dst, btnTumandeiruKoma, btnSasitaiMasu, mainGui);
 
                                                     // ServerからGuiへ渡す情報
                                                     bool torareruKomaAri;
                                                     Busstop koma_Food_after;
-                                                    Util_Functions_Server.Komamove1a_50Srv(out torareruKomaAri, out koma_Food_after, dst, btnTumandeiruKoma.Koma, dst.Now, mainGui.Model_Manual, eventState.Flg_logTag);
+                                                    Util_Functions_Server.Komamove1a_50Srv(out torareruKomaAri, out koma_Food_after, dst, btnTumandeiruKoma.Koma, dst, mainGui.Model_Manual, eventState.Flg_logTag);
 
                                                     Util_Function_Csharp.Komamove1a_51Gui(torareruKomaAri, koma_Food_after, mainGui);
                                                 }
@@ -767,7 +766,7 @@ namespace Grayscale.P693_ShogiGui___.L250____Timed
                                             //System.C onsole.WriteLine("駒台上");
 
                                             mainGui.Model_Manual.GuiSkyConst.AssertFinger(btnTumandeiruKoma.Koma);
-                                            Busstop koma = mainGui.Model_Manual.GuiSkyConst.StarlightIndexOf(btnTumandeiruKoma.Koma);
+                                            Busstop koma = mainGui.Model_Manual.GuiSkyConst.BusstopIndexOf(btnTumandeiruKoma.Koma);
 
                                             mainGui.Model_Manual.SetGuiSky(
                                                 SkyConst.NewInstance_OverwriteOrAdd_Light(

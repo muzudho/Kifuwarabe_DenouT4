@@ -60,7 +60,7 @@ namespace Grayscale.P341_Ittesasu___.L510____OperationB
                 }
 
                 sky_buf.AssertFinger(tottaKoma);
-                Busstop koma = sky_buf.StarlightIndexOf(tottaKoma);
+                Busstop koma = sky_buf.BusstopIndexOf(tottaKoma);
 
                     // FIXME:配役あってるか？
                 sky_buf.PutOverwriteOrAdd_Busstop(tottaKoma, Conv_Busstop.ToBusstop(src_Sky.KaisiPside, akiMasu, Conv_Busstop.ToKomasyurui( koma)));
@@ -70,7 +70,7 @@ namespace Grayscale.P341_Ittesasu___.L510____OperationB
             // FIXME: 取った駒はどうなっている？
             {
                 sky_buf.AssertFinger(finger);
-                Busstop koma = sky_buf.StarlightIndexOf(finger);
+                Busstop koma = sky_buf.BusstopIndexOf(finger);
                 Komasyurui14 komaSyurui = Conv_Busstop.ToKomasyurui( koma);
 
                 if (toNaru)

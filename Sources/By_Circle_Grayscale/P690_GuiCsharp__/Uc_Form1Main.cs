@@ -3,16 +3,13 @@ using Grayscale.P003_Log________.L500____Struct;
 using Grayscale.P027_Settei_____.L500____Struct;
 using Grayscale.P027_Settei_____.L510____Xml;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P212_ConvPside__.L500____Converter;
 using Grayscale.P213_Komasyurui_.L500____Util;
 using Grayscale.P214_Masu_______.L500____Util;
-using Grayscale.P218_Starlight__.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P234_Komahaiyaku.L500____Util;
-using Grayscale.P238_Seiza______.L250____Struct;
-using Grayscale.P238_Seiza______.L500____Util;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using Grayscale.P324_KifuTree___.L250____Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 using Grayscale.P341_Ittesasu___.L250____OperationA;
 using Grayscale.P693_ShogiGui___.L___080_Shape;
 using Grayscale.P693_ShogiGui___.L___100_Widgets;
@@ -30,8 +27,6 @@ using System;
 using System.Text;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P699_Form_______
 {
@@ -369,14 +364,14 @@ namespace Grayscale.P699_Form_______
             //------------------------------------------------------------
             // 駒の座標再計算
             //------------------------------------------------------------
-            if (mainGui.RepaintRequest.Is_StarlightsRecalculateRequested())
+            if (mainGui.RepaintRequest.Is_KomasRecalculateRequested())
             {
-                this.MainGui.Model_Manual.GuiSkyConst.Foreach_Starlights((Finger finger, Busstop light, ref bool toBreak) =>
+                this.MainGui.Model_Manual.GuiSkyConst.Foreach_Busstops((Finger finger, Busstop busstop, ref bool toBreak) =>
                 {
                     Util_Function_Csharp.Redraw_KomaLocation(finger, this.MainGui, errH);
                 });
             }
-            mainGui.RepaintRequest.Clear_StarlightsRecalculateRequested();
+            mainGui.RepaintRequest.Clear_KomasRecalculateRequested();
 
 
             //------------------------------
@@ -509,7 +504,7 @@ namespace Grayscale.P699_Form_______
 
             SkyConst siteiSky = mainGui.Model_Manual.GuiSkyConst;
 
-            siteiSky.Foreach_Starlights((Finger finger, Busstop koma, ref bool toBreak) =>
+            siteiSky.Foreach_Busstops((Finger finger, Busstop koma, ref bool toBreak) =>
             {
                 if (Conv_Busstop.ToOkiba(koma) == Okiba.Gote_Komadai)
                 {
@@ -530,7 +525,7 @@ namespace Grayscale.P699_Form_______
                 {
                     bool isSpace = true;
 
-                    siteiSky.Foreach_Starlights((Finger finger, Busstop koma2, ref bool toBreak) =>
+                    siteiSky.Foreach_Busstops((Finger finger, Busstop koma2, ref bool toBreak) =>
                     {
                         int suji2;
                         Util_MasuNum.TryMasuToSuji(Conv_Busstop.ToMasu( koma2), out suji2);
@@ -580,7 +575,7 @@ namespace Grayscale.P699_Form_______
             sb.AppendLine("        <div style=\"margin-top:10px; width:30px;\">");
             sb.Append("            ");
 
-            siteiSky.Foreach_Starlights((Finger finger, Busstop koma, ref bool toBreak) =>
+            siteiSky.Foreach_Busstops((Finger finger, Busstop koma, ref bool toBreak) =>
             {
                 if (Conv_Busstop.ToOkiba(koma) == Okiba.Sente_Komadai)
                 {

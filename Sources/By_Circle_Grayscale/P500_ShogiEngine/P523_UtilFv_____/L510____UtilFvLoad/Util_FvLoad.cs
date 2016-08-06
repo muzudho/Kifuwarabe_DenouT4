@@ -56,7 +56,7 @@ namespace Grayscale.P523_UtilFv_____.L510____UtilFvLoad
             kifu.CurNode.Value.KyokumenConst.AssertFinger((Finger)0);
             Debug.Assert(!Conv_MasuHandle.OnKomabukuro(
                 Conv_SyElement.ToMasuNumber(
-                    Conv_Busstop.ToMasu(kifu.CurNode.Value.KyokumenConst.StarlightIndexOf((Finger)0))
+                    Conv_Busstop.ToMasu(kifu.CurNode.Value.KyokumenConst.BusstopIndexOf((Finger)0))
                     )
                 ), "駒が駒袋にあった。");
         }

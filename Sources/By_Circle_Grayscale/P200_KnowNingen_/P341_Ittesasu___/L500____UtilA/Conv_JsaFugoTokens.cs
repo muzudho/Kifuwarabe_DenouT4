@@ -9,19 +9,16 @@ using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P213_Komasyurui_.L500____Util;
 using Grayscale.P214_Masu_______.L500____Util;
 using Grayscale.P215_KomanoKidou.L500____Struct;
-using Grayscale.P218_Starlight__.L___500_Struct;
+using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
-using Grayscale.P238_Seiza______.L250____Struct;
-using Grayscale.P238_Seiza______.L500____Util;
 using Grayscale.P239_ConvWords__.L500____Converter;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using Grayscale.P324_KifuTree___.L___250_Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P341_Ittesasu___.L500____UtilA
 {
@@ -960,7 +957,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 src_Sky.AssertFinger(foundKoma);
-                Busstop koma = src_Sky.StarlightIndexOf(foundKoma);
+                Busstop koma = src_Sky.BusstopIndexOf(foundKoma);
 
                 srcMasuHandle1 = Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( koma));
             }
@@ -1001,7 +998,7 @@ namespace Grayscale.P341_Ittesasu___.L500____UtilA
 
 
                 src_Sky.AssertFinger(hitKoma);
-                Busstop koma = src_Sky.StarlightIndexOf(hitKoma);
+                Busstop koma = src_Sky.BusstopIndexOf(hitKoma);
 
                 srcMasuHandle1 = Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( koma));
             }
