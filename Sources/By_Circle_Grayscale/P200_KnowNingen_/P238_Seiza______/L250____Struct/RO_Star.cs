@@ -18,6 +18,30 @@ namespace Grayscale.P238_Seiza______.L250____Struct
     /// </summary>
     public class RO_Star : Starlightable
     {
+        public RO_Star(Playerside pside, SyElement masu, Komasyurui14 syurui)
+        {
+            this.startype = Startype.Koma;
+            this.pside = pside;
+            this.masu = masu;
+            this.komasyurui = syurui;
+        }
+
+        public RO_Star(Playerside pside, SyElement masu, Komahaiyaku185 haiyaku)
+        {
+            this.startype = Startype.Koma;
+            this.pside = pside;
+            this.masu = masu;
+            this.komasyurui = Util_Komahaiyaku184.Syurui(haiyaku);
+        }
+
+        public RO_Star(RO_Star src)
+        {
+            this.startype = Startype.Koma;
+            this.pside = src.Pside;
+            this.masu = src.Masu;
+            this.komasyurui = src.Komasyurui;
+        }
+
         /// <summary>
         /// ------------------------------------------------------------------------------------------------------------------------
         /// 星の型
@@ -55,31 +79,6 @@ namespace Grayscale.P238_Seiza______.L250____Struct
             {
                 return Data_KomahaiyakuTransition.ToHaiyaku(this.Komasyurui, this.Masu, this.Pside);
             }
-        }
-
-
-        public RO_Star(Playerside pside, SyElement masu, Komasyurui14 syurui)
-        {
-            this.startype = Startype.Koma;
-            this.pside = pside;
-            this.masu = masu;
-            this.komasyurui = syurui;
-        }
-
-        public RO_Star(Playerside pside, SyElement masu, Komahaiyaku185 haiyaku)
-        {
-            this.startype = Startype.Koma;
-            this.pside = pside;
-            this.masu = masu;
-            this.komasyurui = Util_Komahaiyaku184.Syurui(haiyaku);
-        }
-
-        public RO_Star(RO_Star src)
-        {
-            this.startype = Startype.Koma;
-            this.pside = src.Pside;
-            this.masu = src.Masu;
-            this.komasyurui = src.Komasyurui;
         }
 
         /// <summary>
