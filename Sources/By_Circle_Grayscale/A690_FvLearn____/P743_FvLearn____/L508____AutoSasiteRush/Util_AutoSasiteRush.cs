@@ -15,7 +15,7 @@ using Grayscale.P743_FvLearn____.L___490_StopLearning;
 using Grayscale.P743_FvLearn____.L490____StopLearning;
 using Grayscale.P743_FvLearn____.L508____AutoSasiteRush;
 using Grayscale.P743_FvLearn____.L506____AutoSasiteSort;
-using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 
 namespace Grayscale.P743_FvLearn____.L508____AutoSasiteRush
 {

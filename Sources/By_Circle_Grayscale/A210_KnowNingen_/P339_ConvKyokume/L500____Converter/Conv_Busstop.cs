@@ -1,11 +1,11 @@
 ﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using Grayscale.P211_WordShogi__.L250____Masu;
-using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P212_ConvPside__.C500____Converter;
-using Grayscale.P213_Komasyurui_.L250____Word;
-using Grayscale.P214_Masu_______.C500____Util;
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P238_Seiza______.C250____Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
+using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B310_Seiza______.C250____Struct;
 
 namespace Grayscale.P339_ConvKyokume.C500____Converter
 {

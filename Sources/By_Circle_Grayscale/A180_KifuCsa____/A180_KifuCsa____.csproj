@@ -61,13 +61,13 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="P163_KifuCsa____\L___250_Struct\CsaKifu.cs" />
-    <Compile Include="P163_KifuCsa____\L___250_Struct\CsaKifuSasite.cs" />
-    <Compile Include="P163_KifuCsa____\L250____Struct\CsaKifuImpl.cs" />
-    <Compile Include="P163_KifuCsa____\L250____Struct\CsaKifuSasiteImpl.cs" />
-    <Compile Include="P163_KifuCsa____\L250____Struct\Util_Csa.cs" />
-    <Compile Include="P163_KifuCsa____\L250____Struct\Word_Csa.cs" />
-    <Compile Include="P163_KifuCsa____\L500____Writer\CsaKifuWriterImpl.cs" />
+    <Compile Include="B120_KifuCsa____\C___250_Struct\CsaKifu.cs" />
+    <Compile Include="B120_KifuCsa____\C___250_Struct\CsaKifuSasite.cs" />
+    <Compile Include="B120_KifuCsa____\C250____Struct\CsaKifuImpl.cs" />
+    <Compile Include="B120_KifuCsa____\C250____Struct\CsaKifuSasiteImpl.cs" />
+    <Compile Include="B120_KifuCsa____\C250____Struct\Util_Csa.cs" />
+    <Compile Include="B120_KifuCsa____\C250____Struct\Word_Csa.cs" />
+    <Compile Include="B120_KifuCsa____\C500____Writer\CsaKifuWriterImpl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Uc_Main.cs">
@@ -106,8 +106,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="P161_／／CSA棋譜\" />
-    <Folder Include="P169_Form_______／／フォーム\" />
+    <Folder Include="B100_／／CSA棋譜\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

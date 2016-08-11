@@ -2,19 +2,19 @@
 using Grayscale.A060_Application.B410_Collection_.C500____Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C250____Struct;
-using Grayscale.P202_GraphicLog_.C500____Util;
-using Grayscale.P211_WordShogi__.L___250_Masu;
-using Grayscale.P211_WordShogi__.L250____Masu;
-using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P212_ConvPside__.C500____Converter;
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P226_Tree_______.L___500_Struct;
-using Grayscale.P239_ConvWords__.C500____Converter;
-using Grayscale.P247_KyokumenWra.L500____Struct;
-using Grayscale.P256_SeizaFinger.C250____Struct;
-using Grayscale.P258_UtilSky258_.L500____UtilSky;
-using Grayscale.P260_Play_______.L500____Query;
+using Grayscale.A210_KnowNingen_.B110_GraphicLog_.C500____Util;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C___250_Masu;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
+using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
+using Grayscale.A210_KnowNingen_.B430_Play_______.C500____Query;
 using Grayscale.P324_KifuTree___.C___250_Struct;
 using Grayscale.P339_ConvKyokume.C500____Converter;
 using Grayscale.P360_Conv_Sasu__.C500____Converter;
@@ -23,8 +23,8 @@ using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
-using Grayscale.P222_Log_Kaisetu.C250____Struct;
-using Grayscale.P258_UtilSky258_.L505____ConvLogJson;
+using Grayscale.A210_KnowNingen_.B400_Log_Kaisetu.C250____Struct;
+using Grayscale.A210_KnowNingen_.B740_UtilSky258_.C505____ConvLogJson;
 #endif
 
 namespace Grayscale.P362_LegalMove__.C500____Util

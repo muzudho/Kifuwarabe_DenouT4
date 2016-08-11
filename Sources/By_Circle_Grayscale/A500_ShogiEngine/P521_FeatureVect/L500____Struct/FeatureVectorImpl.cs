@@ -1,16 +1,16 @@
 ﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A060_Application.B610_ConstShogi_.C250____Const;
 using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
-using Grayscale.P212_ConvPside__.C500____Converter;
-using Grayscale.P213_Komasyurui_.L250____Word;
-using Grayscale.P214_Masu_______.C500____Util;
-using Grayscale.P521_FeatureVect.L___500_Struct;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
+using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.P521_FeatureVect.C___500_Struct;
 using System.Text;
 
 #if DEBUG
 #endif
 
-namespace Grayscale.P521_FeatureVect.L500____Struct
+namespace Grayscale.P521_FeatureVect.C500____Struct
 {
 
     public class FeatureVectorImpl : FeatureVector

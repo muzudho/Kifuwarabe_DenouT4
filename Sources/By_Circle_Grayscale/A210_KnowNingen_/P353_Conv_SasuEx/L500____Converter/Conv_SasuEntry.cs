@@ -1,13 +1,13 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P247_KyokumenWra.L500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
 using Grayscale.P324_KifuTree___.C___250_Struct;
 using Grayscale.P324_KifuTree___.C250____Struct;
 using Grayscale.P341_Ittesasu___.L510____OperationB;
 using Grayscale.P339_ConvKyokume.C500____Converter;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P258_UtilSky258_.L500____UtilSky;
-using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 
 namespace Grayscale.P353_Conv_SasuEx.C500____Converter
 {

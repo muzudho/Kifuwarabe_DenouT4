@@ -1,11 +1,11 @@
-﻿using Grayscale.P206_Json_______.L___500_Struct;
-using Grayscale.P206_Json_______.L500____Struct;
-using Grayscale.P226_Tree_______.L500____Struct;
-using Grayscale.P247_KyokumenWra.L500____Struct;
+﻿using Grayscale.A210_KnowNingen_.B130_Json_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B130_Json_______.C500____Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
+using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
 using Grayscale.P307_UtilSky____.C500____Util;
 using System.Diagnostics;
 
-namespace Grayscale.P320_NodeWriter_.L500____Writer
+namespace Grayscale.P320_NodeWriter_.C500____Writer
 {
     public class NodeWriterImpl<T1, T2>
     {

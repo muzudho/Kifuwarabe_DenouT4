@@ -1,5 +1,5 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.P238_Seiza______.C250____Struct;
+using Grayscale.A210_KnowNingen_.B310_Seiza______.C250____Struct;
 using Grayscale.P325_PnlTaikyoku.C___250_Struct;
 using Grayscale.P461_Server_____.L___498_Server;
 using Grayscale.P693_ShogiGui___.L___080_Shape;
@@ -10,7 +10,7 @@ using Grayscale.P693_ShogiGui___.L___499_Repaint;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 
 namespace Grayscale.P693_ShogiGui___.L___500_Gui
 {

@@ -9,18 +9,18 @@ using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___250_UsiLoop;
 using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___490_Option__;
 using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___500_usiFrame___;//FIXME:
 using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C490____Option__;
-using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P212_ConvPside__.C500____Converter;
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P226_Tree_______.L___500_Struct;
-using Grayscale.P236_KomahaiyaTr.L500____Table;
-using Grayscale.P247_KyokumenWra.L500____Struct;
-using Grayscale.P248_Michi______.L500____Word;
-using Grayscale.P250_KomahaiyaEx.C500____Util;
-using Grayscale.P256_SeizaFinger.C250____Struct;
-using Grayscale.P258_UtilSky258_.L500____UtilSky;
-using Grayscale.P270_ForcePromot.C250____Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table;
+using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+using Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word;
+using Grayscale.A210_KnowNingen_.B390_KomahaiyaEx.C500____Util;
+using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
+using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
+using Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct;
 using Grayscale.P324_KifuTree___.C___250_Struct;
 using Grayscale.P324_KifuTree___.C250____Struct;
 using Grayscale.P325_PnlTaikyoku.C___250_Struct;
@@ -46,11 +46,11 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using Grayscale.P157_KyokumenPng.L___500_Struct;
-using Grayscale.P213_Komasyurui_.L250____Word;
-using Grayscale.P213_Komasyurui_.C500____Util;
-using Grayscale.P158_LogKyokuPng.L500____UtilWriter;
-using Grayscale.P440_KifuTreeLog.L500____Struct;
+using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Komasyurui_.C250____Word;
+using Grayscale.A210_KnowNingen_.B280_Komasyurui_.C500____Util;
+using Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C500____UtilWriter;
+using Grayscale.P440_KifuTreeLog.C500____Struct;
 #endif
 
 namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Grayscale.Properties {
+namespace Grayscale.A210_KnowNingen_.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

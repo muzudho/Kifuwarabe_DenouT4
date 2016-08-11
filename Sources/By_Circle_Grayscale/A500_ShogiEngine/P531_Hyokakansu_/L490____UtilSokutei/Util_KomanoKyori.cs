@@ -1,6 +1,6 @@
 ﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using Grayscale.P212_ConvPside__.C500____Converter;
-using Grayscale.P214_Masu_______.C500____Util;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
 using System;
 
 namespace Grayscale.P531_Hyokakansu_.L490____UtilSokutei

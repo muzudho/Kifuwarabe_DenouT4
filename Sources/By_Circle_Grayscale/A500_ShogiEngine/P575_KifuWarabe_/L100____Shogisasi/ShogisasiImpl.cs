@@ -1,11 +1,11 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A000_Platform___.B021_Random_____.C500____Struct;
-using Grayscale.P211_WordShogi__.L500____Word;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.P324_KifuTree___.C___250_Struct;
 using Grayscale.P339_ConvKyokume.C500____Converter;
-using Grayscale.P440_KifuTreeLog.L500____Struct;
-using Grayscale.P521_FeatureVect.L___500_Struct;
-using Grayscale.P521_FeatureVect.L500____Struct;
+using Grayscale.P440_KifuTreeLog.C500____Struct;
+using Grayscale.P521_FeatureVect.C___500_Struct;
+using Grayscale.P521_FeatureVect.C500____Struct;
 using Grayscale.P542_Scoreing___.L___005_Usi_Loop;
 using Grayscale.P542_Scoreing___.L___240_Shogisasi;
 using Grayscale.P542_Scoreing___.L___250_Args;
@@ -13,14 +13,14 @@ using Grayscale.P542_Scoreing___.L125____ScoreSibori;
 using Grayscale.P542_Scoreing___.L250____Args;
 using Grayscale.P550_timeMan____.L___500_struct__;
 using Grayscale.P550_timeMan____.L500____struct__;
-using Grayscale.P554_TansaFukasa.L___500_Struct;
-using Grayscale.P554_TansaFukasa.L500____Struct;
+using Grayscale.P554_TansaFukasa.C___500_Struct;
+using Grayscale.P554_TansaFukasa.C500____Struct;
 using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___490_Option__;
 using System;
 using System.Collections.Generic;
 
 #if DEBUG
-using Grayscale.P222_Log_Kaisetu.C250____Struct;
+using Grayscale.A210_KnowNingen_.B400_Log_Kaisetu.C250____Struct;
 #endif
 
 namespace Grayscale.P575_KifuWarabe_.L100____Shogisasi

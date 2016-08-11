@@ -1,6 +1,6 @@
-﻿using Grayscale.P144_ConvSujiDan.C500____Converter;
-using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P521_FeatureVect.L___500_Struct;
+﻿using Grayscale.A120_KifuSfen___.B120_ConvSujiDan.C500____Converter;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.P521_FeatureVect.C___500_Struct;
 using System;
 
 namespace Grayscale.P522_Conv_FvKoumoku.C500____Converter

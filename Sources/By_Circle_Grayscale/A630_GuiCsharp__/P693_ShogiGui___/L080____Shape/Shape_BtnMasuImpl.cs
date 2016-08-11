@@ -1,6 +1,6 @@
 ﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using Grayscale.P211_WordShogi__.L250____Masu;
-using Grayscale.P212_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.P693_ShogiGui___.L___080_Shape;
 using System.Drawing;
 

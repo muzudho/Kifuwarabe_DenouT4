@@ -1,6 +1,6 @@
-﻿using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P226_Tree_______.L___500_Struct;
-using Grayscale.P247_KyokumenWra.L500____Struct;
+﻿using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
 
 
 namespace Grayscale.P341_Ittesasu___.L___250_OperationA

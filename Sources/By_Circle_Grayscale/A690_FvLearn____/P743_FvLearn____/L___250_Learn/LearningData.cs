@@ -1,8 +1,8 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.P163_KifuCsa____.C___250_Struct;
-using Grayscale.P224_Sky________.L500____Struct;
+using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.P324_KifuTree___.C___250_Struct;
-using Grayscale.P521_FeatureVect.L___500_Struct;
+using Grayscale.P521_FeatureVect.C___500_Struct;
 using Grayscale.P542_Scoreing___.L___250_Args;
 
 #if DEBUG || LEARN

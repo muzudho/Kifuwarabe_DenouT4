@@ -1,8 +1,8 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P226_Tree_______.L___500_Struct;
-using Grayscale.P247_KyokumenWra.L500____Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
 using Grayscale.P324_KifuTree___.C___250_Struct;
 using Grayscale.P542_Scoreing___.L___240_Shogisasi;
 using System;

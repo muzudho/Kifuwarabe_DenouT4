@@ -1,8 +1,8 @@
-﻿using Grayscale.P145_SfenStruct_.C250____Struct;
-using Grayscale.P146_ConvSfen___.C500____Converter;
-using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P276_SeizaStartp.L500____Struct;
+﻿using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct;
+using Grayscale.A120_KifuSfen___.B160_ConvSfen___.C500____Converter;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.P276_SeizaStartp.C500____Struct;
 
 
 namespace Grayscale.P307_UtilSky____.C500____Util

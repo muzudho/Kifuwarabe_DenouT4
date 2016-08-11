@@ -1,4 +1,4 @@
-﻿using Grayscale.P211_WordShogi__.L500____Word;
+﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.P693_ShogiGui___.L___491_Event;
 using Grayscale.P693_ShogiGui___.L___492_Widgets;
 using Grayscale.P693_ShogiGui___.L___500_Gui;

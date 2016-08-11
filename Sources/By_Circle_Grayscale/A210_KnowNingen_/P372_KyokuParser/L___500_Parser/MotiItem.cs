@@ -1,5 +1,5 @@
-﻿using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P213_Komasyurui_.L250____Word;
+﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 
 namespace Grayscale.P372_KyokuParser.L___500_Parser
 {

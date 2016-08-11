@@ -1,5 +1,5 @@
-﻿using Grayscale.P521_FeatureVect.L___500_Struct;
-using Grayscale.P521_FeatureVect.L500____Struct;
+﻿using Grayscale.P521_FeatureVect.C___500_Struct;
+using Grayscale.P521_FeatureVect.C500____Struct;
 using System.Collections.Generic;
 
 namespace Grayscale.P743_FvLearn____.L440____Ranking

@@ -1,5 +1,5 @@
-﻿using Grayscale.P213_Komasyurui_.L250____Word;
-using Grayscale.P521_FeatureVect.L___500_Struct;
+﻿using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
+using Grayscale.P521_FeatureVect.C___500_Struct;
 using System.Text;
 
 

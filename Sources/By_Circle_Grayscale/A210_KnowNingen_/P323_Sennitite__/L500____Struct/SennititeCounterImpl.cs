@@ -1,11 +1,11 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C500____Struct;
-using Grayscale.P323_Sennitite__.L___500_Struct;
+using Grayscale.P323_Sennitite__.C___500_Struct;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 
-namespace Grayscale.P323_Sennitite__.L500____Struct
+namespace Grayscale.P323_Sennitite__.C500____Struct
 {
     public class SennititeCounterImpl : SennititeCounter
     {

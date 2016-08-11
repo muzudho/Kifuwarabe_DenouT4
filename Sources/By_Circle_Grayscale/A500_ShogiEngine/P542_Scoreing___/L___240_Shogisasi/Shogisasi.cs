@@ -1,6 +1,6 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.P324_KifuTree___.C___250_Struct;
-using Grayscale.P521_FeatureVect.L___500_Struct;
+using Grayscale.P521_FeatureVect.C___500_Struct;
 using Grayscale.P550_timeMan____.L___500_struct__;
 
 namespace Grayscale.P542_Scoreing___.L___240_Shogisasi

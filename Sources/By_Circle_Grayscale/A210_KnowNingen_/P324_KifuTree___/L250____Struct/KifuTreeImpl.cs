@@ -1,10 +1,10 @@
-﻿using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P226_Tree_______.L___500_Struct;
-using Grayscale.P226_Tree_______.L500____Struct;
-using Grayscale.P247_KyokumenWra.L500____Struct;
-using Grayscale.P323_Sennitite__.L___500_Struct;
-using Grayscale.P323_Sennitite__.L500____Struct;
+﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
+using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+using Grayscale.P323_Sennitite__.C___500_Struct;
+using Grayscale.P323_Sennitite__.C500____Struct;
 using Grayscale.P324_KifuTree___.C___250_Struct;
 
 #if DEBUG

@@ -1,6 +1,6 @@
-﻿using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P247_KyokumenWra.L500____Struct;
+﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
 
 namespace Grayscale.P341_Ittesasu___.L___250_OperationA
 {

@@ -1,11 +1,11 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A000_Platform___.B011_Csv________.C500____Parser;
 using Grayscale.A060_Application.B610_ConstShogi_.C250____Const;
-using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P213_Komasyurui_.L250____Word;
-using Grayscale.P214_Masu_______.C500____Util;
-using Grayscale.P521_FeatureVect.L___500_Struct;
-using Grayscale.P521_FeatureVect.L500____Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
+using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.P521_FeatureVect.C___500_Struct;
+using Grayscale.P521_FeatureVect.C500____Struct;
 using Grayscale.P522_Conv_FvKoumoku.C500____Converter;
 using Grayscale.P523_UtilFv_____.L480____UtilFvEdit;
 using Grayscale.P523_UtilFv_____.L490____UtilFvFormat;

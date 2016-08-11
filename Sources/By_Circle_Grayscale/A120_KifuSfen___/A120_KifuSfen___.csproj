@@ -61,18 +61,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="P147_FormatSfen_\L260____Format\Format_Kyokumen1.cs" />
-    <Compile Include="P146_ConvSfen___\L500____Converter\Conv_Sfenstring146.cs" />
-    <Compile Include="P146_ConvSfen___\L500____Converter\Conv_SfenMotigomaToken.cs" />
-    <Compile Include="P145_SfenStruct_\L___250_Struct\RO_Kyokumen1_ForFormat.cs" />
-    <Compile Include="P145_SfenStruct_\L___250_Struct\RO_Kyokumen2_ForTokenize.cs" />
-    <Compile Include="P145_SfenStruct_\L250____Struct\RO_Kyokumen1_ForFormatImpl.cs" />
-    <Compile Include="P145_SfenStruct_\L250____Struct\RO_Kyokumen2_ForTokenizeImpl.cs" />
-    <Compile Include="P145_SfenStruct_\L250____Struct\SfenstringImpl.cs" />
-    <Compile Include="P144_ConvSujiDan\L500____Converter\Conv_SujiDan.cs" />
-    <Compile Include="P145_SfenStruct_\L500____Util\Util_RO_Kyokumen2.cs" />
-    <Compile Include="P145_SfenStruct_\L250____Struct\Word_Sfen.cs" />
-    <Compile Include="P146_ConvSfen___\L500____Converter\Conv_SfenSasitesText.cs" />
+    <Compile Include="B180_FormatSfen_\C260____Format\Format_Kyokumen1.cs" />
+    <Compile Include="B160_ConvSfen___\C500____Converter\Conv_Sfenstring146.cs" />
+    <Compile Include="B160_ConvSfen___\C500____Converter\Conv_SfenMotigomaToken.cs" />
+    <Compile Include="B140_SfenStruct_\C___250_Struct\RO_Kyokumen1_ForFormat.cs" />
+    <Compile Include="B140_SfenStruct_\C___250_Struct\RO_Kyokumen2_ForTokenize.cs" />
+    <Compile Include="B140_SfenStruct_\C250____Struct\RO_Kyokumen1_ForFormatImpl.cs" />
+    <Compile Include="B140_SfenStruct_\C250____Struct\RO_Kyokumen2_ForTokenizeImpl.cs" />
+    <Compile Include="B140_SfenStruct_\C250____Struct\SfenstringImpl.cs" />
+    <Compile Include="B120_ConvSujiDan\C500____Converter\Conv_SujiDan.cs" />
+    <Compile Include="B140_SfenStruct_\C500____Util\Util_RO_Kyokumen2.cs" />
+    <Compile Include="B140_SfenStruct_\C250____Struct\Word_Sfen.cs" />
+    <Compile Include="B160_ConvSfen___\C500____Converter\Conv_SfenSasitesText.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -99,8 +99,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="P141_／／SFEN棋譜\" />
-    <Folder Include="P149_Form_______／／フォーム\" />
+    <Folder Include="B100_／／SFEN棋譜\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\A060_Application\A060_Application.csproj">

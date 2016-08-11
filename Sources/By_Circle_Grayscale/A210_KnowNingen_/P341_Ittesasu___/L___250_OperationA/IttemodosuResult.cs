@@ -1,8 +1,8 @@
-﻿using Grayscale.P213_Komasyurui_.L250____Word;
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P226_Tree_______.L___500_Struct;
-using Grayscale.P247_KyokumenWra.L500____Struct;
+﻿using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.P341_Ittesasu___.L___250_OperationA

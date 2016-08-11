@@ -1,6 +1,6 @@
-﻿using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P247_KyokumenWra.L500____Struct;
-using Grayscale.P258_UtilSky258_.L500____UtilSky;
+﻿using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.P324_KifuTree___.C250____Struct;
 using Grayscale.P325_PnlTaikyoku.C___250_Struct;
 using Grayscale.P325_PnlTaikyoku.C250____Struct;

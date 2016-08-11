@@ -1,6 +1,6 @@
-﻿using Grayscale.P222_Log_Kaisetu.C250____Struct;
-using Grayscale.P222_Log_Kaisetu.C500____Util;
-using Grayscale.P239_ConvWords__.C500____Converter;
+﻿using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
+using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C500____Util;
+using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
 using System.Text;
 
 #if DEBUG

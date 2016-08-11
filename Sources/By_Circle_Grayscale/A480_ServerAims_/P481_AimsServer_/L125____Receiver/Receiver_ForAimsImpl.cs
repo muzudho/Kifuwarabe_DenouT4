@@ -1,9 +1,9 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
-using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P247_KyokumenWra.L500____Struct;
-using Grayscale.P258_UtilSky258_.L500____UtilSky;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.P324_KifuTree___.C250____Struct;
 using Grayscale.P341_Ittesasu___.L250____OperationA;
 using Grayscale.P461_Server_____.L___497_EngineClient;

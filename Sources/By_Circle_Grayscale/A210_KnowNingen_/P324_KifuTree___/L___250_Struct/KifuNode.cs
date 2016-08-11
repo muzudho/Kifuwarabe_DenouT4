@@ -1,7 +1,7 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P226_Tree_______.L___500_Struct;
-using Grayscale.P247_KyokumenWra.L500____Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
 using Grayscale.P321_KyokumHyoka.C___250_Struct;
 
 

@@ -1,5 +1,5 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.P224_Sky________.L500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.P461_Server_____.L498____Server;
 using Grayscale.P481_AimsServer_.L___060_Phase;
 using Grayscale.P481_AimsServer_.L___070_ServerBase;

@@ -1,5 +1,5 @@
 ﻿#if DEBUG
-using Grayscale.P222_Log_Kaisetu.C250____Struct;
+using Grayscale.A210_KnowNingen_.B400_Log_Kaisetu.C250____Struct;
 #endif
 
 namespace Grayscale.P551_Tansaku____.L___500_Tansaku

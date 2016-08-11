@@ -1,12 +1,12 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C500____usiFrame___;
-using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P247_KyokumenWra.L500____Struct;
-using Grayscale.P258_UtilSky258_.L500____UtilSky;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.P324_KifuTree___.C___250_Struct;
 using Grayscale.P324_KifuTree___.C250____Struct;
-using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.P339_ConvKyokume.C500____Converter;
 using Grayscale.P542_Scoreing___.L___240_Shogisasi;
 using Grayscale.P575_KifuWarabe_.L100____Shogisasi;

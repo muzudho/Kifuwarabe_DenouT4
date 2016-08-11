@@ -1,7 +1,7 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.P224_Sky________.L500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.P321_KyokumHyoka.C___250_Struct;
-using Grayscale.P521_FeatureVect.L___500_Struct;
+using Grayscale.P521_FeatureVect.C___500_Struct;
 using Grayscale.P531_Hyokakansu_.L___500_Hyokakansu;
 
 namespace Grayscale.P531_Hyokakansu_.L500____Hyokakansu

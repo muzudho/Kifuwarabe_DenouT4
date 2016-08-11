@@ -1,7 +1,7 @@
 ﻿using Grayscale.P321_KyokumHyoka.C___250_Struct;
 using System;
 using System.Text;
-using Grayscale.P219_Move_______.L___500_Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 
 namespace Grayscale.P743_FvLearn____.L250____Learn
 {

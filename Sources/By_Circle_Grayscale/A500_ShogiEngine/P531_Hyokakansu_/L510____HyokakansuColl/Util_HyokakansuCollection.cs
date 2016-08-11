@@ -1,6 +1,6 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.P324_KifuTree___.C___250_Struct;
-using Grayscale.P521_FeatureVect.L___500_Struct;
+using Grayscale.P521_FeatureVect.C___500_Struct;
 using Grayscale.P531_Hyokakansu_.L___500_Hyokakansu;
 using Grayscale.P531_Hyokakansu_.L500____Hyokakansu;
 using System.Collections.Generic;

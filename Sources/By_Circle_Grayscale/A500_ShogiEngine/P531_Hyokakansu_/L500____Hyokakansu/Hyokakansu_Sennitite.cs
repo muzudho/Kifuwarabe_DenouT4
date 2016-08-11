@@ -1,8 +1,8 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P224_Sky________.L500____Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.P321_KyokumHyoka.C___250_Struct;
-using Grayscale.P521_FeatureVect.L___500_Struct;
+using Grayscale.P521_FeatureVect.C___500_Struct;
 using System;
 
 

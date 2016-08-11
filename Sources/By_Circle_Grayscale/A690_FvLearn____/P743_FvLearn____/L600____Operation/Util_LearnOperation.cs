@@ -1,13 +1,13 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C500____usiFrame___;
-using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P226_Tree_______.L___500_Struct;
-using Grayscale.P247_KyokumenWra.L500____Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
 using Grayscale.P324_KifuTree___.C___250_Struct;
-using Grayscale.P440_KifuTreeLog.L500____Struct;
-using Grayscale.P521_FeatureVect.L500____Struct;
+using Grayscale.P440_KifuTreeLog.C500____Struct;
+using Grayscale.P521_FeatureVect.C500____Struct;
 using Grayscale.P523_UtilFv_____.L510____UtilFvLoad;
 using Grayscale.P542_Scoreing___.L___250_Args;
 using Grayscale.P542_Scoreing___.L250____Args;
@@ -30,7 +30,7 @@ using Grayscale.P321_KyokumHyoka.C___250_Struct;
 #endif
 
 #if DEBUG
-using Grayscale.P222_Log_Kaisetu.C250____Struct;
+using Grayscale.A210_KnowNingen_.B400_Log_Kaisetu.C250____Struct;
 using Grayscale.P339_ConvKyokume.C500____Converter;
 #endif
 

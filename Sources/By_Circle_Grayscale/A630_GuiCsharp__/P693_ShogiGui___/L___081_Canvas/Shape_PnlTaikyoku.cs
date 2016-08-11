@@ -1,4 +1,4 @@
-﻿using Grayscale.P219_Move_______.L___500_Struct;
+﻿using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.P693_ShogiGui___.L___080_Shape;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 

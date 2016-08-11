@@ -1,6 +1,6 @@
 ﻿using Grayscale.A060_Application.B610_ConstShogi_.C250____Const;
 
-namespace Grayscale.P521_FeatureVect.L___500_Struct
+namespace Grayscale.P521_FeatureVect.C___500_Struct
 {
     /// <summary>
     /// 二駒関係のＰ　パラメーター・インデックス

@@ -1,9 +1,9 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
-using Grayscale.P146_ConvSfen___.C500____Converter;
-using Grayscale.P213_Komasyurui_.L250____Word;
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P224_Sky________.L500____Struct;
+using Grayscale.A120_KifuSfen___.B160_ConvSfen___.C500____Converter;
+using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.P325_PnlTaikyoku.C___250_Struct;
 using Grayscale.P339_ConvKyokume.C500____Converter;
 using Grayscale.P341_Ittesasu___.L___250_OperationA;
