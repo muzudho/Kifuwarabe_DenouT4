@@ -23,8 +23,8 @@ using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
-using Grayscale.A210_KnowNingen_.B400_Log_Kaisetu.C250____Struct;
-using Grayscale.A210_KnowNingen_.B740_UtilSky258_.C505____ConvLogJson;
+using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
+using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C505____ConvLogJson;
 #endif
 
 namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util

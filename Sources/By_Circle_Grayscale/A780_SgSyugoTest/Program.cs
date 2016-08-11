@@ -1,8 +1,8 @@
-﻿using Grayscale.P780_SgSyugoTest.L500____ShogiSyugoronTest;
+﻿using Grayscale.A780_SgSyugoTest.B110_SgSyugoTest.C500____ShogiSyugoronTest;
 using System;
 using System.Windows.Forms;
 
-namespace Grayscale.P780_SgSyugoTest
+namespace Grayscale.A780_SgSyugoTest
 {
     static class Program
     {

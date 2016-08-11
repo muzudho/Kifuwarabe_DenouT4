@@ -2,11 +2,11 @@
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
-using Grayscale.P521_FeatureVect.C___500_Struct;
-using Grayscale.P521_FeatureVect.C500____Struct;
-using Grayscale.P523_UtilFv_____.L510____UtilFvLoad;
-using Grayscale.P531_Hyokakansu_.L___500_Hyokakansu;
-using Grayscale.P531_Hyokakansu_.L500____Hyokakansu;
+using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
+using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct;
+using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad;
+using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C___500_Hyokakansu;
+using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

@@ -23,7 +23,7 @@ using System.Text;
 #if DEBUG
 using System;
 using System.Diagnostics;
-using Grayscale.A210_KnowNingen_.B120_GraphicLog_.C500____Util;
+using Grayscale.A210_KnowNingen_.B110_GraphicLog_.C500____Util;
 using Grayscale.A210_KnowNingen_.B810_LogGraphiEx.C500____Util;
 #endif
 

@@ -8,9 +8,9 @@ using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using Grayscale.P542_Scoreing___.L___240_Shogisasi;
-using Grayscale.P575_KifuWarabe_.L100____Shogisasi;
-using Grayscale.P575_KifuWarabe_.L500____KifuWarabe;
+using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___240_Shogisasi;
+using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi;
+using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe;
 using System;
 
 namespace P930_SampleGame

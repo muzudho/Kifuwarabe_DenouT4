@@ -1,4 +1,4 @@
-﻿namespace Grayscale.P780_SgSyugoTest
+﻿namespace Grayscale.A780_SgSyugoTest
 {
     partial class Ui_SyugoronTestForm
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ui_SyugoronTestPanel = new Grayscale.P780_SgSyugoTest.Ui_SyugoronTestPanel();
+            this.ui_SyugoronTestPanel = new Grayscale.A780_SgSyugoTest.Ui_SyugoronTestPanel();
             this.SuspendLayout();
             // 
             // ui_Main1

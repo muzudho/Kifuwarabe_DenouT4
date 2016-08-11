@@ -1,11 +1,11 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
-using Grayscale.P693_ShogiGui___.L___100_Widgets;
-using Grayscale.P693_ShogiGui___.L___500_Gui;
-using Grayscale.P693_ShogiGui___.L080____Shape;
-using Grayscale.P693_ShogiGui___.L081____Canvas;
-using Grayscale.P693_ShogiGui___.L125____Scene;
-using Grayscale.P693_ShogiGui___.L250____Timed;
+using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___100_Widgets;
+using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
+using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape;
+using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C081____Canvas;
+using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C125____Scene;
+using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 

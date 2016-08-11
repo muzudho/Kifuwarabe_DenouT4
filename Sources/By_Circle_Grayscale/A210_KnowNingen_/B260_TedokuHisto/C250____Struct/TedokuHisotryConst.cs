@@ -7,7 +7,7 @@ using System.Collections.Generic;
 #if DEBUG
 using System.IO;
 using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
-using Grayscale.A210_KnowNingen_.B420_TedokuHisto.C240____Util;
+using Grayscale.A210_KnowNingen_.B260_TedokuHisto.C240____Util;
 #endif
 
 namespace Grayscale.A210_KnowNingen_.B260_TedokuHisto.C250____Struct

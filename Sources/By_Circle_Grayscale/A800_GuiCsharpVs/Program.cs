@@ -1,11 +1,11 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
-using Grayscale.P693_ShogiGui___.L500____GUI;
+using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI;
 using Grayscale.P699_Form_______;
 using System;
 using System.Windows.Forms;
 
-namespace Grayscale.P803_GuiCsharpVs.L500____Gui
+namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500____Gui
 {
     static class Program
     {

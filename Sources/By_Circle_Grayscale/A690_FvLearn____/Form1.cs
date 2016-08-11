@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace Grayscale.P743_FvLearn____
+namespace Grayscale.A690_FvLearn____
 {
     public partial class Form1 : Form
     {

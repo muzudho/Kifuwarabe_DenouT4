@@ -7,7 +7,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Grayscale.P780_SgSyugoTest
+namespace Grayscale.A780_SgSyugoTest
 {
     public partial class Ui_SyugoronTestPanel : UserControl
     {

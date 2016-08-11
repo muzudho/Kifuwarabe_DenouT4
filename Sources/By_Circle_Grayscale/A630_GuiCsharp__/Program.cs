@@ -4,8 +4,8 @@
 using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
-using Grayscale.P693_ShogiGui___.L492____Widgets;
-using Grayscale.P693_ShogiGui___.L500____GUI;
+using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C492____Widgets;
+using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI;
 using System;
 using System.Windows.Forms;
 
