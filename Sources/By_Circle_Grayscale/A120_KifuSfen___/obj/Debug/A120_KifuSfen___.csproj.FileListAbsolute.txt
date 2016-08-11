@@ -1,0 +1,8 @@
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A120_KifuSfen___\Grayscale.A120_KifuSfen___.exe.config
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A120_KifuSfen___\Grayscale.A120_KifuSfen___.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A120_KifuSfen___\Grayscale.A120_KifuSfen___.pdb
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A120_KifuSfen___\obj\Debug\A120_KifuSfen___.csprojResolveAssemblyReference.cache
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A120_KifuSfen___\obj\Debug\Grayscale.Properties.Resources.resources
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A120_KifuSfen___\obj\Debug\A120_KifuSfen___.csproj.GenerateResource.Cache
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A120_KifuSfen___\obj\Debug\Grayscale.A120_KifuSfen___.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A120_KifuSfen___\obj\Debug\Grayscale.A120_KifuSfen___.pdb

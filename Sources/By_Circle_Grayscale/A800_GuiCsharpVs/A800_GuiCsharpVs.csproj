@@ -4,28 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{147B11E0-827B-4D3F-844C-ADF2BEAFA53F}</ProjectGuid>
+    <ProjectGuid>{F021F9E5-8184-4B45-83AC-117CEF77F77A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Grayscale</RootNamespace>
-    <AssemblyName>Grayscale.A000_Platform___</AssemblyName>
+    <AssemblyName>Grayscale.A800_GuiCsharpVs</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -33,24 +18,25 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\Engine01_Binaries\A000_Platform___\</OutputPath>
+    <OutputPath>..\..\..\Engine01_Binaries\A800_GuiCsharpVs\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>2</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>x64</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\Engine01_Binaries\A000_Platform___\</OutputPath>
+    <OutputPath>..\..\..\Engine01_Binaries\A800_GuiCsharpVs\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'LEARN|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\..\..\Engine01_Binaries\P000_Environment\</OutputPath>
+    <OutputPath>..\..\..\Engine01_Binaries\P800_GuiCsharpVs\</OutputPath>
     <DefineConstants>TRACE;LEARN</DefineConstants>
+    <WarningLevel>2</WarningLevel>
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
@@ -70,10 +56,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="P011_Csv________\L250____Parser\CsvLineParserImpl.cs" />
-    <Compile Include="P011_Csv________\L500____Parser\Util_Csv.cs" />
-    <Compile Include="P031_Random_____\L500____Struct\KwRandom.cs" />
-    <Compile Include="P031_Random_____\L500____Struct\KwShuffle.cs" />
+    <Compile Include="P803_GuiCsharpVs\L500____Gui\MainGui_CsharpVsImpl.cs" />
+    <Compile Include="P803_GuiCsharpVs\L491____Event\Event_CsharpVsImpl.cs" />
+    <Compile Include="P803_GuiCsharpVs\L492____Widget\WidgetsLoader_CsharpVsImpl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -86,7 +71,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -98,21 +82,28 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="P001_／／環境\" />
-    <Folder Include="P010_／／↓CSV\" />
-    <Folder Include="P030_／／↓ランダム値生成\" />
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
+    <ProjectReference Include="..\A060_Application\A060_Application.csproj">
+      <Project>{8ac05075-a6ef-4779-b18c-3d0e801a4bcd}</Project>
+      <Name>A060_Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\A210_KnowNingen_\A210_KnowNingen_.csproj">
+      <Project>{2cfb37ae-2d9e-4478-abd8-1eaaaf98f223}</Project>
+      <Name>A210_KnowNingen_</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\A450_Server_____\A450_Server_____.csproj">
+      <Project>{70aef273-46c9-4e60-ac97-8aeada3ed5f7}</Project>
+      <Name>A450_Server_____</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\A630_GuiCsharp__\A630_GuiCsharp__.csproj">
+      <Project>{9593acc7-348b-4868-892c-7bafbf925b9d}</Project>
+      <Name>A630_GuiCsharp__</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="P801_／／将棋ＧＵＩ（対局用）\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

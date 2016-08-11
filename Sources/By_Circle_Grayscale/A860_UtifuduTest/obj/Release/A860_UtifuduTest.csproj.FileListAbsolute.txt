@@ -1,0 +1,8 @@
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A860_UtifuduTest\Grayscale.A860_UtifuduTest.exe.config
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A860_UtifuduTest\Grayscale.A860_UtifuduTest.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A860_UtifuduTest\Grayscale.A860_UtifuduTest.pdb
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A860_UtifuduTest\obj\Release\P920_UtifuduTest.Properties.Resources.resources
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A860_UtifuduTest\obj\Release\P920_UtifuduTest.Uc_Main1.resources
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A860_UtifuduTest\obj\Release\A860_UtifuduTest.csproj.GenerateResource.Cache
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A860_UtifuduTest\obj\Release\Grayscale.A860_UtifuduTest.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A860_UtifuduTest\obj\Release\Grayscale.A860_UtifuduTest.pdb

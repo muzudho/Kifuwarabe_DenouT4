@@ -1,0 +1,6 @@
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A480_ServerAims_\Grayscale.A480_ServerAims_.exe.config
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A480_ServerAims_\Grayscale.A480_ServerAims_.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A480_ServerAims_\Grayscale.A480_ServerAims_.pdb
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A480_ServerAims_\obj\Release\A480_ServerAims_.csprojResolveAssemblyReference.cache
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A480_ServerAims_\obj\Release\Grayscale.A480_ServerAims_.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A480_ServerAims_\obj\Release\Grayscale.A480_ServerAims_.pdb

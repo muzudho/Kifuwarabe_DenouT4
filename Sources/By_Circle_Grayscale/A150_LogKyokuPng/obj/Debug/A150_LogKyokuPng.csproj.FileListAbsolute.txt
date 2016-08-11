@@ -1,0 +1,8 @@
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A150_LogKyokuPng\Grayscale.A150_LogKyokuPng.exe.config
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A150_LogKyokuPng\Grayscale.A150_LogKyokuPng.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A150_LogKyokuPng\Grayscale.A150_LogKyokuPng.pdb
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A150_LogKyokuPng\obj\Debug\A150_LogKyokuPng.csprojResolveAssemblyReference.cache
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A150_LogKyokuPng\obj\Debug\Grayscale.Properties.Resources.resources
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A150_LogKyokuPng\obj\Debug\A150_LogKyokuPng.csproj.GenerateResource.Cache
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A150_LogKyokuPng\obj\Debug\Grayscale.A150_LogKyokuPng.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A150_LogKyokuPng\obj\Debug\Grayscale.A150_LogKyokuPng.pdb

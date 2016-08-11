@@ -2,12 +2,10 @@
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P238_Seiza______.L250____Struct;
 using Grayscale.P256_SeizaFinger.L250____Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
-using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
 
 namespace Grayscale.P258_UtilSky258_.L500____UtilSky
 {

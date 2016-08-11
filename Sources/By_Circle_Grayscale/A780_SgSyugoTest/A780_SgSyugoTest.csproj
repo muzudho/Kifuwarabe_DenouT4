@@ -4,28 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{147B11E0-827B-4D3F-844C-ADF2BEAFA53F}</ProjectGuid>
+    <ProjectGuid>{52C00B8B-9FDD-4F0F-9570-6641EF65086E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Grayscale</RootNamespace>
-    <AssemblyName>Grayscale.A000_Platform___</AssemblyName>
+    <AssemblyName>Grayscale.A780_SgSyugoTest</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -33,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\Engine01_Binaries\A000_Platform___\</OutputPath>
+    <OutputPath>..\..\..\Engine01_Binaries\A780_SgSyugoTest\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -42,14 +27,14 @@
     <PlatformTarget>x64</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\Engine01_Binaries\A000_Platform___\</OutputPath>
+    <OutputPath>..\..\..\Engine01_Binaries\A780_SgSyugoTest\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'LEARN|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\..\..\Engine01_Binaries\P000_Environment\</OutputPath>
+    <OutputPath>..\..\..\Engine01_Binaries\P780_SgSyugoTest\</OutputPath>
     <DefineConstants>TRACE;LEARN</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
@@ -70,12 +55,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="P011_Csv________\L250____Parser\CsvLineParserImpl.cs" />
-    <Compile Include="P011_Csv________\L500____Parser\Util_Csv.cs" />
-    <Compile Include="P031_Random_____\L500____Struct\KwRandom.cs" />
-    <Compile Include="P031_Random_____\L500____Struct\KwShuffle.cs" />
+    <Compile Include="P783_SgSyugoTest\L500____ShogiSyugoronTest\Sample_Func.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ui_SyugoronTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ui_SyugoronTestForm.Designer.cs">
+      <DependentUpon>Ui_SyugoronTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui_SyugoronTestPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui_SyugoronTestPanel.Designer.cs">
+      <DependentUpon>Ui_SyugoronTestPanel.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -86,7 +80,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="App.config" />
+    <EmbeddedResource Include="Ui_SyugoronTestForm.resx">
+      <DependentUpon>Ui_SyugoronTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui_SyugoronTestPanel.resx">
+      <DependentUpon>Ui_SyugoronTestPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -98,21 +97,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="P001_／／環境\" />
-    <Folder Include="P010_／／↓CSV\" />
-    <Folder Include="P030_／／↓ランダム値生成\" />
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
+    <Folder Include="P781_／／将棋集合論テスター\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\A060_Application\A060_Application.csproj">
+      <Project>{8ac05075-a6ef-4779-b18c-3d0e801a4bcd}</Project>
+      <Name>A060_Application</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

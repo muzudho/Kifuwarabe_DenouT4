@@ -1,0 +1,6 @@
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\P060_Application\Grayscale.P060_Application.exe.config
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\P060_Application\Grayscale.P060_Application.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\P060_Application\Grayscale.P060_Application.pdb
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A060_Application\obj\Debug\A060_Application.csprojResolveAssemblyReference.cache
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A060_Application\obj\Debug\Grayscale.P060_Application.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A060_Application\obj\Debug\Grayscale.P060_Application.pdb

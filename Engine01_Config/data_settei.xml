@@ -10,7 +10,7 @@
     わたしのＧＵＩでは動かない将棋エンジンもいくつかあるな☆
   -->
   
-  <shogiEngine name="きふわらべ"              file="E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\P500_ShogiEngine\Grayscale.P500_ShogiEngine.exe" />
+  <shogiEngine name="きふわらべ"              file="E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A500_ShogiEngine\Grayscale.A500_ShogiEngine.exe" />
   <!--
   <shogiEngine name="きふわらべリリース版"    file="Grayscale.KifuWarabe.exe" />
 

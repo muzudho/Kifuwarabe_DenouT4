@@ -1,0 +1,9 @@
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\P800_GuiCsharpVs\Grayscale.A800_GuiCsharpVs.exe.config
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A800_GuiCsharpVs\Grayscale.A800_GuiCsharpVs.exe.config
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A800_GuiCsharpVs\Grayscale.A800_GuiCsharpVs.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A800_GuiCsharpVs\Grayscale.A800_GuiCsharpVs.pdb
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A800_GuiCsharpVs\obj\Debug\Grayscale.Properties.Resources.resources
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A800_GuiCsharpVs\obj\Debug\A800_GuiCsharpVs.csproj.GenerateResource.Cache
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A800_GuiCsharpVs\obj\Debug\Grayscale.A800_GuiCsharpVs.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A800_GuiCsharpVs\obj\Debug\Grayscale.A800_GuiCsharpVs.pdb
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A800_GuiCsharpVs\obj\Debug\A800_GuiCsharpVs.csprojResolveAssemblyReference.cache

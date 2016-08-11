@@ -1,0 +1,6 @@
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A890_SampleGame\P890_SampleGame.exe.config
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A890_SampleGame\P890_SampleGame.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A890_SampleGame\P890_SampleGame.pdb
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A890_SampleGame\obj\Release\A890_SampleGame.csprojResolveAssemblyReference.cache
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A890_SampleGame\obj\Release\P890_SampleGame.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A890_SampleGame\obj\Release\P890_SampleGame.pdb

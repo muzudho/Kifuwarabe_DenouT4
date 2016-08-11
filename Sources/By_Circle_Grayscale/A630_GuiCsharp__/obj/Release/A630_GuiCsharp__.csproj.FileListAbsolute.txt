@@ -1,0 +1,12 @@
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A630_GuiCsharp__\Grayscale.A630_GuiCsharp__.exe.config
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A630_GuiCsharp__\Grayscale.A630_GuiCsharp__.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A630_GuiCsharp__\Grayscale.A630_GuiCsharp__.pdb
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A630_GuiCsharp__\obj\Release\A630_GuiCsharp__.csprojResolveAssemblyReference.cache
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A630_GuiCsharp__\obj\Release\Grayscale.P699_Form_______.Form2_Console.resources
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A630_GuiCsharp__\obj\Release\Grayscale.P699_Form_______.Uc_Form2Main.resources
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A630_GuiCsharp__\obj\Release\Grayscale.P699_Form_______.Form1_Shogi.resources
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A630_GuiCsharp__\obj\Release\Grayscale.Properties.Resources.resources
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A630_GuiCsharp__\obj\Release\Grayscale.P699_Form_______.Uc_Form1Main.resources
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A630_GuiCsharp__\obj\Release\A630_GuiCsharp__.csproj.GenerateResource.Cache
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A630_GuiCsharp__\obj\Release\Grayscale.A630_GuiCsharp__.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A630_GuiCsharp__\obj\Release\Grayscale.A630_GuiCsharp__.pdb

@@ -1,0 +1,10 @@
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A830_SpeedKeisok\Grayscale.A830_SpeedKeisok.exe.config
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A830_SpeedKeisok\Grayscale.A830_SpeedKeisok.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A830_SpeedKeisok\Grayscale.A830_SpeedKeisok.pdb
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A830_SpeedKeisok\obj\Release\A830_SpeedKeisok.csprojResolveAssemblyReference.cache
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A830_SpeedKeisok\obj\Release\Grayscale.P910_SpeedKeisok.Form1.resources
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A830_SpeedKeisok\obj\Release\Grayscale.Properties.Resources.resources
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A830_SpeedKeisok\obj\Release\Grayscale.P910_SpeedKeisok.Uc_Main.resources
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A830_SpeedKeisok\obj\Release\A830_SpeedKeisok.csproj.GenerateResource.Cache
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A830_SpeedKeisok\obj\Release\Grayscale.A830_SpeedKeisok.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A830_SpeedKeisok\obj\Release\Grayscale.A830_SpeedKeisok.pdb
