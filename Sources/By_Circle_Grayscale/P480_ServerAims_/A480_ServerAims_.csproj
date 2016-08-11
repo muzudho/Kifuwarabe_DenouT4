@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DBEA8B61-6F05-49A0-9CCB-6FCF2976BD17}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Grayscale</RootNamespace>
+    <AssemblyName>Grayscale.A480_ServerAims_</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Engine01_Binaries\A480_ServerAims_\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Engine01_Binaries\A480_ServerAims_\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'LEARN|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\..\Engine01_Binaries\P460_Server_____\</OutputPath>
+    <DefineConstants>TRACE;LEARN</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="P481_AimsServer_\L125____Receiver\Receiver_ForAimsImpl.cs" />
+    <Compile Include="P481_AimsServer_\L060____Phase\PhaseResult_AimsServer.cs" />
+    <Compile Include="P481_AimsServer_\L___070_ServerBase\AimsServerBase.cs" />
+    <Compile Include="P481_AimsServer_\L___060_Phase\Phase_AimsServer.cs" />
+    <Compile Include="P481_AimsServer_\L500____Server\AimsServerImpl.cs" />
+    <Compile Include="P481_AimsServer_\L___125_Receiver\Receiver_ForAims.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="P480_／／AIMSサーバー\" />
+    <Folder Include="P489_Form_______／／フォーム\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\A060_Application\A060_Application.csproj">
+      <Project>{8ac05075-a6ef-4779-b18c-3d0e801a4bcd}</Project>
+      <Name>A060_Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\A210_KnowNingen_\A210_KnowNingen_.csproj">
+      <Project>{2cfb37ae-2d9e-4478-abd8-1eaaaf98f223}</Project>
+      <Name>A210_KnowNingen_</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\A450_Server_____\A450_Server_____.csproj">
+      <Project>{70aef273-46c9-4e60-ac97-8aeada3ed5f7}</Project>
+      <Name>A450_Server_____</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

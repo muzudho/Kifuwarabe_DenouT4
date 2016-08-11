@@ -17,6 +17,10 @@ using Grayscale.P743_FvLearn____.L508____AutoSasiteRush;
 using Grayscale.P743_FvLearn____.L506____AutoSasiteSort;
 using Grayscale.P219_Move_______.L___500_Struct;
 
+#if DEBUG
+using Grayscale.P339_ConvKyokume.L500____Converter;
+#endif
+
 namespace Grayscale.P743_FvLearn____.L506____AutoSasiteSort
 {
     public abstract class Util_AutoSortingRush
@@ -74,7 +78,8 @@ namespace Grayscale.P743_FvLearn____.L506____AutoSasiteSort
                     {
                         // 1位なら終了
 #if DEBUG
-                        errH.Logger.WriteLine_AddMemo("items.Count=[" + uc_Main.LstGohosyu.Items.Count + "] sfenSasiteStr=[" + sfenSasiteStr + "] gohosyuItem.Sfen=[" + gohosyuItem.Sfen + "]");
+                        string sfen = Conv_Move.ToSfen(gohosyuItem.Move);
+                        errH.Logger.WriteLine_AddMemo("items.Count=[" + uc_Main.LstGohosyu.Items.Count + "] sfen=[" + sfen + "]");
 #endif
                         break;
                     }

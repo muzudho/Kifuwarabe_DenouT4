@@ -100,13 +100,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\P000_Environment\P000_Environment.csproj">
-      <Project>{147b11e0-827b-4d3f-844c-adf2beafa53f}</Project>
-      <Name>P000_Environment</Name>
-    </ProjectReference>
+    <Folder Include="P781_／／将棋集合論テスター\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="P781_／／将棋集合論テスター\" />
+    <ProjectReference Include="..\A060_Application\A060_Application.csproj">
+      <Project>{8ac05075-a6ef-4779-b18c-3d0e801a4bcd}</Project>
+      <Name>A060_Application</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

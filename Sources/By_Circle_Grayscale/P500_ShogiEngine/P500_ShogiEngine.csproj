@@ -121,29 +121,33 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\P000_Environment\P000_Environment.csproj">
+    <ProjectReference Include="..\A000_Platform___\A000_Platform___.csproj">
       <Project>{147b11e0-827b-4d3f-844c-adf2beafa53f}</Project>
-      <Name>P000_Environment</Name>
+      <Name>A000_Platform___</Name>
     </ProjectReference>
-    <ProjectReference Include="..\P030_UsiFramewor\P030_UsiFramewor.csproj">
+    <ProjectReference Include="..\A060_Application\A060_Application.csproj">
+      <Project>{8ac05075-a6ef-4779-b18c-3d0e801a4bcd}</Project>
+      <Name>A060_Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\A090_UsiFramewor\A090_UsiFramewor.csproj">
       <Project>{eaae7f89-1539-4aff-bac6-5e9004ad427e}</Project>
-      <Name>P030_UsiFramewor</Name>
+      <Name>A090_UsiFramewor</Name>
     </ProjectReference>
-    <ProjectReference Include="..\P140_KifuSfen___\P140_KifuSfen___.csproj">
+    <ProjectReference Include="..\A120_KifuSfen___\A120_KifuSfen___.csproj">
       <Project>{b0982362-ab7f-45a6-af5f-c9fdfa49f9dd}</Project>
-      <Name>P140_KifuSfen___</Name>
+      <Name>A120_KifuSfen___</Name>
     </ProjectReference>
-    <ProjectReference Include="..\P150_LogKyokuPng\P150_LogKyokuPng.csproj">
+    <ProjectReference Include="..\A150_LogKyokuPng\A150_LogKyokuPng.csproj">
       <Project>{6f26bae0-8e17-4fda-a242-d1d7c4db2507}</Project>
-      <Name>P150_LogKyokuPng</Name>
+      <Name>A150_LogKyokuPng</Name>
     </ProjectReference>
-    <ProjectReference Include="..\P200_KnowNingen_\P200_KnowNingen_.csproj">
+    <ProjectReference Include="..\A210_KnowNingen_\A210_KnowNingen_.csproj">
       <Project>{2cfb37ae-2d9e-4478-abd8-1eaaaf98f223}</Project>
-      <Name>P200_KnowNingen_</Name>
+      <Name>A210_KnowNingen_</Name>
     </ProjectReference>
-    <ProjectReference Include="..\P440_KifuTreeLog\P440_KifuTreeLog.csproj">
+    <ProjectReference Include="..\A240_KifuTreeLog\A240_KifuTreeLog.csproj">
       <Project>{da78a967-e248-4fc3-a89c-11ebb03030b7}</Project>
-      <Name>P440_KifuTreeLog</Name>
+      <Name>A240_KifuTreeLog</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,7 @@
 ﻿using Grayscale.P003_Log________.L500____Struct;
-using Grayscale.P031_usiFrame1__.L___500_usiFrame___;
+using Grayscale.P091_usiFrame1__.L___500_usiFrame___;
 using Grayscale.P575_KifuWarabe_.L500____KifuWarabe;
-using Grayscale.P031_usiFrame1__.L500____usiFrame___;
+using Grayscale.P091_usiFrame1__.L500____usiFrame___;
 using System;
 
 namespace Grayscale.P580_Form_______

@@ -29,6 +29,10 @@ using System.Text;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
+#if DEBUG || LEARN
+using Grayscale.P321_KyokumHyoka.L___250_Struct;
+#endif
+
 namespace Grayscale.P743_FvLearn____.L260____View
 {
     public abstract class Util_LearningView

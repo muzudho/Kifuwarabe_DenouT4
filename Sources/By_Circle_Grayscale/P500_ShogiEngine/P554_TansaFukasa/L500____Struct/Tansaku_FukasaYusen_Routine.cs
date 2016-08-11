@@ -27,8 +27,10 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P339_ConvKyokume.L500____Converter;
 
 #if DEBUG
+using Grayscale.P202_GraphicLog_.L500____Util;
 using Grayscale.P266_KyokumMoves.L250____Log;
 using Grayscale.P370_LogGraphiEx.L500____Util;
+using Grayscale.P212_ConvPside__.L500____Converter;
 #endif
 
 namespace Grayscale.P554_TansaFukasa.L500____Struct
@@ -220,7 +222,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                 List<Move> movelist;
                 int yomiDeep;
                 float a_childrenBest;
-                Tansaku_FukasaYusen_Routine.CreateEntries_BeforeLoop(
+                Tansaku_FukasaYusen_Routine.CreateMovelist_BeforeLoop(
                     genjo,
                     node_yomi,
                     out movelist,
@@ -342,7 +344,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
         /// <param name="out_yomiDeep"></param>
         /// <param name="out_a_childrenBest"></param>
         /// <param name="errH"></param>
-        private static void CreateEntries_BeforeLoop(
+        private static void CreateMovelist_BeforeLoop(
             Tansaku_Genjo genjo,
             KifuNode node_yomi,
             out List<Move> out_movelist,
@@ -465,7 +467,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                 //
                 List<Move> movelist2;
                 int yomiDeep2;
-                Tansaku_FukasaYusen_Routine.CreateEntries_BeforeLoop(
+                Tansaku_FukasaYusen_Routine.CreateMovelist_BeforeLoop(
                     genjo,
                     node_yomi,
                     out movelist2,
@@ -478,11 +480,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                 exceptionArea = 2000;
 
                 int wideCount1 = 0;
-                foreach (
-                    Move move // このキーで、先手駒台2つ目の持ち駒「角」（1b）を打とうとして
-                    // 1b2c のようなSFEN符号を作ってしまうというバグがあった。正しくは R*2c。
-                    in movelist2
-                    )//次に読む手
+                foreach (Move move in movelist2)//次に読む手
                 {
                     if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(
                         yomiDeep2,
@@ -784,7 +782,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                     // 『駒別升ズ』を、ハブ・ノードへ変換。
                     //----------------------------------------
                     //成り以外の手
-                    movelist = Conv_KomabetuMasus.ToSasitebetuSky1(
+                    movelist = Conv_Movelist1.ToMovelist_NonPromotion(
                         starbetuSusumuMasus,
                         src_Sky,
                         errH
@@ -824,7 +822,7 @@ namespace Grayscale.P554_TansaFukasa.L500____Struct
                     //
                     // １対１変換
                     //
-                    movelist = Conv_KomabetuMasus.KomabetuMasus_ToSasitebetuSky(
+                    movelist = Conv_Movelist1.ToMovelist_NonPromotion(
                         komaBETUSusumeruMasus,
                         src_Sky,
                         errH

@@ -15,7 +15,7 @@ using Grayscale.P550_timeMan____.L___500_struct__;
 using Grayscale.P550_timeMan____.L500____struct__;
 using Grayscale.P554_TansaFukasa.L___500_Struct;
 using Grayscale.P554_TansaFukasa.L500____Struct;
-using Grayscale.P031_usiFrame1__.L___490_Option__;
+using Grayscale.P091_usiFrame1__.L___490_Option__;
 using System;
 using System.Collections.Generic;
 

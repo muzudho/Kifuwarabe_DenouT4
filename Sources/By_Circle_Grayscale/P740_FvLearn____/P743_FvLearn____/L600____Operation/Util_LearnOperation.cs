@@ -1,6 +1,6 @@
 ﻿using Grayscale.P003_Log________.L___500_Struct;
 using Grayscale.P003_Log________.L500____Struct;
-using Grayscale.P031_usiFrame1__.L500____usiFrame___;
+using Grayscale.P091_usiFrame1__.L500____usiFrame___;
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
@@ -31,6 +31,7 @@ using Grayscale.P321_KyokumHyoka.L___250_Struct;
 
 #if DEBUG
 using Grayscale.P222_Log_Kaisetu.L250____Struct;
+using Grayscale.P339_ConvKyokume.L500____Converter;
 #endif
 
 namespace Grayscale.P743_FvLearn____.L600____Operation
@@ -54,7 +55,8 @@ namespace Grayscale.P743_FvLearn____.L600____Operation
             {
                 Move move1 = item.Move;
 #if DEBUG
-                errH.Logger.WriteLine_AddMemo("sfenSasiteStr=" + sfenSasiteStr);
+                string sfen = Conv_Move.ToSfen(item.Move);
+                errH.Logger.WriteLine_AddMemo("sfen=" + sfen);
 #endif
 
                 if (uc_Main.LearningData.Kifu.CurNode.HasChildNode(move1))

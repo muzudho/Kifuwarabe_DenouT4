@@ -1,7 +1,7 @@
 ﻿using Grayscale.P003_Log________.L___500_Struct;
 using Grayscale.P003_Log________.L500____Struct;
 using Grayscale.P027_Settei_____.L500____Struct;
-using Grayscale.P031_usiFrame1__.L500____usiFrame___;
+using Grayscale.P091_usiFrame1__.L500____usiFrame___;
 using Grayscale.P055_Conv_Sy.L500____Converter;
 using Grayscale.P056_Syugoron___.L___250_Struct;
 using Grayscale.P157_KyokumenPng.L___500_Struct;

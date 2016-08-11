@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8AC05075-A6EF-4779-B18C-3D0E801A4BCD}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Grayscale</RootNamespace>
+    <AssemblyName>Grayscale.P060_Application</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Engine01_Binaries\P060_Application\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Engine01_Binaries\P060_Application\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ProjectDark.KWSupport, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Edge\PL05_正式版\ProjectDark.KWSupport.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="b110_Log________\L500____Struct\ErrorHandlerImpl.cs" />
+    <Compile Include="b110_Log________\L500____Struct\KwLoggerImpl.cs" />
+    <Compile Include="b110_Log________\L500____Struct\Util_OwataMinister.cs" />
+    <Compile Include="b110_Log________\L___500_Struct\KwErrorHandler.cs" />
+    <Compile Include="b110_Log________\L___500_Struct\KwLogger.cs" />
+    <Compile Include="b210_Tushin_____\L500____Util\Util_Message.cs" />
+    <Compile Include="b310_Settei_____\L500____Struct\Const_Filepath.cs" />
+    <Compile Include="b310_Settei_____\L500____Struct\Data_Settei_Csv.cs" />
+    <Compile Include="b310_Settei_____\L510____Xml\SetteiXmlFile.cs" />
+    <Compile Include="b410_Collection_\L500____Struct\Couple.cs" />
+    <Compile Include="b410_Collection_\L500____Struct\List_OneAndMulti.cs" />
+    <Compile Include="b410_Collection_\L500____Struct\Maps_OneAndMulti.cs" />
+    <Compile Include="b410_Collection_\L500____Struct\Maps_OneAndMultiAndMulti.cs" />
+    <Compile Include="b410_Collection_\L500____Struct\Maps_OneAndOne.cs" />
+    <Compile Include="b510_Conv_Sy\L500____Converter\Conv_Sy.cs" />
+    <Compile Include="b520_Syugoron___\L250____Struct\SyElement_Default.cs" />
+    <Compile Include="b520_Syugoron___\L250____Struct\SyFuncDictionary.cs" />
+    <Compile Include="b520_Syugoron___\L250____Struct\SySet_Default.cs" />
+    <Compile Include="b520_Syugoron___\L250____Struct\SySet_DirectedSegment.cs" />
+    <Compile Include="b520_Syugoron___\L250____Struct\SySet_Ordered.cs" />
+    <Compile Include="b520_Syugoron___\L250____Struct\SyWordDictionary.cs" />
+    <Compile Include="b520_Syugoron___\L500____Util\Util_SySet.cs" />
+    <Compile Include="b520_Syugoron___\L___250_Struct\SyElement.cs" />
+    <Compile Include="b520_Syugoron___\L___250_Struct\SySet.cs" />
+    <Compile Include="b530_UtilSyColle\L500____Util\Util_List_OneAndMulti.cs" />
+    <Compile Include="b610_ConstShogi_\L250____Const\ConstShogi.cs" />
+    <Compile Include="b620_ConvText___\L250____Const\TextConst.cs" />
+    <Compile Include="b620_ConvText___\L500____Converter\Conv_Alphabet.cs" />
+    <Compile Include="b620_ConvText___\L500____Converter\Conv_Filepath.cs" />
+    <Compile Include="b620_ConvText___\L500____Converter\Conv_Int.cs" />
+    <Compile Include="b620_ConvText___\L500____Converter\Conv_Suji.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="b100_／／↓ログ、異常系処理等\" />
+    <Folder Include="b200_／／↓通信\" />
+    <Folder Include="b300_／／↓設定ファイル\" />
+    <Folder Include="b400_／／コレクションクラス\" />
+    <Folder Include="b500_／／↓集合論\" />
+    <Folder Include="b600_／／↓将棋定数と変換器\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\A000_Platform___\A000_Platform___.csproj">
+      <Project>{147b11e0-827b-4d3f-844c-adf2beafa53f}</Project>
+      <Name>A000_Platform___</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

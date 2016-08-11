@@ -88,17 +88,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\P000_Environment\P000_Environment.csproj">
-      <Project>{147b11e0-827b-4d3f-844c-adf2beafa53f}</Project>
-      <Name>P000_Environment</Name>
+    <ProjectReference Include="..\A060_Application\A060_Application.csproj">
+      <Project>{8ac05075-a6ef-4779-b18c-3d0e801a4bcd}</Project>
+      <Name>A060_Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\P200_KnowNingen_\P200_KnowNingen_.csproj">
+    <ProjectReference Include="..\A210_KnowNingen_\A210_KnowNingen_.csproj">
       <Project>{2cfb37ae-2d9e-4478-abd8-1eaaaf98f223}</Project>
-      <Name>P200_KnowNingen_</Name>
+      <Name>A210_KnowNingen_</Name>
     </ProjectReference>
-    <ProjectReference Include="..\P460_Server_____\P460_Server_____.csproj">
+    <ProjectReference Include="..\A450_Server_____\A450_Server_____.csproj">
       <Project>{70aef273-46c9-4e60-ac97-8aeada3ed5f7}</Project>
-      <Name>P460_Server_____</Name>
+      <Name>A450_Server_____</Name>
     </ProjectReference>
     <ProjectReference Include="..\P690_GuiCsharp__\P690_GuiCsharp__.csproj">
       <Project>{9593acc7-348b-4868-892c-7bafbf925b9d}</Project>

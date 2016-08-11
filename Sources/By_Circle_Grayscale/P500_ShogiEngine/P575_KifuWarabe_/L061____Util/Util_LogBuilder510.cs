@@ -4,7 +4,6 @@ using Grayscale.P035_Collection_.L500____Struct;
 using Grayscale.P056_Syugoron___.L___250_Struct;
 using Grayscale.P157_KyokumenPng.L___500_Struct;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P218_Starlight__.L___500_Struct;
 using Grayscale.P222_Log_Kaisetu.L250____Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
 using Grayscale.P247_KyokumenWra.L500____Struct;

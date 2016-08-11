@@ -5,8 +5,8 @@ using Grayscale.P324_KifuTree___.L___250_Struct;
 using Grayscale.P521_FeatureVect.L___500_Struct;
 using Grayscale.P542_Scoreing___.L___250_Args;
 
-#if DEBUG
-
+#if DEBUG || LEARN
+using Grayscale.P321_KyokumHyoka.L___250_Struct;
 #endif
 
 namespace Grayscale.P743_FvLearn____.L___250_Learn

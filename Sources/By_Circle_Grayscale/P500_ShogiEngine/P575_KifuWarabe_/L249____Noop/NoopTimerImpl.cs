@@ -1,6 +1,6 @@
 ﻿using Grayscale.P003_Log________.L___500_Struct;
 using Grayscale.P542_Scoreing___.L___005_Usi_Loop;
-using Grayscale.P031_usiFrame1__.L___490_Option__;
+using Grayscale.P091_usiFrame1__.L___490_Option__;
 using System.Diagnostics;
 
 namespace Grayscale.P575_KifuWarabe_.L249____Noop

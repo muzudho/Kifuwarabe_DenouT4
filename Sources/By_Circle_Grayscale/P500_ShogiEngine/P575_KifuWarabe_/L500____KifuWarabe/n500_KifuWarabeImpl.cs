@@ -5,10 +5,10 @@ using Grayscale.P003_Log________.L___500_Struct;
 using Grayscale.P003_Log________.L500____Struct;
 using Grayscale.P005_Tushin_____.L500____Util;
 using Grayscale.P027_Settei_____.L500____Struct;
-using Grayscale.P031_usiFrame1__.L___250_UsiLoop;
-using Grayscale.P031_usiFrame1__.L___490_Option__;
-using Grayscale.P031_usiFrame1__.L___500_usiFrame___;//FIXME:
-using Grayscale.P031_usiFrame1__.L490____Option__;
+using Grayscale.P091_usiFrame1__.L___250_UsiLoop;
+using Grayscale.P091_usiFrame1__.L___490_Option__;
+using Grayscale.P091_usiFrame1__.L___500_usiFrame___;//FIXME:
+using Grayscale.P091_usiFrame1__.L490____Option__;
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P212_ConvPside__.L500____Converter;
 using Grayscale.P219_Move_______.L___500_Struct;
@@ -161,7 +161,7 @@ namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe
             this.EngineOptions = new EngineOptionsImpl();
             this.EngineOptions.AddOption(EngineOptionNames.USI_PONDER, new EngineOption_BoolImpl());// ポンダーに対応している将棋サーバーなら真です。
             this.EngineOptions.AddOption(EngineOptionNames.NOOPABLE, new EngineOption_BoolImpl());// 独自実装のコマンドなので、ＯＦＦにしておきます。
-            this.EngineOptions.AddOption(EngineOptionNames.THINKING_MILLI_SECOND, new EngineOption_NumberImpl(4000));
+            this.EngineOptions.AddOption(EngineOptionNames.THINKING_MILLI_SECOND, new EngineOption_NumberImpl(8000));//4000
 
 
 
