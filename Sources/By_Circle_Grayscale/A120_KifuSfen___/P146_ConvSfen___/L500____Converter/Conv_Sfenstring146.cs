@@ -1,10 +1,10 @@
-﻿using Grayscale.P144_ConvSujiDan.L500____Converter;
-using Grayscale.P145_SfenStruct_.L___250_Struct;
-using Grayscale.P145_SfenStruct_.L250____Struct;
-using Grayscale.P145_SfenStruct_.L500____Util;
+﻿using Grayscale.P144_ConvSujiDan.C500____Converter;
+using Grayscale.P145_SfenStruct_.C___250_Struct;
+using Grayscale.P145_SfenStruct_.C250____Struct;
+using Grayscale.P145_SfenStruct_.C500____Util;
 using System.Text.RegularExpressions;
 
-namespace Grayscale.P146_ConvSfen___.L500____Converter
+namespace Grayscale.P146_ConvSfen___.C500____Converter
 {
     public abstract class Conv_Sfenstring146
     {

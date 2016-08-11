@@ -1,16 +1,16 @@
-﻿using Grayscale.P145_SfenStruct_.L___250_Struct;
-using Grayscale.P146_ConvSfen___.L500____Converter;
+﻿using Grayscale.P145_SfenStruct_.C___250_Struct;
+using Grayscale.P146_ConvSfen___.C500____Converter;
 using Grayscale.P211_WordShogi__.L250____Masu;
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P238_Seiza______.L250____Struct;
+using Grayscale.P238_Seiza______.C250____Struct;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P339_ConvKyokume.C500____Converter;
 
 namespace Grayscale.P276_SeizaStartp.L500____Struct
 {

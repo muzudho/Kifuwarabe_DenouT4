@@ -1,8 +1,8 @@
 ﻿using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P222_Log_Kaisetu.L250____Struct;
+using Grayscale.P222_Log_Kaisetu.C250____Struct;
 using System.Text;
 
-namespace Grayscale.P222_Log_Kaisetu.L500____Util
+namespace Grayscale.P222_Log_Kaisetu.C500____Util
 {
     public abstract class Util_LogWriter_Json
     {

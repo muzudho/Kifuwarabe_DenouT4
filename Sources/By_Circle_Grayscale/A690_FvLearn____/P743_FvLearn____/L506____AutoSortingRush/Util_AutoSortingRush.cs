@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Grayscale.P003_Log________.L___500_Struct;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.P743_FvLearn____.L250____Learn;
 using Grayscale.P743_FvLearn____.L260____View;
 using Grayscale.P743_FvLearn____.L450____Tyoseiryo;
@@ -18,7 +18,7 @@ using Grayscale.P743_FvLearn____.L506____AutoSasiteSort;
 using Grayscale.P219_Move_______.L___500_Struct;
 
 #if DEBUG
-using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P339_ConvKyokume.C500____Converter;
 #endif
 
 namespace Grayscale.P743_FvLearn____.L506____AutoSasiteSort

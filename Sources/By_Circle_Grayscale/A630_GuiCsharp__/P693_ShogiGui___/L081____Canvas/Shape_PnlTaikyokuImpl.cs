@@ -1,9 +1,9 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P212_ConvPside__.L500____Converter;
+using Grayscale.P212_ConvPside__.C500____Converter;
 using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P256_SeizaFinger.L250____Struct;
+using Grayscale.P256_SeizaFinger.C250____Struct;
 using Grayscale.P693_ShogiGui___.L___080_Shape;
 using Grayscale.P693_ShogiGui___.L___081_Canvas;
 using Grayscale.P693_ShogiGui___.L___500_Gui;

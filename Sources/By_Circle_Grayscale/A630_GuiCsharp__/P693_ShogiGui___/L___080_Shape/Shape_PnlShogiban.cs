@@ -1,4 +1,4 @@
-﻿using Grayscale.P056_Syugoron___.L___250_Struct;
+﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using System.Collections.Generic;
 using System.Drawing;
 

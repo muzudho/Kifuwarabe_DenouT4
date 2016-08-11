@@ -1,20 +1,20 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P145_SfenStruct_.L___250_Struct;
-using Grayscale.P145_SfenStruct_.L250____Struct;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.P145_SfenStruct_.C___250_Struct;
+using Grayscale.P145_SfenStruct_.C250____Struct;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P213_Komasyurui_.L500____Util;
-using Grayscale.P214_Masu_______.L500____Util;
+using Grayscale.P213_Komasyurui_.C500____Util;
+using Grayscale.P214_Masu_______.C500____Util;
 using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P234_Komahaiyaku.L500____Util;
-using Grayscale.P238_Seiza______.L250____Struct;
-using Grayscale.P238_Seiza______.L500____Util;
+using Grayscale.P234_Komahaiyaku.C500____Util;
+using Grayscale.P238_Seiza______.C250____Struct;
+using Grayscale.P238_Seiza______.C500____Util;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
-using Grayscale.P324_KifuTree___.L___250_Struct;
+using Grayscale.P324_KifuTree___.C___250_Struct;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P219_Move_______.L___500_Struct;
 
-namespace Grayscale.P339_ConvKyokume.L500____Converter
+namespace Grayscale.P339_ConvKyokume.C500____Converter
 {
     public abstract class Conv_KifuNode
     {

@@ -1,5 +1,5 @@
-﻿using Grayscale.P031_Random_____.L500____Struct;
-using Grayscale.P061_ConstShogi_.L250____Const;
+﻿using Grayscale.A000_Platform___.B021_Random_____.C500____Struct;
+using Grayscale.A060_Application.B610_ConstShogi_.C250____Const;
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P213_Komasyurui_.L250____Word;
 

@@ -1,4 +1,4 @@
-﻿using Grayscale.P145_SfenStruct_.L___250_Struct;
+﻿using Grayscale.P145_SfenStruct_.C___250_Struct;
 using System.Text;
 
 namespace Grayscale.P147_FormatSfen_.L260____Format

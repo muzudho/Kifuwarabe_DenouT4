@@ -1,7 +1,7 @@
 ﻿using Grayscale.P209_KifuJsa____.L500____Word;
 using Grayscale.P213_Komasyurui_.L250____Word;
 
-namespace Grayscale.P292_JsaFugo____.L250____Struct
+namespace Grayscale.P292_JsaFugo____.C250____Struct
 {
 
     /// <summary>

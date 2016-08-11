@@ -1,13 +1,13 @@
-﻿using Grayscale.P212_ConvPside__.L500____Converter;
+﻿using Grayscale.P212_ConvPside__.C500____Converter;
 using Grayscale.P216_ZobrishHash.L500____Struct;
 using Grayscale.P224_Sky________.L___500_Struct;
-using Grayscale.P238_Seiza______.L250____Struct;
-using Grayscale.P238_Seiza______.L500____Util;
+using Grayscale.P238_Seiza______.C250____Struct;
+using Grayscale.P238_Seiza______.C500____Util;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P339_ConvKyokume.C500____Converter;
 
-namespace Grayscale.P239_ConvWords__.L500____Converter
+namespace Grayscale.P239_ConvWords__.C500____Converter
 {
     public abstract class Conv_Sky
     {

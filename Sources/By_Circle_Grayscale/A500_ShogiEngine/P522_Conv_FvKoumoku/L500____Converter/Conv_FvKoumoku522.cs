@@ -1,9 +1,9 @@
-﻿using Grayscale.P144_ConvSujiDan.L500____Converter;
+﻿using Grayscale.P144_ConvSujiDan.C500____Converter;
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P521_FeatureVect.L___500_Struct;
 using System;
 
-namespace Grayscale.P522_Conv_FvKoumoku.L500____Converter
+namespace Grayscale.P522_Conv_FvKoumoku.C500____Converter
 {
     public abstract class Conv_FvKoumoku522
     {

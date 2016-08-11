@@ -1,11 +1,11 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P003_Log________.L500____Struct;
-using Grayscale.P146_ConvSfen___.L500____Converter;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B110_Log________.C500____Struct;
+using Grayscale.P146_ConvSfen___.C500____Converter;
 using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P325_PnlTaikyoku.L___250_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P325_PnlTaikyoku.C___250_Struct;
+using Grayscale.P339_ConvKyokume.C500____Converter;
 using Grayscale.P341_Ittesasu___.L___250_OperationA;
 using Grayscale.P341_Ittesasu___.L250____OperationA;
 using Grayscale.P341_Ittesasu___.L500____UtilA;

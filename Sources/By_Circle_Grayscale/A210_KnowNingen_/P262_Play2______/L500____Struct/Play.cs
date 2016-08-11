@@ -1,20 +1,20 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P035_Collection_.L500____Struct;
-using Grayscale.P056_Syugoron___.L___250_Struct;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B410_Collection_.C500____Struct;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.P211_WordShogi__.L250____Masu;
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P213_Komasyurui_.L250____Word;
-using Grayscale.P214_Masu_______.L500____Util;
+using Grayscale.P214_Masu_______.C500____Util;
 using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P238_Seiza______.L250____Struct;
-using Grayscale.P238_Seiza______.L500____Util;
+using Grayscale.P238_Seiza______.C250____Struct;
+using Grayscale.P238_Seiza______.C500____Util;
 using Grayscale.P258_UtilSky258_.L250____UtilFingers;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P261_Utifudume__.L500____Struct;
 using Grayscale.P211_WordShogi__.L260____Operator;
 using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P339_ConvKyokume.C500____Converter;
 
 #if DEBUG
 using System.Diagnostics;

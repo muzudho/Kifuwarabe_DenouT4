@@ -1,6 +1,6 @@
-﻿using Grayscale.P055_Conv_Sy.L500____Converter;
-using Grayscale.P056_Syugoron___.L___250_Struct;
-using Grayscale.P056_Syugoron___.L250____Struct;
+﻿using Grayscale.A060_Application.B510_Conv_Sy____.C500____Converter;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A060_Application.B520_Syugoron___.C250____Struct;
 using Grayscale.P211_WordShogi__.L___250_Masu;
 using System.Collections.Generic;
 

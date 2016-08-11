@@ -1,4 +1,4 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.P341_Ittesasu___.L250____OperationA;
 using Grayscale.P693_ShogiGui___.L___500_Gui;
 using Grayscale.P693_ShogiGui___.L500____GUI;

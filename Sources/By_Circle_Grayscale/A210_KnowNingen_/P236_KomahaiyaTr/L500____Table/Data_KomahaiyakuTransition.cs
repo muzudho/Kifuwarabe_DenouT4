@@ -1,10 +1,10 @@
-﻿using Grayscale.P003_Log________.L500____Struct;
-using Grayscale.P011_Csv________.L250____Parser;
-using Grayscale.P056_Syugoron___.L___250_Struct;
+﻿using Grayscale.A060_Application.B110_Log________.C500____Struct;
+using Grayscale.A000_Platform___.B011_Csv________.C250____Parser;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P212_ConvPside__.L500____Converter;
+using Grayscale.P212_ConvPside__.C500____Converter;
 using Grayscale.P213_Komasyurui_.L250____Word;
-using Grayscale.P214_Masu_______.L500____Util;
+using Grayscale.P214_Masu_______.C500____Util;
 using Grayscale.P234_Komahaiyaku.L250____Word;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Windows.Forms;
 
 #if DEBUG
-using Grayscale.P027_Settei_____.L500____Struct;
+using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
 #endif
 
 namespace Grayscale.P236_KomahaiyaTr.L500____Table

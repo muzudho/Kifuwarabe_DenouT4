@@ -1,24 +1,24 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P056_Syugoron___.L___250_Struct;
-using Grayscale.P163_KifuCsa____.L___250_Struct;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.P163_KifuCsa____.C___250_Struct;
 using Grayscale.P211_WordShogi__.L250____Masu;
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P213_Komasyurui_.L250____Word;
-using Grayscale.P213_Komasyurui_.L500____Util;
+using Grayscale.P213_Komasyurui_.C500____Util;
 using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
-using Grayscale.P296_ConvJsa____.L500____Converter;
-using Grayscale.P324_KifuTree___.L___250_Struct;
-using Grayscale.P324_KifuTree___.L250____Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P296_ConvJsa____.C500____Converter;
+using Grayscale.P324_KifuTree___.C___250_Struct;
+using Grayscale.P324_KifuTree___.C250____Struct;
+using Grayscale.P339_ConvKyokume.C500____Converter;
 using Grayscale.P341_Ittesasu___.L___250_OperationA;
 using Grayscale.P341_Ittesasu___.L125____UtilB;
 using Grayscale.P341_Ittesasu___.L250____OperationA;
 using Grayscale.P341_Ittesasu___.L500____UtilA;
-using Grayscale.P369_ConvCsa____.L500____Converter;
+using Grayscale.P369_ConvCsa____.C500____Converter;
 using Grayscale.P575_KifuWarabe_.L500____KifuWarabe;
 using Grayscale.P743_FvLearn____.L___250_Learn;
 using Grayscale.P743_FvLearn____.L250____Learn;
@@ -30,7 +30,7 @@ using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG || LEARN
-using Grayscale.P321_KyokumHyoka.L___250_Struct;
+using Grayscale.P321_KyokumHyoka.C___250_Struct;
 #endif
 
 namespace Grayscale.P743_FvLearn____.L260____View

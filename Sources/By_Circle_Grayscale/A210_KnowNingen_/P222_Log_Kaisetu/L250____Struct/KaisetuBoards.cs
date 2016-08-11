@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Grayscale.P222_Log_Kaisetu.L250____Struct
+namespace Grayscale.P222_Log_Kaisetu.C250____Struct
 {
 
     /// <summary>

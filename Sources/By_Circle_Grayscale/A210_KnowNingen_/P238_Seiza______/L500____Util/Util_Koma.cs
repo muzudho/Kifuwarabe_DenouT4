@@ -2,7 +2,7 @@
 using Grayscale.P224_Sky________.L500____Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
-namespace Grayscale.P238_Seiza______.L500____Util
+namespace Grayscale.P238_Seiza______.C500____Util
 {
     public class Util_Koma
     {

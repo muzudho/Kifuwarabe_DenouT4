@@ -1,7 +1,7 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P003_Log________.L500____Struct;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P324_KifuTree___.L___250_Struct;
+using Grayscale.P324_KifuTree___.C___250_Struct;
 using Grayscale.P521_FeatureVect.L___500_Struct;
 using Grayscale.P521_FeatureVect.L500____Struct;
 using Grayscale.P523_UtilFv_____.L510____UtilFvLoad;
@@ -15,7 +15,7 @@ using System.Text;
 using System.Windows.Forms;
 
 #if DEBUG || LEARN
-using Grayscale.P321_KyokumHyoka.L___250_Struct;
+using Grayscale.P321_KyokumHyoka.C___250_Struct;
 #endif
 
 namespace Grayscale.P910_SpeedKeisok

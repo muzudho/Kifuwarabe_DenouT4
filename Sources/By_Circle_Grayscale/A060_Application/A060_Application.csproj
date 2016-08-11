@@ -48,37 +48,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="b110_Log________\L500____Struct\ErrorHandlerImpl.cs" />
-    <Compile Include="b110_Log________\L500____Struct\KwLoggerImpl.cs" />
-    <Compile Include="b110_Log________\L500____Struct\Util_OwataMinister.cs" />
-    <Compile Include="b110_Log________\L___500_Struct\KwErrorHandler.cs" />
-    <Compile Include="b110_Log________\L___500_Struct\KwLogger.cs" />
-    <Compile Include="b210_Tushin_____\L500____Util\Util_Message.cs" />
-    <Compile Include="b310_Settei_____\L500____Struct\Const_Filepath.cs" />
-    <Compile Include="b310_Settei_____\L500____Struct\Data_Settei_Csv.cs" />
-    <Compile Include="b310_Settei_____\L510____Xml\SetteiXmlFile.cs" />
-    <Compile Include="b410_Collection_\L500____Struct\Couple.cs" />
-    <Compile Include="b410_Collection_\L500____Struct\List_OneAndMulti.cs" />
-    <Compile Include="b410_Collection_\L500____Struct\Maps_OneAndMulti.cs" />
-    <Compile Include="b410_Collection_\L500____Struct\Maps_OneAndMultiAndMulti.cs" />
-    <Compile Include="b410_Collection_\L500____Struct\Maps_OneAndOne.cs" />
-    <Compile Include="b510_Conv_Sy\L500____Converter\Conv_Sy.cs" />
-    <Compile Include="b520_Syugoron___\L250____Struct\SyElement_Default.cs" />
-    <Compile Include="b520_Syugoron___\L250____Struct\SyFuncDictionary.cs" />
-    <Compile Include="b520_Syugoron___\L250____Struct\SySet_Default.cs" />
-    <Compile Include="b520_Syugoron___\L250____Struct\SySet_DirectedSegment.cs" />
-    <Compile Include="b520_Syugoron___\L250____Struct\SySet_Ordered.cs" />
-    <Compile Include="b520_Syugoron___\L250____Struct\SyWordDictionary.cs" />
-    <Compile Include="b520_Syugoron___\L500____Util\Util_SySet.cs" />
-    <Compile Include="b520_Syugoron___\L___250_Struct\SyElement.cs" />
-    <Compile Include="b520_Syugoron___\L___250_Struct\SySet.cs" />
-    <Compile Include="b530_UtilSyColle\L500____Util\Util_List_OneAndMulti.cs" />
-    <Compile Include="b610_ConstShogi_\L250____Const\ConstShogi.cs" />
-    <Compile Include="b620_ConvText___\L250____Const\TextConst.cs" />
-    <Compile Include="b620_ConvText___\L500____Converter\Conv_Alphabet.cs" />
-    <Compile Include="b620_ConvText___\L500____Converter\Conv_Filepath.cs" />
-    <Compile Include="b620_ConvText___\L500____Converter\Conv_Int.cs" />
-    <Compile Include="b620_ConvText___\L500____Converter\Conv_Suji.cs" />
+    <Compile Include="B110_Log________\C500____Struct\ErrorHandlerImpl.cs" />
+    <Compile Include="B110_Log________\C500____Struct\KwLoggerImpl.cs" />
+    <Compile Include="B110_Log________\C500____Struct\Util_OwataMinister.cs" />
+    <Compile Include="B110_Log________\C___500_Struct\KwErrorHandler.cs" />
+    <Compile Include="B110_Log________\C___500_Struct\KwLogger.cs" />
+    <Compile Include="B210_Tushin_____\C500____Util\Util_Message.cs" />
+    <Compile Include="B310_Settei_____\C500____Struct\Const_Filepath.cs" />
+    <Compile Include="B310_Settei_____\C500____Struct\Data_Settei_Csv.cs" />
+    <Compile Include="B310_Settei_____\C510____Xml\SetteiXmlFile.cs" />
+    <Compile Include="B410_Collection_\C500____Struct\Couple.cs" />
+    <Compile Include="B410_Collection_\C500____Struct\List_OneAndMulti.cs" />
+    <Compile Include="B410_Collection_\C500____Struct\Maps_OneAndMulti.cs" />
+    <Compile Include="B410_Collection_\C500____Struct\Maps_OneAndMultiAndMulti.cs" />
+    <Compile Include="B410_Collection_\C500____Struct\Maps_OneAndOne.cs" />
+    <Compile Include="B510_Conv_Sy\C500____Converter\Conv_Sy.cs" />
+    <Compile Include="B520_Syugoron___\C250____Struct\SyElement_Default.cs" />
+    <Compile Include="B520_Syugoron___\C250____Struct\SyFuncDictionary.cs" />
+    <Compile Include="B520_Syugoron___\C250____Struct\SySet_Default.cs" />
+    <Compile Include="B520_Syugoron___\C250____Struct\SySet_DirectedSegment.cs" />
+    <Compile Include="B520_Syugoron___\C250____Struct\SySet_Ordered.cs" />
+    <Compile Include="B520_Syugoron___\C250____Struct\SyWordDictionary.cs" />
+    <Compile Include="B520_Syugoron___\C500____Util\Util_SySet.cs" />
+    <Compile Include="B520_Syugoron___\C___250_Struct\SyElement.cs" />
+    <Compile Include="B520_Syugoron___\C___250_Struct\SySet.cs" />
+    <Compile Include="B530_UtilSyColle\C500____Util\Util_List_OneAndMulti.cs" />
+    <Compile Include="B610_ConstShogi_\C250____Const\ConstShogi.cs" />
+    <Compile Include="B620_ConvText___\C250____Const\TextConst.cs" />
+    <Compile Include="B620_ConvText___\C500____Converter\Conv_Alphabet.cs" />
+    <Compile Include="B620_ConvText___\C500____Converter\Conv_Filepath.cs" />
+    <Compile Include="B620_ConvText___\C500____Converter\Conv_Int.cs" />
+    <Compile Include="B620_ConvText___\C500____Converter\Conv_Suji.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -86,12 +86,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="b100_／／↓ログ、異常系処理等\" />
-    <Folder Include="b200_／／↓通信\" />
-    <Folder Include="b300_／／↓設定ファイル\" />
-    <Folder Include="b400_／／コレクションクラス\" />
-    <Folder Include="b500_／／↓集合論\" />
-    <Folder Include="b600_／／↓将棋定数と変換器\" />
+    <Folder Include="B100_／／↓ログ、異常系処理等\" />
+    <Folder Include="B200_／／↓通信\" />
+    <Folder Include="B300_／／↓設定ファイル\" />
+    <Folder Include="B400_／／コレクションクラス\" />
+    <Folder Include="B500_／／↓集合論\" />
+    <Folder Include="B600_／／↓将棋定数と変換器\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\A000_Platform___\A000_Platform___.csproj">

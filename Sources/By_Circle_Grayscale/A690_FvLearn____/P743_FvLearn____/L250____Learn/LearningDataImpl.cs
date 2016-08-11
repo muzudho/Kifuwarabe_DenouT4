@@ -1,26 +1,26 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P003_Log________.L500____Struct;
-using Grayscale.P027_Settei_____.L500____Struct;
-using Grayscale.P091_usiFrame1__.L500____usiFrame___;
-using Grayscale.P055_Conv_Sy.L500____Converter;
-using Grayscale.P056_Syugoron___.L___250_Struct;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B110_Log________.C500____Struct;
+using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
+using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C500____usiFrame___;
+using Grayscale.A060_Application.B510_Conv_Sy____.C500____Converter;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.P157_KyokumenPng.L___500_Struct;
 using Grayscale.P157_KyokumenPng.L500____Struct;
 using Grayscale.P158_LogKyokuPng.L500____UtilWriter;
-using Grayscale.P163_KifuCsa____.L___250_Struct;
-using Grayscale.P163_KifuCsa____.L250____Struct;
+using Grayscale.P163_KifuCsa____.C___250_Struct;
+using Grayscale.P163_KifuCsa____.C250____Struct;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P212_ConvPside__.L500____Converter;
+using Grayscale.P212_ConvPside__.C500____Converter;
 using Grayscale.P213_Komasyurui_.L250____Word;
-using Grayscale.P213_Komasyurui_.L500____Util;
+using Grayscale.P213_Komasyurui_.C500____Util;
 using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P236_KomahaiyaTr.L500____Table;
 using Grayscale.P248_Michi______.L500____Word;
-using Grayscale.P250_KomahaiyaEx.L500____Util;
-using Grayscale.P270_ForcePromot.L250____Struct;
-using Grayscale.P324_KifuTree___.L___250_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P250_KomahaiyaEx.C500____Util;
+using Grayscale.P270_ForcePromot.C250____Struct;
+using Grayscale.P324_KifuTree___.C___250_Struct;
+using Grayscale.P339_ConvKyokume.C500____Converter;
 using Grayscale.P521_FeatureVect.L___500_Struct;
 using Grayscale.P521_FeatureVect.L500____Struct;
 using Grayscale.P531_Hyokakansu_.L500____Hyokakansu;
@@ -38,10 +38,10 @@ using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
-using Grayscale.P027_Settei_____.L500____Struct;
+using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
 using System.Diagnostics;
-using Grayscale.P222_Log_Kaisetu.L250____Struct;
-using Grayscale.P321_KyokumHyoka.L___250_Struct;
+using Grayscale.P222_Log_Kaisetu.C250____Struct;
+using Grayscale.P321_KyokumHyoka.C___250_Struct;
 #endif
 
 namespace Grayscale.P743_FvLearn____.L250____Learn

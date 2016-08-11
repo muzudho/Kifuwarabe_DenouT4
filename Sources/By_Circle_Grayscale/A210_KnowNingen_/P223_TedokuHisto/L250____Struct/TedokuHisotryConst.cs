@@ -1,16 +1,16 @@
-﻿using Grayscale.P056_Syugoron___.L___250_Struct;
+﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.P211_WordShogi__.L250____Masu;
 using Grayscale.P213_Komasyurui_.L250____Word;
-using Grayscale.P223_TedokuHisto.L___250_Struct;
+using Grayscale.P223_TedokuHisto.C___250_Struct;
 using System.Collections.Generic;
 
 #if DEBUG
 using System.IO;
-using Grayscale.P027_Settei_____.L500____Struct;
+using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
 using Grayscale.P223_TedokuHisto.L240____Util;
 #endif
 
-namespace Grayscale.P223_TedokuHisto.L250____Struct
+namespace Grayscale.P223_TedokuHisto.C250____Struct
 {
     /// <summary>
     /// 手得ヒストリー

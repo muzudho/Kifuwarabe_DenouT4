@@ -1,9 +1,9 @@
 ﻿// 進行が停止するテストを含むデバッグモードです。
 #define DEBUG_STOPPABLE
 
-using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P003_Log________.L500____Struct;
-using Grayscale.P027_Settei_____.L500____Struct;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B110_Log________.C500____Struct;
+using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
 using Grayscale.P693_ShogiGui___.L492____Widgets;
 using Grayscale.P693_ShogiGui___.L500____GUI;
 using System;

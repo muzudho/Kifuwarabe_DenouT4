@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.P163_KifuCsa____.L___250_Struct
+namespace Grayscale.P163_KifuCsa____.C___250_Struct
 {
     public interface CsaKifuSasite
     {

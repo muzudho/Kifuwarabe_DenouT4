@@ -1,16 +1,16 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P003_Log________.L500____Struct;
-using Grayscale.P027_Settei_____.L500____Struct;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B110_Log________.C500____Struct;
+using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
 using Grayscale.P211_WordShogi__.L250____Masu;
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P238_Seiza______.L250____Struct;
+using Grayscale.P238_Seiza______.C250____Struct;
 using Grayscale.P247_KyokumenWra.L500____Struct;
-using Grayscale.P256_SeizaFinger.L250____Struct;
+using Grayscale.P256_SeizaFinger.C250____Struct;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
-using Grayscale.P324_KifuTree___.L___250_Struct;
-using Grayscale.P324_KifuTree___.L250____Struct;
+using Grayscale.P324_KifuTree___.C___250_Struct;
+using Grayscale.P324_KifuTree___.C250____Struct;
 using Grayscale.P461_Server_____.L250____Util;
 using Grayscale.P693_ShogiGui___.L___499_Repaint;
 using Grayscale.P693_ShogiGui___.L___500_Gui;
@@ -18,7 +18,7 @@ using Grayscale.P693_ShogiGui___.L125____Scene;
 using Grayscale.P693_ShogiGui___.L250____Timed;
 using NLua;
 using System;
-using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P339_ConvKyokume.C500____Converter;
 
 namespace Grayscale.P693_ShogiGui___.L480____Util
 {

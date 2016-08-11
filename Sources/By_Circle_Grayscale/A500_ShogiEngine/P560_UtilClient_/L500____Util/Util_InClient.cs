@@ -1,15 +1,15 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P145_SfenStruct_.L___250_Struct;
-using Grayscale.P145_SfenStruct_.L250____Struct;
-using Grayscale.P146_ConvSfen___.L500____Converter;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.P145_SfenStruct_.C___250_Struct;
+using Grayscale.P145_SfenStruct_.C250____Struct;
+using Grayscale.P146_ConvSfen___.C500____Converter;
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P307_UtilSky____.L500____Util;
-using Grayscale.P324_KifuTree___.L250____Struct;
-using Grayscale.P325_PnlTaikyoku.L___250_Struct;
+using Grayscale.P307_UtilSky____.C500____Util;
+using Grayscale.P324_KifuTree___.C250____Struct;
+using Grayscale.P325_PnlTaikyoku.C___250_Struct;
 using Grayscale.P355_KifuParserA.L___500_Parser;
 
-namespace Grayscale.P560_UtilClient_.L500____Util
+namespace Grayscale.P560_UtilClient_.C500____Util
 {
     public abstract class Util_InClient
     {

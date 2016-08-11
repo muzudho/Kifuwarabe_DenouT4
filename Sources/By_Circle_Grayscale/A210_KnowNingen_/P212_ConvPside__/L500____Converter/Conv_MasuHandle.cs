@@ -1,8 +1,8 @@
-﻿using Grayscale.P056_Syugoron___.L___250_Struct;
+﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.P211_WordShogi__.L250____Masu;
 using System.Diagnostics;
 
-namespace Grayscale.P212_ConvPside__.L500____Converter
+namespace Grayscale.P212_ConvPside__.C500____Converter
 {
     public abstract class Conv_MasuHandle
     {

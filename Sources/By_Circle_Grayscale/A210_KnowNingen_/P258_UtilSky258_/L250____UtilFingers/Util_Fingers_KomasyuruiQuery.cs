@@ -1,9 +1,9 @@
 ﻿using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P238_Seiza______.L500____Util;
+using Grayscale.P238_Seiza______.C500____Util;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P339_ConvKyokume.C500____Converter;
 
 namespace Grayscale.P258_UtilSky258_.L250____UtilFingers
 {

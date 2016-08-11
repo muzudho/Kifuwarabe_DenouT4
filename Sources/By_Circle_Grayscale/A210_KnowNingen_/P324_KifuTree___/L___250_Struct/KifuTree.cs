@@ -4,7 +4,7 @@ using Grayscale.P226_Tree_______.L___500_Struct;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P323_Sennitite__.L___500_Struct;
 
-namespace Grayscale.P324_KifuTree___.L___250_Struct
+namespace Grayscale.P324_KifuTree___.C___250_Struct
 {
     public interface KifuTree : Tree<Move, KyokumenWrapper>
     {

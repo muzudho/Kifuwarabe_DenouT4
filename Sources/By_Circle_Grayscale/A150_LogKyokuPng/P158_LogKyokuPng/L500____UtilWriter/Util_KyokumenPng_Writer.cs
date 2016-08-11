@@ -1,8 +1,8 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P003_Log________.L500____Struct;
-using Grayscale.P145_SfenStruct_.L___250_Struct;
-using Grayscale.P145_SfenStruct_.L250____Struct;
-using Grayscale.P146_ConvSfen___.L500____Converter;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B110_Log________.C500____Struct;
+using Grayscale.P145_SfenStruct_.C___250_Struct;
+using Grayscale.P145_SfenStruct_.C250____Struct;
+using Grayscale.P146_ConvSfen___.C500____Converter;
 using Grayscale.P157_KyokumenPng.L___500_Struct;
 using Grayscale.P157_KyokumenPng.L500____Struct;
 using Grayscale.P158_LogKyokuPng.L250____UtilPaint;

@@ -1,22 +1,22 @@
 ﻿#if DEBUG
 using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P035_Collection_.L500____Struct;
-using Grayscale.P056_Syugoron___.L___250_Struct;
+using Grayscale.A060_Application.B410_Collection_.C500____Struct;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.P211_WordShogi__.L___250_Masu;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P212_ConvPside__.L500____Converter;
-using Grayscale.P222_Log_Kaisetu.L250____Struct;
+using Grayscale.P212_ConvPside__.C500____Converter;
+using Grayscale.P222_Log_Kaisetu.C250____Struct;
 using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P234_Komahaiyaku.L500____Util;
-using Grayscale.P238_Seiza______.L250____Struct;
-using Grayscale.P238_Seiza______.L500____Util;
-using Grayscale.P239_ConvWords__.L500____Converter;
+using Grayscale.P234_Komahaiyaku.C500____Util;
+using Grayscale.P238_Seiza______.C250____Struct;
+using Grayscale.P238_Seiza______.C500____Util;
+using Grayscale.P239_ConvWords__.C500____Converter;
 using Grayscale.P258_UtilSky258_.L505____ConvLogJson;
 using Grayscale.P266_KyokumMoves.L___250_Log;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P339_ConvKyokume.C500____Converter;
 
 namespace Grayscale.P266_KyokumMoves.L250____Log
 {

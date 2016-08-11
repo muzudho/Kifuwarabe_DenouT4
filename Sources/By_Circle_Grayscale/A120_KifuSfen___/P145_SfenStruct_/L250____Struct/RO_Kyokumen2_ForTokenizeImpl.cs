@@ -1,7 +1,7 @@
-﻿using Grayscale.P144_ConvSujiDan.L500____Converter;
-using Grayscale.P145_SfenStruct_.L___250_Struct;
+﻿using Grayscale.P144_ConvSujiDan.C500____Converter;
+using Grayscale.P145_SfenStruct_.C___250_Struct;
 
-namespace Grayscale.P145_SfenStruct_.L250____Struct
+namespace Grayscale.P145_SfenStruct_.C250____Struct
 {
 
     /// <summary>

@@ -1,10 +1,10 @@
-﻿using Grayscale.P056_Syugoron___.L___250_Struct;
-using Grayscale.P062_ConvText___.L500____Converter;
+﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
 using Grayscale.P211_WordShogi__.L___250_Masu;
 using Grayscale.P211_WordShogi__.L250____Masu;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P212_ConvPside__.L500____Converter;
-using Grayscale.P214_Masu_______.L500____Util;
+using Grayscale.P212_ConvPside__.C500____Converter;
+using Grayscale.P214_Masu_______.C500____Util;
 using System.Text;
 
 namespace Grayscale.P246_MasusWriter.L250____Writer

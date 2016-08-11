@@ -1,10 +1,10 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P003_Log________.L500____Struct;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
-using Grayscale.P324_KifuTree___.L250____Struct;
+using Grayscale.P324_KifuTree___.C250____Struct;
 using Grayscale.P341_Ittesasu___.L250____OperationA;
 using Grayscale.P461_Server_____.L___497_EngineClient;
 using Grayscale.P461_Server_____.L497____EngineClient;
@@ -14,7 +14,7 @@ using Grayscale.P481_AimsServer_.L___125_Receiver;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
-using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P339_ConvKyokume.C500____Converter;
 
 namespace Grayscale.P481_AimsServer_.L125____Receiver
 {

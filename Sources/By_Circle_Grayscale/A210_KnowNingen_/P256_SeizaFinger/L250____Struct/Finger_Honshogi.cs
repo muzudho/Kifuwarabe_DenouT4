@@ -1,7 +1,7 @@
 ﻿using Grayscale.P224_Sky________.L500____Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
-namespace Grayscale.P256_SeizaFinger.L250____Struct
+namespace Grayscale.P256_SeizaFinger.C250____Struct
 {
 
     /// <summary>

@@ -1,22 +1,22 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P056_Syugoron___.L___250_Struct;
-using Grayscale.P056_Syugoron___.L250____Struct;
-using Grayscale.P062_ConvText___.L500____Converter;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A060_Application.B520_Syugoron___.C250____Struct;
+using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
 using Grayscale.P209_KifuJsa____.L500____Word;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P212_ConvPside__.L500____Converter;
+using Grayscale.P212_ConvPside__.C500____Converter;
 using Grayscale.P213_Komasyurui_.L250____Word;
-using Grayscale.P213_Komasyurui_.L500____Util;
-using Grayscale.P214_Masu_______.L500____Util;
+using Grayscale.P213_Komasyurui_.C500____Util;
+using Grayscale.P214_Masu_______.C500____Util;
 using Grayscale.P215_KomanoKidou.L500____Struct;
 using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
-using Grayscale.P239_ConvWords__.L500____Converter;
+using Grayscale.P239_ConvWords__.C500____Converter;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
-using Grayscale.P324_KifuTree___.L___250_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P324_KifuTree___.C___250_Struct;
+using Grayscale.P339_ConvKyokume.C500____Converter;
 using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 

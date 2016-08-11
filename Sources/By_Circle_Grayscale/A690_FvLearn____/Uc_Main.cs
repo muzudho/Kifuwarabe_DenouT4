@@ -1,6 +1,6 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P003_Log________.L500____Struct;
-using Grayscale.P031_Random_____.L500____Struct;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B110_Log________.C500____Struct;
+using Grayscale.A000_Platform___.B021_Random_____.C500____Struct;
 using Grayscale.P743_FvLearn____.L___250_Learn;
 using Grayscale.P743_FvLearn____.L___450_Tyoseiryo;
 using Grayscale.P743_FvLearn____.L___490_StopLearning;

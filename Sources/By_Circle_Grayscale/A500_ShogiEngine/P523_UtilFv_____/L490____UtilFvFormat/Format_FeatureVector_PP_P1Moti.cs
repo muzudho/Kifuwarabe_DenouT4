@@ -1,6 +1,6 @@
-﻿using Grayscale.P062_ConvText___.L500____Converter;
+﻿using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P214_Masu_______.L500____Util;
+using Grayscale.P214_Masu_______.C500____Util;
 using Grayscale.P521_FeatureVect.L___500_Struct;
 using Grayscale.P521_FeatureVect.L500____Struct;
 using System;

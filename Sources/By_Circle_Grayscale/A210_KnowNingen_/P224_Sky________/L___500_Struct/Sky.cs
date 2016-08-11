@@ -1,6 +1,6 @@
 ﻿using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P223_TedokuHisto.L___250_Struct;
+using Grayscale.P223_TedokuHisto.C___250_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
 using System.Runtime.CompilerServices;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号

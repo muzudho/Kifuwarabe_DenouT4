@@ -1,7 +1,7 @@
 ﻿using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P224_Sky________.L500____Struct;
 
-namespace Grayscale.P325_PnlTaikyoku.L___250_Struct
+namespace Grayscale.P325_PnlTaikyoku.C___250_Struct
 {
     public interface Model_Manual
     {

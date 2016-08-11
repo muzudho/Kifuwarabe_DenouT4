@@ -1,6 +1,6 @@
 ﻿using Grayscale.P211_WordShogi__.L500____Word;
 
-namespace Grayscale.P212_ConvPside__.L500____Converter
+namespace Grayscale.P212_ConvPside__.C500____Converter
 {
     public abstract class Conv_Playerside
     {

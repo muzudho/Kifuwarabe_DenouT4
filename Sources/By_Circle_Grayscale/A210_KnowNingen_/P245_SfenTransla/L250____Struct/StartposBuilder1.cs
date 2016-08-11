@@ -1,13 +1,13 @@
-﻿using Grayscale.P212_ConvPside__.L500____Converter;
+﻿using Grayscale.P212_ConvPside__.C500____Converter;
 using Grayscale.P213_Komasyurui_.L250____Word;
-using Grayscale.P238_Seiza______.L250____Struct;
+using Grayscale.P238_Seiza______.C250____Struct;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P339_ConvKyokume.C500____Converter;
 
-namespace Grayscale.P245_SfenTransla.L250____Struct
+namespace Grayscale.P245_SfenTransla.C250____Struct
 {
     /// <summary>
     /// 将棋盤上の情報を数えます。未使用？

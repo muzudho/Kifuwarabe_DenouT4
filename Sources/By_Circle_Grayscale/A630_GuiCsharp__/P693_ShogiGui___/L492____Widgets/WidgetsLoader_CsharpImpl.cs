@@ -1,4 +1,4 @@
-﻿using Grayscale.P011_Csv________.L500____Util;
+﻿using Grayscale.A000_Platform___.B011_Csv________.C500____Parser;
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P693_ShogiGui___.L___492_Widgets;
 using Grayscale.P693_ShogiGui___.L___500_Gui;

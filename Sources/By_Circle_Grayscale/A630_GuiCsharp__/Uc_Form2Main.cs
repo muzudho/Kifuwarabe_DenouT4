@@ -1,5 +1,5 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P003_Log________.L500____Struct;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.P693_ShogiGui___.L___100_Widgets;
 using Grayscale.P693_ShogiGui___.L___500_Gui;
 using Grayscale.P693_ShogiGui___.L080____Shape;

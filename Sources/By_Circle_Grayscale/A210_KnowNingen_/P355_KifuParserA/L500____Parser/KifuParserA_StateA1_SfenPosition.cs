@@ -1,10 +1,10 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P003_Log________.L500____Struct;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
-using Grayscale.P324_KifuTree___.L250____Struct;
-using Grayscale.P325_PnlTaikyoku.L___250_Struct;
+using Grayscale.P324_KifuTree___.C250____Struct;
+using Grayscale.P325_PnlTaikyoku.C___250_Struct;
 using Grayscale.P355_KifuParserA.L___500_Parser;
 using System;
 

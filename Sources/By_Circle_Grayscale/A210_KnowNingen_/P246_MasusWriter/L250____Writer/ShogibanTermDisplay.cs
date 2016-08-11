@@ -1,5 +1,5 @@
-﻿using Grayscale.P035_Collection_.L500____Struct;
-using Grayscale.P056_Syugoron___.L___250_Struct;
+﻿using Grayscale.A060_Application.B410_Collection_.C500____Struct;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.P211_WordShogi__.L___250_Masu;
 using Grayscale.P211_WordShogi__.L250____Masu;
 using System.Collections.Generic;

@@ -1,10 +1,10 @@
-﻿using Grayscale.P011_Csv________.L500____Util;
-using Grayscale.P055_Conv_Sy.L500____Converter;
-using Grayscale.P056_Syugoron___.L___250_Struct;
-using Grayscale.P056_Syugoron___.L250____Struct;
+﻿using Grayscale.A000_Platform___.B011_Csv________.C500____Parser;
+using Grayscale.A060_Application.B510_Conv_Sy____.C500____Converter;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A060_Application.B520_Syugoron___.C250____Struct;
 using Grayscale.P211_WordShogi__.L250____Masu;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P214_Masu_______.L500____Util;
+using Grayscale.P214_Masu_______.C500____Util;
 using System;
 using System.Collections.Generic;
 using System.IO;

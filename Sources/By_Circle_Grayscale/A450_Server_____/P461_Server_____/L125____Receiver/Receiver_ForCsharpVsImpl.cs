@@ -1,5 +1,5 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P003_Log________.L500____Struct;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.P461_Server_____.L___125_Receiver;
 using Grayscale.P461_Server_____.L___497_EngineClient;
 using Grayscale.P461_Server_____.L___498_Server;

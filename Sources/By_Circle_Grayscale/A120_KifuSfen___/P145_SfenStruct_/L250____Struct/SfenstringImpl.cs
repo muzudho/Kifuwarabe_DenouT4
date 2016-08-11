@@ -1,4 +1,4 @@
-﻿namespace Grayscale.P145_SfenStruct_.L250____Struct
+﻿namespace Grayscale.P145_SfenStruct_.C250____Struct
 {
 
     /// <summary>

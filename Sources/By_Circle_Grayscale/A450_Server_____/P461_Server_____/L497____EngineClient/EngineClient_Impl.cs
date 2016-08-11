@@ -1,8 +1,8 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P003_Log________.L500____Struct;
-using Grayscale.P005_Tushin_____.L500____Util;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B110_Log________.C500____Struct;
+using Grayscale.A060_Application.B210_Tushin_____.C500____Util;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P324_KifuTree___.L___250_Struct;
+using Grayscale.P324_KifuTree___.C___250_Struct;
 using Grayscale.P341_Ittesasu___.L250____OperationA;
 using Grayscale.P461_Server_____.L___125_Receiver;
 using Grayscale.P461_Server_____.L___496_EngineWrapper;

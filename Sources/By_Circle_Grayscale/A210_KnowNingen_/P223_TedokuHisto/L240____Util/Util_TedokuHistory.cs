@@ -1,8 +1,8 @@
-﻿using Grayscale.P056_Syugoron___.L___250_Struct;
-using Grayscale.P223_TedokuHisto.L___250_Struct;
+﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.P223_TedokuHisto.C___250_Struct;
 using System.Collections.Generic;
 using System.Text;
-using Grayscale.P055_Conv_Sy.L500____Converter;
+using Grayscale.A060_Application.B510_Conv_Sy____.C500____Converter;
 
 #if DEBUG
 using System.IO;

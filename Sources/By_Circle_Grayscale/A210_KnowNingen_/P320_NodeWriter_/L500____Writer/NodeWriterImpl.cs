@@ -2,7 +2,7 @@
 using Grayscale.P206_Json_______.L500____Struct;
 using Grayscale.P226_Tree_______.L500____Struct;
 using Grayscale.P247_KyokumenWra.L500____Struct;
-using Grayscale.P307_UtilSky____.L500____Util;
+using Grayscale.P307_UtilSky____.C500____Util;
 using System.Diagnostics;
 
 namespace Grayscale.P320_NodeWriter_.L500____Writer

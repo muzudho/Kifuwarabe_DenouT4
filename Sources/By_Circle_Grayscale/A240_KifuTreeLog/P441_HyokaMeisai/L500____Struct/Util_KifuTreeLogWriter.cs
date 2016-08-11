@@ -1,21 +1,21 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P027_Settei_____.L500____Struct;
-using Grayscale.P056_Syugoron___.L___250_Struct;
-using Grayscale.P062_ConvText___.L500____Converter;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
 using Grayscale.P157_KyokumenPng.L___500_Struct;
 using Grayscale.P157_KyokumenPng.L500____Struct;
 using Grayscale.P158_LogKyokuPng.L500____UtilWriter;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P212_ConvPside__.L500____Converter;
+using Grayscale.P212_ConvPside__.C500____Converter;
 using Grayscale.P213_Komasyurui_.L250____Word;
-using Grayscale.P213_Komasyurui_.L500____Util;
+using Grayscale.P213_Komasyurui_.C500____Util;
 using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P222_Log_Kaisetu.L250____Struct;
+using Grayscale.P222_Log_Kaisetu.C250____Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
 using Grayscale.P247_KyokumenWra.L500____Struct;
-using Grayscale.P321_KyokumHyoka.L___250_Struct;
-using Grayscale.P324_KifuTree___.L___250_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P321_KyokumHyoka.C___250_Struct;
+using Grayscale.P324_KifuTree___.C___250_Struct;
+using Grayscale.P339_ConvKyokume.C500____Converter;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -23,8 +23,8 @@ using System.Text;
 #if DEBUG
 using System;
 using System.Diagnostics;
-using Grayscale.P202_GraphicLog_.L500____Util;
-using Grayscale.P370_LogGraphiEx.L500____Util;
+using Grayscale.P202_GraphicLog_.C500____Util;
+using Grayscale.P370_LogGraphiEx.C500____Util;
 #endif
 
 namespace Grayscale.P440_KifuTreeLog.L500____Struct

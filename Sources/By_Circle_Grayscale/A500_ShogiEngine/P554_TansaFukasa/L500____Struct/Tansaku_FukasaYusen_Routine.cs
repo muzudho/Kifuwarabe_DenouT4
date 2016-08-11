@@ -1,20 +1,20 @@
 ﻿// アルファ法のデバッグ出力をする場合。
 //#define DEBUG_ALPHA_METHOD
 
-using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P035_Collection_.L500____Struct;
-using Grayscale.P056_Syugoron___.L___250_Struct;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B410_Collection_.C500____Struct;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P222_Log_Kaisetu.L250____Struct;
+using Grayscale.P222_Log_Kaisetu.C250____Struct;
 using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P266_KyokumMoves.L500____Util;
-using Grayscale.P324_KifuTree___.L___250_Struct;
-using Grayscale.P353_Conv_SasuEx.L500____Converter;
-using Grayscale.P354_Util_SasuEx.L500____Util;
-using Grayscale.P360_Conv_Sasu__.L500____Converter;
-using Grayscale.P362_LegalMove__.L500____Util;
+using Grayscale.P266_KyokumMoves.C500____Util;
+using Grayscale.P324_KifuTree___.C___250_Struct;
+using Grayscale.P353_Conv_SasuEx.C500____Converter;
+using Grayscale.P354_Util_SasuEx.C500____Util;
+using Grayscale.P360_Conv_Sasu__.C500____Converter;
+using Grayscale.P362_LegalMove__.C500____Util;
 using Grayscale.P542_Scoreing___.L___250_Args;
-using Grayscale.P542_Scoreing___.L500____Util;
+using Grayscale.P542_Scoreing___.C500____Util;
 using Grayscale.P550_timeMan____.L___500_struct__;
 using Grayscale.P551_Tansaku____.L___500_Tansaku;
 using Grayscale.P551_Tansaku____.L500____Struct;
@@ -24,13 +24,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P339_ConvKyokume.C500____Converter;
 
 #if DEBUG
-using Grayscale.P202_GraphicLog_.L500____Util;
+using Grayscale.P202_GraphicLog_.C500____Util;
 using Grayscale.P266_KyokumMoves.L250____Log;
-using Grayscale.P370_LogGraphiEx.L500____Util;
-using Grayscale.P212_ConvPside__.L500____Converter;
+using Grayscale.P370_LogGraphiEx.C500____Util;
+using Grayscale.P212_ConvPside__.C500____Converter;
 #endif
 
 namespace Grayscale.P554_TansaFukasa.L500____Struct

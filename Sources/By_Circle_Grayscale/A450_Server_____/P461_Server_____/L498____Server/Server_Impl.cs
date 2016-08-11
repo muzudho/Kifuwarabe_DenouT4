@@ -1,14 +1,14 @@
 ﻿using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
-using Grayscale.P324_KifuTree___.L250____Struct;
-using Grayscale.P325_PnlTaikyoku.L___250_Struct;
-using Grayscale.P325_PnlTaikyoku.L250____Struct;
+using Grayscale.P324_KifuTree___.C250____Struct;
+using Grayscale.P325_PnlTaikyoku.C___250_Struct;
+using Grayscale.P325_PnlTaikyoku.C250____Struct;
 using Grayscale.P461_Server_____.L___125_Receiver;
 using Grayscale.P461_Server_____.L___497_EngineClient;
 using Grayscale.P461_Server_____.L___498_Server;
 using Grayscale.P461_Server_____.L497____EngineClient;
-using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P339_ConvKyokume.C500____Converter;
 
 namespace Grayscale.P461_Server_____.L498____Server
 {

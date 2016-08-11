@@ -1,8 +1,8 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P056_Syugoron___.L___250_Struct;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P256_SeizaFinger.L500____Util;
+using Grayscale.P256_SeizaFinger.C500____Util;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
 namespace Grayscale.P258_UtilSky258_.L500____UtilSky

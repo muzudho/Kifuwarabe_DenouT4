@@ -1,6 +1,6 @@
 ﻿using Grayscale.P209_KifuJsa____.L500____Word;
 
-namespace Grayscale.P239_ConvWords__.L500____Converter
+namespace Grayscale.P239_ConvWords__.C500____Converter
 {
     public abstract class Conv_DaHyoji
     {

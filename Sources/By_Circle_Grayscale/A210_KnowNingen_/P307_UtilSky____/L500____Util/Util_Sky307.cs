@@ -1,19 +1,19 @@
-﻿using Grayscale.P145_SfenStruct_.L250____Struct;
+﻿using Grayscale.P145_SfenStruct_.C250____Struct;
 using Grayscale.P206_Json_______.L___500_Struct;
 using Grayscale.P206_Json_______.L500____Struct;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P212_ConvPside__.L500____Converter;
+using Grayscale.P212_ConvPside__.C500____Converter;
 using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
-using Grayscale.P238_Seiza______.L250____Struct;
-using Grayscale.P245_SfenTransla.L500____Util;
+using Grayscale.P238_Seiza______.C250____Struct;
+using Grayscale.P245_SfenTransla.C500____Util;
 using Grayscale.P258_UtilSky258_.L505____ConvLogJson;
-using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P339_ConvKyokume.C500____Converter;
 using System.Diagnostics;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
-namespace Grayscale.P307_UtilSky____.L500____Util
+namespace Grayscale.P307_UtilSky____.C500____Util
 {
     public abstract class Util_Sky307
     {

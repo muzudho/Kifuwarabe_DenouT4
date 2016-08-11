@@ -70,10 +70,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="P011_Csv________\L250____Parser\CsvLineParserImpl.cs" />
-    <Compile Include="P011_Csv________\L500____Parser\Util_Csv.cs" />
-    <Compile Include="P031_Random_____\L500____Struct\KwRandom.cs" />
-    <Compile Include="P031_Random_____\L500____Struct\KwShuffle.cs" />
+    <Compile Include="B011_Csv________\C250____Parser\CsvLineParserImpl.cs" />
+    <Compile Include="B011_Csv________\C500____Parser\Util_Csv.cs" />
+    <Compile Include="B021_Random_____\C500____Struct\KwRandom.cs" />
+    <Compile Include="B021_Random_____\C500____Struct\KwShuffle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -98,9 +98,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="P001_／／環境\" />
-    <Folder Include="P010_／／↓CSV\" />
-    <Folder Include="P030_／／↓ランダム値生成\" />
+    <Folder Include="B000_／／環境\" />
+    <Folder Include="B010_／／↓CSV\" />
+    <Folder Include="B020_／／↓ランダム値生成\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

@@ -1,7 +1,7 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P035_Collection_.L500____Struct;
-using Grayscale.P056_Syugoron___.L___250_Struct;
-using Grayscale.P202_GraphicLog_.L500____Util;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B410_Collection_.C500____Struct;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.P202_GraphicLog_.C500____Util;
 using Grayscale.P211_WordShogi__.L260____Operator;
 using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P258_UtilSky258_.L510____UtilLogJson;

@@ -1,4 +1,4 @@
-﻿using Grayscale.P003_Log________.L500____Struct;
+﻿using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.P323_Sennitite__.L___500_Struct;
 using System;
 using System.Collections.Generic;

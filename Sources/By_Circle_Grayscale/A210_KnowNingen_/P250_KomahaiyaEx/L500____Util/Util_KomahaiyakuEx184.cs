@@ -1,12 +1,12 @@
-﻿using Grayscale.P031_Random_____.L500____Struct;
-using Grayscale.P056_Syugoron___.L___250_Struct;
+﻿using Grayscale.A000_Platform___.B021_Random_____.C500____Struct;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.P211_WordShogi__.L___250_Masu;
 using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P234_Komahaiyaku.L250____Word;
-using Grayscale.P234_Komahaiyaku.L500____Util;
+using Grayscale.P234_Komahaiyaku.C500____Util;
 using System.Collections.Generic;
 
-namespace Grayscale.P250_KomahaiyaEx.L500____Util
+namespace Grayscale.P250_KomahaiyaEx.C500____Util
 {
 
     /// <summary>

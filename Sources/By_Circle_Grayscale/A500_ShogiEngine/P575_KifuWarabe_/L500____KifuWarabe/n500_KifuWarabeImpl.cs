@@ -1,38 +1,38 @@
 ﻿// noop 可
 //#define NOOPABLE
 
-using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P003_Log________.L500____Struct;
-using Grayscale.P005_Tushin_____.L500____Util;
-using Grayscale.P027_Settei_____.L500____Struct;
-using Grayscale.P091_usiFrame1__.L___250_UsiLoop;
-using Grayscale.P091_usiFrame1__.L___490_Option__;
-using Grayscale.P091_usiFrame1__.L___500_usiFrame___;//FIXME:
-using Grayscale.P091_usiFrame1__.L490____Option__;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B110_Log________.C500____Struct;
+using Grayscale.A060_Application.B210_Tushin_____.C500____Util;
+using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
+using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___250_UsiLoop;
+using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___490_Option__;
+using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___500_usiFrame___;//FIXME:
+using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C490____Option__;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P212_ConvPside__.L500____Converter;
+using Grayscale.P212_ConvPside__.C500____Converter;
 using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
 using Grayscale.P236_KomahaiyaTr.L500____Table;
 using Grayscale.P247_KyokumenWra.L500____Struct;
 using Grayscale.P248_Michi______.L500____Word;
-using Grayscale.P250_KomahaiyaEx.L500____Util;
-using Grayscale.P256_SeizaFinger.L250____Struct;
+using Grayscale.P250_KomahaiyaEx.C500____Util;
+using Grayscale.P256_SeizaFinger.C250____Struct;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
-using Grayscale.P270_ForcePromot.L250____Struct;
-using Grayscale.P324_KifuTree___.L___250_Struct;
-using Grayscale.P324_KifuTree___.L250____Struct;
-using Grayscale.P325_PnlTaikyoku.L___250_Struct;
-using Grayscale.P325_PnlTaikyoku.L250____Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P270_ForcePromot.C250____Struct;
+using Grayscale.P324_KifuTree___.C___250_Struct;
+using Grayscale.P324_KifuTree___.C250____Struct;
+using Grayscale.P325_PnlTaikyoku.C___250_Struct;
+using Grayscale.P325_PnlTaikyoku.C250____Struct;
+using Grayscale.P339_ConvKyokume.C500____Converter;
 using Grayscale.P341_Ittesasu___.L125____UtilB;
 using Grayscale.P355_KifuParserA.L___500_Parser;
 using Grayscale.P355_KifuParserA.L500____Parser;
 using Grayscale.P523_UtilFv_____.L510____UtilFvLoad;
 using Grayscale.P542_Scoreing___.L___005_Usi_Loop;
 using Grayscale.P542_Scoreing___.L___240_Shogisasi;
-using Grayscale.P560_UtilClient_.L500____Util;
+using Grayscale.P560_UtilClient_.C500____Util;
 using Grayscale.P575_KifuWarabe_.L100____Shogisasi;
 using Grayscale.P575_KifuWarabe_.L125____AjimiEngine;
 using System;
@@ -45,10 +45,10 @@ using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
-using Grayscale.P056_Syugoron___.L___250_Struct;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.P157_KyokumenPng.L___500_Struct;
 using Grayscale.P213_Komasyurui_.L250____Word;
-using Grayscale.P213_Komasyurui_.L500____Util;
+using Grayscale.P213_Komasyurui_.C500____Util;
 using Grayscale.P158_LogKyokuPng.L500____UtilWriter;
 using Grayscale.P440_KifuTreeLog.L500____Struct;
 #endif

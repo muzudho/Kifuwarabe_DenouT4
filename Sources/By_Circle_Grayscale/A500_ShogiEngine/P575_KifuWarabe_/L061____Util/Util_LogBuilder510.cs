@@ -1,17 +1,17 @@
 ﻿#if DEBUG
 using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P035_Collection_.L500____Struct;
-using Grayscale.P056_Syugoron___.L___250_Struct;
+using Grayscale.A060_Application.B410_Collection_.C500____Struct;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.P157_KyokumenPng.L___500_Struct;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P222_Log_Kaisetu.L250____Struct;
+using Grayscale.P222_Log_Kaisetu.C250____Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
 using Grayscale.P247_KyokumenWra.L500____Struct;
-using Grayscale.P266_KyokumMoves.L500____Util;
-using Grayscale.P324_KifuTree___.L___250_Struct;
+using Grayscale.P266_KyokumMoves.C500____Util;
+using Grayscale.P324_KifuTree___.C___250_Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.P266_KyokumMoves.L250____Log;
-using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P339_ConvKyokume.C500____Converter;
 using Grayscale.P219_Move_______.L___500_Struct;
 
 namespace Grayscale.P542_Scoreing___.L061____Util

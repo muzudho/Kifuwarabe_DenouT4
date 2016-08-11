@@ -1,9 +1,9 @@
-﻿using Grayscale.P056_Syugoron___.L___250_Struct;
+﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P234_Komahaiyaku.L250____Word;
 using System.Collections.Generic;
 
-namespace Grayscale.P234_Komahaiyaku.L500____Util
+namespace Grayscale.P234_Komahaiyaku.C500____Util
 {
 
 

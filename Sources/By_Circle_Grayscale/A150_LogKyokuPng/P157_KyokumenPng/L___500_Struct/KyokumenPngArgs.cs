@@ -1,4 +1,4 @@
-﻿using Grayscale.P145_SfenStruct_.L___250_Struct;
+﻿using Grayscale.P145_SfenStruct_.C___250_Struct;
 
 namespace Grayscale.P157_KyokumenPng.L___500_Struct
 {

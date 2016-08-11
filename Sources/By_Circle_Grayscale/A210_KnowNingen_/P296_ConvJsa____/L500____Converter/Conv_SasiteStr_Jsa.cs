@@ -1,14 +1,14 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
 using Grayscale.P247_KyokumenWra.L500____Struct;
-using Grayscale.P292_JsaFugo____.L250____Struct;
-using Grayscale.P292_JsaFugo____.L500____Util;
+using Grayscale.P292_JsaFugo____.C250____Struct;
+using Grayscale.P292_JsaFugo____.C500____Util;
 using Grayscale.P295_JsaFugoWrit.L500____Writer;
-using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P339_ConvKyokume.C500____Converter;
 
-namespace Grayscale.P296_ConvJsa____.L500____Converter
+namespace Grayscale.P296_ConvJsa____.C500____Converter
 {
     public abstract class Conv_SasiteStr_Jsa
     {

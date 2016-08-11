@@ -1,5 +1,5 @@
-﻿using Grayscale.P163_KifuCsa____.L___250_Struct;
-using Grayscale.P163_KifuCsa____.L250____Struct;
+﻿using Grayscale.P163_KifuCsa____.C___250_Struct;
+using Grayscale.P163_KifuCsa____.C250____Struct;
 using Grayscale.P163_KifuCsa____.L500____Writer;
 using System;
 using System.Windows.Forms;

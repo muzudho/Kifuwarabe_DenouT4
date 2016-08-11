@@ -1,11 +1,11 @@
 ﻿using Grayscale.P206_Json_______.L___500_Struct;
 using Grayscale.P206_Json_______.L500____Struct;
-using Grayscale.P212_ConvPside__.L500____Converter;
+using Grayscale.P212_ConvPside__.C500____Converter;
 using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P239_ConvWords__.L500____Converter;
-using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P239_ConvWords__.C500____Converter;
+using Grayscale.P339_ConvKyokume.C500____Converter;
 
-namespace Grayscale.P307_UtilSky____.L500____Util
+namespace Grayscale.P307_UtilSky____.C500____Util
 {
     public abstract class Conv_Starlight
     {

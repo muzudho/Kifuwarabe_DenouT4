@@ -1,9 +1,9 @@
-﻿using Grayscale.P056_Syugoron___.L___250_Struct;
-using Grayscale.P056_Syugoron___.L250____Struct;
+﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A060_Application.B520_Syugoron___.C250____Struct;
 using Grayscale.P211_WordShogi__.L250____Masu;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P212_ConvPside__.L500____Converter;
-using Grayscale.P214_Masu_______.L500____Util;
+using Grayscale.P212_ConvPside__.C500____Converter;
+using Grayscale.P214_Masu_______.C500____Util;
 using System.Collections.Generic;
 
 

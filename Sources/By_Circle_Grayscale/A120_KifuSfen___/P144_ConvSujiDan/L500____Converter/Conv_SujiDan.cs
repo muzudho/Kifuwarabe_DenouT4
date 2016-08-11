@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.P144_ConvSujiDan.L500____Converter
+namespace Grayscale.P144_ConvSujiDan.C500____Converter
 {
 
 

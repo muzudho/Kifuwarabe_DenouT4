@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.P146_ConvSfen___.L500____Converter
+namespace Grayscale.P146_ConvSfen___.C500____Converter
 {
     /// <summary>
     /// SFENの持ち駒文字列トークン。

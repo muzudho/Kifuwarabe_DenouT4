@@ -1,16 +1,16 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
 using Grayscale.P226_Tree_______.L500____Struct;
 using Grayscale.P247_KyokumenWra.L500____Struct;
-using Grayscale.P307_UtilSky____.L500____Util;
-using Grayscale.P321_KyokumHyoka.L___250_Struct;
-using Grayscale.P321_KyokumHyoka.L250____Struct;
-using Grayscale.P324_KifuTree___.L___250_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
+using Grayscale.P307_UtilSky____.C500____Util;
+using Grayscale.P321_KyokumHyoka.C___250_Struct;
+using Grayscale.P321_KyokumHyoka.C250____Struct;
+using Grayscale.P324_KifuTree___.C___250_Struct;
+using Grayscale.P339_ConvKyokume.C500____Converter;
 using System.Text;
 
-namespace Grayscale.P324_KifuTree___.L250____Struct
+namespace Grayscale.P324_KifuTree___.C250____Struct
 {
     public class KifuNodeImpl : NodeImpl<Move, KyokumenWrapper>, KifuNode
     {

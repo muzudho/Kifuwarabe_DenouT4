@@ -1,8 +1,8 @@
-﻿using Grayscale.P145_SfenStruct_.L___250_Struct;
+﻿using Grayscale.P145_SfenStruct_.C___250_Struct;
 using System.Diagnostics;
 using System.Text;
 
-namespace Grayscale.P145_SfenStruct_.L500____Util
+namespace Grayscale.P145_SfenStruct_.C500____Util
 {
 
     /// <summary>

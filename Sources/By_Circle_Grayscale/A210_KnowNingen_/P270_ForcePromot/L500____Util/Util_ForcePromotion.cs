@@ -1,10 +1,10 @@
 ﻿using Grayscale.P234_Komahaiyaku.L250____Word;
-using Grayscale.P270_ForcePromot.L250____Struct;
+using Grayscale.P270_ForcePromot.C250____Struct;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Grayscale.P270_ForcePromot.L500____Util
+namespace Grayscale.P270_ForcePromot.C500____Util
 {
 
 

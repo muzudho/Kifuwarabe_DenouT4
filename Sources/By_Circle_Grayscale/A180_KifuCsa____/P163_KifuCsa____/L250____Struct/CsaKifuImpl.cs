@@ -1,7 +1,7 @@
-﻿using Grayscale.P163_KifuCsa____.L___250_Struct;
+﻿using Grayscale.P163_KifuCsa____.C___250_Struct;
 using System.Collections.Generic;
 
-namespace Grayscale.P163_KifuCsa____.L250____Struct
+namespace Grayscale.P163_KifuCsa____.C250____Struct
 {
 
     /// <summary>

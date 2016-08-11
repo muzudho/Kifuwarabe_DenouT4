@@ -1,13 +1,13 @@
-﻿using Grayscale.P011_Csv________.L500____Util;
-using Grayscale.P056_Syugoron___.L___250_Struct;
+﻿using Grayscale.A000_Platform___.B011_Csv________.C500____Parser;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.P213_Komasyurui_.L250____Word;
 using Grayscale.P234_Komahaiyaku.L250____Word;
-using Grayscale.P234_Komahaiyaku.L500____Util;
+using Grayscale.P234_Komahaiyaku.C500____Util;
 using Grayscale.P248_Michi______.L500____Word;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Grayscale.P250_KomahaiyaEx.L500____Util
+namespace Grayscale.P250_KomahaiyaEx.C500____Util
 {
     public abstract class Util_Array_KomahaiyakuEx184
     {

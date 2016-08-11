@@ -1,13 +1,13 @@
-﻿using Grayscale.P222_Log_Kaisetu.L250____Struct;
-using Grayscale.P222_Log_Kaisetu.L500____Util;
-using Grayscale.P239_ConvWords__.L500____Converter;
+﻿using Grayscale.P222_Log_Kaisetu.C250____Struct;
+using Grayscale.P222_Log_Kaisetu.C500____Util;
+using Grayscale.P239_ConvWords__.C500____Converter;
 using System.Text;
 
 #if DEBUG
 
 #endif
 
-namespace Grayscale.P370_LogGraphiEx.L500____Util
+namespace Grayscale.P370_LogGraphiEx.C500____Util
 {
     public abstract class Conv_KaisetuBoards
     {

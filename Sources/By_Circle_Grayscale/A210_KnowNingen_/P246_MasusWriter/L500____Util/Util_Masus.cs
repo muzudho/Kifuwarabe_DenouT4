@@ -1,13 +1,13 @@
-﻿using Grayscale.P056_Syugoron___.L___250_Struct;
-using Grayscale.P056_Syugoron___.L250____Struct;
+﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A060_Application.B520_Syugoron___.C250____Struct;
 using Grayscale.P211_WordShogi__.L___250_Masu;
-using Grayscale.P214_Masu_______.L500____Util;
+using Grayscale.P214_Masu_______.C500____Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Grayscale.P246_MasusWriter.L500____Util
+namespace Grayscale.P246_MasusWriter.C500____Util
 {
     public abstract class Util_Masus<T1>
         where T1 : SyElement

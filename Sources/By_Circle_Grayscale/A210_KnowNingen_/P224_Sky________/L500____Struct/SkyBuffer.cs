@@ -1,7 +1,7 @@
 ﻿using Grayscale.P211_WordShogi__.L500____Word;
 using Grayscale.P219_Move_______.L___500_Struct;
-using Grayscale.P223_TedokuHisto.L___250_Struct;
-using Grayscale.P223_TedokuHisto.L250____Struct;
+using Grayscale.P223_TedokuHisto.C___250_Struct;
+using Grayscale.P223_TedokuHisto.C250____Struct;
 using Grayscale.P224_Sky________.L___500_Struct;
 using System;
 using System.Collections.Generic;

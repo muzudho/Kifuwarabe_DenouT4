@@ -1,33 +1,33 @@
-﻿using Grayscale.P003_Log________.L___500_Struct;
-using Grayscale.P035_Collection_.L500____Struct;
-using Grayscale.P056_Syugoron___.L___250_Struct;
-using Grayscale.P056_Syugoron___.L250____Struct;
-using Grayscale.P202_GraphicLog_.L500____Util;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B410_Collection_.C500____Struct;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A060_Application.B520_Syugoron___.C250____Struct;
+using Grayscale.P202_GraphicLog_.C500____Util;
 using Grayscale.P211_WordShogi__.L___250_Masu;
 using Grayscale.P211_WordShogi__.L250____Masu;
 using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P212_ConvPside__.L500____Converter;
+using Grayscale.P212_ConvPside__.C500____Converter;
 using Grayscale.P219_Move_______.L___500_Struct;
 using Grayscale.P224_Sky________.L500____Struct;
 using Grayscale.P226_Tree_______.L___500_Struct;
-using Grayscale.P239_ConvWords__.L500____Converter;
+using Grayscale.P239_ConvWords__.C500____Converter;
 using Grayscale.P247_KyokumenWra.L500____Struct;
-using Grayscale.P256_SeizaFinger.L250____Struct;
+using Grayscale.P256_SeizaFinger.C250____Struct;
 using Grayscale.P258_UtilSky258_.L500____UtilSky;
 using Grayscale.P260_Play_______.L500____Query;
-using Grayscale.P324_KifuTree___.L___250_Struct;
-using Grayscale.P339_ConvKyokume.L500____Converter;
-using Grayscale.P360_Conv_Sasu__.L500____Converter;
+using Grayscale.P324_KifuTree___.C___250_Struct;
+using Grayscale.P339_ConvKyokume.C500____Converter;
+using Grayscale.P360_Conv_Sasu__.C500____Converter;
 using System;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
-using Grayscale.P222_Log_Kaisetu.L250____Struct;
+using Grayscale.P222_Log_Kaisetu.C250____Struct;
 using Grayscale.P258_UtilSky258_.L505____ConvLogJson;
 #endif
 
-namespace Grayscale.P362_LegalMove__.L500____Util
+namespace Grayscale.P362_LegalMove__.C500____Util
 {
 
 

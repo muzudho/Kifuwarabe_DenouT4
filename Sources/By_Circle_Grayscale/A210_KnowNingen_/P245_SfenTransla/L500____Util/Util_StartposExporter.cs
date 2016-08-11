@@ -1,8 +1,8 @@
 ﻿using Grayscale.P211_WordShogi__.L500____Word;
-using Grayscale.P238_Seiza______.L250____Struct;
+using Grayscale.P238_Seiza______.C250____Struct;
 using System.Text;
 
-namespace Grayscale.P245_SfenTransla.L500____Util
+namespace Grayscale.P245_SfenTransla.C500____Util
 {
     public abstract class Util_StartposExporter
     {
