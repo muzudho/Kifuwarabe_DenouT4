@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.A210_KnowNingen_.P510_KifuReaderB.C___500_Reader
+namespace Grayscale.A210_KnowNingen_.B510_KifuReaderB.C___500_Reader
 {
     public interface KifuReaderB_State
     {

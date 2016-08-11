@@ -5,7 +5,7 @@ using Grayscale.A060_Application.B310_Settei_____.L510____Xml;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.P481_AimsServer_.L500____Server;
+using Grayscale.A480_ServerAims_.B110_AimsServer_.C500____Server;
 using System.Windows.Forms;
 
 namespace Grayscale.P489_Form_______

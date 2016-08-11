@@ -10,7 +10,7 @@ using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C505____ConvLogJson;
-using Grayscale.P339_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System.Collections.Generic;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号

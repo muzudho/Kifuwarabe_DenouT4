@@ -7,7 +7,7 @@ using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
 using Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util;
-using Grayscale.P339_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 

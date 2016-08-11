@@ -9,7 +9,7 @@ using Grayscale.P521_FeatureVect.C___500_Struct;
 using Grayscale.P521_FeatureVect.C500____Struct;
 using System.Diagnostics;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.P339_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 
 
 

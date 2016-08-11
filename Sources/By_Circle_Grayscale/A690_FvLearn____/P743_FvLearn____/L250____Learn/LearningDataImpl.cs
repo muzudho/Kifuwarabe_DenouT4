@@ -19,8 +19,8 @@ using Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table;
 using Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word;
 using Grayscale.A210_KnowNingen_.B390_KomahaiyaEx.C500____Util;
 using Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct;
-using Grayscale.P324_KifuTree___.C___250_Struct;
-using Grayscale.P339_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.P521_FeatureVect.C___500_Struct;
 using Grayscale.P521_FeatureVect.C500____Struct;
 using Grayscale.P531_Hyokakansu_.L500____Hyokakansu;
@@ -41,7 +41,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
 using System.Diagnostics;
 using Grayscale.A210_KnowNingen_.B400_Log_Kaisetu.C250____Struct;
-using Grayscale.P321_KyokumHyoka.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
 #endif
 
 namespace Grayscale.P743_FvLearn____.L250____Learn

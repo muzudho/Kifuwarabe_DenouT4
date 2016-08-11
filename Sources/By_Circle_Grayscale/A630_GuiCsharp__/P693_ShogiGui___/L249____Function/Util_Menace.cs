@@ -12,7 +12,7 @@ using Grayscale.P693_ShogiGui___.L___500_Gui;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.P339_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 
 namespace Grayscale.P693_ShogiGui___.L249____Function
 {

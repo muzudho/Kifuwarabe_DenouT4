@@ -11,7 +11,7 @@ using Grayscale.P521_FeatureVect.C500____Struct;
 using Grayscale.P522_Conv_FvKoumoku.C500____Converter;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.P339_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 
 namespace Grayscale.P525_ConvFv_____.C500____Converter
 {

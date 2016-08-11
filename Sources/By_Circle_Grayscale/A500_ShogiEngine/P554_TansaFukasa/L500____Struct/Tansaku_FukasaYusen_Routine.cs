@@ -8,11 +8,11 @@ using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util;
-using Grayscale.P324_KifuTree___.C___250_Struct;
-using Grayscale.P353_Conv_SasuEx.C500____Converter;
-using Grayscale.P354_Util_SasuEx.C500____Util;
-using Grayscale.P360_Conv_Sasu__.C500____Converter;
-using Grayscale.P362_LegalMove__.C500____Util;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B720_Conv_SasuEx.C500____Converter;
+using Grayscale.A210_KnowNingen_.B730_Util_SasuEx.C500____Util;
+using Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util;
 using Grayscale.P542_Scoreing___.L___250_Args;
 using Grayscale.P542_Scoreing___.C500____Util;
 using Grayscale.P550_timeMan____.L___500_struct__;
@@ -24,12 +24,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P339_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B120_GraphicLog_.C500____Util;
 using Grayscale.A210_KnowNingen_.B460_KyokumMoves.C250____Log;
-using Grayscale.P370_LogGraphiEx.C500____Util;
+using Grayscale.A210_KnowNingen_.B810_LogGraphiEx.C500____Util;
 using Grayscale.A210_KnowNingen_.B260_ConvPside__.C500____Converter;
 #endif
 

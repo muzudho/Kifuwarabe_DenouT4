@@ -2,15 +2,15 @@
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
-using Grayscale.P321_KyokumHyoka.C250____Struct;
-using Grayscale.P324_KifuTree___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C250____Struct;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.P531_Hyokakansu_.L___500_Hyokakansu;
 using Grayscale.P531_Hyokakansu_.L510____HyokakansuColl;
 using Grayscale.P542_Scoreing___.L___250_Args;
 using System;
 
 #if DEBUG || LEARN
-using Grayscale.P321_KyokumHyoka.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
 #endif
 
 namespace Grayscale.P542_Scoreing___.C500____Util

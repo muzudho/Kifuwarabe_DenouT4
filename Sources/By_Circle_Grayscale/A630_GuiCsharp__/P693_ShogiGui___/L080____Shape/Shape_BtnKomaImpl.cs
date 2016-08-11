@@ -13,7 +13,7 @@ using System.Drawing;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.P339_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
 

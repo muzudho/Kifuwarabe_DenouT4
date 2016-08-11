@@ -11,7 +11,7 @@ using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C250____Word;
 using Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table;
 using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
 using Grayscale.A210_KnowNingen_.B390_KomahaiyaEx.C500____Util;
-using Grayscale.P339_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System;
 using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号

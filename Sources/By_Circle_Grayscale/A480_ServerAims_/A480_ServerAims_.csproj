@@ -53,12 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="P481_AimsServer_\L125____Receiver\Receiver_ForAimsImpl.cs" />
-    <Compile Include="P481_AimsServer_\L060____Phase\PhaseResult_AimsServer.cs" />
-    <Compile Include="P481_AimsServer_\L___070_ServerBase\AimsServerBase.cs" />
-    <Compile Include="P481_AimsServer_\L___060_Phase\Phase_AimsServer.cs" />
-    <Compile Include="P481_AimsServer_\L500____Server\AimsServerImpl.cs" />
-    <Compile Include="P481_AimsServer_\L___125_Receiver\Receiver_ForAims.cs" />
+    <Compile Include="B110_AimsServer_\C125____Receiver\Receiver_ForAimsImpl.cs" />
+    <Compile Include="B110_AimsServer_\C060____Phase\PhaseResult_AimsServer.cs" />
+    <Compile Include="B110_AimsServer_\C___070_ServerBase\AimsServerBase.cs" />
+    <Compile Include="B110_AimsServer_\C___060_Phase\Phase_AimsServer.cs" />
+    <Compile Include="B110_AimsServer_\C500____Server\AimsServerImpl.cs" />
+    <Compile Include="B110_AimsServer_\C___125_Receiver\Receiver_ForAims.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -66,8 +66,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="P480_／／AIMSサーバー\" />
-    <Folder Include="P489_Form_______／／フォーム\" />
+    <Folder Include="B100_／／AIMSサーバー\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\A060_Application\A060_Application.csproj">

@@ -10,15 +10,15 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.P296_ConvJsa____.C500____Converter;
-using Grayscale.P324_KifuTree___.C___250_Struct;
-using Grayscale.P324_KifuTree___.C250____Struct;
-using Grayscale.P339_ConvKyokume.C500____Converter;
-using Grayscale.P341_Ittesasu___.L___250_OperationA;
-using Grayscale.P341_Ittesasu___.L125____UtilB;
-using Grayscale.P341_Ittesasu___.L250____OperationA;
-using Grayscale.P341_Ittesasu___.L500____UtilA;
-using Grayscale.P369_ConvCsa____.C500____Converter;
+using Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500____Converter;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
+using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB;
+using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA;
+using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
+using Grayscale.A210_KnowNingen_.B800_ConvCsa____.C500____Converter;
 using Grayscale.P575_KifuWarabe_.L500____KifuWarabe;
 using Grayscale.P743_FvLearn____.L___250_Learn;
 using Grayscale.P743_FvLearn____.L250____Learn;
@@ -30,7 +30,7 @@ using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG || LEARN
-using Grayscale.P321_KyokumHyoka.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
 #endif
 
 namespace Grayscale.P743_FvLearn____.L260____View

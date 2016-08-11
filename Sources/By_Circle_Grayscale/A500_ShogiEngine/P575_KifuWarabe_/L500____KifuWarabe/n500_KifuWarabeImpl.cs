@@ -21,14 +21,14 @@ using Grayscale.A210_KnowNingen_.B390_KomahaiyaEx.C500____Util;
 using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct;
-using Grayscale.P324_KifuTree___.C___250_Struct;
-using Grayscale.P324_KifuTree___.C250____Struct;
-using Grayscale.P325_PnlTaikyoku.C___250_Struct;
-using Grayscale.P325_PnlTaikyoku.C250____Struct;
-using Grayscale.P339_ConvKyokume.C500____Converter;
-using Grayscale.P341_Ittesasu___.L125____UtilB;
-using Grayscale.P355_KifuParserA.L___500_Parser;
-using Grayscale.P355_KifuParserA.L500____Parser;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
+using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C250____Struct;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB;
+using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
+using Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser;
 using Grayscale.P523_UtilFv_____.L510____UtilFvLoad;
 using Grayscale.P542_Scoreing___.L___005_Usi_Loop;
 using Grayscale.P542_Scoreing___.L___240_Shogisasi;
@@ -50,7 +50,7 @@ using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B280_Komasyurui_.C500____Util;
 using Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C500____UtilWriter;
-using Grayscale.P440_KifuTreeLog.C500____Struct;
+using Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct;
 #endif
 
 namespace Grayscale.P575_KifuWarabe_.L500____KifuWarabe

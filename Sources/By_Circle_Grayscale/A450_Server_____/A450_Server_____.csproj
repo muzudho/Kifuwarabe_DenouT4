@@ -58,15 +58,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="P461_Server_____\L250____Util\Util_Functions_Server.cs" />
-    <Compile Include="P461_Server_____\L125____Receiver\Receiver_ForCsharpVsImpl.cs" />
-    <Compile Include="P461_Server_____\L496____EngineWrapper\EngineProcessWrapperImpl.cs" />
-    <Compile Include="P461_Server_____\L498____Server\Server_Impl.cs" />
-    <Compile Include="P461_Server_____\L497____EngineClient\EngineClient_Impl.cs" />
-    <Compile Include="P461_Server_____\L___125_Receiver\Receiver.cs" />
-    <Compile Include="P461_Server_____\L___496_EngineWrapper\EngineProcessWrapper.cs" />
-    <Compile Include="P461_Server_____\L___497_EngineClient\EngineClient.cs" />
-    <Compile Include="P461_Server_____\L___498_Server\Server.cs" />
+    <Compile Include="B110_Server_____\C250____Util\Util_Functions_Server.cs" />
+    <Compile Include="B110_Server_____\C125____Receiver\Receiver_ForCsharpVsImpl.cs" />
+    <Compile Include="B110_Server_____\C496____EngineWrapper\EngineProcessWrapperImpl.cs" />
+    <Compile Include="B110_Server_____\C498____Server\Server_Impl.cs" />
+    <Compile Include="B110_Server_____\C497____EngineClient\EngineClient_Impl.cs" />
+    <Compile Include="B110_Server_____\C___125_Receiver\Receiver.cs" />
+    <Compile Include="B110_Server_____\C___496_EngineWrapper\EngineProcessWrapper.cs" />
+    <Compile Include="B110_Server_____\C___497_EngineClient\EngineClient.cs" />
+    <Compile Include="B110_Server_____\C___498_Server\Server.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -83,7 +83,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="P460_／／将棋サーバー\" />
+    <Folder Include="B100_／／将棋サーバー\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

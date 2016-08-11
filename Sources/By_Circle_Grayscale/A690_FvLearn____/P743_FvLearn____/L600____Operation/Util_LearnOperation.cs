@@ -5,8 +5,8 @@ using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
-using Grayscale.P324_KifuTree___.C___250_Struct;
-using Grayscale.P440_KifuTreeLog.C500____Struct;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
+using Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct;
 using Grayscale.P521_FeatureVect.C500____Struct;
 using Grayscale.P523_UtilFv_____.L510____UtilFvLoad;
 using Grayscale.P542_Scoreing___.L___250_Args;
@@ -26,12 +26,12 @@ using System.Windows.Forms;
 
 #if DEBUG || LEARN
 using Grayscale.P523_UtilFv_____.L480____UtilFvEdit;
-using Grayscale.P321_KyokumHyoka.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
 #endif
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B400_Log_Kaisetu.C250____Struct;
-using Grayscale.P339_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 #endif
 
 namespace Grayscale.P743_FvLearn____.L600____Operation

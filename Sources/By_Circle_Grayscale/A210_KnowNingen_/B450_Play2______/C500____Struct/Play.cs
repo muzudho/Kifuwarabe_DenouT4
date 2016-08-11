@@ -14,7 +14,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B440_Utifudume__.C500____Util;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C260____Operator;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.P339_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 
 #if DEBUG
 using System.Diagnostics;

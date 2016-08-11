@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.P339_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 
 namespace Grayscale.A210_KnowNingen_.B350_SfenTransla.C250____Struct
 {

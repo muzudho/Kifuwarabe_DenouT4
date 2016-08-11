@@ -1,5 +1,5 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.P461_Server_____.L250____Util;
+using Grayscale.A450_Server_____.B110_Server_____.C250____Util;
 using Grayscale.P693_ShogiGui___.L___500_Gui;
 using Grayscale.P693_ShogiGui___.L080____Shape;
 using Grayscale.P693_ShogiGui___.L249____Function;

@@ -51,11 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="P441_HyokaMeisai\L500____Struct\Util_KifuTreeLogWriter.cs" />
+    <Compile Include="B110_KifuTreeLog\C500____Struct\Util_KifuTreeLogWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="P440_／／棋譜ツリーログ\" />
+    <Folder Include="B100_／／棋譜ツリーログ\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\A060_Application\A060_Application.csproj">

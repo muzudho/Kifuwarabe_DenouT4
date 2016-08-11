@@ -5,7 +5,7 @@ using Grayscale.A210_KnowNingen_.B310_Seiza______.C250____Struct;
 using Grayscale.A210_KnowNingen_.B310_Seiza______.C500____Util;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.P339_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 
 namespace Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter
 {

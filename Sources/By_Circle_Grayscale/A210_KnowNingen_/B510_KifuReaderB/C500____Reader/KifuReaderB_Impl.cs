@@ -1,6 +1,6 @@
-﻿using Grayscale.A210_KnowNingen_.P510_KifuReaderB.C___500_Reader;
+﻿using Grayscale.A210_KnowNingen_.B510_KifuReaderB.C___500_Reader;
 
-namespace Grayscale.A210_KnowNingen_.P510_KifuReaderB.C500____Reader
+namespace Grayscale.A210_KnowNingen_.B510_KifuReaderB.C500____Reader
 {
 
 

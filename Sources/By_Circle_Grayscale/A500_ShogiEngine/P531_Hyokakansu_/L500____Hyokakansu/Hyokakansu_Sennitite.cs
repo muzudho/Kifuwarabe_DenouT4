@@ -1,14 +1,14 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.P321_KyokumHyoka.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
 using Grayscale.P521_FeatureVect.C___500_Struct;
 using System;
 
 
 #if DEBUG || LEARN
 using System.Text;
-using Grayscale.P321_KyokumHyoka.C250____Struct;
+using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C250____Struct;
 #endif
 
 namespace Grayscale.P531_Hyokakansu_.L500____Hyokakansu

@@ -1,4 +1,4 @@
-﻿using Grayscale.P321_KyokumHyoka.C___250_Struct;
+﻿using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
 using System;
 using System.Text;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;

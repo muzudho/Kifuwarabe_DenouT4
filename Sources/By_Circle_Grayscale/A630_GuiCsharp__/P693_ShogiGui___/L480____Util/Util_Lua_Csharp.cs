@@ -9,16 +9,16 @@ using Grayscale.A210_KnowNingen_.B310_Seiza______.C250____Struct;
 using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
 using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.P324_KifuTree___.C___250_Struct;
-using Grayscale.P324_KifuTree___.C250____Struct;
-using Grayscale.P461_Server_____.L250____Util;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
+using Grayscale.A450_Server_____.B110_Server_____.C250____Util;
 using Grayscale.P693_ShogiGui___.L___499_Repaint;
 using Grayscale.P693_ShogiGui___.L___500_Gui;
 using Grayscale.P693_ShogiGui___.L125____Scene;
 using Grayscale.P693_ShogiGui___.L250____Timed;
 using NLua;
 using System;
-using Grayscale.P339_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 
 namespace Grayscale.P693_ShogiGui___.L480____Util
 {

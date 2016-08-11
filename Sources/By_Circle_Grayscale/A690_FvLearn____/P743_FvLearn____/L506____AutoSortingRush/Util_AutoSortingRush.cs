@@ -18,7 +18,7 @@ using Grayscale.P743_FvLearn____.L506____AutoSasiteSort;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 
 #if DEBUG
-using Grayscale.P339_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 #endif
 
 namespace Grayscale.P743_FvLearn____.L506____AutoSasiteSort

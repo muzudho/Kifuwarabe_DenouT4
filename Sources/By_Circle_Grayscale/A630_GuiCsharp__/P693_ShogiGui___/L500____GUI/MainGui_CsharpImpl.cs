@@ -8,11 +8,11 @@ using Grayscale.A210_KnowNingen_.B310_Seiza______.C500____Util;
 using Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word;
 using Grayscale.A210_KnowNingen_.B390_KomahaiyaEx.C500____Util;
 using Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct;
-using Grayscale.P325_PnlTaikyoku.C___250_Struct;
-using Grayscale.P325_PnlTaikyoku.C250____Struct;
-using Grayscale.P461_Server_____.L___498_Server;
-using Grayscale.P461_Server_____.L497____EngineClient;
-using Grayscale.P461_Server_____.L498____Server;
+using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C250____Struct;
+using Grayscale.A450_Server_____.B110_Server_____.C___498_Server;
+using Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient;
+using Grayscale.A450_Server_____.B110_Server_____.C498____Server;
 using Grayscale.P693_ShogiGui___.L___080_Shape;
 using Grayscale.P693_ShogiGui___.L___081_Canvas;
 using Grayscale.P693_ShogiGui___.L___125_Scene;
@@ -34,7 +34,7 @@ using System.Text;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.P339_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 
 namespace Grayscale.P693_ShogiGui___.L500____GUI
 {

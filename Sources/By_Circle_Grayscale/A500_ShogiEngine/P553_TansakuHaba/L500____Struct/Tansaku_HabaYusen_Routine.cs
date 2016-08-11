@@ -1,5 +1,5 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.P324_KifuTree___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.P542_Scoreing___.L___250_Args;
 using Grayscale.P551_Tansaku____.L___500_Tansaku;
 using Grayscale.P554_TansaFukasa.C___500_Struct;

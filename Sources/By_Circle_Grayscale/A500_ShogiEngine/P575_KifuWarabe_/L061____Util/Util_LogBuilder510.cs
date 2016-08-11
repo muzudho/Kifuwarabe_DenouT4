@@ -8,10 +8,10 @@ using Grayscale.A210_KnowNingen_.B400_Log_Kaisetu.C250____Struct;
 using Grayscale.A210_KnowNingen_.B460_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B640_KyokumenWra.C500____Struct;
 using Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util;
-using Grayscale.P324_KifuTree___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B460_KyokumMoves.C250____Log;
-using Grayscale.P339_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B380_Move_______.C___500_Struct;
 
 namespace Grayscale.P542_Scoreing___.L061____Util

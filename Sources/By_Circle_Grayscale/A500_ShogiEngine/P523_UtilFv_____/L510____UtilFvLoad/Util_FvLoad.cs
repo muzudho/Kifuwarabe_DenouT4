@@ -5,8 +5,8 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B310_Seiza______.C250____Struct;
 using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.P324_KifuTree___.C___250_Struct;
-using Grayscale.P324_KifuTree___.C250____Struct;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.P521_FeatureVect.C___500_Struct;
 using Grayscale.P521_FeatureVect.C500____Struct;
 using Grayscale.P523_UtilFv_____.L491____UtilFvIo;
@@ -15,7 +15,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.P339_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 
 namespace Grayscale.P523_UtilFv_____.L510____UtilFvLoad
 {

@@ -16,7 +16,7 @@ using Grayscale.A210_KnowNingen_.B460_KyokumMoves.C___250_Log;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B380_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B380_Move_______.C___500_Struct;
-using Grayscale.P339_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 
 namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C250____Log
 {

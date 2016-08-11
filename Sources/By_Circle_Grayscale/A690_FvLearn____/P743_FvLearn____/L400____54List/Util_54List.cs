@@ -6,7 +6,7 @@ using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.P339_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.P521_FeatureVect.C500____Struct;
 using Grayscale.P525_ConvFv_____.C500____Converter;
 using Grayscale.P743_FvLearn____.L___400_54List;

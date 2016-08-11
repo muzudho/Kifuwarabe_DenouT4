@@ -2,7 +2,7 @@
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.P321_KyokumHyoka.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
 using Grayscale.P521_FeatureVect.C___500_Struct;
 using Grayscale.P531_Hyokakansu_.L500____Hyokakansu;
 using Grayscale.P743_FvLearn____.L___400_54List;
