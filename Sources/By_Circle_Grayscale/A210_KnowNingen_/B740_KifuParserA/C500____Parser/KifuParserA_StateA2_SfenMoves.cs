@@ -91,7 +91,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                         string str7;
                         string str8;
                         string str9;
-                        if (Conv_SfenSasitesText.ToTokens(
+                        if (Conv_Sfen.ToTokens_FromMove(
                             genjo.InputLine, out str1, out str2, out str3, out str4, out str5, out rest, errH)
                             &&
                             !(str1=="" && str2=="" && str3=="" && str4=="" && str5=="")

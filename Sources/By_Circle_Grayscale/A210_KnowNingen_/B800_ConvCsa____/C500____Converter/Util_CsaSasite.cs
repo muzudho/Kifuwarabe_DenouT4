@@ -31,7 +31,7 @@ namespace Grayscale.A210_KnowNingen_.B800_ConvCsa____.C500____Converter
             int.TryParse(csa.SourceMasu[0].ToString(), out suji);
             int.TryParse(csa.SourceMasu[1].ToString(), out dan);
 
-            return Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan, suji, dan);
+            return Util_Masu10.BanjoSujiDanToMasu( suji, dan);
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Grayscale.A210_KnowNingen_.B800_ConvCsa____.C500____Converter
             int.TryParse(csa.DestinationMasu[0].ToString(), out suji);
             int.TryParse(csa.DestinationMasu[1].ToString(), out dan);
 
-            return Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan, suji, dan);
+            return Util_Masu10.BanjoSujiDanToMasu( suji, dan);
         }
 
 
@@ -180,7 +180,7 @@ namespace Grayscale.A210_KnowNingen_.B800_ConvCsa____.C500____Converter
                     //    System.Console.WriteLine("[" + finger + "] " + koma.Masu.Word + "　" + koma.Pside + "　" + KomaSyurui14Array.Ichimoji[(int)koma.Syurui]);
                     //});
 
-                    SyElement srcMasu = Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan,srcSuji,srcDan);
+                    SyElement srcMasu = Util_Masu10.BanjoSujiDanToMasu(srcSuji,srcDan);
                     Busstop srcKoma = Util_Sky_KomaQuery.InMasuNow(ittemae_Sky_orNull, srcMasu);
                     Debug.Assert(Busstop.Empty!= srcKoma,"元位置の駒を取得できなかった。1");
 

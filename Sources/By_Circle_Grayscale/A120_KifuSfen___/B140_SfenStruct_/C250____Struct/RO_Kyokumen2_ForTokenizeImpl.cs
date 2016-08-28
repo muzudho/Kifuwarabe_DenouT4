@@ -1,5 +1,7 @@
 ﻿using Grayscale.A120_KifuSfen___.B120_ConvSujiDan.C500____Converter;
 using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
+using Grayscale.B140_SfenStruct_.C___250_Struct;
+using System;
 
 namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct
 {
@@ -52,100 +54,12 @@ namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct
         }
 
 
-
         /// <summary>
-        /// 持駒▲王
+        /// 持駒の枚数。
         /// </summary>
-        public int Moti1K { get { return moti1K; } } private int moti1K;
+        public int[] MotiSu { get { return this.m_motiSu_; } }
+        private int[] m_motiSu_;
 
-        /// <summary>
-        /// 持駒▲飛
-        /// </summary>
-        public int Moti1R { get { return moti1R; } } private int moti1R;
-
-
-        /// <summary>
-        /// 持駒▲角
-        /// </summary>
-        public int Moti1B { get { return moti1B; } } private int moti1B;
-
-
-        /// <summary>
-        /// 持駒▲金
-        /// </summary>
-        public int Moti1G { get { return moti1G; } } private int moti1G;
-
-
-        /// <summary>
-        /// 持駒▲銀
-        /// </summary>
-        public int Moti1S { get { return moti1S; } } private int moti1S;
-
-
-        /// <summary>
-        /// 持駒▲桂
-        /// </summary>
-        public int Moti1N { get { return moti1N; } } private int moti1N;
-
-
-        /// <summary>
-        /// 持駒▲香
-        /// </summary>
-        public int Moti1L { get { return moti1L; } } private int moti1L;
-
-
-        /// <summary>
-        /// 持駒▲歩
-        /// </summary>
-        public int Moti1P { get { return moti1P; } } private int moti1P;
-
-
-        /// <summary>
-        /// 持駒△王
-        /// </summary>
-        public int Moti2k { get { return moti2k; } } private int moti2k;
-
-
-        /// <summary>
-        /// 持駒△飛
-        /// </summary>
-        public int Moti2r { get { return moti2r; } } private int moti2r;
-
-
-        /// <summary>
-        /// 持駒△角
-        /// </summary>
-        public int Moti2b { get { return moti2b; } } private int moti2b;
-
-
-        /// <summary>
-        /// 持駒△金
-        /// </summary>
-        public int Moti2g { get { return moti2g; } } private int moti2g;
-
-
-        /// <summary>
-        /// 持駒△銀
-        /// </summary>
-        public int Moti2s { get { return moti2s; } } private int moti2s;
-
-
-        /// <summary>
-        /// 持駒△桂
-        /// </summary>
-        public int Moti2n { get { return moti2n; } } private int moti2n;
-
-
-        /// <summary>
-        /// 持駒△香
-        /// </summary>
-        public int Moti2l { get { return moti2l; } } private int moti2l;
-
-
-        /// <summary>
-        /// 持駒△歩
-        /// </summary>
-        public int Moti2p { get { return moti2p; } } private int moti2p;
 
 
         /// <summary>
@@ -211,22 +125,7 @@ namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct
 
         public RO_Kyokumen2_ForTokenizeImpl(
             string[] masu201,
-            int moti1K, //持駒▲王
-            int moti1R, //持駒▲飛
-            int moti1B, //持駒▲角
-            int moti1G, //持駒▲金
-            int moti1S, //持駒▲銀
-            int moti1N, //持駒▲桂
-            int moti1L, //持駒▲香
-            int moti1P, //持駒▲歩
-            int moti2k, //持駒△王
-            int moti2r, //持駒△飛
-            int moti2b, //持駒△角
-            int moti2g, //持駒△金
-            int moti2s, //持駒△銀
-            int moti2n, //持駒△桂
-            int moti2l, //持駒△香
-            int moti2p, //持駒△歩
+            int[] motiSu,
             int fK,//駒袋 王
             int fR,//駒袋 飛
             int fB,//駒袋 角
@@ -242,22 +141,7 @@ namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct
             //盤
             this.masu201 = masu201;
 
-            this.moti1K = moti1K; //持駒▲王
-            this.moti1R = moti1R; //持駒▲飛
-            this.moti1B = moti1B; //持駒▲角
-            this.moti1G = moti1G; //持駒▲金
-            this.moti1S = moti1S; //持駒▲銀
-            this.moti1N = moti1N; //持駒▲桂
-            this.moti1L = moti1L; //持駒▲香
-            this.moti1P = moti1P; //持駒▲歩
-            this.moti2k = moti2k; //持駒△王
-            this.moti2r = moti2r; //持駒△飛
-            this.moti2b = moti2b; //持駒△角
-            this.moti2g = moti2g; //持駒△金
-            this.moti2s = moti2s; //持駒△銀
-            this.moti2n = moti2n; //持駒△桂
-            this.moti2l = moti2l; //持駒△香
-            this.moti2p = moti2p; //持駒△歩
+            Array.Copy(motiSu, this.MotiSu, motiSu.Length);
 
             // 駒袋の中に残っている駒の数を数えます。
             this.fukuroK = fK;
@@ -299,24 +183,7 @@ namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct
                 }
             }
 
-            int player;
-            player = 1;
-            ro_Kyokumen1.Moti[player, 0] = this.Moti1R;
-            ro_Kyokumen1.Moti[player, 1] = this.Moti1B;
-            ro_Kyokumen1.Moti[player, 2] = this.Moti1G;
-            ro_Kyokumen1.Moti[player, 3] = this.Moti1S;
-            ro_Kyokumen1.Moti[player, 4] = this.Moti1N;
-            ro_Kyokumen1.Moti[player, 5] = this.Moti1L;
-            ro_Kyokumen1.Moti[player, 6] = this.Moti1P;
-
-            player = 2;
-            ro_Kyokumen1.Moti[player, 0] = this.Moti2r;
-            ro_Kyokumen1.Moti[player, 1] = this.Moti2b;
-            ro_Kyokumen1.Moti[player, 2] = this.Moti2g;
-            ro_Kyokumen1.Moti[player, 3] = this.Moti2s;
-            ro_Kyokumen1.Moti[player, 4] = this.Moti2n;
-            ro_Kyokumen1.Moti[player, 5] = this.Moti2l;
-            ro_Kyokumen1.Moti[player, 6] = this.Moti2p;
+            Array.Copy(this.MotiSu, ro_Kyokumen1.MotiSu, this.MotiSu.Length);
 
             return ro_Kyokumen1;
         }

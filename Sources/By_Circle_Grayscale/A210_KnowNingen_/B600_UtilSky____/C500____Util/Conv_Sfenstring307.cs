@@ -7,7 +7,7 @@ using Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct;
 
 namespace Grayscale.A210_KnowNingen_.B600_UtilSky____.C500____Util
 {
-    public abstract class Conv_Sfenstring307 : Conv_Sfenstring146
+    public abstract class Conv_Sfenstring307// : Conv_Sfenstring146
     {
 
         /// <summary>

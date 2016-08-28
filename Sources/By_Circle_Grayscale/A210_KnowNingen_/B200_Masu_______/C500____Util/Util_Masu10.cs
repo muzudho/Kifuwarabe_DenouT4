@@ -68,14 +68,6 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
 
 
 
-
-        static Util_Masu10()
-        {
-        }
-
-
-
-
         /// <summary>
         /// 
         /// </summary>
@@ -83,7 +75,15 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
         /// <param name="suji"></param>
         /// <param name="dan"></param>
         /// <returns></returns>
-        public static int ToMasuHandle_FromOkibaSujiDan(Okiba okiba, int suji, int dan)
+        public static int ToMasuHandle_FromBanjoSujiDan( int suji, int dan)
+        {
+            if (1 <= suji && suji <= Util_Masu10.SHOGIBAN_LAST_SUJI && 1 <= dan && dan <= Util_Masu10.SHOGIBAN_LAST_DAN)
+            {
+                return (suji - 1) * Util_Masu10.SHOGIBAN_LAST_DAN + (dan - 1);
+            }
+            return -1;
+        }
+        public static int ToMasuHandle_FromDokokaSujiDan(Okiba okiba, int suji, int dan)
         {
             int masuHandle = -1;
 
@@ -120,10 +120,9 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
         /// <param name="suji"></param>
         /// <param name="dan"></param>
         /// <returns></returns>
-        public static SyElement OkibaSujiDanToMasu(Okiba okiba, int suji, int dan)
+        public static SyElement BanjoSujiDanToMasu(int suji, int dan)
         {
-            int masuHandle = Util_Masu10.ToMasuHandle_FromOkibaSujiDan(okiba,suji,dan);
-
+            int masuHandle = Util_Masu10.ToMasuHandle_FromBanjoSujiDan(suji,dan);
 
             SyElement masu = Masu_Honshogi.Query_Basho(Masu_Honshogi.nError);//範囲外が指定されることもあります。
 
@@ -132,38 +131,20 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
                 masu = Masu_Honshogi.Masus_All[masuHandle];
             }
 
-
             return masu;
         }
-
-        public static SyElement OkibaSujiDanToMasu(Okiba okiba, int masuHandle)
+        public static SyElement DokokaSujiDanToMasu(Okiba okiba, int suji, int dan)
         {
-            switch (Conv_SyElement.ToOkiba(masuHandle))
+            int masuHandle = Util_Masu10.ToMasuHandle_FromDokokaSujiDan(okiba, suji, dan);
+
+            SyElement masu = Masu_Honshogi.Query_Basho(Masu_Honshogi.nError);//範囲外が指定されることもあります。
+
+            if (Conv_MasuHandle.Yuko(masuHandle))
             {
-                case Okiba.Sente_Komadai:
-                    masuHandle -= Conv_SyElement.ToMasuNumber(Conv_Okiba.GetFirstMasuFromOkiba(Okiba.Sente_Komadai));
-                    break;
-
-                case Okiba.Gote_Komadai:
-                    masuHandle -= Conv_SyElement.ToMasuNumber(Conv_Okiba.GetFirstMasuFromOkiba(Okiba.Gote_Komadai));
-                    break;
-
-                case Okiba.KomaBukuro:
-                    masuHandle -= Conv_SyElement.ToMasuNumber(Conv_Okiba.GetFirstMasuFromOkiba(Okiba.KomaBukuro));
-                    break;
-
-                case Okiba.ShogiBan:
-                    // そのんまま
-                    break;
-
-                default:
-                    // エラー
-                    break;
+                masu = Masu_Honshogi.Masus_All[masuHandle];
             }
 
-            masuHandle = masuHandle + Conv_SyElement.ToMasuNumber(Conv_Okiba.GetFirstMasuFromOkiba(okiba));
-
-            return Conv_MasuHandle.ToMasu( masuHandle);
+            return masu;
         }
 
 
@@ -177,7 +158,7 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
         /// <param name="offsetSuji"></param>
         /// <param name="offsetDan"></param>
         /// <returns></returns>
-        public static SyElement Offset(Okiba okiba, SyElement masu, Playerside pside, Hogaku muki)
+        public static SyElement BanjoOffset( SyElement masu, Playerside pside, Hogaku muki)
         {
             int offsetSuji;
             int offsetDan;
@@ -188,10 +169,10 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
             Util_MasuNum.TryMasuToSuji(masu, out suji);
             Util_MasuNum.TryMasuToDan(masu, out dan);
 
-            return Util_Masu10.OkibaSujiDanToMasu(
-                okiba,
+            return Util_Masu10.BanjoSujiDanToMasu(
                 suji + offsetSuji,
-                dan + offsetDan);
+                dan + offsetDan
+                );
         }
 
 
@@ -205,15 +186,14 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
         /// <param name="offsetSuji"></param>
         /// <param name="offsetDan"></param>
         /// <returns></returns>
-        public static SyElement Offset(Okiba okiba, SyElement masu, int offsetSuji, int offsetDan)
+        public static SyElement BanjoOffset(SyElement masu, int offsetSuji, int offsetDan)
         {
             int suji;
             int dan;
             Util_MasuNum.TryMasuToSuji(masu, out suji);
             Util_MasuNum.TryMasuToDan(masu, out dan);
 
-            return Util_Masu10.OkibaSujiDanToMasu(
-                    okiba,
+            return Util_Masu10.BanjoSujiDanToMasu(
                     suji + offsetSuji,
                     dan + offsetDan
                 );

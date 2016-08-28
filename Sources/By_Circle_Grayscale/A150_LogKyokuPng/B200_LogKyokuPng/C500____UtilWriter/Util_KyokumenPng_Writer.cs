@@ -44,7 +44,7 @@ namespace Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C500____UtilWriter
             //
             RO_Kyokumen2_ForTokenize ro_SfenStartpos;
             string rest;
-            if (!Conv_Sfenstring146.ToKyokumen2(sfenstring, out rest, out ro_SfenStartpos))
+            if (!Conv_Sfen.ToKyokumen2(sfenstring, out rest, out ro_SfenStartpos))
             {
                 //System.Windows.Forms.MessageBox.Show(sfenstring,"sfenstringパース失敗");
                 successful = false;
@@ -106,7 +106,7 @@ namespace Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C500____UtilWriter
                     string moji4;
                     string moji5;
                     string rest;
-                    Conv_SfenSasitesText.ToTokens(
+                    Conv_Sfen.ToTokens_FromMove(
                         sfenSasiteStr_orEmpty,
                         out moji1,
                         out moji2,

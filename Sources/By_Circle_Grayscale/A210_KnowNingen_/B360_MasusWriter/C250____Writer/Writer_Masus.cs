@@ -52,7 +52,7 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C250____Writer
                 sb.Append("┃");
                 for (int suji = 9; suji >= 1; suji--)// 筋は左右逆☆
                 {
-                    SyElement masu = Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan, suji, dan);
+                    SyElement masu = Util_Masu10.BanjoSujiDanToMasu( suji, dan);
                     if (Okiba.ShogiBan == Conv_SyElement.ToOkiba(masu))
                     {
                         if (ban81[Conv_SyElement.ToMasuNumber(masu)])

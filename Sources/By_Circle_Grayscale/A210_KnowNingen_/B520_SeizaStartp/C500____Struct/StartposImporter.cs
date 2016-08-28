@@ -37,7 +37,7 @@ namespace Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct
             bool successful = true;
 
             RO_Kyokumen2_ForTokenize ro_SfenStartpos;
-            if (!Conv_Sfenstring146.ToKyokumen2(inputLine, out rest, out ro_SfenStartpos))
+            if (!Conv_Sfen.ToKyokumen2(inputLine, out rest, out ro_SfenStartpos))
             {
                 successful = false;
                 instance = null;

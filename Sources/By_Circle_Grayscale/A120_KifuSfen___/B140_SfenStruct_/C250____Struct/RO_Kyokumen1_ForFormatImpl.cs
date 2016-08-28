@@ -1,4 +1,6 @@
 ﻿using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
+using Grayscale.B140_SfenStruct_.C___250_Struct;
+using System;
 
 namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct
 {
@@ -11,7 +13,13 @@ namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct
     {
 
         public string[,] Ban { get; set; }
-        public int[,] Moti { get; set; }
+
+        /// <summary>
+        /// 持ち駒の枚数。
+        /// 駒の種類は [0]から、空っぽ,空っぽ,▲飛,▲角,▲金,▲銀,▲桂,▲香,▲歩,空っぽ,△飛,△角,△金,△銀,△桂,△香,△歩 の順。
+        /// </summary>
+        public int[] MotiSu { get; set; }
+
         /// <summary>
         /// 手目済み。初期局面を 0手目済み、初手を指した後の局面を 1手目済みとカウントします。
         /// </summary>
@@ -31,58 +39,11 @@ namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct
                 }
             }
 
-            // 先手の持ち駒の数。
-            // [player,komasyurui]
-            // playerは 1,2。0は使わない。
-            // komasyuruiは、[0]から、飛,角,金,銀,桂,香,歩 の順。
-            this.Moti = new int[3, 7];
+            // 持ち駒の枚数。
+            // 駒の種類は [0]から、空っぽ,空っぽ,▲飛,▲角,▲金,▲銀,▲桂,▲香,▲歩,空っぽ,△飛,△角,△金,△銀,△桂,△香,△歩 の順。
+            this.MotiSu = new int[(int)Pieces.Num];
 
             this.Temezumi = 1;//将棋所に合わせて、 1固定 をデフォルトとする。
         }
-
-
-
-        public  void GetMoti(
-            out int mK,
-            out int mR,
-            out int mB,
-            out int mG,
-            out int mS,
-            out int mN,
-            out int mL,
-            out int mP,
-
-            out int mk,
-            out int mr,
-            out int mb,
-            out int mg,
-            out int ms,
-            out int mn,
-            out int ml,
-            out int mp
-        )
-        {
-            int player;
-            player = 1;
-            mK = 0;
-            mR = this.Moti[player, 0];
-            mB = this.Moti[player, 1];
-            mG = this.Moti[player, 2];
-            mS = this.Moti[player, 3];
-            mN = this.Moti[player, 4];
-            mL = this.Moti[player, 5];
-            mP = this.Moti[player, 6];
-
-            mk = 0;
-            player = 2;
-            mr = this.Moti[player, 0];
-            mb = this.Moti[player, 1];
-            mg = this.Moti[player, 2];
-            ms = this.Moti[player, 3];
-            mn = this.Moti[player, 4];
-            ml = this.Moti[player, 5];
-            mp = this.Moti[player, 6];
-        }
-
     }
 }

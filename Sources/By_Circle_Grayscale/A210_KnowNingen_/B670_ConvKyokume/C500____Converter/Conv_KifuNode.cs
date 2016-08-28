@@ -13,6 +13,8 @@ using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.B140_SfenStruct_.C___250_Struct;
+using System;
 
 namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
 {
@@ -35,7 +37,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 for (int dan = 1; dan < 10; dan++)
                 {
                     Finger koma0 = Util_Sky_FingersQuery.InMasuNow_Old(
-                        src_Sky, Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan, suji, dan)
+                        src_Sky, Util_Masu10.BanjoSujiDanToMasu( suji, dan)
                         ).ToFirst();
 
                     if (Fingers.Error_1 != koma0)
@@ -51,64 +53,15 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 }
             }
 
-            // 持ち駒
-            int mK = 0;
-            int mR = 0;
-            int mB = 0;
-            int mG = 0;
-            int mS = 0;
-            int mN = 0;
-            int mL = 0;
-            int mP = 0;
-
-            int mk = 0;
-            int mr = 0;
-            int mb = 0;
-            int mg = 0;
-            int ms = 0;
-            int mn = 0;
-            int ml = 0;
-            int mp = 0;
+            // 持ち駒の枚数
+            int[] motiSu;
             Util_Sky_CountQuery.CountMoti(
                 src_Sky,
-                out mK,
-                out mR,
-                out mB,
-                out mG,
-                out mS,
-                out mN,
-                out mL,
-                out mP,
-
-                out mk,
-                out mr,
-                out mb,
-                out mg,
-                out ms,
-                out mn,
-                out ml,
-                out mp,
+                out motiSu,
                 errH
                 );
 
-            int player;
-            player = 1;
-            ro_Kyokumen1.Moti[player, 0] = mR;
-            ro_Kyokumen1.Moti[player, 1] = mB;
-            ro_Kyokumen1.Moti[player, 2] = mG;
-            ro_Kyokumen1.Moti[player, 3] = mS;
-            ro_Kyokumen1.Moti[player, 4] = mN;
-            ro_Kyokumen1.Moti[player, 5] = mL;
-            ro_Kyokumen1.Moti[player, 6] = mP;
-
-            player = 2;
-            ro_Kyokumen1.Moti[player, 0] = mr;
-            ro_Kyokumen1.Moti[player, 1] = mb;
-            ro_Kyokumen1.Moti[player, 2] = mg;
-            ro_Kyokumen1.Moti[player, 3] = ms;
-            ro_Kyokumen1.Moti[player, 4] = mn;
-            ro_Kyokumen1.Moti[player, 5] = ml;
-            ro_Kyokumen1.Moti[player, 6] = mp;
+            Array.Copy(motiSu, ro_Kyokumen1.MotiSu, motiSu.Length);
 
             // 手目済み
             ro_Kyokumen1.Temezumi = src_Sky.Temezumi;
@@ -138,7 +91,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 {
                     // 将棋盤上のどこかにある駒？
                     Finger koma0 = Util_Sky_FingersQuery.InMasuNow_Old(
-                        src_Sky, Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan, suji, dan)
+                        src_Sky, Util_Masu10.BanjoSujiDanToMasu( suji, dan)
                         ).ToFirst();
 
                     if (Fingers.Error_1 != koma0)
@@ -195,196 +148,178 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             sb.Append(" ");
 
             //------------------------------------------------------------
-            // 持ち駒
+            // 持ち駒の枚数
             //------------------------------------------------------------
             {
-                int mK = 0;
-                int mR = 0;
-                int mB = 0;
-                int mG = 0;
-                int mS = 0;
-                int mN = 0;
-                int mL = 0;
-                int mP = 0;
-
-                int mk = 0;
-                int mr = 0;
-                int mb = 0;
-                int mg = 0;
-                int ms = 0;
-                int mn = 0;
-                int ml = 0;
-                int mp = 0;
+                int[] motiSu;
                 Util_Sky_CountQuery.CountMoti(
                     src_Sky,
-                    out mK,
-                    out mR,
-                    out mB,
-                    out mG,
-                    out mS,
-                    out mN,
-                    out mL,
-                    out mP,
-
-                    out mk,
-                    out mr,
-                    out mb,
-                    out mg,
-                    out ms,
-                    out mn,
-                    out ml,
-                    out mp,
+                    out motiSu,
                     errH
                     );
 
-
-
-                if (0 == mK + mR + mB + mG + mS + mN + mL + mP + mk + mr + mb + mg + ms + mn + ml + mp)
+                if (0 == motiSu[(int)Pieces.K] +
+                    motiSu[(int)Pieces.R] +
+                    motiSu[(int)Pieces.B] +
+                    motiSu[(int)Pieces.G] +
+                    motiSu[(int)Pieces.S] +
+                    motiSu[(int)Pieces.N] +
+                    motiSu[(int)Pieces.L] +
+                    motiSu[(int)Pieces.P] +
+                    motiSu[(int)Pieces.k] +
+                    motiSu[(int)Pieces.r] +
+                    motiSu[(int)Pieces.b] +
+                    motiSu[(int)Pieces.g] +
+                    motiSu[(int)Pieces.s] +
+                    motiSu[(int)Pieces.n] +
+                    motiSu[(int)Pieces.l] +
+                    motiSu[(int)Pieces.p]
+                    )
                 {
                     sb.Append("-");
                 }
                 else
                 {
-                    if (0 < mK)
+                    if (0 < motiSu[(int)Pieces.K])
                     {
-                        if (1 < mK)
+                        if (1 < motiSu[(int)Pieces.K])
                         {
-                            sb.Append(mK);
+                            sb.Append(motiSu[(int)Pieces.K]);
                         }
                         sb.Append("K");
                     }
 
-                    if (0 < mR)
+                    if (0 < motiSu[(int)Pieces.R])
                     {
-                        if (1 < mR)
+                        if (1 < motiSu[(int)Pieces.R])
                         {
-                            sb.Append(mR);
+                            sb.Append(motiSu[(int)Pieces.R]);
                         }
                         sb.Append("R");
                     }
 
-                    if (0 < mB)
+                    if (0 < motiSu[(int)Pieces.B])
                     {
-                        if (1 < mB)
+                        if (1 < motiSu[(int)Pieces.B])
                         {
-                            sb.Append(mB);
+                            sb.Append(motiSu[(int)Pieces.B]);
                         }
                         sb.Append("B");
                     }
 
-                    if (0 < mG)
+                    if (0 < motiSu[(int)Pieces.G])
                     {
-                        if (1 < mG)
+                        if (1 < motiSu[(int)Pieces.G])
                         {
-                            sb.Append(mG);
+                            sb.Append(motiSu[(int)Pieces.G]);
                         }
                         sb.Append("G");
                     }
 
-                    if (0 < mS)
+                    if (0 < motiSu[(int)Pieces.S])
                     {
-                        if (1 < mS)
+                        if (1 < motiSu[(int)Pieces.S])
                         {
-                            sb.Append(mS);
+                            sb.Append(motiSu[(int)Pieces.S]);
                         }
                         sb.Append("S");
                     }
 
-                    if (0 < mN)
+                    if (0 < motiSu[(int)Pieces.N])
                     {
-                        if (1 < mN)
+                        if (1 < motiSu[(int)Pieces.N])
                         {
-                            sb.Append(mN);
+                            sb.Append(motiSu[(int)Pieces.N]);
                         }
                         sb.Append("N");
                     }
 
-                    if (0 < mL)
+                    if (0 < motiSu[(int)Pieces.L])
                     {
-                        if (1 < mL)
+                        if (1 < motiSu[(int)Pieces.L])
                         {
-                            sb.Append(mL);
+                            sb.Append(motiSu[(int)Pieces.L]);
                         }
                         sb.Append("L");
                     }
 
-                    if (0 < mP)
+                    if (0 < motiSu[(int)Pieces.P])
                     {
-                        if (1 < mP)
+                        if (1 < motiSu[(int)Pieces.P])
                         {
-                            sb.Append(mP);
+                            sb.Append(motiSu[(int)Pieces.P]);
                         }
                         sb.Append("P");
                     }
 
-                    if (0 < mk)
+                    if (0 < motiSu[(int)Pieces.k])
                     {
-                        if (1 < mk)
+                        if (1 < motiSu[(int)Pieces.k])
                         {
-                            sb.Append(mk);
+                            sb.Append(motiSu[(int)Pieces.k]);
                         }
                         sb.Append("k");
                     }
 
-                    if (0 < mr)
+                    if (0 < motiSu[(int)Pieces.r])
                     {
-                        if (1 < mr)
+                        if (1 < motiSu[(int)Pieces.r])
                         {
-                            sb.Append(mr);
+                            sb.Append(motiSu[(int)Pieces.r]);
                         }
                         sb.Append("r");
                     }
 
-                    if (0 < mb)
+                    if (0 < motiSu[(int)Pieces.b])
                     {
-                        if (1 < mb)
+                        if (1 < motiSu[(int)Pieces.b])
                         {
-                            sb.Append(mb);
+                            sb.Append(motiSu[(int)Pieces.b]);
                         }
                         sb.Append("b");
                     }
 
-                    if (0 < mg)
+                    if (0 < motiSu[(int)Pieces.g])
                     {
-                        if (1 < mg)
+                        if (1 < motiSu[(int)Pieces.g])
                         {
-                            sb.Append(mg);
+                            sb.Append(motiSu[(int)Pieces.g]);
                         }
                         sb.Append("g");
                     }
 
-                    if (0 < ms)
+                    if (0 < motiSu[(int)Pieces.s])
                     {
-                        if (1 < ms)
+                        if (1 < motiSu[(int)Pieces.s])
                         {
-                            sb.Append(ms);
+                            sb.Append(motiSu[(int)Pieces.s]);
                         }
                         sb.Append("s");
                     }
 
-                    if (0 < mn)
+                    if (0 < motiSu[(int)Pieces.n])
                     {
-                        if (1 < mn)
+                        if (1 < motiSu[(int)Pieces.n])
                         {
-                            sb.Append(mn);
+                            sb.Append(motiSu[(int)Pieces.n]);
                         }
                         sb.Append("n");
                     }
 
-                    if (0 < ml)
+                    if (0 < motiSu[(int)Pieces.l])
                     {
-                        if (1 < ml)
+                        if (1 < motiSu[(int)Pieces.l])
                         {
-                            sb.Append(ml);
+                            sb.Append(motiSu[(int)Pieces.l]);
                         }
                         sb.Append("l");
                     }
 
-                    if (0 < mp)
+                    if (0 < motiSu[(int)Pieces.p])
                     {
-                        if (1 < mp)
+                        if (1 < motiSu[(int)Pieces.p])
                         {
-                            sb.Append(mp);
+                            sb.Append(motiSu[(int)Pieces.p]);
                         }
                         sb.Append("p");
                     }

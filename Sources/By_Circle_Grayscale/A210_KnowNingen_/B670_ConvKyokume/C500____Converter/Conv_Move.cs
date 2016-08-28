@@ -257,7 +257,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             //────────────────────────────────────────
 
             // 自
-            return Util_Masu10.OkibaSujiDanToMasu(okiba, srcSuji, srcDan);
+            return Util_Masu10.DokokaSujiDanToMasu(okiba, srcSuji, srcDan);
         }
 
 
@@ -320,7 +320,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             int dstDan = Conv_Move.ToDstDan(move);
 
             // 至
-            return Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan, dstSuji, dstDan);
+            return Util_Masu10.BanjoSujiDanToMasu( dstSuji, dstDan);
         }
 
         public static bool ToPromotion(Move move)
@@ -668,7 +668,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 int.TryParse(csa.DestinationMasu[0].ToString(), out dstSuji);
                 int dstDan;
                 int.TryParse(csa.DestinationMasu[1].ToString(), out dstDan);
-                dstMasu = Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan, dstSuji, dstDan);
+                dstMasu = Util_Masu10.BanjoSujiDanToMasu( dstSuji, dstDan);
             }
 
             SyElement srcMasu;
@@ -678,7 +678,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 int.TryParse(csa.SourceMasu[0].ToString(), out srcSuji);
                 int srcDan;
                 int.TryParse(csa.SourceMasu[1].ToString(), out srcDan);
-                srcMasu = Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan, srcSuji, srcDan);
+                srcMasu = Util_Masu10.BanjoSujiDanToMasu( srcSuji, srcDan);
             }
 
             bool drop;

@@ -194,7 +194,7 @@ namespace Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct
                     for (int suji = 9; suji >= 1; suji--)
                     {
 
-                        SyElement masu = Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan, suji, dan);
+                        SyElement masu = Util_Masu10.BanjoSujiDanToMasu( suji, dan);
 
                         sb.Append("<td>");
 

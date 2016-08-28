@@ -297,7 +297,7 @@ namespace Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table
                     for (int suji = 9; suji >= 1; suji--)
                     {
 
-                        SyElement masu = Util_Masu10.OkibaSujiDanToMasu(Okiba.ShogiBan, suji, dan);
+                        SyElement masu = Util_Masu10.BanjoSujiDanToMasu( suji, dan);
 
                         sb.Append("<td>");
 

@@ -378,12 +378,9 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     figMovedKoma = Util_Sky_FingerQuery.InShogibanMasuNow(
                         kaisi_Sky,
                         pside,
-                        Util_Masu10.OkibaSujiDanToMasu(
-                            Conv_SyElement.ToOkiba(Masu_Honshogi.Masus_All[Conv_SyElement.ToMasuNumber(dstMasu)]),
-                            Conv_SyElement.ToMasuNumber(srcMasu)
-                            ),
-                            errH
-                            );
+                        srcMasu,// 将棋盤上と確定している☆（＾▽＾）
+                        errH
+                        );
                     Debug.Assert(figMovedKoma != Fingers.Error_1, "駒を動かせなかった？13");
                 }
             }

@@ -1,6 +1,7 @@
 ﻿using Grayscale.A060_Application.B610_ConstShogi_.C250____Const;
 using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C___500_Struct;
 using System.Drawing;
+using Grayscale.B140_SfenStruct_.C___250_Struct;
 
 namespace Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C250____UtilPaint
 {
@@ -105,21 +106,21 @@ namespace Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C250____UtilPaint
 
             // 後手の持駒 （飛,角,金,銀,桂,香,歩）
             {
-                string[] signs = new string[] { "r", "b", "g", "s", "n", "l", "p" };
+                string[] signs = new string[] { "","","r", "b", "g", "s", "n", "l", "p" };
                 int ox = 0;
                 int oy = 0;
-                for (int moti = 0; moti < 7; moti++)
+                for (int iMoti = (int)Pieces.StartGote; iMoti < (int)Pieces.NumGote; iMoti++)
                 {
-                    Point pt = Util_KyokumenPngPainter.CropXyBySign(signs[moti], args);
+                    Point pt = Util_KyokumenPngPainter.CropXyBySign(signs[iMoti], args);
                     // 枚数
                     int player = 2;
-                    int maisu = args.Ro_Kyokumen1.Moti[player,moti];
+                    int maisu = args.Ro_Kyokumen1.MotiSu[iMoti];
                     if (0 < maisu)
                     {
                         //駒
                         g.DrawImage(
                             Image.FromFile(args.Env.ImgFolder + args.Env.KmFile),
-                            new Rectangle(ox, (signs.Length - moti - 1) * args.Env.KmH + oy, args.Env.KmW, args.Env.KmH),//dst
+                            new Rectangle(ox, (signs.Length - iMoti - (int)PieceTypes.Start - 1) * args.Env.KmH + oy, args.Env.KmW, args.Env.KmH),//dst
                             new Rectangle(pt.X, pt.Y, args.Env.KmW, args.Env.KmH),//src
                             GraphicsUnit.Pixel
                             );
@@ -128,7 +129,7 @@ namespace Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C250____UtilPaint
                         {
                             int ichi = maisu % 10;
                             g.DrawImage(Image.FromFile(args.Env.ImgFolder + args.Env.SjFile),
-                                new Rectangle(ox + args.Env.KmW, (signs.Length - moti - 1) * args.Env.KmH + (args.Env.KmH - args.Env.SjH) + oy, args.Env.SjW, args.Env.SjH),//dst
+                                new Rectangle(ox + args.Env.KmW, (signs.Length - iMoti - 1) * args.Env.KmH + (args.Env.KmH - args.Env.SjH) + oy, args.Env.SjW, args.Env.SjH),//dst
                                 new Rectangle(ichi * args.Env.SjW, args.Env.SjH, args.Env.SjW, args.Env.SjH),//src
                                 GraphicsUnit.Pixel
                                 );// 一の位
@@ -143,7 +144,7 @@ namespace Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C250____UtilPaint
                             }
                             g.DrawImage(
                                 Image.FromFile(args.Env.ImgFolder + args.Env.SjFile),
-                                new Rectangle(ox + args.Env.KmW + args.Env.SjW, (signs.Length - moti - 1) * args.Env.KmH + (args.Env.KmH - args.Env.SjH) + oy, args.Env.SjW, args.Env.SjH),//dst
+                                new Rectangle(ox + args.Env.KmW + args.Env.SjW, (signs.Length - iMoti - 1) * args.Env.KmH + (args.Env.KmH - args.Env.SjH) + oy, args.Env.SjW, args.Env.SjH),//dst
                                 new Rectangle(ju * args.Env.SjW, 0, args.Env.SjW, args.Env.SjH),//src
                                 GraphicsUnit.Pixel
                                 );// 十の位
@@ -154,20 +155,20 @@ namespace Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C250____UtilPaint
 
             // 先手の持駒 （飛,角,金,銀,桂,香,歩）
             {
-                string[] signs = new string[] { "R", "B", "G", "S", "N", "L", "P" };
+                string[] signs = new string[] { "","","R", "B", "G", "S", "N", "L", "P" };
                 int ox = (args.Env.KmW + 2 * args.Env.SjW) + 9 * args.Env.KmW + BN_BRD_R_W;
                 int oy = (9 * args.Env.KmW + BN_BRD_B_W) - 7 * args.Env.KmH;
-                for (int moti = 0; moti < 7; moti++)
+                for (int iMoti = (int)Pieces.StartSente; iMoti < (int)Pieces.NumSente; iMoti++)
                 {
-                    Point pt = Util_KyokumenPngPainter.CropXyBySign(signs[moti], args);
+                    Point pt = Util_KyokumenPngPainter.CropXyBySign(signs[iMoti], args);
 
                     // 枚数
                     int player = 1;
-                    int maisu = args.Ro_Kyokumen1.Moti[player,moti];
+                    int maisu = args.Ro_Kyokumen1.MotiSu[iMoti];
                     if (0 < maisu)
                     {
                         g.DrawImage(Image.FromFile(args.Env.ImgFolder + args.Env.KmFile),
-                            new Rectangle(ox, moti * args.Env.KmH + oy, args.Env.KmW, args.Env.KmH),//dst
+                            new Rectangle(ox, (iMoti- (int)PieceTypes.Start) * args.Env.KmH + oy, args.Env.KmW, args.Env.KmH),//dst
                             new Rectangle(pt.X, pt.Y, args.Env.KmW, args.Env.KmH),//src
                             GraphicsUnit.Pixel
                             );//駒
@@ -180,7 +181,7 @@ namespace Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C250____UtilPaint
                                 ju = -1;//空桁
                             }
                             g.DrawImage(Image.FromFile(args.Env.ImgFolder + args.Env.SjFile),
-                                new Rectangle(ox + args.Env.KmW, moti * args.Env.KmH + (args.Env.KmH - args.Env.SjH) + oy, args.Env.SjW, args.Env.SjH),//dst
+                                new Rectangle(ox + args.Env.KmW, (iMoti - (int)PieceTypes.Start) * args.Env.KmH + (args.Env.KmH - args.Env.SjH) + oy, args.Env.SjW, args.Env.SjH),//dst
                                 new Rectangle(ju * args.Env.SjW, 0, args.Env.SjW, args.Env.SjH),//src
                                 GraphicsUnit.Pixel
                                 );// 十の位
@@ -190,7 +191,7 @@ namespace Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C250____UtilPaint
                         {
                             int ichi = maisu % 10;
                             g.DrawImage(Image.FromFile(args.Env.ImgFolder + args.Env.SjFile),
-                                new Rectangle(ox + args.Env.KmW + args.Env.SjW, moti * args.Env.KmH + (args.Env.KmH - args.Env.SjH) + oy, args.Env.SjW, args.Env.SjH),//dst
+                                new Rectangle(ox + args.Env.KmW + args.Env.SjW, (iMoti - (int)PieceTypes.Start) * args.Env.KmH + (args.Env.KmH - args.Env.SjH) + oy, args.Env.SjW, args.Env.SjH),//dst
                                 new Rectangle(ichi * args.Env.SjW, 0, args.Env.SjW, args.Env.SjH),//src
                                 GraphicsUnit.Pixel
                                 );// 一の位

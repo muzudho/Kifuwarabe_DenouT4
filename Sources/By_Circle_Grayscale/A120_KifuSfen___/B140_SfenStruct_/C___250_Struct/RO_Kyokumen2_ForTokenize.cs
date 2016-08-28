@@ -21,98 +21,10 @@ namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct
         string GetKomaAs(int suji, int dan);
 
         /// <summary>
-        /// 持駒▲王
+        /// 持駒の枚数。
         /// </summary>
-        int Moti1K { get; }
+        int[] MotiSu { get; }
 
-        /// <summary>
-        /// 持駒▲飛
-        /// </summary>
-        int Moti1R { get; }
-
-
-        /// <summary>
-        /// 持駒▲角
-        /// </summary>
-        int Moti1B { get; }
-
-
-        /// <summary>
-        /// 持駒▲金
-        /// </summary>
-        int Moti1G { get; }
-
-
-        /// <summary>
-        /// 持駒▲銀
-        /// </summary>
-        int Moti1S { get; }
-
-
-        /// <summary>
-        /// 持駒▲桂
-        /// </summary>
-        int Moti1N { get; }
-
-
-        /// <summary>
-        /// 持駒▲香
-        /// </summary>
-        int Moti1L { get; }
-
-
-        /// <summary>
-        /// 持駒▲歩
-        /// </summary>
-        int Moti1P { get; }
-
-
-        /// <summary>
-        /// 持駒△王
-        /// </summary>
-        int Moti2k { get; }
-
-
-        /// <summary>
-        /// 持駒△飛
-        /// </summary>
-        int Moti2r { get; }
-
-
-        /// <summary>
-        /// 持駒△角
-        /// </summary>
-        int Moti2b { get; }
-
-
-        /// <summary>
-        /// 持駒△金
-        /// </summary>
-        int Moti2g { get; }
-
-
-        /// <summary>
-        /// 持駒△銀
-        /// </summary>
-        int Moti2s { get; }
-
-
-        /// <summary>
-        /// 持駒△桂
-        /// </summary>
-        int Moti2n { get; }
-
-
-        /// <summary>
-        /// 持駒△香
-        /// </summary>
-        int Moti2l { get; }
-
-
-        /// <summary>
-        /// 持駒△歩
-        /// </summary>
-        int Moti2p { get; }
 
 
         /// <summary>

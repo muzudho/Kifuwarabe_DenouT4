@@ -257,7 +257,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat
                             sb.Append("    ");
                         }
                         // 大テーブル升は、P1。
-                        int p1Masu = Util_Masu10.ToMasuHandle_FromOkibaSujiDan(Okiba.ShogiBan, p1Suji, p1Dan);
+                        int p1Masu = Util_Masu10.ToMasuHandle_FromBanjoSujiDan( p1Suji, p1Dan);
 
                         //----------------------------------------
                         // p2 が ９筋～１筋
@@ -265,7 +265,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat
                         for (int p2Suji = 9; p2Suji > 0; p2Suji--)
                         {
                             // 小テーブル升は、P2。
-                            int p2Masu = Util_Masu10.ToMasuHandle_FromOkibaSujiDan(Okiba.ShogiBan, p2Suji, p2Dan);
+                            int p2Masu = Util_Masu10.ToMasuHandle_FromBanjoSujiDan( p2Suji, p2Dan);
 
                             int p1 = p1_base + p1Masu;
                             int p2 = p2Item.P2_base + p2Masu;
@@ -327,7 +327,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat
                 for (int p1Suji = 9; p1Suji > 0; p1Suji--)
                 {
                     // 任意駒の升
-                    int nMasu = Util_Masu10.ToMasuHandle_FromOkibaSujiDan(Okiba.ShogiBan, p1Suji, p1Dan);
+                    int nMasu = Util_Masu10.ToMasuHandle_FromBanjoSujiDan( p1Suji, p1Dan);
 
                     int p1 = p1_base + nMasu;
                     int p2 = p2Item.P2_base;

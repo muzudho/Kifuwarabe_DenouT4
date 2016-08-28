@@ -1,5 +1,6 @@
 ﻿using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
 using System.Text;
+using Grayscale.B140_SfenStruct_.C___250_Struct;
 
 namespace Grayscale.A120_KifuSfen___.B180_FormatSfen_.C260____Format
 {
@@ -68,191 +69,176 @@ namespace Grayscale.A120_KifuSfen___.B180_FormatSfen_.C260____Format
             // 持ち駒
             //------------------------------------------------------------
             {
-                int mK = 0;
-                int mR = 0;
-                int mB = 0;
-                int mG = 0;
-                int mS = 0;
-                int mN = 0;
-                int mL = 0;
-                int mP = 0;
-
-                int mk = 0;
-                int mr = 0;
-                int mb = 0;
-                int mg = 0;
-                int ms = 0;
-                int mn = 0;
-                int ml = 0;
-                int mp = 0;
-                ro_kyokumen1.GetMoti(
-                    out mK,
-                    out mR,
-                    out mB,
-                    out mG,
-                    out mS,
-                    out mN,
-                    out mL,
-                    out mP,
-
-                    out mk,
-                    out mr,
-                    out mb,
-                    out mg,
-                    out ms,
-                    out mn,
-                    out ml,
-                    out mp
+                /*
+                int[] motiSu;
+                ro_kyokumen1.GetMotiSu(
+                    out motiSu
                     );
+                    */
 
-
-
-                if (0 == mK + mR + mB + mG + mS + mN + mL + mP + mk + mr + mb + mg + ms + mn + ml + mp)
+                if (0 ==
+                    ro_kyokumen1.MotiSu[(int)Pieces.K] +
+                    ro_kyokumen1.MotiSu[(int)Pieces.R] +
+                    ro_kyokumen1.MotiSu[(int)Pieces.B] +
+                    ro_kyokumen1.MotiSu[(int)Pieces.G] +
+                    ro_kyokumen1.MotiSu[(int)Pieces.S] +
+                    ro_kyokumen1.MotiSu[(int)Pieces.N] +
+                    ro_kyokumen1.MotiSu[(int)Pieces.L] +
+                    ro_kyokumen1.MotiSu[(int)Pieces.P] +
+                    ro_kyokumen1.MotiSu[(int)Pieces.k] +
+                    ro_kyokumen1.MotiSu[(int)Pieces.r] +
+                    ro_kyokumen1.MotiSu[(int)Pieces.b] +
+                    ro_kyokumen1.MotiSu[(int)Pieces.g] +
+                    ro_kyokumen1.MotiSu[(int)Pieces.s] +
+                    ro_kyokumen1.MotiSu[(int)Pieces.n] +
+                    ro_kyokumen1.MotiSu[(int)Pieces.l] +
+                    ro_kyokumen1.MotiSu[(int)Pieces.p]
+                    )
                 {
                     sb.Append("-");
                 }
                 else
                 {
-                    if (0 < mK)
+                    if (0 < ro_kyokumen1.MotiSu[(int)Pieces.K])
                     {
-                        if (1 < mK)
+                        if (1 < ro_kyokumen1.MotiSu[(int)Pieces.K])
                         {
-                            sb.Append(mK);
+                            sb.Append(ro_kyokumen1.MotiSu[(int)Pieces.K]);
                         }
                         sb.Append("K");
                     }
 
-                    if (0 < mR)
+                    if (0 < ro_kyokumen1.MotiSu[(int)Pieces.R])
                     {
-                        if (1 < mR)
+                        if (1 < ro_kyokumen1.MotiSu[(int)Pieces.R])
                         {
-                            sb.Append(mR);
+                            sb.Append(ro_kyokumen1.MotiSu[(int)Pieces.R]);
                         }
                         sb.Append("R");
                     }
 
-                    if (0 < mB)
+                    if (0 < ro_kyokumen1.MotiSu[(int)Pieces.B])
                     {
-                        if (1 < mB)
+                        if (1 < ro_kyokumen1.MotiSu[(int)Pieces.B])
                         {
-                            sb.Append(mB);
+                            sb.Append(ro_kyokumen1.MotiSu[(int)Pieces.B]);
                         }
                         sb.Append("B");
                     }
 
-                    if (0 < mG)
+                    if (0 < ro_kyokumen1.MotiSu[(int)Pieces.G])
                     {
-                        if (1 < mG)
+                        if (1 < ro_kyokumen1.MotiSu[(int)Pieces.G])
                         {
-                            sb.Append(mG);
+                            sb.Append(ro_kyokumen1.MotiSu[(int)Pieces.G]);
                         }
                         sb.Append("G");
                     }
 
-                    if (0 < mS)
+                    if (0 < ro_kyokumen1.MotiSu[(int)Pieces.S])
                     {
-                        if (1 < mS)
+                        if (1 < ro_kyokumen1.MotiSu[(int)Pieces.S])
                         {
-                            sb.Append(mS);
+                            sb.Append(ro_kyokumen1.MotiSu[(int)Pieces.S]);
                         }
                         sb.Append("S");
                     }
 
-                    if (0 < mN)
+                    if (0 < ro_kyokumen1.MotiSu[(int)Pieces.N])
                     {
-                        if (1 < mN)
+                        if (1 < ro_kyokumen1.MotiSu[(int)Pieces.N])
                         {
-                            sb.Append(mN);
+                            sb.Append(ro_kyokumen1.MotiSu[(int)Pieces.N]);
                         }
                         sb.Append("N");
                     }
 
-                    if (0 < mL)
+                    if (0 < ro_kyokumen1.MotiSu[(int)Pieces.L])
                     {
-                        if (1 < mL)
+                        if (1 < ro_kyokumen1.MotiSu[(int)Pieces.L])
                         {
-                            sb.Append(mL);
+                            sb.Append(ro_kyokumen1.MotiSu[(int)Pieces.L]);
                         }
                         sb.Append("L");
                     }
 
-                    if (0 < mP)
+                    if (0 < ro_kyokumen1.MotiSu[(int)Pieces.P])
                     {
-                        if (1 < mP)
+                        if (1 < ro_kyokumen1.MotiSu[(int)Pieces.P])
                         {
-                            sb.Append(mP);
+                            sb.Append(ro_kyokumen1.MotiSu[(int)Pieces.P]);
                         }
                         sb.Append("P");
                     }
 
-                    if (0 < mk)
+                    if (0 < ro_kyokumen1.MotiSu[(int)Pieces.k])
                     {
-                        if (1 < mk)
+                        if (1 < ro_kyokumen1.MotiSu[(int)Pieces.k])
                         {
-                            sb.Append(mk);
+                            sb.Append(ro_kyokumen1.MotiSu[(int)Pieces.k]);
                         }
                         sb.Append("k");
                     }
 
-                    if (0 < mr)
+                    if (0 < ro_kyokumen1.MotiSu[(int)Pieces.r])
                     {
-                        if (1 < mr)
+                        if (1 < ro_kyokumen1.MotiSu[(int)Pieces.r])
                         {
-                            sb.Append(mr);
+                            sb.Append(ro_kyokumen1.MotiSu[(int)Pieces.r]);
                         }
                         sb.Append("r");
                     }
 
-                    if (0 < mb)
+                    if (0 < ro_kyokumen1.MotiSu[(int)Pieces.b])
                     {
-                        if (1 < mb)
+                        if (1 < ro_kyokumen1.MotiSu[(int)Pieces.b])
                         {
-                            sb.Append(mb);
+                            sb.Append(ro_kyokumen1.MotiSu[(int)Pieces.b]);
                         }
                         sb.Append("b");
                     }
 
-                    if (0 < mg)
+                    if (0 < ro_kyokumen1.MotiSu[(int)Pieces.g])
                     {
-                        if (1 < mg)
+                        if (1 < ro_kyokumen1.MotiSu[(int)Pieces.g])
                         {
-                            sb.Append(mg);
+                            sb.Append(ro_kyokumen1.MotiSu[(int)Pieces.g]);
                         }
                         sb.Append("g");
                     }
 
-                    if (0 < ms)
+                    if (0 < ro_kyokumen1.MotiSu[(int)PieceTypes.S])
                     {
-                        if (1 < ms)
+                        if (1 < ro_kyokumen1.MotiSu[(int)PieceTypes.S])
                         {
-                            sb.Append(ms);
+                            sb.Append(ro_kyokumen1.MotiSu[(int)PieceTypes.S]);
                         }
                         sb.Append("s");
                     }
 
-                    if (0 < mn)
+                    if (0 < ro_kyokumen1.MotiSu[(int)PieceTypes.N])
                     {
-                        if (1 < mn)
+                        if (1 < ro_kyokumen1.MotiSu[(int)PieceTypes.N])
                         {
-                            sb.Append(mn);
+                            sb.Append(ro_kyokumen1.MotiSu[(int)PieceTypes.N]);
                         }
                         sb.Append("n");
                     }
 
-                    if (0 < ml)
+                    if (0 < ro_kyokumen1.MotiSu[(int)PieceTypes.L])
                     {
-                        if (1 < ml)
+                        if (1 < ro_kyokumen1.MotiSu[(int)PieceTypes.L])
                         {
-                            sb.Append(ml);
+                            sb.Append(ro_kyokumen1.MotiSu[(int)PieceTypes.L]);
                         }
                         sb.Append("l");
                     }
 
-                    if (0 < mp)
+                    if (0 < ro_kyokumen1.MotiSu[(int)PieceTypes.P])
                     {
-                        if (1 < mp)
+                        if (1 < ro_kyokumen1.MotiSu[(int)PieceTypes.P])
                         {
-                            sb.Append(mp);
+                            sb.Append(ro_kyokumen1.MotiSu[(int)PieceTypes.P]);
                         }
                         sb.Append("p");
                     }

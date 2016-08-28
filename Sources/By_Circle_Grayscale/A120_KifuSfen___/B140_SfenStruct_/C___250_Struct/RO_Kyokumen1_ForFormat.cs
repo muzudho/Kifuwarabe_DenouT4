@@ -16,43 +16,13 @@ namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct
         string[,] Ban { get; set; }
 
         /// <summary>
-        /// 持ち駒の数。[player,komasyurui]
-        /// ここで、player は 1,2。0は使わない。
-        /// 駒の種類は [0]から、飛,角,金,銀,桂,香,歩 の順。
+        /// 駒の種類は [0]から、空っぽ,空っぽ,▲飛,▲角,▲金,▲銀,▲桂,▲香,▲歩,空っぽ,△飛,△角,△金,△銀,△桂,△香,△歩 の順。
         /// </summary>
-        int[,] Moti { get; set; }
+        int[] MotiSu { get; set; }
 
         /// <summary>
         /// 手目済み。初期局面を 0手目済み、初手を指した後の局面を 1手目済みとカウントします。
         /// </summary>
         int Temezumi { get; set; }
-
-        ///// <summary>
-        ///// 
-        ///// </summary>
-        ///// <param name="white">「w」なら真、「b」なら偽。</param>
-        ///// <returns></returns>
-        //string ToSfenstring(bool white);
-
-        void GetMoti(
-            out int mK,
-            out int mR,
-            out int mB,
-            out int mG,
-            out int mS,
-            out int mN,
-            out int mL,
-            out int mP,
-
-            out int mk,
-            out int mr,
-            out int mb,
-            out int mg,
-            out int ms,
-            out int mn,
-            out int ml,
-            out int mp
-        );
-
     }
 }

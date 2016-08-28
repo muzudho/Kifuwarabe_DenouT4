@@ -55,6 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="B140_SfenStruct_\C___250_Struct\n110_pieces.cs" />
+    <Compile Include="B140_SfenStruct_\C___250_Struct\n100_pieceTypes.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,8 +64,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="B180_FormatSfen_\C260____Format\Format_Kyokumen1.cs" />
-    <Compile Include="B160_ConvSfen___\C500____Converter\Conv_Sfenstring146.cs" />
-    <Compile Include="B160_ConvSfen___\C500____Converter\Conv_SfenMotigomaToken.cs" />
+    <Compile Include="B160_ConvSfen___\C500____Converter\Conv_Sfen.cs" />
     <Compile Include="B140_SfenStruct_\C___250_Struct\RO_Kyokumen1_ForFormat.cs" />
     <Compile Include="B140_SfenStruct_\C___250_Struct\RO_Kyokumen2_ForTokenize.cs" />
     <Compile Include="B140_SfenStruct_\C250____Struct\RO_Kyokumen1_ForFormatImpl.cs" />
@@ -72,7 +73,6 @@
     <Compile Include="B120_ConvSujiDan\C500____Converter\Conv_SujiDan.cs" />
     <Compile Include="B140_SfenStruct_\C500____Util\Util_RO_Kyokumen2.cs" />
     <Compile Include="B140_SfenStruct_\C250____Struct\Word_Sfen.cs" />
-    <Compile Include="B160_ConvSfen___\C500____Converter\Conv_SfenSasitesText.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

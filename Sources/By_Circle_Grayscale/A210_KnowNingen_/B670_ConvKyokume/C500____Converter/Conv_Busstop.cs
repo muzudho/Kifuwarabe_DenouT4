@@ -156,7 +156,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             //────────────────────────────────────────
 
             // 自
-            return Util_Masu10.OkibaSujiDanToMasu(okiba, suji, dan);
+            return Util_Masu10.DokokaSujiDanToMasu(okiba, suji, dan);
         }
 
         public static bool ToKomadai(Busstop busstop)

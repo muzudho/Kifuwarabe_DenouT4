@@ -114,7 +114,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C492____Widgets
             //
             this.this_object = new Shape_BtnMasuImpl(
                 this.Name,
-                Util_Masu10.OkibaSujiDanToMasu(
+                Util_Masu10.DokokaSujiDanToMasu(
                             this.Okiba,
                             this.Suji,
                             this.Dan

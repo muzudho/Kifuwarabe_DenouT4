@@ -81,8 +81,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             }
             else
             {
-                dstMasu = Util_Masu10.OkibaSujiDanToMasu(
-                    Okiba.ShogiBan,
+                dstMasu = Util_Masu10.BanjoSujiDanToMasu(
                     Conv_Suji.ToInt(strSuji),
                     Conv_Suji.ToInt(strDan)
                     );

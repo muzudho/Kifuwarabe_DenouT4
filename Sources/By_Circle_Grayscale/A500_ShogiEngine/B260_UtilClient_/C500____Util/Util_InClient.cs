@@ -32,7 +32,7 @@ namespace Grayscale.A500_ShogiEngine.B260_UtilClient_.C500____Util
             string old_inputLine = genjo.InputLine;//退避
             string rest;
             RO_Kyokumen2_ForTokenize ro_Kyokumen2_ForTokenize;
-            Conv_Sfenstring146.ToKyokumen2(
+            Conv_Sfen.ToKyokumen2(
                 genjo.InputLine,
                 out rest,
                 out ro_Kyokumen2_ForTokenize
