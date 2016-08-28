@@ -45,13 +45,28 @@ namespace Grayscale.A210_KnowNingen_.B550_JsaFugo____.C500____Util
             //------------------------------
             // “同”に変換せず、“筋・段”をそのまま出します。
             //------------------------------
-            int suji;
-            int dan;
-            Util_MasuNum.TryMasuToSuji(dstMasu, out suji);
-            Util_MasuNum.TryMasuToDan(dstMasu, out dan);
+            Okiba okiba2 = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(dstMasu));
+            if (okiba2 == Okiba.ShogiBan)
+            {
+                int suji;
+                int dan;
+                Util_MasuNum.TryBanjoMasuToSuji(dstMasu, out suji);
+                Util_MasuNum.TryBanjoMasuToDan(dstMasu, out dan);
 
-            sb.Append(Conv_Int.ToArabiaSuji(suji));
-            sb.Append(Conv_Int.ToKanSuji(dan));
+                sb.Append(Conv_Int.ToArabiaSuji(suji));
+                sb.Append(Conv_Int.ToKanSuji(dan));
+            }
+            else
+            {
+                int suji;
+                int dan;
+                Util_MasuNum.TryBangaiMasuToSuji(dstMasu, out suji);
+                Util_MasuNum.TryBangaiMasuToDan(dstMasu, out dan);
+
+                sb.Append(Conv_Int.ToArabiaSuji(suji));
+                sb.Append(Conv_Int.ToKanSuji(dan));
+            }
+
 
             //------------------------------
             // “歩”とか。“全”ではなく“成銀”    ＜符号用＞
@@ -128,11 +143,24 @@ namespace Grayscale.A210_KnowNingen_.B550_JsaFugo____.C500____Util
                 // “筋・段”
                 int suji;
                 int dan;
-                Util_MasuNum.TryMasuToSuji(dstMasu, out suji);
-                Util_MasuNum.TryMasuToDan(dstMasu, out dan);
 
-                sb.Append(Conv_Int.ToArabiaSuji(suji));
-                sb.Append(Conv_Int.ToKanSuji(dan));
+                Okiba okiba2 = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(dstMasu));
+                if (okiba2 == Okiba.ShogiBan)
+                {
+                    Util_MasuNum.TryBanjoMasuToSuji(dstMasu, out suji);
+                    Util_MasuNum.TryBanjoMasuToDan(dstMasu, out dan);
+
+                    sb.Append(Conv_Int.ToArabiaSuji(suji));
+                    sb.Append(Conv_Int.ToKanSuji(dan));
+                }
+                else
+                {
+                    Util_MasuNum.TryBangaiMasuToSuji(dstMasu, out suji);
+                    Util_MasuNum.TryBangaiMasuToDan(dstMasu, out dan);
+
+                    sb.Append(Conv_Int.ToArabiaSuji(suji));
+                    sb.Append(Conv_Int.ToKanSuji(dan));
+                }
             }
         gt_Next1:
             ;

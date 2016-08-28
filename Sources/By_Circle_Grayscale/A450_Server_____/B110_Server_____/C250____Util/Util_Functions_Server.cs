@@ -460,7 +460,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
                         koma_Food_after = Conv_Busstop.ToBusstop(
                             Playerside.P2,
-                            Util_Masu10.DokokaSujiDanToMasu(
+                            Util_Masu10.BangaiSujiDanToMasu(
                                 Okiba.Gote_Komadai,
                                 Util_Koma.CTRL_NOTHING_PROPERTY_SUJI,
                                 Util_Koma.CTRL_NOTHING_PROPERTY_DAN
@@ -493,7 +493,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
                         koma_Food_after = Conv_Busstop.ToBusstop(
                             Playerside.P1,
-                            Util_Masu10.DokokaSujiDanToMasu(
+                            Util_Masu10.BangaiSujiDanToMasu(
                                 Okiba.Sente_Komadai,
                                 Util_Koma.CTRL_NOTHING_PROPERTY_SUJI,
                                 Util_Koma.CTRL_NOTHING_PROPERTY_DAN

@@ -27,6 +27,7 @@ using System;
 using System.Text;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 
 namespace Grayscale.P699_Form_______
 {
@@ -528,10 +529,19 @@ namespace Grayscale.P699_Form_______
                     siteiSky.Foreach_Busstops((Finger finger, Busstop koma2, ref bool toBreak) =>
                     {
                         int suji2;
-                        Util_MasuNum.TryMasuToSuji(Conv_Busstop.ToMasu( koma2), out suji2);
-
                         int dan2;
-                        Util_MasuNum.TryMasuToDan(Conv_Busstop.ToMasu(koma2), out dan2);
+                        Okiba okiba = Conv_SyElement.ToOkiba(Conv_Busstop.ToMasu(koma2));
+                        if (okiba == Okiba.ShogiBan)
+                        {
+                            Util_MasuNum.TryBanjoMasuToSuji(Conv_Busstop.ToMasu(koma2), out suji2);
+                            Util_MasuNum.TryBanjoMasuToDan(Conv_Busstop.ToMasu(koma2), out dan2);
+                        }
+                        else
+                        {
+                            Util_MasuNum.TryBangaiMasuToSuji(Conv_Busstop.ToMasu(koma2), out suji2);
+                            Util_MasuNum.TryBangaiMasuToDan(Conv_Busstop.ToMasu(koma2), out dan2);
+                        }
+
 
                         if (
                             Conv_Busstop.ToOkiba(koma2) == Okiba.ShogiBan //盤上

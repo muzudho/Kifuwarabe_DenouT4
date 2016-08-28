@@ -12,36 +12,36 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C490____UtilSokutei
     {
 
         /// <summary>
-        /// 距離の近さ
+        /// 距離の近さ。盤上とします。
         /// </summary>
         /// <returns></returns>
-        public static int GetKyori(SyElement mokuhyo, SyElement genzai)
+        public static int GetBanjoKyori(SyElement mokuhyo, SyElement genzai)
         {
             int masuNumber = Conv_SyElement.ToMasuNumber(mokuhyo);
-            return Util_KomanoKyori.GetKyori(masuNumber, genzai);
+            return Util_KomanoKyori.GetBanjoKyori(masuNumber, genzai);
         }
 
         /// <summary>
-        /// 距離の近さ
+        /// 距離の近さ。盤上とします。
         /// </summary>
         /// <returns></returns>
-        public static int GetKyori(int masuNumber, SyElement genzai)
+        public static int GetBanjoKyori(int masuNumber, SyElement genzai)
         {
             //
             // とりあえず　おおざっぱに計算します。
             //
 
             int mokuhyoDan;
-            Util_MasuNum.TryMasuToDan(masuNumber, out mokuhyoDan);
+            Util_MasuNum.TryBanjoMasuToDan(masuNumber, out mokuhyoDan);
 
             int mokuhyoSuji;
-            Util_MasuNum.TryMasuToSuji(masuNumber, out mokuhyoSuji);
+            Util_MasuNum.TryBanjoMasuToSuji(masuNumber, out mokuhyoSuji);
 
             int genzaiDan;
-            Util_MasuNum.TryMasuToDan(genzai, out genzaiDan);
+            Util_MasuNum.TryBanjoMasuToDan(genzai, out genzaiDan);
 
             int genzaiSuji;
-            Util_MasuNum.TryMasuToSuji(genzai, out genzaiSuji);
+            Util_MasuNum.TryBanjoMasuToSuji(genzai, out genzaiSuji);
 
             int kyori = Math.Abs(mokuhyoDan - genzaiDan) + Math.Abs(mokuhyoSuji - genzaiSuji);
 

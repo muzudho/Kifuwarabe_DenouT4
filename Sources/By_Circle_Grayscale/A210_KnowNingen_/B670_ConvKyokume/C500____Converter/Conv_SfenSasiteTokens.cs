@@ -243,8 +243,9 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
 
                     dstSyurui = Conv_Busstop.ToKomasyurui(dstKoma);
                     srcSyurui = dstSyurui; //駒は「元・種類」を記憶していませんので、「現・種類」を指定します。
+
                     srcOkiba = Okiba.ShogiBan;
-                    srcMasu = Util_Masu10.DokokaSujiDanToMasu(srcOkiba, srcSuji, srcDan);
+                    srcMasu = Util_Masu10.BanjoSujiDanToMasu(srcSuji, srcDan);
                 }
 
 

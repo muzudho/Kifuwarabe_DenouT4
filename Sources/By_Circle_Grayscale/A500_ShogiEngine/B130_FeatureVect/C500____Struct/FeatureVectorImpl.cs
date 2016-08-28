@@ -6,6 +6,7 @@ using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using System.Text;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 #if DEBUG
 #endif
@@ -144,10 +145,21 @@ namespace Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct
             if (0 <= hMasu && hMasu < ConstShogi.BAN_SIZE)
             {
                 SyElement masu = Conv_MasuHandle.ToMasu(hMasu);
+
                 int suji;
-                Util_MasuNum.TryMasuToSuji(masu, out suji);
                 int dan;
-                Util_MasuNum.TryMasuToDan(masu, out dan);
+                Okiba okiba = Conv_SyElement.ToOkiba(masu);
+                if (okiba == Okiba.ShogiBan)
+                {
+                    Util_MasuNum.TryBanjoMasuToSuji(masu, out suji);
+                    Util_MasuNum.TryBanjoMasuToDan(masu, out dan);
+                }
+                else
+                {
+                    Util_MasuNum.TryBangaiMasuToSuji(masu, out suji);
+                    Util_MasuNum.TryBangaiMasuToDan(masu, out dan);
+                }
+
 
                 StringBuilder sb = new StringBuilder();
                 sb.Append(Conv_Int.ToArabiaSuji(suji));

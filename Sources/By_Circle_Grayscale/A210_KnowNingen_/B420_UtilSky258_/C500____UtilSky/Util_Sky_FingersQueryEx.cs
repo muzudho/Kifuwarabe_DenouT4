@@ -31,7 +31,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
 
             foreach (SyElement masu in srcList.Elements)
             {
-                Finger finger = Util_Sky_FingerQuery.InShogibanMasuNow(src_Sky, pside, masu, errH);
+                Finger finger = Util_Sky_FingerQuery.InMasuNow_FilteringBanjo(src_Sky, pside, masu, errH);
                 if (Util_Finger.ForHonshogi(finger))
                 {
                     // 指定の升に駒がありました。

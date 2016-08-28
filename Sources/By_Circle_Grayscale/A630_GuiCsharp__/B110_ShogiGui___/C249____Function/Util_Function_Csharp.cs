@@ -19,6 +19,7 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C060____TextBoxListener;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C101____Conv;
 using System.Drawing;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
 {
@@ -227,8 +228,19 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
 
             int suji;
             int dan;
-            Util_MasuNum.TryMasuToSuji(Conv_Busstop.ToMasu( koma), out suji);
-            Util_MasuNum.TryMasuToDan(Conv_Busstop.ToMasu(koma), out dan);
+
+            Okiba okiba = Conv_SyElement.ToOkiba(Conv_Busstop.ToMasu(koma));
+            if (okiba == Okiba.ShogiBan)
+            {
+                Util_MasuNum.TryBanjoMasuToSuji(Conv_Busstop.ToMasu(koma), out suji);
+                Util_MasuNum.TryBanjoMasuToDan(Conv_Busstop.ToMasu(koma), out dan);
+            }
+            else
+            {
+                Util_MasuNum.TryBangaiMasuToSuji(Conv_Busstop.ToMasu(koma), out suji);
+                Util_MasuNum.TryBangaiMasuToDan(Conv_Busstop.ToMasu(koma), out dan);
+            }
+
 
             switch (Conv_Busstop.ToOkiba(koma))
             {

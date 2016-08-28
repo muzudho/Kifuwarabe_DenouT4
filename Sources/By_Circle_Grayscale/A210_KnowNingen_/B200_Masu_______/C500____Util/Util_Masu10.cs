@@ -65,6 +65,7 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
 
         public const int ERROR_DAN = -1;
 
+        public const int ERROR_MASU_HANDLE = -1;
 
 
 
@@ -81,21 +82,17 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
             {
                 return (suji - 1) * Util_Masu10.SHOGIBAN_LAST_DAN + (dan - 1);
             }
-            return -1;
+            return ERROR_MASU_HANDLE;
         }
-        public static int ToMasuHandle_FromDokokaSujiDan(Okiba okiba, int suji, int dan)
+        public static int ToMasuHandle_FromBangaiSujiDan(Okiba okiba, int suji, int dan)
         {
-            int masuHandle = -1;
+            int masuHandle = ERROR_MASU_HANDLE;
 
             switch (okiba)
             {
+                /*
                 case Okiba.ShogiBan:
-                    if (1 <= suji && suji <= Util_Masu10.SHOGIBAN_LAST_SUJI && 1 <= dan && dan <= Util_Masu10.SHOGIBAN_LAST_DAN)
-                    {
-                        masuHandle = (suji - 1) * Util_Masu10.SHOGIBAN_LAST_DAN + (dan - 1);
-                    }
-                    break;
-
+                */
                 case Okiba.Sente_Komadai:
                 case Okiba.Gote_Komadai:
                 case Okiba.KomaBukuro:
@@ -133,9 +130,9 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
 
             return masu;
         }
-        public static SyElement DokokaSujiDanToMasu(Okiba okiba, int suji, int dan)
+        public static SyElement BangaiSujiDanToMasu(Okiba okiba, int suji, int dan)
         {
-            int masuHandle = Util_Masu10.ToMasuHandle_FromDokokaSujiDan(okiba, suji, dan);
+            int masuHandle = Util_Masu10.ToMasuHandle_FromBangaiSujiDan(okiba, suji, dan);
 
             SyElement masu = Masu_Honshogi.Query_Basho(Masu_Honshogi.nError);//範囲外が指定されることもあります。
 
@@ -166,8 +163,8 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
 
             int suji;
             int dan;
-            Util_MasuNum.TryMasuToSuji(masu, out suji);
-            Util_MasuNum.TryMasuToDan(masu, out dan);
+            Util_MasuNum.TryBanjoMasuToSuji(masu, out suji);
+            Util_MasuNum.TryBanjoMasuToDan(masu, out dan);
 
             return Util_Masu10.BanjoSujiDanToMasu(
                 suji + offsetSuji,
@@ -190,8 +187,8 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
         {
             int suji;
             int dan;
-            Util_MasuNum.TryMasuToSuji(masu, out suji);
-            Util_MasuNum.TryMasuToDan(masu, out dan);
+            Util_MasuNum.TryBanjoMasuToSuji(masu, out suji);
+            Util_MasuNum.TryBanjoMasuToDan(masu, out dan);
 
             return Util_Masu10.BanjoSujiDanToMasu(
                     suji + offsetSuji,
@@ -233,10 +230,10 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
         ///         先手は 1,2,3 段。
         /// </summary>
         /// <returns></returns>
-        public static bool InAitejin(SyElement masu, Playerside pside)
+        public static bool InBanjoAitejin(SyElement masu, Playerside pside)
         {
             int dan;
-            Util_MasuNum.TryMasuToDan(masu, out dan);
+            Util_MasuNum.TryBanjoMasuToDan(masu, out dan);
 
             return (Playerside.P2 == pside && 7 <= dan)
                 || (Playerside.P1 == pside && dan <= 3);
@@ -272,20 +269,20 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
 
 
         /// <summary>
-        /// 「２八」といった表記にして返します。
+        /// 盤上の位置を「２八」といった表記にして返します。
         /// 
         /// Conv_SyElement使用。
         /// </summary>
         /// <param name="masu"></param>
         /// <returns></returns>
-        public static string ToSujiKanji(SyElement masu)
+        public static string ToBanjoArabiaAndKanji(SyElement masu)
         {
             StringBuilder sb = new StringBuilder();
 
             int suji;
             int dan;
-            Util_MasuNum.TryMasuToSuji(masu, out suji);
-            Util_MasuNum.TryMasuToDan(masu, out dan);
+            Util_MasuNum.TryBanjoMasuToSuji(masu, out suji);
+            Util_MasuNum.TryBanjoMasuToDan(masu, out dan);
 
             sb.Append(Conv_Int.ToArabiaSuji(suji));
             sb.Append(Conv_Int.ToKanSuji(dan));

@@ -49,9 +49,9 @@ namespace Grayscale.A500_ShogiEngine.B160_ConvFv_____.C500____Converter
             }
 
             int kSuji;
-            Util_MasuNum.TryMasuToSuji(masu, out kSuji);
+            Util_MasuNum.TryBanjoMasuToSuji(masu, out kSuji);
             int kDan;
-            Util_MasuNum.TryMasuToDan(masu, out kDan);
+            Util_MasuNum.TryBanjoMasuToDan(masu, out kDan);
 
 
             int p1;

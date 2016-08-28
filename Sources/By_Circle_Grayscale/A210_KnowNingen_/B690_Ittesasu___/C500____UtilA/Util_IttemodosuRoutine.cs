@@ -283,7 +283,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             SyElement dstMasu = Conv_Move.ToDstMasu(move);
 
             // 動かす駒
-            figMovedKoma = Util_Sky_FingerQuery.InShogibanMasuNow(
+            figMovedKoma = Util_Sky_FingerQuery.InMasuNow_FilteringBanjo(
                 kaisi_Sky,
                 pside,
                 dstMasu,//[巻戻し]のときは、先位置が　駒の居場所。

@@ -257,7 +257,12 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             //────────────────────────────────────────
 
             // 自
-            return Util_Masu10.DokokaSujiDanToMasu(okiba, srcSuji, srcDan);
+            if (okiba == Okiba.ShogiBan)
+            {
+                return Util_Masu10.BanjoSujiDanToMasu(srcSuji, srcDan);
+            }
+            return Util_Masu10.BangaiSujiDanToMasu(okiba, srcSuji, srcDan);
+
         }
 
 
@@ -601,15 +606,33 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             bool errorCheck
             )
         {
-            Okiba srcOkiba = Conv_SyElement.ToOkiba(srcMasu);
             int srcSuji;
-            Util_MasuNum.TryMasuToSuji(srcMasu,out srcSuji);
             int srcDan;
-            Util_MasuNum.TryMasuToDan(srcMasu, out srcDan);
+            Okiba srcOkiba = Conv_SyElement.ToOkiba(srcMasu);
+            if (srcOkiba == Okiba.ShogiBan)
+            {
+                Util_MasuNum.TryBanjoMasuToSuji(srcMasu, out srcSuji);
+                Util_MasuNum.TryBanjoMasuToDan(srcMasu, out srcDan);
+            }
+            else
+            {
+                Util_MasuNum.TryBangaiMasuToSuji(srcMasu, out srcSuji);
+                Util_MasuNum.TryBangaiMasuToDan(srcMasu, out srcDan);
+            }
+
             int dstSuji;
-            Util_MasuNum.TryMasuToSuji(dstMasu, out dstSuji);
             int dstDan;
-            Util_MasuNum.TryMasuToDan(dstMasu, out dstDan);
+            Okiba dstOkiba = Conv_SyElement.ToOkiba(dstMasu);
+            if (dstOkiba == Okiba.ShogiBan)
+            {
+                Util_MasuNum.TryBanjoMasuToSuji(dstMasu, out dstSuji);
+                Util_MasuNum.TryBanjoMasuToDan(dstMasu, out dstDan);
+            }
+            else
+            {
+                Util_MasuNum.TryBangaiMasuToSuji(dstMasu, out dstSuji);
+                Util_MasuNum.TryBangaiMasuToDan(dstMasu, out dstDan);
+            }
 
             // バリュー
             int v = 0;
@@ -817,13 +840,13 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 srcMasuB = Conv_Move.ToSrcMasu(move);
                 //srcMasuB = Conv_MasuHandle.ToMasu((int)Conv_Move.ToSrcMasu(move));
                 sb.Append(" src=");
-                sb.Append(Util_Masu10.ToSujiKanji(srcMasuB));
+                sb.Append(Util_Masu10.ToBanjoArabiaAndKanji(srcMasuB));
             }
 
             // 至
             SyElement dstMasuB = Conv_Move.ToDstMasu(move);
             sb.Append(" dst=");
-            sb.Append(Util_Masu10.ToSujiKanji(dstMasuB));
+            sb.Append(Util_Masu10.ToBanjoArabiaAndKanji(dstMasuB));
 
             // 移動した駒の種類
             Komasyurui14 srcKomasyuruiB = Conv_Move.ToSrcKomasyurui(move);

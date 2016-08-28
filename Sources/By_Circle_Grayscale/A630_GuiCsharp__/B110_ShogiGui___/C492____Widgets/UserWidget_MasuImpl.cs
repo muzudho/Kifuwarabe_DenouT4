@@ -4,6 +4,7 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___491_Event;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___492_Widgets;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape;
 using System.Drawing;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C492____Widgets
 {
@@ -108,17 +109,32 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C492____Widgets
 
         public void Compile()
         {
+            SyElement srcMasu;
+
+            if (this.Okiba == Okiba.ShogiBan)
+            {
+                srcMasu = Util_Masu10.BanjoSujiDanToMasu(
+                            this.Suji,
+                            this.Dan
+                );
+            }
+            else
+            {
+                srcMasu = Util_Masu10.BangaiSujiDanToMasu(
+                            this.Okiba,
+                            this.Suji,
+                            this.Dan
+                );
+            }
+
+
             //
             // 初回は、ダミーオブジェクトにプロパティが設定されています。
             // その設定を使って、再作成します。
             //
             this.this_object = new Shape_BtnMasuImpl(
                 this.Name,
-                Util_Masu10.DokokaSujiDanToMasu(
-                            this.Okiba,
-                            this.Suji,
-                            this.Dan
-                ),
+                srcMasu,
                 this.Bounds.X,
                 this.Bounds.Y,
                 this.Bounds.Width,

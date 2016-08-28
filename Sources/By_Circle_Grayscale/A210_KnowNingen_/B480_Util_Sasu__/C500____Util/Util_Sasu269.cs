@@ -110,13 +110,13 @@ namespace Grayscale.A210_KnowNingen_.B480_Util_Sasu__.C500____Util
             }
 
             int srcDan;
-            if (!Util_MasuNum.TryMasuToDan(srcMasu, out srcDan))
+            if (!Util_MasuNum.TryDokokaMasuToDan(srcMasu, out srcDan))
             {
                 throw new Exception("段に変換失敗");
             }
 
             int dstDan;
-            if (!Util_MasuNum.TryMasuToDan(dstMasu, out dstDan))
+            if (!Util_MasuNum.TryDokokaMasuToDan(dstMasu, out dstDan))
             {
                 throw new Exception("段に変換失敗");
             }

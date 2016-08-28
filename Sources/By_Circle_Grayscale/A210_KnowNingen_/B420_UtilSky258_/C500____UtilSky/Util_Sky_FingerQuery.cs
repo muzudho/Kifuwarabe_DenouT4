@@ -30,7 +30,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="masu">筋、段</param>
         /// <param name="uc_Main">メインパネル</param>
         /// <returns>駒。無ければヌル。</returns>
-        public static Finger InMasuNow(SkyConst src_Sky, Playerside pside, SyElement masu, KwErrorHandler errH)
+        public static Finger InBanjoMasuNow(SkyConst src_Sky, Playerside pside, SyElement masu, KwErrorHandler errH)
         {
             Finger foundKoma = Fingers.Error_1;
 
@@ -43,10 +43,10 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
                 int suji2;
                 int dan1;
                 int dan2;
-                Util_MasuNum.TryMasuToSuji(Conv_Busstop.ToMasu( koma), out suji1);
-                Util_MasuNum.TryMasuToSuji(masu, out suji2);
-                Util_MasuNum.TryMasuToDan(Conv_Busstop.ToMasu(koma), out dan1);
-                Util_MasuNum.TryMasuToDan(masu, out dan2);
+                Util_MasuNum.TryBanjoMasuToSuji(Conv_Busstop.ToMasu( koma), out suji1);
+                Util_MasuNum.TryBanjoMasuToSuji(masu, out suji2);
+                Util_MasuNum.TryBanjoMasuToDan(Conv_Busstop.ToMasu(koma), out dan1);
+                Util_MasuNum.TryBanjoMasuToDan(masu, out dan2);
 
                 if (
                     Conv_Busstop.ToPlayerside(koma) == pside
@@ -108,7 +108,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="masu">筋、段</param>
         /// <param name="uc_Main">メインパネル</param>
         /// <returns>駒。無ければヌル。</returns>
-        public static Finger InShogibanMasuNow(SkyConst src_Sky, Playerside pside, SyElement masu, KwErrorHandler errH)
+        public static Finger InMasuNow_FilteringBanjo(SkyConst src_Sky, Playerside pside, SyElement masu, KwErrorHandler errH)
         {
             Finger foundKoma = Fingers.Error_1;
 
@@ -117,27 +117,28 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
                 src_Sky.AssertFinger(finger);
                 Busstop koma = src_Sky.BusstopIndexOf(finger);
 
-                int suji1;
-                int suji2;
-                int dan1;
-                int dan2;
-                Util_MasuNum.TryMasuToSuji(Conv_Busstop.ToMasu(koma), out suji1);
-                Util_MasuNum.TryMasuToSuji(masu, out suji2);
-                Util_MasuNum.TryMasuToDan(Conv_Busstop.ToMasu(koma), out dan1);
-                Util_MasuNum.TryMasuToDan(masu, out dan2);
-
                 // 先後は見ますが、将棋盤限定です。
-                if (
-                    Conv_Busstop.ToPlayerside( koma) == pside
-                    && Conv_Busstop.ToOkiba(koma) == Okiba.ShogiBan
-                    && suji1 == suji2
-                    && dan1 == dan2
-                    )
+                if (Conv_Busstop.ToOkiba(koma) == Okiba.ShogiBan)
                 {
-                    foundKoma = finger;
-                    break;
-                }
+                    int suji1;
+                    int suji2;
+                    int dan1;
+                    int dan2;
+                    Util_MasuNum.TryBanjoMasuToSuji(Conv_Busstop.ToMasu(koma), out suji1);
+                    Util_MasuNum.TryBanjoMasuToSuji(masu, out suji2);
+                    Util_MasuNum.TryBanjoMasuToDan(Conv_Busstop.ToMasu(koma), out dan1);
+                    Util_MasuNum.TryBanjoMasuToDan(masu, out dan2);
 
+                    if (
+                        Conv_Busstop.ToPlayerside(koma) == pside
+                        && suji1 == suji2
+                        && dan1 == dan2
+                        )
+                    {
+                        foundKoma = finger;
+                        break;
+                    }
+                }
             }
 
             return foundKoma;

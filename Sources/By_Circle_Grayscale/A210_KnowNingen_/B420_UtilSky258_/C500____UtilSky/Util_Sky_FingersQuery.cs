@@ -254,7 +254,17 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
                 Busstop koma2 = src_Sky.BusstopIndexOf(finger);
 
                 int suji2;
-                Util_MasuNum.TryMasuToSuji(Conv_Busstop.ToMasu( koma2), out suji2);
+
+                Okiba okiba2 = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu(koma2)));
+                if (okiba2 == Okiba.ShogiBan)
+                {
+                    Util_MasuNum.TryBanjoMasuToSuji(Conv_Busstop.ToMasu(koma2), out suji2);
+                }
+                else
+                {
+                    Util_MasuNum.TryBangaiMasuToSuji(Conv_Busstop.ToMasu(koma2), out suji2);
+                }
+
 
                 if (
                     Conv_Busstop.ToOkiba(koma2)==okiba

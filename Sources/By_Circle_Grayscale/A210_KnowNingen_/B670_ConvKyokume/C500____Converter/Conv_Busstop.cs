@@ -59,15 +59,32 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             int v = 0;
 
             int suji;
-            if(!Util_MasuNum.TryMasuToSuji(masu, out suji))
-            {
-                errorCheck = 1;
-            }
-
             int dan;
-            if (!Util_MasuNum.TryMasuToDan(masu, out dan))
+
+            Okiba okiba2 = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(masu));
+            if (okiba2 == Okiba.ShogiBan)
             {
-                errorCheck = 1;
+                if (!Util_MasuNum.TryBanjoMasuToSuji(masu, out suji))
+                {
+                    errorCheck = 1;
+                }
+
+                if (!Util_MasuNum.TryBanjoMasuToDan(masu, out dan))
+                {
+                    errorCheck = 1;
+                }
+            }
+            else
+            {
+                if (!Util_MasuNum.TryBangaiMasuToSuji(masu, out suji))
+                {
+                    errorCheck = 1;
+                }
+
+                if (!Util_MasuNum.TryBangaiMasuToDan(masu, out dan))
+                {
+                    errorCheck = 1;
+                }
             }
 
             int komasyurui2 = (int)komasyrui;
@@ -156,7 +173,11 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             //────────────────────────────────────────
 
             // 自
-            return Util_Masu10.DokokaSujiDanToMasu(okiba, suji, dan);
+            if (okiba==Okiba.ShogiBan)
+            {
+                return Util_Masu10.BanjoSujiDanToMasu(suji, dan);
+            }
+            return Util_Masu10.BangaiSujiDanToMasu(okiba, suji, dan);
         }
 
         public static bool ToKomadai(Busstop busstop)

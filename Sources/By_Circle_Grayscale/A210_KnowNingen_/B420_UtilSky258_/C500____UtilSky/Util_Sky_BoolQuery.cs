@@ -33,7 +33,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
 
             foreach (SyElement masu in masus.Elements)
             {
-                Finger finger = Util_Sky_FingerQuery.InShogibanMasuNow(src_Sky, pside, masu, errH);
+                Finger finger = Util_Sky_FingerQuery.InMasuNow_FilteringBanjo(src_Sky, pside, masu, errH);
 
                 if (
                     finger != Fingers.Error_1  //2014-07-21 先後も見るように追記。
@@ -63,9 +63,9 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
 
             return (Util_Sky_BoolQuery.IsGote(move) && 7 <= dstDan) || (Util_Sky_BoolQuery.IsSente(move) && dstDan <= 3);
         }
-        public static bool InAitejin(SyElement dstMasu, Playerside pside)
+        public static bool InBanjoAitejin(SyElement dstMasu, Playerside pside)
         {
-            return Util_Masu10.InAitejin(dstMasu, pside);
+            return Util_Masu10.InBanjoAitejin(dstMasu, pside);
         }
 
         /// <summary>
@@ -234,16 +234,44 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
             SyElement srcMasu = Conv_Move.ToSrcMasu(move);
             SyElement dstMasu = Conv_Move.ToDstMasu(move);
 
-            int srcDan;
-            if (!Util_MasuNum.TryMasuToDan(srcMasu, out srcDan))
+            Okiba okiba;
+
+            // src
+            okiba = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(srcMasu));
+            if (okiba == Okiba.ShogiBan)
             {
-                enable = false;
+                int srcDan;
+                if (!Util_MasuNum.TryBanjoMasuToDan(srcMasu, out srcDan))
+                {
+                    enable = false;
+                }
+            }
+            else
+            {
+                int srcDan;
+                if (!Util_MasuNum.TryBangaiMasuToDan(srcMasu, out srcDan))
+                {
+                    enable = false;
+                }
             }
 
-            int dan;
-            if (!Util_MasuNum.TryMasuToDan(dstMasu, out dan))
+            // dst
+            okiba = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(dstMasu));
+            if (okiba == Okiba.ShogiBan)
             {
-                enable = false;
+                int dan;
+                if (!Util_MasuNum.TryBanjoMasuToDan(dstMasu, out dan))
+                {
+                    enable = false;
+                }
+            }
+            else
+            {
+                int dan;
+                if (!Util_MasuNum.TryBangaiMasuToDan(dstMasu, out dan))
+                {
+                    enable = false;
+                }
             }
 
             return enable;

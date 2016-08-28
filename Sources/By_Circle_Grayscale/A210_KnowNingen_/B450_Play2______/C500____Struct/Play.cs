@@ -125,7 +125,7 @@ namespace Grayscale.A210_KnowNingen_.B450_Play2______.C500____Struct
                     src_Sky.AssertFinger(figBanjoJiFu);
                     Busstop banjoJiFu = src_Sky.BusstopIndexOf(figBanjoJiFu);
                     int suji;//1～9
-                    Util_MasuNum.TryMasuToSuji(Conv_Busstop.ToMasu( banjoJiFu), out suji);
+                    Util_MasuNum.TryBanjoMasuToSuji(Conv_Busstop.ToMasu( banjoJiFu), out suji);
                     existsFu_sujibetu[suji] = true;
                 }
 

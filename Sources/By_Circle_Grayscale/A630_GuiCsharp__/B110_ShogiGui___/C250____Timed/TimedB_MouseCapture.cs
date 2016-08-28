@@ -714,9 +714,9 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma) && Util_Sky_BoolQuery.IsNareruKoma(Conv_Busstop.ToKomasyurui(koma))
                                                     &&
                                                     (
-                                                        Util_Masu10.InAitejin(btnSasitaiMasu.Zahyo, mainGui.Link_Server.Model_Taikyoku.Kifu.CurNode.Value.KyokumenConst.KaisiPside)
+                                                        Util_Masu10.InBanjoAitejin(btnSasitaiMasu.Zahyo, mainGui.Link_Server.Model_Taikyoku.Kifu.CurNode.Value.KyokumenConst.KaisiPside)
                                                         ||
-                                                        Util_Sky_BoolQuery.InAitejin(Conv_Busstop.ToMasu( koma),Conv_Busstop.ToPlayerside( koma))
+                                                        Util_Sky_BoolQuery.InBanjoAitejin(Conv_Busstop.ToMasu( koma),Conv_Busstop.ToPlayerside( koma))
                                                     )
                                                 )
                                             {

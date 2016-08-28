@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 
 namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util
 {
@@ -31,13 +33,28 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util
                 {
                     int suji;
                     int dan;
-                    Util_MasuNum.TryMasuToSuji(hMasu1, out suji);
-                    Util_MasuNum.TryMasuToDan(hMasu1, out dan);
 
-                    sb.Append("["
-                        + suji.ToString()
-                        + dan.ToString()
-                        + "]");
+                    Okiba okiba = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(hMasu1));
+                    if (okiba == Okiba.ShogiBan)
+                    {
+                        Util_MasuNum.TryBanjoMasuToSuji(hMasu1, out suji);
+                        Util_MasuNum.TryBanjoMasuToDan(hMasu1, out dan);
+
+                        sb.Append("["
+                            + suji.ToString()
+                            + dan.ToString()
+                            + "]");
+                    }
+                    else
+                    {
+                        Util_MasuNum.TryBangaiMasuToSuji(hMasu1, out suji);
+                        Util_MasuNum.TryBangaiMasuToDan(hMasu1, out dan);
+
+                        sb.Append("["
+                            + suji.ToString()
+                            + dan.ToString()
+                            + "]");
+                    }
                 }
 
                 // 次に親集合
@@ -53,13 +70,28 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util
                 {
                     int suji;
                     int dan;
-                    Util_MasuNum.TryMasuToSuji(hMasu1, out suji);
-                    Util_MasuNum.TryMasuToDan(hMasu1, out dan);
 
-                    sb.Append("["
-                        + suji.ToString()
-                        + dan.ToString()
-                        + "]");
+                    Okiba okiba = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(hMasu1));
+                    if (okiba == Okiba.ShogiBan)
+                    {
+                        Util_MasuNum.TryBanjoMasuToSuji(hMasu1, out suji);
+                        Util_MasuNum.TryBanjoMasuToDan(hMasu1, out dan);
+
+                        sb.Append("["
+                            + suji.ToString()
+                            + dan.ToString()
+                            + "]");
+                    }
+                    else
+                    {
+                        Util_MasuNum.TryBangaiMasuToSuji(hMasu1, out suji);
+                        Util_MasuNum.TryBangaiMasuToDan(hMasu1, out dan);
+
+                        sb.Append("["
+                            + suji.ToString()
+                            + dan.ToString()
+                            + "]");
+                    }
                 }
 
                 // 次に親集合
@@ -76,13 +108,28 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util
                 {
                     int suji;
                     int dan;
-                    Util_MasuNum.TryMasuToSuji(hMasu1, out suji);
-                    Util_MasuNum.TryMasuToDan(hMasu1, out dan);
 
-                    sb.Append(
-                        suji.ToString()
-                        + dan.ToString()
-                        + "→");
+                    Okiba okiba = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(hMasu1));
+                    if (okiba == Okiba.ShogiBan)
+                    {
+                        Util_MasuNum.TryBanjoMasuToSuji(hMasu1, out suji);
+                        Util_MasuNum.TryBanjoMasuToDan(hMasu1, out dan);
+
+                        sb.Append(
+                            suji.ToString()
+                            + dan.ToString()
+                            + "→");
+                    }
+                    else
+                    {
+                        Util_MasuNum.TryBangaiMasuToSuji(hMasu1, out suji);
+                        Util_MasuNum.TryBangaiMasuToDan(hMasu1, out dan);
+
+                        sb.Append(
+                            suji.ToString()
+                            + dan.ToString()
+                            + "→");
+                    }
                 }
 
                 // 最後の矢印は削除します。
@@ -156,13 +203,28 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util
                 {
                     int suji;
                     int dan;
-                    Util_MasuNum.TryMasuToSuji(hMasu1, out suji);
-                    Util_MasuNum.TryMasuToDan(hMasu1, out dan);
 
-                    sb.Append("["
-                        + suji.ToString()
-                        + dan.ToString()
-                        + "]");
+                    Okiba okiba = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(hMasu1));
+                    if (okiba == Okiba.ShogiBan)
+                    {
+                        Util_MasuNum.TryBanjoMasuToSuji(hMasu1, out suji);
+                        Util_MasuNum.TryBanjoMasuToDan(hMasu1, out dan);
+
+                        sb.Append("["
+                            + suji.ToString()
+                            + dan.ToString()
+                            + "]");
+                    }
+                    else
+                    {
+                        Util_MasuNum.TryBangaiMasuToSuji(hMasu1, out suji);
+                        Util_MasuNum.TryBangaiMasuToDan(hMasu1, out dan);
+
+                        sb.Append("["
+                            + suji.ToString()
+                            + dan.ToString()
+                            + "]");
+                    }
                 }
 
                 // 次に親集合
@@ -179,13 +241,28 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util
                 {
                     int suji;
                     int dan;
-                    Util_MasuNum.TryMasuToSuji(hMasu1, out suji);
-                    Util_MasuNum.TryMasuToDan(hMasu1, out dan);
 
-                    sb.Append(
-                        suji.ToString()
-                        + dan.ToString()
-                        + "→");
+                    Okiba okiba = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(hMasu1));
+                    if (okiba == Okiba.ShogiBan)
+                    {
+                        Util_MasuNum.TryBanjoMasuToSuji(hMasu1, out suji);
+                        Util_MasuNum.TryBanjoMasuToDan(hMasu1, out dan);
+
+                        sb.Append(
+                            suji.ToString()
+                            + dan.ToString()
+                            + "→");
+                    }
+                    else
+                    {
+                        Util_MasuNum.TryBangaiMasuToSuji(hMasu1, out suji);
+                        Util_MasuNum.TryBangaiMasuToDan(hMasu1, out dan);
+
+                        sb.Append(
+                            suji.ToString()
+                            + dan.ToString()
+                            + "→");
+                    }
                 }
 
                 // 最後の矢印は削除します。

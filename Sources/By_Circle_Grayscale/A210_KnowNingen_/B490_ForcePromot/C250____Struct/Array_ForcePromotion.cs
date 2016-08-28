@@ -137,7 +137,7 @@ namespace Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct
                 foreach (KeyValuePair<int, Komahaiyaku185> entry2 in entry1.Value)
                 {
                     sb.Append(
-                        Util_Masu10.ToSujiKanji(Masu_Honshogi.Query_Basho(entry2.Key))
+                        Util_Masu10.ToBanjoArabiaAndKanji(Masu_Honshogi.Query_Basho(entry2.Key))
                         );
                     sb.Append(".");
                     sb.Append(entry2.Value);

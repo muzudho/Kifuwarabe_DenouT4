@@ -99,14 +99,14 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     else
                     {
                         // 盤上の駒。
-                        figSrcKoma = Util_Sky_FingerQuery.InMasuNow(kaisi_Sky, pside, srcMasu, errH);
+                        figSrcKoma = Util_Sky_FingerQuery.InBanjoMasuNow(kaisi_Sky, pside, srcMasu, errH);
                     }
                     kaisi_Sky.AssertFinger(figSrcKoma);
                     Busstop srcKoma = kaisi_Sky.BusstopIndexOf(figSrcKoma);
 
                     // 先位置
                     SyElement dstMasu = Util_CsaSasite.ToDstMasu(csaSasite);
-                    Finger figFoodKoma = Util_Sky_FingerQuery.InShogibanMasuNow(kaisi_Sky, pside, dstMasu, errH);
+                    Finger figFoodKoma = Util_Sky_FingerQuery.InMasuNow_FilteringBanjo(kaisi_Sky, pside, dstMasu, errH);
                     Komasyurui14 foodKomasyurui;
                     if (figFoodKoma == Fingers.Error_1)
                     {

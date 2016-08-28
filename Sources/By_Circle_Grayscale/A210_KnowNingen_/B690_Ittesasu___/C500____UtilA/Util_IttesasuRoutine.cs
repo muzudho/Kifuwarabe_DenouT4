@@ -375,7 +375,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     Playerside pside = Conv_Move.ToPlayerside(move);
 
                     exceptionArea = 99003100;
-                    figMovedKoma = Util_Sky_FingerQuery.InShogibanMasuNow(
+                    figMovedKoma = Util_Sky_FingerQuery.InMasuNow_FilteringBanjo(
                         kaisi_Sky,
                         pside,
                         srcMasu,// 将棋盤上と確定している☆（＾▽＾）
