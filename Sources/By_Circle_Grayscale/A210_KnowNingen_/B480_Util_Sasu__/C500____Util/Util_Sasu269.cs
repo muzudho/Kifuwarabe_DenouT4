@@ -110,16 +110,39 @@ namespace Grayscale.A210_KnowNingen_.B480_Util_Sasu__.C500____Util
             }
 
             int srcDan;
-            if (!Util_MasuNum.TryDokokaMasuToDan(srcMasu, out srcDan))
+            Okiba srcOkiba = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(srcMasu));
+            if (srcOkiba==Okiba.ShogiBan)
             {
-                throw new Exception("段に変換失敗");
+                if (!Util_MasuNum.TryBanjoMasuToDan(srcMasu, out srcDan))
+                {
+                    throw new Exception("段に変換失敗");
+                }
+            }
+            else
+            {
+                if (!Util_MasuNum.TryBangaiMasuToDan(srcMasu, out srcDan))
+                {
+                    throw new Exception("段に変換失敗");
+                }
             }
 
             int dstDan;
-            if (!Util_MasuNum.TryDokokaMasuToDan(dstMasu, out dstDan))
+            Okiba dstOkiba = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(dstMasu));
+            if (dstOkiba == Okiba.ShogiBan)
             {
-                throw new Exception("段に変換失敗");
+                if (!Util_MasuNum.TryBanjoMasuToDan(dstMasu, out dstDan))
+                {
+                    throw new Exception("段に変換失敗");
+                }
             }
+            else
+            {
+                if (!Util_MasuNum.TryBangaiMasuToDan(dstMasu, out dstDan))
+                {
+                    throw new Exception("段に変換失敗");
+                }
+            }
+
 
             // 先手か、後手かで大きく処理を分けます。
             switch (pside)

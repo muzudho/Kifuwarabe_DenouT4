@@ -8,13 +8,14 @@ using System.Linq;
 using System.Text;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.B140_SfenStruct_.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
 
 namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util
 {
     public abstract class Util_Masus<T1>
         where T1 : SyElement
     {
-
 
         /// <summary>
         /// 筋も残し、全件網羅
@@ -31,12 +32,11 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util
                 // まず自分の要素
                 foreach (SyElement hMasu1 in ((SySet_Default<SyElement>)masus).Elements_)
                 {
-                    int suji;
-                    int dan;
-
                     Okiba okiba = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(hMasu1));
                     if (okiba == Okiba.ShogiBan)
                     {
+                        int suji;
+                        int dan;
                         Util_MasuNum.TryBanjoMasuToSuji(hMasu1, out suji);
                         Util_MasuNum.TryBanjoMasuToDan(hMasu1, out dan);
 
@@ -47,12 +47,13 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util
                     }
                     else
                     {
-                        Util_MasuNum.TryBangaiMasuToSuji(hMasu1, out suji);
-                        Util_MasuNum.TryBangaiMasuToDan(hMasu1, out dan);
+                        // TODO: まだ使えない☆（＾～＾）
+                        Pieces piece;
+                        Util_MasuNum.TryBangaiMasuToPiece(hMasu1, out piece);
 
                         sb.Append("["
-                            + suji.ToString()
-                            + dan.ToString()
+                            +
+                            Util_Komasyurui14.NimojiPieces[(int)piece]
                             + "]");
                     }
                 }
@@ -84,12 +85,13 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util
                     }
                     else
                     {
-                        Util_MasuNum.TryBangaiMasuToSuji(hMasu1, out suji);
-                        Util_MasuNum.TryBangaiMasuToDan(hMasu1, out dan);
+                        // TODO: まだ使えない☆（＾～＾）
+                        Pieces piece;
+                        Util_MasuNum.TryBangaiMasuToPiece(hMasu1, out piece);
 
                         sb.Append("["
-                            + suji.ToString()
-                            + dan.ToString()
+                            +
+                            Util_Komasyurui14.NimojiPieces[(int)piece]
                             + "]");
                     }
                 }
@@ -122,12 +124,12 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util
                     }
                     else
                     {
-                        Util_MasuNum.TryBangaiMasuToSuji(hMasu1, out suji);
-                        Util_MasuNum.TryBangaiMasuToDan(hMasu1, out dan);
+                        // TODO: まだ使えない☆（＾～＾）
+                        Pieces piece;
+                        Util_MasuNum.TryBangaiMasuToPiece(hMasu1, out piece);
 
                         sb.Append(
-                            suji.ToString()
-                            + dan.ToString()
+                            Util_Komasyurui14.NimojiPieces[(int)piece]
                             + "→");
                     }
                 }
@@ -217,12 +219,13 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util
                     }
                     else
                     {
-                        Util_MasuNum.TryBangaiMasuToSuji(hMasu1, out suji);
-                        Util_MasuNum.TryBangaiMasuToDan(hMasu1, out dan);
+                        // TODO: まだ使えない☆（＾～＾）
+                        Pieces piece;
+                        Util_MasuNum.TryBangaiMasuToPiece(hMasu1, out piece);
 
                         sb.Append("["
-                            + suji.ToString()
-                            + dan.ToString()
+                            +
+                            Util_Komasyurui14.NimojiPieces[(int)piece]
                             + "]");
                     }
                 }
@@ -255,12 +258,12 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util
                     }
                     else
                     {
-                        Util_MasuNum.TryBangaiMasuToSuji(hMasu1, out suji);
-                        Util_MasuNum.TryBangaiMasuToDan(hMasu1, out dan);
+                        // TODO: まだ使えない☆（＾～＾）
+                        Pieces piece;
+                        Util_MasuNum.TryBangaiMasuToPiece(hMasu1, out piece);
 
                         sb.Append(
-                            suji.ToString()
-                            + dan.ToString()
+                            Util_Komasyurui14.NimojiPieces[(int)piece]
                             + "→");
                     }
                 }

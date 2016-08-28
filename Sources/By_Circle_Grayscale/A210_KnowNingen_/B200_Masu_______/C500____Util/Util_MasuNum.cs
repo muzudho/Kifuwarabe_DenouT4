@@ -1,6 +1,7 @@
 ﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.B140_SfenStruct_.C___250_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
 {
@@ -22,10 +23,27 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
             int masuNumber = Conv_SyElement.ToMasuNumber(masu);
             return Util_MasuNum.TryBanjoMasuToSuji(masuNumber, out result);
         }
+        /// <summary>
+        /// TODO: 廃止予定
+        /// </summary>
+        /// <param name="masu"></param>
+        /// <param name="result"></param>
+        /// <returns></returns>
         public static bool TryBangaiMasuToSuji(SyElement masu, out int result)
         {
             int masuNumber = Conv_SyElement.ToMasuNumber(masu);
             return Util_MasuNum.TryBangaiMasuToSuji(masuNumber, out result);
+        }
+        /// <summary>
+        /// TODO: 今後こちらに置き換えていく予定。まだ使えない。
+        /// </summary>
+        /// <param name="masu"></param>
+        /// <param name="result"></param>
+        /// <returns></returns>
+        public static bool TryBangaiMasuToPiece(SyElement masu, out Pieces result)
+        {
+            int masuNumber = Conv_SyElement.ToMasuNumber(masu);
+            return Util_MasuNum.TryBangaiMasuToPiece(masuNumber, out result);
         }
 
         public static int FirstMasu_Shogiban { get { return Conv_SyElement.ToMasuNumber(Conv_Okiba.GetFirstMasuFromOkiba(Okiba.ShogiBan)); } }
@@ -43,6 +61,12 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
             result = (masuNumber - Util_MasuNum.FirstMasu_Shogiban) / 9 + 1;
             return true;
         }
+        /// <summary>
+        /// TODO: 廃止予定。
+        /// </summary>
+        /// <param name="masuNumber"></param>
+        /// <param name="result"></param>
+        /// <returns></returns>
         public static bool TryBangaiMasuToSuji(int masuNumber, out int result)
         {
             bool successful = true;
@@ -65,6 +89,34 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
             gt_EndMethod:
             return successful;
         }
+        /// <summary>
+        /// TODO: これに置き換え予定。
+        /// </summary>
+        /// <param name="masuNumber"></param>
+        /// <param name="result"></param>
+        /// <returns></returns>
+        public static bool TryBangaiMasuToPiece(int masuNumber, out Pieces result)
+        {
+            bool successful = true;
+
+            Okiba okiba = Conv_SyElement.ToOkiba(masuNumber);
+
+            switch (okiba)
+            {
+                // TODO: まだ使えない☆
+                case Okiba.Sente_Komadai: result = (Pieces)(masuNumber - Util_MasuNum.FirstMasu_SenteKomadai); break;
+                case Okiba.Gote_Komadai: result = (Pieces)(masuNumber - Util_MasuNum.FirstMasu_GoteKomadai); break;
+                case Okiba.KomaBukuro: result = (Pieces)(masuNumber - Util_MasuNum.FirstMasu_Komabukuro); break;
+                default:
+                    // エラー
+                    result = Pieces.None;
+                    successful = false;
+                    goto gt_EndMethod;
+            }
+
+            gt_EndMethod:
+            return successful;
+        }
 
         /// <summary>
         /// 将棋盤、駒台に筋があります。
@@ -79,19 +131,6 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
         public static bool TryBangaiMasuToDan(SyElement masu, out int result)
         {
             int masuNumber = Conv_SyElement.ToMasuNumber(masu);
-            return Util_MasuNum.TryBangaiMasuToDan(masuNumber, out result);
-        }
-        public static bool TryDokokaMasuToDan(SyElement masu, out int result)
-        {
-            //Okiba okiba = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(masu));
-
-            int masuNumber = Conv_SyElement.ToMasuNumber(masu);
-            Okiba okiba = Conv_SyElement.ToOkiba(masuNumber);
-
-            if (okiba==Okiba.ShogiBan)
-            {
-                return Util_MasuNum.TryBanjoMasuToDan(masuNumber, out result);
-            }
             return Util_MasuNum.TryBangaiMasuToDan(masuNumber, out result);
         }
 

@@ -12,6 +12,7 @@ using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
 using Grayscale.A210_KnowNingen_.B550_JsaFugo____.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System.Text;
+using Grayscale.B140_SfenStruct_.C___250_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B550_JsaFugo____.C500____Util
 {
@@ -48,6 +49,7 @@ namespace Grayscale.A210_KnowNingen_.B550_JsaFugo____.C500____Util
             Okiba okiba2 = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(dstMasu));
             if (okiba2 == Okiba.ShogiBan)
             {
+                // 将棋盤☆
                 int suji;
                 int dan;
                 Util_MasuNum.TryBanjoMasuToSuji(dstMasu, out suji);
@@ -58,13 +60,12 @@ namespace Grayscale.A210_KnowNingen_.B550_JsaFugo____.C500____Util
             }
             else
             {
-                int suji;
-                int dan;
-                Util_MasuNum.TryBangaiMasuToSuji(dstMasu, out suji);
-                Util_MasuNum.TryBangaiMasuToDan(dstMasu, out dan);
+                // 盤外に指すことはないぜ☆（＾～＾）エラーの代わりに適当に文字を出そうぜ☆（＾▽＾）
+                Pieces pieces;
+                Util_MasuNum.TryBangaiMasuToPiece(dstMasu, out pieces);
 
-                sb.Append(Conv_Int.ToArabiaSuji(suji));
-                sb.Append(Conv_Int.ToKanSuji(dan));
+                // FIXME: ほんとはこんなの表記しないぜ☆（＾～＾）
+                sb.Append(Util_Komasyurui14.NimojiPieces[(int)pieces]);
             }
 
 
@@ -155,11 +156,12 @@ namespace Grayscale.A210_KnowNingen_.B550_JsaFugo____.C500____Util
                 }
                 else
                 {
-                    Util_MasuNum.TryBangaiMasuToSuji(dstMasu, out suji);
-                    Util_MasuNum.TryBangaiMasuToDan(dstMasu, out dan);
+                    // 盤外に指すことはないぜ☆（＾～＾）エラーの代わりに適当に文字を出そうぜ☆（＾▽＾）
+                    Pieces pieces;
+                    Util_MasuNum.TryBangaiMasuToPiece(dstMasu, out pieces);
 
-                    sb.Append(Conv_Int.ToArabiaSuji(suji));
-                    sb.Append(Conv_Int.ToKanSuji(dan));
+                    // FIXME: ほんとはこんなの表記しないぜ☆（＾～＾）
+                    sb.Append(Util_Komasyurui14.NimojiPieces[(int)pieces]);
                 }
             }
         gt_Next1:

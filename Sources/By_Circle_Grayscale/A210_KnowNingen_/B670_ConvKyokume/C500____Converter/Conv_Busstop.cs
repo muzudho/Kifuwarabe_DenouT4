@@ -76,6 +76,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             }
             else
             {
+                // TODO: 盤外☆
                 if (!Util_MasuNum.TryBangaiMasuToSuji(masu, out suji))
                 {
                     errorCheck = 1;

@@ -31,6 +31,10 @@ namespace Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util
         protected static string[] nimojiGote;
 
 
+        public static string[] NimojiPieces { get { return Util_Komasyurui14.nimojiPieces; } }
+        protected static string[] nimojiPieces;
+
+
         /// <summary>
         /// ------------------------------------------------------------------------------------------------------------------------
         /// 駒の表示文字。
@@ -288,6 +292,26 @@ namespace Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util
                 "圭",
                 "全",
                 "Ｕ×",
+            };
+
+            Util_Komasyurui14.nimojiPieces = new string[]{
+                "◇×",//[0]ヌル
+                "▲王",
+                "▲飛",
+                "▲角",
+                "▲金",
+                "▲銀",
+                "▲桂",
+                "▲香",
+                "▲歩",
+                "△王",
+                "△飛",
+                "△角",
+                "△金",
+                "△銀",
+                "△桂",
+                "△香",
+                "△歩",
             };
 
             Util_Komasyurui14.nimojiGote = new string[]{
