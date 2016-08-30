@@ -1,7 +1,5 @@
 ﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B260_TedokuHisto.C___250_Struct;
-using Grayscale.A210_KnowNingen_.B260_TedokuHisto.C250____Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using System;
 using System.Collections.Generic;
@@ -23,9 +21,6 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
     public class SkyBuffer : Sky
     {
         #region プロパティー
-
-        public TedokuHistory TedokuHistory { get { return this.tedokuHistory; } }
-        private TedokuHistory tedokuHistory;
 
         /// <summary>
         /// TODO:
@@ -119,13 +114,6 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
         /// </summary>
         public SkyBuffer(Playerside kaisiPside, int temezumi)
         {
-            switch(kaisiPside)
-            {
-                case Playerside.P1: this.tedokuHistory = TedokuHistoryConst.New_HirateSyokikyokumen_1P(); break;
-                case Playerside.P2: this.tedokuHistory = TedokuHistoryConst.New_HirateSyokikyokumen_2P(); break;
-                default: break;
-            }            
-
             this.kaisiPside = kaisiPside;
             this.temezumi = temezumi;
             this.m_busstops_ = new List<Busstop>();
@@ -137,9 +125,6 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
         /// <param name="src"></param>
         public SkyBuffer(Sky src)
         {
-            // 手得ヒストリーのクローン
-            this.tedokuHistory = TedokuHistoryConst.New_Clone(src.TedokuHistory);
-
             // 手番のクローン
             this.kaisiPside = src.KaisiPside;
             this.temezumi = src.Temezumi;

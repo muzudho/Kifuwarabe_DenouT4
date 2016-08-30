@@ -79,10 +79,6 @@
     <Compile Include="B170_WordShogi__\C500____Word\Array_Playerside.cs" />
     <Compile Include="B180_ConvPside__\C500____Converter\Conv_Playerside.cs" />
     <Compile Include="B190_Komasyurui_\C250____Word\Array_Komasyurui.cs" />
-    <Compile Include="B260_TedokuHisto\C___250_Struct\TedokuHistory.cs" />
-    <Compile Include="B260_TedokuHisto\C250____Struct\TedokuHisotryConst.cs" />
-    <Compile Include="B260_TedokuHisto\C250____Struct\TedokuHisotryBuffer.cs" />
-    <Compile Include="B260_TedokuHisto\C240____Util\Util_TedokuHistory.cs" />
     <Compile Include="B320_ConvWords__\C500____Converter\Conv_Sky.cs" />
     <Compile Include="B440_Utifudume__\C500____Util\Util_Utifudume.cs" />
     <Compile Include="B470_ConvKiki___\C500____Converter\Util_SkyPside.cs" />

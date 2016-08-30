@@ -4,8 +4,6 @@ using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B260_TedokuHisto.C___250_Struct;
-using Grayscale.A210_KnowNingen_.B260_TedokuHisto.C250____Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using System;
 using System.Collections.Generic;
@@ -32,9 +30,6 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
     public class SkyConst : Sky
     {
         #region プロパティー
-
-        public TedokuHistory TedokuHistory { get { return this.tedokuHistory; } }
-        private TedokuHistory tedokuHistory;
 
         /// <summary>
         /// TODO:
@@ -171,31 +166,6 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
             Komasyurui14 tedokuKeisan_komasyurui, int tedokukeisan_index, SyElement tedokukeisan_sasitamasu)
         {
             Debug.Assert(src.Count == 40, "本将棋とみなしてテスト中。sky.Starlights.Count=[" + src.Count + "]");//将棋の駒の数
-
-            if (tedokuKeisan_komasyurui == Komasyurui14.H00_Null___)
-            {
-                //----------------------------------------
-                // 手得計算のヒストリーを作らない場合
-                //----------------------------------------
-
-                // 手得ヒストリーのクローン
-                this.tedokuHistory = TedokuHistoryConst.New_Clone(src.TedokuHistory);
-            }
-            else
-            {
-                //----------------------------------------
-                // 手得計算のヒストリーを作る場合
-                //----------------------------------------
-
-                // 手駒ヒストリーへの追加
-                this.tedokuHistory = TedokuHistoryConst.NewInstance_AppendSasitamasu(
-                    src.TedokuHistory,
-                    tedokuKeisan_komasyurui,
-                    tedokukeisan_index,
-                    tedokukeisan_sasitamasu
-                    );
-            }
-
 
             // 手番のクローン
             if (toReversePlayerside)

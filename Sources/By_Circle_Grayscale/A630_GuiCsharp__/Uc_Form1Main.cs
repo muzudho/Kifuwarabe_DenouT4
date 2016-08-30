@@ -505,6 +505,9 @@ namespace Grayscale.P699_Form_______
 
             SkyConst siteiSky = mainGui.Model_Manual.GuiSkyConst;
 
+            //────────────────────────────────────────
+            // 持ち駒（後手）
+            //────────────────────────────────────────
             siteiSky.Foreach_Busstops((Finger finger, Busstop koma, ref bool toBreak) =>
             {
                 if (Conv_Busstop.ToOkiba(koma) == Okiba.Gote_Komadai)
@@ -516,7 +519,9 @@ namespace Grayscale.P699_Form_______
             sb.AppendLine("        </div>");
             sb.AppendLine("    </div>");
 
-            // 将棋盤
+            //────────────────────────────────────────
+            // 盤上
+            //────────────────────────────────────────
             sb.AppendLine("    <div style=\"position:absolute; left:30px; top:2px; width:182px;\">");
             sb.AppendLine("        <table>");
             for (int dan = 1; dan <= 9; dan++)
@@ -579,7 +584,9 @@ namespace Grayscale.P699_Form_______
             sb.AppendLine("        </table>");
             sb.AppendLine("    </div>");
 
-            // 先手の持ち駒
+            //────────────────────────────────────────
+            // 持ち駒（先手）
+            //────────────────────────────────────────
             sb.AppendLine("    <div style=\"position:absolute; left:215px; top:2px; width:30px;\">");
             sb.AppendLine("        ▲先手");
             sb.AppendLine("        <div style=\"margin-top:10px; width:30px;\">");
