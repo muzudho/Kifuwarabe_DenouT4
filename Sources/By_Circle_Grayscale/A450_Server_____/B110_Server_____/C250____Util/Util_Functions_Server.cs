@@ -56,9 +56,9 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
             model_Taikyoku.Kifu.SetCurNode(newNode);
 
-            model_Manual.SetGuiSky(newNode.Value.KyokumenConst);
-            model_Manual.GuiTemezumi = model_Taikyoku.Kifu.CurNode.Value.KyokumenConst.Temezumi;
-            model_Manual.GuiPside = model_Taikyoku.Kifu.CurNode.Value.KyokumenConst.KaisiPside;
+            model_Manual.SetGuiSky(newNode.Value.Kyokumen);
+            model_Manual.GuiTemezumi = model_Taikyoku.Kifu.CurNode.Value.Kyokumen.Temezumi;
+            model_Manual.GuiPside = model_Taikyoku.Kifu.CurNode.Value.Kyokumen.KaisiPside;
 
             jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(newNode, errH);
         }
@@ -286,7 +286,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             // 棋譜から１手削ります
             //------------------------------
             Node<Move, KyokumenWrapper> removeeLeaf = model_Taikyoku.Kifu.CurNode;
-            int korekaranoTemezumi = removeeLeaf.Value.KyokumenConst.Temezumi - 1;//１手前へ。
+            int korekaranoTemezumi = removeeLeaf.Value.Kyokumen.Temezumi - 1;//１手前へ。
 
             if (removeeLeaf.IsRoot())
             {
@@ -415,7 +415,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
 
             // 取られることになる駒のボタン
-            btnKoma_Food_Koma = Util_Sky_FingersQuery.InMasuNow_Old(model_Manual.GuiSkyConst, Conv_Busstop.ToMasu( foodee_koma)).ToFirst();
+            btnKoma_Food_Koma = Util_Sky_FingersQuery.InMasuNow_Old(model_Manual.GuiSky, Conv_Busstop.ToMasu( foodee_koma)).ToFirst();
             if (Fingers.Error_1 == btnKoma_Food_Koma)
             {
                 koma_Food_after = Busstop.Empty;
@@ -432,8 +432,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
 
 
-            model_Manual.GuiSkyConst.AssertFinger(btnKoma_Food_Koma);
-            Komasyurui14 koma_Food_pre_Syurui = Conv_Busstop.ToKomasyurui(model_Manual.GuiSkyConst.BusstopIndexOf(btnKoma_Food_Koma));
+            model_Manual.GuiSky.AssertFinger(btnKoma_Food_Koma);
+            Komasyurui14 koma_Food_pre_Syurui = Conv_Busstop.ToKomasyurui(model_Manual.GuiSky.BusstopIndexOf(btnKoma_Food_Koma));
 
 
             // その駒は、駒置き場に移動させます。
@@ -442,7 +442,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             {
                 case Playerside.P2:
 
-                    akiMasu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Okiba.Gote_Komadai, model_Manual.GuiSkyConst);
+                    akiMasu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Okiba.Gote_Komadai, model_Manual.GuiSky);
                     if (!Masu_Honshogi.IsErrorBasho(akiMasu))
                     {
                         // 駒台に空きスペースがありました。
@@ -474,7 +474,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                 case Playerside.P1://thru
                 default:
 
-                    akiMasu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Okiba.Sente_Komadai, model_Manual.GuiSkyConst);
+                    akiMasu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Okiba.Sente_Komadai, model_Manual.GuiSky);
                     if (!Masu_Honshogi.IsErrorBasho(akiMasu))
                     {
                         // 駒台に空きスペースがありました。
@@ -517,7 +517,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                 // 取られる駒があった場合
                 //------------------------------
                 sky2 = SkyImpl.NewInstance_OverwriteOrAdd_Light(
-                        model_Manual.GuiSkyConst,
+                        model_Manual.GuiSky,
                         -1,//そのまま
                         //
                         // 指した駒
@@ -536,23 +536,17 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                 //------------------------------
                 // 取られる駒がなかった場合
                 //------------------------------
-                model_Manual.GuiSkyConst.AssertFinger(fig_btnTumandeiruKoma);
-                Busstop movedKoma = model_Manual.GuiSkyConst.BusstopIndexOf(fig_btnTumandeiruKoma);
+                model_Manual.GuiSky.AssertFinger(fig_btnTumandeiruKoma);
+                Busstop movedKoma = model_Manual.GuiSky.BusstopIndexOf(fig_btnTumandeiruKoma);
 
                 sky2 = SkyImpl.NewInstance_OverwriteOrAdd_Light(
-                        model_Manual.GuiSkyConst,
+                        model_Manual.GuiSky,
                         -1,//そのまま
                         //
                         // 指した駒
                         //
                         fig_btnTumandeiruKoma,
-                        dst,
-                        //
-                        // 手得計算
-                        //
-                        Conv_Busstop.ToKomasyurui( movedKoma),
-                        0,
-                        Conv_Busstop.ToMasu( movedKoma)
+                        dst
                     );
             }
 

@@ -44,7 +44,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C125____ScoreSibori
 
                 exception_area = 1500;
                 Dictionary<Move, Node<Move, KyokumenWrapper>> dic = new Dictionary<Move, Node<Move, KyokumenWrapper>>();
-                if (kifu.CurNode.Value.KyokumenConst.KaisiPside == Playerside.P1)
+                if (kifu.CurNode.Value.Kyokumen.KaisiPside == Playerside.P1)
                 {
                     exception_area = 2000;
                     // 1番高いスコアを調べます。

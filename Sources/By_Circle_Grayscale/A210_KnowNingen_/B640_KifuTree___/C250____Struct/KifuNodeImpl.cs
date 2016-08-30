@@ -125,7 +125,7 @@ namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct
             this.Foreach_ChildNodes((Move key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
             {
                 sb.AppendLine(Util_Sky307.Json_1Sky(
-                    node.Value.KyokumenConst,
+                    node.Value.Kyokumen,
                     memo + "：" + Conv_Move.ToSfen( key),
                     hint + "_SF解1",
                     temezumi_yomiGenTeban_forLog

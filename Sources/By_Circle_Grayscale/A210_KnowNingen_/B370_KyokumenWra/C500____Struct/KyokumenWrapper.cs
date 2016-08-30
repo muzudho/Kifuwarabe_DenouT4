@@ -12,7 +12,7 @@ namespace Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct
 
         //*
         #region sky型
-        public SkyImpl KyokumenConst { get { return this.kyokumen; } }
+        public SkyImpl Kyokumen { get { return this.kyokumen; } }
         public void SetKyokumen(SkyImpl sky) { this.kyokumen = sky; }
         private SkyImpl kyokumen;
         #endregion

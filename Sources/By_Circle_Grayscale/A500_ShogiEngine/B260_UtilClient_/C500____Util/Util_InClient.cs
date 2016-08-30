@@ -52,12 +52,8 @@ namespace Grayscale.A500_ShogiEngine.B260_UtilClient_.C500____Util
 
                 // 文字列から、指定局面を作成します。
                 Playerside pside = Playerside.P1;
-                int temezumi = 0;
                 model_Taikyoku.Kifu.GetRoot().Value.SetKyokumen(
-                    SkyImpl.NewInstance(
-                        Conv_Sfenstring307.ToSkyConst(new SfenstringImpl(old_inputLine), pside, temezumi),
-                        temezumi//初期配置は 0手目済み。
-                    )
+                    Conv_Sfenstring307.ToSkyConst(new SfenstringImpl(old_inputLine), pside)
                 );//SFENのstartpos解析時
                 model_Taikyoku.Kifu.SetProperty(Word_KifuTree.PropName_Startpos, old_inputLine);//指定の初期局面
             }

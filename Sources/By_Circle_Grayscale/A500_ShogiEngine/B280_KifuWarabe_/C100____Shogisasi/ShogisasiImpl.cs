@@ -103,7 +103,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                 );
 
             float alphabeta_otherBranchDecidedValue;
-            switch (((KifuNode)kifu.CurNode).Value.KyokumenConst.KaisiPside)
+            switch (((KifuNode)kifu.CurNode).Value.Kyokumen.KaisiPside)
             {
                 case Playerside.P1:
                     // 2プレイヤーはまだ、小さな数を見つけていないという設定。

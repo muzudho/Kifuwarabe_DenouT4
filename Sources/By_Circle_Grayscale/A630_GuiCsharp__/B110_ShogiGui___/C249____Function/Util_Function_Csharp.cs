@@ -166,9 +166,9 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
 
             // 置く駒
             {
-                mainGui.Model_Manual.GuiSkyConst.AssertFinger(btnKoma_Selected.Finger);
+                mainGui.Model_Manual.GuiSky.AssertFinger(btnKoma_Selected.Finger);
                 dst = Conv_Busstop.ToBusstop(
-                        Conv_Busstop.ToPlayerside(mainGui.Model_Manual.GuiSkyConst.BusstopIndexOf(btnKoma_Selected.Finger)),
+                        Conv_Busstop.ToPlayerside(mainGui.Model_Manual.GuiSky.BusstopIndexOf(btnKoma_Selected.Finger)),
                         btnMasu.Zahyo,
                         toSyurui
                         );
@@ -217,8 +217,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             KwErrorHandler errH
             )
         {
-            mainGui.Model_Manual.GuiSkyConst.AssertFinger(figKoma);
-            Busstop koma = mainGui.Model_Manual.GuiSkyConst.BusstopIndexOf(figKoma);
+            mainGui.Model_Manual.GuiSky.AssertFinger(figKoma);
+            Busstop koma = mainGui.Model_Manual.GuiSky.BusstopIndexOf(figKoma);
 
             Shape_BtnKoma btnKoma = Conv_Koma_InGui.FingerToKomaBtn(figKoma, mainGui);
 

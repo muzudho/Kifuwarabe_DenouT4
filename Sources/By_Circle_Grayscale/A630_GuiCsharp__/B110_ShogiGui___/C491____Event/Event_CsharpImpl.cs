@@ -290,7 +290,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
                     MainGui_Csharp shogibanGui2 = (MainGui_Csharp)obj_shogiGui2;
 
-                    Util_KifuTree282.SetStartpos_KokokaraSaifu(shogibanGui2.Link_Server.Model_Taikyoku.Kifu, shogibanGui2.Link_Server.Model_Taikyoku.Kifu.CurNode.Value.KyokumenConst.KaisiPside, errH2);
+                    Util_KifuTree282.SetStartpos_KokokaraSaifu(shogibanGui2.Link_Server.Model_Taikyoku.Kifu, shogibanGui2.Link_Server.Model_Taikyoku.Kifu.CurNode.Value.Kyokumen.KaisiPside, errH2);
                     shogibanGui2.RepaintRequest.SyuturyokuRequest = RepaintRequestGedanTxt.Kifu;
                 };
 
@@ -331,15 +331,15 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     if (null != movedKoma)
                     {
                         //>>>>> 移動直後の駒があるとき
-                        mainGui3.Model_Manual.GuiSkyConst.AssertFinger(movedKoma.Finger);
-                        koma = mainGui3.Model_Manual.GuiSkyConst.BusstopIndexOf(movedKoma.Finger);
+                        mainGui3.Model_Manual.GuiSky.AssertFinger(movedKoma.Finger);
+                        koma = mainGui3.Model_Manual.GuiSky.BusstopIndexOf(movedKoma.Finger);
                         figKoma = movedKoma.Finger;
                     }
                     else if (null != btnKoma_Selected)
                     {
                         //>>>>> 選択されている駒があるとき
-                        mainGui3.Model_Manual.GuiSkyConst.AssertFinger(btnKoma_Selected.Koma);
-                        koma = mainGui3.Model_Manual.GuiSkyConst.BusstopIndexOf(btnKoma_Selected.Koma);
+                        mainGui3.Model_Manual.GuiSky.AssertFinger(btnKoma_Selected.Koma);
+                        koma = mainGui3.Model_Manual.GuiSky.BusstopIndexOf(btnKoma_Selected.Koma);
                         figKoma = btnKoma_Selected.Koma;
                     }
                     else
@@ -353,7 +353,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                             mainGui3.Link_Server.Model_Taikyoku.Kifu.CurNode.Key,//現在の局面を流用
                             new KyokumenWrapper(
                                 SkyImpl.NewInstance_OverwriteOrAdd_Light(
-                                    mainGui3.Model_Manual.GuiSkyConst,
+                                    mainGui3.Model_Manual.GuiSky,
                                     -1,//そのまま
                                     figKoma,
                                     Conv_Busstop.ToBusstop(
@@ -507,13 +507,13 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                 //------------------------------
                 // 棋譜
 
-                mainGui.Model_Manual.GuiSkyConst.AssertFinger(btnTumandeiruKoma.Finger);
+                mainGui.Model_Manual.GuiSky.AssertFinger(btnTumandeiruKoma.Finger);
 
                 Move move = Conv_Move.ToMove(
                     Conv_Busstop.ToMasu(mainGui.Shape_PnlTaikyoku.MouseBusstopOrNull2),
-                    Conv_Busstop.ToMasu(mainGui.Model_Manual.GuiSkyConst.BusstopIndexOf(btnTumandeiruKoma.Finger)),
+                    Conv_Busstop.ToMasu(mainGui.Model_Manual.GuiSky.BusstopIndexOf(btnTumandeiruKoma.Finger)),
                     Conv_Busstop.ToKomasyurui(mainGui.Shape_PnlTaikyoku.MouseBusstopOrNull2),
-                    Conv_Busstop.ToKomasyurui(mainGui.Model_Manual.GuiSkyConst.BusstopIndexOf(btnTumandeiruKoma.Finger)),//これで成りかどうか判定
+                    Conv_Busstop.ToKomasyurui(mainGui.Model_Manual.GuiSky.BusstopIndexOf(btnTumandeiruKoma.Finger)),//これで成りかどうか判定
                     mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma != Busstop.Empty ? Conv_Busstop.ToKomasyurui( mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma) : Komasyurui14.H00_Null___,
                     Conv_Busstop.ToPlayerside(mainGui.Shape_PnlTaikyoku.MouseBusstopOrNull2),
                     false
@@ -524,15 +524,13 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     //
                     // 成ったので、指し手データ差替え。
                     //
-                    StartposImporter.Assert_HirateHonsyogi(new SkyImpl(mainGui.Model_Manual.GuiSkyConst), "newNode作成前");
                     newNode = new KifuNodeImpl(
                         move,
                         new KyokumenWrapper(SkyImpl.NewInstance_ReversePside(// 先後を反転させます。
-                            mainGui.Model_Manual.GuiSkyConst,
-                            mainGui.Model_Manual.GuiSkyConst.Temezumi + 1//１手進める
+                            mainGui.Model_Manual.GuiSky,
+                            mainGui.Model_Manual.GuiSky.Temezumi + 1//１手進める
                             ))
                     );
-                    StartposImporter.Assert_HirateHonsyogi(new SkyImpl(newNode.Value.KyokumenConst), "newNode作成後");
 
 
                     //「成る／成らない」ボタンを押したときです。
@@ -540,7 +538,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         //----------------------------------------
                         // 次ノード追加
                         //----------------------------------------
-                        mainGui.Link_Server.Model_Taikyoku.Kifu.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.Value.KyokumenConst), "After_NaruNaranai");
+                        mainGui.Link_Server.Model_Taikyoku.Kifu.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.Value.Kyokumen), "After_NaruNaranai");
                         ((KifuNode)mainGui.Link_Server.Model_Taikyoku.Kifu.CurNode).PutTuginoitte_New(newNode);
                     }
 

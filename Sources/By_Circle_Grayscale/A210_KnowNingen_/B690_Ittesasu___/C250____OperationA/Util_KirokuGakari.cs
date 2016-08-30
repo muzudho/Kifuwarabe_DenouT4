@@ -81,7 +81,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                 KifuNode saifu_newChild = new KifuNodeImpl(
                     node.Key,
                     new KyokumenWrapper( SkyImpl.NewInstance_ReversePside(
-                        saifu_kWrap.KyokumenConst,
+                        saifu_kWrap.Kyokumen,
                         temezumi//FIXME:合ってるのかどうか。
                         ))
                 );

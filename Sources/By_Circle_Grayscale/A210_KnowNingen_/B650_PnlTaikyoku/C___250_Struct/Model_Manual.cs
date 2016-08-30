@@ -9,7 +9,7 @@ namespace Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct
 
         int GuiTemezumi { get; set; }
 
-        SkyImpl GuiSkyConst { get; }
+        SkyImpl GuiSky { get; }
 
         Playerside GuiPside { get; set; }
     }

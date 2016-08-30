@@ -62,7 +62,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
             )
         {
             // このノードが、どちらの手番か。
-            Playerside pside = node_yomi.Value.KyokumenConst.KaisiPside;
+            Playerside pside = node_yomi.Value.Kyokumen.KaisiPside;
 
             alpha_cut = false;
             switch (pside)
@@ -115,7 +115,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
             //----------------------------------------
             bool isSennitite;
             {
-                ulong hash = Conv_Sky.ToKyokumenHash(node_yomi_mutable.Value.KyokumenConst);
+                ulong hash = Conv_Sky.ToKyokumenHash(node_yomi_mutable.Value.Kyokumen);
                 if (args.SennititeConfirmer.IsNextSennitite(hash))
                 {
                     // 千日手になる場合。
@@ -144,7 +144,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
 #if DEBUG || LEARN
                     out meisai,
 #endif
-                    node_yomi_mutable.Value.KyokumenConst,
+                    node_yomi_mutable.Value.Kyokumen,
                     args.FeatureVector,
                     errH
                 );

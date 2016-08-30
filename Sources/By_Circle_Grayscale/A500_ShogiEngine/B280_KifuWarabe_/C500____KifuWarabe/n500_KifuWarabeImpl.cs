@@ -204,18 +204,15 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 this.SetKifu_AtLoop2(new KifuTreeImpl(
                         new KifuNodeImpl(
                             Conv_Move.GetErrorMove(),
-                            new KyokumenWrapper(SkyImpl.NewInstance(
-                                    Util_SkyWriter.New_Hirate(firstPside),
-                                    0 // 初期局面は 0手目済み
-                                ))// きふわらべ起動時
+                            new KyokumenWrapper(Util_SkyWriter.New_Hirate(firstPside))// きふわらべ起動時
                         )
                 ));
                 this.Kifu_AtLoop2.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
 
-                this.Kifu_AtLoop2.CurNode.Value.KyokumenConst.AssertFinger((Finger)0);
+                this.Kifu_AtLoop2.CurNode.Value.Kyokumen.AssertFinger((Finger)0);
                 Debug.Assert(!Conv_MasuHandle.OnKomabukuro(
                     Conv_SyElement.ToMasuNumber(
-                        Conv_Busstop.ToMasu(this.Kifu_AtLoop2.CurNode.Value.KyokumenConst.BusstopIndexOf((Finger)0))
+                        Conv_Busstop.ToMasu(this.Kifu_AtLoop2.CurNode.Value.Kyokumen.BusstopIndexOf((Finger)0))
                         )
                     ), "駒が駒袋にあった。");
             }
@@ -886,13 +883,13 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
                 // ┏━━━━プログラム━━━━┓
 
-                int latestTemezumi = this.Kifu_AtLoop2.CurNode.Value.KyokumenConst.Temezumi;//現・手目済
+                int latestTemezumi = this.Kifu_AtLoop2.CurNode.Value.Kyokumen.Temezumi;//現・手目済
 
                 //#if DEBUG
                 // MessageBox.Show("["+latestTemezumi+"]手目済　["+this.owner.PlayerInfo.Playerside+"]の手番");
                 //#endif
 
-                SkyImpl src_Sky = this.Kifu_AtLoop2.NodeAt(latestTemezumi).Value.KyokumenConst;//現局面
+                SkyImpl src_Sky = this.Kifu_AtLoop2.NodeAt(latestTemezumi).Value.Kyokumen;//現局面
 
                 //errH2.Logger.WriteLine_AddMemo("将棋サーバー「" + latestTemezumi + "手目、きふわらべ　さんの手番ですよ！」　" + line);
 
@@ -1054,7 +1051,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                                 {
                                     //int hyojiScore = (int)(bestScore / 100.0d);//FIXME:適当に調整した。
                                     int hyojiScore = (int)bestScore;
-                                    if (this.Kifu_AtLoop2.CurNode.Value.KyokumenConst.KaisiPside == Playerside.P2)
+                                    if (this.Kifu_AtLoop2.CurNode.Value.Kyokumen.KaisiPside == Playerside.P2)
                                     {
                                         // 符号を逆転
                                         hyojiScore = -hyojiScore;

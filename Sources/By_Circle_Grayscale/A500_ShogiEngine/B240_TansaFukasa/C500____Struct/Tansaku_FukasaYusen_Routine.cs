@@ -178,7 +178,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
 
             Tansaku_Args args = new Tansaku_ArgsImpl(isHonshogi, yomuLimitter, logF_moveKiki);
             Tansaku_Genjo genjo = new Tansaku_GenjoImpl(
-                ((KifuNode)kifu.CurNode).Value.KyokumenConst.Temezumi,
+                ((KifuNode)kifu.CurNode).Value.Kyokumen.Temezumi,
                 args
                 );
 
@@ -356,11 +356,11 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         {
             out_movelist = Tansaku_FukasaYusen_Routine.WAAAA_Create_ChildNodes(
                 genjo,
-                node_yomi.Value.KyokumenConst,
+                node_yomi.Value.Kyokumen,
                 node_yomi.Key,//ログ用
                 errH);
 
-            out_yomiDeep = node_yomi.Value.KyokumenConst.Temezumi - genjo.YomikaisiTemezumi + 1;
+            out_yomiDeep = node_yomi.Value.Kyokumen.Temezumi - genjo.YomikaisiTemezumi + 1;
             if (searchedMaxDepth < out_yomiDeep-1)//これから探索する分をマイナス1しているんだぜ☆（＾～＾）
             {
                 searchedMaxDepth = out_yomiDeep - 1;
@@ -370,7 +370,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             //--------------------------------------------------------------------------------
             // ↓↓↓↓アルファベータ法の準備
             //--------------------------------------------------------------------------------
-            out_a_childrenBest = Util_Scoreing.Initial_BestScore(node_yomi.Value.KyokumenConst);// プレイヤー1ならmax値、プレイヤー2ならmin値。
+            out_a_childrenBest = Util_Scoreing.Initial_BestScore(node_yomi.Value.Kyokumen);// プレイヤー1ならmax値、プレイヤー2ならmin値。
             //--------------------------------------------------------------------------------
             // ↑↑↑↑アルファベータ法の準備
             //--------------------------------------------------------------------------------
@@ -544,7 +544,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                                 exceptionArea = 4300;
 
                                 // 既存でなければ、作成・追加
-                                childNode1 = Conv_SasuEntry.ToKifuNode(move, node_yomi.Value.KyokumenConst, errH);
+                                childNode1 = Conv_SasuEntry.ToKifuNode(move, node_yomi.Value.Kyokumen, errH);
 
                                 exceptionArea = 4400;
 

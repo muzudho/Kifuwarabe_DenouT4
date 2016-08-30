@@ -57,12 +57,9 @@ namespace Grayscale.A210_KnowNingen_.B830_ConvStartpo.C500____Converter
             parsedKyokumen.KifuNode = new KifuNodeImpl(
                     Conv_Move.GetErrorMove(),//ルートなので
                     new KyokumenWrapper(
-                        SkyImpl.NewInstance(
-                            startposImporter.ToSky(
-                                parsedKyokumen.FirstPside,
-                                startposImporter.RO_SfenStartpos.Temezumi// FIXME: 将棋所だと常に 1 かも？？
-                            ),
-                            -1 // src_Sky_Newで設定済みだからそのまま。
+                        startposImporter.ToSky(
+                            parsedKyokumen.FirstPside,
+                            startposImporter.RO_SfenStartpos.Temezumi// FIXME: 将棋所だと常に 1 かも？？
                         )
                     )
                 );
@@ -242,14 +239,11 @@ namespace Grayscale.A210_KnowNingen_.B830_ConvStartpo.C500____Converter
                 // 駒を、駒袋から駒台に移動させます。
                 //------------------------------
                 {
-                    parsedKyokumen.buffer_Sky = new SkyImpl(model_Manual.GuiSkyConst);
+                    parsedKyokumen.Sky = model_Manual.GuiSky;
 
 
                     Fingers komas = Util_Sky_FingersQuery.InOkibaKomasyuruiNow(
-                        SkyImpl.NewInstance(// FIXME: SkyConstではなく、Skyではだめなのか☆？
-                            parsedKyokumen.buffer_Sky,
-                            -1//そのまま。
-                        ),
+                        parsedKyokumen.Sky,
                         Okiba.KomaBukuro,
                         parsedKyokumen.MotiList[i].Komasyurui
                     );
@@ -259,13 +253,10 @@ namespace Grayscale.A210_KnowNingen_.B830_ConvStartpo.C500____Converter
                         // 駒台の空いている枡
                         SyElement akiMasu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(
                             itaruOkiba,
-                            SkyImpl.NewInstance(
-                                parsedKyokumen.buffer_Sky,
-                                -1//そのまま
-                            )
+                            parsedKyokumen.Sky
                         );
 
-                        parsedKyokumen.buffer_Sky.PutOverwriteOrAdd_Busstop(
+                        parsedKyokumen.Sky.PutOverwriteOrAdd_Busstop(
                             koma,
                             Conv_Busstop.ToBusstop(
                                 itaruPside,

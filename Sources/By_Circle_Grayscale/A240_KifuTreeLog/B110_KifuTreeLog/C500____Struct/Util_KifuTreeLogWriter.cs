@@ -313,7 +313,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
             sb.Append("    ");
             sb.Append(((int)node.Score).ToString());
             sb.Append("    ");
-            switch (node.Value.KyokumenConst.KaisiPside)
+            switch (node.Value.Kyokumen.KaisiPside)
             {
                 case Playerside.P1: sb.Append("P2が指し終えた局面。手番P1"); break;
                 case Playerside.P2: sb.Append("P1が指し終えた局面。手番P2"); break;

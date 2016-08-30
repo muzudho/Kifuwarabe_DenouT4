@@ -55,8 +55,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             // 一手指し開始局面（不変）
             // 一手指し終了局面（null or 可変）
             //
-            Playerside kaisi_tebanside = ((KifuNode)ittemodosuArg.KaisiNode).Value.KyokumenConst.KaisiPside;
-            SkyImpl kaisi_Sky = ittemodosuArg.KaisiNode.Value.KyokumenConst;
+            Playerside kaisi_tebanside = ((KifuNode)ittemodosuArg.KaisiNode).Value.Kyokumen.KaisiPside;
+            SkyImpl kaisi_Sky = ittemodosuArg.KaisiNode.Value.Kyokumen;
 
             //
             // 編集対象ノード（巻き戻し時と、進む時で異なる）
@@ -219,7 +219,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 );
 
                 // 現手番
-                Playerside genTebanside = ((KifuNode)editNodeRef).Value.KyokumenConst.KaisiPside;
+                Playerside genTebanside = ((KifuNode)editNodeRef).Value.Kyokumen.KaisiPside;
 
                 // キーを差替えたノード
                 editNodeRef = new KifuNodeImpl(

@@ -49,7 +49,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C498____Server
         #endregion
 
 
-        public Server_Impl(SkyImpl src_Sky, int temezumi, Receiver receiver)
+        public Server_Impl(SkyImpl src_Sky, Receiver receiver)
         {
             this.engineClient = new EngineClient_Impl(receiver);
             this.engineClient.SetOwner_Server(this);
@@ -60,10 +60,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C498____Server
             this.model_Taikyoku = new Model_TaikyokuImpl(new KifuTreeImpl(
                     new KifuNodeImpl(
                         Conv_Move.GetErrorMove(),
-                        new KyokumenWrapper(SkyImpl.NewInstance(
-                            src_Sky,//model_Manual.GuiSkyConst,
-                            temezumi//model_Manual.GuiTemezumi
-                            ))
+                        new KyokumenWrapper(src_Sky)
                     )
             ));
             this.Model_Taikyoku.Kifu.SetProperty(Word_KifuTree.PropName_Startpos, "9/9/9/9/9/9/9/9/9");

@@ -148,7 +148,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
             }
 
             // FIXME:
-            Playerside pside = kifu.CurNode.Value.KyokumenConst.KaisiPside;
+            Playerside pside = kifu.CurNode.Value.Kyokumen.KaisiPside;
             switch (pside)
             {
                 case Playerside.P2:

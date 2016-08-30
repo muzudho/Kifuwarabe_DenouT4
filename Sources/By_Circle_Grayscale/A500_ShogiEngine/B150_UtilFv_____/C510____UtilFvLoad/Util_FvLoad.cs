@@ -43,19 +43,16 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad
             kifu = new KifuTreeImpl(
                     new KifuNodeImpl(
                         Conv_Move.GetErrorMove(),
-                        new KyokumenWrapper(SkyImpl.NewInstance(
-                            Util_SkyWriter.New_Hirate(firstPside),
-                            0//初期局面なので、0手目済み。
-                            ))
+                        new KyokumenWrapper(Util_SkyWriter.New_Hirate(firstPside))
                     )
             );
             kifu.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手
 
 
-            kifu.CurNode.Value.KyokumenConst.AssertFinger((Finger)0);
+            kifu.CurNode.Value.Kyokumen.AssertFinger((Finger)0);
             Debug.Assert(!Conv_MasuHandle.OnKomabukuro(
                 Conv_SyElement.ToMasuNumber(
-                    Conv_Busstop.ToMasu(kifu.CurNode.Value.KyokumenConst.BusstopIndexOf((Finger)0))
+                    Conv_Busstop.ToMasu(kifu.CurNode.Value.Kyokumen.BusstopIndexOf((Finger)0))
                     )
                 ), "駒が駒袋にあった。");
         }

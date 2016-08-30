@@ -78,9 +78,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
                 newSky.PutOverwriteOrAdd_Busstop(finger, Conv_Busstop.ToBusstop(src_Sky.KaisiPside, masu, komaSyurui));
             }
 
-            return SkyImpl.NewInstance( newSky,
-                -1//sky_bufでもう進めてあるので、そのまま。
-                );
+            return newSky;
         }
 
     }

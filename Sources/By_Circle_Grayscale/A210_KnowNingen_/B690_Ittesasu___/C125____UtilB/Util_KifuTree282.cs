@@ -120,7 +120,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
                 //----------------------------------------
                 // 次ノート追加
                 //----------------------------------------
-                kifuRef.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(nextNode_and_nextCurrent.Value.KyokumenConst), hint+"/AppendChild_And_ChangeCurrentToChild");
+                kifuRef.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(nextNode_and_nextCurrent.Value.Kyokumen), hint+"/AppendChild_And_ChangeCurrentToChild");
                 ((KifuNode)kifuRef.CurNode).PutTuginoitte_New(nextNode_and_nextCurrent);
             }
 

@@ -184,7 +184,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
         public MainGui_CsharpImpl()
         {
             this.model_Manual = new Model_ManualImpl();
-            this.server = new Server_Impl(this.model_Manual.GuiSkyConst, this.model_Manual.GuiTemezumi, new Receiver_ForCsharpVsImpl());
+            this.server = new Server_Impl(this.model_Manual.GuiSky, new Receiver_ForCsharpVsImpl());
 
             this.Widgets = new Dictionary<string, UserWidget>();
 
@@ -574,8 +574,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
 
         public virtual Busstop GetKoma(Finger finger)
         {
-            this.Model_Manual.GuiSkyConst.AssertFinger(finger);
-            return this.Model_Manual.GuiSkyConst.BusstopIndexOf(finger);
+            this.Model_Manual.GuiSky.AssertFinger(finger);
+            return this.Model_Manual.GuiSky.BusstopIndexOf(finger);
         }
 
     }

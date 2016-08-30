@@ -59,7 +59,7 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C510____HyokakansuColl
 #if DEBUG || LEARN
                     out meisai,
 #endif
-                    node_mutable.Value.KyokumenConst,
+                    node_mutable.Value.Kyokumen,
                     fv,
                     errH
                 );

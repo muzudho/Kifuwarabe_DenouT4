@@ -27,7 +27,7 @@ namespace Grayscale.A210_KnowNingen_.B820_KyokuParser.C500____Parser
         /// </summary>
         public List<MotiItem> MotiList { get; set; }
 
-        public SkyImpl buffer_Sky { get; set; }
+        public SkyImpl Sky { get; set; }
 
         public ParsedKyokumenImpl()
         {

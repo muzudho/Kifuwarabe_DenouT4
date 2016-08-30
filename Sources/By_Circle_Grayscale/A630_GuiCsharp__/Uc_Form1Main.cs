@@ -367,7 +367,7 @@ namespace Grayscale.P699_Form_______
             //------------------------------------------------------------
             if (mainGui.RepaintRequest.Is_KomasRecalculateRequested())
             {
-                this.MainGui.Model_Manual.GuiSkyConst.Foreach_Busstops((Finger finger, Busstop busstop, ref bool toBreak) =>
+                this.MainGui.Model_Manual.GuiSky.Foreach_Busstops((Finger finger, Busstop busstop, ref bool toBreak) =>
                 {
                     Util_Function_Csharp.Redraw_KomaLocation(finger, this.MainGui, errH);
                 });
@@ -503,7 +503,7 @@ namespace Grayscale.P699_Form_______
             sb.AppendLine("        <div style=\"margin-top:10px; width:30px;\">");
             sb.Append("            ");
 
-            SkyImpl siteiSky = mainGui.Model_Manual.GuiSkyConst;
+            SkyImpl siteiSky = mainGui.Model_Manual.GuiSky;
 
             //────────────────────────────────────────
             // 持ち駒（後手）

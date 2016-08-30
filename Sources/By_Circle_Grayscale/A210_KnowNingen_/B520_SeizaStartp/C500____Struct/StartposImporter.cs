@@ -115,47 +115,10 @@ namespace Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct
         }
 
 
-        public static void Assert_HirateHonsyogi(SkyImpl dst_Sky, string failMessage)
-        {
-            //平手本将棋用
-//#if DEBUG
-//            {
-//                StringBuilder sb = new StringBuilder();
-//                int fukuro = 0;
-//                int ban = 0;
-//                int dai = 0;
-//                dst_Sky.Foreach_Starlights((Finger finger, Starlight light, ref bool toBreak) =>
-//                {
-//                    RO_Star_Koma koma = Util_Starlightable.AsKoma(light.Now);
-
-//                    if (Util_MasuNum.OnKomabukuro(Util_Masu.AsMasuNumber(koma.Masu)))
-//                    {
-//                        sb.Append("[袋" + Util_Masu.AsMasuNumber(koma.Masu) + "]");
-//                        fukuro++;
-//                    }
-//                    else if (Util_MasuNum.OnShogiban(Util_Masu.AsMasuNumber(koma.Masu)))
-//                    {
-//                        sb.Append("[盤" + Util_Masu.AsMasuNumber(koma.Masu) + "]");
-//                        ban++;
-//                    }
-//                    else if (Util_MasuNum.OnKomadai(Util_Masu.AsMasuNumber(koma.Masu)))
-//                    {
-//                        sb.Append("[台" + Util_Masu.AsMasuNumber(koma.Masu) + "]");
-//                        dai++;
-//                    }
-//                });
-//                Debug.Assert(40 == ban + dai || 40 == fukuro, "駒袋に駒が！fukuro=[" + fukuro + "] ban=[" + ban + "] dai=[" + dai + "] " + failMessage + " "+sb.ToString());
-//            }
-//#endif
-        }
-
         public SkyImpl ToSky(Playerside kaisiPside, int temezumi)
         {
-
             // 駒40個に、Finger番号を割り当てておきます。
-            SkyImpl dst_Sky = new SkyImpl(kaisiPside, temezumi);// 駒数０。
-            //SkyBuffer dst_Sky = new SkyBuffer(Util_Sky.New_Komabukuro());// SFENインポート時
-
+            SkyImpl newSky = new SkyImpl(kaisiPside, temezumi);// 駒数０。
 
             Dictionary<Finger, Busstop> komaDic = new Dictionary<Finger, Busstop>();
 
@@ -485,7 +448,7 @@ namespace Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct
                 int komaHandle = 0;
                 foreach (Busstop koma in komas)
                 {
-                    dst_Sky.PutOverwriteOrAdd_Busstop(
+                    newSky.PutOverwriteOrAdd_Busstop(
                         komaHandle,
                         koma
                     );
@@ -493,11 +456,7 @@ namespace Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct
                 }
             }
 
-            StartposImporter.Assert_HirateHonsyogi(dst_Sky, "ToSkyの終了直前 this.InputLine=[" + this.InputLine + "]");
-
-            return SkyImpl.NewInstance(dst_Sky,
-                -1//dst_sky で設定済みなのでそのまま。
-                );
+            return newSky;
         }
 
     }

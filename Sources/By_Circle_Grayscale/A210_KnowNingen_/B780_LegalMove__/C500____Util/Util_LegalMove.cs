@@ -162,7 +162,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
                 // 王様が利きに飛び込んだか？
                 bool kingSuicide = Util_LegalMove.LAAA_KingSuicide(
                     yomikaisiTemezumi,
-                    node.Value.KyokumenConst,
+                    node.Value.Kyokumen,
                     temezumi_yomiGenTeban_forLog,
                     pside_genTeban,//現手番＝攻め手視点
 #if DEBUG

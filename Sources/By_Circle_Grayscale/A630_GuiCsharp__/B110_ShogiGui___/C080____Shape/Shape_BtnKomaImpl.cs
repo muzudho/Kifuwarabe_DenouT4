@@ -157,8 +157,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
             }
 
             // この駒について。
-            mainGui.Model_Manual.GuiSkyConst.AssertFinger(this.Finger);
-            Busstop koma = mainGui.Model_Manual.GuiSkyConst.BusstopIndexOf(this.Finger);
+            mainGui.Model_Manual.GuiSky.AssertFinger(this.Finger);
+            Busstop koma = mainGui.Model_Manual.GuiSky.BusstopIndexOf(this.Finger);
 
             if(true)
             {

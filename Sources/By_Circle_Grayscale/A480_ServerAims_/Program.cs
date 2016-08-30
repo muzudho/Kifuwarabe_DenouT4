@@ -50,7 +50,7 @@ namespace Grayscale.P489_Form_______
 
             SkyImpl src_Sky = Util_SkyWriter.New_Hirate( Playerside.P1 );
 
-            AimsServerImpl aimsServer = new AimsServerImpl(src_Sky, 0);
+            AimsServerImpl aimsServer = new AimsServerImpl(src_Sky);
             aimsServer.ShogiEngineFilePath = setteiXmlFile.ShogiEngineFilePath;
 
             aimsServer.AtBegin();

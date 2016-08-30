@@ -70,12 +70,12 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                     Node<Move, KyokumenWrapper> nextNode = uc_Main.LearningData.Kifu.CurNode.GetChildNode(move1);
 
                     // 盤上の駒、持駒を数えます。
-                    N54List nextNode_n54List = Util_54List.Calc_54List(nextNode.Value.KyokumenConst, errH);
+                    N54List nextNode_n54List = Util_54List.Calc_54List(nextNode.Value.Kyokumen, errH);
 
                     float real_tyoseiryo; //実際に調整した量。
                     Util_FvScoreing.UpdateKyokumenHyoka(
                         nextNode_n54List,
-                        nextNode.Value.KyokumenConst,
+                        nextNode.Value.Kyokumen,
                         uc_Main.LearningData.Fv,
                         tyoseiryo,
                         out real_tyoseiryo,
@@ -138,7 +138,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             float chosei_bairitu;
             float.TryParse(uc_Main.TxtChoseiBairituB.Text, out chosei_bairitu);
 
-            if (Playerside.P2 == uc_Main.LearningData.Kifu.CurNode.Value.KyokumenConst.KaisiPside)
+            if (Playerside.P2 == uc_Main.LearningData.Kifu.CurNode.Value.Kyokumen.KaisiPside)
             {
                 chosei_bairitu *= -1; //後手はマイナスの方が有利。
             }
@@ -165,7 +165,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             float.TryParse(uc_Main.TxtChoseiBairituB.Text, out badScore);
             badScore *= -1.0f;
 
-            if (Playerside.P2 == uc_Main.LearningData.Kifu.CurNode.Value.KyokumenConst.KaisiPside)
+            if (Playerside.P2 == uc_Main.LearningData.Kifu.CurNode.Value.Kyokumen.KaisiPside)
             {
                 badScore *= -1; //後手はプラスの方が不利。
             }

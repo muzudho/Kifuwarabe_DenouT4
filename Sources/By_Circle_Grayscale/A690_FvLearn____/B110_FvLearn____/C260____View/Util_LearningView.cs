@@ -57,10 +57,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             KifuTree kifu1 = new KifuTreeImpl(
                 new KifuNodeImpl(
                     Conv_Move.GetErrorMove(),
-                    new KyokumenWrapper(SkyImpl.NewInstance(
-                        Util_SkyWriter.New_Hirate(firstPside),
-                        0//初期局面は 0手済み。
-                        ))//日本の符号読取時
+                    new KyokumenWrapper(Util_SkyWriter.New_Hirate(firstPside))//日本の符号読取時
                 )
             );
             //kifu1.AssertPside(kifu1.CurNode, "ShowSasiteList",errH);
@@ -69,7 +66,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             foreach (CsaKifuSasite csaSasite in sasiteList)
             {
                 // 開始局面
-                SkyImpl kaisi_Sky = kifu1.CurNode.Value.KyokumenConst;
+                SkyImpl kaisi_Sky = kifu1.CurNode.Value.Kyokumen;
 
                 //
                 // csaSasite を データ指し手 に変換するには？
@@ -146,9 +143,9 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     Util_IttesasuRoutine.Before1(
                         new IttesasuArgImpl(
                             kifu1.CurNode.Value,
-                            ((KifuNode)kifu1.CurNode).Value.KyokumenConst.KaisiPside,
+                            ((KifuNode)kifu1.CurNode).Value.Kyokumen.KaisiPside,
                             nextMove,
-                            kifu1.CurNode.Value.KyokumenConst.Temezumi + 1//1手進める
+                            kifu1.CurNode.Value.Kyokumen.Temezumi + 1//1手進める
                         ),
                         out ittesasuResult,
                         //kifu1,//診断用
@@ -183,7 +180,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 else
                 {
                     // FIXME: 未テスト。
-                    move = Conv_Move.ToMove_ByCsa(csaSasite, kifu1.CurNode.GetParentNode().Value.KyokumenConst);
+                    move = Conv_Move.ToMove_ByCsa(csaSasite, kifu1.CurNode.GetParentNode().Value.Kyokumen);
                 }
                 HonpuSasiteListItemImpl listItem = new HonpuSasiteListItemImpl(csaSasite, move);
                 uc_Main.LstSasite.Items.Add(listItem);
@@ -208,7 +205,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
         public static void Aa_ShowNode2(LearningData learningData, Uc_Main uc_Main, KwErrorHandler errH)
         {
             // 手目済み
-            uc_Main.TxtTemezumi.Text = learningData.Kifu.CurNode.Value.KyokumenConst.Temezumi.ToString();
+            uc_Main.TxtTemezumi.Text = learningData.Kifu.CurNode.Value.Kyokumen.Temezumi.ToString();
 
             // 総ノード数
             uc_Main.TxtAllNodesCount.Text = learningData.Kifu.CountAllNodes().ToString();
@@ -294,7 +291,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
  0;
 #endif
 
-                    switch (learningData.Kifu.CurNode.Value.KyokumenConst.KaisiPside)
+                    switch (learningData.Kifu.CurNode.Value.Kyokumen.KaisiPside)
                     {
                         case Playerside.P1: result = bScore - aScore; break;
                         case Playerside.P2: result = aScore - bScore; break;
@@ -370,7 +367,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 {
                     nextMove = Conv_Move.GetErrorMove();
                     StringBuilder sb = new StringBuilder();
-                    sb.Append("指し手[" + Conv_Move.ToSfen(move) + "]はありませんでした。\n" + learningData.DumpToAllGohosyu(learningData.Kifu.CurNode.Value.KyokumenConst));
+                    sb.Append("指し手[" + Conv_Move.ToSfen(move) + "]はありませんでした。\n" + learningData.DumpToAllGohosyu(learningData.Kifu.CurNode.Value.Kyokumen));
 
                     //Debug.Fail(sb.ToString());
                     errH.DonimoNaranAkirameta("Util_LearningView#Ittesasu_ByBtnClick：" + sb.ToString());
@@ -386,9 +383,9 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             Util_IttesasuRoutine.Before1(
                 new IttesasuArgImpl(
                     learningData.Kifu.CurNode.Value,
-                    ((KifuNode)learningData.Kifu.CurNode).Value.KyokumenConst.KaisiPside,
+                    ((KifuNode)learningData.Kifu.CurNode).Value.Kyokumen.KaisiPside,
                     nextMove,// FIXME: エラールートだと、これがヌル
-                    learningData.Kifu.CurNode.Value.KyokumenConst.Temezumi + 1//1手進める
+                    learningData.Kifu.CurNode.Value.Kyokumen.Temezumi + 1//1手進める
                 ),
                 out ittesasuResult,
                 //this.Kifu,//診断用

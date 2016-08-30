@@ -17,7 +17,7 @@ namespace Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C250____Struct
         /// 局面が進むごとに更新されていきます。
         /// 
         /// </summary>
-        public SkyImpl GuiSkyConst { get { return this.guiSkyConst; } }
+        public SkyImpl GuiSky { get { return this.guiSkyConst; } }
         public void SetGuiSky(SkyImpl sky)
         {
             this.guiSkyConst = sky;

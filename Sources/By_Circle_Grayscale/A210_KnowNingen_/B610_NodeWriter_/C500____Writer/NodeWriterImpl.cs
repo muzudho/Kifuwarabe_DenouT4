@@ -19,7 +19,7 @@ namespace Grayscale.A210_KnowNingen_.B610_NodeWriter_.C500____Writer
             {
                 // TODO: ログが大きくなるので、１行で出力したあとに改行にします。
 
-                Json_Prop prop = new Json_Prop("kyokumen", Util_Sky307.ToJsonVal(kWrap.KyokumenConst));
+                Json_Prop prop = new Json_Prop("kyokumen", Util_Sky307.ToJsonVal(kWrap.Kyokumen));
                 obj.Add(prop);
             }
             else

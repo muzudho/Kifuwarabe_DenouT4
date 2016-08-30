@@ -39,8 +39,8 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C500____Server
         #endregion
 
 
-        public AimsServerImpl(SkyImpl src_Sky, int temezumi)
-            : base(src_Sky, temezumi, new Receiver_ForAimsImpl())
+        public AimsServerImpl(SkyImpl src_Sky)
+            : base(src_Sky, new Receiver_ForAimsImpl())
         {
             // AIMSサーバー用の特別処理。
             ((Receiver_ForAimsImpl)this.EngineClient.Receiver).SetOwner_AimsServer(this);

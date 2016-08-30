@@ -70,10 +70,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C470____StartZero
             if (null == Util_StartZero.src_Sky_hirateSyokikyokumen)
             {
                 // 平手初期局面
-                Util_StartZero.src_Sky_hirateSyokikyokumen = SkyImpl.NewInstance(
-                                        Util_SkyWriter.New_Hirate(Playerside.P1),
-                                        0 // 初期局面は 0手目済み
-                                    );
+                Util_StartZero.src_Sky_hirateSyokikyokumen = Util_SkyWriter.New_Hirate(Playerside.P1);
             }
 
             if (null == Util_StartZero.n54List_hirateSyokikyokumen)

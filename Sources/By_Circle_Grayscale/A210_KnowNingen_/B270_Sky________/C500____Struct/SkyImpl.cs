@@ -123,11 +123,6 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
             }
         }
 
-        public void Clear()
-        {
-            this.m_busstops_.Clear();
-        }
-
 
 
 
@@ -204,25 +199,6 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
             return result;
         }
 
-        /// <summary>
-        /// 駒を１個　更新します。
-        /// 
-        /// （１）指したとき。戻したとき。
-        /// （２）駒の向き変更にも使われる。
-        /// </summary>
-        /// <param name="src"></param>
-        /// <param name="finger1"></param>
-        /// <param name="busstop1"></param>
-        /// <returns></returns>
-        public static SkyImpl NewInstance_OverwriteOrAdd_Light(Sky src, int temezumi_orMinus1, Finger finger1, Busstop busstop1,
-            // 手得計算
-            Komasyurui14 tedokuKeisan_komasyurui, int tedokukeisan_index, SyElement tedokukeisan_sasitamasu
-            )
-        {
-            SkyImpl result = new SkyImpl(src, false, temezumi_orMinus1, new Finger[] { finger1 }, new Busstop[] { busstop1 });
-            return result;
-        }
-
 
         /// <summary>
         /// 
@@ -233,7 +209,8 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
         /// <param name="finger2">取った駒、取っていた駒</param>
         /// <param name="busstops2"></param>
         /// <returns></returns>
-        public static SkyImpl NewInstance_OverwriteOrAdd_Light(Sky src, int temezumi_orMinus1, Finger finger1, Busstop busstops1, Finger finger2, Busstop busstops2)
+        public static SkyImpl NewInstance_OverwriteOrAdd_Light(
+            Sky src, int temezumi_orMinus1, Finger finger1, Busstop busstops1, Finger finger2, Busstop busstops2)
         {
             SkyImpl result = new SkyImpl(src, false, temezumi_orMinus1, new Finger[] { finger1, finger2 }, new Busstop[] { busstops1, busstops2 });
             return result;
