@@ -535,14 +535,13 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                             false
                                                             );// 選択している駒の元の場所と、移動先
 
+                                                        // 駒を置いたので、次のノードを準備しておく☆？
                                                         Node<Move, KyokumenWrapper> newNode =
                                                             new KifuNodeImpl(
                                                                 move,
-                                                                new KyokumenWrapper(SkyImpl.NewInstance(
-                                                                    src_GuiSky,
-                                                                    mainGui.Model_Manual.GuiTemezumi + 1//1手進ませる。
-                                                                    ))
+                                                                new KyokumenWrapper(new SkyImpl(src_GuiSky))
                                                             );
+                                                        newNode.Value.Kyokumen.SetTemezumi( mainGui.Model_Manual.GuiTemezumi + 1);//1手進ませる。
 
 
                                                         //マウスの左ボタンを放したときです。

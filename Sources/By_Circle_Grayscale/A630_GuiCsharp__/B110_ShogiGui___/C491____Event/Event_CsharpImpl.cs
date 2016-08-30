@@ -526,11 +526,10 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     //
                     newNode = new KifuNodeImpl(
                         move,
-                        new KyokumenWrapper(SkyImpl.NewInstance_ReversePside(// 先後を反転させます。
-                            mainGui.Model_Manual.GuiSky,
-                            mainGui.Model_Manual.GuiSky.Temezumi + 1//１手進める
-                            ))
+                        new KyokumenWrapper(new SkyImpl(mainGui.Model_Manual.GuiSky))
                     );
+                    newNode.Value.Kyokumen.SetKaisiPside(Conv_Playerside.Reverse(newNode.Value.Kyokumen.KaisiPside));// 先後を反転させます。
+                    newNode.Value.Kyokumen.SetTemezumi(mainGui.Model_Manual.GuiSky.Temezumi + 1);//１手進める
 
 
                     //「成る／成らない」ボタンを押したときです。

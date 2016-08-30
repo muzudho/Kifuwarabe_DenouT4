@@ -36,11 +36,20 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct
 
         void Foreach_Busstops(SkyImpl.DELEGATE_Sky_Foreach delegate_Sky_Foreach);
 
+        /// <summary>
+        /// 盤上の駒数と、持ち駒の数の合計。
+        /// </summary>
         int Count
         {
             get;
         }
 
         Fingers Fingers_All();
+
+        /// <summary>
+        /// 持ち駒の枚数だぜ☆（＾▽＾）
+        /// </summary>
+        int[] MotiSu { get; set; }
+
     }
 }

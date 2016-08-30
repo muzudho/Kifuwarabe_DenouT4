@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
+using Grayscale.B140_SfenStruct_.C___250_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B310_Seiza______.C250____Struct
 {
@@ -33,99 +34,10 @@ namespace Grayscale.A210_KnowNingen_.B310_Seiza______.C250____Struct
         public Playerside KaisiPside { get{return this.kaisiPside;} } private Playerside kaisiPside;
 
         /// <summary>
-        /// ▲王
+        /// 持ち駒の枚数☆（＾▽＾）
         /// </summary>
-        public int Moti1K { get { return moti1K; } } private int moti1K;
-
-
-        /// <summary>
-        /// ▲飛
-        /// </summary>
-        public int Moti1R { get { return moti1R; } } private int moti1R;
-
-
-        /// <summary>
-        /// ▲角
-        /// </summary>
-        public int Moti1B { get { return moti1B; } } private int moti1B;
-
-
-        /// <summary>
-        /// ▲金
-        /// </summary>
-        public int Moti1G { get { return moti1G; } } private int moti1G;
-
-
-        /// <summary>
-        /// ▲銀
-        /// </summary>
-        public int Moti1S { get { return moti1S; } } private int moti1S;
-
-
-        /// <summary>
-        /// ▲桂
-        /// </summary>
-        public int Moti1N { get { return moti1N; } } private int moti1N;
-
-
-        /// <summary>
-        /// ▲香
-        /// </summary>
-        public int Moti1L { get { return moti1L; } } private int moti1L;
-
-
-        /// <summary>
-        /// ▲歩
-        /// </summary>
-        public int Moti1P { get { return moti1P; } } private int moti1P;
-
-
-        /// <summary>
-        /// △王
-        /// </summary>
-        public int Moti2k { get { return moti2k; } } private int moti2k;
-
-
-        /// <summary>
-        /// △飛
-        /// </summary>
-        public int Moti2r { get { return moti2r; } } private int moti2r;
-
-
-        /// <summary>
-        /// △角
-        /// </summary>
-        public int Moti2b { get { return moti2b; } } private int moti2b;
-
-
-        /// <summary>
-        /// △金
-        /// </summary>
-        public int Moti2g { get { return moti2g; } } private int moti2g;
-
-
-        /// <summary>
-        /// △銀
-        /// </summary>
-        public int Moti2s { get { return moti2s; } } private int moti2s;
-
-
-        /// <summary>
-        /// △桂
-        /// </summary>
-        public int Moti2n { get { return moti2n; } } private int moti2n;
-
-
-        /// <summary>
-        /// △香
-        /// </summary>
-        public int Moti2l { get { return moti2l; } } private int moti2l;
-
-
-        /// <summary>
-        /// △歩
-        /// </summary>
-        public int Moti2p { get { return moti2p; } } private int moti2p;
+        public int[] MotiSu { get { return m_motiSu_; } }
+        private int[] m_motiSu_;
 
 
         /// <summary>
@@ -174,6 +86,7 @@ namespace Grayscale.A210_KnowNingen_.B310_Seiza______.C250____Struct
         {
             Debug.Assert(src_Sky.Count == 40, "sourceSky.Starlights.Count=[" + src_Sky.Count + "]");//将棋の駒の数
 
+            this.m_motiSu_ = new int[(int)Pieces.Num];
             this.BanObject201 = new Dictionary<int, Busstop>();
 
             this.ToBanObject201(src_Sky);
@@ -225,28 +138,28 @@ namespace Grayscale.A210_KnowNingen_.B310_Seiza______.C250____Struct
                 switch (Conv_Busstop.ToKomasyurui(busstop))
                 {
                     case Komasyurui14.H01_Fu_____:
-                        this.moti1P++;
+                        this.m_motiSu_[(int)Pieces.P]++;
                         break;
                     case Komasyurui14.H02_Kyo____:
-                        this.moti1L++;
+                        this.m_motiSu_[(int)Pieces.L]++;
                         break;
                     case Komasyurui14.H03_Kei____:
-                        this.moti1N++;
+                        this.m_motiSu_[(int)Pieces.N]++;
                         break;
                     case Komasyurui14.H04_Gin____:
-                        this.moti1S++;
+                        this.m_motiSu_[(int)Pieces.S]++;
                         break;
                     case Komasyurui14.H05_Kin____:
-                        this.moti1G++;
+                        this.m_motiSu_[(int)Pieces.G]++;
                         break;
                     case Komasyurui14.H06_Gyoku__:
-                        this.moti1K++;
+                        this.m_motiSu_[(int)Pieces.K]++;
                         break;
                     case Komasyurui14.H07_Hisya__:
-                        this.moti1R++;
+                        this.m_motiSu_[(int)Pieces.R]++;
                         break;
                     case Komasyurui14.H08_Kaku___:
-                        this.moti1B++;
+                        this.m_motiSu_[(int)Pieces.B]++;
                         break;
                 }
             }
@@ -256,28 +169,28 @@ namespace Grayscale.A210_KnowNingen_.B310_Seiza______.C250____Struct
                 switch (Conv_Busstop.ToKomasyurui(busstop))
                 {
                     case Komasyurui14.H01_Fu_____:
-                        this.moti2p++;
+                        this.m_motiSu_[(int)Pieces.p]++;
                         break;
                     case Komasyurui14.H02_Kyo____:
-                        this.moti2l++;
+                        this.m_motiSu_[(int)Pieces.l]++;
                         break;
                     case Komasyurui14.H03_Kei____:
-                        this.moti2n++;
+                        this.m_motiSu_[(int)Pieces.n]++;
                         break;
                     case Komasyurui14.H04_Gin____:
-                        this.moti2s++;
+                        this.m_motiSu_[(int)Pieces.s]++;
                         break;
                     case Komasyurui14.H05_Kin____:
-                        this.moti2g++;
+                        this.m_motiSu_[(int)Pieces.g]++;
                         break;
                     case Komasyurui14.H06_Gyoku__:
-                        this.moti2k++;
+                        this.m_motiSu_[(int)Pieces.k]++;
                         break;
                     case Komasyurui14.H07_Hisya__:
-                        this.moti2r++;
+                        this.m_motiSu_[(int)Pieces.r]++;
                         break;
                     case Komasyurui14.H08_Kaku___:
-                        this.moti2b++;
+                        this.m_motiSu_[(int)Pieces.b]++;
                         break;
                 }
             }

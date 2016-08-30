@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
+using Grayscale.B140_SfenStruct_.C___250_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
 {
@@ -32,11 +33,22 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
         /// <summary>
         /// 棋譜を新規作成するときに使うコンストラクター。
         /// </summary>
+        public SkyImpl(Playerside kaisiPside)
+        {
+            this.kaisiPside = kaisiPside;
+            this.temezumi = 0;//初期局面は 0手目済み
+            this.m_busstops_ = new List<Busstop>();
+            this.MotiSu = new int[(int)Pieces.Num];
+        }
+        /// <summary>
+        /// 棋譜を新規作成するときに使うコンストラクター。
+        /// </summary>
         public SkyImpl(Playerside kaisiPside, int temezumi)
         {
             this.kaisiPside = kaisiPside;
             this.temezumi = temezumi;
             this.m_busstops_ = new List<Busstop>();
+            this.MotiSu = new int[(int)Pieces.Num];
         }
 
         /// <summary>
@@ -55,13 +67,16 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
             {
                 this.m_busstops_.Add(busstop);
             });
+            this.MotiSu = new int[(int)Pieces.Num];
+            Array.Copy(src.MotiSu, this.MotiSu, src.MotiSu.Length);
         }
 
         /// <summary>
         /// クローンを作ります。
+        /// 追加する要素を指定できます。
         /// </summary>
         /// <param name="src"></param>
-        private SkyImpl(Sky src, bool toReversePlayerside, int update_temezumi_orMinus1, Finger[] finger1, Busstop[] busstops1)
+        private SkyImpl(Sky src, bool toReversePlayerside, int update_temezumi_orMinus1, Finger[] addsFinger1, Busstop[] addsBusstops1)
         {
             Debug.Assert(src.Count == 40, "本将棋とみなしてテスト中。sky.Starlights.Count=[" + src.Count + "]");//将棋の駒の数
 
@@ -93,31 +108,33 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
             {
                 this.m_busstops_.Add(busstop2);
             });
+            this.MotiSu = new int[(int)Pieces.Num];
+            Array.Copy(src.MotiSu, this.MotiSu, src.MotiSu.Length);
 
             //
             // 追加分があれば。
             //
-            for (int i = 0; i < finger1.Length; i++)
+            for (int i = 0; i < addsFinger1.Length; i++)
             {
-                if (finger1[i] != Fingers.Error_1)
+                if (addsFinger1[i] != Fingers.Error_1)
                 {
-                    if (this.m_busstops_.Count == (int)finger1[i])
+                    if (this.m_busstops_.Count == (int)addsFinger1[i])
                     {
                         // オブジェクトを追加します。
-                        this.m_busstops_.Add(busstops1[i]);
+                        this.m_busstops_.Add(addsBusstops1[i]);
                     }
-                    else if (this.m_busstops_.Count + 1 <= (int)finger1[i])
+                    else if (this.m_busstops_.Count + 1 <= (int)addsFinger1[i])
                     {
                         // エラー
-                        Debug.Assert((int)finger1[i] < this.m_busstops_.Count, "要素の個数より2大きいインデックスを指定しました。 インデックス[" + (int)finger1[i] + "]　要素の個数[" + this.m_busstops_.Count + "]");
+                        Debug.Assert((int)addsFinger1[i] < this.m_busstops_.Count, "要素の個数より2大きいインデックスを指定しました。 インデックス[" + (int)addsFinger1[i] + "]　要素の個数[" + this.m_busstops_.Count + "]");
 
-                        string message = this.GetType().Name + "#SetStarPos：　リストの要素より2多いインデックスを指定されましたので、追加しません。starIndex=[" + finger1[i] + "] / this.stars.Count=[" + this.m_busstops_.Count + "]";
+                        string message = this.GetType().Name + "#SetStarPos：　リストの要素より2多いインデックスを指定されましたので、追加しません。starIndex=[" + addsFinger1[i] + "] / this.stars.Count=[" + this.m_busstops_.Count + "]";
                         //LarabeLogger.GetInstance().WriteLineError(LarabeLoggerList.ERROR, message);
                         throw new Exception(message);
                     }
                     else
                     {
-                        this.m_busstops_[(int)finger1[i]] = busstops1[i];
+                        this.m_busstops_[(int)addsFinger1[i]] = addsBusstops1[i];
                     }
                 }
             }
@@ -159,28 +176,31 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
                 return this.m_busstops_;
             }
         }
+        /// <summary>
+        /// 持ち駒の枚数だぜ☆（＾▽＾）
+        /// </summary>
+        public int[] MotiSu { get; set; }
 
         #endregion
 
 
+
+        /// <summary>
+        /// 盤上の駒数と、持ち駒の数の合計。
+        /// </summary>
         public int Count
         {
             get
             {
-                return this.m_busstops_.Count;
+                int maisu = this.m_busstops_.Count;
+
+                for (int iMoti=0; iMoti<(int)Pieces.Num; iMoti++)
+                {
+                    maisu += this.MotiSu[iMoti];
+                }
+
+                return maisu;
             }
-        }
-
-        public static SkyImpl NewInstance(Sky src, int temezumi_orMinus1)
-        {
-            SkyImpl result = new SkyImpl(src, false, temezumi_orMinus1, new Finger[] { Fingers.Error_1 }, new Busstop[] { Busstop.Empty });
-            return result;
-        }
-
-        public static SkyImpl NewInstance_ReversePside(Sky src, int temezumi_orMinus1)
-        {
-            SkyImpl result = new SkyImpl(src, true, temezumi_orMinus1, new Finger[]{Fingers.Error_1},new Busstop[]{Busstop.Empty});
-            return result;
         }
 
         /// <summary>

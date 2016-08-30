@@ -128,65 +128,6 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             Debug.Assert(kifuRef.CurNode != null, "カレントノードがヌル。");
         }
 
-        /*
-        /// <summary>
-        /// 取った駒を差替えます。
-        /// 
-        /// 棋譜読取時用です。マウス操作時は、流れが異なるので使えません。
-        /// </summary>
-        public static void AppendChildB_Swap(
-            Komasyurui14 tottaSyurui,
-            SkyConst src_Sky,
-            KifuTree kifu282,
-            out Node<ShootingStarlightable, KyokumenWrapper> out_swapedNode,
-            string hint,
-            KwErrorHandler errH
-            )
-        {
-            out_swapedNode = null;
-
-            if (kifu282.CurNode.IsRoot())
-            {
-                // ルート・ノードなら
-                goto gt_EndMethod;
-                // 子要素をスワップするためには親要素が必要だが、ルートには親ノードがないので、このあとの操作はできません。
-            }
-
-            if (null == src_Sky)
-            {
-                string message = "ノードを追加しようとしましたが、指定されたnewSkyがヌルです。";
-                Exception ex = new Exception(message);
-                OwataMinister.ERROR.DonimoNaranAkirameta(ex, "取った駒を差替え中☆"); throw ex;
-            }
-
-            // 現手番
-            Playerside genTebanside = ((KifuNode)kifu282.CurNode).Tebanside;
-            // 現ノード削除。元のキーは退避。
-            ShootingStarlightable motoKey = (ShootingStarlightable)kifu282.PopCurrentNode().Key;
-
-            // 元のキーの、取った駒の種類だけを差替えます。
-            RO_ShootingStarlight swapedSasite = Util_Sky258A.BuildSasite(motoKey.LongTimeAgo, motoKey, tottaSyurui);
-
-            // キーを差替えたノード
-            out_swapedNode = new KifuNodeImpl(swapedSasite, new KyokumenWrapper(src_Sky), genTebanside);
-
-            System.Diagnostics.Debug.Assert(!kifu282.CurNode.ContainsKey_ChildNodes(Util_Sky278.TranslateSasite_StarlightToText(out_swapedNode.Key)));
-
-
-            // さきほど　カレントノードを削除したので、
-            // 今、カレントノードは、１つ前のノードになっています。
-            // ここに、差替えたノードを追加します。
-            kifu282.CurNode.Add_ChildNode(Util_Sky278.TranslateSasite_StarlightToText(out_swapedNode.Key), out_swapedNode);
-            out_swapedNode.ParentNode = kifu282.CurNode;
-
-            errH.Logger.WriteLine_AddMemo("リンクトリストの、最終ノードは差し替えられた hint=[" + hint + "] item=[" + Util_Sky278.TranslateSasite_StarlightToText(swapedSasite) + "]");
-        // memberName=[" + memberName + "] sourceFilePath=[" + sourceFilePath + "] sourceLineNumber=[" + sourceLineNumber + "]
-
-        gt_EndMethod:
-            ;
-        }
-        */
-
         /// <summary>
         /// ************************************************************************************************************************
         /// [ここから採譜]機能

@@ -11,6 +11,7 @@ using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB;
 using System.Text;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 {
@@ -80,11 +81,11 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                 // 採譜用新ノード
                 KifuNode saifu_newChild = new KifuNodeImpl(
                     node.Key,
-                    new KyokumenWrapper( SkyImpl.NewInstance_ReversePside(
-                        saifu_kWrap.Kyokumen,
-                        temezumi//FIXME:合ってるのかどうか。
-                        ))
+                    new KyokumenWrapper( new SkyImpl(saifu_kWrap.Kyokumen))
                 );
+                saifu_newChild.Value.Kyokumen.SetKaisiPside(Conv_Playerside.Reverse(saifu_kWrap.Kyokumen.KaisiPside));
+                saifu_newChild.Value.Kyokumen.SetTemezumi(temezumi);
+
 
                 // 記録係り用棋譜（採譜）
                 Util_KifuTree282.AppendChild_And_ChangeCurrentToChild(saifuKifu, saifu_newChild, hint+"/ToJsaKifuText", errH);// 新しい次ノードを追加。次ノードを、これからカレントとする。

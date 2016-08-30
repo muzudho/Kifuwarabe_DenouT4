@@ -74,9 +74,12 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     //現局面ノードのクローンを作成します。
                     editNodeRef = new KifuNodeImpl(
                         ittesasuArg.KorekaranoMove,
-                        new KyokumenWrapper(
-                        SkyImpl.NewInstance_ReversePside(kaisi_Sky,ittesasuArg.KorekaranoTemezumi_orMinus1))
+                        new KyokumenWrapper(new SkyImpl(kaisi_Sky))
                         );
+                    editNodeRef.Value.Kyokumen.SetKaisiPside(Conv_Playerside.Reverse(editNodeRef.Value.Kyokumen.KaisiPside));
+                    editNodeRef.Value.Kyokumen.SetTemezumi(ittesasuArg.KorekaranoTemezumi_orMinus1);
+
+
                     ittesasuResult.Susunda_Sky_orNull = editNodeRef.Value.Kyokumen;
                 }
 

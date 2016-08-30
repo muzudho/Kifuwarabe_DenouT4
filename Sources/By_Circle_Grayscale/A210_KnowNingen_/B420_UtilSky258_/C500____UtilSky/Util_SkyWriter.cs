@@ -22,9 +22,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// </summary>
         public static SkyImpl New_Hirate(Playerside kaisiPside)
         {
-            SkyImpl newSky = new SkyImpl(kaisiPside,
-                0//初期局面は 0手目済み
-                );
+            SkyImpl newSky = new SkyImpl(kaisiPside);
             Finger figKoma;
 
             figKoma = Finger_Honshogi.SenteOh;
@@ -125,9 +123,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
 
         public static SkyImpl New_Komabukuro(Playerside kaisiPside)
         {
-            SkyImpl newSky = new SkyImpl(kaisiPside,
-                0// 初期局面扱いで、 0手目済みとしておく。
-                );
+            SkyImpl newSky = new SkyImpl(kaisiPside);
 
             Finger finger = 0;
 
