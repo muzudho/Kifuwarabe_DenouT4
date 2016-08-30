@@ -54,7 +54,7 @@ namespace Grayscale.A500_ShogiEngine.B260_UtilClient_.C500____Util
                 Playerside pside = Playerside.P1;
                 int temezumi = 0;
                 model_Taikyoku.Kifu.GetRoot().Value.SetKyokumen(
-                    SkyConst.NewInstance(
+                    SkyImpl.NewInstance(
                         Conv_Sfenstring307.ToSkyConst(new SfenstringImpl(old_inputLine), pside, temezumi),
                         temezumi//初期配置は 0手目済み。
                     )

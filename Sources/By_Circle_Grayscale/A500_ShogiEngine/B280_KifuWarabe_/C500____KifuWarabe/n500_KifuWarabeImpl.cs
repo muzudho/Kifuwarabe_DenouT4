@@ -204,7 +204,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 this.SetKifu_AtLoop2(new KifuTreeImpl(
                         new KifuNodeImpl(
                             Conv_Move.GetErrorMove(),
-                            new KyokumenWrapper(SkyConst.NewInstance(
+                            new KyokumenWrapper(SkyImpl.NewInstance(
                                     Util_SkyWriter.New_Hirate(firstPside),
                                     0 // 初期局面は 0手目済み
                                 ))// きふわらべ起動時
@@ -892,7 +892,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 // MessageBox.Show("["+latestTemezumi+"]手目済　["+this.owner.PlayerInfo.Playerside+"]の手番");
                 //#endif
 
-                SkyConst src_Sky = this.Kifu_AtLoop2.NodeAt(latestTemezumi).Value.KyokumenConst;//現局面
+                SkyImpl src_Sky = this.Kifu_AtLoop2.NodeAt(latestTemezumi).Value.KyokumenConst;//現局面
 
                 //errH2.Logger.WriteLine_AddMemo("将棋サーバー「" + latestTemezumi + "手目、きふわらべ　さんの手番ですよ！」　" + line);
 

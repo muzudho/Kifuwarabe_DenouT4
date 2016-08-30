@@ -20,7 +20,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
         /// <returns></returns>
         public static Maps_OneAndMulti<Finger, Move> ToKomaBETUAllSasites(
             List_OneAndMulti<Finger, SySet<SyElement>> komaBETUSusumeruMasus,
-            SkyConst src_Sky
+            SkyImpl src_Sky
             )
         {
             Maps_OneAndMulti<Finger, Move> result_komabetuAllMoves = new Maps_OneAndMulti<Finger, Move>();

@@ -12,9 +12,9 @@ namespace Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct
 
         //*
         #region sky型
-        public SkyConst KyokumenConst { get { return this.kyokumen; } }
-        public void SetKyokumen(SkyConst sky) { this.kyokumen = sky; }
-        private SkyConst kyokumen;
+        public SkyImpl KyokumenConst { get { return this.kyokumen; } }
+        public void SetKyokumen(SkyImpl sky) { this.kyokumen = sky; }
+        private SkyImpl kyokumen;
         #endregion
         // */
 
@@ -34,7 +34,7 @@ namespace Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct
         #endregion
         // */
 
-        public KyokumenWrapper(SkyConst sky)
+        public KyokumenWrapper(SkyImpl sky)
         {
             Debug.Assert(sky.Count == 40, "sky.Starlights.Count=[" + sky.Count + "]");//将棋の駒の数
 

@@ -35,7 +35,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA
         /// <summary>
         /// 終了ノードの局面データ。
         /// </summary>
-        SkyConst Susunda_Sky_orNull { get; set; }
+        SkyImpl Susunda_Sky_orNull { get; set; }
 
     }
 }

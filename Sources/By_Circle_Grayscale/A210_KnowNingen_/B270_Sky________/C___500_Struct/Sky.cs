@@ -34,14 +34,12 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct
             */
         );
 
-        void Foreach_Busstops(SkyBuffer.DELEGATE_Sky_Foreach delegate_Sky_Foreach);
+        void Foreach_Busstops(SkyImpl.DELEGATE_Sky_Foreach delegate_Sky_Foreach);
 
         int Count
         {
             get;
         }
-
-        Sky Clone();
 
         Fingers Fingers_All();
     }

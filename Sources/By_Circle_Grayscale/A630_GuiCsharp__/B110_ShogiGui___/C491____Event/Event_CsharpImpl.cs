@@ -352,7 +352,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         KifuNode modifyNode = new KifuNodeImpl(
                             mainGui3.Link_Server.Model_Taikyoku.Kifu.CurNode.Key,//現在の局面を流用
                             new KyokumenWrapper(
-                                SkyConst.NewInstance_OverwriteOrAdd_Light(
+                                SkyImpl.NewInstance_OverwriteOrAdd_Light(
                                     mainGui3.Model_Manual.GuiSkyConst,
                                     -1,//そのまま
                                     figKoma,
@@ -524,15 +524,15 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     //
                     // 成ったので、指し手データ差替え。
                     //
-                    StartposImporter.Assert_HirateHonsyogi(new SkyBuffer(mainGui.Model_Manual.GuiSkyConst), "newNode作成前");
+                    StartposImporter.Assert_HirateHonsyogi(new SkyImpl(mainGui.Model_Manual.GuiSkyConst), "newNode作成前");
                     newNode = new KifuNodeImpl(
                         move,
-                        new KyokumenWrapper(SkyConst.NewInstance_ReversePside(// 先後を反転させます。
+                        new KyokumenWrapper(SkyImpl.NewInstance_ReversePside(// 先後を反転させます。
                             mainGui.Model_Manual.GuiSkyConst,
                             mainGui.Model_Manual.GuiSkyConst.Temezumi + 1//１手進める
                             ))
                     );
-                    StartposImporter.Assert_HirateHonsyogi(new SkyBuffer(newNode.Value.KyokumenConst), "newNode作成後");
+                    StartposImporter.Assert_HirateHonsyogi(new SkyImpl(newNode.Value.KyokumenConst), "newNode作成後");
 
 
                     //「成る／成らない」ボタンを押したときです。

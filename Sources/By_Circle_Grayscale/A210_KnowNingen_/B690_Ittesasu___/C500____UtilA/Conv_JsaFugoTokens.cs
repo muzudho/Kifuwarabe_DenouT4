@@ -53,7 +53,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             )
         {
             Node<Move, KyokumenWrapper> siteiNode = kifu.CurNode;
-            SkyConst src_Sky = siteiNode.Value.KyokumenConst;
+            SkyImpl src_Sky = siteiNode.Value.KyokumenConst;
 
             //------------------------------
             // 符号確定

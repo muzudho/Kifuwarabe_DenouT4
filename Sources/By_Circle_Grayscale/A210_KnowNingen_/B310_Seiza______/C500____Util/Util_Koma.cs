@@ -23,7 +23,7 @@ namespace Grayscale.A210_KnowNingen_.B310_Seiza______.C500____Util
 
 
 
-        public static Busstop FromFinger(SkyConst src_Sky,Finger finger)
+        public static Busstop FromFinger(SkyImpl src_Sky,Finger finger)
         {
             src_Sky.AssertFinger(finger);
             return src_Sky.BusstopIndexOf(finger);

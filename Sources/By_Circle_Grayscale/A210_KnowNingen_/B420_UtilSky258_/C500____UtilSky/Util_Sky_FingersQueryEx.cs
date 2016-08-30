@@ -24,7 +24,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="km"></param>
         /// <returns></returns>
         public static void Fingers_EachSrcNow(
-            out Fingers out_fingers, SySet<SyElement> srcList, SkyConst src_Sky, Playerside pside,
+            out Fingers out_fingers, SySet<SyElement> srcList, SkyImpl src_Sky, Playerside pside,
             KwErrorHandler errH)
         {
             out_fingers = new Fingers();

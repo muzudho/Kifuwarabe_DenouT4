@@ -43,7 +43,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad
             kifu = new KifuTreeImpl(
                     new KifuNodeImpl(
                         Conv_Move.GetErrorMove(),
-                        new KyokumenWrapper(SkyConst.NewInstance(
+                        new KyokumenWrapper(SkyImpl.NewInstance(
                             Util_SkyWriter.New_Hirate(firstPside),
                             0//初期局面なので、0手目済み。
                             ))

@@ -26,7 +26,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             if (0 < mainGui.Model_Manual.GuiTemezumi)
             {
                 // 処理の順序が悪く、初回はうまく判定できない。
-                SkyConst src_Sky = mainGui.Model_Manual.GuiSkyConst;
+                SkyImpl src_Sky = mainGui.Model_Manual.GuiSkyConst;
 
 
                 //----------

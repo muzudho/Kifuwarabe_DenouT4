@@ -21,7 +21,7 @@ namespace Grayscale.A210_KnowNingen_.B430_Play_______.C250____Calc
         /// <param name="logTag"></param>
         /// <returns></returns>
         public static Maps_OneAndOne<Finger, SySet<SyElement>> Get_PotentialMoves(
-            SkyConst src_Sky,
+            SkyImpl src_Sky,
             Fingers fingers,
             KwErrorHandler errH_orNull
             )

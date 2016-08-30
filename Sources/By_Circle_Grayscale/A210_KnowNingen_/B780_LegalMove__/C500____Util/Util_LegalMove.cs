@@ -49,7 +49,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             int yomikaisiTemezumi,
             bool isHonshogi,
             Maps_OneAndMulti<Finger, Move> genTeban_komabetuAllMoves1,// 指定局面で、どの駒が、どんな手を指すことができるか
-            SkyConst src_Sky,//指定局面。
+            SkyImpl src_Sky,//指定局面。
 
 #if DEBUG
             KaisetuBoards logF_kiki,
@@ -199,7 +199,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
         /// </summary>
         public static bool LAAA_KingSuicide(
             int yomikaisiTemezumi,
-            SkyConst src_Sky,//調べたい局面
+            SkyImpl src_Sky,//調べたい局面
             int temezumi_yomiCur_forLog,//読み進めている現在の手目
             Playerside pside_genTeban,//現手番側
 
@@ -284,7 +284,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
         public static List_OneAndMulti<Finger, SySet<SyElement>> LAAAA_GetEffect(
             int yomikaisiTemezumi,
             bool isHonshogi,
-            SkyConst src_Sky,
+            SkyImpl src_Sky,
             Playerside pside_genTeban3,
             bool isAiteban,
 #if DEBUG

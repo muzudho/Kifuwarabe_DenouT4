@@ -113,7 +113,7 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C499____UtilFv
         /// <param name="pside"></param>
         /// <param name="syurui"></param>
         /// <returns>エラー時は-1</returns>
-        public static int ParamIndex_Moti(SkyConst src_Sky, Playerside pside, Komasyurui14 syurui)
+        public static int ParamIndex_Moti(SkyImpl src_Sky, Playerside pside, Komasyurui14 syurui)
         {
             Fingers fingers = Util_Sky_FingersQuery.InOkibaPsideKomasyuruiNow(src_Sky, Conv_Playerside.ToKomadai(pside), pside, syurui);
 

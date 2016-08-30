@@ -96,7 +96,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
         {
             JsaFugoImpl result;
 
-            SkyConst src_Sky = kWrap.KyokumenConst;
+            SkyImpl src_Sky = kWrap.KyokumenConst;
 
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
@@ -194,7 +194,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
         {
             JsaFugoImpl fugo;
 
-            SkyConst src_Sky = kWrap.KyokumenConst;
+            SkyImpl src_Sky = kWrap.KyokumenConst;
 
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
@@ -305,7 +305,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
         {
             JsaFugoImpl fugo;
 
-            SkyConst src_Sky = kWrap.KyokumenConst;
+            SkyImpl src_Sky = kWrap.KyokumenConst;
 
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
@@ -420,7 +420,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
         {
             JsaFugoImpl fugo;
 
-            SkyConst src_Sky = kWrap.KyokumenConst;
+            SkyImpl src_Sky = kWrap.KyokumenConst;
 
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
@@ -619,7 +619,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             KwErrorHandler errH
             )
         {
-            SkyConst src_Sky = kWrap.KyokumenConst;
+            SkyImpl src_Sky = kWrap.KyokumenConst;
 
             Playerside pside = Conv_Move.ToPlayerside(move);
             SyElement dstMasu = Conv_Move.ToDstMasu(move);
@@ -780,7 +780,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
         {
             JsaFugoImpl fugo;
 
-            SkyConst copy_Sky = kWrap.KyokumenConst;
+            SkyImpl copy_Sky = kWrap.KyokumenConst;
 
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
 
@@ -827,7 +827,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
         {
             JsaFugoImpl fugo;
 
-            SkyConst src_Sky = kWrap.KyokumenConst;
+            SkyImpl src_Sky = kWrap.KyokumenConst;
 
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
@@ -996,7 +996,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
         {
             JsaFugoImpl fugo;
 
-            SkyConst src_Sky = kWrap.KyokumenConst;
+            SkyImpl src_Sky = kWrap.KyokumenConst;
 
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
@@ -1164,7 +1164,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
         {
             JsaFugoImpl fugo;
 
-            SkyConst src_Sky = kWrap.KyokumenConst;
+            SkyImpl src_Sky = kWrap.KyokumenConst;
 
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
@@ -1360,7 +1360,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
         {
             JsaFugoImpl fugo;
 
-            SkyConst src_Sky = kWrap.KyokumenConst;
+            SkyImpl src_Sky = kWrap.KyokumenConst;
 
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
@@ -1653,7 +1653,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
         {
             JsaFugoImpl fugo;
 
-            SkyConst copy_Sky = kWrap.KyokumenConst;
+            SkyImpl copy_Sky = kWrap.KyokumenConst;
 
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
 

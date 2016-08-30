@@ -18,7 +18,7 @@ namespace Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter
         /// <param name="fingers"></param>
         /// <param name="src_Sky"></param>
         /// <returns></returns>
-        public static SySet<SyElement> ToMasus(Fingers fingers, SkyConst src_Sky)
+        public static SySet<SyElement> ToMasus(Fingers fingers, SkyImpl src_Sky)
         {
             SySet<SyElement> masus = new SySet_Default<SyElement>("何かの升");
 

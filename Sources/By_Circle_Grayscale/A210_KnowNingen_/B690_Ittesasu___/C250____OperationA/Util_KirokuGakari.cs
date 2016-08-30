@@ -80,7 +80,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                 // 採譜用新ノード
                 KifuNode saifu_newChild = new KifuNodeImpl(
                     node.Key,
-                    new KyokumenWrapper( SkyConst.NewInstance_ReversePside(
+                    new KyokumenWrapper( SkyImpl.NewInstance_ReversePside(
                         saifu_kWrap.KyokumenConst,
                         temezumi//FIXME:合ってるのかどうか。
                         ))

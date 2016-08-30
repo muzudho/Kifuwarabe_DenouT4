@@ -678,7 +678,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
         /// <param name="csa"></param>
         /// <param name="ittemae_Sky">1手前の局面。ルート局面などの理由で１手前の局面がない場合はヌル。</param>
         /// <returns></returns>
-        public static Move ToMove_ByCsa(CsaKifuSasite csa, SkyConst ittemae_Sky_orNull)
+        public static Move ToMove_ByCsa(CsaKifuSasite csa, SkyImpl ittemae_Sky_orNull)
         {
             bool errorCheck = false;
 

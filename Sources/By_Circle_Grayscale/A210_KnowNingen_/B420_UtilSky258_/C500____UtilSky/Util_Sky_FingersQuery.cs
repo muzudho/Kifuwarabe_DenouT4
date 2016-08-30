@@ -31,7 +31,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="okiba"></param>
         /// <param name="kifuD"></param>
         /// <returns></returns>
-        public static Fingers InOkibaPsideNow(SkyConst src_Sky, Okiba okiba, Playerside pside)
+        public static Fingers InOkibaPsideNow(SkyImpl src_Sky, Okiba okiba, Playerside pside)
         {
             Fingers fingers = new Fingers();
 
@@ -59,7 +59,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="syurui"></param>
         /// <param name="hKomas"></param>
         /// <returns></returns>
-        public static Fingers InKomasyuruiNow(SkyConst src_Sky, Komasyurui14 syurui, KwErrorHandler errH)
+        public static Fingers InKomasyuruiNow(SkyImpl src_Sky, Komasyurui14 syurui, KwErrorHandler errH)
         {
             Fingers figKomas = new Fingers();
 
@@ -87,7 +87,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="syurui"></param>
         /// <param name="kifu"></param>
         /// <returns></returns>
-        public static Fingers InOkibaKomasyuruiNow(SkyConst src_Sky, Okiba okiba, Komasyurui14 syurui)
+        public static Fingers InOkibaKomasyuruiNow(SkyImpl src_Sky, Okiba okiba, Komasyurui14 syurui)
         {
             Fingers komas = new Fingers();
 
@@ -119,7 +119,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="pside">先後サイド。</param>
         /// <param name="komaSyurui">駒の種類。</param>
         /// <returns></returns>
-        public static Fingers InOkibaPsideKomasyuruiNow(SkyConst src_Sky, Okiba okiba, Playerside pside, Komasyurui14 komaSyurui)
+        public static Fingers InOkibaPsideKomasyuruiNow(SkyImpl src_Sky, Okiba okiba, Playerside pside, Komasyurui14 komaSyurui)
         {
             Fingers fingers = new Fingers();
 
@@ -148,7 +148,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
         /// <returns>スプライト番号。なければエラー番号。</returns>
-        public static Fingers InMasuNow_Old(SkyConst src_Sky, SyElement masu)//, KwErrorHandler errH
+        public static Fingers InMasuNow_Old(SkyImpl src_Sky, SyElement masu)//, KwErrorHandler errH
         {
             // １個入る。
             Fingers found = new Fingers();
@@ -176,7 +176,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
         /// <returns>スプライト番号。なければエラー番号。</returns>
-        public static Fingers InMasuNow_New(SkyConst src_Sky, Move move)
+        public static Fingers InMasuNow_New(SkyImpl src_Sky, Move move)
         {
             bool drop = Conv_Move.ToDrop(move);
             SyElement srcMasu = Conv_Move.ToSrcMasu(move);
@@ -291,7 +291,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="kifu"></param>
         /// <param name="okiba"></param>
         /// <returns></returns>
-        public static Fingers InOkibaNow(SkyConst src_Sky, Okiba okiba, KwErrorHandler errH)
+        public static Fingers InOkibaNow(SkyImpl src_Sky, Okiba okiba, KwErrorHandler errH)
         {
             Fingers komas = new Fingers();
 
@@ -317,7 +317,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="pside"></param>
         /// <param name="hKomas"></param>
         /// <returns></returns>
-        public static Fingers InPsideNow(SkyConst src_Sky, Playerside pside, KwErrorHandler errH)
+        public static Fingers InPsideNow(SkyImpl src_Sky, Playerside pside, KwErrorHandler errH)
         {
             Fingers fingers = new Fingers();
 

@@ -46,7 +46,7 @@ namespace Grayscale.P910_SpeedKeisok
             }
         }
 
-        public SkyConst Src_Sky { get; set; }
+        public SkyImpl Src_Sky { get; set; }
         public FeatureVector FeatureVector { get; set; }
 
         public KifuTree Kifu { get; set; }

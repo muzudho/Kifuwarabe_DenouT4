@@ -17,12 +17,12 @@ namespace Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C250____Struct
         /// 局面が進むごとに更新されていきます。
         /// 
         /// </summary>
-        public SkyConst GuiSkyConst { get { return this.guiSkyConst; } }
-        public void SetGuiSky(SkyConst sky)
+        public SkyImpl GuiSkyConst { get { return this.guiSkyConst; } }
+        public void SetGuiSky(SkyImpl sky)
         {
             this.guiSkyConst = sky;
         }
-        private SkyConst guiSkyConst;
+        private SkyImpl guiSkyConst;
         public int GuiTemezumi { get; set; }
         public Playerside GuiPside { get; set; }
 

@@ -55,7 +55,7 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util
         public static void SplitGroup_Banjo(
             out SySet<SyElement> out_masus_seme,
             out SySet<SyElement> out_masus_kurau,
-            SkyConst src_Sky,
+            SkyImpl src_Sky,
             Fingers fs_kurau,//盤上の駒（喰らう側）
             Fingers fs_seme//盤上の駒（利きを調べる側）
             )
@@ -81,7 +81,7 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util
             out List_OneAndMulti<Finger, SySet<SyElement>> out_komaBETUSusumeruMasus,
 
             bool isHonshogi,
-            SkyConst src_Sky,
+            SkyImpl src_Sky,
             Playerside pside_genTeban3,
             bool isAiteban
 #if DEBUG
@@ -245,7 +245,7 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util
             Fingers fingers_sirabetaiMOTIkoma,
             SySet<SyElement> masus_mikata_onBanjo,
             SySet<SyElement> masus_aite_onBanjo,
-            SkyConst src_Sky,
+            SkyImpl src_Sky,
             KwErrorHandler errH_orNull
             )
         {

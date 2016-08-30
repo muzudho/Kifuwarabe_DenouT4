@@ -36,7 +36,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C400____54List
         /// 盤上の40駒リスト。
         /// 駒台の14駒リスト。
         /// </summary>
-        public static N54List Calc_54List(SkyConst src_Sky, KwErrorHandler errH)
+        public static N54List Calc_54List(SkyImpl src_Sky, KwErrorHandler errH)
         {
             N54List result_n54List = new N54ListImpl();
 

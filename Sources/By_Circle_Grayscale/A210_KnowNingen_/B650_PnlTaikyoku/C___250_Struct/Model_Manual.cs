@@ -5,11 +5,11 @@ namespace Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct
 {
     public interface Model_Manual
     {
-        void SetGuiSky(SkyConst sky);
+        void SetGuiSky(SkyImpl sky);
 
         int GuiTemezumi { get; set; }
 
-        SkyConst GuiSkyConst { get; }
+        SkyImpl GuiSkyConst { get; }
 
         Playerside GuiPside { get; set; }
     }

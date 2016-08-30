@@ -33,7 +33,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C250____UtilFingers
         /// 駒sを渡すと、駒を１つずつ返します。
         /// </summary>
         public static void Translate_Fingers_ToKomasyuruiBETUFirst(
-            SkyConst src_Sky,
+            SkyImpl src_Sky,
             Fingers figKomas,
             out Finger[] out_figKomasFirst
             )

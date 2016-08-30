@@ -20,7 +20,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
         /// 変換『「指し手→局面」のコレクション』→『「駒、指し手」のペアのリスト』
         /// </summary>
         public static List<Couple<Finger, SyElement>> NextNodes_ToKamList(
-            SkyConst src_Sky_genzai,
+            SkyImpl src_Sky_genzai,
             Node<Move, KyokumenWrapper> hubNode,
             KwErrorHandler errH
             )

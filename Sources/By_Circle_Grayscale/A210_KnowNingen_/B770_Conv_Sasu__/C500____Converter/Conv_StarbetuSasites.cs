@@ -28,7 +28,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
         /// <returns>次の局面一覧を持った、入れ物ノード（ハブ・ノード）</returns>
         public static KifuNode ToNextNodes_AsHubNode(
             Maps_OneAndMulti<Finger,Move> komabetuAllMoves,
-            SkyConst src_Sky,
+            SkyImpl src_Sky,
             KwErrorHandler errH
             )
         {

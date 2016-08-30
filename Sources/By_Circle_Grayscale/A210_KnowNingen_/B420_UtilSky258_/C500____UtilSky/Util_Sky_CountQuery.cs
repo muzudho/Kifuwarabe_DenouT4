@@ -42,7 +42,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="mp"></param>
         /// <param name="errH"></param>
         public static void CountMoti(
-            SkyConst src_Sky,
+            SkyImpl src_Sky,
             out int[] motiSu,
             KwErrorHandler errH
         )

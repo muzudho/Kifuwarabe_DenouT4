@@ -34,7 +34,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
             out Fingers fs_banjoKurau,//戦駒（喰らう側）
             out Fingers fs_motiSeme,// 持駒（利きを調べる側）
             out Fingers fs_motiKurau,// 持駒（喰らう側）
-            SkyConst src_Sky,
+            SkyImpl src_Sky,
             Playerside tebanSeme,
             Playerside tebanKurau,
             KwErrorHandler errH_OrNull
@@ -127,7 +127,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         public static void Split_Moti1p_Moti2p(
             out Fingers fingers_moti1p,// 持駒 1P
             out Fingers fingers_moti2p,// 持駒 2=
-            SkyConst src_Sky,
+            SkyImpl src_Sky,
             KwErrorHandler errH_OrNull
         )
         {
@@ -159,7 +159,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         public static void Split_Jigyoku_Aitegyoku(
             out Busstop koma_Jigyoku_orNull,
             out Busstop koma_Aitegyoku_orNull,
-            SkyConst src_Sky,
+            SkyImpl src_Sky,
             Playerside jiPside,
             Playerside aitePside
             )
@@ -205,7 +205,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         public static void Split_1PGyoku_2PGyoku(
             out Busstop koma_1PGyoku_orNull,
             out Busstop koma_2PGyoku_orNull,
-            SkyConst src_Sky
+            SkyImpl src_Sky
         )
         {
             Busstop koma_1PGyoku_temp = Busstop.Empty;

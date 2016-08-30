@@ -31,7 +31,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             Playerside pside,
             Komasyurui14 syurui,
             SySet<SyElement> srcAll,
-            SkyConst src_Sky,//KifuTree kifu,
+            SkyImpl src_Sky,//KifuTree kifu,
             out Finger foundKoma,
             KwErrorHandler errH
             )

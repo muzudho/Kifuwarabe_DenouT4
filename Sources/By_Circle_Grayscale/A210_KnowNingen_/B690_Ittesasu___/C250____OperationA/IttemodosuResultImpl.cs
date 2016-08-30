@@ -18,14 +18,14 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
         public Komasyurui14 FoodKomaSyurui{ get; set; }
 
-        public SkyConst Susunda_Sky_orNull{ get; set; }
+        public SkyImpl Susunda_Sky_orNull{ get; set; }
 
         public IttemodosuResultImpl(
             Finger figMovedKoma,
             Finger figFoodKoma,
             Node<Move, KyokumenWrapper> out_newNode_OrNull,
             Komasyurui14 foodKomaSyurui,
-            SkyConst susunda_Sky_orNull
+            SkyImpl susunda_Sky_orNull
             )
         {
             this.FigMovedKoma = figMovedKoma;

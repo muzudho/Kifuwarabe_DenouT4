@@ -17,7 +17,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="src_Sky"></param>
         /// <param name="pside"></param>
         /// <returns></returns>
-        public static SySet<SyElement> Masus_Now(SkyConst src_Sky, Playerside pside)
+        public static SySet<SyElement> Masus_Now(SkyImpl src_Sky, Playerside pside)
         {
             SySet_Default<SyElement> masus = new SySet_Default<SyElement>("今の升");
 
@@ -43,7 +43,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// </summary>
         /// <param name="light"></param>
         /// <returns></returns>
-        public static SySet<SyElement> KomaKidou_Potential(Finger finger, SkyConst src_Sky)
+        public static SySet<SyElement> KomaKidou_Potential(Finger finger, SkyImpl src_Sky)
         {
             src_Sky.AssertFinger(finger);
             Busstop koma = src_Sky.BusstopIndexOf(finger);

@@ -127,7 +127,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                         }
                                         bMouseMove_SceneB_1TumamitaiKoma = true;
 
-                                        SkyConst src_Sky = mainGui.Model_Manual.GuiSkyConst;
+                                        SkyImpl src_Sky = mainGui.Model_Manual.GuiSkyConst;
 
                                         Point mouse = eventState.MouseLocation;
 
@@ -215,7 +215,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                     {
                                         #region マウス左ボタンダウン
                                         SceneName nextPhaseB = SceneName.Ignore;
-                                        SkyConst src_Sky = mainGui.Model_Manual.GuiSkyConst;
+                                        SkyImpl src_Sky = mainGui.Model_Manual.GuiSkyConst;
 
                                         //----------
                                         // 駒
@@ -307,7 +307,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                 case MouseEventStateName.MouseLeftButtonUp:
                                     {
                                         #region マウス左ボタンアップ
-                                        SkyConst src_Sky = mainGui.Model_Manual.GuiSkyConst;
+                                        SkyImpl src_Sky = mainGui.Model_Manual.GuiSkyConst;
 
                                         //----------
                                         // 将棋盤：升目
@@ -390,11 +390,11 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     //
                                                     // TODO: 一手[巻戻し]のときは追加したくない
                                                     //
-                                                    SkyBuffer sky_newChild = new SkyBuffer(src_Sky);
+                                                    SkyImpl sky_newChild = new SkyImpl(src_Sky);
                                                     sky_newChild.SetKaisiPside(Conv_Playerside.Reverse(Playerside.P1));//FIXME:人間が先手でハードコーディング中
                                                     Node<Move, KyokumenWrapper> newNode = new KifuNodeImpl(
                                                         move,
-                                                        new KyokumenWrapper( SkyConst.NewInstance(
+                                                        new KyokumenWrapper( SkyImpl.NewInstance(
                                                             sky_newChild,
                                                             mainGui.Model_Manual.GuiTemezumi + 1//1手進ませる。
                                                             ))
@@ -486,7 +486,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                     {
                                         #region マウス左ボタンアップ
                                         Node<Move, KyokumenWrapper> siteiNode = mainGui.Link_Server.Model_Taikyoku.Kifu.CurNode;
-                                        SkyConst src_Sky = mainGui.Model_Manual.GuiSkyConst;
+                                        SkyImpl src_Sky = mainGui.Model_Manual.GuiSkyConst;
 
 
                                         //----------
@@ -540,7 +540,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                         Node<Move, KyokumenWrapper> newNode =
                                                             new KifuNodeImpl(
                                                                 move,
-                                                                new KyokumenWrapper(SkyConst.NewInstance(
+                                                                new KyokumenWrapper(SkyImpl.NewInstance(
                                                                     src_Sky,
                                                                     mainGui.Model_Manual.GuiTemezumi + 1//1手進ませる。
                                                                     ))
@@ -768,7 +768,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                             Busstop koma = mainGui.Model_Manual.GuiSkyConst.BusstopIndexOf(btnTumandeiruKoma.Koma);
 
                                             mainGui.Model_Manual.SetGuiSky(
-                                                SkyConst.NewInstance_OverwriteOrAdd_Light(
+                                                SkyImpl.NewInstance_OverwriteOrAdd_Light(
                                                     mainGui.Model_Manual.GuiSkyConst,
                                                     mainGui.Model_Manual.GuiTemezumi + 1,//1手進める。
                                                     btnTumandeiruKoma.Koma,

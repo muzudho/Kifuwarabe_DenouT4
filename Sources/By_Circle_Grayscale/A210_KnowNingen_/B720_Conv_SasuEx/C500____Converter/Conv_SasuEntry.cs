@@ -23,7 +23,7 @@ namespace Grayscale.A210_KnowNingen_.B720_Conv_SasuEx.C500____Converter
         /// <returns></returns>
         public static KifuNode ToKifuNode(
             Move move,
-            SkyConst src_Sky,
+            SkyImpl src_Sky,
             KwErrorHandler errH
             )
         {

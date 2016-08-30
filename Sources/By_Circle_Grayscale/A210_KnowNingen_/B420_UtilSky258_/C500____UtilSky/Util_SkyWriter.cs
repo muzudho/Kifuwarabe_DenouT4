@@ -20,9 +20,9 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// 駒を、平手の初期配置に並べます。
         /// ************************************************************************************************************************
         /// </summary>
-        public static SkyConst New_Hirate(Playerside kaisiPside)
+        public static SkyImpl New_Hirate(Playerside kaisiPside)
         {
-            SkyBuffer dst_Sky = new SkyBuffer(kaisiPside,
+            SkyImpl dst_Sky = new SkyImpl(kaisiPside,
                 0//初期局面は 0手目済み
                 );
             Finger figKoma;
@@ -119,15 +119,15 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
 
             //LarabeLogger.GetInstance().WriteAddMemo(logTag, "平手局面にセットしたぜ☆");
 
-            return SkyConst.NewInstance(dst_Sky,
+            return SkyImpl.NewInstance(dst_Sky,
                 -1//dst_skyでもう変えてあるのでそのまま。
                 );
         }
 
 
-        public static SkyConst New_Komabukuro(Playerside kaisiPside)
+        public static SkyImpl New_Komabukuro(Playerside kaisiPside)
         {
-            SkyBuffer buf_Sky = new SkyBuffer(kaisiPside,
+            SkyImpl buf_Sky = new SkyImpl(kaisiPside,
                 0// 初期局面扱いで、 0手目済みとしておく。
                 );
             buf_Sky.Clear();
@@ -257,7 +257,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
             // 以上、全40駒。
             Debug.Assert(buf_Sky.Busstops.Count == 40);
 
-            return SkyConst.NewInstance(buf_Sky,
+            return SkyImpl.NewInstance(buf_Sky,
                 -1//buf_skyで設定済みなのでそのまま。
                 );
         }

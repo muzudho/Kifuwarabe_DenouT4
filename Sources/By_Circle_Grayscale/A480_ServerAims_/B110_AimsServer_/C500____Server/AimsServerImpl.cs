@@ -39,7 +39,7 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C500____Server
         #endregion
 
 
-        public AimsServerImpl(SkyConst src_Sky, int temezumi)
+        public AimsServerImpl(SkyImpl src_Sky, int temezumi)
             : base(src_Sky, temezumi, new Receiver_ForAimsImpl())
         {
             // AIMSサーバー用の特別処理。

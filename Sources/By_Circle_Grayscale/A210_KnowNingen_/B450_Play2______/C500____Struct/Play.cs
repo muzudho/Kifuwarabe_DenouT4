@@ -40,7 +40,7 @@ namespace Grayscale.A210_KnowNingen_.B450_Play2______.C500____Struct
         /// <param name="errH_orNull"></param>
         /// <returns></returns>
         public static List_OneAndMulti<Finger, SySet<SyElement>> Translate_Motikoma_ToMove(
-            SkyConst src_Sky,
+            SkyImpl src_Sky,
             Fingers fingers_sirabetaiMOTIkoma,
             SySet<SyElement> masus_mikata_onBanjo,//打ち歩詰めチェック用
             SySet<SyElement> masus_aite_onBanjo,//打ち歩詰めチェック用

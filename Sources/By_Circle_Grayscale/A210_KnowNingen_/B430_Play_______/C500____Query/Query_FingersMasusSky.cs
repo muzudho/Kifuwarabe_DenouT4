@@ -30,7 +30,7 @@ namespace Grayscale.A210_KnowNingen_.B430_Play_______.C500____Query
             Fingers fs_sirabetaiKoma,
             SySet<SyElement> masus_mikata_Banjo,
             SySet<SyElement> masus_aite_Banjo,
-            SkyConst src_Sky,
+            SkyImpl src_Sky,
             KwErrorHandler errH_orNull
             )
         {

@@ -41,7 +41,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
             return Util_Komasyurui14.ToGaiji(dstKs, pside);
         }
 
-        public static void Assert_Honshogi(SkyConst src_Sky)
+        public static void Assert_Honshogi(SkyImpl src_Sky)
         {
             Debug.Assert(src_Sky.Count == 40, "siteiSky.Starlights.Count=[" + src_Sky.Count + "]");//将棋の駒の数
 
@@ -191,7 +191,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="errH"></param>
         /// <returns>駒毎の、全指し手</returns>
         public static Maps_OneAndMulti<Finger, Move> SplitSasite_ByStar(
-            SkyConst src_Sky,
+            SkyImpl src_Sky,
             Node<Move, KyokumenWrapper> hubNode, KwErrorHandler errH)
         {
             Maps_OneAndMulti<Finger, Move> enable_moveMap = new Maps_OneAndMulti<Finger, Move>();

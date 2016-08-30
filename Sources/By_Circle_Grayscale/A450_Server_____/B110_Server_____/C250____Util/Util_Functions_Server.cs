@@ -510,13 +510,13 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
         gt_EndBlock1:
 
 
-            SkyConst sky2;
+            SkyImpl sky2;
             if (btnKoma_Food_Koma != Fingers.Error_1)
             {
                 //------------------------------
                 // 取られる駒があった場合
                 //------------------------------
-                sky2 = SkyConst.NewInstance_OverwriteOrAdd_Light(
+                sky2 = SkyImpl.NewInstance_OverwriteOrAdd_Light(
                         model_Manual.GuiSkyConst,
                         -1,//そのまま
                         //
@@ -539,7 +539,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                 model_Manual.GuiSkyConst.AssertFinger(fig_btnTumandeiruKoma);
                 Busstop movedKoma = model_Manual.GuiSkyConst.BusstopIndexOf(fig_btnTumandeiruKoma);
 
-                sky2 = SkyConst.NewInstance_OverwriteOrAdd_Light(
+                sky2 = SkyImpl.NewInstance_OverwriteOrAdd_Light(
                         model_Manual.GuiSkyConst,
                         -1,//そのまま
                         //

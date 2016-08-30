@@ -137,7 +137,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
             KwErrorHandler errH = Util_OwataMinister.ERROR;
             mainGui.Link_Server.Model_Taikyoku.Kifu.Clear();// 棋譜を空っぽにします。
 
-            SkyBuffer buffer_Sky = new SkyBuffer(mainGui.Model_Manual.GuiSkyConst);
+            SkyImpl buffer_Sky = new SkyImpl(mainGui.Model_Manual.GuiSkyConst);
 
             int figKoma;
 
@@ -235,7 +235,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
             {
                 KifuNode newNode = new KifuNodeImpl(
                             Conv_Move.GetErrorMove(),//ルートなので
-                            new KyokumenWrapper( SkyConst.NewInstance(
+                            new KyokumenWrapper( SkyImpl.NewInstance(
                                 buffer_Sky,
                                 0//空っぽに戻すので、 0手済みに変更。
                                 ))

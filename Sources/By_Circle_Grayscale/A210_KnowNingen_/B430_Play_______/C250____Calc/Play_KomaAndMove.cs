@@ -24,7 +24,7 @@ namespace Grayscale.A210_KnowNingen_.B430_Play_______.C250____Calc
         /// <param name="sbGohosyu"></param>
         /// <param name="logTag"></param>
         public static Maps_OneAndOne<Finger, SySet<SyElement>> MinusMasus(
-            SkyConst src_Sky_forLog,
+            SkyImpl src_Sky_forLog,
             Maps_OneAndOne<Finger, SySet<SyElement>> a1,
             SySet<SyElement> b,
             KwErrorHandler errH_orNull
@@ -63,7 +63,7 @@ namespace Grayscale.A210_KnowNingen_.B430_Play_______.C250____Calc
         /// <param name="sbGohosyu"></param>
         /// <param name="logTag"></param>
         public static Maps_OneAndOne<Finger, SySet<SyElement>> Minus_OverThereMasus(
-            SkyConst src_srcSky_forLog,
+            SkyImpl src_srcSky_forLog,
             Maps_OneAndOne<Finger, SySet<SyElement>> a,
             SySet<SyElement> b,
             KwErrorHandler errH_orNull

@@ -21,7 +21,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
         /// <returns></returns>
         public static List<Move> ToMovelist_NonPromotion(
             Maps_OneAndOne<Finger, SySet<SyElement>> komabetuSusumuMasus,
-            SkyConst src_Sky,
+            SkyImpl src_Sky,
             KwErrorHandler errH
         )
         {
@@ -60,7 +60,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
 
         public static List<Move> ToMovelist_NonPromotion(
             List_OneAndMulti<Finger, SySet<SyElement>> komaMasus,
-            SkyConst src_Sky,
+            SkyImpl src_Sky,
             KwErrorHandler errH
             )
         {

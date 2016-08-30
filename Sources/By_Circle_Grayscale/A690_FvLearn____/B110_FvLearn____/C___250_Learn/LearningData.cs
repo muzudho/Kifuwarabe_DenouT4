@@ -62,7 +62,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
         /// 全合法手をダンプ。デバッグ用途。
         /// </summary>
         /// <returns></returns>
-        string DumpToAllGohosyu(SkyConst src_Sky);
+        string DumpToAllGohosyu(SkyImpl src_Sky);
 
         
         /// <summary>

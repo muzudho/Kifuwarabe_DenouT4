@@ -15,7 +15,7 @@ namespace Grayscale.A210_KnowNingen_.B600_UtilSky____.C500____Util
         /// </summary>
         /// <param name="sky"></param>
         /// <param name="sfenStartpos"></param>
-        public static SkyConst ToSkyConst(SfenstringImpl startposString, Playerside pside, int temezumi)
+        public static SkyImpl ToSkyConst(SfenstringImpl startposString, Playerside pside, int temezumi)
         {
             StartposImporter startposImporter;
             string restText;

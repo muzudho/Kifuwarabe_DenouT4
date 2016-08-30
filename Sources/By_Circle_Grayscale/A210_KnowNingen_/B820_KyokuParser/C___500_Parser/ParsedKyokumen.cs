@@ -22,7 +22,7 @@ namespace Grayscale.A210_KnowNingen_.B820_KyokuParser.C___500_Parser
         /// </summary>
         List<MotiItem> MotiList { get; set; }
 
-        SkyBuffer buffer_Sky { get; set; }
+        SkyImpl buffer_Sky { get; set; }
 
     }
 }

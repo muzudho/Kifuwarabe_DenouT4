@@ -21,7 +21,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
     public abstract class Util_Scoreing
     {
 
-        public static float Initial_BestScore(SkyConst src_Sky)
+        public static float Initial_BestScore(SkyImpl src_Sky)
         {
             // このノードが、どちらの手番か。
             Playerside pside = src_Sky.KaisiPside;

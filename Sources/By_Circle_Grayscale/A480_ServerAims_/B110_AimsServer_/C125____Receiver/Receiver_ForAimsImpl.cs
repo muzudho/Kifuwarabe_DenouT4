@@ -108,7 +108,7 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C125____Receiver
                                 this.Owner_AimsServer.Model_Taikyoku.SetKifu(new KifuTreeImpl(
                                         new KifuNodeImpl(
                                             Conv_Move.GetErrorMove(),
-                                            new KyokumenWrapper(SkyConst.NewInstance(
+                                            new KyokumenWrapper(SkyImpl.NewInstance(
                                                     Util_SkyWriter.New_Hirate(firstPside),
                                                     0 // 初期局面は 0手目済み
                                                 ))

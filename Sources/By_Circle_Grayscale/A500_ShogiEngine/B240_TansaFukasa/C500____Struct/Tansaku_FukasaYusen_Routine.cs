@@ -679,7 +679,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         /// <returns>複数のノードを持つハブ・ノード</returns>
         private static List<Move> WAAAA_Create_ChildNodes(
             Tansaku_Genjo genjo,
-            SkyConst src_Sky,
+            SkyImpl src_Sky,
             Move move_ForLog,
             KwErrorHandler errH
             )

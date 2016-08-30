@@ -503,7 +503,7 @@ namespace Grayscale.P699_Form_______
             sb.AppendLine("        <div style=\"margin-top:10px; width:30px;\">");
             sb.Append("            ");
 
-            SkyConst siteiSky = mainGui.Model_Manual.GuiSkyConst;
+            SkyImpl siteiSky = mainGui.Model_Manual.GuiSkyConst;
 
             //────────────────────────────────────────
             // 持ち駒（後手）

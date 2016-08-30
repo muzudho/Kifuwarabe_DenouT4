@@ -115,7 +115,7 @@ namespace Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct
         }
 
 
-        public static void Assert_HirateHonsyogi(SkyBuffer dst_Sky, string failMessage)
+        public static void Assert_HirateHonsyogi(SkyImpl dst_Sky, string failMessage)
         {
             //平手本将棋用
 //#if DEBUG
@@ -149,11 +149,11 @@ namespace Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct
 //#endif
         }
 
-        public SkyConst ToSky(Playerside kaisiPside, int temezumi)
+        public SkyImpl ToSky(Playerside kaisiPside, int temezumi)
         {
 
             // 駒40個に、Finger番号を割り当てておきます。
-            SkyBuffer dst_Sky = new SkyBuffer(kaisiPside, temezumi);// 駒数０。
+            SkyImpl dst_Sky = new SkyImpl(kaisiPside, temezumi);// 駒数０。
             //SkyBuffer dst_Sky = new SkyBuffer(Util_Sky.New_Komabukuro());// SFENインポート時
 
 
@@ -495,7 +495,7 @@ namespace Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct
 
             StartposImporter.Assert_HirateHonsyogi(dst_Sky, "ToSkyの終了直前 this.InputLine=[" + this.InputLine + "]");
 
-            return SkyConst.NewInstance(dst_Sky,
+            return SkyImpl.NewInstance(dst_Sky,
                 -1//dst_sky で設定済みなのでそのまま。
                 );
         }

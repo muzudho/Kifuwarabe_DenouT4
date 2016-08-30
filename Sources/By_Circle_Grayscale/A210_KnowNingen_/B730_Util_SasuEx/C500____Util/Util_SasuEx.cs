@@ -29,7 +29,7 @@ namespace Grayscale.A210_KnowNingen_.B730_Util_SasuEx.C500____Util
         /// 必要により、【成り】の指し手を追加するぜ☆
         /// </summary>
         public static List<Move> CreateNariSasite(
-            SkyConst src_Sky,
+            SkyImpl src_Sky,
             List<Move> a_sasitebetuEntry,
             KwErrorHandler errH
             )

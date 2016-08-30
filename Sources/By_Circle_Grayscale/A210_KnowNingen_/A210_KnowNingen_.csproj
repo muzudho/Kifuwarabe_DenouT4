@@ -145,8 +145,7 @@
     <Compile Include="B250_Log_Kaisetu\C250____Struct\KaisetuBoards.cs" />
     <Compile Include="B270_Sky________\C___500_Struct\Sky.cs" />
     <Compile Include="B270_Sky________\C500____Struct\Fingers.cs" />
-    <Compile Include="B270_Sky________\C500____Struct\SkyBuffer.cs" />
-    <Compile Include="B270_Sky________\C500____Struct\SkyConst.cs" />
+    <Compile Include="B270_Sky________\C500____Struct\SkyImpl.cs" />
     <Compile Include="B280_Tree_______\C___500_Struct\Node.cs" />
     <Compile Include="B280_Tree_______\C___500_Struct\Tree.cs" />
     <Compile Include="B280_Tree_______\C500____Struct\NodeImpl.cs" />

@@ -61,7 +61,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 //------------------------------
                 exceptionArea = 1010;
                 ittesasuResult = new IttesasuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___, null);
-                SkyConst kaisi_Sky = ittesasuArg.KaisiKyokumen.KyokumenConst;// 一手指し開始局面（不変）
+                SkyImpl kaisi_Sky = ittesasuArg.KaisiKyokumen.KyokumenConst;// 一手指し開始局面（不変）
                 Node<Move, KyokumenWrapper> editNodeRef;// 編集対象ノード（巻き戻し時と、進む時で異なる）
 
                 exceptionArea = 1040;
@@ -75,7 +75,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     editNodeRef = new KifuNodeImpl(
                         ittesasuArg.KorekaranoMove,
                         new KyokumenWrapper(
-                        SkyConst.NewInstance_ReversePside(kaisi_Sky,ittesasuArg.KorekaranoTemezumi_orMinus1))
+                        SkyImpl.NewInstance_ReversePside(kaisi_Sky,ittesasuArg.KorekaranoTemezumi_orMinus1))
                         );
                     ittesasuResult.Susunda_Sky_orNull = editNodeRef.Value.KyokumenConst;
                 }
@@ -157,7 +157,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     //------------------------------
                     // 局面データの書き換え
                     //------------------------------
-                    ittesasuResult.Susunda_Sky_orNull = SkyConst.NewInstance_OverwriteOrAdd_Light(
+                    ittesasuResult.Susunda_Sky_orNull = SkyImpl.NewInstance_OverwriteOrAdd_Light(
                         ittesasuResult.Susunda_Sky_orNull,
                         ittesasuArg.KorekaranoTemezumi_orMinus1,
                         //
@@ -182,7 +182,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     // 指した駒の移動
                     //------------------------------------------------------------
 
-                    ittesasuResult.Susunda_Sky_orNull = SkyConst.NewInstance_OverwriteOrAdd_Light(
+                    ittesasuResult.Susunda_Sky_orNull = SkyImpl.NewInstance_OverwriteOrAdd_Light(
                         ittesasuResult.Susunda_Sky_orNull,//駒を取って変化しているかもしれない？
                         ittesasuArg.KorekaranoTemezumi_orMinus1,// これから作る局面の、手目済み。
                         //
@@ -319,7 +319,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             out Finger figMovedKoma,
             Move move,
             Playerside kaisi_tebanside,
-            SkyConst kaisi_Sky,
+            SkyImpl kaisi_Sky,
             KwErrorHandler errH,
             string hint
             ,
@@ -408,7 +408,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         private static Busstop Do36_KomaOnDestinationMasu(
             Komasyurui14 syurui2,
             Move move,
-            SkyConst src_Sky)
+            SkyImpl src_Sky)
         {
             Playerside pside = Conv_Move.ToPlayerside(move);
             SyElement dstMasu = Conv_Move.ToDstMasu(move);
@@ -426,7 +426,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// </summary>
         private static void Do61_KomaToru(
             Busstop dstKoma,
-            SkyConst susunda_Sky_orNull_before,//駒を取られたとき、局面を変更します。
+            SkyImpl susunda_Sky_orNull_before,//駒を取られたとき、局面を変更します。
             out Finger out_figFoodKoma,
             out Busstop out_food_koma,
             out Playerside pside,
@@ -522,7 +522,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <param name="okiba">先手駒台、または後手駒台</param>
         /// <param name="uc_Main">メインパネル</param>
         /// <returns>置ける場所。無ければヌル。</returns>
-        public static SyElement GetKomadaiKomabukuroSpace(Okiba okiba, SkyConst src_Sky)
+        public static SyElement GetKomadaiKomabukuroSpace(Okiba okiba, SkyImpl src_Sky)
         {
             SyElement akiMasu = Masu_Honshogi.Query_Basho(Masu_Honshogi.nError);
 

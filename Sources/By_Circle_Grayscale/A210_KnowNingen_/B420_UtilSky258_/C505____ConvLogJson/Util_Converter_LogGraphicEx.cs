@@ -80,7 +80,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C505____ConvLogJson
         /// <param name="finger"></param>
         /// <param name="extentionWithDot"></param>
         /// <returns></returns>
-        public static string Finger_ToString(SkyConst src_Sky, Finger finger, string extentionWithDot)
+        public static string Finger_ToString(SkyImpl src_Sky, Finger finger, string extentionWithDot)
         {
             string komaImg = "";
 

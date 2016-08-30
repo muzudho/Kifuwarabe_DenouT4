@@ -21,7 +21,7 @@ namespace Grayscale.A210_KnowNingen_.B470_ConvKiki___.C500____Converter
         /// <param name="src_Sky"></param>
         /// <returns></returns>
         public static MasubetuKikisuImpl ToMasubetuKikisu(
-            SkyConst src_Sky,
+            SkyImpl src_Sky,
             Playerside tebanside
             )
         {

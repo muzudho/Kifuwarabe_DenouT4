@@ -27,7 +27,7 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C___500_Hyokakansu
 #if DEBUG || LEARN
             out KyHyokaMeisai_Koumoku kyokumenScore,
 #endif
-            SkyConst src_Sky,
+            SkyImpl src_Sky,
             FeatureVector featureVector,
             KwErrorHandler errH
             );

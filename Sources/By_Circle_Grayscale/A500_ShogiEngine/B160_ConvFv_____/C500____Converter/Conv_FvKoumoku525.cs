@@ -27,7 +27,7 @@ namespace Grayscale.A500_ShogiEngine.B160_ConvFv_____.C500____Converter
         /// <param name="komasyurui">盤上の種類</param>
         /// <param name="masu">盤上の駒の升</param>
         /// <returns></returns>
-        public static int ToKIndex_From_PsideBanjoKomasyuruiMasu(SkyConst src_Sky, Playerside pside)
+        public static int ToKIndex_From_PsideBanjoKomasyuruiMasu(SkyImpl src_Sky, Playerside pside)
         {
             // 調査項目番号（Ｋ１、Ｋ２等）
             int result;

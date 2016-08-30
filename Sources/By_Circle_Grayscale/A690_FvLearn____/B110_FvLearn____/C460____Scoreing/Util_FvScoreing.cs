@@ -117,7 +117,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C460____Scoreing
         /// <summary>
         /// ２駒関係の54要素で表される箇所全ての評価値に加算します。
         /// </summary>
-        public static void Fill54x54_Add(out int changedCells, float offset, SkyConst src_Sky, FeatureVector fv_mutable,
+        public static void Fill54x54_Add(out int changedCells, float offset, SkyImpl src_Sky, FeatureVector fv_mutable,
             N54List n54List, KwErrorHandler errH)
         {
             changedCells = 0;
@@ -252,7 +252,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C460____Scoreing
         /// </summary>
         public static void UpdateKyokumenHyoka(
             N54List n54List,
-            SkyConst src_Sky,
+            SkyImpl src_Sky,
             FeatureVector fv_mutable,
             float tyoseiryo,
             out float out_real_tyoseiryo,//実際に調整した量。

@@ -29,7 +29,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
         {
             RO_Kyokumen1_ForFormat ro_Kyokumen1 = new RO_Kyokumen1_ForFormatImpl();
 
-            SkyConst src_Sky = kifuNode.Value.KyokumenConst;
+            SkyImpl src_Sky = kifuNode.Value.KyokumenConst;
 
             // 将棋盤
             for (int suji = 1; suji < 10; suji++)
@@ -78,7 +78,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
         /// <returns></returns>
         public static string ToSfenstring(KifuNode kifuNode, Playerside pside, KwErrorHandler errH)
         {
-            SkyConst src_Sky = kifuNode.Value.KyokumenConst;
+            SkyImpl src_Sky = kifuNode.Value.KyokumenConst;
 
             StringBuilder sb = new StringBuilder();
             sb.Append("sfen ");

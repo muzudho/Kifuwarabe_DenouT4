@@ -57,7 +57,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             KifuTree kifu1 = new KifuTreeImpl(
                 new KifuNodeImpl(
                     Conv_Move.GetErrorMove(),
-                    new KyokumenWrapper(SkyConst.NewInstance(
+                    new KyokumenWrapper(SkyImpl.NewInstance(
                         Util_SkyWriter.New_Hirate(firstPside),
                         0//初期局面は 0手済み。
                         ))//日本の符号読取時
@@ -69,7 +69,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             foreach (CsaKifuSasite csaSasite in sasiteList)
             {
                 // 開始局面
-                SkyConst kaisi_Sky = kifu1.CurNode.Value.KyokumenConst;
+                SkyImpl kaisi_Sky = kifu1.CurNode.Value.KyokumenConst;
 
                 //
                 // csaSasite を データ指し手 に変換するには？

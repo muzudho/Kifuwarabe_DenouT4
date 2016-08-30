@@ -38,7 +38,7 @@ namespace Grayscale.A210_KnowNingen_.B440_Utifudume__.C500____Util
         /// TODO:打ち歩詰めチェック
         /// </summary>
         public static void Utifudume(
-            SkyConst src_Sky,
+            SkyImpl src_Sky,
             SySet<SyElement> masus_mikata_onBanjo,//打ち歩詰めチェック用
             SySet<SyElement> masus_aite_onBanjo,//打ち歩詰めチェック用
             SySet<SyElement>[] aMasus,//駒種類別、置こうとする升

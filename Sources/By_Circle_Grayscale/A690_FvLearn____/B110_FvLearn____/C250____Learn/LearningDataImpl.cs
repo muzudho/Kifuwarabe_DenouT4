@@ -223,7 +223,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
         /// 全合法手をダンプ。
         /// </summary>
         /// <returns></returns>
-        public string DumpToAllGohosyu(SkyConst src_Sky)
+        public string DumpToAllGohosyu(SkyImpl src_Sky)
         {
             StringBuilder sb = new StringBuilder();
             //sb.AppendLine("--------------------");
