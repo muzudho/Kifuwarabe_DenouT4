@@ -53,11 +53,10 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             //
             uc_Main.LstSasite.Items.Clear();
 
-            Playerside firstPside = Playerside.P1;
             KifuTree kifu1 = new KifuTreeImpl(
                 new KifuNodeImpl(
                     Conv_Move.GetErrorMove(),
-                    new KyokumenWrapper(Util_SkyWriter.New_Hirate(firstPside))//日本の符号読取時
+                    new KyokumenWrapper(Util_SkyWriter.New_Hirate())//日本の符号読取時
                 )
             );
             //kifu1.AssertPside(kifu1.CurNode, "ShowSasiteList",errH);

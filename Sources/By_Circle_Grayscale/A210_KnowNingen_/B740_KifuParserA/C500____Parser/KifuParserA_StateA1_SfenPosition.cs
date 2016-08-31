@@ -67,7 +67,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                         model_Taikyoku.Kifu.Clear();// 棋譜を空っぽにします。
 
                         model_Taikyoku.Kifu.GetRoot().Value.SetKyokumen(
-                            Util_SkyWriter.New_Hirate(Playerside.P1));//SFENのstartpos解析時
+                            Util_SkyWriter.New_Hirate());//SFENのstartpos解析時
                         model_Taikyoku.Kifu.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
                     }
 

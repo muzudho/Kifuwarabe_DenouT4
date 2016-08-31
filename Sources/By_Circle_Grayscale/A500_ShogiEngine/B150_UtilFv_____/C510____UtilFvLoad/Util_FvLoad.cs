@@ -36,14 +36,13 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad
         /// </summary>
         public static void CreateKifuTree(out KifuTree kifu)
         {
-            // 初期局面では、Player 1 の手番とします。
-            Playerside firstPside = Playerside.P1;
+            
 
             // 棋譜
             kifu = new KifuTreeImpl(
                     new KifuNodeImpl(
                         Conv_Move.GetErrorMove(),
-                        new KyokumenWrapper(Util_SkyWriter.New_Hirate(firstPside))
+                        new KyokumenWrapper(Util_SkyWriter.New_Hirate())
                     )
             );
             kifu.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手

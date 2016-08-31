@@ -765,8 +765,11 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                             Busstop koma = mainGui.Model_Manual.GuiSky.BusstopIndexOf(btnTumandeiruKoma.Koma);
 
                                             mainGui.Model_Manual.SetGuiSky(
-                                                new SkyImpl(mainGui.Model_Manual.GuiSky, false,
-                                                mainGui.Model_Manual.GuiTemezumi + 1,//1手進める。
+                                                new SkyImpl(mainGui.Model_Manual.GuiSky,
+                                                mainGui.Model_Manual.GuiTemezumi + 1//1手進める。
+                                                )
+                                            );
+                                            mainGui.Model_Manual.GuiSky.AddObjects(
                                                 new Finger[] { btnTumandeiruKoma.Koma },
                                                 new Busstop[] {
                                                     Conv_Busstop.ToBusstop(
@@ -774,8 +777,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                         btnSasitaiMasu.Zahyo,
                                                         Util_Komasyurui14.NarazuCaseHandle(Conv_Busstop.ToKomasyurui( koma))
                                                     )
-                                                })
-                                            );
+                                                });
 
                                             nextPhaseB = SceneName.SceneB_1TumamitaiKoma;
 

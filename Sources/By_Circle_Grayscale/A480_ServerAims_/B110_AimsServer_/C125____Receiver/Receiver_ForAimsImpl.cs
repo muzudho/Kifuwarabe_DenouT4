@@ -104,11 +104,10 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C125____Receiver
                                 ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Usinewgame(errH);
 
                                 // FIXME:平手とは限らないが、平手という前提で、毎回一から作りなおします。
-                                Playerside firstPside = Playerside.P1;
                                 this.Owner_AimsServer.Model_Taikyoku.SetKifu(new KifuTreeImpl(
                                         new KifuNodeImpl(
                                             Conv_Move.GetErrorMove(),
-                                            new KyokumenWrapper(Util_SkyWriter.New_Hirate(firstPside))
+                                            new KyokumenWrapper(Util_SkyWriter.New_Hirate())
                                         )
                                 ));
                                 this.Owner_AimsServer.Model_Taikyoku.Kifu.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");

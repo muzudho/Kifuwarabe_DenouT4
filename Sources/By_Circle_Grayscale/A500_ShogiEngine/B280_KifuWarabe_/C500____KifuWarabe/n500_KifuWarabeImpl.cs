@@ -199,12 +199,11 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
             // 棋譜
             {
-                Playerside firstPside = Playerside.P1;
                 // FIXME:平手とは限らないが、平手という前提で作っておく。
                 this.SetKifu_AtLoop2(new KifuTreeImpl(
                         new KifuNodeImpl(
                             Conv_Move.GetErrorMove(),
-                            new KyokumenWrapper(Util_SkyWriter.New_Hirate(firstPside))// きふわらべ起動時
+                            new KyokumenWrapper(Util_SkyWriter.New_Hirate())// きふわらべ起動時
                         )
                 ));
                 this.Kifu_AtLoop2.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。

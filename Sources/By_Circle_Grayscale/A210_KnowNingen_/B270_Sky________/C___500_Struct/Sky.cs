@@ -51,5 +51,17 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct
         /// </summary>
         int[] MotiSu { get; set; }
 
+        /// <summary>
+        /// 手番を反転します。
+        /// </summary>
+        void ReversePlayerside();
+
+        /// <summary>
+        /// 追加分があれば。
+        /// </summary>
+        /// <param name="addsFinger1"></param>
+        /// <param name="addsBusstops1"></param>
+        void AddObjects(Finger[] addsFinger1, Busstop[] addsBusstops1);
+
     }
 }

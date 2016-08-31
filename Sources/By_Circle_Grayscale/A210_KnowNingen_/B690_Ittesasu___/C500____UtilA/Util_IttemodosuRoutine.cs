@@ -141,24 +141,28 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 Playerside pside = Conv_Move.ToPlayerside(ittemodosuArg.Move);
                 Komasyurui14 captured = Conv_Move.ToCaptured(ittemodosuArg.Move);
 
-                kaisi_Sky = new SkyImpl(kaisi_Sky, false, ittemodosuArg.KorekaranoTemezumi_orMinus1,
+                kaisi_Sky = new SkyImpl(kaisi_Sky, ittemodosuArg.KorekaranoTemezumi_orMinus1);
+                kaisi_Sky.AddObjects(
                     //
                     // 指されていた駒と、取られていた駒
                     //
-                    new Finger[] { figMovedKoma, figFoodKoma }, new Busstop[] { dst,
+                    new Finger[] { figMovedKoma, figFoodKoma },
+                    new Busstop[] { dst,
                         Conv_Busstop.ToBusstop(
                         Conv_Playerside.Reverse(pside),//先後を逆にして駒台に置きます。
                         dstMasu,// マス
                         captured
                     )
-                    });
+                    }
+                    );
             }
             else
             {
                 //------------------------------------------------------------
                 // 指されていた駒の移動
                 //------------------------------------------------------------
-                kaisi_Sky = new SkyImpl(kaisi_Sky, false, ittemodosuArg.KorekaranoTemezumi_orMinus1,
+                kaisi_Sky = new SkyImpl(kaisi_Sky, ittemodosuArg.KorekaranoTemezumi_orMinus1);
+                kaisi_Sky.AddObjects(
                     //
                     // 指されていた駒
                     //

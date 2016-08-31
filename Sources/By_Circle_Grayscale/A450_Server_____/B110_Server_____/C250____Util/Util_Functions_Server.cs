@@ -516,11 +516,11 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                 //------------------------------
                 // 取られる駒があった場合
                 //------------------------------
-                sky2 = new SkyImpl(model_Manual.GuiSky, false,
-                    -1,//そのまま
-                       //
-                       // 指した駒と、取られた駒
-                       //
+                sky2 = new SkyImpl(model_Manual.GuiSky);
+                sky2.AddObjects(
+                    //
+                    // 指した駒と、取られた駒
+                    //
                     new Finger[] { fig_btnTumandeiruKoma, btnKoma_Food_Koma },
                     new Busstop[] { dst, koma_Food_after }
                     );
@@ -533,12 +533,13 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                 model_Manual.GuiSky.AssertFinger(fig_btnTumandeiruKoma);
                 Busstop movedKoma = model_Manual.GuiSky.BusstopIndexOf(fig_btnTumandeiruKoma);
 
-                sky2 = new SkyImpl(model_Manual.GuiSky, false,
-                    -1,//そのまま
-                       //
-                       // 指した駒
-                       //
-                    new Finger[] { fig_btnTumandeiruKoma }, new Busstop[] { dst });
+                sky2 = new SkyImpl(model_Manual.GuiSky);
+                sky2.AddObjects(
+                    //
+                    // 指した駒
+                    //
+                    new Finger[] { fig_btnTumandeiruKoma }, new Busstop[] { dst }
+                    );
             }
 
             model_Manual.SetGuiSky(sky2);

@@ -139,11 +139,9 @@ namespace Grayscale.P699_Form_______
             {
                 this.MainGui.Link_Server.Model_Taikyoku.Kifu.Clear();// 棋譜を空っぽにします。
                 this.MainGui.Link_Server.Model_Taikyoku.Kifu.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
-                Playerside firstPside = Playerside.P1;//Playerside.P2
                 this.MainGui.Model_Manual.SetGuiSky(
-                    Util_SkyWriter.New_Hirate(firstPside)//起動直後
+                    Util_SkyWriter.New_Hirate()//起動直後
                     );
-                //this.ShogiGui.Model_PnlTaikyoku.Kifu.SetProperty(Word_KifuTree.PropName_FirstPside, Playerside.P1);
             }
 
 

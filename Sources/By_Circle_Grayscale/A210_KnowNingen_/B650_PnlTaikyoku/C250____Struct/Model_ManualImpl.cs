@@ -31,11 +31,9 @@ namespace Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C250____Struct
             //
             // 駒なし
             //
-            this.GuiTemezumi = 0;
-            Playerside firstPside = Playerside.P1;
-            this.GuiPside = firstPside;
-            this.guiSkyConst = Util_SkyWriter.New_Komabukuro(firstPside);// 描画モデル作成時
-
+            this.guiSkyConst = Util_SkyWriter.New_Komabukuro();// 描画モデル作成時
+            this.GuiPside = this.guiSkyConst.KaisiPside;
+            this.GuiTemezumi = this.guiSkyConst.Temezumi;
         }
     }
 }

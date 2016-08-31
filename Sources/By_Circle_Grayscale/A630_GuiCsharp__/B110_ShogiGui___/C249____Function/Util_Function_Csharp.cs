@@ -35,11 +35,10 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
         {
             mainGui.Link_Server.Model_Taikyoku.Kifu.Clear();// 棋譜を空っぽにします。
             mainGui.Link_Server.Model_Taikyoku.Kifu.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
-            Playerside firstPside = Playerside.P1;
 
             KifuNode newNode = new KifuNodeImpl(
                                         Conv_Move.GetErrorMove(),//ルートなので
-                                        new KyokumenWrapper(Util_SkyWriter.New_Hirate(firstPside))//[初期配置]ボタン押下時
+                                        new KyokumenWrapper(Util_SkyWriter.New_Hirate())//[初期配置]ボタン押下時
                                         );
 
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■

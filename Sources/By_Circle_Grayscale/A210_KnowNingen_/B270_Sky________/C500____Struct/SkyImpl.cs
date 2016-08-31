@@ -33,20 +33,10 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
         /// <summary>
         /// 棋譜を新規作成するときに使うコンストラクター。
         /// </summary>
-        public SkyImpl(Playerside kaisiPside)
+        public SkyImpl()
         {
-            this.kaisiPside = kaisiPside;
+            this.m_kaisiPside_ = Playerside.P1;// 初期局面では、Player 1 の手番とします。
             this.temezumi = 0;//初期局面は 0手目済み
-            this.m_busstops_ = new List<Busstop>();
-            this.MotiSu = new int[(int)Pieces.Num];
-        }
-        /// <summary>
-        /// 棋譜を新規作成するときに使うコンストラクター。
-        /// </summary>
-        public SkyImpl(Playerside kaisiPside, int temezumi)
-        {
-            this.kaisiPside = kaisiPside;
-            this.temezumi = temezumi;
             this.m_busstops_ = new List<Busstop>();
             this.MotiSu = new int[(int)Pieces.Num];
         }
@@ -58,7 +48,7 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
         public SkyImpl(Sky src)
         {
             // 手番のクローン
-            this.kaisiPside = src.KaisiPside;
+            this.m_kaisiPside_ = src.KaisiPside;
             this.temezumi = src.Temezumi;
 
             // 星々のクローン
@@ -70,25 +60,17 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
             this.MotiSu = new int[(int)Pieces.Num];
             Array.Copy(src.MotiSu, this.MotiSu, src.MotiSu.Length);
         }
-
         /// <summary>
         /// クローンを作ります。
         /// 追加する要素を指定できます。
         /// </summary>
         /// <param name="src"></param>
-        public SkyImpl(Sky src, bool toReversePlayerside, int update_temezumi_orMinus1, Finger[] addsFinger1, Busstop[] addsBusstops1)
+        public SkyImpl(Sky src, int update_temezumi_orMinus1)
         {
             Debug.Assert(src.Count == 40, "本将棋とみなしてテスト中。sky.Starlights.Count=[" + src.Count + "]");//将棋の駒の数
 
             // 手番のクローン
-            if (toReversePlayerside)
-            {
-                this.kaisiPside = Conv_Playerside.Reverse(src.KaisiPside);
-            }
-            else
-            {
-                this.kaisiPside = src.KaisiPside;
-            }
+            this.m_kaisiPside_ = src.KaisiPside;
 
             // 手目済み
             if (-1 == update_temezumi_orMinus1)
@@ -110,10 +92,14 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
             });
             this.MotiSu = new int[(int)Pieces.Num];
             Array.Copy(src.MotiSu, this.MotiSu, src.MotiSu.Length);
-
-            //
-            // 追加分があれば。
-            //
+        }
+        /// <summary>
+        /// 追加分があれば。
+        /// </summary>
+        /// <param name="addsFinger1"></param>
+        /// <param name="addsBusstops1"></param>
+        public void AddObjects(Finger[] addsFinger1, Busstop[] addsBusstops1)
+        {
             for (int i = 0; i < addsFinger1.Length; i++)
             {
                 if (addsFinger1[i] != Fingers.Error_1)
@@ -141,6 +127,13 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
         }
 
 
+        /// <summary>
+        /// 手番を反転します。
+        /// </summary>
+        public void ReversePlayerside()
+        {
+            this.m_kaisiPside_ = Conv_Playerside.Reverse(this.KaisiPside);
+        }
 
 
         #region プロパティー
@@ -148,11 +141,11 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
         /// <summary>
         /// TODO:
         /// </summary>
-        public Playerside KaisiPside { get { return this.kaisiPside; } }
-        private Playerside kaisiPside;
+        public Playerside KaisiPside { get { return this.m_kaisiPside_; } }
+        private Playerside m_kaisiPside_;
         public void SetKaisiPside(Playerside pside)
         {
-            this.kaisiPside = pside;
+            this.m_kaisiPside_ = pside;
         }
 
         /// <summary>

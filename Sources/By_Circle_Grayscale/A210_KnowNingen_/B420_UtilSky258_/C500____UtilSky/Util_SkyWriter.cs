@@ -20,9 +20,9 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// 駒を、平手の初期配置に並べます。
         /// ************************************************************************************************************************
         /// </summary>
-        public static SkyImpl New_Hirate(Playerside kaisiPside)
+        public static SkyImpl New_Hirate()
         {
-            SkyImpl newSky = new SkyImpl(kaisiPside);
+            SkyImpl newSky = new SkyImpl();
             Finger figKoma;
 
             figKoma = Finger_Honshogi.SenteOh;
@@ -121,9 +121,9 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         }
 
 
-        public static SkyImpl New_Komabukuro(Playerside kaisiPside)
+        public static SkyImpl New_Komabukuro()
         {
-            SkyImpl newSky = new SkyImpl(kaisiPside);
+            SkyImpl newSky = new SkyImpl();
 
             Finger finger = 0;
 

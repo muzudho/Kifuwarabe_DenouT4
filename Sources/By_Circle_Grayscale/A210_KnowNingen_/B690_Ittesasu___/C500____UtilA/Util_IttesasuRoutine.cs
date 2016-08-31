@@ -160,8 +160,11 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     //------------------------------
                     // 局面データの書き換え
                     //------------------------------
-                    ittesasuResult.Susunda_Sky_orNull = new SkyImpl(ittesasuResult.Susunda_Sky_orNull, false,
-                        ittesasuArg.KorekaranoTemezumi_orMinus1,
+                    ittesasuResult.Susunda_Sky_orNull = new SkyImpl(
+                        ittesasuResult.Susunda_Sky_orNull,
+                        ittesasuArg.KorekaranoTemezumi_orMinus1
+                        );
+                    ittesasuResult.Susunda_Sky_orNull.AddObjects(
                         //
                         // 指した駒と、取った駒
                         //
@@ -185,12 +188,14 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
                     ittesasuResult.Susunda_Sky_orNull = new SkyImpl(
                         ittesasuResult.Susunda_Sky_orNull,//駒を取って変化しているかもしれない？
-                        false,
-                        ittesasuArg.KorekaranoTemezumi_orMinus1,// これから作る局面の、手目済み。
-                                                                //
-                                                                // 指した駒
-                                                                //
-                        new Finger[] { figMovedKoma }, new Busstop[] { afterStar });
+                        ittesasuArg.KorekaranoTemezumi_orMinus1// これから作る局面の、手目済み。
+                        );
+                    ittesasuResult.Susunda_Sky_orNull.AddObjects(
+                        //
+                        // 指した駒
+                        //
+                        new Finger[] { figMovedKoma }, new Busstop[] { afterStar }
+                        );
                 }
                 editNodeRef.Value.SetKyokumen(ittesasuResult.Susunda_Sky_orNull);
                 // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■

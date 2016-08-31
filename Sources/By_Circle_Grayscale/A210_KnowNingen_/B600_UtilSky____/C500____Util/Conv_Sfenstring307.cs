@@ -25,7 +25,10 @@ namespace Grayscale.A210_KnowNingen_.B600_UtilSky____.C500____Util
                 out restText
                 );
 
-            return startposImporter.ToSky(pside, 0);
+            SkyImpl newSky = startposImporter.ToSky();
+            newSky.SetKaisiPside( pside);
+            newSky.SetTemezumi( 0);
+            return newSky;
         }
 
     }

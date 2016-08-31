@@ -352,17 +352,19 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         KifuNode modifyNode = new KifuNodeImpl(
                             mainGui3.Link_Server.Model_Taikyoku.Kifu.CurNode.Key,//現在の局面を流用
                             new KyokumenWrapper(
-                                new SkyImpl(mainGui3.Model_Manual.GuiSky, false,
-                                -1,//そのまま
+                                new SkyImpl(mainGui3.Model_Manual.GuiSky)
+                            )
+                        );
+                        modifyNode.Value.Kyokumen.AddObjects(
                                 new Finger[] { figKoma }, new Busstop[] {
                                     Conv_Busstop.ToBusstop(
                                         Conv_Playerside.Reverse(Conv_Busstop.ToPlayerside( koma)),//向きを逆さにします。
                                         Conv_Busstop.ToMasu( koma),
                                         Conv_Busstop.ToKomasyurui(koma)
                                     )
-                                })
-                            )
-                        );
+                                }
+                            );
+
                         // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
                         // ここで局面データを変更します。
                         // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■

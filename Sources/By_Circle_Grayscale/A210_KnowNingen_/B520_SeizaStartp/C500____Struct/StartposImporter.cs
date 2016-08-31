@@ -115,10 +115,10 @@ namespace Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct
         }
 
 
-        public SkyImpl ToSky(Playerside kaisiPside, int temezumi)
+        public SkyImpl ToSky()
         {
             // 駒40個に、Finger番号を割り当てておきます。
-            SkyImpl newSky = new SkyImpl(kaisiPside, temezumi);// 駒数０。
+            SkyImpl newSky = new SkyImpl();// 駒数０。
 
             Dictionary<Finger, Busstop> komaDic = new Dictionary<Finger, Busstop>();
 

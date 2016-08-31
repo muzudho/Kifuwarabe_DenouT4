@@ -16,6 +16,7 @@ using Grayscale.A210_KnowNingen_.B820_KyokuParser.C500____Parser;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.B140_SfenStruct_.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B830_ConvStartpo.C500____Converter
 {
@@ -54,15 +55,15 @@ namespace Grayscale.A210_KnowNingen_.B830_ConvStartpo.C500____Converter
             //------------------------------
             // 駒の配置
             //------------------------------
-            parsedKyokumen.KifuNode = new KifuNodeImpl(
-                    Conv_Move.GetErrorMove(),//ルートなので
-                    new KyokumenWrapper(
-                        startposImporter.ToSky(
-                            parsedKyokumen.FirstPside,
-                            startposImporter.RO_SfenStartpos.Temezumi// FIXME: 将棋所だと常に 1 かも？？
-                        )
-                    )
-                );
+            {
+                SkyImpl newSky = startposImporter.ToSky();
+                newSky.SetKaisiPside(parsedKyokumen.FirstPside);
+                newSky.SetTemezumi(startposImporter.RO_SfenStartpos.Temezumi);// FIXME: 将棋所だと常に 1 かも？？
+                parsedKyokumen.KifuNode = new KifuNodeImpl(
+                        Conv_Move.GetErrorMove(),//ルートなので
+                        new KyokumenWrapper(newSky)
+                    );
+            }
 
             //------------------------------
             // 駒袋に表示されている駒を、駒台に表示されるように移します。
