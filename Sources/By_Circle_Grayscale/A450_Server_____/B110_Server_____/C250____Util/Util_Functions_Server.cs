@@ -516,19 +516,13 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                 //------------------------------
                 // 取られる駒があった場合
                 //------------------------------
-                sky2 = SkyImpl.NewInstance_OverwriteOrAdd_Light(
-                        model_Manual.GuiSky,
-                        -1,//そのまま
-                        //
-                        // 指した駒
-                        //
-                        fig_btnTumandeiruKoma,
-                        dst,
-                        //
-                        // 取られた駒
-                        //
-                        btnKoma_Food_Koma,
-                        koma_Food_after
+                sky2 = new SkyImpl(model_Manual.GuiSky, false,
+                    -1,//そのまま
+                       //
+                       // 指した駒と、取られた駒
+                       //
+                    new Finger[] { fig_btnTumandeiruKoma, btnKoma_Food_Koma },
+                    new Busstop[] { dst, koma_Food_after }
                     );
             }
             else
@@ -539,15 +533,12 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                 model_Manual.GuiSky.AssertFinger(fig_btnTumandeiruKoma);
                 Busstop movedKoma = model_Manual.GuiSky.BusstopIndexOf(fig_btnTumandeiruKoma);
 
-                sky2 = SkyImpl.NewInstance_OverwriteOrAdd_Light(
-                        model_Manual.GuiSky,
-                        -1,//そのまま
-                        //
-                        // 指した駒
-                        //
-                        fig_btnTumandeiruKoma,
-                        dst
-                    );
+                sky2 = new SkyImpl(model_Manual.GuiSky, false,
+                    -1,//そのまま
+                       //
+                       // 指した駒
+                       //
+                    new Finger[] { fig_btnTumandeiruKoma }, new Busstop[] { dst });
             }
 
             model_Manual.SetGuiSky(sky2);

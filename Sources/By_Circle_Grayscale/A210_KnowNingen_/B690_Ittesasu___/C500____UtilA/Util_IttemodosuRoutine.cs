@@ -141,39 +141,28 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 Playerside pside = Conv_Move.ToPlayerside(ittemodosuArg.Move);
                 Komasyurui14 captured = Conv_Move.ToCaptured(ittemodosuArg.Move);
 
-                kaisi_Sky = SkyImpl.NewInstance_OverwriteOrAdd_Light(
-                    kaisi_Sky,
-                    ittemodosuArg.KorekaranoTemezumi_orMinus1,
+                kaisi_Sky = new SkyImpl(kaisi_Sky, false, ittemodosuArg.KorekaranoTemezumi_orMinus1,
                     //
-                    // 指されていた駒
+                    // 指されていた駒と、取られていた駒
                     //
-                    figMovedKoma,
-                    dst,
-                    //
-                    // 取られていた駒
-                    //
-                    figFoodKoma,
-                    Conv_Busstop.ToBusstop(
+                    new Finger[] { figMovedKoma, figFoodKoma }, new Busstop[] { dst,
+                        Conv_Busstop.ToBusstop(
                         Conv_Playerside.Reverse(pside),//先後を逆にして駒台に置きます。
                         dstMasu,// マス
                         captured
                     )
-                    );
+                    });
             }
             else
             {
                 //------------------------------------------------------------
                 // 指されていた駒の移動
                 //------------------------------------------------------------
-                kaisi_Sky = SkyImpl.NewInstance_OverwriteOrAdd_Light(
-                    kaisi_Sky,
-                    ittemodosuArg.KorekaranoTemezumi_orMinus1,
+                kaisi_Sky = new SkyImpl(kaisi_Sky, false, ittemodosuArg.KorekaranoTemezumi_orMinus1,
                     //
                     // 指されていた駒
                     //
-                    figMovedKoma,
-                    dst
-                    );
+                    new Finger[] { figMovedKoma }, new Busstop[] { dst });
             }
             editNodeRef.Value.SetKyokumen(kaisi_Sky);
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■

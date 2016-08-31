@@ -160,24 +160,22 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     //------------------------------
                     // 局面データの書き換え
                     //------------------------------
-                    ittesasuResult.Susunda_Sky_orNull = SkyImpl.NewInstance_OverwriteOrAdd_Light(
-                        ittesasuResult.Susunda_Sky_orNull,
+                    ittesasuResult.Susunda_Sky_orNull = new SkyImpl(ittesasuResult.Susunda_Sky_orNull, false,
                         ittesasuArg.KorekaranoTemezumi_orMinus1,
                         //
-                        // 指した駒
+                        // 指した駒と、取った駒
                         //
-                        figMovedKoma,//指した駒番号
-                        afterStar,//指した駒
-                        //
-                        // 取った駒
-                        //
-                        figFoodKoma,
-                        Conv_Busstop.ToBusstop(
+                        new Finger[] { figMovedKoma,//指した駒番号
+                            figFoodKoma// 取った駒
+                        },
+                        new Busstop[] { afterStar,//指した駒
+                            Conv_Busstop.ToBusstop(
                             food_pside,
                             food_akiMasu,//駒台の空きマスへ
                             Util_Komasyurui14.NarazuCaseHandle(Conv_Busstop.ToKomasyurui( food_koma))// 取られた駒の種類。表面を上に向ける。
-                        )
-                    );
+                        )// 取った駒
+                        }
+                        );
                 }
                 else
                 {
@@ -185,15 +183,14 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     // 指した駒の移動
                     //------------------------------------------------------------
 
-                    ittesasuResult.Susunda_Sky_orNull = SkyImpl.NewInstance_OverwriteOrAdd_Light(
+                    ittesasuResult.Susunda_Sky_orNull = new SkyImpl(
                         ittesasuResult.Susunda_Sky_orNull,//駒を取って変化しているかもしれない？
+                        false,
                         ittesasuArg.KorekaranoTemezumi_orMinus1,// これから作る局面の、手目済み。
-                        //
-                        // 指した駒
-                        //
-                        figMovedKoma,
-                        afterStar
-                        );
+                                                                //
+                                                                // 指した駒
+                                                                //
+                        new Finger[] { figMovedKoma }, new Busstop[] { afterStar });
                 }
                 editNodeRef.Value.SetKyokumen(ittesasuResult.Susunda_Sky_orNull);
                 // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■

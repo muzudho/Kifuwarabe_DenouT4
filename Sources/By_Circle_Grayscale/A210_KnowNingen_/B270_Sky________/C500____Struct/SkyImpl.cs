@@ -76,7 +76,7 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
         /// 追加する要素を指定できます。
         /// </summary>
         /// <param name="src"></param>
-        private SkyImpl(Sky src, bool toReversePlayerside, int update_temezumi_orMinus1, Finger[] addsFinger1, Busstop[] addsBusstops1)
+        public SkyImpl(Sky src, bool toReversePlayerside, int update_temezumi_orMinus1, Finger[] addsFinger1, Busstop[] addsBusstops1)
         {
             Debug.Assert(src.Count == 40, "本将棋とみなしてテスト中。sky.Starlights.Count=[" + src.Count + "]");//将棋の駒の数
 
@@ -201,39 +201,6 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
 
                 return maisu;
             }
-        }
-
-        /// <summary>
-        /// 駒を１個　更新します。
-        /// 
-        /// （１）指したとき。戻したとき。
-        /// （２）駒の向き変更にも使われる。
-        /// </summary>
-        /// <param name="src"></param>
-        /// <param name="finger1"></param>
-        /// <param name="busstop1"></param>
-        /// <returns></returns>
-        public static SkyImpl NewInstance_OverwriteOrAdd_Light(Sky src, int temezumi_orMinus1, Finger finger1, Busstop busstop1)
-        {
-            SkyImpl result = new SkyImpl(src, false, temezumi_orMinus1, new Finger[]{finger1},new Busstop[]{busstop1});
-            return result;
-        }
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="src"></param>
-        /// <param name="finger1">指した駒、指されていた駒</param>
-        /// <param name="busstops1"></param>
-        /// <param name="finger2">取った駒、取っていた駒</param>
-        /// <param name="busstops2"></param>
-        /// <returns></returns>
-        public static SkyImpl NewInstance_OverwriteOrAdd_Light(
-            Sky src, int temezumi_orMinus1, Finger finger1, Busstop busstops1, Finger finger2, Busstop busstops2)
-        {
-            SkyImpl result = new SkyImpl(src, false, temezumi_orMinus1, new Finger[] { finger1, finger2 }, new Busstop[] { busstops1, busstops2 });
-            return result;
         }
 
         public void AssertFinger(

@@ -765,16 +765,16 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                             Busstop koma = mainGui.Model_Manual.GuiSky.BusstopIndexOf(btnTumandeiruKoma.Koma);
 
                                             mainGui.Model_Manual.SetGuiSky(
-                                                SkyImpl.NewInstance_OverwriteOrAdd_Light(
-                                                    mainGui.Model_Manual.GuiSky,
-                                                    mainGui.Model_Manual.GuiTemezumi + 1,//1手進める。
-                                                    btnTumandeiruKoma.Koma,
+                                                new SkyImpl(mainGui.Model_Manual.GuiSky, false,
+                                                mainGui.Model_Manual.GuiTemezumi + 1,//1手進める。
+                                                new Finger[] { btnTumandeiruKoma.Koma },
+                                                new Busstop[] {
                                                     Conv_Busstop.ToBusstop(
                                                         Conv_Okiba.ToPside(Conv_SyElement.ToOkiba(btnSasitaiMasu.Zahyo)),// 先手の駒置きに駒を置けば、先手の向きに揃えます。
                                                         btnSasitaiMasu.Zahyo,
                                                         Util_Komasyurui14.NarazuCaseHandle(Conv_Busstop.ToKomasyurui( koma))
                                                     )
-                                                )
+                                                })
                                             );
 
                                             nextPhaseB = SceneName.SceneB_1TumamitaiKoma;
