@@ -26,21 +26,21 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
         /// <summary>
         /// これから作る局面の、手目済み。
         /// </summary>
-        public int KorekaranoTemezumi_orMinus1 { get { return this.korekaranoTemezumi_orMinus1; } }
-        private int korekaranoTemezumi_orMinus1;
+        public int KorekaranoTemezumi { get { return this.m_korekaranoTemezumi_; } }
+        private int m_korekaranoTemezumi_;
 
 
         public IttesasuArgImpl(
             KyokumenWrapper kaisiKyokumen,
             Playerside tebanside,
             Move korekaranoMove,
-            int korekaranoTemezumi_orMinus1
+            int korekaranoTemezumi
             )
         {
             this.KaisiKyokumen = kaisiKyokumen;
             this.KaisiTebanside = tebanside;
             this.m_korekaranoMove_ = korekaranoMove;
-            this.korekaranoTemezumi_orMinus1 = korekaranoTemezumi_orMinus1;
+            this.m_korekaranoTemezumi_ = korekaranoTemezumi;
         }
     }
 }

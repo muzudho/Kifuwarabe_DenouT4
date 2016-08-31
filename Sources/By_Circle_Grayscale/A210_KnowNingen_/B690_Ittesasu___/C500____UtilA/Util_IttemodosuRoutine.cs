@@ -39,6 +39,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <param name="sourceFilePath"></param>
         /// <param name="sourceLineNumber"></param>
         public static void Before1(
+            Node<Move, KyokumenWrapper> kaisiNode,// 一手指し局面開始ノード。
             IttemodosuArg ittemodosuArg,
             out IttemodosuResult ittemodosuResult,
             KwErrorHandler errH
@@ -55,13 +56,13 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             // 一手指し開始局面（不変）
             // 一手指し終了局面（null or 可変）
             //
-            Playerside kaisi_tebanside = ((KifuNode)ittemodosuArg.KaisiNode).Value.Kyokumen.KaisiPside;
-            SkyImpl kaisi_Sky = ittemodosuArg.KaisiNode.Value.Kyokumen;
+            Playerside kaisi_tebanside = ((KifuNode)kaisiNode).Value.Kyokumen.KaisiPside;
+            SkyImpl kaisi_Sky = kaisiNode.Value.Kyokumen;
 
             //
             // 編集対象ノード（巻き戻し時と、進む時で異なる）
             //
-            Node<Move, KyokumenWrapper> editNodeRef;
+            Node<Move, KyokumenWrapper> modottaNode;
 
             //------------------------------
             // 符号の追加（一手進む）
@@ -69,7 +70,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             {
                 // 戻る時。
                 ittemodosuResult.Susunda_Sky_orNull = null;
-                editNodeRef = ittemodosuArg.KaisiNode;
+                modottaNode = kaisiNode;
             }
 
 
@@ -141,7 +142,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 Playerside pside = Conv_Move.ToPlayerside(ittemodosuArg.Move);
                 Komasyurui14 captured = Conv_Move.ToCaptured(ittemodosuArg.Move);
 
-                kaisi_Sky = new SkyImpl(kaisi_Sky, ittemodosuArg.KorekaranoTemezumi_orMinus1);
+                //kaisi_Sky = new SkyImpl(kaisi_Sky);
+                kaisi_Sky.SetTemezumi(ittemodosuArg.KorekaranoTemezumi);
                 kaisi_Sky.AddObjects(
                     //
                     // 指されていた駒と、取られていた駒
@@ -161,21 +163,22 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 //------------------------------------------------------------
                 // 指されていた駒の移動
                 //------------------------------------------------------------
-                kaisi_Sky = new SkyImpl(kaisi_Sky, ittemodosuArg.KorekaranoTemezumi_orMinus1);
+                //kaisi_Sky = new SkyImpl(kaisi_Sky);
+                kaisi_Sky.SetTemezumi(ittemodosuArg.KorekaranoTemezumi);
                 kaisi_Sky.AddObjects(
                     //
                     // 指されていた駒
                     //
                     new Finger[] { figMovedKoma }, new Busstop[] { dst });
             }
-            editNodeRef.Value.SetKyokumen(kaisi_Sky);
+            modottaNode.Value.SetKyokumen(kaisi_Sky);
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
             // この時点で、必ず現局面データに差替えあり
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 
 
             // ノード
-            ittemodosuResult.SyuryoNode_OrNull = editNodeRef;// この変数を返すのがポイント。棋譜とは別に、現局面。
+            ittemodosuResult.SyuryoNode_OrNull = modottaNode;// この変数を返すのがポイント。棋譜とは別に、現局面。
 
         gt_EndMethod:
             ;

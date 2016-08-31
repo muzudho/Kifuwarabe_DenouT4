@@ -318,8 +318,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                 // 一手巻き戻す
                 //
                 Util_IttemodosuRoutine.Before1(
+                    model_Taikyoku.Kifu.CurNode,
                     new IttemodosuArgImpl(
-                        model_Taikyoku.Kifu.CurNode,
                         removeeLeaf.Key,
                         korekaranoTemezumi
                     ),
@@ -510,14 +510,12 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
         gt_EndBlock1:
 
 
-            SkyImpl sky2;
             if (btnKoma_Food_Koma != Fingers.Error_1)
             {
                 //------------------------------
                 // 取られる駒があった場合
                 //------------------------------
-                sky2 = new SkyImpl(model_Manual.GuiSky);
-                sky2.AddObjects(
+                model_Manual.GuiSky.AddObjects(
                     //
                     // 指した駒と、取られた駒
                     //
@@ -533,8 +531,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                 model_Manual.GuiSky.AssertFinger(fig_btnTumandeiruKoma);
                 Busstop movedKoma = model_Manual.GuiSky.BusstopIndexOf(fig_btnTumandeiruKoma);
 
-                sky2 = new SkyImpl(model_Manual.GuiSky);
-                sky2.AddObjects(
+                model_Manual.GuiSky.AddObjects(
                     //
                     // 指した駒
                     //
@@ -542,7 +539,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     );
             }
 
-            model_Manual.SetGuiSky(sky2);
+            model_Manual.SetGuiSky(model_Manual.GuiSky);
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
             // 棋譜は変更された。
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■

@@ -61,39 +61,6 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
             Array.Copy(src.MotiSu, this.MotiSu, src.MotiSu.Length);
         }
         /// <summary>
-        /// クローンを作ります。
-        /// 追加する要素を指定できます。
-        /// </summary>
-        /// <param name="src"></param>
-        public SkyImpl(Sky src, int update_temezumi_orMinus1)
-        {
-            Debug.Assert(src.Count == 40, "本将棋とみなしてテスト中。sky.Starlights.Count=[" + src.Count + "]");//将棋の駒の数
-
-            // 手番のクローン
-            this.m_kaisiPside_ = src.KaisiPside;
-
-            // 手目済み
-            if (-1 == update_temezumi_orMinus1)
-            {
-                // そのまま
-                this.temezumi = src.Temezumi;
-            }
-            else
-            {
-                // 上書き更新
-                this.temezumi = update_temezumi_orMinus1;
-            }
-
-            // 星々のクローン
-            this.m_busstops_ = new List<Busstop>();
-            src.Foreach_Busstops((Finger finger2, Busstop busstop2, ref bool toBreak2) =>
-            {
-                this.m_busstops_.Add(busstop2);
-            });
-            this.MotiSu = new int[(int)Pieces.Num];
-            Array.Copy(src.MotiSu, this.MotiSu, src.MotiSu.Length);
-        }
-        /// <summary>
         /// 追加分があれば。
         /// </summary>
         /// <param name="addsFinger1"></param>

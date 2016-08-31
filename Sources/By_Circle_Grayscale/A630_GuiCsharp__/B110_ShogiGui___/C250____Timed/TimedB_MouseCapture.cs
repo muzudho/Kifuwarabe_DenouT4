@@ -307,7 +307,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                 case MouseEventStateName.MouseLeftButtonUp:
                                     {
                                         #region マウス左ボタンアップ
-                                        SkyImpl src_Sky = mainGui.Model_Manual.GuiSky;
+                                        SkyImpl src_GuiSky = mainGui.Model_Manual.GuiSky;
 
                                         //----------
                                         // 将棋盤：升目
@@ -354,8 +354,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                 mainGui.SetFigTumandeiruKoma(-1);
 
 
-                                                src_Sky.AssertFinger(btnKoma.Koma);
-                                                Busstop koma1 = src_Sky.BusstopIndexOf(btnKoma.Koma);
+                                                src_GuiSky.AssertFinger(btnKoma.Koma);
+                                                Busstop koma1 = src_GuiSky.BusstopIndexOf(btnKoma.Koma);
 
 
                                                 if (Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma1))
@@ -373,8 +373,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     Busstop dstStarlight = mainGui.Shape_PnlTaikyoku.MouseBusstopOrNull2;
                                                     System.Diagnostics.Debug.Assert(Busstop.Empty != dstStarlight, "mouseStarlightがヌル");
 
-                                                    src_Sky.AssertFinger(btnKoma.Koma);
-                                                    Busstop srcStarlight = src_Sky.BusstopIndexOf(btnKoma.Koma);
+                                                    src_GuiSky.AssertFinger(btnKoma.Koma);
+                                                    Busstop srcStarlight = src_GuiSky.BusstopIndexOf(btnKoma.Koma);
                                                     System.Diagnostics.Debug.Assert(Busstop.Empty != srcStarlight, "komaStarlightがヌル");
 
                                                     Move move = Conv_Move.ToMove(
@@ -390,7 +390,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     //
                                                     // TODO: 一手[巻戻し]のときは追加したくない
                                                     //
-                                                    SkyImpl sky_newChild = new SkyImpl(src_Sky);
+                                                    SkyImpl sky_newChild = new SkyImpl(src_GuiSky);
                                                     sky_newChild.SetKaisiPside(Conv_Playerside.Reverse(Playerside.P1));//FIXME:人間が先手でハードコーディング中
                                                     sky_newChild.SetTemezumi(mainGui.Model_Manual.GuiTemezumi + 1);//1手進ませる。
                                                     Node<Move, KyokumenWrapper> newNode = new KifuNodeImpl(
@@ -764,11 +764,10 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                             mainGui.Model_Manual.GuiSky.AssertFinger(btnTumandeiruKoma.Koma);
                                             Busstop koma = mainGui.Model_Manual.GuiSky.BusstopIndexOf(btnTumandeiruKoma.Koma);
 
-                                            mainGui.Model_Manual.SetGuiSky(
-                                                new SkyImpl(mainGui.Model_Manual.GuiSky,
-                                                mainGui.Model_Manual.GuiTemezumi + 1//1手進める。
-                                                )
-                                            );
+                                            //mainGui.Model_Manual.SetGuiSky(
+                                            //    new SkyImpl(mainGui.Model_Manual.GuiSky)
+                                            //);
+                                            mainGui.Model_Manual.GuiSky.SetTemezumi(mainGui.Model_Manual.GuiTemezumi + 1);//1手進める。
                                             mainGui.Model_Manual.GuiSky.AddObjects(
                                                 new Finger[] { btnTumandeiruKoma.Koma },
                                                 new Busstop[] {

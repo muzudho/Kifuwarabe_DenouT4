@@ -77,7 +77,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                         new KyokumenWrapper(new SkyImpl(kaisi_Sky))
                         );
                     editNodeRef.Value.Kyokumen.SetKaisiPside(Conv_Playerside.Reverse(editNodeRef.Value.Kyokumen.KaisiPside));
-                    editNodeRef.Value.Kyokumen.SetTemezumi(ittesasuArg.KorekaranoTemezumi_orMinus1);
+                    editNodeRef.Value.Kyokumen.SetTemezumi(ittesasuArg.KorekaranoTemezumi);
 
 
                     ittesasuResult.Susunda_Sky_orNull = editNodeRef.Value.Kyokumen;
@@ -160,10 +160,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     //------------------------------
                     // 局面データの書き換え
                     //------------------------------
-                    ittesasuResult.Susunda_Sky_orNull = new SkyImpl(
-                        ittesasuResult.Susunda_Sky_orNull,
-                        ittesasuArg.KorekaranoTemezumi_orMinus1
-                        );
+                    ittesasuResult.Susunda_Sky_orNull = new SkyImpl(ittesasuResult.Susunda_Sky_orNull);
+                    ittesasuResult.Susunda_Sky_orNull.SetTemezumi(ittesasuArg.KorekaranoTemezumi);
                     ittesasuResult.Susunda_Sky_orNull.AddObjects(
                         //
                         // 指した駒と、取った駒
@@ -186,10 +184,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     // 指した駒の移動
                     //------------------------------------------------------------
 
-                    ittesasuResult.Susunda_Sky_orNull = new SkyImpl(
-                        ittesasuResult.Susunda_Sky_orNull,//駒を取って変化しているかもしれない？
-                        ittesasuArg.KorekaranoTemezumi_orMinus1// これから作る局面の、手目済み。
-                        );
+                    ittesasuResult.Susunda_Sky_orNull = new SkyImpl(ittesasuResult.Susunda_Sky_orNull);//駒を取って変化しているかもしれない？
+                    ittesasuResult.Susunda_Sky_orNull.SetTemezumi(ittesasuArg.KorekaranoTemezumi);// これから作る局面の、手目済み。
                     ittesasuResult.Susunda_Sky_orNull.AddObjects(
                         //
                         // 指した駒

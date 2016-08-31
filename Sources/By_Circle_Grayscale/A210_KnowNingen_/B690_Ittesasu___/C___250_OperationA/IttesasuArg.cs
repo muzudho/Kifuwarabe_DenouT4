@@ -24,6 +24,6 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA
         /// <summary>
         /// これから作る局面の、手目済み。
         /// </summary>
-        int KorekaranoTemezumi_orMinus1{get;}
+        int KorekaranoTemezumi{get;}
     }
 }
