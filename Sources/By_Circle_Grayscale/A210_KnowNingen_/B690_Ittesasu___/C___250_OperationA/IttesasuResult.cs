@@ -32,11 +32,5 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA
         /// </summary>
         Node<Move, KyokumenWrapper> Get_SyuryoNode_OrNull { get; }
         Node<Move, KyokumenWrapper> Set_SyuryoNode_OrNull { set; }
-
-        /// <summary>
-        /// 終了ノードの局面データ。
-        /// </summary>
-        Sky Susunda_Sky_orNull { get; set; }
-
     }
 }

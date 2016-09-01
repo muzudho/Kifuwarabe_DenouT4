@@ -30,7 +30,7 @@ namespace Grayscale.A210_KnowNingen_.B830_ConvStartpo.C500____Converter
         /// <param name="startposImporter"></param>
         /// <param name="logTag"></param>
         public static ParsedKyokumen ToParsedKyokumen(
-            Model_Manual model_Manual,// Gui局面を使用
+            SkyWrapper_Gui model_Manual,// Gui局面を使用
             StartposImporter startposImporter,
             KifuParserA_Genjo genjo,
             KwErrorHandler errH

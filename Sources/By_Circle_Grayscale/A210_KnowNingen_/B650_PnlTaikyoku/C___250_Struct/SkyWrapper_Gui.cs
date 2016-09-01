@@ -4,14 +4,10 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct
 {
-    public interface Model_Manual
+    public interface SkyWrapper_Gui
     {
         void SetGuiSky(Sky sky);
 
-        int GuiTemezumi { get; set; }
-
         Sky GuiSky { get; }
-
-        Playerside GuiPside { get; set; }
     }
 }

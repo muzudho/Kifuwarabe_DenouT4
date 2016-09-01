@@ -140,7 +140,7 @@ namespace Grayscale.P699_Form_______
             {
                 this.MainGui.Link_Server.Model_Taikyoku.Kifu.Clear();// 棋譜を空っぽにします。
                 this.MainGui.Link_Server.Model_Taikyoku.Kifu.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
-                this.MainGui.Model_Manual.SetGuiSky(
+                this.MainGui.SkyWrapper_Gui.SetGuiSky(
                     Util_SkyWriter.New_Hirate()//起動直後
                     );
             }
@@ -366,7 +366,7 @@ namespace Grayscale.P699_Form_______
             //------------------------------------------------------------
             if (mainGui.RepaintRequest.Is_KomasRecalculateRequested())
             {
-                this.MainGui.Model_Manual.GuiSky.Foreach_Busstops((Finger finger, Busstop busstop, ref bool toBreak) =>
+                this.MainGui.SkyWrapper_Gui.GuiSky.Foreach_Busstops((Finger finger, Busstop busstop, ref bool toBreak) =>
                 {
                     Util_Function_Csharp.Redraw_KomaLocation(finger, this.MainGui, errH);
                 });
@@ -502,7 +502,7 @@ namespace Grayscale.P699_Form_______
             sb.AppendLine("        <div style=\"margin-top:10px; width:30px;\">");
             sb.Append("            ");
 
-            Sky siteiSky = mainGui.Model_Manual.GuiSky;
+            Sky siteiSky = mainGui.SkyWrapper_Gui.GuiSky;
 
             //────────────────────────────────────────
             // 持ち駒（後手）

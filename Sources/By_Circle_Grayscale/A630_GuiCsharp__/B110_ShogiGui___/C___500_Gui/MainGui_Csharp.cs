@@ -27,7 +27,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui
         /// </summary>
         Server Link_Server { get; }
 
-        Model_Manual Model_Manual { get; }
+        SkyWrapper_Gui SkyWrapper_Gui { get; }
 
 
         /// <summary>

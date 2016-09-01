@@ -55,8 +55,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
         public Server Link_Server { get { return this.server; } }
         protected Server server;
 
-        public Model_Manual Model_Manual { get { return this.model_Manual; } }
-        private Model_Manual model_Manual;
+        public SkyWrapper_Gui SkyWrapper_Gui { get { return this.m_skyWrapper_Gui_; } }
+        private SkyWrapper_Gui m_skyWrapper_Gui_;
 
         /// <summary>
         /// コンソール・ウィンドウ。
@@ -183,8 +183,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
         /// </summary>
         public MainGui_CsharpImpl()
         {
-            this.model_Manual = new Model_ManualImpl();
-            this.server = new Server_Impl(this.model_Manual.GuiSky, new Receiver_ForCsharpVsImpl());
+            this.m_skyWrapper_Gui_ = new SkyWrapper_GuiImpl();
+            this.server = new Server_Impl(this.m_skyWrapper_Gui_.GuiSky, new Receiver_ForCsharpVsImpl());
 
             this.Widgets = new Dictionary<string, UserWidget>();
 
@@ -574,8 +574,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
 
         public virtual Busstop GetKoma(Finger finger)
         {
-            this.Model_Manual.GuiSky.AssertFinger(finger);
-            return this.Model_Manual.GuiSky.BusstopIndexOf(finger);
+            this.SkyWrapper_Gui.GuiSky.AssertFinger(finger);
+            return this.SkyWrapper_Gui.GuiSky.BusstopIndexOf(finger);
         }
 
     }

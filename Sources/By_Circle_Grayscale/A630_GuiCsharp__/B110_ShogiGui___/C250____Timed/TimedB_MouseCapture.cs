@@ -56,13 +56,13 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
         {
             MainGui_Csharp shogiGui = (MainGui_Csharp)obj_shogiGui;
 
-            shogiGui.Model_Manual.GuiSky.AssertFinger(finger);
-            Busstop busstop = shogiGui.Model_Manual.GuiSky.BusstopIndexOf(finger);
+            shogiGui.SkyWrapper_Gui.GuiSky.AssertFinger(finger);
+            Busstop busstop = shogiGui.SkyWrapper_Gui.GuiSky.BusstopIndexOf(finger);
 
             shogiGui.Shape_PnlTaikyoku.Shogiban.KikiBan = new SySet_Default<SyElement>("利き盤");// .Clear();
 
             // 駒の利き
-            SySet<SyElement> kikiZukei = Util_Sky_SyugoQuery.KomaKidou_Potential(finger, shogiGui.Model_Manual.GuiSky);
+            SySet<SyElement> kikiZukei = Util_Sky_SyugoQuery.KomaKidou_Potential(finger, shogiGui.SkyWrapper_Gui.GuiSky);
             //kikiZukei.DebugWrite("駒の利きLv1");
 
             // 味方の駒
@@ -128,7 +128,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                         }
                                         bMouseMove_SceneB_1TumamitaiKoma = true;
 
-                                        Sky src_Sky = mainGui.Model_Manual.GuiSky;
+                                        Sky src_Sky = mainGui.SkyWrapper_Gui.GuiSky;
 
                                         Point mouse = eventState.MouseLocation;
 
@@ -216,7 +216,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                     {
                                         #region マウス左ボタンダウン
                                         SceneName nextPhaseB = SceneName.Ignore;
-                                        Sky src_Sky = mainGui.Model_Manual.GuiSky;
+                                        Sky src_Sky = mainGui.SkyWrapper_Gui.GuiSky;
 
                                         //----------
                                         // 駒
@@ -308,7 +308,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                 case MouseEventStateName.MouseLeftButtonUp:
                                     {
                                         #region マウス左ボタンアップ
-                                        Sky src_GuiSky = mainGui.Model_Manual.GuiSky;
+                                        Sky src_GuiSky = mainGui.SkyWrapper_Gui.GuiSky;
 
                                         //----------
                                         // 将棋盤：升目
@@ -393,7 +393,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     //
                                                     Sky sky_newChild = new SkyImpl(src_GuiSky);
                                                     sky_newChild.SetKaisiPside(Conv_Playerside.Reverse(Playerside.P1));//FIXME:人間が先手でハードコーディング中
-                                                    sky_newChild.SetTemezumi(mainGui.Model_Manual.GuiTemezumi + 1);//1手進ませる。
+                                                    sky_newChild.SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//1手進ませる。
                                                     Node<Move, KyokumenWrapper> newNode = new KifuNodeImpl(
                                                         move,
                                                         new KyokumenWrapper(sky_newChild)
@@ -416,7 +416,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     string jsaFugoStr;
                                                     Util_Functions_Server.SetCurNode_Srv(
                                                         mainGui.Link_Server.Model_Taikyoku,
-                                                        mainGui.Model_Manual,
+                                                        mainGui.SkyWrapper_Gui,
                                                         newNode, out jsaFugoStr, errH);
                                                     mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
@@ -485,7 +485,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                     {
                                         #region マウス左ボタンアップ
                                         Node<Move, KyokumenWrapper> siteiNode = mainGui.Link_Server.Model_Taikyoku.Kifu.CurNode;
-                                        Sky src_GuiSky = mainGui.Model_Manual.GuiSky;
+                                        Sky src_GuiSky = mainGui.SkyWrapper_Gui.GuiSky;
 
 
                                         //----------
@@ -542,7 +542,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                                 move,
                                                                 new KyokumenWrapper(new SkyImpl(src_GuiSky))
                                                             );
-                                                        newNode.Value.Kyokumen.SetTemezumi( mainGui.Model_Manual.GuiTemezumi + 1);//1手進ませる。
+                                                        newNode.Value.Kyokumen.SetTemezumi( mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//1手進ませる。
 
 
                                                         //マウスの左ボタンを放したときです。
@@ -557,7 +557,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                         string jsaFugoStr;
                                                         Util_Functions_Server.SetCurNode_Srv(
                                                             mainGui.Link_Server.Model_Taikyoku,
-                                                            mainGui.Model_Manual,
+                                                            mainGui.SkyWrapper_Gui,
                                                             newNode, out jsaFugoStr, errH);
                                                         mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
@@ -620,8 +620,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
 
                                         //>>>>> 選択されている駒があるとき
 
-                                        mainGui.Model_Manual.GuiSky.AssertFinger(btnTumandeiruKoma.Finger);
-                                        Busstop tumandeiruLight = mainGui.Model_Manual.GuiSky.BusstopIndexOf(btnTumandeiruKoma.Finger);
+                                        mainGui.SkyWrapper_Gui.GuiSky.AssertFinger(btnTumandeiruKoma.Finger);
+                                        Busstop tumandeiruLight = mainGui.SkyWrapper_Gui.GuiSky.BusstopIndexOf(btnTumandeiruKoma.Finger);
 
 
                                         //----------
@@ -661,7 +661,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                 {
                                                     bool match = false;
 
-                                                    mainGui.Model_Manual.GuiSky.Foreach_Busstops((Finger finger, Busstop koma, ref bool toBreak) =>
+                                                    mainGui.SkyWrapper_Gui.GuiSky.Foreach_Busstops((Finger finger, Busstop koma, ref bool toBreak) =>
                                                     {
                                                         if (Conv_Busstop.ToMasu( koma) == btnSasitaiMasu2.Zahyo)
                                                         {
@@ -747,7 +747,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     // ServerからGuiへ渡す情報
                                                     bool torareruKomaAri;
                                                     Busstop koma_Food_after;
-                                                    Util_Functions_Server.Komamove1a_50Srv(out torareruKomaAri, out koma_Food_after, dst, btnTumandeiruKoma.Koma, dst, mainGui.Model_Manual, eventState.Flg_logTag);
+                                                    Util_Functions_Server.Komamove1a_50Srv(out torareruKomaAri, out koma_Food_after, dst, btnTumandeiruKoma.Koma, dst, mainGui.SkyWrapper_Gui, eventState.Flg_logTag);
 
                                                     Util_Function_Csharp.Komamove1a_51Gui(torareruKomaAri, koma_Food_after, mainGui);
                                                 }
@@ -762,11 +762,11 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                         {
                                             //System.C onsole.WriteLine("駒台上");
 
-                                            mainGui.Model_Manual.GuiSky.AssertFinger(btnTumandeiruKoma.Koma);
-                                            Busstop koma = mainGui.Model_Manual.GuiSky.BusstopIndexOf(btnTumandeiruKoma.Koma);
+                                            mainGui.SkyWrapper_Gui.GuiSky.AssertFinger(btnTumandeiruKoma.Koma);
+                                            Busstop koma = mainGui.SkyWrapper_Gui.GuiSky.BusstopIndexOf(btnTumandeiruKoma.Koma);
 
-                                            mainGui.Model_Manual.GuiSky.SetTemezumi(mainGui.Model_Manual.GuiTemezumi + 1);//1手進める。
-                                            mainGui.Model_Manual.GuiSky.AddObjects(
+                                            mainGui.SkyWrapper_Gui.GuiSky.SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//1手進める。
+                                            mainGui.SkyWrapper_Gui.GuiSky.AddObjects(
                                                 new Finger[] { btnTumandeiruKoma.Koma },
                                                 new Busstop[] {
                                                     Conv_Busstop.ToBusstop(

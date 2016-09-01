@@ -6,7 +6,7 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C250____Struct
 {
-    public class Model_ManualImpl : Model_Manual
+    public class SkyWrapper_GuiImpl : SkyWrapper_Gui
     {
 
 
@@ -24,17 +24,13 @@ namespace Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C250____Struct
             this.guiSkyConst = sky;
         }
         private Sky guiSkyConst;
-        public int GuiTemezumi { get; set; }
-        public Playerside GuiPside { get; set; }
 
-        public Model_ManualImpl()
+        public SkyWrapper_GuiImpl()
         {
             //
             // 駒なし
             //
             this.guiSkyConst = Util_SkyWriter.New_Komabukuro();// 描画モデル作成時
-            this.GuiPside = this.guiSkyConst.KaisiPside;
-            this.GuiTemezumi = this.guiSkyConst.Temezumi;
         }
     }
 }

@@ -24,10 +24,10 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
         /// </summary>
         public static void Menace( MainGui_Csharp mainGui, KwErrorHandler errH)
         {
-            if (0 < mainGui.Model_Manual.GuiTemezumi)
+            if (0 < mainGui.SkyWrapper_Gui.GuiSky.Temezumi)
             {
                 // 処理の順序が悪く、初回はうまく判定できない。
-                Sky src_Sky = mainGui.Model_Manual.GuiSky;
+                Sky src_Sky = mainGui.SkyWrapper_Gui.GuiSky;
 
 
                 //----------
@@ -48,7 +48,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
                     if (
                         Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma)
                         &&
-                        mainGui.Model_Manual.GuiPside != Conv_Busstop.ToPlayerside( koma)
+                        mainGui.SkyWrapper_Gui.GuiSky.KaisiPside != Conv_Busstop.ToPlayerside( koma)
                         )
                     {
                         // 駒の利き

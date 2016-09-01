@@ -82,9 +82,9 @@
     <Compile Include="B320_ConvWords__\C500____Converter\Conv_Sky.cs" />
     <Compile Include="B440_Utifudume__\C500____Util\Util_Utifudume.cs" />
     <Compile Include="B470_ConvKiki___\C500____Converter\Util_SkyPside.cs" />
-    <Compile Include="B650_PnlTaikyoku\C250____Struct\Model_ManualImpl.cs" />
+    <Compile Include="B650_PnlTaikyoku\C250____Struct\SkyWrapper_GuiImpl.cs" />
     <Compile Include="B650_PnlTaikyoku\C250____Struct\Model_TaikyokuImpl.cs" />
-    <Compile Include="B650_PnlTaikyoku\C___250_Struct\Model_Manual.cs" />
+    <Compile Include="B650_PnlTaikyoku\C___250_Struct\SkyWrapper_Gui.cs" />
     <Compile Include="B650_PnlTaikyoku\C___250_Struct\Model_Taikyoku.cs" />
     <Compile Include="B240_Move\C___500_Move\n1_MoveShift.cs" />
     <Compile Include="B240_Move\C___500_Move\n3_Move.cs" />

@@ -138,7 +138,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
             KwErrorHandler errH = Util_OwataMinister.ERROR;
             mainGui.Link_Server.Model_Taikyoku.Kifu.Clear();// 棋譜を空っぽにします。
 
-            Sky newSky = new SkyImpl(mainGui.Model_Manual.GuiSky);
+            Sky newSky = new SkyImpl(mainGui.SkyWrapper_Gui.GuiSky);
 
             int figKoma;
 
@@ -243,7 +243,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
                 string jsaFugoStr;
                 Util_Functions_Server.SetCurNode_Srv(
                     mainGui.Link_Server.Model_Taikyoku,
-                    mainGui.Model_Manual,
+                    mainGui.SkyWrapper_Gui,
                     newNode,
                     out jsaFugoStr, errH);
                 repaintRequest.SetFlag_RefreshRequest();

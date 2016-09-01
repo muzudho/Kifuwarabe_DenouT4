@@ -46,7 +46,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
         /// <param name="newNode"></param>
         public static void SetCurNode_Srv(
             Model_Taikyoku model_Taikyoku,// Taikyokuの内容をManualへ移す。
-            Model_Manual model_Manual,
+            SkyWrapper_Gui model_Manual,
             Node<Move, KyokumenWrapper> newNode,
             out string jsaFugoStr,
             KwErrorHandler errH
@@ -57,8 +57,6 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             model_Taikyoku.Kifu.SetCurNode(newNode);
 
             model_Manual.SetGuiSky(newNode.Value.Kyokumen);
-            model_Manual.GuiTemezumi = model_Taikyoku.Kifu.CurNode.Value.Kyokumen.Temezumi;
-            model_Manual.GuiPside = model_Taikyoku.Kifu.CurNode.Value.Kyokumen.KaisiPside;
 
             jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(newNode, errH);
         }
@@ -80,7 +78,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
         public static bool ReadLine_TuginoItteSusumu_Srv(
             ref string inputLine,
             Model_Taikyoku model_Taikyoku,//SetCurNodeがある。[コマ送り][再生]などで使用。
-            Model_Manual model_Manual,
+            SkyWrapper_Gui model_Manual,
             out bool toBreak,
             string hint,
             KwErrorHandler errH
@@ -359,7 +357,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
         public static bool Komaokuri_Srv(
             ref string inputLine,
             Model_Taikyoku model_Taikyoku,
-            Model_Manual model_Manual,
+            SkyWrapper_Gui model_Manual,
             KwErrorHandler errH
             ,
             [CallerMemberName] string memberName = "",
@@ -405,7 +403,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             Busstop dst,
             Finger fig_btnTumandeiruKoma,
             Busstop foodee_koma,//取られる対象の駒
-            Model_Manual model_Manual,
+            SkyWrapper_Gui model_Manual,
             KwErrorHandler errH
             )
         {

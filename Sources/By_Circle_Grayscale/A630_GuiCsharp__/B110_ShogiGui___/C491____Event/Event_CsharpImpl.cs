@@ -135,7 +135,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     Util_Functions_Server.Komaokuri_Srv(
                         ref restText,
                         mainGui3.Link_Server.Model_Taikyoku,
-                        mainGui3.Model_Manual,
+                        mainGui3.SkyWrapper_Gui,
                         errH);
                     Util_Function_Csharp.Komaokuri_Gui(restText, mainGui3, errH);
                     Util_Menace.Menace(mainGui3, errH);// メナス
@@ -331,15 +331,15 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     if (null != movedKoma)
                     {
                         //>>>>> 移動直後の駒があるとき
-                        mainGui3.Model_Manual.GuiSky.AssertFinger(movedKoma.Finger);
-                        koma = mainGui3.Model_Manual.GuiSky.BusstopIndexOf(movedKoma.Finger);
+                        mainGui3.SkyWrapper_Gui.GuiSky.AssertFinger(movedKoma.Finger);
+                        koma = mainGui3.SkyWrapper_Gui.GuiSky.BusstopIndexOf(movedKoma.Finger);
                         figKoma = movedKoma.Finger;
                     }
                     else if (null != btnKoma_Selected)
                     {
                         //>>>>> 選択されている駒があるとき
-                        mainGui3.Model_Manual.GuiSky.AssertFinger(btnKoma_Selected.Koma);
-                        koma = mainGui3.Model_Manual.GuiSky.BusstopIndexOf(btnKoma_Selected.Koma);
+                        mainGui3.SkyWrapper_Gui.GuiSky.AssertFinger(btnKoma_Selected.Koma);
+                        koma = mainGui3.SkyWrapper_Gui.GuiSky.BusstopIndexOf(btnKoma_Selected.Koma);
                         figKoma = btnKoma_Selected.Koma;
                     }
                     else
@@ -352,7 +352,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         KifuNode modifyNode = new KifuNodeImpl(
                             mainGui3.Link_Server.Model_Taikyoku.Kifu.CurNode.Key,//現在の局面を流用
                             new KyokumenWrapper(
-                                new SkyImpl(mainGui3.Model_Manual.GuiSky)
+                                new SkyImpl(mainGui3.SkyWrapper_Gui.GuiSky)
                             )
                         );
                         modifyNode.Value.Kyokumen.AddObjects(
@@ -371,7 +371,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         string jsaFugoStr;
                         Util_Functions_Server.SetCurNode_Srv(
                             mainGui3.Link_Server.Model_Taikyoku,
-                            mainGui3.Model_Manual,
+                            mainGui3.SkyWrapper_Gui,
                             modifyNode, out jsaFugoStr, errH2);
                         mainGui3.RepaintRequest.SetFlag_RefreshRequest();
                     }
@@ -492,7 +492,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                 // ServerからGuiへ渡す情報
                 bool torareruKomaAri;
                 Busstop koma_Food_after;
-                Util_Functions_Server.Komamove1a_50Srv(out torareruKomaAri, out koma_Food_after, dst, btnTumandeiruKoma.Koma, dst, mainGui.Model_Manual, errH);
+                Util_Functions_Server.Komamove1a_50Srv(out torareruKomaAri, out koma_Food_after, dst, btnTumandeiruKoma.Koma, dst, mainGui.SkyWrapper_Gui, errH);
 
                 Util_Function_Csharp.Komamove1a_51Gui(torareruKomaAri, koma_Food_after, mainGui);
             }
@@ -508,13 +508,13 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                 //------------------------------
                 // 棋譜
 
-                mainGui.Model_Manual.GuiSky.AssertFinger(btnTumandeiruKoma.Finger);
+                mainGui.SkyWrapper_Gui.GuiSky.AssertFinger(btnTumandeiruKoma.Finger);
 
                 Move move = Conv_Move.ToMove(
                     Conv_Busstop.ToMasu(mainGui.Shape_PnlTaikyoku.MouseBusstopOrNull2),
-                    Conv_Busstop.ToMasu(mainGui.Model_Manual.GuiSky.BusstopIndexOf(btnTumandeiruKoma.Finger)),
+                    Conv_Busstop.ToMasu(mainGui.SkyWrapper_Gui.GuiSky.BusstopIndexOf(btnTumandeiruKoma.Finger)),
                     Conv_Busstop.ToKomasyurui(mainGui.Shape_PnlTaikyoku.MouseBusstopOrNull2),
-                    Conv_Busstop.ToKomasyurui(mainGui.Model_Manual.GuiSky.BusstopIndexOf(btnTumandeiruKoma.Finger)),//これで成りかどうか判定
+                    Conv_Busstop.ToKomasyurui(mainGui.SkyWrapper_Gui.GuiSky.BusstopIndexOf(btnTumandeiruKoma.Finger)),//これで成りかどうか判定
                     mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma != Busstop.Empty ? Conv_Busstop.ToKomasyurui( mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma) : Komasyurui14.H00_Null___,
                     Conv_Busstop.ToPlayerside(mainGui.Shape_PnlTaikyoku.MouseBusstopOrNull2),
                     false
@@ -527,10 +527,10 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     //
                     newNode = new KifuNodeImpl(
                         move,
-                        new KyokumenWrapper(new SkyImpl(mainGui.Model_Manual.GuiSky))
+                        new KyokumenWrapper(new SkyImpl(mainGui.SkyWrapper_Gui.GuiSky))
                     );
                     newNode.Value.Kyokumen.SetKaisiPside(Conv_Playerside.Reverse(newNode.Value.Kyokumen.KaisiPside));// 先後を反転させます。
-                    newNode.Value.Kyokumen.SetTemezumi(mainGui.Model_Manual.GuiSky.Temezumi + 1);//１手進める
+                    newNode.Value.Kyokumen.SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//１手進める
 
 
                     //「成る／成らない」ボタンを押したときです。
@@ -548,7 +548,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     string jsaFugoStr;
                     Util_Functions_Server.SetCurNode_Srv(
                         mainGui.Link_Server.Model_Taikyoku,
-                        mainGui.Model_Manual,
+                        mainGui.SkyWrapper_Gui,
                         newNode, out jsaFugoStr, errH);
                     mainGui.RepaintRequest.SetFlag_RefreshRequest();
 

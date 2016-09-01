@@ -47,7 +47,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             string jsaFugoStr;
             Util_Functions_Server.SetCurNode_Srv(
                 mainGui.Link_Server.Model_Taikyoku,
-                mainGui.Model_Manual,
+                mainGui.SkyWrapper_Gui,
                 newNode, out jsaFugoStr, errH);
             mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
@@ -165,9 +165,9 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
 
             // 置く駒
             {
-                mainGui.Model_Manual.GuiSky.AssertFinger(btnKoma_Selected.Finger);
+                mainGui.SkyWrapper_Gui.GuiSky.AssertFinger(btnKoma_Selected.Finger);
                 dst = Conv_Busstop.ToBusstop(
-                        Conv_Busstop.ToPlayerside(mainGui.Model_Manual.GuiSky.BusstopIndexOf(btnKoma_Selected.Finger)),
+                        Conv_Busstop.ToPlayerside(mainGui.SkyWrapper_Gui.GuiSky.BusstopIndexOf(btnKoma_Selected.Finger)),
                         btnMasu.Zahyo,
                         toSyurui
                         );
@@ -216,8 +216,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             KwErrorHandler errH
             )
         {
-            mainGui.Model_Manual.GuiSky.AssertFinger(figKoma);
-            Busstop koma = mainGui.Model_Manual.GuiSky.BusstopIndexOf(figKoma);
+            mainGui.SkyWrapper_Gui.GuiSky.AssertFinger(figKoma);
+            Busstop koma = mainGui.SkyWrapper_Gui.GuiSky.BusstopIndexOf(figKoma);
 
             Shape_BtnKoma btnKoma = Conv_Koma_InGui.FingerToKomaBtn(figKoma, mainGui);
 

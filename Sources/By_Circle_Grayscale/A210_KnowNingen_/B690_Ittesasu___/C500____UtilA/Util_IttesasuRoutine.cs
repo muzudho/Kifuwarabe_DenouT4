@@ -44,6 +44,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <param name="sourceLineNumber"></param>
         public static void Before1(
             IttesasuArg ittesasuArg,
+            out Sky susunda_Sky_orNull,// 終了ノードの局面データ。
             out IttesasuResult ittesasuResult,
             KwErrorHandler errH,
             string hint
@@ -61,7 +62,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 // 用意
                 //------------------------------
                 exceptionArea = 1010;
-                ittesasuResult = new IttesasuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___, null);
+                susunda_Sky_orNull = null;
+                ittesasuResult = new IttesasuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
                 Sky kaisi_Sky = ittesasuArg.KaisiKyokumen.Kyokumen;// 一手指し開始局面（不変）
                 Node<Move, KyokumenWrapper> editNodeRef;// 編集対象ノード（巻き戻し時と、進む時で異なる）
 
@@ -81,7 +83,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     editNodeRef.Value.Kyokumen.SetTemezumi(ittesasuArg.KorekaranoTemezumi);
 
 
-                    ittesasuResult.Susunda_Sky_orNull = editNodeRef.Value.Kyokumen;
+                    susunda_Sky_orNull = editNodeRef.Value.Kyokumen;
                 }
 
 
@@ -111,7 +113,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     afterStar = Util_IttesasuRoutine.Do36_KomaOnDestinationMasu(
                         dstKs,
                         ittesasuArg.KorekaranoMove,
-                        ittesasuResult.Susunda_Sky_orNull
+                        susunda_Sky_orNull
                         );
                 }
 
@@ -130,7 +132,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 {
                     Util_IttesasuRoutine.Do61_KomaToru(
                         afterStar,
-                        ittesasuResult.Susunda_Sky_orNull,
+                        susunda_Sky_orNull,
                         out figFoodKoma,
                         out food_koma,
                         out food_pside,
@@ -161,9 +163,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     //------------------------------
                     // 局面データの書き換え
                     //------------------------------
-                    ittesasuResult.Susunda_Sky_orNull = new SkyImpl(ittesasuResult.Susunda_Sky_orNull);
-                    ittesasuResult.Susunda_Sky_orNull.SetTemezumi(ittesasuArg.KorekaranoTemezumi);
-                    ittesasuResult.Susunda_Sky_orNull.AddObjects(
+                    susunda_Sky_orNull.SetTemezumi(ittesasuArg.KorekaranoTemezumi);
+                    susunda_Sky_orNull.AddObjects(
                         //
                         // 指した駒と、取った駒
                         //
@@ -185,16 +186,16 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     // 指した駒の移動
                     //------------------------------------------------------------
 
-                    ittesasuResult.Susunda_Sky_orNull = new SkyImpl(ittesasuResult.Susunda_Sky_orNull);//駒を取って変化しているかもしれない？
-                    ittesasuResult.Susunda_Sky_orNull.SetTemezumi(ittesasuArg.KorekaranoTemezumi);// これから作る局面の、手目済み。
-                    ittesasuResult.Susunda_Sky_orNull.AddObjects(
+                    //駒を取って変化しているかもしれない？
+                    susunda_Sky_orNull.SetTemezumi(ittesasuArg.KorekaranoTemezumi);// これから作る局面の、手目済み。
+                    susunda_Sky_orNull.AddObjects(
                         //
                         // 指した駒
                         //
                         new Finger[] { figMovedKoma }, new Busstop[] { afterStar }
                         );
                 }
-                editNodeRef.Value.SetKyokumen(ittesasuResult.Susunda_Sky_orNull);
+                editNodeRef.Value.SetKyokumen(susunda_Sky_orNull);
                 // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
                 // この時点で、必ず現局面データに差替えあり
                 // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
@@ -230,6 +231,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <param name="errH"></param>
         public static void Before2(
             ref IttesasuResult ittesasuReference,
+            Sky susunda_Sky_orNull,
             KwErrorHandler errH
             )
         {
@@ -257,7 +259,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 // キーを差替えたノード
                 editNodeRef = new KifuNodeImpl(
                     move,
-                    new KyokumenWrapper(ittesasuReference.Susunda_Sky_orNull));//, genTebanside
+                    new KyokumenWrapper(susunda_Sky_orNull));//, genTebanside
             }
 
 

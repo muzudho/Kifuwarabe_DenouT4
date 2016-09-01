@@ -161,7 +161,9 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     {
                         exceptionArea = 1000;
 
-                        IttesasuResult ittesasuResult = new IttesasuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___, null);
+                        Sky susunda_Sky_orNull1 = null;
+                        IttesasuResult ittesasuResult = new IttesasuResultImpl(
+                            Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
 
                         try
                         {
@@ -184,6 +186,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                             //
                             //↓↓将棋エンジンが一手指し（進める）
                             //
+                            Sky susunda_Sky_orNull2;
                             Util_IttesasuRoutine.Before1(
                                 new IttesasuArgImpl(
                                     model_Taikyoku.Kifu.CurNode.Value,
@@ -191,6 +194,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                                     nextMove,//FIXME: if文で分けているので、これがヌルなはずはないと思うが。
                                     korekaranoTemezumi//これから作る局面の、手目済み。
                                 ),
+                                out susunda_Sky_orNull2,
                                 out ittesasuResult,
                                 errH,
                                 "KifuParserA_StateA2_SfenMoves#Execute"
@@ -201,6 +205,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                             exceptionArea = 1050;
                             Util_IttesasuRoutine.Before2(
                                 ref ittesasuResult,
+                                susunda_Sky_orNull2,
                                 errH
                                 );
 

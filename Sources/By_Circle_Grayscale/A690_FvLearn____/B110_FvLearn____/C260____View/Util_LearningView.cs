@@ -139,6 +139,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     //----------------------------------------
                     //
                     //↓↓一手指し
+                    Sky susunda_Sky_orNull;
                     IttesasuResult ittesasuResult;
                     Util_IttesasuRoutine.Before1(
                         new IttesasuArgImpl(
@@ -147,6 +148,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                             nextMove,
                             kifu1.CurNode.Value.Kyokumen.Temezumi + 1//1手進める
                         ),
+                        out susunda_Sky_orNull,
                         out ittesasuResult,
                         //kifu1,//診断用
                         errH,
@@ -155,6 +157,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     Debug.Assert(ittesasuResult.Get_SyuryoNode_OrNull != null, "ittesasuResult.Get_SyuryoNode_OrNull がヌル☆？！");
                     Util_IttesasuRoutine.Before2(
                         ref ittesasuResult,
+                        susunda_Sky_orNull,
                         errH
                     );
                     //
@@ -379,6 +382,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             // 一手指したい。
             //----------------------------------------
             //↓↓一手指し
+            Sky susunda_Sky_orNull;
             IttesasuResult ittesasuResult;
             Util_IttesasuRoutine.Before1(
                 new IttesasuArgImpl(
@@ -387,6 +391,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     nextMove,// FIXME: エラールートだと、これがヌル
                     learningData.Kifu.CurNode.Value.Kyokumen.Temezumi + 1//1手進める
                 ),
+                out susunda_Sky_orNull,
                 out ittesasuResult,
                 //this.Kifu,//診断用
                 errH,
@@ -395,6 +400,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             Debug.Assert(ittesasuResult.Get_SyuryoNode_OrNull != null, "ittesasuResult.Get_SyuryoNode_OrNull がヌル☆？！");
             Util_IttesasuRoutine.Before2(
                 ref ittesasuResult,
+                susunda_Sky_orNull,
                 errH
             );
             //

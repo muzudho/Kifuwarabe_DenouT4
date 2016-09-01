@@ -72,7 +72,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                 Util_Functions_Server.ReadLine_TuginoItteSusumu_Srv(
                                     ref restText,
                                     this.mainGui.Link_Server.Model_Taikyoku,
-                                    this.mainGui.Model_Manual,
+                                    this.mainGui.SkyWrapper_Gui,
                                     out toBreak,
                                     "再生ボタン",
                                     errH
