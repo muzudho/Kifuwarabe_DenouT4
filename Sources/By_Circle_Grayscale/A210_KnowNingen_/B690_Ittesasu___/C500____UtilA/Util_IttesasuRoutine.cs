@@ -7,6 +7,7 @@ using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
 using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
@@ -14,6 +15,7 @@ using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
+using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA;
@@ -22,7 +24,6 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 {
@@ -31,6 +32,124 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
     public abstract class Util_IttesasuRoutine
     {
 
+        public static void DoIttesasuA(
+            ref IttesasuResult ittesasuResult,
+            Move nextMove,
+            int korekaranoTemezumi,
+            Sky src_Sky,
+            Model_Taikyoku model_Taikyoku,
+            KwErrorHandler errH
+            )
+        {
+            Sky susunda_Sky_orNull2;
+            Util_IttesasuRoutine.Before1(
+                model_Taikyoku.Kifu.CurNode.Value,
+
+                src_Sky.KaisiPside,
+                nextMove,//FIXME: if文で分けているので、これがヌルなはずはないと思うが。
+                korekaranoTemezumi,//これから作る局面の、手目済み。
+
+                out susunda_Sky_orNull2,
+                out ittesasuResult,
+                errH,
+                "KifuParserA_StateA2_SfenMoves#Execute"
+                );
+
+            Util_IttesasuRoutine.Before2(
+                ref ittesasuResult,
+                susunda_Sky_orNull2,
+                errH
+                );
+
+            //----------------------------------------
+            // 次ノード追加、次ノードをカレントに。
+            //----------------------------------------
+            Util_IttesasuRoutine.After3_ChangeCurrent(
+                model_Taikyoku.Kifu,
+                ittesasuResult.Get_SyuryoNode_OrNull.Key,
+                ittesasuResult.Get_SyuryoNode_OrNull,
+                errH
+                );
+        }
+
+        public static void DoIttesasuB(
+            KifuTree kifu1,
+            Move nextMove,
+            KwErrorHandler errH
+            )
+        {
+            Sky susunda_Sky_orNull;
+            IttesasuResult ittesasuResult;
+
+            Util_IttesasuRoutine.Before1(
+                kifu1.CurNode.Value,
+
+                ((KifuNode)kifu1.CurNode).Value.Kyokumen.KaisiPside,
+                nextMove,
+                kifu1.CurNode.Value.Kyokumen.Temezumi + 1,//1手進める
+
+                out susunda_Sky_orNull,
+                out ittesasuResult,
+                //kifu1,//診断用
+                errH,
+                "Utli_LearningViews#ShowSasiteList"
+            );
+            Debug.Assert(ittesasuResult.Get_SyuryoNode_OrNull != null, "ittesasuResult.Get_SyuryoNode_OrNull がヌル☆？！");
+            Util_IttesasuRoutine.Before2(
+                ref ittesasuResult,
+                susunda_Sky_orNull,
+                errH
+            );
+            //
+            //次ノートを追加します。次ノードを、これからのカレントとします。
+            //
+            Util_IttesasuRoutine.After3_ChangeCurrent(
+                kifu1,
+                ittesasuResult.Get_SyuryoNode_OrNull.Key,
+                ittesasuResult.Get_SyuryoNode_OrNull,
+                errH
+                );
+        }
+
+        public static void DoIttesasuC(
+            KifuTree kifu1,//learningData.Kifu
+            Move nextMove,
+            KwErrorHandler errH
+            )
+        {
+            Sky susunda_Sky_orNull;
+            IttesasuResult ittesasuResult;
+
+            Util_IttesasuRoutine.Before1(
+                kifu1.CurNode.Value,
+
+                ((KifuNode)kifu1.CurNode).Value.Kyokumen.KaisiPside,
+                nextMove,// FIXME: エラールートだと、これがヌル
+                kifu1.CurNode.Value.Kyokumen.Temezumi + 1,//1手進める
+
+                out susunda_Sky_orNull,
+                out ittesasuResult,
+                //this.Kifu,//診断用
+                errH,
+                "Util_LearningView#Ittesasu_ByBtnClick"
+            );
+            Debug.Assert(ittesasuResult.Get_SyuryoNode_OrNull != null, "ittesasuResult.Get_SyuryoNode_OrNull がヌル☆？！");
+            Util_IttesasuRoutine.Before2(
+                ref ittesasuResult,
+                susunda_Sky_orNull,
+                errH
+            );
+            //
+            //次ノートを追加します。次ノードを、これからのカレントとします。
+            //
+            //this.Kifu.AssertChildPside(this.Kifu.CurNode.Value.ToKyokumenConst.KaisiPside, ittesasuResult.Get_SyuryoNode_OrNull.Value.ToKyokumenConst.KaisiPside);
+            Util_IttesasuRoutine.After3_ChangeCurrent(
+                kifu1,
+                ittesasuResult.Get_SyuryoNode_OrNull.Key,
+                ittesasuResult.Get_SyuryoNode_OrNull,
+                errH
+                );
+        }
 
         /// <summary>
         /// 一手指します。

@@ -186,38 +186,12 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                             //
                             //↓↓将棋エンジンが一手指し（進める）
                             //
-                            Sky susunda_Sky_orNull2;
-                            Util_IttesasuRoutine.Before1(
-                                model_Taikyoku.Kifu.CurNode.Value,
-
-                                src_Sky.KaisiPside,
-                                nextMove,//FIXME: if文で分けているので、これがヌルなはずはないと思うが。
-                                korekaranoTemezumi,//これから作る局面の、手目済み。
-
-                                out susunda_Sky_orNull2,
-                                out ittesasuResult,
-                                errH,
-                                "KifuParserA_StateA2_SfenMoves#Execute"
-                                );
-
-                            exceptionArea = 1040;
-
-                            exceptionArea = 1050;
-                            Util_IttesasuRoutine.Before2(
+                            Util_IttesasuRoutine.DoIttesasuA(
                                 ref ittesasuResult,
-                                susunda_Sky_orNull2,
-                                errH
-                                );
-
-                            exceptionArea = 1060;
-                            //----------------------------------------
-                            // 次ノード追加、次ノードをカレントに。
-                            //----------------------------------------
-                            exceptionArea = 1070;
-                            Util_IttesasuRoutine.After3_ChangeCurrent(
-                                model_Taikyoku.Kifu,
-                                ittesasuResult.Get_SyuryoNode_OrNull.Key,
-                                ittesasuResult.Get_SyuryoNode_OrNull,
+                                nextMove,
+                                korekaranoTemezumi,
+                                src_Sky,
+                                model_Taikyoku,
                                 errH
                                 );
 

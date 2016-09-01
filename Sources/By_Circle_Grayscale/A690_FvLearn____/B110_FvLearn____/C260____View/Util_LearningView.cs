@@ -139,35 +139,9 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     //----------------------------------------
                     //
                     //↓↓一手指し
-                    Sky susunda_Sky_orNull;
-                    IttesasuResult ittesasuResult;
-                    Util_IttesasuRoutine.Before1(
-                        kifu1.CurNode.Value,
-
-                        ((KifuNode)kifu1.CurNode).Value.Kyokumen.KaisiPside,
-                        nextMove,
-                        kifu1.CurNode.Value.Kyokumen.Temezumi + 1,//1手進める
-
-                        out susunda_Sky_orNull,
-                        out ittesasuResult,
-                        //kifu1,//診断用
-                        errH,
-                        "Utli_LearningViews#ShowSasiteList"
-                    );
-                    Debug.Assert(ittesasuResult.Get_SyuryoNode_OrNull != null, "ittesasuResult.Get_SyuryoNode_OrNull がヌル☆？！");
-                    Util_IttesasuRoutine.Before2(
-                        ref ittesasuResult,
-                        susunda_Sky_orNull,
-                        errH
-                    );
-                    //
-                    //次ノートを追加します。次ノードを、これからのカレントとします。
-                    //
-                    //kifu1.AssertChildPside(kifu1.CurNode.Value.ToKyokumenConst.KaisiPside, ittesasuResult.Get_SyuryoNode_OrNull.Value.ToKyokumenConst.KaisiPside);
-                    Util_IttesasuRoutine.After3_ChangeCurrent(
+                    Util_IttesasuRoutine.DoIttesasuB(
                         kifu1,
-                        ittesasuResult.Get_SyuryoNode_OrNull.Key,
-                        ittesasuResult.Get_SyuryoNode_OrNull,
+                        nextMove,
                         errH
                         );
                     // これで、棋譜ツリーに、構造変更があったはず。
@@ -382,37 +356,11 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             // 一手指したい。
             //----------------------------------------
             //↓↓一手指し
-            Sky susunda_Sky_orNull;
-            IttesasuResult ittesasuResult;
-            Util_IttesasuRoutine.Before1(
-                learningData.Kifu.CurNode.Value,
-
-                ((KifuNode)learningData.Kifu.CurNode).Value.Kyokumen.KaisiPside,
-                nextMove,// FIXME: エラールートだと、これがヌル
-                learningData.Kifu.CurNode.Value.Kyokumen.Temezumi + 1,//1手進める
-
-                out susunda_Sky_orNull,
-                out ittesasuResult,
-                //this.Kifu,//診断用
-                errH,
-                "Util_LearningView#Ittesasu_ByBtnClick"
-            );
-            Debug.Assert(ittesasuResult.Get_SyuryoNode_OrNull != null, "ittesasuResult.Get_SyuryoNode_OrNull がヌル☆？！");
-            Util_IttesasuRoutine.Before2(
-                ref ittesasuResult,
-                susunda_Sky_orNull,
-                errH
-            );
-            //
-            //次ノートを追加します。次ノードを、これからのカレントとします。
-            //
-            //this.Kifu.AssertChildPside(this.Kifu.CurNode.Value.ToKyokumenConst.KaisiPside, ittesasuResult.Get_SyuryoNode_OrNull.Value.ToKyokumenConst.KaisiPside);
-            Util_IttesasuRoutine.After3_ChangeCurrent(
+            Util_IttesasuRoutine.DoIttesasuC(
                 learningData.Kifu,
-                ittesasuResult.Get_SyuryoNode_OrNull.Key,
-                ittesasuResult.Get_SyuryoNode_OrNull,
+                nextMove,
                 errH
-                );
+            );
             // これで、棋譜ツリーに、構造変更があったはず。
             //↑↑一手指し
 
