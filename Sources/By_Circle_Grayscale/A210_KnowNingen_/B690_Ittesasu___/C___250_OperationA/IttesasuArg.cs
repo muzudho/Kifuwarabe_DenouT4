@@ -7,11 +7,6 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA
     public interface IttesasuArg
     {
         /// <summary>
-        /// 一手指し、開始局面。
-        /// </summary>
-        KyokumenWrapper KaisiKyokumen{get;set;}
-
-        /// <summary>
         /// 一手指し、開始局面、手番。
         /// </summary>
         Playerside KaisiTebanside { get; set; }

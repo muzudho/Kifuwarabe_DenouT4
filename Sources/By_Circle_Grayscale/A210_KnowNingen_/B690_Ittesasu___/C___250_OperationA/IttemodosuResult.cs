@@ -4,6 +4,7 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA
 {
@@ -30,11 +31,5 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA
         /// 「巻き戻す」のときは、ヌル。
         /// </summary>
         Node<Move, KyokumenWrapper> SyuryoNode_OrNull { get; set; }
-
-        /// <summary>
-        /// 終了ノードの局面データ。
-        /// </summary>
-        SkyImpl Susunda_Sky_orNull { get; set; }
-
     }
 }

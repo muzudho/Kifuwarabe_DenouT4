@@ -43,6 +43,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <param name="sourceFilePath"></param>
         /// <param name="sourceLineNumber"></param>
         public static void Before1(
+            KyokumenWrapper kaisiKyokumen,// 一手指し、開始局面。
             IttesasuArg ittesasuArg,
             out Sky susunda_Sky_orNull,// 終了ノードの局面データ。
             out IttesasuResult ittesasuResult,
@@ -64,7 +65,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 exceptionArea = 1010;
                 susunda_Sky_orNull = null;
                 ittesasuResult = new IttesasuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
-                Sky kaisi_Sky = ittesasuArg.KaisiKyokumen.Kyokumen;// 一手指し開始局面（不変）
+                Sky kaisi_Sky = kaisiKyokumen.Kyokumen;// 一手指し開始局面（不変）
                 Node<Move, KyokumenWrapper> editNodeRef;// 編集対象ノード（巻き戻し時と、進む時で異なる）
 
                 exceptionArea = 1040;

@@ -142,8 +142,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     Sky susunda_Sky_orNull;
                     IttesasuResult ittesasuResult;
                     Util_IttesasuRoutine.Before1(
-                        new IttesasuArgImpl(
-                            kifu1.CurNode.Value,
+                        kifu1.CurNode.Value,
+                        new IttesasuArgImpl(                            
                             ((KifuNode)kifu1.CurNode).Value.Kyokumen.KaisiPside,
                             nextMove,
                             kifu1.CurNode.Value.Kyokumen.Temezumi + 1//1手進める
@@ -385,8 +385,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             Sky susunda_Sky_orNull;
             IttesasuResult ittesasuResult;
             Util_IttesasuRoutine.Before1(
-                new IttesasuArgImpl(
-                    learningData.Kifu.CurNode.Value,
+                learningData.Kifu.CurNode.Value,
+                new IttesasuArgImpl(                    
                     ((KifuNode)learningData.Kifu.CurNode).Value.Kyokumen.KaisiPside,
                     nextMove,// FIXME: エラールートだと、これがヌル
                     learningData.Kifu.CurNode.Value.Kyokumen.Temezumi + 1//1手進める

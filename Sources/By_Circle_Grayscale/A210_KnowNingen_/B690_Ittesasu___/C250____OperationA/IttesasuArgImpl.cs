@@ -8,11 +8,6 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
     public class IttesasuArgImpl : IttesasuArg
     {
         /// <summary>
-        /// 一手指し、開始局面。
-        /// </summary>
-        public　KyokumenWrapper KaisiKyokumen { get; set; }
-
-        /// <summary>
         /// 一手指し、開始局面、手番。
         /// </summary>
         public Playerside KaisiTebanside { get; set; }
@@ -31,13 +26,11 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
 
         public IttesasuArgImpl(
-            KyokumenWrapper kaisiKyokumen,
             Playerside tebanside,
             Move korekaranoMove,
             int korekaranoTemezumi
             )
         {
-            this.KaisiKyokumen = kaisiKyokumen;
             this.KaisiTebanside = tebanside;
             this.m_korekaranoMove_ = korekaranoMove;
             this.m_korekaranoTemezumi_ = korekaranoTemezumi;

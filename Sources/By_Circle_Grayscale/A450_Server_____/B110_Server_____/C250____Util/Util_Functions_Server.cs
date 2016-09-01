@@ -26,6 +26,7 @@ using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 {
@@ -308,7 +309,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             //------------------------------
             // 前の手に戻します
             //------------------------------
-            IttemodosuResult ittemodosuResult = new IttemodosuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___, null);
+            Sky susunda_Sky_orNull = null;
+            IttemodosuResult ittemodosuResult = new IttemodosuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
             {
                 //Ks14 foodKomaSyurui;//取った駒があれば、取った駒の種類。
                 //SkyConst susunda_Sky_orNull;
@@ -326,6 +328,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     );
                 Util_IttemodosuRoutine.Before2(
                     ref ittemodosuResult,
+                    susunda_Sky_orNull,
                     errH
                     );
                 Util_IttemodosuRoutine.After3_ChangeCurrent(

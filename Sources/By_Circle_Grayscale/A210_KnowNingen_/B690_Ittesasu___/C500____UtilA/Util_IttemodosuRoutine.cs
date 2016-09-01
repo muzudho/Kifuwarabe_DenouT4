@@ -51,7 +51,9 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             )
         {
             bool isMakimodosi = true;
-            ittemodosuResult = new IttemodosuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___, null);
+
+            Sky susunda_Sky_orNull = null;// 終了ノードの局面データ。
+            ittemodosuResult = new IttemodosuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
 
             //
             // 一手指し開始局面（不変）
@@ -70,7 +72,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             //------------------------------
             {
                 // 戻る時。
-                ittemodosuResult.Susunda_Sky_orNull = null;
+                susunda_Sky_orNull = null;
                 modottaNode = kaisiNode;
             }
 
@@ -121,7 +123,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             Util_IttemodosuRoutine.Do62_TorareteitaKoma_ifExists(
                 ittemodosuArg.Move,
                 kaisi_Sky,//巻き戻しのとき
-                ittemodosuResult.Susunda_Sky_orNull,
+                susunda_Sky_orNull,
                 out figFoodKoma,//変更される場合あり。
                 errH
                 );
@@ -191,6 +193,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <param name="errH"></param>
         public static void Before2(
             ref IttemodosuResult ittemodosuReference,
+            Sky susunda_Sky_orNull,
             KwErrorHandler errH
             )
         {
@@ -219,7 +222,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 // キーを差替えたノード
                 editNodeRef = new KifuNodeImpl(
                     nextMove,
-                    new KyokumenWrapper(ittemodosuReference.Susunda_Sky_orNull));//, genTebanside
+                    new KyokumenWrapper(susunda_Sky_orNull));
             }
 
 
