@@ -351,9 +351,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     {
                         KifuNode modifyNode = new KifuNodeImpl(
                             mainGui3.Link_Server.Model_Taikyoku.Kifu.CurNode.Key,//現在の局面を流用
-                            new KyokumenWrapper(
-                                new SkyImpl(mainGui3.SkyWrapper_Gui.GuiSky)
-                            )
+                            new KyokumenWrapper(new SkyImpl(mainGui3.SkyWrapper_Gui.GuiSky))
                         );
                         modifyNode.Value.Kyokumen.AddObjects(
                                 new Finger[] { figKoma }, new Busstop[] {

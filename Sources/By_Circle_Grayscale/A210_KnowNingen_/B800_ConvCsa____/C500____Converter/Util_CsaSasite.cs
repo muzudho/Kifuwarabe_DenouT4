@@ -13,6 +13,7 @@ using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System.Diagnostics;
 using System.Text;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B800_ConvCsa____.C500____Converter
 {
@@ -106,7 +107,7 @@ namespace Grayscale.A210_KnowNingen_.B800_ConvCsa____.C500____Converter
         /// <param name="csa"></param>
         /// <param name="ittemae_Sky">1手前の局面。ルート局面などの理由で１手前の局面がない場合はヌル。</param>
         /// <returns></returns>
-        public static string ToSfen(CsaKifuSasite csa, SkyImpl ittemae_Sky_orNull)
+        public static string ToSfen(CsaKifuSasite csa, Sky ittemae_Sky_orNull)
         {
             StringBuilder sb = new StringBuilder();
 

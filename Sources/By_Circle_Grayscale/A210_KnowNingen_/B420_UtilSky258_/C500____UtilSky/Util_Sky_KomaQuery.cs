@@ -47,7 +47,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
         /// <returns>スプライト番号。なければエラー番号。</returns>
-        public static Busstop InMasuPsideNow(SkyImpl src_Sky, SyElement masu, Playerside pside)
+        public static Busstop InMasuPsideNow(Sky src_Sky, SyElement masu, Playerside pside)
         {
             Busstop koma = Busstop.Empty;
 
@@ -79,7 +79,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
         /// <returns>スプライト番号。なければエラー番号。</returns>
-        public static Busstop InMasuPsideKomasyuruiNow(SkyImpl src_Sky, SyElement masu, Playerside pside, Komasyurui14 syurui)
+        public static Busstop InMasuPsideKomasyuruiNow(Sky src_Sky, SyElement masu, Playerside pside, Komasyurui14 syurui)
         {
             Busstop koma = Busstop.Empty;
 

@@ -44,7 +44,11 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <param name="sourceLineNumber"></param>
         public static void Before1(
             KyokumenWrapper kaisiKyokumen,// 一手指し、開始局面。
-            IttesasuArg ittesasuArg,
+
+            Playerside kaisiTebanside,//一手指し、開始局面、手番。
+            Move korekaranoMove,//一手指し、終了局面。これから指されるはずの手。棋譜に記録するために「指す前／指した後」を含めた手。
+            int korekaranoTemezumi,//これから作る局面の、手目済み。
+
             out Sky susunda_Sky_orNull,// 終了ノードの局面データ。
             out IttesasuResult ittesasuResult,
             KwErrorHandler errH,
@@ -77,11 +81,11 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
                     //現局面ノードのクローンを作成します。
                     editNodeRef = new KifuNodeImpl(
-                        ittesasuArg.KorekaranoMove,
+                        korekaranoMove,
                         new KyokumenWrapper(new SkyImpl(kaisi_Sky))
                         );
                     editNodeRef.Value.Kyokumen.SetKaisiPside(Conv_Playerside.Reverse(editNodeRef.Value.Kyokumen.KaisiPside));
-                    editNodeRef.Value.Kyokumen.SetTemezumi(ittesasuArg.KorekaranoTemezumi);
+                    editNodeRef.Value.Kyokumen.SetTemezumi(korekaranoTemezumi);
 
 
                     susunda_Sky_orNull = editNodeRef.Value.Kyokumen;
@@ -96,8 +100,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 Finger figMovedKoma;
                 Util_IttesasuRoutine.Do24_UgokasuKoma_IdoSakiHe(
                     out figMovedKoma,
-                    ittesasuArg.KorekaranoMove,
-                    ittesasuArg.KaisiTebanside,
+                    korekaranoMove,
+                    kaisiTebanside,
                     kaisi_Sky,
                     errH,
                     hint
@@ -107,13 +111,13 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
 
                 exceptionArea = 1060;
-                SyElement dstMasu = Conv_Move.ToDstMasu(ittesasuArg.KorekaranoMove);
-                Komasyurui14 dstKs = Conv_Move.ToDstKomasyurui(ittesasuArg.KorekaranoMove);
+                SyElement dstMasu = Conv_Move.ToDstMasu(korekaranoMove);
+                Komasyurui14 dstKs = Conv_Move.ToDstKomasyurui(korekaranoMove);
                 Busstop afterStar;
                 {
                     afterStar = Util_IttesasuRoutine.Do36_KomaOnDestinationMasu(
                         dstKs,
-                        ittesasuArg.KorekaranoMove,
+                        korekaranoMove,
                         susunda_Sky_orNull
                         );
                 }
@@ -164,7 +168,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     //------------------------------
                     // 局面データの書き換え
                     //------------------------------
-                    susunda_Sky_orNull.SetTemezumi(ittesasuArg.KorekaranoTemezumi);
+                    susunda_Sky_orNull.SetTemezumi(korekaranoTemezumi);
                     susunda_Sky_orNull.AddObjects(
                         //
                         // 指した駒と、取った駒
@@ -188,7 +192,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     //------------------------------------------------------------
 
                     //駒を取って変化しているかもしれない？
-                    susunda_Sky_orNull.SetTemezumi(ittesasuArg.KorekaranoTemezumi);// これから作る局面の、手目済み。
+                    susunda_Sky_orNull.SetTemezumi(korekaranoTemezumi);// これから作る局面の、手目済み。
                     susunda_Sky_orNull.AddObjects(
                         //
                         // 指した駒

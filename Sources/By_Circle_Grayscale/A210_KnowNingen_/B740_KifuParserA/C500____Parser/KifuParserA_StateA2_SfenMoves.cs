@@ -189,11 +189,11 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                             Sky susunda_Sky_orNull2;
                             Util_IttesasuRoutine.Before1(
                                 model_Taikyoku.Kifu.CurNode.Value,
-                                new IttesasuArgImpl(                                    
-                                    src_Sky.KaisiPside,
-                                    nextMove,//FIXME: if文で分けているので、これがヌルなはずはないと思うが。
-                                    korekaranoTemezumi//これから作る局面の、手目済み。
-                                ),
+
+                                src_Sky.KaisiPside,
+                                nextMove,//FIXME: if文で分けているので、これがヌルなはずはないと思うが。
+                                korekaranoTemezumi,//これから作る局面の、手目済み。
+
                                 out susunda_Sky_orNull2,
                                 out ittesasuResult,
                                 errH,

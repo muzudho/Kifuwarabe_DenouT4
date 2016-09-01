@@ -10,6 +10,7 @@ using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct;
 using Grayscale.A500_ShogiEngine.B140_Conv_FvKoumoku.C500____Converter;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A500_ShogiEngine.B160_ConvFv_____.C500____Converter
 {
@@ -27,7 +28,7 @@ namespace Grayscale.A500_ShogiEngine.B160_ConvFv_____.C500____Converter
         /// <param name="komasyurui">盤上の種類</param>
         /// <param name="masu">盤上の駒の升</param>
         /// <returns></returns>
-        public static int ToKIndex_From_PsideBanjoKomasyuruiMasu(SkyImpl src_Sky, Playerside pside)
+        public static int ToKIndex_From_PsideBanjoKomasyuruiMasu(Sky src_Sky, Playerside pside)
         {
             // 調査項目番号（Ｋ１、Ｋ２等）
             int result;

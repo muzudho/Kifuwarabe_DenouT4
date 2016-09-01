@@ -11,6 +11,7 @@ using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct
 {
@@ -115,10 +116,10 @@ namespace Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct
         }
 
 
-        public SkyImpl ToSky()
+        public Sky ToSky()
         {
             // 駒40個に、Finger番号を割り当てておきます。
-            SkyImpl newSky = new SkyImpl();// 駒数０。
+            Sky newSky = new SkyImpl();// 駒数０。
 
             Dictionary<Finger, Busstop> komaDic = new Dictionary<Finger, Busstop>();
 

@@ -12,6 +12,7 @@ using Grayscale.A500_ShogiEngine.B160_ConvFv_____.C500____Converter;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C___400_54List;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C400____54List
 {
@@ -38,7 +39,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C400____54List
         /// 盤上の40駒リスト。
         /// 駒台の14駒リスト。
         /// </summary>
-        public static N40t14List Calc_40t14List(SkyImpl src_Sky, KwErrorHandler errH)
+        public static N40t14List Calc_40t14List(Sky src_Sky, KwErrorHandler errH)
         {
             N40t14List result_n40t14List = new N40t14ListImpl();
 

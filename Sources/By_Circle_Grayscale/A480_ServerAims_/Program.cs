@@ -7,6 +7,7 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A480_ServerAims_.B110_AimsServer_.C500____Server;
 using System.Windows.Forms;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.P489_Form_______
 {
@@ -48,7 +49,7 @@ namespace Grayscale.P489_Form_______
 
             MessageBox.Show("AIMSサーバー\n将棋エンジン・ファイルパス＝[" + setteiXmlFile.ShogiEngineFilePath + "]");
 
-            SkyImpl src_Sky = Util_SkyWriter.New_Hirate();
+            Sky src_Sky = Util_SkyWriter.New_Hirate();
 
             AimsServerImpl aimsServer = new AimsServerImpl(src_Sky);
             aimsServer.ShogiEngineFilePath = setteiXmlFile.ShogiEngineFilePath;

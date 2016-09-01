@@ -11,3 +11,11 @@ E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A150_LogKy
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A150_LogKyokuPng\obj\Release\A150_LogKyokuPng.csproj.GenerateResource.Cache
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A150_LogKyokuPng\obj\Release\Grayscale.A150_LogKyokuPng.exe
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A150_LogKyokuPng\obj\Release\Grayscale.A150_LogKyokuPng.pdb
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Engine01_Binaries\A150_LogKyokuPng\Grayscale.A150_LogKyokuPng.exe.config
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Engine01_Binaries\A150_LogKyokuPng\Grayscale.A150_LogKyokuPng.exe
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Engine01_Binaries\A150_LogKyokuPng\Grayscale.A150_LogKyokuPng.pdb
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Sources\By_Circle_Grayscale\A150_LogKyokuPng\obj\Release\A150_LogKyokuPng.csprojResolveAssemblyReference.cache
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Sources\By_Circle_Grayscale\A150_LogKyokuPng\obj\Release\Grayscale.Properties.Resources.resources
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Sources\By_Circle_Grayscale\A150_LogKyokuPng\obj\Release\A150_LogKyokuPng.csproj.GenerateResource.Cache
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Sources\By_Circle_Grayscale\A150_LogKyokuPng\obj\Release\Grayscale.A150_LogKyokuPng.exe
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Sources\By_Circle_Grayscale\A150_LogKyokuPng\obj\Release\Grayscale.A150_LogKyokuPng.pdb

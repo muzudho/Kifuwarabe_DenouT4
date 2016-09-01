@@ -6,3 +6,11 @@ E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A120_KifuS
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A120_KifuSfen___\obj\Release\A120_KifuSfen___.csproj.GenerateResource.Cache
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A120_KifuSfen___\obj\Release\Grayscale.A120_KifuSfen___.exe
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A120_KifuSfen___\obj\Release\Grayscale.A120_KifuSfen___.pdb
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Engine01_Binaries\A120_KifuSfen___\Grayscale.A120_KifuSfen___.exe.config
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Engine01_Binaries\A120_KifuSfen___\Grayscale.A120_KifuSfen___.exe
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Engine01_Binaries\A120_KifuSfen___\Grayscale.A120_KifuSfen___.pdb
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Sources\By_Circle_Grayscale\A120_KifuSfen___\obj\Release\A120_KifuSfen___.csprojResolveAssemblyReference.cache
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Sources\By_Circle_Grayscale\A120_KifuSfen___\obj\Release\Grayscale.Properties.Resources.resources
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Sources\By_Circle_Grayscale\A120_KifuSfen___\obj\Release\A120_KifuSfen___.csproj.GenerateResource.Cache
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Sources\By_Circle_Grayscale\A120_KifuSfen___\obj\Release\Grayscale.A120_KifuSfen___.exe
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Sources\By_Circle_Grayscale\A120_KifuSfen___\obj\Release\Grayscale.A120_KifuSfen___.pdb

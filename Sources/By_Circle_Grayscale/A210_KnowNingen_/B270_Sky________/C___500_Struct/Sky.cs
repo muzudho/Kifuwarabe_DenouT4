@@ -3,6 +3,7 @@ using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using System.Runtime.CompilerServices;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
+using System.Collections.Generic;
 
 namespace Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct
 {
@@ -39,6 +40,8 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct
         );
 
         void Foreach_Busstops(DELEGATE_Sky_Foreach delegate_Sky_Foreach);
+
+        List<Busstop> Busstops { get; }
 
         /// <summary>
         /// 盤上の駒数と、持ち駒の数の合計。

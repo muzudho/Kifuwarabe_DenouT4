@@ -6,3 +6,11 @@ E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A210_KnowN
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A210_KnowNingen_\obj\Release\Grayscale.A210_KnowNingen_.exe
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A210_KnowNingen_\obj\Release\Grayscale.A210_KnowNingen_.pdb
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A210_KnowNingen_\obj\Release\Grayscale.A210_KnowNingen_.Properties.Resources.resources
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Sources\By_Circle_Grayscale\A210_KnowNingen_\obj\Release\A210_KnowNingen_.csprojResolveAssemblyReference.cache
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Sources\By_Circle_Grayscale\A210_KnowNingen_\obj\Release\Grayscale.A210_KnowNingen_.Properties.Resources.resources
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Sources\By_Circle_Grayscale\A210_KnowNingen_\obj\Release\A210_KnowNingen_.csproj.GenerateResource.Cache
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Sources\By_Circle_Grayscale\A210_KnowNingen_\obj\Release\Grayscale.A210_KnowNingen_.exe
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Sources\By_Circle_Grayscale\A210_KnowNingen_\obj\Release\Grayscale.A210_KnowNingen_.pdb
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Engine01_Binaries\A210_KnowNingen_\Grayscale.A210_KnowNingen_.exe.config
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Engine01_Binaries\A210_KnowNingen_\Grayscale.A210_KnowNingen_.exe
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Engine01_Binaries\A210_KnowNingen_\Grayscale.A210_KnowNingen_.pdb

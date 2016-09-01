@@ -4,3 +4,9 @@ E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A450_Server_____\Gra
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A450_Server_____\obj\Release\A450_Server_____.csprojResolveAssemblyReference.cache
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A450_Server_____\obj\Release\Grayscale.A450_Server_____.dll
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A450_Server_____\obj\Release\Grayscale.A450_Server_____.pdb
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Engine01_Binaries\A450_Server_____\Grayscale.A450_Server_____.dll.config
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Engine01_Binaries\A450_Server_____\Grayscale.A450_Server_____.dll
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Engine01_Binaries\A450_Server_____\Grayscale.A450_Server_____.pdb
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Sources\By_Circle_Grayscale\A450_Server_____\obj\Release\A450_Server_____.csprojResolveAssemblyReference.cache
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Sources\By_Circle_Grayscale\A450_Server_____\obj\Release\Grayscale.A450_Server_____.dll
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Sources\By_Circle_Grayscale\A450_Server_____\obj\Release\Grayscale.A450_Server_____.pdb

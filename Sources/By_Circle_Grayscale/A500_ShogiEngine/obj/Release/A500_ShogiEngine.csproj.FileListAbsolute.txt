@@ -4,3 +4,6 @@ E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A500_ShogiEngine\Gra
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A500_ShogiEngine\obj\Release\A500_ShogiEngine.csprojResolveAssemblyReference.cache
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A500_ShogiEngine\obj\Release\Grayscale.A500_ShogiEngine.exe
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A500_ShogiEngine\obj\Release\Grayscale.A500_ShogiEngine.pdb
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Sources\By_Circle_Grayscale\A500_ShogiEngine\obj\Release\A500_ShogiEngine.csprojResolveAssemblyReference.cache
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Sources\By_Circle_Grayscale\A500_ShogiEngine\obj\Release\Grayscale.A500_ShogiEngine.exe
+E:\MuzudhoGitHub\Kifuwarabe_DenouT4\Sources\By_Circle_Grayscale\A500_ShogiEngine\obj\Release\Grayscale.A500_ShogiEngine.pdb

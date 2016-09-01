@@ -56,7 +56,7 @@ namespace Grayscale.A210_KnowNingen_.B830_ConvStartpo.C500____Converter
             // 駒の配置
             //------------------------------
             {
-                SkyImpl newSky = startposImporter.ToSky();
+                Sky newSky = startposImporter.ToSky();
                 newSky.SetKaisiPside(parsedKyokumen.FirstPside);
                 newSky.SetTemezumi(startposImporter.RO_SfenStartpos.Temezumi);// FIXME: 将棋所だと常に 1 かも？？
                 parsedKyokumen.KifuNode = new KifuNodeImpl(

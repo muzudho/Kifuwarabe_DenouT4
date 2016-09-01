@@ -6,6 +6,7 @@ using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
 {
@@ -20,9 +21,9 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// 駒を、平手の初期配置に並べます。
         /// ************************************************************************************************************************
         /// </summary>
-        public static SkyImpl New_Hirate()
+        public static Sky New_Hirate()
         {
-            SkyImpl newSky = new SkyImpl();
+            Sky newSky = new SkyImpl();
             Finger figKoma;
 
             figKoma = Finger_Honshogi.SenteOh;
@@ -121,9 +122,9 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         }
 
 
-        public static SkyImpl New_Komabukuro()
+        public static Sky New_Komabukuro()
         {
-            SkyImpl newSky = new SkyImpl();
+            Sky newSky = new SkyImpl();
 
             Finger finger = 0;
 

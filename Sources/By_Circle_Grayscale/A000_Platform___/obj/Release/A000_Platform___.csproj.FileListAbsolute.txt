@@ -5,3 +5,4 @@ E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A000_Platf
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A000_Platform___\obj\Release\A000_Platform___.csproj.GenerateResource.Cache
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A000_Platform___\obj\Release\Grayscale.A000_Platform___.exe
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A000_Platform___\obj\Release\Grayscale.A000_Platform___.pdb
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A000_Platform___\obj\Release\A000_Platform___.csprojResolveAssemblyReference.cache

@@ -1,16 +1,13 @@
-﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.B140_SfenStruct_.C___250_Struct;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
-using Grayscale.B140_SfenStruct_.C___250_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
 {

@@ -9,6 +9,7 @@ using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
 {
@@ -20,7 +21,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
         /// 変換『「指し手→局面」のコレクション』→『「駒、指し手」のペアのリスト』
         /// </summary>
         public static List<Couple<Finger, SyElement>> NextNodes_ToKamList(
-            SkyImpl src_Sky_genzai,
+            Sky src_Sky_genzai,
             Node<Move, KyokumenWrapper> hubNode,
             KwErrorHandler errH
             )

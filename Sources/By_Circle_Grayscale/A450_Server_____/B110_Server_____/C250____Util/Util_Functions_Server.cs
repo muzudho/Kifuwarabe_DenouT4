@@ -309,32 +309,14 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             //------------------------------
             // 前の手に戻します
             //------------------------------
-            Sky susunda_Sky_orNull = null;
-            IttemodosuResult ittemodosuResult = new IttemodosuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
-            {
-                //Ks14 foodKomaSyurui;//取った駒があれば、取った駒の種類。
-                //SkyConst susunda_Sky_orNull;
-                //
-                // 一手巻き戻す
-                //
-                Util_IttemodosuRoutine.Before1(
-                    model_Taikyoku.Kifu.CurNode,
-                    new IttemodosuArgImpl(
-                        removeeLeaf.Key,
-                        korekaranoTemezumi
-                    ),
-                    out ittemodosuResult,
-                    errH
-                    );
-                Util_IttemodosuRoutine.Before2(
-                    ref ittemodosuResult,
-                    susunda_Sky_orNull,
-                    errH
-                    );
-                Util_IttemodosuRoutine.After3_ChangeCurrent(
-                    model_Taikyoku.Kifu
-                    );
-            }
+            IttemodosuResult ittemodosuResult;
+            Util_IttemodosuRoutine.DoIttemodosu(
+                out ittemodosuResult,
+                removeeLeaf,
+                korekaranoTemezumi,
+                model_Taikyoku,
+                errH
+                );
             movedKoma = ittemodosuResult.FigMovedKoma;
             foodKoma = ittemodosuResult.FigFoodKoma;
 

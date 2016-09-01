@@ -143,11 +143,11 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     IttesasuResult ittesasuResult;
                     Util_IttesasuRoutine.Before1(
                         kifu1.CurNode.Value,
-                        new IttesasuArgImpl(                            
-                            ((KifuNode)kifu1.CurNode).Value.Kyokumen.KaisiPside,
-                            nextMove,
-                            kifu1.CurNode.Value.Kyokumen.Temezumi + 1//1手進める
-                        ),
+
+                        ((KifuNode)kifu1.CurNode).Value.Kyokumen.KaisiPside,
+                        nextMove,
+                        kifu1.CurNode.Value.Kyokumen.Temezumi + 1,//1手進める
+
                         out susunda_Sky_orNull,
                         out ittesasuResult,
                         //kifu1,//診断用
@@ -386,11 +386,11 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             IttesasuResult ittesasuResult;
             Util_IttesasuRoutine.Before1(
                 learningData.Kifu.CurNode.Value,
-                new IttesasuArgImpl(                    
-                    ((KifuNode)learningData.Kifu.CurNode).Value.Kyokumen.KaisiPside,
-                    nextMove,// FIXME: エラールートだと、これがヌル
-                    learningData.Kifu.CurNode.Value.Kyokumen.Temezumi + 1//1手進める
-                ),
+
+                ((KifuNode)learningData.Kifu.CurNode).Value.Kyokumen.KaisiPside,
+                nextMove,// FIXME: エラールートだと、これがヌル
+                learningData.Kifu.CurNode.Value.Kyokumen.Temezumi + 1,//1手進める
+
                 out susunda_Sky_orNull,
                 out ittesasuResult,
                 //this.Kifu,//診断用
