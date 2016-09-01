@@ -8,6 +8,7 @@ using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C___500_Hyokakansu;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C510____HyokakansuColl;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
 using System;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
@@ -21,7 +22,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
     public abstract class Util_Scoreing
     {
 
-        public static float Initial_BestScore(SkyImpl src_Sky)
+        public static float Initial_BestScore(Sky src_Sky)
         {
             // このノードが、どちらの手番か。
             Playerside pside = src_Sky.KaisiPside;

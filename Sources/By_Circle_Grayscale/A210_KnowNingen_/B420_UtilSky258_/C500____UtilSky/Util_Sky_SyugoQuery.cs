@@ -6,6 +6,7 @@ using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
 {
@@ -17,7 +18,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="src_Sky"></param>
         /// <param name="pside"></param>
         /// <returns></returns>
-        public static SySet<SyElement> Masus_Now(SkyImpl src_Sky, Playerside pside)
+        public static SySet<SyElement> Masus_Now(Sky src_Sky, Playerside pside)
         {
             SySet_Default<SyElement> masus = new SySet_Default<SyElement>("今の升");
 
@@ -43,7 +44,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// </summary>
         /// <param name="light"></param>
         /// <returns></returns>
-        public static SySet<SyElement> KomaKidou_Potential(Finger finger, SkyImpl src_Sky)
+        public static SySet<SyElement> KomaKidou_Potential(Finger finger, Sky src_Sky)
         {
             src_Sky.AssertFinger(finger);
             Busstop koma = src_Sky.BusstopIndexOf(finger);

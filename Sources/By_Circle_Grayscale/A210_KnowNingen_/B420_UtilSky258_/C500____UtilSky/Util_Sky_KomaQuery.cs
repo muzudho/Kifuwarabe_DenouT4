@@ -7,6 +7,7 @@ using Grayscale.A210_KnowNingen_.B310_Seiza______.C500____Util;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
 {
@@ -20,7 +21,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
         /// <returns>スプライト番号。なければエラー番号。</returns>
-        public static Busstop InMasuNow(SkyImpl src_Sky, SyElement masu)
+        public static Busstop InMasuNow(Sky src_Sky, SyElement masu)
         {
             Busstop koma = Busstop.Empty;
 

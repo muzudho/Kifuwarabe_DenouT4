@@ -17,6 +17,7 @@ using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 {
@@ -57,7 +58,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             // 一手指し終了局面（null or 可変）
             //
             Playerside kaisi_tebanside = ((KifuNode)kaisiNode).Value.Kyokumen.KaisiPside;
-            SkyImpl kaisi_Sky = kaisiNode.Value.Kyokumen;
+            Sky kaisi_Sky = kaisiNode.Value.Kyokumen;
 
             //
             // 編集対象ノード（巻き戻し時と、進む時で異なる）
@@ -142,7 +143,6 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 Playerside pside = Conv_Move.ToPlayerside(ittemodosuArg.Move);
                 Komasyurui14 captured = Conv_Move.ToCaptured(ittemodosuArg.Move);
 
-                //kaisi_Sky = new SkyImpl(kaisi_Sky);
                 kaisi_Sky.SetTemezumi(ittemodosuArg.KorekaranoTemezumi);
                 kaisi_Sky.AddObjects(
                     //
@@ -163,7 +163,6 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 //------------------------------------------------------------
                 // 指されていた駒の移動
                 //------------------------------------------------------------
-                //kaisi_Sky = new SkyImpl(kaisi_Sky);
                 kaisi_Sky.SetTemezumi(ittemodosuArg.KorekaranoTemezumi);
                 kaisi_Sky.AddObjects(
                     //
@@ -257,7 +256,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             out Finger figMovedKoma,
             Move move,
             Playerside kaisi_tebanside,
-            SkyImpl kaisi_Sky,
+            Sky kaisi_Sky,
             KwErrorHandler errH
             ,
             [CallerMemberName] string memberName = "",
@@ -299,7 +298,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         private static Busstop Do37_KomaOnDestinationMasu(
             Komasyurui14 syurui2,
             Move move,
-            SkyImpl src_Sky
+            Sky src_Sky
             )
         {
             SyElement srcMasu = Conv_Move.ToSrcMasu(move);
@@ -343,8 +342,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <param name="errH"></param>
         private static void Do62_TorareteitaKoma_ifExists(
             Move move,
-            SkyImpl kaisi_Sky,//巻き戻しのとき
-            SkyImpl susunda_Sky_orNull,
+            Sky kaisi_Sky,//巻き戻しのとき
+            Sky susunda_Sky_orNull,
             out Finger out_figFoodKoma,
             KwErrorHandler errH
         )

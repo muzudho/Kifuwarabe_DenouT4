@@ -7,6 +7,7 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
 {
@@ -21,7 +22,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
         /// <returns></returns>
         public static List<Move> ToMovelist_NonPromotion(
             Maps_OneAndOne<Finger, SySet<SyElement>> komabetuSusumuMasus,
-            SkyImpl src_Sky,
+            Sky src_Sky,
             KwErrorHandler errH
         )
         {
@@ -60,7 +61,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
 
         public static List<Move> ToMovelist_NonPromotion(
             List_OneAndMulti<Finger, SySet<SyElement>> komaMasus,
-            SkyImpl src_Sky,
+            Sky src_Sky,
             KwErrorHandler errH
             )
         {

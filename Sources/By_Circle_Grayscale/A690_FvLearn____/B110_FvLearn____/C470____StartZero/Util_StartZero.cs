@@ -9,6 +9,7 @@ using Grayscale.A690_FvLearn____.B110_FvLearn____.C400____54List;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C430____Zooming;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C440____Ranking;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C460____Scoreing;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
@@ -25,7 +26,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C470____StartZero
         /// <summary>
         /// 平手初期局面
         /// </summary>
-        private static SkyImpl src_Sky_hirateSyokikyokumen;
+        private static Sky src_Sky_hirateSyokikyokumen;
 
         /// <summary>
         /// 平手初期局面の54要素のリスト。

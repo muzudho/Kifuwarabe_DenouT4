@@ -11,6 +11,7 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
 {
@@ -24,7 +25,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// </summary>
         /// <param name="masus"></param>
         /// <returns></returns>
-        public static bool ExistsIn(Move move, SySet<SyElement> masus, SkyImpl src_Sky, KwErrorHandler errH)
+        public static bool ExistsIn(Move move, SySet<SyElement> masus, Sky src_Sky, KwErrorHandler errH)
         {
             bool matched = false;
 
@@ -103,7 +104,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// 不一致判定：　先後、駒種類  が、自分と同じものが　＜ひとつもない＞
         /// </summary>
         /// <returns></returns>
-        public static bool NeverOnaji(Move move, SkyImpl src_Sky, params Fingers[] komaGroupArgs)
+        public static bool NeverOnaji(Move move, Sky src_Sky, params Fingers[] komaGroupArgs)
         {
             bool unmatched = true;
 

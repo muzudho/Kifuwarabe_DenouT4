@@ -6,6 +6,7 @@ using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 #if DEBUG || LEARN
 using System.Text;
@@ -34,7 +35,7 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
 #if DEBUG || LEARN
             out KyHyokaMeisai_Koumoku out_meisaiKoumoku_orNull,
 #endif
-            SkyImpl src_Sky,
+            Sky src_Sky,
             FeatureVector fv,
             KwErrorHandler errH
             )

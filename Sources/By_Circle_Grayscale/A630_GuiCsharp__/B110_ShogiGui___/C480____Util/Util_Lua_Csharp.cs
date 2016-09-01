@@ -19,6 +19,7 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed;
 using NLua;
 using System;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
 {
@@ -137,7 +138,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
             KwErrorHandler errH = Util_OwataMinister.ERROR;
             mainGui.Link_Server.Model_Taikyoku.Kifu.Clear();// 棋譜を空っぽにします。
 
-            SkyImpl newSky = new SkyImpl(mainGui.Model_Manual.GuiSky);
+            Sky newSky = new SkyImpl(mainGui.Model_Manual.GuiSky);
 
             int figKoma;
 

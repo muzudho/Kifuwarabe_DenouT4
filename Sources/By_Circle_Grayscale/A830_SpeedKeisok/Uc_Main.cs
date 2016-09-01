@@ -13,6 +13,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
@@ -46,7 +47,7 @@ namespace Grayscale.P910_SpeedKeisok
             }
         }
 
-        public SkyImpl Src_Sky { get; set; }
+        public Sky Src_Sky { get; set; }
         public FeatureVector FeatureVector { get; set; }
 
         public KifuTree Kifu { get; set; }

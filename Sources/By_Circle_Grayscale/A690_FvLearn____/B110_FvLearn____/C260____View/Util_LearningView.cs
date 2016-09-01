@@ -28,6 +28,7 @@ using System.Diagnostics;
 using System.Text;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
@@ -65,7 +66,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             foreach (CsaKifuSasite csaSasite in sasiteList)
             {
                 // 開始局面
-                SkyImpl kaisi_Sky = kifu1.CurNode.Value.Kyokumen;
+                Sky kaisi_Sky = kifu1.CurNode.Value.Kyokumen;
 
                 //
                 // csaSasite を データ指し手 に変換するには？

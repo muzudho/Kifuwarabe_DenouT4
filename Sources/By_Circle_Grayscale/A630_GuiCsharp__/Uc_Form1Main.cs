@@ -28,6 +28,7 @@ using System.Text;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.P699_Form_______
 {
@@ -501,7 +502,7 @@ namespace Grayscale.P699_Form_______
             sb.AppendLine("        <div style=\"margin-top:10px; width:30px;\">");
             sb.Append("            ");
 
-            SkyImpl siteiSky = mainGui.Model_Manual.GuiSky;
+            Sky siteiSky = mainGui.Model_Manual.GuiSky;
 
             //────────────────────────────────────────
             // 持ち駒（後手）

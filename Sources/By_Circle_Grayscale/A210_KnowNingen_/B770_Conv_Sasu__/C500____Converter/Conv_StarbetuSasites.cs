@@ -10,6 +10,7 @@ using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
 {
@@ -28,7 +29,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
         /// <returns>次の局面一覧を持った、入れ物ノード（ハブ・ノード）</returns>
         public static KifuNode ToNextNodes_AsHubNode(
             Maps_OneAndMulti<Finger,Move> komabetuAllMoves,
-            SkyImpl src_Sky,
+            Sky src_Sky,
             KwErrorHandler errH
             )
         {

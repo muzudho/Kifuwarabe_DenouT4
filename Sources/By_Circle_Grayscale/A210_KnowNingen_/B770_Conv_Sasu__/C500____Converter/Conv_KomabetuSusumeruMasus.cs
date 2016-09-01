@@ -7,6 +7,7 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B480_Util_Sasu__.C500____Util;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
 {
@@ -20,7 +21,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
         /// <returns></returns>
         public static Maps_OneAndMulti<Finger, Move> ToKomaBETUAllSasites(
             List_OneAndMulti<Finger, SySet<SyElement>> komaBETUSusumeruMasus,
-            SkyImpl src_Sky
+            Sky src_Sky
             )
         {
             Maps_OneAndMulti<Finger, Move> result_komabetuAllMoves = new Maps_OneAndMulti<Finger, Move>();

@@ -2,6 +2,7 @@
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using System.Collections.Generic;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B820_KyokuParser.C___500_Parser
 {
@@ -22,7 +23,7 @@ namespace Grayscale.A210_KnowNingen_.B820_KyokuParser.C___500_Parser
         /// </summary>
         List<MotiItem> MotiList { get; set; }
 
-        SkyImpl Sky { get; set; }
+        Sky Sky { get; set; }
 
     }
 }

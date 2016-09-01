@@ -4,6 +4,7 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
@@ -62,7 +63,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
         /// 全合法手をダンプ。デバッグ用途。
         /// </summary>
         /// <returns></returns>
-        string DumpToAllGohosyu(SkyImpl src_Sky);
+        string DumpToAllGohosyu(Sky src_Sky);
 
         
         /// <summary>

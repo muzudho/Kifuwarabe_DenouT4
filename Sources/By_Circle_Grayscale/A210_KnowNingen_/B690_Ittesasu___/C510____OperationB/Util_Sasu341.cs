@@ -12,6 +12,7 @@ using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
 {
@@ -27,15 +28,15 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
         /// <param name="pside_genTeban"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static SkyImpl Sasu(
-            SkyImpl src_Sky,//指定局面
+        public static Sky Sasu(
+            Sky src_Sky,//指定局面
             Finger finger,//動かす駒
             SyElement masu,//移動先マス
             bool toNaru,//成るなら真
             KwErrorHandler errH
             )
         {
-            SkyImpl newSky = new SkyImpl(src_Sky); // 現局面を元に、新規局面を書き換えます。
+            Sky newSky = new SkyImpl(src_Sky); // 現局面を元に、新規局面を書き換えます。
             newSky.SetKaisiPside(Conv_Playerside.Reverse(src_Sky.KaisiPside));// 開始先後を逆転させます。
             newSky.SetTemezumi(newSky.Temezumi+1);// 1手進めます。
 

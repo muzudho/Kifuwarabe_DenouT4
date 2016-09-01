@@ -8,6 +8,7 @@ using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B720_Conv_SasuEx.C500____Converter
 {
@@ -23,7 +24,7 @@ namespace Grayscale.A210_KnowNingen_.B720_Conv_SasuEx.C500____Converter
         /// <returns></returns>
         public static KifuNode ToKifuNode(
             Move move,
-            SkyImpl src_Sky,
+            Sky src_Sky,
             KwErrorHandler errH
             )
         {

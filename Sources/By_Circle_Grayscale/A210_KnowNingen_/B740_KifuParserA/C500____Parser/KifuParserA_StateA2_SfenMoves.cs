@@ -11,6 +11,7 @@ using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 using System;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 {
@@ -62,7 +63,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
 
             // 現局面。
-            SkyImpl src_Sky = model_Taikyoku.Kifu.CurNode.Value.Kyokumen;
+            Sky src_Sky = model_Taikyoku.Kifu.CurNode.Value.Kyokumen;
 //            Debug.Assert(!Util_MasuNum.OnKomabukuro((int)((RO_Star_Koma)src_Sky.StarlightIndexOf((Finger)0)).Masu), "カレント、駒が駒袋にあった。");
 
             bool isHonshogi = true;//FIXME:暫定

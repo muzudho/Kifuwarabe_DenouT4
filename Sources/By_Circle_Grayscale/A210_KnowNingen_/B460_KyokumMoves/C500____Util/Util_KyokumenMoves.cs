@@ -11,6 +11,7 @@ using Grayscale.A210_KnowNingen_.B430_Play_______.C500____Query;
 using Grayscale.A210_KnowNingen_.B450_Play2______.C500____Struct;
 using System;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B460_KyokumMoves.C___250_Log;
@@ -55,7 +56,7 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util
         public static void SplitGroup_Banjo(
             out SySet<SyElement> out_masus_seme,
             out SySet<SyElement> out_masus_kurau,
-            SkyImpl src_Sky,
+            Sky src_Sky,
             Fingers fs_kurau,//盤上の駒（喰らう側）
             Fingers fs_seme//盤上の駒（利きを調べる側）
             )
@@ -81,7 +82,7 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util
             out List_OneAndMulti<Finger, SySet<SyElement>> out_komaBETUSusumeruMasus,
 
             bool isHonshogi,
-            SkyImpl src_Sky,
+            Sky src_Sky,
             Playerside pside_genTeban3,
             bool isAiteban
 #if DEBUG
@@ -245,7 +246,7 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util
             Fingers fingers_sirabetaiMOTIkoma,
             SySet<SyElement> masus_mikata_onBanjo,
             SySet<SyElement> masus_aite_onBanjo,
-            SkyImpl src_Sky,
+            Sky src_Sky,
             KwErrorHandler errH_orNull
             )
         {

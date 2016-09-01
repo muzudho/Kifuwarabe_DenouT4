@@ -9,6 +9,7 @@ using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct;
 using System.Diagnostics;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 
 
@@ -113,7 +114,7 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C499____UtilFv
         /// <param name="pside"></param>
         /// <param name="syurui"></param>
         /// <returns>エラー時は-1</returns>
-        public static int ParamIndex_Moti(SkyImpl src_Sky, Playerside pside, Komasyurui14 syurui)
+        public static int ParamIndex_Moti(Sky src_Sky, Playerside pside, Komasyurui14 syurui)
         {
             Fingers fingers = Util_Sky_FingersQuery.InOkibaPsideKomasyuruiNow(src_Sky, Conv_Playerside.ToKomadai(pside), pside, syurui);
 

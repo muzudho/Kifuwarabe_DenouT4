@@ -8,6 +8,7 @@ using Grayscale.A450_Server_____.B110_Server_____.C___125_Receiver;
 using Grayscale.A450_Server_____.B110_Server_____.C___497_EngineClient;
 using Grayscale.A450_Server_____.B110_Server_____.C___498_Server;
 using Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A450_Server_____.B110_Server_____.C498____Server
 {
@@ -49,7 +50,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C498____Server
         #endregion
 
 
-        public Server_Impl(SkyImpl src_Sky, Receiver receiver)
+        public Server_Impl(Sky src_Sky, Receiver receiver)
         {
             this.engineClient = new EngineClient_Impl(receiver);
             this.engineClient.SetOwner_Server(this);

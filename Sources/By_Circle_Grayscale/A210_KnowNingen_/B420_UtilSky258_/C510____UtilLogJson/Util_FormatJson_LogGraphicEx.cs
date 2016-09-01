@@ -14,6 +14,7 @@ using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System.Collections.Generic;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
 {
@@ -27,7 +28,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
         /// <param name="km_sasite"></param>
         /// <param name="comment"></param>
         /// <returns></returns>
-        public static string JsonKyokumens_MultiKomabetuMasus(bool enableLog, SkyImpl src_Sky_base, Maps_OneAndOne<Finger, SySet<SyElement>> km_sasite, string comment)
+        public static string JsonKyokumens_MultiKomabetuMasus(bool enableLog, Sky src_Sky_base, Maps_OneAndOne<Finger, SySet<SyElement>> km_sasite, string comment)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -80,7 +81,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
         /// <param name="comment"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static string JsonElements_Node(bool enableLog, SkyImpl src_Sky_base, Node<Move, KyokumenWrapper> thisNode, string comment, KwErrorHandler errH)
+        public static string JsonElements_Node(bool enableLog, Sky src_Sky_base, Node<Move, KyokumenWrapper> thisNode, string comment, KwErrorHandler errH)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -129,7 +130,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
         /// <param name="comment"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static string JsonKyokumens_NextNodes(bool enableLog, SkyImpl src_Sky_base, Node<Move, KyokumenWrapper> hubNode, string comment, KwErrorHandler errH)
+        public static string JsonKyokumens_NextNodes(bool enableLog, Sky src_Sky_base, Node<Move, KyokumenWrapper> hubNode, string comment, KwErrorHandler errH)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -175,7 +176,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
         /// </summary>
         /// <param name="hkomas_gen_MOTI"></param>
         /// <returns></returns>
-        public static string JsonElements_KomaHandles(bool enableLog, SkyImpl src_Sky, List<int> hKomas, string comment)
+        public static string JsonElements_KomaHandles(bool enableLog, Sky src_Sky, List<int> hKomas, string comment)
         {
             StringBuilder sb = new StringBuilder();
 

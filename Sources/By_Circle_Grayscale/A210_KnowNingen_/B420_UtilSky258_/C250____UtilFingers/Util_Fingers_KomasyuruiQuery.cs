@@ -1,9 +1,8 @@
 ﻿using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B310_Seiza______.C500____Util;
-using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C250____UtilFingers
 {
@@ -33,7 +32,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C250____UtilFingers
         /// 駒sを渡すと、駒を１つずつ返します。
         /// </summary>
         public static void Translate_Fingers_ToKomasyuruiBETUFirst(
-            SkyImpl src_Sky,
+            Sky src_Sky,
             Fingers figKomas,
             out Finger[] out_figKomasFirst
             )

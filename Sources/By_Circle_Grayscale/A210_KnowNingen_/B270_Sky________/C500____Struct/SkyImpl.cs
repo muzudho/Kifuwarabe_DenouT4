@@ -190,8 +190,7 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
         }
 
 
-        public delegate void DELEGATE_Sky_Foreach(Finger finger, Busstop busstop, ref bool toBreak);
-        public void Foreach_Busstops(SkyImpl.DELEGATE_Sky_Foreach delegate_Sky_Foreach)
+        public void Foreach_Busstops(DELEGATE_Sky_Foreach delegate_Sky_Foreach)
         {
             bool toBreak = false;
 

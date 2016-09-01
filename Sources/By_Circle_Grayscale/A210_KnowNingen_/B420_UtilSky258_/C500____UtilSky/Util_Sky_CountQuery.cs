@@ -9,6 +9,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.B140_SfenStruct_.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
 {
@@ -42,7 +43,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="mp"></param>
         /// <param name="errH"></param>
         public static void CountMoti(
-            SkyImpl src_Sky,
+            Sky src_Sky,
             out int[] motiSu,
             KwErrorHandler errH
         )

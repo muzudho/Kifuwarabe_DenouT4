@@ -12,13 +12,14 @@ using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System.Diagnostics;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B600_UtilSky____.C500____Util
 {
     public abstract class Util_Sky307
     {
 
-        public static SfenstringImpl ExportSfen(SkyImpl src_Sky)
+        public static SfenstringImpl ExportSfen(Sky src_Sky)
         {
             Debug.Assert(src_Sky.Count == 40, "sky.Starlights.Count=[" + src_Sky.Count + "]");//将棋の駒の数
 
@@ -26,7 +27,7 @@ namespace Grayscale.A210_KnowNingen_.B600_UtilSky____.C500____Util
             return new SfenstringImpl("sfen " + Util_StartposExporter.ToSfenstring(se, false));
         }
 
-        public static SfenstringImpl ExportSfen_ForDebug(SkyImpl src_Sky, bool psideIsBlack)
+        public static SfenstringImpl ExportSfen_ForDebug(Sky src_Sky, bool psideIsBlack)
         {
             StartposExporterImpl se = new StartposExporterImpl(src_Sky);
             return new SfenstringImpl("sfen " + Util_StartposExporter.ToSfenstring(se, true));
@@ -36,7 +37,7 @@ namespace Grayscale.A210_KnowNingen_.B600_UtilSky____.C500____Util
         /// ログが多くなるので、１行で出力されるようにします。
         /// </summary>
         /// <returns></returns>
-        public static Json_Val ToJsonVal(SkyImpl src_Sky)
+        public static Json_Val ToJsonVal(Sky src_Sky)
         {
             Json_Obj obj = new Json_Obj();
 
@@ -62,7 +63,7 @@ namespace Grayscale.A210_KnowNingen_.B600_UtilSky____.C500____Util
         /// 「グラフィカル局面ログ」出力用だぜ☆
         /// </summary>
         public static string Json_1Sky(
-            SkyImpl src_Sky,
+            Sky src_Sky,
             string memo,
             string hint,
             int temezumi_yomiGenTeban_forLog//読み進めている現在の手目済

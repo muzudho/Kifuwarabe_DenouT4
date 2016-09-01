@@ -12,6 +12,7 @@ using System.Diagnostics;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 using Grayscale.B140_SfenStruct_.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B310_Seiza______.C250____Struct
 {
@@ -82,7 +83,7 @@ namespace Grayscale.A210_KnowNingen_.B310_Seiza______.C250____Struct
 
 
 
-        public StartposExporterImpl(SkyImpl src_Sky)
+        public StartposExporterImpl(Sky src_Sky)
         {
             Debug.Assert(src_Sky.Count == 40, "sourceSky.Starlights.Count=[" + src_Sky.Count + "]");//将棋の駒の数
 
@@ -94,7 +95,7 @@ namespace Grayscale.A210_KnowNingen_.B310_Seiza______.C250____Struct
 
 
 
-        private void ToBanObject201(SkyImpl src_Sky)
+        private void ToBanObject201(Sky src_Sky)
         {
             this.kaisiPside = src_Sky.KaisiPside;// TODO:
 

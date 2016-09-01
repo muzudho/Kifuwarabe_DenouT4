@@ -25,6 +25,7 @@ using System.Diagnostics;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B110_GraphicLog_.C500____Util;
@@ -679,7 +680,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         /// <returns>複数のノードを持つハブ・ノード</returns>
         private static List<Move> WAAAA_Create_ChildNodes(
             Tansaku_Genjo genjo,
-            SkyImpl src_Sky,
+            Sky src_Sky,
             Move move_ForLog,
             KwErrorHandler errH
             )

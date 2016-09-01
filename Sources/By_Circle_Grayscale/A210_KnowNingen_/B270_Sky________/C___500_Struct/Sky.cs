@@ -6,6 +6,8 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
 namespace Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct
 {
+    public delegate void DELEGATE_Sky_Foreach(Finger finger, Busstop busstop, ref bool toBreak);
+
     public interface Sky
     {
         void AssertFinger(
@@ -18,11 +20,13 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct
         /// これから指す側。
         /// </summary>
         Playerside KaisiPside { get; }
+        void SetKaisiPside(Playerside pside);
 
         /// <summary>
         /// 何手目済みか。初期局面を 0 とする。
         /// </summary>
         int Temezumi { get; }
+        void SetTemezumi(int temezumi);
 
         Busstop BusstopIndexOf(
             Finger finger
@@ -34,7 +38,7 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct
             */
         );
 
-        void Foreach_Busstops(SkyImpl.DELEGATE_Sky_Foreach delegate_Sky_Foreach);
+        void Foreach_Busstops(DELEGATE_Sky_Foreach delegate_Sky_Foreach);
 
         /// <summary>
         /// 盤上の駒数と、持ち駒の数の合計。
@@ -63,5 +67,13 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct
         /// <param name="addsBusstops1"></param>
         void AddObjects(Finger[] addsFinger1, Busstop[] addsBusstops1);
 
+
+        /// <summary>
+        /// 駒台に戻すとき
+        /// </summary>
+        /// <param name="kifu"></param>
+        /// <param name="finger"></param>
+        /// <param name="busstop"></param>
+        void PutOverwriteOrAdd_Busstop(Finger finger, Busstop busstop);
     }
 }

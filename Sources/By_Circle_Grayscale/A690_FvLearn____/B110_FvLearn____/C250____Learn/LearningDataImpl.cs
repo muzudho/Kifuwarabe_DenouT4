@@ -36,6 +36,7 @@ using System;
 using System.IO;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 #if DEBUG
 using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
@@ -223,7 +224,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
         /// 全合法手をダンプ。
         /// </summary>
         /// <returns></returns>
-        public string DumpToAllGohosyu(SkyImpl src_Sky)
+        public string DumpToAllGohosyu(Sky src_Sky)
         {
             StringBuilder sb = new StringBuilder();
             //sb.AppendLine("--------------------");

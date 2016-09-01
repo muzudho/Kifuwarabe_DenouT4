@@ -7,6 +7,7 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B430_Play_______.C250____Calc
 {
@@ -24,7 +25,7 @@ namespace Grayscale.A210_KnowNingen_.B430_Play_______.C250____Calc
         /// <param name="sbGohosyu"></param>
         /// <param name="logTag"></param>
         public static Maps_OneAndOne<Finger, SySet<SyElement>> MinusMasus(
-            SkyImpl src_Sky_forLog,
+            Sky src_Sky_forLog,
             Maps_OneAndOne<Finger, SySet<SyElement>> a1,
             SySet<SyElement> b,
             KwErrorHandler errH_orNull
@@ -63,7 +64,7 @@ namespace Grayscale.A210_KnowNingen_.B430_Play_______.C250____Calc
         /// <param name="sbGohosyu"></param>
         /// <param name="logTag"></param>
         public static Maps_OneAndOne<Finger, SySet<SyElement>> Minus_OverThereMasus(
-            SkyImpl src_srcSky_forLog,
+            Sky src_srcSky_forLog,
             Maps_OneAndOne<Finger, SySet<SyElement>> a,
             SySet<SyElement> b,
             KwErrorHandler errH_orNull

@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B730_Util_SasuEx.C500____Util
 {
@@ -29,7 +30,7 @@ namespace Grayscale.A210_KnowNingen_.B730_Util_SasuEx.C500____Util
         /// 必要により、【成り】の指し手を追加するぜ☆
         /// </summary>
         public static List<Move> CreateNariSasite(
-            SkyImpl src_Sky,
+            Sky src_Sky,
             List<Move> a_sasitebetuEntry,
             KwErrorHandler errH
             )

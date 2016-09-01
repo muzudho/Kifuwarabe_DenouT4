@@ -2,6 +2,7 @@
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C___500_Hyokakansu
 {
@@ -27,7 +28,7 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C___500_Hyokakansu
 #if DEBUG || LEARN
             out KyHyokaMeisai_Koumoku kyokumenScore,
 #endif
-            SkyImpl src_Sky,
+            Sky src_Sky,
             FeatureVector featureVector,
             KwErrorHandler errH
             );

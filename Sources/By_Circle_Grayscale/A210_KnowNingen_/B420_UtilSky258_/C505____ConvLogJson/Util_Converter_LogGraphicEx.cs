@@ -8,6 +8,7 @@ using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C505____ConvLogJson
 {
@@ -80,7 +81,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C505____ConvLogJson
         /// <param name="finger"></param>
         /// <param name="extentionWithDot"></param>
         /// <returns></returns>
-        public static string Finger_ToString(SkyImpl src_Sky, Finger finger, string extentionWithDot)
+        public static string Finger_ToString(Sky src_Sky, Finger finger, string extentionWithDot)
         {
             string komaImg = "";
 

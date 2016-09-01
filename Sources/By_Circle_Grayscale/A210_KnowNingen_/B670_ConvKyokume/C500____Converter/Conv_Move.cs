@@ -1,5 +1,7 @@
 ﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
+using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C___250_Struct;
+using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C250____Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
@@ -7,24 +9,11 @@ using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
 using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using System;
-using System.Text;
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
-using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct;
-using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C___250_Struct;
-using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C250____Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
-using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B310_Seiza______.C250____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
+using System;
 using System.Diagnostics;
 using System.Text;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 
 namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
 {
@@ -678,7 +667,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
         /// <param name="csa"></param>
         /// <param name="ittemae_Sky">1手前の局面。ルート局面などの理由で１手前の局面がない場合はヌル。</param>
         /// <returns></returns>
-        public static Move ToMove_ByCsa(CsaKifuSasite csa, SkyImpl ittemae_Sky_orNull)
+        public static Move ToMove_ByCsa(CsaKifuSasite csa, Sky ittemae_Sky_orNull)
         {
             bool errorCheck = false;
 

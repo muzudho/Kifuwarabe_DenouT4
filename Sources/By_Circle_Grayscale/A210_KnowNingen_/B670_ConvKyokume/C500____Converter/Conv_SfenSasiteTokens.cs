@@ -23,6 +23,7 @@ using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using System;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 #if DEBUG
 using System.Diagnostics;
@@ -56,7 +57,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             move = Move.Empty;
 
             Node<Move, KyokumenWrapper> siteiNode = kifu.CurNode;
-            SkyImpl src_Sky = siteiNode.Value.Kyokumen;
+            Sky src_Sky = siteiNode.Value.Kyokumen;
             //kifu.AssertPside(kifu.CurNode, "str1=" + str1, errH);
             Playerside pside1 = src_Sky.KaisiPside;
 

@@ -10,6 +10,7 @@ using Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B470_ConvKiki___.C500____Converter
 {
@@ -21,7 +22,7 @@ namespace Grayscale.A210_KnowNingen_.B470_ConvKiki___.C500____Converter
         /// <param name="src_Sky"></param>
         /// <returns></returns>
         public static MasubetuKikisuImpl ToMasubetuKikisu(
-            SkyImpl src_Sky,
+            Sky src_Sky,
             Playerside tebanside
             )
         {

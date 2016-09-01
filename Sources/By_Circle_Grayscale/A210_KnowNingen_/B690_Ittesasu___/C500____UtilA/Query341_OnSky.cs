@@ -13,6 +13,7 @@ using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 {
@@ -31,7 +32,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             Playerside pside,
             Komasyurui14 syurui,
             SySet<SyElement> srcAll,
-            SkyImpl src_Sky,//KifuTree kifu,
+            Sky src_Sky,//KifuTree kifu,
             out Finger foundKoma,
             KwErrorHandler errH
             )

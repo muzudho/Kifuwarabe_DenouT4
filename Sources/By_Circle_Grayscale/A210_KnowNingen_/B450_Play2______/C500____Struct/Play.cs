@@ -15,6 +15,7 @@ using Grayscale.A210_KnowNingen_.B440_Utifudume__.C500____Util;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C260____Operator;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 #if DEBUG
 using System.Diagnostics;
@@ -40,7 +41,7 @@ namespace Grayscale.A210_KnowNingen_.B450_Play2______.C500____Struct
         /// <param name="errH_orNull"></param>
         /// <returns></returns>
         public static List_OneAndMulti<Finger, SySet<SyElement>> Translate_Motikoma_ToMove(
-            SkyImpl src_Sky,
+            Sky src_Sky,
             Fingers fingers_sirabetaiMOTIkoma,
             SySet<SyElement> masus_mikata_onBanjo,//打ち歩詰めチェック用
             SySet<SyElement> masus_aite_onBanjo,//打ち歩詰めチェック用

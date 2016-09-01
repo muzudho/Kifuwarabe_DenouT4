@@ -4,6 +4,7 @@ using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B430_Play_______.C250____Calc;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B430_Play_______.C500____Query
 {
@@ -30,7 +31,7 @@ namespace Grayscale.A210_KnowNingen_.B430_Play_______.C500____Query
             Fingers fs_sirabetaiKoma,
             SySet<SyElement> masus_mikata_Banjo,
             SySet<SyElement> masus_aite_Banjo,
-            SkyImpl src_Sky,
+            Sky src_Sky,
             KwErrorHandler errH_orNull
             )
         {

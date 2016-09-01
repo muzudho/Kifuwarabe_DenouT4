@@ -1,5 +1,6 @@
 ﻿using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using System.Diagnostics;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct
 {
@@ -12,9 +13,9 @@ namespace Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct
 
         //*
         #region sky型
-        public SkyImpl Kyokumen { get { return this.kyokumen; } }
-        public void SetKyokumen(SkyImpl sky) { this.kyokumen = sky; }
-        private SkyImpl kyokumen;
+        public Sky Kyokumen { get { return this.kyokumen; } }
+        public void SetKyokumen(Sky sky) { this.kyokumen = sky; }
+        private Sky kyokumen;
         #endregion
         // */
 
@@ -34,7 +35,7 @@ namespace Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct
         #endregion
         // */
 
-        public KyokumenWrapper(SkyImpl sky)
+        public KyokumenWrapper(Sky sky)
         {
             Debug.Assert(sky.Count == 40, "sky.Starlights.Count=[" + sky.Count + "]");//将棋の駒の数
 

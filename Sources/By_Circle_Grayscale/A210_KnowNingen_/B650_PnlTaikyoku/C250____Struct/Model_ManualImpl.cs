@@ -2,6 +2,7 @@
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C250____Struct
 {
@@ -17,12 +18,12 @@ namespace Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C250____Struct
         /// 局面が進むごとに更新されていきます。
         /// 
         /// </summary>
-        public SkyImpl GuiSky { get { return this.guiSkyConst; } }
-        public void SetGuiSky(SkyImpl sky)
+        public Sky GuiSky { get { return this.guiSkyConst; } }
+        public void SetGuiSky(Sky sky)
         {
             this.guiSkyConst = sky;
         }
-        private SkyImpl guiSkyConst;
+        private Sky guiSkyConst;
         public int GuiTemezumi { get; set; }
         public Playerside GuiPside { get; set; }
 

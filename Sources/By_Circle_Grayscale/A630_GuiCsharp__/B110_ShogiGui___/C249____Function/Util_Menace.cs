@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
 {
@@ -26,7 +27,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             if (0 < mainGui.Model_Manual.GuiTemezumi)
             {
                 // 処理の順序が悪く、初回はうまく判定できない。
-                SkyImpl src_Sky = mainGui.Model_Manual.GuiSky;
+                Sky src_Sky = mainGui.Model_Manual.GuiSky;
 
 
                 //----------
