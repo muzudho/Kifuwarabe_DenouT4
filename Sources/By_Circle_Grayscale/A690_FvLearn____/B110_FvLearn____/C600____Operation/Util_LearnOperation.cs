@@ -32,6 +32,7 @@ using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.B110_Log________.C___500_Struct;
 #endif
 
 namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
@@ -56,16 +57,16 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                 Move move1 = item.Move;
 #if DEBUG
                 string sfen = Conv_Move.ToSfen(item.Move);
-                errH.Logger.WriteLine_AddMemo("sfen=" + sfen);
+                errH.Logger.WriteLine_Add("sfen=" + sfen, LogTypes.Memo);
 #endif
 
                 if (uc_Main.LearningData.Kifu.CurNode.HasChildNode(move1))
                 {
 #if DEBUG
-                    errH.Logger.WriteLine_AddMemo("----------------------------------------");
-                    errH.Logger.WriteLine_AddMemo("FV 総合点（読込前）1");
-                    errH.Logger.WriteLine_AddMemo("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(uc_Main.LearningData.Fv));
-                    errH.Logger.WriteLine_AddMemo("----------------------------------------");
+                    errH.Logger.WriteLine_Add("----------------------------------------", LogTypes.Memo);
+                    errH.Logger.WriteLine_Add("FV 総合点（読込前）1", LogTypes.Memo);
+                    errH.Logger.WriteLine_Add("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(uc_Main.LearningData.Fv), LogTypes.Memo);
+                    errH.Logger.WriteLine_Add("----------------------------------------", LogTypes.Memo);
 #endif
                     Node<Move, KyokumenWrapper> nextNode = uc_Main.LearningData.Kifu.CurNode.GetChildNode(move1);
 
@@ -82,10 +83,10 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                         errH
                         );//相手が有利になる点
 #if DEBUG
-                    errH.Logger.WriteLine_AddMemo("----------------------------------------");
-                    errH.Logger.WriteLine_AddMemo("FV 総合点（読込後）6");
-                    errH.Logger.WriteLine_AddMemo("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(uc_Main.LearningData.Fv));
-                    errH.Logger.WriteLine_AddMemo("----------------------------------------");
+                    errH.Logger.WriteLine_Add("----------------------------------------", LogTypes.Memo);
+                    errH.Logger.WriteLine_Add("FV 総合点（読込後）6", LogTypes.Memo);
+                    errH.Logger.WriteLine_Add("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(uc_Main.LearningData.Fv), LogTypes.Memo);
+                    errH.Logger.WriteLine_Add("----------------------------------------", LogTypes.Memo);
 #endif
                 }
             }
@@ -106,7 +107,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                 ref searchedMaxDepth,
                 ref searchedNodes,
                 searchedPv,
-                Util_OwataMinister.LEARNER);
+                Util_Loggers.LEARNER);
         }
 
 
@@ -316,7 +317,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                 searchedPv,
                 errH);
             // ノード情報の表示
-            Util_LearningView.Aa_ShowNode2(uc_Main.LearningData, uc_Main, Util_OwataMinister.LEARNER);
+            Util_LearningView.Aa_ShowNode2(uc_Main.LearningData, uc_Main, Util_Loggers.LEARNER);
 
         //gt_EndMethod:
         //    ;

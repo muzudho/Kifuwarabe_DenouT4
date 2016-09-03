@@ -3,6 +3,10 @@ using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___005_Usi_Loop;
 using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___490_Option__;
 using System.Diagnostics;
 
+#if DEBUG
+using Grayscale.B110_Log________.C___500_Struct;
+#endif
+
 namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C249____Noop
 {
     /// <summary>
@@ -48,7 +52,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C249____Noop
 
                             // noop を投げて 1分過ぎていれば。
 #if DEBUG
-                            errH.Logger.WriteLine_AddMemo("計20秒ほど、サーバーからの応答がなかったぜ☆ (^-^)ﾉｼ");
+                            errH.Logger.WriteLine_Add("計20秒ほど、サーバーからの応答がなかったぜ☆ (^-^)ﾉｼ",LogTypes.Memo);
 #endif
 
                             // このプログラムを終了します。
@@ -59,7 +63,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C249____Noop
                     case NoopPhase.None:
                         {
 #if DEBUG
-                            errH.Logger.WriteLine_AddMemo("noopを投げるぜ☆");
+                            errH.Logger.WriteLine_Add("noopを投げるぜ☆", LogTypes.Memo);
 #endif
                             // まだ noop を投げていないなら
                             owner.Send("noop");// サーバーが生きていれば、"ok" と返してくるはず。（独自実装）

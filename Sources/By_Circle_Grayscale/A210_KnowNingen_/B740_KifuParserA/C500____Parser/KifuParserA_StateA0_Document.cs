@@ -4,6 +4,7 @@ using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 using System;
+using Grayscale.B110_Log________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 {
@@ -61,7 +62,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     // 
 
 #if DEBUG
-                    errH.Logger.WriteLine_AddMemo("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... SFEN形式か...☆");
+                    errH.Logger.WriteLine_Add("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... SFEN形式か...☆", LogTypes.Memo);
 #endif
                     genjo.InputLine = genjo.InputLine.Substring("position".Length);
                     genjo.InputLine = genjo.InputLine.Trim();
@@ -78,14 +79,14 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 else
                 {
 #if DEBUG
-                    Playerside pside = model_Taikyoku.Kifu.CurNode.Value.KyokumenConst.KaisiPside;
-                    errH.Logger.WriteLine_AddMemo("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... positionじゃなかったぜ☆　日本式か☆？　SFENでmovesを読んだあとのプログラムに合流させるぜ☆　：　先後＝[" + pside + "]");
+                    Playerside pside = model_Taikyoku.Kifu.CurNode.Value.Kyokumen.KaisiPside;
+                    errH.Logger.WriteLine_Add("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... positionじゃなかったぜ☆　日本式か☆？　SFENでmovesを読んだあとのプログラムに合流させるぜ☆　：　先後＝[" + pside + "]", LogTypes.Memo);
 #endif
                     nextState = KifuParserA_StateA2_SfenMoves.GetInstance();
                 }
 
             }
-            catch (Exception ex) { Util_OwataMinister.ERROR.DonimoNaranAkirameta(ex, "棋譜ドキュメント解析中☆"); throw ex; }
+            catch (Exception ex) { Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "棋譜ドキュメント解析中☆"); throw ex; }
 
 
             return genjo.InputLine;

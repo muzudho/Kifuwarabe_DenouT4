@@ -13,6 +13,7 @@ using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C505____ConvLogJson;
 using Grayscale.A210_KnowNingen_.B460_KyokumMoves.C___250_Log;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C250____Log
 {
@@ -81,7 +82,7 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C250____Log
 
 
         public void Log3(
-            SkyConst src_Sky,
+            Sky src_Sky,
             Playerside tebanKurau,//手番（喰らう側）
             Playerside tebanSeme,//手番（利きを調べる側）
             Fingers fingers_kurau_IKUSA,//戦駒（喰らう側）
@@ -137,7 +138,7 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C250____Log
         }
 
         public void Log4(
-            SkyConst src_Sky,
+            Sky src_Sky,
             Playerside tebanSeme,//手番（利きを調べる側）
             Maps_OneAndOne<Finger, SySet<SyElement>> kmMove_seme_IKUSA
         )

@@ -4,6 +4,7 @@ using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 using System;
 using System.Runtime.CompilerServices;
+using Grayscale.B110_Log________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 {
@@ -47,8 +48,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             try
             {
 #if DEBUG
-                errH.Logger.WriteLine_AddMemo("┏━━━━━┓(^o^)");
-                errH.Logger.WriteLine_AddMemo("わたしは　" + this.State.GetType().Name + "　の　Execute_Step　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
+                errH.Logger.WriteLine_Add("┏━━━━━┓(^o^)", LogTypes.Memo);
+                errH.Logger.WriteLine_Add("わたしは　" + this.State.GetType().Name + "　の　Execute_Step　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber, LogTypes.Memo);
 #endif
 
                 KifuParserA_State nextState;
@@ -60,7 +61,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 this.State = nextState;
 
             }
-            catch (Exception ex) { Util_OwataMinister.ERROR.DonimoNaranAkirameta(ex, "棋譜解析中☆"); throw ex; }
+            catch (Exception ex) { Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "棋譜解析中☆"); throw ex; }
 
             return genjo.InputLine;
         }
@@ -85,8 +86,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             try
             {
 #if DEBUG
-                errH.Logger.WriteLine_AddMemo("┏━━━━━━━━━━┓");
-                errH.Logger.WriteLine_AddMemo("わたしは　" + this.State.GetType().Name + "　の　Execute_All　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
+                errH.Logger.WriteLine_Add("┏━━━━━━━━━━┓", LogTypes.Memo);
+                errH.Logger.WriteLine_Add("わたしは　" + this.State.GetType().Name + "　の　Execute_All　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber, LogTypes.Memo);
 #endif
 
                 KifuParserA_State nextState = this.State;
@@ -130,7 +131,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
 
             }
-            catch (Exception ex) { Util_OwataMinister.ERROR.DonimoNaranAkirameta(ex, "棋譜解析中☆"); throw ex; }
+            catch (Exception ex) { Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "棋譜解析中☆"); throw ex; }
         }
 
     }

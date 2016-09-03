@@ -61,7 +61,7 @@ namespace Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C500____UtilWriter
                 relFolder,
                 outFile,
                 reportEnvironment,
-                Util_OwataMinister.TEST_PROGRAM
+                Util_Loggers.TEST_PROGRAM
                 );
 
         gt_EndMethod:

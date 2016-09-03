@@ -28,6 +28,10 @@ using System.Runtime.CompilerServices;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
+#if DEBUG
+using Grayscale.B110_Log________.C___500_Struct;
+#endif
+
 namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 {
 
@@ -104,8 +108,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     // 最初はここ
 
 #if DEBUG
-                    errH.Logger.WriteLine_AddMemo("(^o^)... ...");
-                    errH.Logger.WriteLine_AddMemo("ｻｲｼｮﾊｺｺ☆　：　" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
+                    errH.Logger.WriteLine_Add("(^o^)... ...", LogTypes.Memo);
+                    errH.Logger.WriteLine_Add("ｻｲｼｮﾊｺｺ☆　：　" + memberName + "." + sourceFilePath + "." + sourceLineNumber, LogTypes.Memo);
 #endif
                     inputLine = kifuParserA_Impl.Execute_Step(
                         ref result,
@@ -136,7 +140,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     {
 #if DEBUG
                         string message = "(^o^)ﾂｷﾞﾊ　ﾋﾗﾃ　ﾏﾀﾊ　ｼﾃｲｷｮｸﾒﾝ　ｦ　ｼｮﾘｼﾀｲ☆ inputLine=[" + inputLine + "]";
-                        errH.Logger.WriteLine_AddMemo(message);
+                        errH.Logger.WriteLine_Add(message, LogTypes.Memo);
 #endif
 
                         inputLine = kifuParserA_Impl.Execute_Step(
@@ -157,7 +161,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
                     {
 #if DEBUG
-                        errH.Logger.WriteLine_AddMemo("(^o^)ﾂｷﾞﾊ　ﾑｰﾌﾞｽ　ｦ　ｼｮﾘｼﾀｲ☆");
+                        errH.Logger.WriteLine_Add("(^o^)ﾂｷﾞﾊ　ﾑｰﾌﾞｽ　ｦ　ｼｮﾘｼﾀｲ☆", LogTypes.Memo);
 #endif
 
                         inputLine = kifuParserA_Impl.Execute_Step(
@@ -187,7 +191,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                 if (kifuParserA_Impl.State is KifuParserA_StateA2_SfenMoves)
                 {
 #if DEBUG
-                    errH.Logger.WriteLine_AddMemo("ﾂｷﾞﾊ　ｲｯﾃ　ｼｮﾘｼﾀｲ☆");
+                    errH.Logger.WriteLine_Add("ﾂｷﾞﾊ　ｲｯﾃ　ｼｮﾘｼﾀｲ☆", LogTypes.Memo);
 #endif
 
                     inputLine = kifuParserA_Impl.Execute_Step(

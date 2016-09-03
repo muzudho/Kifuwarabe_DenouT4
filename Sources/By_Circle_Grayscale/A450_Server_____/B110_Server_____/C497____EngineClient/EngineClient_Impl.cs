@@ -92,7 +92,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
                 //------------------------------
                 // ログファイルを削除します。
                 //------------------------------
-                Util_OwataMinister.Remove_AllLogFiles();
+                Util_Loggers.Remove_AllLogFiles();
 
 
                 ProcessStartInfo startInfo = new ProcessStartInfo();
@@ -131,7 +131,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
         /// <param name="e"></param>
         private void OnExited(object sender, System.EventArgs e)
         {
-            KwErrorHandler errH = Util_OwataMinister.ENGINE_DEFAULT;
+            KwErrorHandler errH = Util_Loggers.ENGINE_DEFAULT;
             this.ShogiEngineProcessWrapper.Send_Shutdown(errH);
         }
 

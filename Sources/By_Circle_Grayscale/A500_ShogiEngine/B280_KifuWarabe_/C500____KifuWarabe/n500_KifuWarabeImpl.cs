@@ -52,6 +52,7 @@ using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
 using Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C500____UtilWriter;
 using Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct;
+using Grayscale.B110_Log________.C___500_Struct;
 #endif
 
 namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
@@ -136,7 +137,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
 #if DEBUG
             // 送信記録をつけます。
-            Util_OwataMinister.ENGINE_NETWORK.Logger.WriteLine_S(line);
+            Util_Loggers.ENGINE_NETWORK.Logger.WriteLine_S(line);
 #endif
         }
         #endregion
@@ -153,7 +154,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             // 製品名
             this.seihinName = ((System.Reflection.AssemblyProductAttribute)Attribute.GetCustomAttribute(System.Reflection.Assembly.GetExecutingAssembly(), typeof(System.Reflection.AssemblyProductAttribute))).Product;
 
-            this.ErrH = Util_OwataMinister.ENGINE_DEFAULT;
+            this.ErrH = Util_Loggers.ENGINE_DEFAULT;
 
             //-------------+----------------------------------------------------------------------------------------------------------
             // データ設計  |
@@ -471,8 +472,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             // 将棋エンジン「おっおっ、設定を終わらせておかなければ（汗、汗…）」
             //------------------------------------------------------------
 #if DEBUG
-                // ログ出力
-                Util_OwataMinister.ENGINE_DEFAULT.Logger.WriteLine_AddMemo(this.EngineOptions.ToString());
+            // ログ出力
+            Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine_Add(this.EngineOptions.ToString(),LogTypes.Memo);
 #endif
 
             //------------------------------------------------------------
@@ -556,7 +557,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             //
             #endregion
 #if DEBUG
-            Util_OwataMinister.ENGINE_DEFAULT.Logger.WriteLine_AddMemo("(^-^)ﾉｼ");
+            Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine_Add("(^-^)ﾉｼ", LogTypes.Memo);
 #endif
 
 
@@ -573,7 +574,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             if (null != line)
             {
                 // 通信ログは必ず取ります。
-                Util_OwataMinister.ENGINE_NETWORK.Logger.WriteLine_C(line);
+                Util_Loggers.ENGINE_NETWORK.Logger.WriteLine_C(line);
             }
 
             return line;
@@ -612,7 +613,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
         private PhaseResult_Usi_Loop2 OnPositionReceived_AtLoop2Body(string line)
         {
-            KwErrorHandler errH2 = Util_OwataMinister.ENGINE_DEFAULT;
+            KwErrorHandler errH2 = Util_Loggers.ENGINE_DEFAULT;
 
             try
             {
@@ -753,7 +754,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             catch (Exception ex)
             {
                 // エラー：どうにもできないので  ログだけ取って無視します。
-                Util_OwataMinister.ENGINE_DEFAULT.DonimoNaranAkirameta("Program「position」：" + ex.GetType().Name + "：" + ex.Message);
+                Util_Loggers.ENGINE_DEFAULT.DonimoNaranAkirameta("Program「position」：" + ex.GetType().Name + "：" + ex.Message);
             }
 
             return PhaseResult_Usi_Loop2.None;
@@ -804,7 +805,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                Util_OwataMinister.ENGINE_DEFAULT.DonimoNaranAkirameta("Program「go ponder」：" + ex.GetType().Name + "：" + ex.Message);
+                Util_Loggers.ENGINE_DEFAULT.DonimoNaranAkirameta("Program「go ponder」：" + ex.GetType().Name + "：" + ex.Message);
             }
 
             return PhaseResult_Usi_Loop2.None;
@@ -1116,22 +1117,22 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 {
                     case 2100:
                         {
-                            Util_OwataMinister.ENGINE_DEFAULT.DonimoNaranAkirameta(ex, "マルチＰＶから、ベスト指し手をチョイスしようとしたときの１０です。");
+                            Util_Loggers.ENGINE_DEFAULT.DonimoNaranAkirameta(ex, "マルチＰＶから、ベスト指し手をチョイスしようとしたときの１０です。");
                             throw ex;
                         }
                     case 2200:
                         {
-                            Util_OwataMinister.ENGINE_DEFAULT.DonimoNaranAkirameta(ex, "マルチＰＶから、ベスト指し手をチョイスしようとしたときの４０です。");
+                            Util_Loggers.ENGINE_DEFAULT.DonimoNaranAkirameta(ex, "マルチＰＶから、ベスト指し手をチョイスしようとしたときの４０です。");
                             throw ex;
                         }
                     case 2300:
                         {
-                            Util_OwataMinister.ENGINE_DEFAULT.DonimoNaranAkirameta(ex, "マルチＰＶから、ベスト指し手をチョイスしようとしたときの５０です。");
+                            Util_Loggers.ENGINE_DEFAULT.DonimoNaranAkirameta(ex, "マルチＰＶから、ベスト指し手をチョイスしようとしたときの５０です。");
                             throw ex;
                         }
                     case 2400:
                         {
-                            Util_OwataMinister.ENGINE_DEFAULT.DonimoNaranAkirameta(ex, "マルチＰＶから、ベスト指し手をチョイスしようとしたときの９０です。");
+                            Util_Loggers.ENGINE_DEFAULT.DonimoNaranAkirameta(ex, "マルチＰＶから、ベスト指し手をチョイスしようとしたときの９０です。");
                             throw ex;
                         }
                     default:
@@ -1140,7 +1141,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                             //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                             // どうにもできないので  ログだけ取って無視します。
-                            Util_OwataMinister.ENGINE_DEFAULT.DonimoNaranAkirameta("Program「go」：" + ex.GetType().Name + " " + ex.Message + "：goを受け取ったときです。：");
+                            Util_Loggers.ENGINE_DEFAULT.DonimoNaranAkirameta("Program「go」：" + ex.GetType().Name + " " + ex.Message + "：goを受け取ったときです。：");
                         }
                         break;
                 }
@@ -1249,7 +1250,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                Util_OwataMinister.ENGINE_DEFAULT.DonimoNaranAkirameta("Program「stop」：" + ex.GetType().Name + " " + ex.Message);
+                Util_Loggers.ENGINE_DEFAULT.DonimoNaranAkirameta("Program「stop」：" + ex.GetType().Name + " " + ex.Message);
             }
 
             return PhaseResult_Usi_Loop2.None;
@@ -1314,7 +1315,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             catch (Exception ex)
             {
                 // エラー続行
-                Util_OwataMinister.ENGINE_DEFAULT.DonimoNaranAkirameta(ex, "Program「gameover」：" + ex.GetType().Name + " " + ex.Message);
+                Util_Loggers.ENGINE_DEFAULT.DonimoNaranAkirameta(ex, "Program「gameover」：" + ex.GetType().Name + " " + ex.Message);
                 return PhaseResult_Usi_Loop2.None;
             }
         }
@@ -1389,31 +1390,31 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             //
             #endregion
 #if DEBUG
-                Util_OwataMinister.ENGINE_DEFAULT.Logger.WriteLine_AddMemo("KifuParserA_Impl.LOGGING_BY_ENGINE, 確認 setoptionDictionary");
-                Util_OwataMinister.ENGINE_DEFAULT.Logger.WriteLine_AddMemo(this.EngineOptions.ToString());
+            Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine_Add("KifuParserA_Impl.LOGGING_BY_ENGINE, 確認 setoptionDictionary", LogTypes.Memo);
+            Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine_Add(this.EngineOptions.ToString(), LogTypes.Memo);
 
-                Util_OwataMinister.ENGINE_DEFAULT.Logger.WriteLine_AddMemo("┏━確認━━━━goDictionary━━━━━┓");
-                foreach (KeyValuePair<string, string> pair in this.GoProperties_AtLoop2)
-                {
-                    Util_OwataMinister.ENGINE_DEFAULT.Logger.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
-                }
+            Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine_Add("┏━確認━━━━goDictionary━━━━━┓", LogTypes.Memo);
+            foreach (KeyValuePair<string, string> pair in this.GoProperties_AtLoop2)
+            {
+                Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine_Add(pair.Key + "=" + pair.Value, LogTypes.Memo);
+            }
 
-                //Dictionary<string, string> goMateProperties = new Dictionary<string, string>();
-                //goMateProperties["mate"] = "";
-                //LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo("┗━━━━━━━━━━━━━━━━━━┛");
-                //LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo("┏━確認━━━━goMateDictionary━━━┓");
-                //foreach (KeyValuePair<string, string> pair in this.goMateProperties)
-                //{
-                //    LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
-                //}
+            //Dictionary<string, string> goMateProperties = new Dictionary<string, string>();
+            //goMateProperties["mate"] = "";
+            //LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo("┗━━━━━━━━━━━━━━━━━━┛");
+            //LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo("┏━確認━━━━goMateDictionary━━━┓");
+            //foreach (KeyValuePair<string, string> pair in this.goMateProperties)
+            //{
+            //    LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
+            //}
 
-                Util_OwataMinister.ENGINE_DEFAULT.Logger.WriteLine_AddMemo("┗━━━━━━━━━━━━━━━━━━┛");
-                Util_OwataMinister.ENGINE_DEFAULT.Logger.WriteLine_AddMemo("┏━確認━━━━gameoverDictionary━━┓");
-                foreach (KeyValuePair<string, string> pair in this.GameoverProperties_AtLoop2)
-                {
-                    Util_OwataMinister.ENGINE_DEFAULT.Logger.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
-                }
-                Util_OwataMinister.ENGINE_DEFAULT.Logger.WriteLine_AddMemo("┗━━━━━━━━━━━━━━━━━━┛");
+            Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine_Add("┗━━━━━━━━━━━━━━━━━━┛", LogTypes.Memo);
+            Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine_Add("┏━確認━━━━gameoverDictionary━━┓", LogTypes.Memo);
+            foreach (KeyValuePair<string, string> pair in this.GameoverProperties_AtLoop2)
+            {
+                Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine_Add(pair.Key + "=" + pair.Value, LogTypes.Memo);
+            }
+            Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine_Add("┗━━━━━━━━━━━━━━━━━━┛", LogTypes.Memo);
 #endif
         }
 
@@ -1421,7 +1422,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 #if DEBUG
         private void Log1_AtLoop2(string message)
         {
-            Util_OwataMinister.ENGINE_DEFAULT.Logger.WriteLine_AddMemo(message);
+            Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine_Add(message, LogTypes.Memo);
         }
         private void Log2_Png_Tyokkin_AtLoop2(string line, KifuNode kifuNode, KwErrorHandler errH)
         {
@@ -1503,7 +1504,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                     //          └─ log.txt               ←これを削除
                     //
                     #endregion
-                    Util_OwataMinister.Remove_AllLogFiles();
+                    Util_Loggers.Remove_AllLogFiles();
                 }
 
 
@@ -1588,7 +1589,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
                     //seihinName += " " + versionStr;
 #if DEBUG
-                    Util_OwataMinister.ENGINE_DEFAULT.Logger.WriteLine_AddMemo("v(^▽^)v ｲｪｰｲ☆ ... " + this.SeihinName + " " + versionStr);
+                    Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine_Add("v(^▽^)v ｲｪｰｲ☆ ... " + this.SeihinName + " " + versionStr, LogTypes.Memo);
 #endif
                 }
 
@@ -1598,7 +1599,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 switch (exception_area)
                 {
                     case 1000:
-                        Util_OwataMinister.ENGINE_DEFAULT.DonimoNaranAkirameta("フィーチャーベクターCSVを読み込んでいるとき。" + ex.GetType().Name + "：" + ex.Message);
+                        Util_Loggers.ENGINE_DEFAULT.DonimoNaranAkirameta("フィーチャーベクターCSVを読み込んでいるとき。" + ex.GetType().Name + "：" + ex.Message);
                         break;
                 }
                 throw ex;

@@ -48,11 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="B110_Log________\C500____Struct\ErrorHandlerImpl.cs" />
-    <Compile Include="B110_Log________\C500____Struct\KwLoggerImpl.cs" />
-    <Compile Include="B110_Log________\C500____Struct\Util_OwataMinister.cs" />
-    <Compile Include="B110_Log________\C___500_Struct\KwErrorHandler.cs" />
-    <Compile Include="B110_Log________\C___500_Struct\KwLogger.cs" />
+    <Compile Include="B110_Log________\C500____Struct\n400_errorHandlerImpl.cs" />
+    <Compile Include="B110_Log________\C500____Struct\n300_kwLoggerImpl.cs" />
+    <Compile Include="B110_Log________\C500____Struct\n500_util_Loggers.cs" />
+    <Compile Include="B110_Log________\C___500_Struct\n200_logTypes.cs" />
+    <Compile Include="B110_Log________\C___500_Struct\n400_kwErrorHandler.cs" />
+    <Compile Include="B110_Log________\C___500_Struct\n300_kwLogger.cs" />
     <Compile Include="B210_Tushin_____\C500____Util\Util_Message.cs" />
     <Compile Include="B310_Settei_____\C500____Struct\Const_Filepath.cs" />
     <Compile Include="B310_Settei_____\C500____Struct\Data_Settei_Csv.cs" />

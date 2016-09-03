@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using Grayscale.B110_Log________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B630_Sennitite__.C500____Struct
 {
@@ -159,16 +160,16 @@ namespace Grayscale.A210_KnowNingen_.B630_Sennitite__.C500____Struct
 
             if (processName=="Grayscale.P800_ShogiGuiVs.vshost")
             {
-                Util_OwataMinister.CsharpGui_SENNITITE.Logger.WriteLine_AddMemo(text);
+                Util_Loggers.CsharpGui_SENNITITE.Logger.WriteLine_Add(text, LogTypes.Memo);
             }
             else if (processName == "Grayscale.P500_ShogiEngine_KifuWarabe")
             {
-                Util_OwataMinister.ENGINE_SENNITITE.Logger.WriteLine_AddMemo(text);
+                Util_Loggers.ENGINE_SENNITITE.Logger.WriteLine_Add(text, LogTypes.Memo);
             }
             else
             {
                 // 名称変更したことを忘れていた場合は、デフォルトの書き出し先へ退避。
-                Util_OwataMinister.DEFAULT_SENNITITE.Logger.WriteLine_AddMemo(text);
+                Util_Loggers.DEFAULT_SENNITITE.Logger.WriteLine_Add(text, LogTypes.Memo);
             }
         }
 

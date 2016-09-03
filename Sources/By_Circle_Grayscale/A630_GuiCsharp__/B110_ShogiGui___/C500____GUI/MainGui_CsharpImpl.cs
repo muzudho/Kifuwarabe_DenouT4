@@ -36,6 +36,10 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 
+#if DEBUG
+using Grayscale.B110_Log________.C___500_Struct;
+#endif
+
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
 {
 
@@ -365,7 +369,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
 
             {
 #if DEBUG
-                errH.Logger.WriteLine_AddMemo("(^o^)乱数のたね＝[" + KwRandom.Seed + "]");
+                errH.Logger.WriteLine_Add("(^o^)乱数のたね＝[" + KwRandom.Seed + "]",LogTypes.Memo);
 #endif
 
                 this.Data_Settei_Csv.Read_Add(Const_Filepath.m_EXE_TO_CONFIG + "data_settei.csv", Encoding.UTF8);

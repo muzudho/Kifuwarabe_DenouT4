@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.B110_Log________.C___500_Struct;
 #endif
 
 namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C506____AutoSasiteSort
@@ -69,7 +70,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C506____AutoSasiteSort
                         // 1位なら終了
 #if DEBUG
                         string sfen = Conv_Move.ToSfen(gohosyuItem.Move);
-                        errH.Logger.WriteLine_AddMemo("items.Count=[" + uc_Main.LstGohosyu.Items.Count + "] sfen=[" + sfen + "]");
+                        errH.Logger.WriteLine_Add("items.Count=[" + uc_Main.LstGohosyu.Items.Count + "] sfen=[" + sfen + "]", LogTypes.Memo);
 #endif
                         break;
                     }

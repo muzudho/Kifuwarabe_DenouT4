@@ -4,6 +4,10 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function;
 
+#if DEBUG
+using Grayscale.B110_Log________.C___500_Struct;
+#endif
+
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
 {
 
@@ -32,7 +36,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
 
 #if DEBUG
                 string message = "(^o^)timer入力 input99=[" + this.mainGui.ConsoleWindowGui.InputString99 + "]";
-                errH.Logger.WriteLine_AddMemo(message);
+                errH.Logger.WriteLine_Add(message,LogTypes.Memo);
 #endif
 
                 //

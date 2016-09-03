@@ -851,7 +851,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         private static void Log1(
             Tansaku_Genjo genjo,
             Move move_forLog,
-            SkyConst src_Sky,
+            Sky src_Sky,
             out MmLogGenjoImpl out_mm_log,
             out KaisetuBoard out_logBrd_move1,
             KwErrorHandler errH

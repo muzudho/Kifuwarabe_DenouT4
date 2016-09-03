@@ -30,6 +30,10 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
+#if DEBUG
+using Grayscale.B110_Log________.C___500_Struct;
+#endif
+
 namespace Grayscale.P699_Form_______
 {
 
@@ -82,7 +86,7 @@ namespace Grayscale.P699_Form_______
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            KwErrorHandler errH = Util_OwataMinister.CsharpGui_DEFAULT;
+            KwErrorHandler errH = Util_Loggers.CsharpGui_DEFAULT;
             this.MainGui.Timer_Tick(errH);
         }
 
@@ -97,7 +101,7 @@ namespace Grayscale.P699_Form_______
         /// <param name="e"></param>
         private void Uc_Form1Main_Load(object sender, EventArgs e)
         {
-            KwErrorHandler errH = Util_OwataMinister.CsharpGui_DEFAULT;
+            KwErrorHandler errH = Util_Loggers.CsharpGui_DEFAULT;
 
             Uc_Form2Main uc_Form2Main = ((Form1_Shogi)this.ParentForm).Form2_Console.Uc_Form2Main;
 
@@ -206,7 +210,7 @@ namespace Grayscale.P699_Form_______
             //------------------------------
             // 画面の描画です。
             //------------------------------
-            this.MainGui.Shape_PnlTaikyoku.Paint(sender, e, this.MainGui, Shape_CanvasImpl.WINDOW_NAME_SHOGIBAN, Util_OwataMinister.CsharpGui_PAINT);
+            this.MainGui.Shape_PnlTaikyoku.Paint(sender, e, this.MainGui, Shape_CanvasImpl.WINDOW_NAME_SHOGIBAN, Util_Loggers.CsharpGui_PAINT);
 
         gt_EndMethod:
             ;
@@ -224,7 +228,7 @@ namespace Grayscale.P699_Form_______
         /// <param name="e"></param>
         private void Uc_Form1Main_MouseMove(object sender, MouseEventArgs e)
         {
-            KwErrorHandler errH = Util_OwataMinister.CsharpGui_DEFAULT;
+            KwErrorHandler errH = Util_Loggers.CsharpGui_DEFAULT;
 
             if (null != this.MainGui.Shape_PnlTaikyoku)
             {
@@ -257,7 +261,7 @@ namespace Grayscale.P699_Form_______
         /// <param name="e"></param>
         private void Uc_Form1Main_MouseDown(object sender, MouseEventArgs e)
         {
-            KwErrorHandler errH = Util_OwataMinister.CsharpGui_DEFAULT;
+            KwErrorHandler errH = Util_Loggers.CsharpGui_DEFAULT;
 
             if (null == this.MainGui.Shape_PnlTaikyoku)
             {
@@ -314,7 +318,7 @@ namespace Grayscale.P699_Form_______
         /// <param name="e"></param>
         private void Uc_Form1Main_MouseUp(object sender, MouseEventArgs e)
         {
-            KwErrorHandler errH = Util_OwataMinister.CsharpGui_DEFAULT;
+            KwErrorHandler errH = Util_Loggers.CsharpGui_DEFAULT;
 
             // このメインパネルに、何かして欲しいという要求は、ここに入れられます。
             this.MainGui.RepaintRequest = new RepaintRequestImpl();
@@ -423,7 +427,7 @@ namespace Grayscale.P699_Form_______
 
 #if DEBUG
                         // ログ
-                        errH.Logger.WriteLine_AddMemo(form2.GetOutputareaText());
+                        errH.Logger.WriteLine_Add(form2.GetOutputareaText(),LogTypes.Memo);
 #endif
                     }
                     break;

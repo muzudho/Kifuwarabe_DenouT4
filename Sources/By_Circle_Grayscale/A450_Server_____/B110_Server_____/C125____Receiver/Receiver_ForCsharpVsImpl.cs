@@ -5,6 +5,10 @@ using Grayscale.A450_Server_____.B110_Server_____.C___497_EngineClient;
 using Grayscale.A450_Server_____.B110_Server_____.C___498_Server;
 using System.Diagnostics;
 
+#if DEBUG
+using Grayscale.B110_Log________.C___500_Struct;
+#endif
+
 namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
 {
     /// <summary>
@@ -49,7 +53,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
         /// <param name="e"></param>
         public virtual void OnListenUpload_Async(object sender, DataReceivedEventArgs e)
         {
-            KwErrorHandler errH = Util_OwataMinister.SERVER_NETWORK_ASYNC;
+            KwErrorHandler errH = Util_Loggers.SERVER_NETWORK_ASYNC;
 
             string line = e.Data;
 
@@ -135,7 +139,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
                         );
 
 #if DEBUG
-                    errH.Logger.WriteLine_AddMemo("USI受信：bestmove input99=[" + ((Server)((EngineClient)this.Owner_EngineClient).Owner_Server).InputString99 + "]");
+                    errH.Logger.WriteLine_Add("USI受信：bestmove input99=[" + ((Server)((EngineClient)this.Owner_EngineClient).Owner_Server).InputString99 + "]", LogTypes.Memo);
 #endif
                 }
                 else

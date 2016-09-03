@@ -23,7 +23,7 @@ namespace P930_SampleGame
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            KwErrorHandler errH = Util_OwataMinister.ENGINE_DEFAULT;
+            KwErrorHandler errH = Util_Loggers.ENGINE_DEFAULT;
 
 
             // 将棋エンジン　きふわらべ

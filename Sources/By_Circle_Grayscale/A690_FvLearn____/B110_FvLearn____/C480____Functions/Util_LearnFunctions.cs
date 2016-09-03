@@ -157,7 +157,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
         /// </summary>
         public static void Do_RankUpHonpu(ref bool ref_isRequestShowGohosyu, Uc_Main uc_Main, Move move1, float tyoseiryo)
         {
-            KwErrorHandler errH = Util_OwataMinister.LEARNER;
+            KwErrorHandler errH = Util_Loggers.LEARNER;
 
             //----------------------------------------
             // 1P は正の数がグッド、2P は負の数がグッド。
