@@ -3,8 +3,8 @@ using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
 using Grayscale.A000_Platform___.B021_Random_____.C500____Struct;
 using Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table;
-using Grayscale.A210_KnowNingen_.B310_Seiza______.C250____Struct;
-using Grayscale.A210_KnowNingen_.B310_Seiza______.C500____Util;
+using Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct;
+using Grayscale.A210_KnowNingen_.B310_Shogiban___.C500____Util;
 using Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word;
 using Grayscale.A210_KnowNingen_.B390_KomahaiyaEx.C500____Util;
 using Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct;
@@ -266,7 +266,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
 
 
         private int noopSend_counter;
-        public void Timer_Tick( KwLogger errH)
+        public void Timer_Tick( KwLogger errH,
+            KwDisplayer kd)
         {
             if (this.server.EngineClient.ShogiEngineProcessWrapper.IsLive_ShogiEngine())
             {
@@ -283,9 +284,9 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
                 }
             }
 
-            this.TimedA.Step(errH);
-            this.TimedB_MouseCapture.Step(errH);
-            this.TimedC.Step(errH);
+            this.TimedA.Step(errH,kd);
+            this.TimedB_MouseCapture.Step(errH,kd);
+            this.TimedC.Step(errH,kd);
         }
 
 
@@ -369,7 +370,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
 
             {
 #if DEBUG
-                errH.WriteLine("(^o^)乱数のたね＝[" + KwRandom.Seed + "]",LogTypes.Memo);
+                errH.AppendLine("(^o^)乱数のたね＝[" + KwRandom.Seed + "]");
+                errH.Flush(LogTypes.Plain);
 #endif
 
                 this.Data_Settei_Csv.Read_Add(Const_Filepath.m_EXE_TO_CONFIG + "data_settei.csv", Encoding.UTF8);

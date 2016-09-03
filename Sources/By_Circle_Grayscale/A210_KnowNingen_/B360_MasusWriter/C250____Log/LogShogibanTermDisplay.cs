@@ -9,7 +9,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C250____Writer
 {
 
-    public abstract class ShogibanTermDisplay
+    public abstract class LogShogibanTermDisplay
     {
 
 
@@ -19,7 +19,7 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C250____Writer
             kamd.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
             {
                 sb.AppendLine("entry.Key=" + key);
-                sb.AppendLine( ShogibanTermDisplay.Masus_ToTerm(value) );
+                sb.AppendLine( LogShogibanTermDisplay.Masus_ToTerm(value) );
                 sb.AppendLine("  ");//空行
             });
 

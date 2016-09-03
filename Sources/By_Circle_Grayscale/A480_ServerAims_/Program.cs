@@ -49,7 +49,7 @@ namespace Grayscale.P489_Form_______
 
             MessageBox.Show("AIMSサーバー\n将棋エンジン・ファイルパス＝[" + setteiXmlFile.ShogiEngineFilePath + "]");
 
-            Sky src_Sky = Util_SkyWriter.New_Hirate();
+            Sky src_Sky = Util_SkyCreator.New_Hirate();
 
             AimsServerImpl aimsServer = new AimsServerImpl(src_Sky);
             aimsServer.ShogiEngineFilePath = setteiXmlFile.ShogiEngineFilePath;

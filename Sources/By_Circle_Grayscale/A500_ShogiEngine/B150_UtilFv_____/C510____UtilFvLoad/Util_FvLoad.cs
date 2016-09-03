@@ -42,7 +42,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad
             kifu = new KifuTreeImpl(
                     new KifuNodeImpl(
                         Conv_Move.GetErrorMove(),
-                        new KyokumenWrapper(Util_SkyWriter.New_Hirate())
+                        new KyokumenWrapper(Util_SkyCreator.New_Hirate())
                     )
             );
             kifu.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手

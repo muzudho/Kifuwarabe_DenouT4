@@ -89,7 +89,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
         }
 
 
-        public override void Step(KwLogger errH)
+        public override void Step(KwLogger errH,
+            KwDisplayer kd)
         {
             // 入っているマウス操作イベントのうち、マウスムーブは　１つに　集約　します。
             bool bMouseMove_SceneB_1TumamitaiKoma = false;
@@ -288,6 +289,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                            , widget
                                                            , btnKoma_Selected
                                                            , eventState.Flg_logTag
+                                                           ,kd
                                                            );
                                                     }
                                                 }
@@ -810,6 +812,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                            , widget
                                                            , btnKoma_Selected
                                                            , eventState.Flg_logTag
+                                                           , kd
                                                            );
                                                     }
                                                 }
@@ -888,6 +891,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                        , widget
                                                        , btnKoma_Selected
                                                        , eventState.Flg_logTag
+                                                       , kd
                                                        );
                                                 }
                                             }
@@ -914,6 +918,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                            , widget
                                                            , btnKoma_Selected
                                                            , eventState.Flg_logTag
+                                                           , kd
                                                            );
                                                     }
                                                 }

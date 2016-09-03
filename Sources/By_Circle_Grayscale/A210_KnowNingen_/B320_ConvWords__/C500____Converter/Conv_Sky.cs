@@ -1,16 +1,41 @@
-﻿using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B220_ZobrishHash.C500____Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B310_Seiza______.C250____Struct;
-using Grayscale.A210_KnowNingen_.B310_Seiza______.C500____Util;
-using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using System.Diagnostics;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
 namespace Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter
 {
     public abstract class Conv_Sky
     {
+        public static ShogibanImpl ToShogiban(Sky src_Sky)
+        {
+            ShogibanImpl shogiban = new ShogibanImpl();
+
+            shogiban.KaisiPside = src_Sky.KaisiPside;// TODO:
+
+
+            // 将棋の駒４０個の場所を確認します。
+            foreach (Finger finger in src_Sky.Fingers_All().Items)
+            {
+                src_Sky.AssertFinger(finger);
+                Busstop busstop = src_Sky.BusstopIndexOf(finger);
+
+                SyElement masu = Conv_Busstop.ToMasu(busstop);
+                Debug.Assert(Conv_MasuHandle.OnAll(Conv_SyElement.ToMasuNumber(masu)), "(int)koma.Masu=[" + Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu(busstop)) + "]");//升番号
+
+                shogiban.AddKoma(
+                    masu,
+                    busstop
+                );
+            }
+
+            return shogiban;
+        }
 
         /// <summary>
         /// 千日手判定用の、局面ハッシュを返します。

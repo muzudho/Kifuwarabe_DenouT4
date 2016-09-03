@@ -1,9 +1,10 @@
-﻿namespace Grayscale.B140_SfenStruct_.C___250_Struct
+﻿namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct
 {
     /// <summary>
     /// 駒の種類。先後を含まない。
     /// 
     /// 持ち駒を指定するにはこれは不便☆（＾▽＾）Piecesを使う☆
+    /// 駒袋に使っている。
     /// </summary>
     public enum PieceTypes
     {

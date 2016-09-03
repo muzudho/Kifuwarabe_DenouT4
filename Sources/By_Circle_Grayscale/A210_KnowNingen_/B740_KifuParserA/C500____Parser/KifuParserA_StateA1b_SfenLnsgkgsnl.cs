@@ -41,7 +41,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             out KifuParserA_State nextState,
             KifuParserA owner,
             KifuParserA_Genjo genjo,
-            KwLogger errH
+            KwLogger errH,
+            KwDisplayer kd
             )
         {
             nextState = this;

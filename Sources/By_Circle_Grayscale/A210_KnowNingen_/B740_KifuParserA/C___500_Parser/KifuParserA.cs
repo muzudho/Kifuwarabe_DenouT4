@@ -19,7 +19,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser
             ref KifuParserA_Result result,
             Model_Taikyoku model_Taikyoku,
             KifuParserA_Genjo genjo,
-            KwLogger errH
+            KwLogger errH,
+            KwDisplayer kd
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -36,7 +37,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser
             ref KifuParserA_Result result,
             Model_Taikyoku model_Taikyoku,
             KifuParserA_Genjo genjo,
-            KwLogger errH
+            KwLogger errH,
+            KwDisplayer kd
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",

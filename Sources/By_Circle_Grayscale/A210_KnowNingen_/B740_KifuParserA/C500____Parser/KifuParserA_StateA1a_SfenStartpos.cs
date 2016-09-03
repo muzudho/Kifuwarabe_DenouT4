@@ -38,7 +38,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             out KifuParserA_State nextState,
             KifuParserA owner,
             KifuParserA_Genjo genjo,
-            KwLogger errH
+            KwLogger errH,
+            KwDisplayer kd
             )
         {
             nextState = this;
@@ -49,7 +50,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 {
                     //>>>>> 棋譜が始まります。
 #if DEUBG
-                    errH.WriteLine_AddMemo("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ｳﾑ☆　moves 分かるぜ☆");
+                    errH.AppendLine_AddMemo("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ｳﾑ☆　moves 分かるぜ☆");
 #endif
 
                     genjo.InputLine = genjo.InputLine.Substring("moves".Length);

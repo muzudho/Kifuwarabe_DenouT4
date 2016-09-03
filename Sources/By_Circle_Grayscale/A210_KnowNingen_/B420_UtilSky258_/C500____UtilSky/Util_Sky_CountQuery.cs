@@ -3,12 +3,12 @@ using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C500____Util;
-using Grayscale.A210_KnowNingen_.B310_Seiza______.C250____Struct;
-using Grayscale.A210_KnowNingen_.B310_Seiza______.C500____Util;
+using Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct;
+using Grayscale.A210_KnowNingen_.B310_Shogiban___.C500____Util;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using Grayscale.B140_SfenStruct_.C___250_Struct;
+using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky

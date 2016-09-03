@@ -65,10 +65,11 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
             {
                 //>>>>>>>>>> メッセージを受け取りました。
 #if DEBUG
-                errH.WriteLine(line, LogTypes.ToServer);
+                errH.AppendLine(line);
+                errH.Flush(LogTypes.ToServer);
 #endif
 
-                if("noop" == line)
+                if ("noop" == line)
                 {
                     //------------------------------------------------------------
                     // この部分は成功してないので、役に立っていないはず。
@@ -139,7 +140,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
                         );
 
 #if DEBUG
-                    errH.WriteLine("USI受信：bestmove input99=[" + ((Server)((EngineClient)this.Owner_EngineClient).Owner_Server).InputString99 + "]", LogTypes.Memo);
+                    errH.AppendLine("USI受信：bestmove input99=[" + ((Server)((EngineClient)this.Owner_EngineClient).Owner_Server).InputString99 + "]");
+                    errH.Flush(LogTypes.Plain);
 #endif
                 }
                 else

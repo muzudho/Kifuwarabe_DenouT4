@@ -70,7 +70,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C506____AutoSasiteSort
                         // 1位なら終了
 #if DEBUG
                         string sfen = Conv_Move.ToSfen(gohosyuItem.Move);
-                        errH.WriteLine("items.Count=[" + uc_Main.LstGohosyu.Items.Count + "] sfen=[" + sfen + "]", LogTypes.Memo);
+                        errH.AppendLine("items.Count=[" + uc_Main.LstGohosyu.Items.Count + "] sfen=[" + sfen + "]");
+                        errH.Flush(LogTypes.Plain);
 #endif
                         break;
                     }

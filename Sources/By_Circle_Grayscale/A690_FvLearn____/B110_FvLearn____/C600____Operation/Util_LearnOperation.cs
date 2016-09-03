@@ -57,16 +57,18 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                 Move move1 = item.Move;
 #if DEBUG
                 string sfen = Conv_Move.ToSfen(item.Move);
-                errH.WriteLine("sfen=" + sfen, LogTypes.Memo);
+                errH.AppendLine("sfen=" + sfen);
+                errH.Flush(LogTypes.Plain);
 #endif
 
                 if (uc_Main.LearningData.Kifu.CurNode.HasChildNode(move1))
                 {
 #if DEBUG
-                    errH.WriteLine("----------------------------------------", LogTypes.Memo);
-                    errH.WriteLine("FV 総合点（読込前）1", LogTypes.Memo);
-                    errH.WriteLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(uc_Main.LearningData.Fv), LogTypes.Memo);
-                    errH.WriteLine("----------------------------------------", LogTypes.Memo);
+                    errH.AppendLine("----------------------------------------");
+                    errH.AppendLine("FV 総合点（読込前）1");
+                    errH.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(uc_Main.LearningData.Fv));
+                    errH.AppendLine("----------------------------------------");
+                    errH.Flush(LogTypes.Plain);
 #endif
                     Node<Move, KyokumenWrapper> nextNode = uc_Main.LearningData.Kifu.CurNode.GetChildNode(move1);
 
@@ -83,10 +85,11 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                         errH
                         );//相手が有利になる点
 #if DEBUG
-                    errH.WriteLine("----------------------------------------", LogTypes.Memo);
-                    errH.WriteLine("FV 総合点（読込後）6", LogTypes.Memo);
-                    errH.WriteLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(uc_Main.LearningData.Fv), LogTypes.Memo);
-                    errH.WriteLine("----------------------------------------", LogTypes.Memo);
+                    errH.AppendLine("----------------------------------------");
+                    errH.AppendLine("FV 総合点（読込後）6");
+                    errH.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(uc_Main.LearningData.Fv));
+                    errH.AppendLine("----------------------------------------");
+                    errH.Flush(LogTypes.Plain);
 #endif
                 }
             }
@@ -279,11 +282,12 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
 
 
 
-        public static void Load_CsaKifu(Uc_Main uc_Main, KwLogger errH)
+        public static void Load_CsaKifu(Uc_Main uc_Main, KwLogger errH,
+            KwDisplayer kd)
         {
             uc_Main.LearningData.ReadKifu(uc_Main);
 
-            Util_LearningView.ShowSasiteList(uc_Main.LearningData, uc_Main, errH);
+            Util_LearningView.ShowSasiteList(uc_Main.LearningData, uc_Main, errH,kd);
         }
 
 
@@ -291,7 +295,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
             string kifuFilepath,
-            Uc_Main uc_Main, KwLogger errH)
+            Uc_Main uc_Main, KwLogger errH,
+            KwDisplayer kd)
         {
             uc_Main.TxtKifuFilepath.Text = kifuFilepath;
 
@@ -305,7 +310,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             Application.DoEvents();
 
             // CSA棋譜を読み込みます。
-            Util_LearnOperation.Load_CsaKifu(uc_Main,errH);
+            Util_LearnOperation.Load_CsaKifu(uc_Main,errH,kd);
 
             // 合法手を調べます。
             int searchedMaxDepth = 0;

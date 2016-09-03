@@ -82,14 +82,15 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C430____Zooming
                     longest_positive = false;
                 }
 #if DEBUG
-                errH.WriteLine("topology", LogTypes.Memo);
-                errH.WriteLine("   negative_length =" + negative_length, LogTypes.Memo);
-                errH.WriteLine("   positive_length =" + positive_length, LogTypes.Memo);
-                errH.WriteLine("   longest_positive=" + longest_positive, LogTypes.Memo);
-                errH.WriteLine("   negative_average=" + (negative_items == 0 ? 0 : negative_total / negative_items), LogTypes.Memo);
-                errH.WriteLine("   positive_average=" + (positive_items == 0 ? 0 : positive_total / positive_items), LogTypes.Memo);
-                errH.WriteLine("   notZero         =" + notZero, LogTypes.Memo);
-                errH.WriteLine("----------------------------------------", LogTypes.Memo);
+                errH.AppendLine("topology");
+                errH.AppendLine("   negative_length =" + negative_length);
+                errH.AppendLine("   positive_length =" + positive_length);
+                errH.AppendLine("   longest_positive=" + longest_positive);
+                errH.AppendLine("   negative_average=" + (negative_items == 0 ? 0 : negative_total / negative_items));
+                errH.AppendLine("   positive_average=" + (positive_items == 0 ? 0 : positive_total / positive_items));
+                errH.AppendLine("   notZero         =" + notZero);
+                errH.AppendLine("----------------------------------------");
+                errH.Flush(LogTypes.Plain);
 #endif
             }
 
@@ -156,15 +157,16 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C430____Zooming
                 longest_positive = false;
             }
 #if DEBUG
-            errH.WriteLine("end", LogTypes.Memo);
-            errH.WriteLine("   negative_length =" + negative_length, LogTypes.Memo);
-            errH.WriteLine("   positive_length =" + positive_length, LogTypes.Memo);
-            errH.WriteLine("   longest_positive=" + longest_positive, LogTypes.Memo);
-            errH.WriteLine("   zoom            =" + zoom, LogTypes.Memo);
-            errH.WriteLine("   negative_average=" + (negative_items == 0 ? 0 : negative_total / negative_items), LogTypes.Memo);
-            errH.WriteLine("   positive_average=" + (positive_items == 0 ? 0 : positive_total / positive_items), LogTypes.Memo);
-            errH.WriteLine("   notZero         =" + notZero, LogTypes.Memo);
-            errH.WriteLine("----------------------------------------", LogTypes.Memo);
+            errH.AppendLine("end");
+            errH.AppendLine("   negative_length =" + negative_length);
+            errH.AppendLine("   positive_length =" + positive_length);
+            errH.AppendLine("   longest_positive=" + longest_positive);
+            errH.AppendLine("   zoom            =" + zoom);
+            errH.AppendLine("   negative_average=" + (negative_items == 0 ? 0 : negative_total / negative_items));
+            errH.AppendLine("   positive_average=" + (positive_items == 0 ? 0 : positive_total / positive_items));
+            errH.AppendLine("   notZero         =" + notZero);
+            errH.AppendLine("----------------------------------------");
+            errH.Flush(LogTypes.Plain);
 #endif
         }
 

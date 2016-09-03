@@ -69,7 +69,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
                 // USIコマンドを将棋エンジンに送ったタイミングで、なにかすることがあれば、
                 // ここに書きます。
                 //
-                errH.WriteLine(line,LogTypes.ToClient);
+                errH.AppendLine(line);
+                errH.Flush(LogTypes.ToClient);
             });
 #endif
         }

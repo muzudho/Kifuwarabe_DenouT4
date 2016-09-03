@@ -40,7 +40,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             out KifuParserA_State nextState,
             KifuParserA owner,
             KifuParserA_Genjo genjo,
-            KwLogger errH
+            KwLogger errH,
+            KwDisplayer kd
             )
         {
             nextState = this;
@@ -53,7 +54,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 #if DEBUG
-                    errH.WriteLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　平手のようなんだぜ☆", LogTypes.Memo);
+                    errH.AppendLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　平手のようなんだぜ☆");
+                    errH.Flush(LogTypes.Plain);
 #endif
 
                     genjo.InputLine = genjo.InputLine.Substring("startpos".Length);
@@ -66,7 +68,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                         model_Taikyoku.Kifu.Clear();// 棋譜を空っぽにします。
 
                         model_Taikyoku.Kifu.GetRoot().Value.SetKyokumen(
-                            Util_SkyWriter.New_Hirate());//SFENのstartpos解析時
+                            Util_SkyCreator.New_Hirate());//SFENのstartpos解析時
                         model_Taikyoku.Kifu.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
                     }
 
@@ -77,7 +79,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 //#if DEBUG
                     errH.AppendLine("（＾△＾）ここはスルーして次に状態遷移するんだぜ☆\n「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】");//　：　局面の指定のようなんだぜ☆　対応していない☆？
                     errH.Flush(LogTypes.Error);
-                    //errH.WriteLine_Error("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　局面の指定のようなんだぜ☆　対応していない☆？");
+                    //errH.AppendLine_Error("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　局面の指定のようなんだぜ☆　対応していない☆？");
                     //#endif
                     nextState = KifuParserA_StateA1b_SfenLnsgkgsnl.GetInstance();
                 }

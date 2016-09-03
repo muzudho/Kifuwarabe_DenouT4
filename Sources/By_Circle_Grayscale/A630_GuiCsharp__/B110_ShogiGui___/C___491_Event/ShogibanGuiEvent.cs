@@ -11,6 +11,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___491_Event
         , object userWidget // UerWidget
         , object shape_BtnKoma_Selected //Shape_BtnKoma
         , KwLogger errH2
+        , KwDisplayer kd
     );
 
     ///// <summary>

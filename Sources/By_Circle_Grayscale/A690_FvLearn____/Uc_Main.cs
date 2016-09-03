@@ -198,6 +198,8 @@ namespace Grayscale.A690_FvLearn____
         private void btnOpenCsa_Click(object sender, EventArgs e)
         {
             KwLogger errH = Util_Loggers.ProcessLearner_DEFAULT;
+            KwDisplayer kd = Util_Loggers.ProcessLearner_DEFAULT_D;
+
             bool isRequest_ShowGohosyu = false;
             bool isRequest_ChangeKyokumenPng = false;
 
@@ -221,7 +223,7 @@ namespace Grayscale.A690_FvLearn____
                     ref isRequest_ShowGohosyu,
                     ref isRequest_ChangeKyokumenPng,
                     kifuFilepath,
-                    this,errH);
+                    this,errH,kd);
             }
 
             if (isRequest_ShowGohosyu)
@@ -487,7 +489,8 @@ namespace Grayscale.A690_FvLearn____
             out bool out_isEmptyKifu,
             ref bool ref_isRequest_ShowGohosyu,
             ref bool ref_isRequest_ChangeKyokumenPng,
-            KwLogger errH
+            KwLogger errH,
+            KwDisplayer kd
             )
         {
             //
@@ -506,7 +509,7 @@ namespace Grayscale.A690_FvLearn____
                     ref ref_isRequest_ShowGohosyu,
                     ref ref_isRequest_ChangeKyokumenPng,
                     kifuFilepath,
-                    this, errH);
+                    this, errH,kd);
                 out_isEmptyKifu = false;
             }
             else
@@ -523,11 +526,13 @@ namespace Grayscale.A690_FvLearn____
         private void btnNextKifuSet_Click(object sender, EventArgs e)
         {
             KwLogger errH = Util_Loggers.ProcessLearner_DEFAULT;
+            KwDisplayer kd = Util_Loggers.ProcessLearner_DEFAULT_D;
+
             bool isRequest_ShowGohosyu = false;
             bool isRequest_ChangeKyokumenPng = false;
 
             bool isEmptyKifu;
-            this.Do_NextKifuSet(out isEmptyKifu, ref isRequest_ShowGohosyu, ref isRequest_ChangeKyokumenPng, errH);
+            this.Do_NextKifuSet(out isEmptyKifu, ref isRequest_ShowGohosyu, ref isRequest_ChangeKyokumenPng, errH,kd);
 
 
             if (isRequest_ShowGohosyu)

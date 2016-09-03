@@ -39,7 +39,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C249____Noop
         public void _02_AtEmptyMessage(ShogiEngine owner, out bool isTimeoutShutdown, KwLogger errH)
         {
             isTimeoutShutdown = false;
-            //errH.WriteLine_AddMemo("メッセージは届いていませんでした。this.sw_forNoop.Elapsed.Seconds=[" + this.sw_forNoop.Elapsed.Seconds + "]");
+            //errH.AppendLine_AddMemo("メッセージは届いていませんでした。this.sw_forNoop.Elapsed.Seconds=[" + this.sw_forNoop.Elapsed.Seconds + "]");
 
             if (owner.EngineOptions.GetOption(EngineOptionNames.NOOPABLE).IsTrue() && 10 < this.sw_forNoop.Elapsed.Seconds)//0 < this.sw_forNoop.Elapsed.Se.Minutes
             {
@@ -52,7 +52,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C249____Noop
 
                             // noop を投げて 1分過ぎていれば。
 #if DEBUG
-                            errH.WriteLine("計20秒ほど、サーバーからの応答がなかったぜ☆ (^-^)ﾉｼ",LogTypes.Memo);
+                            errH.AppendLine("計20秒ほど、サーバーからの応答がなかったぜ☆ (^-^)ﾉｼ");
+                            errH.Flush(LogTypes.Plain);
 #endif
 
                             // このプログラムを終了します。
@@ -63,7 +64,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C249____Noop
                     case NoopPhase.None:
                         {
 #if DEBUG
-                            errH.WriteLine("noopを投げるぜ☆", LogTypes.Memo);
+                            errH.AppendLine("noopを投げるぜ☆");
+                            errH.Flush(LogTypes.Plain);
 #endif
                             // まだ noop を投げていないなら
                             owner.Send("noop");// サーバーが生きていれば、"ok" と返してくるはず。（独自実装）

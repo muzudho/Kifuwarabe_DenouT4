@@ -30,7 +30,7 @@ namespace Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C250____Struct
             //
             // 駒なし
             //
-            this.guiSkyConst = Util_SkyWriter.New_Komabukuro();// 描画モデル作成時
+            this.guiSkyConst = Util_SkyCreator.New_Komabukuro();// 描画モデル作成時
         }
     }
 }

@@ -137,7 +137,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
 #if DEBUG
             // 送信記録をつけます。
-            Util_Loggers.ENGINE_NETWORK.Logger.WriteLine(line, LogTypes.ToServer);
+            Util_Loggers.ProcessEngine_NETWORK.AppendLine(line);
+            Util_Loggers.ProcessEngine_NETWORK.Flush(LogTypes.ToServer);
 #endif
         }
         #endregion
@@ -205,7 +206,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 this.SetKifu_AtLoop2(new KifuTreeImpl(
                         new KifuNodeImpl(
                             Conv_Move.GetErrorMove(),
-                            new KyokumenWrapper(Util_SkyWriter.New_Hirate())// きふわらべ起動時
+                            new KyokumenWrapper(Util_SkyCreator.New_Hirate())// きふわらべ起動時
                         )
                 ));
                 this.Kifu_AtLoop2.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
@@ -473,7 +474,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             //------------------------------------------------------------
 #if DEBUG
             // ログ出力
-            Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine(this.EngineOptions.ToString(),LogTypes.Memo);
+            Util_Loggers.ProcessEngine_DEFAULT.AppendLine(this.EngineOptions.ToString());
+            Util_Loggers.ProcessEngine_DEFAULT.Flush(LogTypes.Plain);
 #endif
 
             //------------------------------------------------------------
@@ -557,7 +559,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             //
             #endregion
 #if DEBUG
-            Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine("(^-^)ﾉｼ", LogTypes.Memo);
+            Util_Loggers.ProcessEngine_DEFAULT.AppendLine("(^-^)ﾉｼ");
+            Util_Loggers.ProcessEngine_DEFAULT.Flush(LogTypes.Plain);
 #endif
 
 
@@ -616,6 +619,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
         private PhaseResult_Usi_Loop2 OnPositionReceived_AtLoop2Body(string line)
         {
             KwLogger errH2 = Util_Loggers.ProcessEngine_DEFAULT;
+            KwDisplayer kd = Util_Loggers.ProcessEngine_DEFAULT_D;
 
             try
             {
@@ -725,7 +729,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                     ref result,
                     model_Taikyoku,
                     genjo,
-                    errH2
+                    errH2,kd
                     );
                 if (null != genjo.StartposImporter_OrNull)
                 {
@@ -1392,13 +1396,13 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             //
             #endregion
 #if DEBUG
-            Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine("KifuParserA_Impl.LOGGING_BY_ENGINE, 確認 setoptionDictionary", LogTypes.Memo);
-            Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine(this.EngineOptions.ToString(), LogTypes.Memo);
+            Util_Loggers.ProcessEngine_DEFAULT.AppendLine("KifuParserA_Impl.LOGGING_BY_ENGINE, 確認 setoptionDictionary");
+            Util_Loggers.ProcessEngine_DEFAULT.AppendLine(this.EngineOptions.ToString());
 
-            Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine("┏━確認━━━━goDictionary━━━━━┓", LogTypes.Memo);
+            Util_Loggers.ProcessEngine_DEFAULT.AppendLine("┏━確認━━━━goDictionary━━━━━┓");
             foreach (KeyValuePair<string, string> pair in this.GoProperties_AtLoop2)
             {
-                Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine(pair.Key + "=" + pair.Value, LogTypes.Memo);
+                Util_Loggers.ProcessEngine_DEFAULT.AppendLine(pair.Key + "=" + pair.Value);
             }
 
             //Dictionary<string, string> goMateProperties = new Dictionary<string, string>();
@@ -1410,13 +1414,14 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             //    LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
             //}
 
-            Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine("┗━━━━━━━━━━━━━━━━━━┛", LogTypes.Memo);
-            Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine("┏━確認━━━━gameoverDictionary━━┓", LogTypes.Memo);
+            Util_Loggers.ProcessEngine_DEFAULT.AppendLine("┗━━━━━━━━━━━━━━━━━━┛");
+            Util_Loggers.ProcessEngine_DEFAULT.AppendLine("┏━確認━━━━gameoverDictionary━━┓");
             foreach (KeyValuePair<string, string> pair in this.GameoverProperties_AtLoop2)
             {
-                Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine(pair.Key + "=" + pair.Value, LogTypes.Memo);
+                Util_Loggers.ProcessEngine_DEFAULT.AppendLine(pair.Key + "=" + pair.Value);
             }
-            Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine("┗━━━━━━━━━━━━━━━━━━┛", LogTypes.Memo);
+            Util_Loggers.ProcessEngine_DEFAULT.AppendLine("┗━━━━━━━━━━━━━━━━━━┛");
+            Util_Loggers.ProcessEngine_DEFAULT.Flush(LogTypes.Plain);
 #endif
         }
 
@@ -1424,7 +1429,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 #if DEBUG
         private void Log1_AtLoop2(string message)
         {
-            Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine(message, LogTypes.Memo);
+            Util_Loggers.ProcessEngine_DEFAULT.AppendLine(message);
+            Util_Loggers.ProcessEngine_DEFAULT.Flush(LogTypes.Plain);
         }
         private void Log2_Png_Tyokkin_AtLoop2(string line, KifuNode kifuNode, KwLogger errH)
         {
@@ -1591,7 +1597,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
                     //seihinName += " " + versionStr;
 #if DEBUG
-                    Util_Loggers.ENGINE_DEFAULT.Logger.WriteLine("v(^▽^)v ｲｪｰｲ☆ ... " + this.SeihinName + " " + versionStr, LogTypes.Memo);
+                    Util_Loggers.ProcessEngine_DEFAULT.AppendLine("v(^▽^)v ｲｪｰｲ☆ ... " + this.SeihinName + " " + versionStr);
+                    Util_Loggers.ProcessEngine_DEFAULT.Flush(LogTypes.Plain);
 #endif
                 }
 

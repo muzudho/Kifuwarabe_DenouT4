@@ -12,8 +12,8 @@ using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B310_Seiza______.C250____Struct;
-using Grayscale.A210_KnowNingen_.B310_Seiza______.C500____Util;
+using Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct;
+using Grayscale.A210_KnowNingen_.B310_Shogiban___.C500____Util;
 using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B350_SfenTransla.C500____Util;
 using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
@@ -186,8 +186,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
 
                         // どんな局面なのか？
                         {
-                            StartposExporterImpl se = new StartposExporterImpl(src_Sky);
-                            sb.AppendLine("局面=sfen " + Util_StartposExporter.ToSfenstring(se, true));
+                            sb.AppendLine("局面=sfen " + Util_StartposExporter.ToSfenstring(Conv_Sky.ToShogiban(src_Sky), true));
                         }
 
                         sb.Append(Util_Sky307.Json_1Sky(src_Sky, "エラー駒になったとき",

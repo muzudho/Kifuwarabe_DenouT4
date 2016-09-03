@@ -6,7 +6,7 @@ using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct;
 using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C500____Util;
 using System;
 using System.Text.RegularExpressions;
-using Grayscale.B140_SfenStruct_.C___250_Struct;
+using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
 
 namespace Grayscale.A120_KifuSfen___.B160_ConvSfen___.C500____Converter
 {

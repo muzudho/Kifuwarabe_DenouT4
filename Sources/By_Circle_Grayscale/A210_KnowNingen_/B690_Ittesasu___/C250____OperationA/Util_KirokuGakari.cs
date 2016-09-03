@@ -57,7 +57,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                 saifuKifu = new KifuTreeImpl(
                         new KifuNodeImpl(
                             move,
-                            new KyokumenWrapper(Util_SkyWriter.New_Hirate())//日本の符号読取時
+                            new KyokumenWrapper(Util_SkyCreator.New_Hirate())//日本の符号読取時
                         )
                 );
                 saifuKifu.Clear();// 棋譜を空っぽにします。

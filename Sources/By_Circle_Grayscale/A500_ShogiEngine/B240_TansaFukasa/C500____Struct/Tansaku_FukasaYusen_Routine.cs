@@ -401,7 +401,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             out_a_childrenBest = node_yomi.Score;
 
 #if DEBUG_ALPHA_METHOD
-                    errH.WriteLine_AddMemo("1. 手(" + node_yomi.Value.ToKyokumenConst.Temezumi + ")読(" + yomiDeep + ") 兄弟最善=[" + a_siblingDecidedValue + "] 子ベスト=[" + a_childrenBest + "]");
+                    errH.AppendLine_AddMemo("1. 手(" + node_yomi.Value.ToKyokumenConst.Temezumi + ")読(" + yomiDeep + ") 兄弟最善=[" + a_siblingDecidedValue + "] 子ベスト=[" + a_childrenBest + "]");
 #endif
 
 #if DEBUG
@@ -633,12 +633,12 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         wideCount1++;
 
 #if DEBUG_ALPHA_METHOD
-                errH.WriteLine_AddMemo("3. 手(" + node_yomi.Value.ToKyokumenConst.Temezumi + ")読(" + yomiDeep + ") 兄弟最善=[" + a_siblingDecidedValue + "] 子ベスト=[" + a_childrenBest + "] 自点=[" + a_myScore + "]");
+                errH.AppendLine_AddMemo("3. 手(" + node_yomi.Value.ToKyokumenConst.Temezumi + ")読(" + yomiDeep + ") 兄弟最善=[" + a_siblingDecidedValue + "] 子ベスト=[" + a_childrenBest + "] 自点=[" + a_myScore + "]");
 #endif
                         if (alpha_cut)
                         {
 #if DEBUG_ALPHA_METHOD
-                        errH.WriteLine_AddMemo("アルファ・カット☆！");
+                        errH.AppendLine_AddMemo("アルファ・カット☆！");
 #endif
                             //----------------------------------------
                             // 次の「子の弟」要素はもう読みません。

@@ -30,9 +30,14 @@ namespace Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util
         public static string[] NimojiGote { get { return Util_Komasyurui14.nimojiGote; } }
         protected static string[] nimojiGote;
 
+        /// <summary>
+        /// 持ち駒の表記に使用。
+        /// </summary>
+        public static string[] IchimojiPieces { get { return Util_Komasyurui14.m_ichimojiPieces_; } }
+        protected static string[] m_ichimojiPieces_;
 
-        public static string[] NimojiPieces { get { return Util_Komasyurui14.nimojiPieces; } }
-        protected static string[] nimojiPieces;
+        public static string[] NimojiPieces { get { return Util_Komasyurui14.m_nimojiPieces_; } }
+        protected static string[] m_nimojiPieces_;
 
 
         /// <summary>
@@ -294,7 +299,27 @@ namespace Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util
                 "Ｕ×",
             };
 
-            Util_Komasyurui14.nimojiPieces = new string[]{
+            Util_Komasyurui14.m_ichimojiPieces_ = new string[]{
+                "×",//[0]ヌル
+                "王",//▲
+                "飛",
+                "角",
+                "金",
+                "銀",
+                "桂",
+                "香",
+                "歩",
+                "王",//△
+                "飛",
+                "角",
+                "金",
+                "銀",
+                "桂",
+                "香",
+                "歩",
+            };
+
+            Util_Komasyurui14.m_nimojiPieces_ = new string[]{
                 "◇×",//[0]ヌル
                 "▲王",
                 "▲飛",
@@ -314,6 +339,7 @@ namespace Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util
                 "△歩",
             };
 
+            /*
             Util_Komasyurui14.nimojiGote = new string[]{
                 "△×",//[0]ヌル
                 "△歩",
@@ -331,6 +357,25 @@ namespace Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util
                 "△圭",
                 "△全",
                 "△×",
+            };
+            */
+            Util_Komasyurui14.nimojiGote = new string[]{
+                "×▽",//[0]ヌル
+                "歩▽",
+                "香▽",
+                "桂▽",
+                "銀▽",
+                "金▽",
+                "王▽",
+                "飛▽",
+                "角▽",
+                "竜▽",
+                "馬▽",
+                "と▽",
+                "杏▽",
+                "圭▽",
+                "全▽",
+                "×▽",
             };
 
 

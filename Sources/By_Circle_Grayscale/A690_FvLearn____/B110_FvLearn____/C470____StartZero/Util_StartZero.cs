@@ -71,7 +71,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C470____StartZero
             if (null == Util_StartZero.src_Sky_hirateSyokikyokumen)
             {
                 // 平手初期局面
-                Util_StartZero.src_Sky_hirateSyokikyokumen = Util_SkyWriter.New_Hirate();
+                Util_StartZero.src_Sky_hirateSyokikyokumen = Util_SkyCreator.New_Hirate();
             }
 
             if (null == Util_StartZero.n54List_hirateSyokikyokumen)

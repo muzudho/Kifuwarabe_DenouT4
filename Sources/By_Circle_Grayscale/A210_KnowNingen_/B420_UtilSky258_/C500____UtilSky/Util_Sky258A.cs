@@ -141,20 +141,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
 
 
         }
-
-        //public static Playerside GetReverseTebanside(Playerside tebanside1)
-        //{
-        //    Playerside side2;
-        //    switch (tebanside1)
-        //    {
-        //        case Playerside.P1: side2 = Playerside.P2; break;
-        //        case Playerside.P2: side2 = Playerside.P1; break;
-        //        case Playerside.Empty: side2 = Playerside.Empty; break;
-        //        default: throw new Exception("未定義のプレイヤーサイド [" + tebanside1 + "]");
-        //    }
-
-        //    return side2;
-        //}
+        
 
 
 

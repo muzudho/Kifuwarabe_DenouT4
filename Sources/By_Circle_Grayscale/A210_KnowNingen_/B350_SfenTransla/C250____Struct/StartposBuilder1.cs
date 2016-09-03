@@ -1,6 +1,6 @@
 ﻿using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B310_Seiza______.C250____Struct;
+using Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -46,7 +46,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
         public static void ShowSasiteList(
             LearningData learningData,
             Uc_Main uc_Main,
-            KwLogger errH
+            KwLogger errH,
+            KwDisplayer kd
             )
         {
             //
@@ -57,7 +58,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             KifuTree kifu1 = new KifuTreeImpl(
                 new KifuNodeImpl(
                     Conv_Move.GetErrorMove(),
-                    new KyokumenWrapper(Util_SkyWriter.New_Hirate())//日本の符号読取時
+                    new KyokumenWrapper(Util_SkyCreator.New_Hirate())//日本の符号読取時
                 )
             );
             //kifu1.AssertPside(kifu1.CurNode, "ShowSasiteList",errH);
@@ -142,7 +143,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     Util_IttesasuRoutine.DoIttesasuB(
                         kifu1,
                         nextMove,
-                        errH
+                        errH,kd
                         );
                     // これで、棋譜ツリーに、構造変更があったはず。
                     //↑↑一手指し
@@ -359,7 +360,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             Util_IttesasuRoutine.DoIttesasuC(
                 learningData.Kifu,
                 nextMove,
-                errH
+                errH,kd
             );
             // これで、棋譜ツリーに、構造変更があったはず。
             //↑↑一手指し

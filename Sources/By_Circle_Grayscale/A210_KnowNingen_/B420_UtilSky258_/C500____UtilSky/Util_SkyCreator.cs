@@ -13,7 +13,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
     /// <summary>
     /// 局面データを作成します。
     /// </summary>
-    public abstract class Util_SkyWriter
+    public abstract class Util_SkyCreator
     {
 
         /// <summary>

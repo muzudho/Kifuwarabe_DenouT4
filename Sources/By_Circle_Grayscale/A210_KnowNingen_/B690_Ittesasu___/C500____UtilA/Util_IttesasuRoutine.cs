@@ -39,7 +39,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             int korekaranoTemezumi,
             Sky src_Sky,
             Model_Taikyoku model_Taikyoku,
-            KwLogger errH
+            KwLogger errH,
+            KwDisplayer kd
             )
         {
             Sky susunda_Sky_orNull2;
@@ -53,6 +54,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 out susunda_Sky_orNull2,
                 out ittesasuResult,
                 errH,
+                kd,
                 "KifuParserA_StateA2_SfenMoves#Execute"
                 );
 
@@ -76,7 +78,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         public static void DoIttesasuB(
             KifuTree kifu1,
             Move nextMove,
-            KwLogger errH
+            KwLogger errH,
+            KwDisplayer kd
             )
         {
             Sky susunda_Sky_orNull;
@@ -93,6 +96,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 out ittesasuResult,
                 //kifu1,//診断用
                 errH,
+                kd,
                 "Utli_LearningViews#ShowSasiteList"
             );
             Debug.Assert(ittesasuResult.Get_SyuryoNode_OrNull != null, "ittesasuResult.Get_SyuryoNode_OrNull がヌル☆？！");
@@ -115,7 +119,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         public static void DoIttesasuC(
             KifuTree kifu1,//learningData.Kifu
             Move nextMove,
-            KwLogger errH
+            KwLogger errH,
+            KwDisplayer kd
             )
         {
             Sky susunda_Sky_orNull;
@@ -132,6 +137,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 out ittesasuResult,
                 //this.Kifu,//診断用
                 errH,
+                kd,
                 "Util_LearningView#Ittesasu_ByBtnClick"
             );
             Debug.Assert(ittesasuResult.Get_SyuryoNode_OrNull != null, "ittesasuResult.Get_SyuryoNode_OrNull がヌル☆？！");
@@ -172,6 +178,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             out Sky susunda_Sky_orNull,// 終了ノードの局面データ。
             out IttesasuResult ittesasuResult,
             KwLogger errH,
+            KwDisplayer kd,
             string hint
             ,
             [CallerMemberName] string memberName = "",
@@ -262,7 +269,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                         out food_koma,
                         out food_pside,
                         out food_akiMasu,
-                        errH
+                        errH,
+                        kd
                         );
 
                     if (Fingers.Error_1 != figFoodKoma)
@@ -555,7 +563,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             out Busstop out_food_koma,
             out Playerside pside,
             out SyElement akiMasu,
-            KwLogger errH
+            KwLogger errH,
+            KwDisplayer kd
             )
         {
             //----------
@@ -574,9 +583,9 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 susunda_Sky_orNull_before.AssertFinger(out_figFoodKoma);
                 out_food_koma = susunda_Sky_orNull_before.BusstopIndexOf(out_figFoodKoma);
 #if DEBUG
-                if (null != errH.Dlgt_OnLog1Append_or_Null)
+                if (null != kd.Dlgt_OnLog1Append_or_Null)
                 {
-                    errH.Dlgt_OnLog1Append_or_Null("駒取った=" + Conv_Busstop.ToKomasyurui( out_food_koma) + Environment.NewLine);
+                    kd.Dlgt_OnLog1Append_or_Null("駒取った=" + Conv_Busstop.ToKomasyurui( out_food_koma) + Environment.NewLine);
                 }
 #endif
                 //

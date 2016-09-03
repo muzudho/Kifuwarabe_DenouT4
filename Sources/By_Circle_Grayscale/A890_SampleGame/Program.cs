@@ -38,7 +38,7 @@ namespace P930_SampleGame
             KifuTree kifu = new KifuTreeImpl(
                         new KifuNodeImpl(
                             Conv_Move.GetErrorMove(),
-                            new KyokumenWrapper(Util_SkyWriter.New_Hirate())//日本の符号読取時
+                            new KyokumenWrapper(Util_SkyCreator.New_Hirate())//日本の符号読取時
                         )
                 );
 

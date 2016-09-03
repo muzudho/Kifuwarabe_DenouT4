@@ -251,7 +251,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C508____AutoSasiteRush
                 uc_Main.SeikoIdo();
 
                 bool isEmptyKifu;
-                uc_Main.Do_NextKifuSet(out isEmptyKifu, ref isRequest_ShowGohosyu, ref isRequest_ChangeKyokumenPng, errH);
+                uc_Main.Do_NextKifuSet(out isEmptyKifu, ref isRequest_ShowGohosyu, ref isRequest_ChangeKyokumenPng, errH,kd);
 
                 if (isEmptyKifu)
                 {

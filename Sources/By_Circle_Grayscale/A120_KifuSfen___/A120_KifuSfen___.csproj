@@ -7,7 +7,7 @@
     <ProjectGuid>{B0982362-AB7F-45A6-AF5F-C9FDFA49F9DD}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Grayscale</RootNamespace>
+    <RootNamespace>Grayscale.A120_KifuSfen___</RootNamespace>
     <AssemblyName>Grayscale.A120_KifuSfen___</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

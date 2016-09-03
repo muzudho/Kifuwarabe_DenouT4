@@ -38,7 +38,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
 
             KifuNode newNode = new KifuNodeImpl(
                                         Conv_Move.GetErrorMove(),//ルートなので
-                                        new KyokumenWrapper(Util_SkyWriter.New_Hirate())//[初期配置]ボタン押下時
+                                        new KyokumenWrapper(Util_SkyCreator.New_Hirate())//[初期配置]ボタン押下時
                                         );
 
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■

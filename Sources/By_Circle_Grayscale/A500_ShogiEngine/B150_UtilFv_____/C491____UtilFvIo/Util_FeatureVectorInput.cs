@@ -271,10 +271,11 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
             string filepath2 = Path.Combine(Application.StartupPath, filepath1);
 
 #if DEBUG
-            errH.WriteLine("----------------------------------------",LogTypes.Memo);
-            errH.WriteLine("FV 総合点（読込前）2", LogTypes.Memo);
-            errH.WriteLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv), LogTypes.Memo);
-            errH.WriteLine("----------------------------------------", LogTypes.Memo);
+            errH.AppendLine("----------------------------------------");
+            errH.AppendLine("FV 総合点（読込前）2");
+            errH.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            errH.AppendLine("----------------------------------------");
+            errH.Flush(LogTypes.Plain);
 #endif
 
             if (!File.Exists(filepath2))
@@ -363,10 +364,11 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
             }
 
 #if DEBUG
-            errH.WriteLine("----------------------------------------", LogTypes.Memo);
-            errH.WriteLine("FV 総合点（読込後）4", LogTypes.Memo);
-            errH.WriteLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv), LogTypes.Memo);
-            errH.WriteLine("----------------------------------------", LogTypes.Memo);
+            errH.AppendLine("----------------------------------------");
+            errH.AppendLine("FV 総合点（読込後）4");
+            errH.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            errH.AppendLine("----------------------------------------");
+            errH.Flush(LogTypes.Plain);
 
             //MessageBox.Show(
             //    "rowVersion=[" + rowVersion + "]\n" +
@@ -392,10 +394,11 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
             string filepath2 = Path.Combine(Application.StartupPath, filepath1);
 
 #if DEBUG
-            errH.WriteLine("----------------------------------------", LogTypes.Memo);
-            errH.WriteLine("FV 総合点（読込前）6", LogTypes.Memo);
-            errH.WriteLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv), LogTypes.Memo);
-            errH.WriteLine("----------------------------------------", LogTypes.Memo);
+            errH.AppendLine("----------------------------------------");
+            errH.AppendLine("FV 総合点（読込前）6");
+            errH.AppendLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            errH.AppendLine("----------------------------------------");
+            errH.Flush(LogTypes.Plain);
 #endif
 
             if (!File.Exists(filepath2))
@@ -600,10 +603,11 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
             }
 
 #if DEBUG
-            errH.WriteLine("----------------------------------------", LogTypes.Memo);
-            errH.WriteLine("FV 総合点（読込後）5", LogTypes.Memo);
-            errH.WriteLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv), LogTypes.Memo);
-            errH.WriteLine("----------------------------------------", LogTypes.Memo);
+            errH.AppendLine("----------------------------------------");
+            errH.AppendLine("FV 総合点（読込後）5");
+            errH.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            errH.AppendLine("----------------------------------------");
+            errH.Flush(LogTypes.Plain);
 
             //MessageBox.Show(
             //    "rowVersion=[" + rowVersion + "]\n" +
@@ -645,10 +649,11 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
             string filepath2 = Path.Combine(Application.StartupPath, filepath1);
 
 #if DEBUG
-            errH.WriteLine("----------------------------------------", LogTypes.Memo);
-            errH.WriteLine("FV 総合点（読込前）3", LogTypes.Memo);
-            errH.WriteLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv), LogTypes.Memo);
-            errH.WriteLine("----------------------------------------", LogTypes.Memo);
+            errH.AppendLine("----------------------------------------");
+            errH.AppendLine("FV 総合点（読込前）3");
+            errH.AppendLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            errH.AppendLine("----------------------------------------");
+            errH.Flush(LogTypes.Plain);
 #endif
 
             if (!File.Exists(filepath2))
@@ -859,10 +864,11 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
             }
 
 #if DEBUG
-            errH.WriteLine("----------------------------------------", LogTypes.Memo);
-            errH.WriteLine("FV 総合点（読込後）1", LogTypes.Memo);
-            errH.WriteLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv), LogTypes.Memo);
-            errH.WriteLine("----------------------------------------", LogTypes.Memo);
+            errH.AppendLine("----------------------------------------");
+            errH.AppendLine("FV 総合点（読込後）1");
+            errH.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            errH.AppendLine("----------------------------------------");
+            errH.Flush(LogTypes.Plain);
 
             //MessageBox.Show(
             //    "rowVersion=[" + rowVersion + "]\n" +
@@ -895,10 +901,11 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
 
 
 #if DEBUG
-            errH.WriteLine("----------------------------------------", LogTypes.Memo);
-            errH.WriteLine("FV 総合点（読込前）4", LogTypes.Memo);
-            errH.WriteLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv), LogTypes.Memo);
-            errH.WriteLine("----------------------------------------", LogTypes.Memo);
+            errH.AppendLine("----------------------------------------");
+            errH.AppendLine("FV 総合点（読込前）4");
+            errH.AppendLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            errH.AppendLine("----------------------------------------");
+            errH.Flush(LogTypes.Plain);
 #endif
 
             if (!File.Exists(filepath2))
@@ -1121,10 +1128,11 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
             }
 
 #if DEBUG
-            errH.WriteLine("----------------------------------------", LogTypes.Memo);
-            errH.WriteLine("FV 総合点（読込後）2", LogTypes.Memo);
-            errH.WriteLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv), LogTypes.Memo);
-            errH.WriteLine("----------------------------------------", LogTypes.Memo);
+            errH.AppendLine("----------------------------------------");
+            errH.AppendLine("FV 総合点（読込後）2");
+            errH.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            errH.AppendLine("----------------------------------------");
+            errH.Flush(LogTypes.Plain);
 
             //MessageBox.Show(
             //    "rowVersion=[" + rowVersion + "]\n" 
@@ -1151,10 +1159,11 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
             string filepath2 = Path.Combine(Application.StartupPath, filepath1);
 
 #if DEBUG
-            errH.WriteLine("----------------------------------------", LogTypes.Memo);
-            errH.WriteLine("FV 総合点（読込前）5", LogTypes.Memo);
-            errH.WriteLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv), LogTypes.Memo);
-            errH.WriteLine("----------------------------------------", LogTypes.Memo);
+            errH.AppendLine("----------------------------------------");
+            errH.AppendLine("FV 総合点（読込前）5");
+            errH.AppendLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            errH.AppendLine("----------------------------------------");
+            errH.Flush(LogTypes.Plain);
 #endif
 
             if (!File.Exists(filepath2))
@@ -1364,10 +1373,11 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
             }
 
 #if DEBUG
-            errH.WriteLine("----------------------------------------", LogTypes.Memo);
-            errH.WriteLine("FV 総合点（読込後）3", LogTypes.Memo);
-            errH.WriteLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv), LogTypes.Memo);
-            errH.WriteLine("----------------------------------------", LogTypes.Memo);
+            errH.AppendLine("----------------------------------------");
+            errH.AppendLine("FV 総合点（読込後）3");
+            errH.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            errH.AppendLine("----------------------------------------");
+            errH.Flush(LogTypes.Plain);
 
             //MessageBox.Show(
             //    "rowVersion=[" + rowVersion + "]\n" 

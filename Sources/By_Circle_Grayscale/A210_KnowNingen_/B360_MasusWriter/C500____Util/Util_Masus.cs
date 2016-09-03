@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
-using Grayscale.B140_SfenStruct_.C___250_Struct;
+using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
 
 namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util

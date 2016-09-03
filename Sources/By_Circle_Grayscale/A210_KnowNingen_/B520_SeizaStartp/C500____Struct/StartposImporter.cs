@@ -4,7 +4,7 @@ using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B310_Seiza______.C250____Struct;
+using Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

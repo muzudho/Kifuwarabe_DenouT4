@@ -2,7 +2,7 @@
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.B140_SfenStruct_.C___250_Struct;
+using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,17 +13,7 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
 {
 
     /// <summary>
-    /// ************************************************************************************************************************
-    /// 天空
-    /// ************************************************************************************************************************
-    /// 
     /// 局面データです。
-    /// 
-    /// 使い方。
-    /// 
-    /// SkyConst(Sky src) を使って生成してください。
-    /// Skyは他に、SkyBuffer があります。
-    /// 
     /// </summary>
     public class SkyImpl : Sky
     {

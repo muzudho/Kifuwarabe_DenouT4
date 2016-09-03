@@ -43,6 +43,7 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
 
         #region C# GUIのログ
         public static readonly KwLogger ProcessGui_DEFAULT = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_CsharpGUI_ﾃﾞﾌｫﾙﾄ"), ".txt", true, false, false);
+        public static readonly KwDisplayer ProcessGui_DEFAULT_D = new KwDisplayerImpl();
         public static readonly KwLogger ProcessGui_KIFU_YOMITORI = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_CsharpGUI_棋譜読取"), ".txt", true, false, false);
         public static readonly KwLogger ProcessGui_NETWORK = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_CsharpGUI_通信"), ".txt", true, true, false);
         public static readonly KwLogger ProcessGui_PAINT = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_CsharpGUI_ﾍﾟｲﾝﾄ"), ".txt", true, false, false);
@@ -59,6 +60,7 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
         /// ログ。将棋エンジンきふわらべで汎用に使います。
         /// </summary>
         public static readonly KwLogger ProcessEngine_DEFAULT = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_ｴﾝｼﾞﾝ_ﾃﾞﾌｫﾙﾄ"), ".txt", true, false, false);
+        public static readonly KwDisplayer ProcessEngine_DEFAULT_D = new KwDisplayerImpl();
 
         /// <summary>
         /// ログ。送受信内容の記録専用です。

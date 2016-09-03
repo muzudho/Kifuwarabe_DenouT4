@@ -47,7 +47,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , KwLogger errH2
+                    , KwLogger errH2,
+            KwDisplayer kd
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -68,7 +69,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , KwLogger errH
+                    , KwLogger errH,
+            KwDisplayer kd
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -89,7 +91,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , KwLogger errH
+                    , KwLogger errH,
+            KwDisplayer kd
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -107,7 +110,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , KwLogger errH
+                    , KwLogger errH,
+            KwDisplayer kd
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -125,7 +129,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , KwLogger errH
+                    , KwLogger errH,
+            KwDisplayer kd
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -136,7 +141,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         ref restText,
                         mainGui3.Link_Server.Model_Taikyoku,
                         mainGui3.SkyWrapper_Gui,
-                        errH);
+                        errH,
+                        kd);
                     Util_Function_Csharp.Komaokuri_Gui(restText, mainGui3, errH);
                     Util_Menace.Menace(mainGui3, errH);// メナス
                 };
@@ -148,7 +154,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , KwLogger errH
+                    , KwLogger errH,
+            KwDisplayer kd
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -177,7 +184,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , KwLogger errH
+                    , KwLogger errH,
+            KwDisplayer kd
                     ) =>
                 {
                     MainGui_Csharp shogibanGui2 = (MainGui_Csharp)obj_shogiGui2;
@@ -193,7 +201,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , KwLogger errH
+                    , KwLogger errH,
+            KwDisplayer kd
                     ) =>
                 {
                     MainGui_Csharp shogibanGui2 = (MainGui_Csharp)obj_shogiGui2;
@@ -221,7 +230,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , KwLogger errH2
+                    , KwLogger errH2,
+            KwDisplayer kd
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -250,7 +260,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         object obj_shogiGui2
                         , object userWidget2 // UerWidget
                         , object btnKoma_Selected2
-                        , KwLogger errH2
+                        , KwLogger errH2,
+            KwDisplayer kd
                         ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -268,7 +279,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , KwLogger errH2
+                    , KwLogger errH2,
+            KwDisplayer kd
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -284,7 +296,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , KwLogger errH2
+                    , KwLogger errH2,
+            KwDisplayer kd
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -301,7 +314,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , KwLogger errH2
+                    , KwLogger errH2,
+            KwDisplayer kd
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -317,7 +331,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , KwLogger errH2
+                    , KwLogger errH2,
+            KwDisplayer kd
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;

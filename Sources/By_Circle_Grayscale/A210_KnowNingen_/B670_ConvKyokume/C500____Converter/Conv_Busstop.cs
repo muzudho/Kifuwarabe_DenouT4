@@ -13,44 +13,6 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
     /// </summary>
     public abstract class Conv_Busstop
     {
-        /*
-        public static Busstop ToBusstop(RO_Star star)
-        {
-            int errorCheck = 0;
-
-            // バリュー（ビット・フィールド）
-            int v = 0;
-
-            int suji;
-            if (!Util_MasuNum.TryMasuToSuji(star.Masu, out suji))
-            {
-                errorCheck = 1;
-            }
-
-            int dan;
-            if (!Util_MasuNum.TryMasuToDan(star.Masu, out dan))
-            {
-                errorCheck = 1;
-            }
-
-            int komasyurui = (int)star.Komasyurui;
-
-            int komadai = Okiba.ShogiBan != Conv_SyElement.ToOkiba(star.Masu) ? 1 : 0;
-
-            int playerside = Playerside.P1 == star.Pside ? 0 : 1;
-
-
-            v |= suji << (int)BusstopShift.Suji;
-            v |= dan << (int)BusstopShift.Dan;
-            v |= komasyurui << (int)BusstopShift.Komasyurui;
-            v |= komadai << (int)BusstopShift.Komadai;
-            v |= playerside << (int)BusstopShift.Playerside;
-            v |= errorCheck << (int)BusstopShift.ErrorCheck;
-
-            return (Busstop)v;
-        }
-        */
-
         public static Busstop ToBusstop(Playerside pside, SyElement masu, Komasyurui14 komasyrui)
         {
             int errorCheck = 0;

@@ -87,7 +87,9 @@ namespace Grayscale.P699_Form_______
         private void timer1_Tick(object sender, EventArgs e)
         {
             KwLogger errH = Util_Loggers.ProcessGui_DEFAULT;
-            this.MainGui.Timer_Tick(errH);
+            KwDisplayer kd = Util_Loggers.ProcessGui_DEFAULT_D;
+
+            this.MainGui.Timer_Tick(errH,kd);
         }
 
 
@@ -145,7 +147,7 @@ namespace Grayscale.P699_Form_______
                 this.MainGui.Link_Server.Model_Taikyoku.Kifu.Clear();// 棋譜を空っぽにします。
                 this.MainGui.Link_Server.Model_Taikyoku.Kifu.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
                 this.MainGui.SkyWrapper_Gui.SetGuiSky(
-                    Util_SkyWriter.New_Hirate()//起動直後
+                    Util_SkyCreator.New_Hirate()//起動直後
                     );
             }
 
@@ -404,8 +406,8 @@ namespace Grayscale.P699_Form_______
                         form2.WriteLine_Syuturyoku("");
 
                         // ログ
-                        //errH.WriteLine_AddMemo( "");
-                        //errH.WriteLine_AddMemo( "");
+                        //errH.AppendLine_AddMemo( "");
+                        //errH.AppendLine_AddMemo( "");
                     }
                     break;
 
@@ -427,7 +429,8 @@ namespace Grayscale.P699_Form_______
 
 #if DEBUG
                         // ログ
-                        errH.WriteLine(form2.GetOutputareaText(),LogTypes.Memo);
+                        errH.AppendLine(form2.GetOutputareaText());
+                        errH.Flush(LogTypes.Plain);
 #endif
                     }
                     break;

@@ -57,7 +57,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             out KifuParserA_State nextState,
             KifuParserA owner,
             KifuParserA_Genjo genjo,
-            KwLogger errH
+            KwLogger errH,
+            KwDisplayer kd
             )
         {
             int exceptionArea = 0;
@@ -181,7 +182,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                             //------------------------------
                             // ★棋譜読込専用  駒移動
                             //------------------------------
-                            //errH.WriteLine_AddMemo("一手指し開始　：　残りの符号つ「" + genjo.InputLine + "」");
+                            //errH.AppendLine_AddMemo("一手指し開始　：　残りの符号つ「" + genjo.InputLine + "」");
 
 
                             exceptionArea = 1030;
@@ -194,7 +195,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                                 korekaranoTemezumi,
                                 src_Sky,
                                 model_Taikyoku,
-                                errH
+                                errH,
+                                kd
                                 );
 
                             exceptionArea = 1080;
@@ -202,7 +204,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                             //↑↑一手指し
 
                             //exceptionArea = 1090;
-                            //errH.WriteLine_AddMemo(Util_Sky307.Json_1Sky(
+                            //errH.AppendLine_AddMemo(Util_Sky307.Json_1Sky(
                             //    src_Sky,
                             //    "一手指し終了",
                             //    "SFENパース2",
@@ -233,7 +235,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 }
                 else
                 {
-                    //errH.WriteLine_AddMemo("（＾△＾）現局面まで進んだのかだぜ☆？\n" + Util_Sky307.Json_1Sky(
+                    //errH.AppendLine_AddMemo("（＾△＾）現局面まで進んだのかだぜ☆？\n" + Util_Sky307.Json_1Sky(
                     //    src_Sky,
                     //    "棋譜パース",
                     //    "SFENパース3",

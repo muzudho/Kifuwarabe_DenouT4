@@ -9,7 +9,7 @@ using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B310_Seiza______.C500____Util;
+using Grayscale.A210_KnowNingen_.B310_Shogiban___.C500____Util;
 using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500____Converter;
@@ -86,7 +86,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             SkyWrapper_Gui model_Manual,
             out bool toBreak,
             string hint,
-            KwLogger errH
+            KwLogger errH,
+            KwDisplayer kd
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -108,14 +109,15 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     // 最初はここ
 
 #if DEBUG
-                    errH.WriteLine("(^o^)... ...", LogTypes.Memo);
-                    errH.WriteLine("ｻｲｼｮﾊｺｺ☆　：　" + memberName + "." + sourceFilePath + "." + sourceLineNumber, LogTypes.Memo);
+                    errH.AppendLine("(^o^)... ...");
+                    errH.AppendLine("ｻｲｼｮﾊｺｺ☆　：　" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
+                    errH.Flush(LogTypes.Plain);
 #endif
                     inputLine = kifuParserA_Impl.Execute_Step(
                         ref result,
                         model_Taikyoku,
                         genjo,
-                        errH
+                        errH,kd
                         );
 
                     Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
@@ -140,14 +142,15 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     {
 #if DEBUG
                         string message = "(^o^)ﾂｷﾞﾊ　ﾋﾗﾃ　ﾏﾀﾊ　ｼﾃｲｷｮｸﾒﾝ　ｦ　ｼｮﾘｼﾀｲ☆ inputLine=[" + inputLine + "]";
-                        errH.WriteLine(message, LogTypes.Memo);
+                        errH.AppendLine(message);
+                        errH.Flush(LogTypes.Plain);
 #endif
 
                         inputLine = kifuParserA_Impl.Execute_Step(
                             ref result,
                             model_Taikyoku,
                             genjo,
-                            errH
+                            errH,kd
                             );
                         Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
 
@@ -161,14 +164,15 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
                     {
 #if DEBUG
-                        errH.WriteLine("(^o^)ﾂｷﾞﾊ　ﾑｰﾌﾞｽ　ｦ　ｼｮﾘｼﾀｲ☆", LogTypes.Memo);
+                        errH.AppendLine("(^o^)ﾂｷﾞﾊ　ﾑｰﾌﾞｽ　ｦ　ｼｮﾘｼﾀｲ☆");
+                        errH.Flush(LogTypes.Plain);
 #endif
 
                         inputLine = kifuParserA_Impl.Execute_Step(
                             ref result,
                             model_Taikyoku,
                             genjo,
-                            errH
+                            errH,kd
                             );
                         Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
 
@@ -191,14 +195,15 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                 if (kifuParserA_Impl.State is KifuParserA_StateA2_SfenMoves)
                 {
 #if DEBUG
-                    errH.WriteLine("ﾂｷﾞﾊ　ｲｯﾃ　ｼｮﾘｼﾀｲ☆", LogTypes.Memo);
+                    errH.AppendLine("ﾂｷﾞﾊ　ｲｯﾃ　ｼｮﾘｼﾀｲ☆");
+                    errH.Flush(LogTypes.Plain);
 #endif
 
                     inputLine = kifuParserA_Impl.Execute_Step(
                         ref result,
                         model_Taikyoku,
                         genjo,
-                        errH
+                        errH,kd
                         );
 
                     if (null != result.Out_newNode_OrNull)
@@ -347,7 +352,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             ref string inputLine,
             Model_Taikyoku model_Taikyoku,
             SkyWrapper_Gui model_Manual,
-            KwLogger errH
+            KwLogger errH,
+            KwDisplayer kd
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -367,7 +373,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                 model_Manual,
                 out toBreak,
                 "hint",
-                errH
+                errH,kd
                 );
 
         gt_EndMethod:

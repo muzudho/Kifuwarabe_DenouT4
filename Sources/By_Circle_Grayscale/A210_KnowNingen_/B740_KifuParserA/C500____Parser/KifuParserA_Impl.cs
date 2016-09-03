@@ -36,7 +36,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             ref KifuParserA_Result result,
             Model_Taikyoku model_Taikyoku,
             KifuParserA_Genjo genjo,
-            KwLogger errH
+            KwLogger errH,
+            KwDisplayer kd
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -48,8 +49,9 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             try
             {
 #if DEBUG
-                errH.WriteLine("┏━━━━━┓(^o^)", LogTypes.Memo);
-                errH.WriteLine("わたしは　" + this.State.GetType().Name + "　の　Execute_Step　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber, LogTypes.Memo);
+                errH.AppendLine("┏━━━━━┓(^o^)");
+                errH.AppendLine("わたしは　" + this.State.GetType().Name + "　の　Execute_Step　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
+                errH.Flush(LogTypes.Plain);
 #endif
 
                 KifuParserA_State nextState;
@@ -57,7 +59,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     ref result,
                     model_Taikyoku,
                     out nextState, this,
-                    genjo, errH);
+                    genjo, errH,kd);
                 this.State = nextState;
 
             }
@@ -76,7 +78,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             ref KifuParserA_Result result,
             Model_Taikyoku model_Taikyoku,
             KifuParserA_Genjo genjo,
-            KwLogger errH
+            KwLogger errH,
+            KwDisplayer kd
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -86,8 +89,9 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             try
             {
 #if DEBUG
-                errH.WriteLine("┏━━━━━━━━━━┓", LogTypes.Memo);
-                errH.WriteLine("わたしは　" + this.State.GetType().Name + "　の　Execute_All　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber, LogTypes.Memo);
+                errH.AppendLine("┏━━━━━━━━━━┓");
+                errH.AppendLine("わたしは　" + this.State.GetType().Name + "　の　Execute_All　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
+                errH.Flush(LogTypes.Plain);
 #endif
 
                 KifuParserA_State nextState = this.State;
@@ -99,7 +103,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                         // FIXME: コンピューターが先手のとき、ここにくる？
 
                         // 異常時。
-                        //FIXME: errH.WriteLine_Error("＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない3☆！　終わるぜ☆");
+                        //FIXME: errH.AppendLine_Error("＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない3☆！　終わるぜ☆");
                         genjo.ToBreak_Abnormal();
                         goto gt_NextLoop1;
                     }
@@ -109,7 +113,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                         ref result,
                         model_Taikyoku,
                         out nextState, this,
-                        genjo, errH);
+                        genjo, errH,kd);
                     this.State = nextState;
 
                 gt_NextLoop1:

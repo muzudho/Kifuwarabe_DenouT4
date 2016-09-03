@@ -107,7 +107,7 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C125____Receiver
                                 this.Owner_AimsServer.Model_Taikyoku.SetKifu(new KifuTreeImpl(
                                         new KifuNodeImpl(
                                             Conv_Move.GetErrorMove(),
-                                            new KyokumenWrapper(Util_SkyWriter.New_Hirate())
+                                            new KyokumenWrapper(Util_SkyCreator.New_Hirate())
                                         )
                                 ));
                                 this.Owner_AimsServer.Model_Taikyoku.Kifu.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");
