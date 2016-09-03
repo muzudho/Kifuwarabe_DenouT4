@@ -53,7 +53,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
         /// <param name="e"></param>
         public virtual void OnListenUpload_Async(object sender, DataReceivedEventArgs e)
         {
-            KwLogger errH = Util_Loggers.SERVER_NETWORK_ASYNC;
+            KwLogger errH = Util_Loggers.ProcessServer_NETWORK_ASYNC;
 
             string line = e.Data;
 

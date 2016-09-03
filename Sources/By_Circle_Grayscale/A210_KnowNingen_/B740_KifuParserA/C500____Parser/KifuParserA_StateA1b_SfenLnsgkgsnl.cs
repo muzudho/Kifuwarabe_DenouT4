@@ -49,7 +49,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             try
             {
 
-                errH.WriteLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　さて、どんな内容なんだぜ☆？", LogTypes.Error);
+                errH.AppendLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　さて、どんな内容なんだぜ☆？");
+                errH.Flush(LogTypes.Error);
 
                 StartposImporter startposImporter1;
                 string restText;
@@ -60,7 +61,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     out restText
                     );
                 genjo.StartposImporter_OrNull = startposImporter1;
-                errH.WriteLine("（＾△＾）restText=「" + restText + "」 successful=【" + successful + "】", LogTypes.Error);
+                errH.AppendLine("（＾△＾）restText=「" + restText + "」 successful=【" + successful + "】");
+                errH.Flush(LogTypes.Error);
 
                 if (successful)
                 {
@@ -87,7 +89,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 }
 
             }
-            catch (Exception ex) { Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "SFEN解析中☆"); throw ex; }
+            catch (Exception ex) { Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "SFEN解析中☆"); throw ex; }
 
             return genjo.InputLine;
         }

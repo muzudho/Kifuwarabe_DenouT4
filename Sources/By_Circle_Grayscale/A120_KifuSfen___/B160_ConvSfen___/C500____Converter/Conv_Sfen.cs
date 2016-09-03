@@ -116,13 +116,13 @@ namespace Grayscale.A120_KifuSfen___.B160_ConvSfen___.C500____Converter
                         // 最初の１件だけ処理して終わります。
                         break;
                     }
-                    catch (Exception ex) { Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "moves解析中☆"); throw ex; }
+                    catch (Exception ex) { Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "moves解析中☆"); throw ex; }
                 }
 
                 rest = rest.Trim();
 
             }
-            catch (Exception ex) { Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "moves解析中☆"); throw ex; }
+            catch (Exception ex) { Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "moves解析中☆"); throw ex; }
 
             return successful;
         }

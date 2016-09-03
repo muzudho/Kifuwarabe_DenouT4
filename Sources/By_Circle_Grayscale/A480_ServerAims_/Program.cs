@@ -16,7 +16,7 @@ namespace Grayscale.P489_Form_______
 
         static void Main(string[] args)
         {
-            KwLogger errH = Util_Loggers.AIMS_DEFAULT;
+            KwLogger errH = Util_Loggers.ProcessAims_DEFAULT;
             MessageBox.Show("AIMSサーバー");
 
 

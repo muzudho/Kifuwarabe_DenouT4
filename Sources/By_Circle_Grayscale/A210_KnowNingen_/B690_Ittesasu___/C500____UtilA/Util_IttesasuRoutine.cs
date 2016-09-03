@@ -343,7 +343,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
                 // どうにもできないので  ログだけ取って無視します。
                 string message = "Util_IttesasuRoutine#Execute（B）： exceptionArea=" + exceptionArea + "\n" + ex.GetType().Name + "：" + ex.Message;
-                errH.WriteLine(message, LogTypes.Error);
+                errH.AppendLine(message);
+                errH.Flush(LogTypes.Error);
                 throw ex;
             }
         }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Grayscale.Properties {
+namespace Grayscale.A000_Platform___.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

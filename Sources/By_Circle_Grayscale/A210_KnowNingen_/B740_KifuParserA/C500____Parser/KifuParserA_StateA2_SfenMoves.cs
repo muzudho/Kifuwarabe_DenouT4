@@ -144,7 +144,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                             {
                                 //「6g6f」形式でもなかった☆
 
-                                errH.WriteLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　！？　次の一手が読めない☆　inputLine=[" + genjo.InputLine + "]", LogTypes.Error);
+                                errH.AppendLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　！？　次の一手が読めない☆　inputLine=[" + genjo.InputLine + "]");
+                                errH.Flush(LogTypes.Error);
                                 genjo.ToBreak_Abnormal();
                                 goto gt_EndMethod;
                             }
@@ -153,7 +154,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
                         genjo.InputLine = rest;
                     }
-                    catch (Exception ex) { Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "moves解析中☆"); throw ex; }
+                    catch (Exception ex) { Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "moves解析中☆"); throw ex; }
 
 
 
@@ -216,7 +217,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
                             // どうにもできないので  ログだけ取って無視します。
                             string message = this.GetType().Name + "#Execute（B）： exceptionArea=" + exceptionArea + "\n" + ex.GetType().Name + "：" + ex.Message;
-                            errH.WriteLine(message, LogTypes.Error);
+                            errH.AppendLine(message);
+                            errH.Flush(LogTypes.Error);
                         }
 
                     }
@@ -224,7 +226,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     {
                         genjo.ToBreak_Abnormal();
                         string message = "＼（＾ｏ＾）／teSasiteオブジェクトがない☆！　inputLine=[" + genjo.InputLine + "]";
-                        errH.WriteLine(message, LogTypes.Error);
+                        errH.AppendLine(message);
+                        errH.Flush(LogTypes.Error);
                         throw new Exception(message);
                     }
                 }
@@ -246,7 +249,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
                 // どうにもできないので  ログだけ取って無視します。
                 string message = this.GetType().Name + "#Execute：" + ex.GetType().Name + "：" + ex.Message;
-                errH.WriteLine(message, LogTypes.Error);
+                errH.AppendLine(message);
+                errH.Flush(LogTypes.Error);
             }
 
         gt_EndMethod:

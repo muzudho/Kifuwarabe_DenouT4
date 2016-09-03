@@ -107,7 +107,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                 ref searchedMaxDepth,
                 ref searchedNodes,
                 searchedPv,
-                Util_Loggers.LEARNER);
+                Util_Loggers.ProcessLearner_DEFAULT);
         }
 
 
@@ -317,7 +317,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                 searchedPv,
                 errH);
             // ノード情報の表示
-            Util_LearningView.Aa_ShowNode2(uc_Main.LearningData, uc_Main, Util_Loggers.LEARNER);
+            Util_LearningView.Aa_ShowNode2(uc_Main.LearningData, uc_Main, Util_Loggers.ProcessLearner_DEFAULT);
 
         //gt_EndMethod:
         //    ;

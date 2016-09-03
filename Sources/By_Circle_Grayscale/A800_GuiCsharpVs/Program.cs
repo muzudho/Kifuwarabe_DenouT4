@@ -15,7 +15,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500____Gui
         [STAThread]
         static void Main()
         {
-            KwLogger errH = Util_Loggers.CsharpGui_DEFAULT;
+            KwLogger errH = Util_Loggers.ProcessGui_DEFAULT;
             MainGui_CsharpVsImpl mainGuiVs = new MainGui_CsharpVsImpl();
 
             //↓ [STAThread]指定のあるメソッドで フォームを作成してください。

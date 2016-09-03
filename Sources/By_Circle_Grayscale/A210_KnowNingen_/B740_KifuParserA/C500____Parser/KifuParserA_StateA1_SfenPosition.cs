@@ -75,13 +75,14 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 else
                 {
 //#if DEBUG
-                    errH.WriteLine("（＾△＾）ここはスルーして次に状態遷移するんだぜ☆\n「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】",LogTypes.Error);//　：　局面の指定のようなんだぜ☆　対応していない☆？
+                    errH.AppendLine("（＾△＾）ここはスルーして次に状態遷移するんだぜ☆\n「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】");//　：　局面の指定のようなんだぜ☆　対応していない☆？
+                    errH.Flush(LogTypes.Error);
                     //errH.WriteLine_Error("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　局面の指定のようなんだぜ☆　対応していない☆？");
-//#endif
+                    //#endif
                     nextState = KifuParserA_StateA1b_SfenLnsgkgsnl.GetInstance();
                 }
             }
-            catch (Exception ex) { Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "positionの解析中。"); throw ex; }
+            catch (Exception ex) { Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "positionの解析中。"); throw ex; }
 
             return genjo.InputLine;
         }

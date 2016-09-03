@@ -87,7 +87,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C249____Noop
             //{
                 // noopを投げてなくても、毎回ストップウォッチはリスタートさせます。
 //#if DEBUG
-                errH.WriteLine("サーバーから応答[" + command + "]があったのでタイマーをリスタートさせるぜ☆", LogTypes.ToClient);
+                errH.AppendLine("サーバーから応答[" + command + "]があったのでタイマーをリスタートさせるぜ☆");
+                errH.Flush(LogTypes.ToClient);
 //#endif
                 this.noopPhase = NoopPhase.None;
                 this.sw_forNoop.Restart();

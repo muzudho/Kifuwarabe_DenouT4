@@ -297,7 +297,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                             Debug.Fail(message);
 
                             // どうにもできないので  ログだけ取って、上に投げます。
-                            errH.WriteLine(message,LogTypes.Error);
+                            errH.AppendLine(message);
+                            errH.Flush(LogTypes.Error);
                             throw ex;
                         }
 #if DEBUG

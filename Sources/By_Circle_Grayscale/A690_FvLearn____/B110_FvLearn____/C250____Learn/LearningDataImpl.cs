@@ -127,7 +127,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
         public void ChangeKyokumenPng(Uc_Main uc_Main)
         {
             uc_Main.PctKyokumen.Image = null;//掴んでいる画像ファイルを放します。
-            this.WritePng(Util_Loggers.LEARNER);
+            this.WritePng(Util_Loggers.ProcessLearner_DEFAULT);
             uc_Main.PctKyokumen.ImageLocation = Const_Filepath.m_EXE_TO_LOGGINGS + "_log_学習局面.png";
         }
 
@@ -375,7 +375,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
 #endif
                     node.Value.Kyokumen,
                     this.Fv, //参照してもらうだけ。
-                    Util_Loggers.LEARNER
+                    Util_Loggers.ProcessLearner_DEFAULT
                 );
             }
             //----------------------------------------
@@ -391,7 +391,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
 #endif
                     node.Value.Kyokumen,
                     this.Fv, //参照してもらうだけ。
-                    Util_Loggers.LEARNER
+                    Util_Loggers.ProcessLearner_DEFAULT
                 );
             }
         }

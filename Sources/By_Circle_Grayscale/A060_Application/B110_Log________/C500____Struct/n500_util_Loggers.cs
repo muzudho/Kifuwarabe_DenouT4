@@ -13,12 +13,12 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
     /// </summary>
     public class Util_Loggers
     {
-        public static readonly KwLogger DEFAULT_BY_PROCESS = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS, "_log_default_false_(" + System.Diagnostics.Process.GetCurrentProcess() + ")"), ".txt", false, false);
+        public static readonly KwLogger ProcessNone_DEFAULT = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS, "_log_default_false_(" + System.Diagnostics.Process.GetCurrentProcess() + ")"), ".txt", false, false, false);
 
         /// <summary>
         /// ログを出せなかったときなど、致命的なエラーにも利用。
         /// </summary>
-        public static readonly KwLogger ERROR = new KwLoggerImpl( Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS, "_log_エラー"), ".txt", true, false);
+        public static readonly KwLogger ProcessNone_ERROR = new KwLoggerImpl( Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS, "_log_エラー"), ".txt", true, false, false);
 
 
 
@@ -27,31 +27,30 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
         /// <summary>
         /// 千日手判定用。
         /// </summary>
-        public static readonly KwLogger DEFAULT_SENNITITE = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_Default_千日手判定"), ".txt", true, false);
+        public static readonly KwLogger PeocessNone_SENNITITE = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_Default_千日手判定"), ".txt", true, false, false);
         #endregion
 
 
 
         #region 擬似将棋サーバーのログ
-        public static readonly KwLogger SERVER_DEFAULT = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_ｻｰﾊﾞｰ_ﾃﾞﾌｫﾙﾄ"), ".txt", true, false);
-        //public static readonly KwLogger SERVER_KIFU_YOMITORI = new KwLoggerImpl(new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_ｻｰﾊﾞｰ_棋譜読取"), ".txt", true, false));
+        public static readonly KwLogger ProcessServer_DEFAULT = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_ｻｰﾊﾞｰ_ﾃﾞﾌｫﾙﾄ"), ".txt", true, false, false);
         /// <summary>
         /// ログ。送受信内容の記録専用です。
         /// </summary>
-        public static readonly KwLogger SERVER_NETWORK_ASYNC = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_ｻｰﾊﾞｰ_非同期通信"), ".txt", true, true);
+        public static readonly KwLogger ProcessServer_NETWORK_ASYNC = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_ｻｰﾊﾞｰ_非同期通信"), ".txt", true, true, false);
         #endregion
 
 
         #region C# GUIのログ
-        public static readonly KwLogger CsharpGui_DEFAULT = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_CsharpGUI_ﾃﾞﾌｫﾙﾄ"), ".txt", true, false);
-        public static readonly KwLogger CsharpGui_KIFU_YOMITORI = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_CsharpGUI_棋譜読取"), ".txt", true, false);
-        public static readonly KwLogger CsharpGui_NETWORK = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_CsharpGUI_通信"), ".txt", true, true);
-        public static readonly KwLogger CsharpGui_PAINT = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_CsharpGUI_ﾍﾟｲﾝﾄ"), ".txt", true, false);
-        public static readonly KwLogger CsharpGui_SENNITITE = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_CsharpGui_千日手判定"), ".txt", true, false);
+        public static readonly KwLogger ProcessGui_DEFAULT = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_CsharpGUI_ﾃﾞﾌｫﾙﾄ"), ".txt", true, false, false);
+        public static readonly KwLogger ProcessGui_KIFU_YOMITORI = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_CsharpGUI_棋譜読取"), ".txt", true, false, false);
+        public static readonly KwLogger ProcessGui_NETWORK = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_CsharpGUI_通信"), ".txt", true, true, false);
+        public static readonly KwLogger ProcessGui_PAINT = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_CsharpGUI_ﾍﾟｲﾝﾄ"), ".txt", true, false, false);
+        public static readonly KwLogger ProcessGui_SENNITITE = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_CsharpGui_千日手判定"), ".txt", true, false, false);
         #endregion
 
         #region AIMS GUIに対応する用のログ
-        public static readonly KwLogger AIMS_DEFAULT = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_AIMS対応用_ﾃﾞﾌｫﾙﾄ"), ".txt", true, false);
+        public static readonly KwLogger ProcessAims_DEFAULT = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_AIMS対応用_ﾃﾞﾌｫﾙﾄ"), ".txt", true, false, false);
         #endregion
 
 
@@ -59,17 +58,16 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
         /// <summary>
         /// ログ。将棋エンジンきふわらべで汎用に使います。
         /// </summary>
-        public static readonly KwLogger ENGINE_DEFAULT = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_ｴﾝｼﾞﾝ_ﾃﾞﾌｫﾙﾄ"), ".txt", true, false);
+        public static readonly KwLogger ProcessEngine_DEFAULT = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_ｴﾝｼﾞﾝ_ﾃﾞﾌｫﾙﾄ"), ".txt", true, false, false);
 
         /// <summary>
         /// ログ。送受信内容の記録専用です。
         /// </summary>
-        public static readonly KwLogger ENGINE_NETWORK = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_ｴﾝｼﾞﾝ_通信"), ".txt", true, true);
+        public static readonly KwLogger ProcessEngine_NETWORK = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_ｴﾝｼﾞﾝ_通信"), ".txt", true, true, false);
         /// <summary>
         /// ログ。思考ルーチン専用です。
         /// </summary>
-        public static readonly KwLogger ENGINE_MOUSOU_RIREKI = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_ｴﾝｼﾞﾝ_妄想履歴"), ".txt", true, false);
-        public static readonly KwLogger ENGINE_SENNITITE = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_ｴﾝｼﾞﾝ_千日手判定"), ".txt", true, false);
+        public static readonly KwLogger ProcessEngine_SENNITITE = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_ｴﾝｼﾞﾝ_千日手判定"), ".txt", true, false, false);
         #endregion
 
 
@@ -78,18 +76,23 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
         /// <summary>
         /// 汎用。テスト・プログラム用。
         /// </summary>
-        public static readonly KwLogger TEST_PROGRAM = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_テスト・プログラム用（汎用）"), ".txt", true, false);
+        public static readonly KwLogger ProcessTestProgram_DEFAULT = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_テスト・プログラム用（汎用）"), ".txt", true, false, false);
 
         /// <summary>
         /// 棋譜学習ソフト用。
         /// </summary>
-        public static readonly KwLogger LEARNER = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_棋譜学習ソフト用"), ".txt", true, false);
-        public static readonly KwDisplayer LEARNER_D = new KwDisplayerImpl();
+        public static readonly KwLogger ProcessLearner_DEFAULT = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_棋譜学習ソフト用"), ".txt", true, false, false);
+        public static readonly KwDisplayer ProcessLearner_DEFAULT_D = new KwDisplayerImpl();
 
         /// <summary>
         /// スピード計測ソフト用。
         /// </summary>
-        public static readonly KwLogger SPEED_KEISOKU = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_スピード計測ソフト用"), ".txt", true, false);
+        public static readonly KwLogger ProcessSpeedTest_KEISOKU = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_スピード計測ソフト用"), ".txt", true, false, false);
+
+        /// <summary>
+        /// ユニット・テスト用。
+        /// </summary>
+        public static readonly KwLogger ProcessUnitTest_DEFAULT = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS, "_log_ユニットテスト用"), ".txt", true, false, true);
         #endregion
 
 
@@ -106,9 +109,6 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
         {
             try
             {
-                //string filepath2 = Path.Combine(Application.StartupPath, this.DefaultFile.FileName);
-                //System.IO.File.Delete(filepath2);
-
                 string[] paths = Directory.GetFiles(Path.Combine(Application.StartupPath, Const_Filepath.m_EXE_TO_LOGGINGS));
                 foreach(string path in paths)
                 {
@@ -121,7 +121,7 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
                     }
                 }
             }
-            catch (Exception ex) { Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "ﾛｸﾞﾌｧｲﾙ削除中☆"); throw ex; }
+            catch (Exception ex) { Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "ﾛｸﾞﾌｧｲﾙ削除中☆"); throw ex; }
         }
 
 

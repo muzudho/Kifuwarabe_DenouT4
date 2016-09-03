@@ -35,13 +35,21 @@ namespace Grayscale.A060_Application.B110_Log________.C___500_Struct
 
 
         /// <summary>
-        /// テキストを、ログ・ファイルの末尾に追記します。改行付き。
+        /// ログを蓄えます。改行なし。
+        /// </summary>
+        /// <param name="token"></param>
+        void Append(string token);
+        /// <summary>
+        /// ログを蓄えます。改行付き。
         /// </summary>
         /// <param name="line"></param>
-        void WriteLine(
-            string line,
-            LogTypes logTypes
-            );
+        void AppendLine(string line);
+
+        /// <summary>
+        /// テキストを、ログ・ファイルの末尾に追記します。
+        /// </summary>
+        /// <param name="logTypes"></param>
+        void Flush(LogTypes logTypes);
 
         /// <summary>
         /// 「どうにもならん、あきらめた」

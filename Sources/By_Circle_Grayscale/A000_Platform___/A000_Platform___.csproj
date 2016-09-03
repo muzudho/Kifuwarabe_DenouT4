@@ -7,7 +7,7 @@
     <ProjectGuid>{147B11E0-827B-4D3F-844C-ADF2BEAFA53F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Grayscale</RootNamespace>
+    <RootNamespace>Grayscale.A000_Platform___</RootNamespace>
     <AssemblyName>Grayscale.A000_Platform___</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -74,6 +74,7 @@
     <Compile Include="B011_Csv________\C500____Parser\Util_Csv.cs" />
     <Compile Include="B021_Random_____\C500____Struct\KwRandom.cs" />
     <Compile Include="B021_Random_____\C500____Struct\KwShuffle.cs" />
+    <Compile Include="B025_Machine____\MachineImpl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -32,7 +32,8 @@ namespace Grayscale.A500_ShogiEngine.B260_UtilClient_.C500____Util
             KwLogger errH
             )
         {
-            errH.WriteLine("（＾△＾）「" + genjo.InputLine + "」Util_InClient　：　クライアントの委譲メソッドｷﾀｰ☆", LogTypes.Error);
+            errH.AppendLine("（＾△＾）「" + genjo.InputLine + "」Util_InClient　：　クライアントの委譲メソッドｷﾀｰ☆");
+            errH.Flush(LogTypes.Error);
 
 
             string old_inputLine = genjo.InputLine;//退避
@@ -44,7 +45,8 @@ namespace Grayscale.A500_ShogiEngine.B260_UtilClient_.C500____Util
                 out ro_Kyokumen2_ForTokenize
                 );
 
-            errH.WriteLine("（＾△＾）old_inputLine=「" + old_inputLine + "」 rest=「" + rest + "」 Util_InClient　：　ﾊﾊｯ☆", LogTypes.Error);
+            errH.AppendLine("（＾△＾）old_inputLine=「" + old_inputLine + "」 rest=「" + rest + "」 Util_InClient　：　ﾊﾊｯ☆");
+            errH.Flush(LogTypes.Error);
 
             //string old_inputLine = genjo.InputLine;
             //genjo.InputLine = "";

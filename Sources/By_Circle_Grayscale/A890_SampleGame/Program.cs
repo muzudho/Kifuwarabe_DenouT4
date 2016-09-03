@@ -23,7 +23,7 @@ namespace P930_SampleGame
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            KwLogger errH = Util_Loggers.ENGINE_DEFAULT;
+            KwLogger errH = Util_Loggers.ProcessEngine_DEFAULT;
 
 
             // 将棋エンジン　きふわらべ

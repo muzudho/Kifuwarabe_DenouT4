@@ -85,13 +85,13 @@ namespace Grayscale.P699_Form_______
         /// <param name="e"></param>
         private void Ui_Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            KwLogger errH = Util_Loggers.CsharpGui_DEFAULT;
+            KwLogger errH = Util_Loggers.ProcessGui_DEFAULT;
             this.owner.Shutdown(errH);
         }
 
         private void Ui_Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            KwLogger errH = Util_Loggers.CsharpGui_DEFAULT;
+            KwLogger errH = Util_Loggers.ProcessGui_DEFAULT;
             this.owner.Shutdown(errH);
         }
     }

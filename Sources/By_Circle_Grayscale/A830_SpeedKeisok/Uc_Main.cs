@@ -81,7 +81,7 @@ namespace Grayscale.P910_SpeedKeisok
 #endif
                 this.Src_Sky,
                 this.FeatureVector,
-                Util_Loggers.SPEED_KEISOKU
+                Util_Loggers.ProcessSpeedTest_KEISOKU
                 );
 
             watch.Stop();
@@ -143,7 +143,7 @@ namespace Grayscale.P910_SpeedKeisok
         /// <param name="e"></param>
         private void btnOpenFv_Click(object sender, EventArgs e)
         {
-            KwLogger errH = Util_Loggers.SPEED_KEISOKU;
+            KwLogger errH = Util_Loggers.ProcessSpeedTest_KEISOKU;
             
 
             if ("" != this.txtFvFilepath.Text)

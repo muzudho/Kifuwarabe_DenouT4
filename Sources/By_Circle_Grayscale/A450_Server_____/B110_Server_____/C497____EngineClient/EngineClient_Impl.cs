@@ -131,7 +131,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
         /// <param name="e"></param>
         private void OnExited(object sender, System.EventArgs e)
         {
-            KwLogger errH = Util_Loggers.ENGINE_DEFAULT;
+            KwLogger errH = Util_Loggers.ProcessEngine_DEFAULT;
             this.ShogiEngineProcessWrapper.Send_Shutdown(errH);
         }
 

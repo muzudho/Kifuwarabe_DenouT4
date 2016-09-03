@@ -20,6 +20,25 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
     {
 
         /// <summary>
+        /// コンストラクター。
+        /// </summary>
+        /// <param name="fileNameWoe">拡張子抜きのファイル名。(with out extension)</param>
+        /// <param name="extension">ドット付き拡張子。(with dot)</param>
+        /// <param name="enable">ログ出力の有無</param>
+        /// <param name="print_TimeStamp">タイムスタンプ出力のON/OFF</param>
+        public KwLoggerImpl(string fileNameWoe, string extension, bool enable, bool print_TimeStamp, bool enableConsole)
+        {
+            this.fileNameWoe = fileNameWoe;
+            this.extension = extension;
+            this.enable = enable;
+            this.print_TimeStamp = print_TimeStamp;
+            this.EnableConsole = enableConsole;
+            this.m_buffer_ = new StringBuilder();
+        }
+
+        private StringBuilder m_buffer_;
+
+        /// <summary>
         /// ファイル名
         /// </summary>
         public string FileName { get { return this.FileNameWoe + this.Extension; } }
@@ -49,22 +68,10 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
         public bool Print_TimeStamp { get { return this.print_TimeStamp; } }
         private bool print_TimeStamp;
 
-
         /// <summary>
-        /// コンストラクター。
+        /// コンソール出力の有無。
         /// </summary>
-        /// <param name="fileNameWoe">拡張子抜きのファイル名。(with out extension)</param>
-        /// <param name="extension">ドット付き拡張子。(with dot)</param>
-        /// <param name="enable">ログ出力の有無</param>
-        /// <param name="print_TimeStamp">タイムスタンプ出力のON/OFF</param>
-        public KwLoggerImpl(string fileNameWoe, string extension, bool enable, bool print_TimeStamp)
-        {
-            this.fileNameWoe = fileNameWoe;
-            this.extension = extension;
-            this.enable = enable;
-            this.print_TimeStamp = print_TimeStamp;
-        }
-
+        public bool EnableConsole { get; set; }
 
         /// <summary>
         /// Equalsをオーバーライドしたので、このメソッドのオーバーライドも必要になります。
@@ -97,21 +104,64 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
 
 
         /// <summary>
-        /// テキストを、ログ・ファイルの末尾に追記します。改行付き。
+        /// ログを蓄えます。改行なし。
         /// </summary>
-        /// <param name="line"></param>
-        public void WriteLine(
-            string line,
-            LogTypes logTypes
-            )
+        /// <param name="token"></param>
+        public void Append(string token)
         {
             if (!this.Enable)
             {
                 // ログ出力オフ
-                goto gt_EndMethod;
+                return;
             }
 
             // ログ追記 TODO:非同期
+            try
+            {
+                this.m_buffer_.AppendLine(token);
+            }
+            catch (Exception ex)
+            {
+                Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "ログ中☆");
+                // ログ出力に失敗しても、続行します。
+            }
+        }
+        /// <summary>
+        /// ログを蓄えます。改行付き。
+        /// </summary>
+        /// <param name="line"></param>
+        public void AppendLine(string line)
+        {
+            if (!this.Enable)
+            {
+                // ログ出力オフ
+                return;
+            }
+
+            // ログ追記 TODO:非同期
+            try
+            {
+                this.m_buffer_.AppendLine(line);
+            }
+            catch (Exception ex)
+            {
+                Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "ログ中☆");
+                // ログ出力に失敗しても、続行します。
+            }
+        }
+
+        /// <summary>
+        /// テキストを、ログ・ファイルの末尾に追記します。
+        /// </summary>
+        /// <param name="logTypes"></param>
+        public void Flush(LogTypes logTypes)
+        {
+            if (!this.Enable)
+            {
+                // ログ出力オフ
+                return;
+            }
+
             try
             {
                 StringBuilder sb = new StringBuilder();
@@ -125,9 +175,7 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
 
                 switch (logTypes)
                 {
-                    //メモを、ログ・ファイルの末尾に追記します。
-                    case LogTypes.Memo:
-                        sb.Append("Memo: ");
+                    case LogTypes.Plain:
                         break;
                     case LogTypes.Error://エラーを、ログ・ファイルに記録します。
                         sb.Append("Error:");
@@ -140,33 +188,28 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
                         break;
                 }
 
-                sb.Append(line);
-                sb.AppendLine();
-
+                sb.Append(this.m_buffer_.ToString());
                 string message = sb.ToString();
+                this.m_buffer_.Clear();
 
-                if (logTypes==LogTypes.Error)
+                if (logTypes == LogTypes.Error)
                 {
                     MessageBox.Show(message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 string filepath2 = Path.Combine(Application.StartupPath, this.FileName);
                 System.IO.File.AppendAllText(filepath2, message);
+
+                if (this.EnableConsole)
+                {
+                    System.Console.Write(message);
+                }
             }
             catch (Exception ex)
             {
-                Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "ログ中☆");
+                Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "ログ中☆");
                 // ログ出力に失敗しても、続行します。
-
-                ////>>>>> エラーが起こりました。
-                //
-                //// どうにもできないので  ログだけ取って　無視します。
-                //string message = "Util_Log#WriteLine_Error：" + ex.Message;
-                //System.IO.File.AppendAllText(Const_Filepath.m_EXE_TO_LOGGINGS + "_log_致命的ｴﾗｰ.txt", message);
             }
-
-            gt_EndMethod:
-            ;
         }
 
         /// <summary>
@@ -183,7 +226,8 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
             Debug.Fail(message);
 
             // どうにもできないので  ログだけ取って、上に投げます。
-            this.WriteLine(message, LogTypes.Error);
+            this.AppendLine(message);
+            this.Flush(LogTypes.Error);
             // ログ出力に失敗することがありますが、無視します。
         }
 
@@ -201,7 +245,8 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
             Debug.Fail(message);
 
             // どうにもできないので  ログだけ取って、上に投げます。
-            this.WriteLine(message, LogTypes.Error);
+            this.AppendLine(message);
+            this.Flush(LogTypes.Error);
             // ログ出力に失敗することがありますが、無視します。
         }
 
