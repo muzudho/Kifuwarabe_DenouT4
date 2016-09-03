@@ -32,126 +32,6 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
     public abstract class Util_IttesasuRoutine
     {
-
-        public static void DoIttesasuA(
-            ref IttesasuResult ittesasuResult,
-            Move nextMove,
-            int korekaranoTemezumi,
-            Sky src_Sky,
-            Model_Taikyoku model_Taikyoku,
-            KwLogger errH,
-            KwDisplayer kd
-            )
-        {
-            Sky susunda_Sky_orNull2;
-            Util_IttesasuRoutine.Before1(
-                model_Taikyoku.Kifu.CurNode.Value,
-
-                src_Sky.KaisiPside,
-                nextMove,//FIXME: if文で分けているので、これがヌルなはずはないと思うが。
-                korekaranoTemezumi,//これから作る局面の、手目済み。
-
-                out susunda_Sky_orNull2,
-                out ittesasuResult,
-                errH,
-                kd,
-                "KifuParserA_StateA2_SfenMoves#Execute"
-                );
-
-            Util_IttesasuRoutine.Before2(
-                ref ittesasuResult
-                );
-
-            //----------------------------------------
-            // 次ノード追加、次ノードをカレントに。
-            //----------------------------------------
-            Util_IttesasuRoutine.After3_ChangeCurrent(
-                model_Taikyoku.Kifu,
-                ittesasuResult.Get_SyuryoNode_OrNull.Key,
-                ittesasuResult.Get_SyuryoNode_OrNull,
-                errH
-                );
-        }
-
-        public static void DoIttesasuB(
-            KifuTree kifu1,
-            Move nextMove,
-            KwLogger errH,
-            KwDisplayer kd
-            )
-        {
-            Sky susunda_Sky_orNull;
-            IttesasuResult ittesasuResult;
-
-            Util_IttesasuRoutine.Before1(
-                kifu1.CurNode.Value,
-
-                ((KifuNode)kifu1.CurNode).Value.Kyokumen.KaisiPside,
-                nextMove,
-                kifu1.CurNode.Value.Kyokumen.Temezumi + 1,//1手進める
-
-                out susunda_Sky_orNull,
-                out ittesasuResult,
-                //kifu1,//診断用
-                errH,
-                kd,
-                "Utli_LearningViews#ShowSasiteList"
-            );
-            Debug.Assert(ittesasuResult.Get_SyuryoNode_OrNull != null, "ittesasuResult.Get_SyuryoNode_OrNull がヌル☆？！");
-            Util_IttesasuRoutine.Before2(
-                ref ittesasuResult
-            );
-            //
-            //次ノートを追加します。次ノードを、これからのカレントとします。
-            //
-            Util_IttesasuRoutine.After3_ChangeCurrent(
-                kifu1,
-                ittesasuResult.Get_SyuryoNode_OrNull.Key,
-                ittesasuResult.Get_SyuryoNode_OrNull,
-                errH
-                );
-        }
-
-        public static void DoIttesasuC(
-            KifuTree kifu1,//learningData.Kifu
-            Move nextMove,
-            KwLogger errH,
-            KwDisplayer kd
-            )
-        {
-            Sky susunda_Sky_orNull;
-            IttesasuResult ittesasuResult;
-
-            Util_IttesasuRoutine.Before1(
-                kifu1.CurNode.Value,
-
-                ((KifuNode)kifu1.CurNode).Value.Kyokumen.KaisiPside,
-                nextMove,// FIXME: エラールートだと、これがヌル
-                kifu1.CurNode.Value.Kyokumen.Temezumi + 1,//1手進める
-
-                out susunda_Sky_orNull,
-                out ittesasuResult,
-                //this.Kifu,//診断用
-                errH,
-                kd,
-                "Util_LearningView#Ittesasu_ByBtnClick"
-            );
-            Debug.Assert(ittesasuResult.Get_SyuryoNode_OrNull != null, "ittesasuResult.Get_SyuryoNode_OrNull がヌル☆？！");
-            Util_IttesasuRoutine.Before2(
-                ref ittesasuResult
-            );
-            //
-            //次ノートを追加します。次ノードを、これからのカレントとします。
-            //
-            //this.Kifu.AssertChildPside(this.Kifu.CurNode.Value.ToKyokumenConst.KaisiPside, ittesasuResult.Get_SyuryoNode_OrNull.Value.ToKyokumenConst.KaisiPside);
-            Util_IttesasuRoutine.After3_ChangeCurrent(
-                kifu1,
-                ittesasuResult.Get_SyuryoNode_OrNull.Key,
-                ittesasuResult.Get_SyuryoNode_OrNull,
-                errH
-                );
-        }
-
         /// <summary>
         /// 一手指します。
         /// </summary>
@@ -162,15 +42,10 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <param name="memberName"></param>
         /// <param name="sourceFilePath"></param>
         /// <param name="sourceLineNumber"></param>
-        public static void Before1(
-            KyokumenWrapper kaisiKyokumen,// 一手指し、開始局面。
-
-            Playerside kaisiTebanside,//一手指し、開始局面、手番。
-            Move korekaranoMove,//一手指し、終了局面。これから指されるはずの手。棋譜に記録するために「指す前／指した後」を含めた手。
-            int korekaranoTemezumi,//これから作る局面の、手目済み。
-
-            out Sky susunda_Sky_orNull,// 終了ノードの局面データ。
+        public static void DoMove(
             out IttesasuResult ittesasuResult,
+            KifuTree kifu1,
+            Move korekaranoMove,//一手指し、終了局面。これから指されるはずの手。棋譜に記録するために「指す前／指した後」を含めた手。
             KwLogger errH,
             KwDisplayer kd,
             string hint
@@ -180,6 +55,14 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             [CallerLineNumber] int sourceLineNumber = 0
             )
         {
+            KyokumenWrapper kaisiKyokumen = kifu1.CurNode.Value;// 一手指し、開始局面。
+            Playerside kaisiTebanside = kifu1.CurNode.Value.Kyokumen.KaisiPside;//一手指し、開始局面、手番。
+            int korekaranoTemezumi = kifu1.CurNode.Value.Kyokumen.Temezumi + 1;//1手進める //これから作る局面の、手目済み。
+
+
+
+            Sky susunda_Sky_orNull;// 終了ノードの局面データ。
+
             int exceptionArea = 0;
 
             try
@@ -349,70 +232,50 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 errH.Flush(LogTypes.Error);
                 throw ex;
             }
-        }
 
-        /// <summary>
-        /// 棋譜ツリーのカレントを変更します。
-        /// </summary>
-        /// <param name="isMakimodosi"></param>
-        /// <param name="ittesasuReference"></param>
-        /// <param name="errH"></param>
-        public static void Before2(
-            ref IttesasuResult ittesasuReference
-            )
-        {
-            if (ittesasuReference.FoodKomaSyurui != Komasyurui14.H00_Null___)
+
+
+
+            if (ittesasuResult.FoodKomaSyurui != Komasyurui14.H00_Null___)
             {
                 // 元のキーの、取った駒の種類だけを差替えます。
                 Move move = Conv_Move.SetCaptured(
-                    ittesasuReference.Get_SyuryoNode_OrNull.Key,
-                    ittesasuReference.FoodKomaSyurui
+                    ittesasuResult.Get_SyuryoNode_OrNull.Key,
+                    ittesasuResult.FoodKomaSyurui
                     );
 
                 // キーを差替えたノード
-                ittesasuReference.Set_SyuryoNode_OrNull = new KifuNodeImpl(
+                ittesasuResult.Set_SyuryoNode_OrNull = new KifuNodeImpl(
                     move,
-                    ittesasuReference.Get_SyuryoNode_OrNull.Value
+                    ittesasuResult.Get_SyuryoNode_OrNull.Value
                     );
             }
-        }
 
-        /// <summary>
-        /// 棋譜ツリーのカレントを変更します。
-        /// </summary>
-        /// <param name="kifu_mutable"></param>
-        /// <param name="nextMove1"></param>
-        /// <param name="edit_childNode_Ref"></param>
-        /// <param name="errH"></param>
-        public static void After3_ChangeCurrent(
-            KifuTree kifu_mutable,
-            Move nextMove1,
-            Node<Move, KyokumenWrapper> edit_childNode_Ref,
-            KwLogger errH
-            )
-        {
 
-            if (!((KifuNode)kifu_mutable.CurNode).HasTuginoitte(nextMove1))
+
+            // 棋譜ツリーのカレントを変更します。
+            if (!((KifuNode)kifu1.CurNode).HasTuginoitte(ittesasuResult.Get_SyuryoNode_OrNull.Key))
             {
                 //----------------------------------------
                 // 次ノード追加（なければ）
                 //----------------------------------------
-                kifu_mutable.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(edit_childNode_Ref.Value.Kyokumen), "After3_ChangeCurrent(次の一手なし)");
-                ((KifuNode)kifu_mutable.CurNode).PutTuginoitte_New(edit_childNode_Ref);//次ノートを追加します。
+                kifu1.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(ittesasuResult.Get_SyuryoNode_OrNull.Value.Kyokumen), "After3_ChangeCurrent(次の一手なし)");
+                ((KifuNode)kifu1.CurNode).PutTuginoitte_New(ittesasuResult.Get_SyuryoNode_OrNull);//次ノートを追加します。
             }
             else
             {
                 //----------------------------------------
                 // 次ノード上書き（あれば）
                 //----------------------------------------
-                kifu_mutable.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(edit_childNode_Ref.Value.Kyokumen), "After3_ChangeCurrent（次の一手あり）");
-                ((KifuNode)kifu_mutable.CurNode).PutTuginoitte_Override(edit_childNode_Ref);//次ノートを上書きします。
+                kifu1.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(ittesasuResult.Get_SyuryoNode_OrNull.Value.Kyokumen), "After3_ChangeCurrent（次の一手あり）");
+                ((KifuNode)kifu1.CurNode).PutTuginoitte_Override(ittesasuResult.Get_SyuryoNode_OrNull);//次ノートを上書きします。
             }
 
-            Node<Move, KyokumenWrapper> temp = kifu_mutable.CurNode;
-            kifu_mutable.SetCurNode( edit_childNode_Ref);//次ノードを、これからのカレントとします。
-            edit_childNode_Ref.SetParentNode( temp);
+            Node<Move, KyokumenWrapper> temp = kifu1.CurNode;
+            kifu1.SetCurNode(ittesasuResult.Get_SyuryoNode_OrNull);//次ノードを、これからのカレントとします。
+            ittesasuResult.Get_SyuryoNode_OrNull.SetParentNode(temp);
         }
+
 
 
 

@@ -140,11 +140,15 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     //----------------------------------------
                     //
                     //↓↓一手指し
-                    Util_IttesasuRoutine.DoIttesasuB(
+                    IttesasuResult ittesasuResult;
+                    Util_IttesasuRoutine.DoMove(
+                        out ittesasuResult,
                         kifu1,
                         nextMove,
-                        errH,kd
-                        );
+                        errH,
+                        kd,
+                        "Utli_LearningViews#ShowSasiteList"
+                    );
                     // これで、棋譜ツリーに、構造変更があったはず。
                     //↑↑一手指し
                 }
@@ -357,11 +361,16 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             // 一手指したい。
             //----------------------------------------
             //↓↓一手指し
-            Util_IttesasuRoutine.DoIttesasuC(
+            IttesasuResult ittesasuResult;
+            Util_IttesasuRoutine.DoMove(
+                out ittesasuResult,
                 learningData.Kifu,
                 nextMove,
-                errH,kd
+                errH,
+                kd,
+                "Util_LearningView#Ittesasu_ByBtnClick"
             );
+
             // これで、棋譜ツリーに、構造変更があったはず。
             //↑↑一手指し
 

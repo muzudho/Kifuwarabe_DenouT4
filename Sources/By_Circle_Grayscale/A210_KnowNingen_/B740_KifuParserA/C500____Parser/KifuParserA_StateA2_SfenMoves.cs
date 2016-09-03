@@ -63,16 +63,9 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
         {
             int exceptionArea = 0;
 
-
-            // 現局面。
-            Sky src_Sky = model_Taikyoku.Kifu.CurNode.Value.Kyokumen;
-//            Debug.Assert(!Util_MasuNum.OnKomabukuro((int)((RO_Star_Koma)src_Sky.StarlightIndexOf((Finger)0)).Masu), "カレント、駒が駒袋にあった。");
-
             bool isHonshogi = true;//FIXME:暫定
 
-            // 現在の手番の開始局面+1
-            int korekaranoTemezumi = src_Sky.Temezumi + 1;
-
+            
             nextState = this;
 
             try
@@ -189,14 +182,13 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                             //
                             //↓↓将棋エンジンが一手指し（進める）
                             //
-                            Util_IttesasuRoutine.DoIttesasuA(
-                                ref ittesasuResult,
-                                nextMove,
-                                korekaranoTemezumi,
-                                src_Sky,
-                                model_Taikyoku,
+                            Util_IttesasuRoutine.DoMove(
+                                out ittesasuResult,
+                                model_Taikyoku.Kifu,
+                                nextMove,//FIXME: if文で分けているので、これがヌルなはずはないと思うが。
                                 errH,
-                                kd
+                                kd,
+                                "KifuParserA_StateA2_SfenMoves#Execute"
                                 );
 
                             exceptionArea = 1080;
