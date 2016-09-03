@@ -221,7 +221,7 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util
                     if (null != mmLog_orNull)
                     {
                         // どうにもできないので  ログだけ取って無視します。
-                        mmLog_orNull.ErrH.DonimoNaranAkirameta(ex,msg);
+                        mmLog_orNull.ErrH.Logger.DonimoNaranAkirameta(ex,msg);
                     }
 #endif
 

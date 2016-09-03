@@ -5,6 +5,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using System.Diagnostics;
 
 namespace Grayscale.A060_Application.B110_Log________.C500____Struct
 {
@@ -99,15 +100,12 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
         /// テキストを、ログ・ファイルの末尾に追記します。改行付き。
         /// </summary>
         /// <param name="line"></param>
-        public void WriteLine_Add(
+        public void WriteLine(
             string line,
             LogTypes logTypes
             )
         {
-            bool enable = this.Enable;
-            string filepath2 = Path.Combine(Application.StartupPath, this.FileName);
-
-            if (!enable)
+            if (!this.Enable)
             {
                 // ログ出力オフ
                 goto gt_EndMethod;
@@ -122,250 +120,90 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
                 if (this.Print_TimeStamp)
                 {
                     sb.Append(DateTime.Now.ToString());
-                    sb.Append(" : ");
+                    sb.Append(" ");
                 }
-                else
-                {
-                    switch (logTypes)
-                    {
-                        //メモを、ログ・ファイルの末尾に追記します。
-                        case LogTypes.Memo:
-                            {
-                                sb.Append("Memo:   ");
-                            }
-                            break;
-                    }
-                }
-
-                sb.Append(line);
-                sb.AppendLine();
-
-                System.IO.File.AppendAllText(filepath2, sb.ToString());
-            }
-            catch (Exception ex)
-            {
-                Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "ログ中☆");
-                // ログ出力に失敗しても、続行します。
-            }
-
-            gt_EndMethod:
-            ;
-        }
-
-        /// <summary>
-        /// テキストで上書きします。末尾に改行付き。
-        /// </summary>
-        /// <param name="line"></param>
-        public void WriteLine(
-            string line,
-            LogTypes logTypes
-            )
-        {
-            bool enable = this.Enable;
-            bool printTimestamp = this.Print_TimeStamp;
-            string filepath2 = Path.Combine(Application.StartupPath, this.FileName);
-
-            if (!enable)
-            {
-                // ログ出力オフ
-                goto gt_EndMethod;
-            }
-
-            // ログ追記 TODO:非同期
-            try
-            {
-                StringBuilder sb = new StringBuilder();
 
                 switch (logTypes)
                 {
-                    case LogTypes.Error://エラーを、ログ・ファイルに記録します。
-                        sb.Append("Error:   ");
+                    //メモを、ログ・ファイルの末尾に追記します。
+                    case LogTypes.Memo:
+                        sb.Append("Memo: ");
                         break;
-                }
-
-
-                // タイムスタンプ
-                if (printTimestamp)
-                {
-                    sb.Append(DateTime.Now.ToString());
-                    sb.Append(" : ");
+                    case LogTypes.Error://エラーを、ログ・ファイルに記録します。
+                        sb.Append("Error:");
+                        break;
+                    case LogTypes.ToServer:
+                        sb.Append("<     ");
+                        break;
+                    case LogTypes.ToClient:
+                        sb.Append(">     ");
+                        break;
                 }
 
                 sb.Append(line);
                 sb.AppendLine();
 
                 string message = sb.ToString();
-                MessageBox.Show(message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                if (logTypes==LogTypes.Error)
+                {
+                    MessageBox.Show(message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                string filepath2 = Path.Combine(Application.StartupPath, this.FileName);
                 System.IO.File.AppendAllText(filepath2, message);
             }
             catch (Exception ex)
             {
-                //>>>>> エラーが起こりました。
+                Util_Loggers.ERROR.Logger.DonimoNaranAkirameta(ex, "ログ中☆");
+                // ログ出力に失敗しても、続行します。
 
-                // どうにもできないので  ログだけ取って　無視します。
-                string message = "Util_Log#WriteLine_Error：" + ex.Message;
-                System.IO.File.AppendAllText(Const_Filepath.m_EXE_TO_LOGGINGS + "_log_致命的ｴﾗｰ.txt", message);
+                ////>>>>> エラーが起こりました。
+                //
+                //// どうにもできないので  ログだけ取って　無視します。
+                //string message = "Util_Log#WriteLine_Error：" + ex.Message;
+                //System.IO.File.AppendAllText(Const_Filepath.m_EXE_TO_LOGGINGS + "_log_致命的ｴﾗｰ.txt", message);
             }
 
             gt_EndMethod:
             ;
         }
 
-
         /// <summary>
-        /// ************************************************************************************************************************
-        /// メモを、ログ・ファイルに記録します。
-        /// ************************************************************************************************************************
+        /// 「どうにもならん、あきらめた」
+        /// 
+        /// 例外が発生したが、対応できないのでログだけ出します。
+        /// デバッグ時は、ダイアログボックスを出します。
         /// </summary>
-        /// <param name="line"></param>
-        public void WriteLine_Over(
-            string line,
-            LogTypes logTypes
-            )
+        /// <param name="okottaBasho"></param>
+        public void DonimoNaranAkirameta(string okottaBasho)
         {
-            bool enable = this.Enable;
-            string filepath2 = Path.Combine(Application.StartupPath, this.FileName);
+            //>>>>> エラーが起こりました。
+            string message = "起こった場所：" + okottaBasho;
+            Debug.Fail(message);
 
-            if (!enable)
-            {
-                // ログ出力オフ
-                goto gt_EndMethod;
-            }
-
-            // ログ追記 TODO:非同期
-            try
-            {
-                StringBuilder sb = new StringBuilder();
-
-                // タイムスタンプ
-                if (this.Print_TimeStamp)
-                {
-                    sb.Append(DateTime.Now.ToString());
-                    sb.Append(" : ");
-                }
-                else
-                {
-                    switch (logTypes)
-                    {
-                        case LogTypes.Memo:
-                            sb.Append("Memo:   ");
-                            break;
-                    }
-                }
-
-                sb.Append(line);
-                sb.AppendLine();
-
-                System.IO.File.WriteAllText(filepath2, sb.ToString());
-            }
-            catch (Exception ex) { Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "ログ取り中☆"); throw ex; }
-
-        gt_EndMethod:
-            ;
-        }
-
-
-
-
-
-
-
-        /// <summary>
-        /// ************************************************************************************************************************
-        /// サーバーへ送ったコマンドを、ログ・ファイルに記録します。
-        /// ************************************************************************************************************************
-        /// </summary>
-        /// <param name="line"></param>
-        public void WriteLine_S(
-            string line
-            //,
-            //[CallerMemberName] string memberName = "",
-            //[CallerFilePath] string sourceFilePath = "",
-            //[CallerLineNumber] int sourceLineNumber = 0
-            )
-        {
-            bool enable = this.Enable;
-            bool print_TimeStamp = this.Print_TimeStamp;
-            string filepath2 = Path.Combine(Application.StartupPath, this.FileName);
-
-            if (!enable)
-            {
-                // ログ出力オフ
-                goto gt_EndMethod;
-            }
-
-            // ログ追記 TODO:非同期
-            try
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.Append(DateTime.Now.ToString());
-                sb.Append("<   ");
-                sb.Append(line);
-                //sb.Append("：");
-                //sb.Append(memberName);
-                //sb.Append("：");
-                //sb.Append(sourceFilePath);
-                //sb.Append("：");
-                //sb.Append(sourceLineNumber);
-                sb.AppendLine();
-
-                System.IO.File.AppendAllText(filepath2, sb.ToString());
-            }
-            catch (Exception ex) { Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "ログ取り中☆"); }
-
-        gt_EndMethod:
-            ;
+            // どうにもできないので  ログだけ取って、上に投げます。
+            this.WriteLine(message, LogTypes.Error);
+            // ログ出力に失敗することがありますが、無視します。
         }
 
         /// <summary>
-        /// ************************************************************************************************************************
-        /// サーバーから受け取ったコマンドを、ログ・ファイルに記録します。
-        /// ************************************************************************************************************************
+        /// 「どうにもならん、あきらめた」
+        /// 
+        /// 例外が発生したが、対応できないのでログだけ出します。
+        /// デバッグ時は、ダイアログボックスを出します。
         /// </summary>
-        /// <param name="line"></param>
-        public void WriteLine_C(
-            string line
-            //,
-            //[CallerMemberName] string memberName = "",
-            //[CallerFilePath] string sourceFilePath = "",
-            //[CallerLineNumber] int sourceLineNumber = 0
-            )
+        /// <param name="okottaBasho"></param>
+        public void DonimoNaranAkirameta(Exception ex, string okottaBasho)
         {
-            bool enable = this.Enable;
-            bool print_TimeStamp = this.Print_TimeStamp;
-            string filepath2 = Path.Combine(Application.StartupPath, this.FileName);
+            //>>>>> エラーが起こりました。
+            string message = ex.GetType().Name + " " + ex.Message + "：" + okottaBasho;
+            Debug.Fail(message);
 
-            if (!enable)
-            {
-                // ログ出力オフ
-                goto gt_EndMethod;
-            }
-
-            // ログ追記 TODO:非同期
-            try
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.Append(DateTime.Now.ToString());
-                sb.Append("  > ");
-                sb.Append(line);
-                //sb.Append("：");
-                //sb.Append(memberName);
-                //sb.Append("：");
-                //sb.Append(sourceFilePath);
-                //sb.Append("：");
-                //sb.Append(sourceLineNumber);
-                sb.AppendLine();
-
-                System.IO.File.AppendAllText(filepath2, sb.ToString());
-            }
-            catch (Exception ex) { Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "ログ取り中☆"); throw ex; }
-
-        gt_EndMethod:
-            ;
+            // どうにもできないので  ログだけ取って、上に投げます。
+            this.WriteLine(message, LogTypes.Error);
+            // ログ出力に失敗することがありますが、無視します。
         }
 
     }
-
-
 }

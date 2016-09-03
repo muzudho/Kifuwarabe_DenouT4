@@ -12,6 +12,17 @@
         /// <summary>
         /// エラーを記入します。
         /// </summary>
-        Error
+        Error,
+
+        /// <summary>
+        /// サーバーへ送ったコマンドを、ログ・ファイルに記録します。
+        /// </summary>
+        ToServer,
+
+        /// <summary>
+        /// クライアントへ送ったコマンドを、ログ・ファイルに記録します。
+        /// </summary>
+        ToClient
+
     }
 }

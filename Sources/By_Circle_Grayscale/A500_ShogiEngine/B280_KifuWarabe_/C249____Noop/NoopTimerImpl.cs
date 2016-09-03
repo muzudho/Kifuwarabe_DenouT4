@@ -52,7 +52,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C249____Noop
 
                             // noop を投げて 1分過ぎていれば。
 #if DEBUG
-                            errH.Logger.WriteLine_Add("計20秒ほど、サーバーからの応答がなかったぜ☆ (^-^)ﾉｼ",LogTypes.Memo);
+                            errH.Logger.WriteLine("計20秒ほど、サーバーからの応答がなかったぜ☆ (^-^)ﾉｼ",LogTypes.Memo);
 #endif
 
                             // このプログラムを終了します。
@@ -63,7 +63,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C249____Noop
                     case NoopPhase.None:
                         {
 #if DEBUG
-                            errH.Logger.WriteLine_Add("noopを投げるぜ☆", LogTypes.Memo);
+                            errH.Logger.WriteLine("noopを投げるぜ☆", LogTypes.Memo);
 #endif
                             // まだ noop を投げていないなら
                             owner.Send("noop");// サーバーが生きていれば、"ok" と返してくるはず。（独自実装）
@@ -87,7 +87,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C249____Noop
             //{
                 // noopを投げてなくても、毎回ストップウォッチはリスタートさせます。
 //#if DEBUG
-                errH.Logger.WriteLine_C("サーバーから応答[" + command + "]があったのでタイマーをリスタートさせるぜ☆");
+                errH.Logger.WriteLine("サーバーから応答[" + command + "]があったのでタイマーをリスタートさせるぜ☆", LogTypes.ToClient);
 //#endif
                 this.noopPhase = NoopPhase.None;
                 this.sw_forNoop.Restart();

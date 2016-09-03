@@ -1,4 +1,5 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using System;
 
 namespace Grayscale.A060_Application.B110_Log________.C___500_Struct
 {
@@ -37,43 +38,27 @@ namespace Grayscale.A060_Application.B110_Log________.C___500_Struct
         /// テキストを、ログ・ファイルの末尾に追記します。改行付き。
         /// </summary>
         /// <param name="line"></param>
-        void WriteLine_Add(
-            string line,
-            LogTypes logTypes
-            );
-
-
-        /// <summary>
-        /// テキストで上書きします。末尾に改行付き。
-        /// </summary>
-        /// <param name="line"></param>
         void WriteLine(
             string line,
             LogTypes logTypes
             );
 
         /// <summary>
-        /// ログ・ファイルに記録します。（メモ）
+        /// 「どうにもならん、あきらめた」
         /// 
-        /// 一旦、ログ・ファイルを空っぽにしたい場合などに。
+        /// 例外が発生したが、対応できないのでログだけ出して例外をさらに上へ投げ返すとき。
         /// </summary>
-        /// <param name="line"></param>
-        void WriteLine_Over(string line,
-            LogTypes logTypes);
+        /// <param name="okottaBasho"></param>
+        void DonimoNaranAkirameta(string okottaBasho);
 
 
         /// <summary>
-        /// ログ・ファイルに記録します。（サーバーへ送ったコマンドを）
+        /// 「どうにもならん、あきらめた」
+        /// 
+        /// 例外が発生したが、対応できないのでログだけ出して例外をさらに上へ投げ返すとき。
         /// </summary>
-        /// <param name="line"></param>
-        void WriteLine_S(string line);
-
-
-        /// <summary>
-        /// ログ・ファイルに記録します。（サーバーから受け取ったコマンドを）
-        /// </summary>
-        /// <param name="line"></param>
-        void WriteLine_C(string line);
+        /// <param name="okottaBasho"></param>
+        void DonimoNaranAkirameta(Exception ex, string okottaBasho);
 
     }
 }

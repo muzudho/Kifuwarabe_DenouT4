@@ -57,16 +57,16 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                 Move move1 = item.Move;
 #if DEBUG
                 string sfen = Conv_Move.ToSfen(item.Move);
-                errH.Logger.WriteLine_Add("sfen=" + sfen, LogTypes.Memo);
+                errH.Logger.WriteLine("sfen=" + sfen, LogTypes.Memo);
 #endif
 
                 if (uc_Main.LearningData.Kifu.CurNode.HasChildNode(move1))
                 {
 #if DEBUG
-                    errH.Logger.WriteLine_Add("----------------------------------------", LogTypes.Memo);
-                    errH.Logger.WriteLine_Add("FV 総合点（読込前）1", LogTypes.Memo);
-                    errH.Logger.WriteLine_Add("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(uc_Main.LearningData.Fv), LogTypes.Memo);
-                    errH.Logger.WriteLine_Add("----------------------------------------", LogTypes.Memo);
+                    errH.Logger.WriteLine("----------------------------------------", LogTypes.Memo);
+                    errH.Logger.WriteLine("FV 総合点（読込前）1", LogTypes.Memo);
+                    errH.Logger.WriteLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(uc_Main.LearningData.Fv), LogTypes.Memo);
+                    errH.Logger.WriteLine("----------------------------------------", LogTypes.Memo);
 #endif
                     Node<Move, KyokumenWrapper> nextNode = uc_Main.LearningData.Kifu.CurNode.GetChildNode(move1);
 
@@ -83,10 +83,10 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                         errH
                         );//相手が有利になる点
 #if DEBUG
-                    errH.Logger.WriteLine_Add("----------------------------------------", LogTypes.Memo);
-                    errH.Logger.WriteLine_Add("FV 総合点（読込後）6", LogTypes.Memo);
-                    errH.Logger.WriteLine_Add("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(uc_Main.LearningData.Fv), LogTypes.Memo);
-                    errH.Logger.WriteLine_Add("----------------------------------------", LogTypes.Memo);
+                    errH.Logger.WriteLine("----------------------------------------", LogTypes.Memo);
+                    errH.Logger.WriteLine("FV 総合点（読込後）6", LogTypes.Memo);
+                    errH.Logger.WriteLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(uc_Main.LearningData.Fv), LogTypes.Memo);
+                    errH.Logger.WriteLine("----------------------------------------", LogTypes.Memo);
 #endif
                 }
             }

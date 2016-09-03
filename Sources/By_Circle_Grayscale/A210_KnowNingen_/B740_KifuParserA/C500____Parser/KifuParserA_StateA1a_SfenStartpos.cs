@@ -73,7 +73,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     genjo.ToBreak_Abnormal();
                 }
             }
-            catch (Exception ex) { Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "SFEN文字列の解析中。"); throw ex; }
+            catch (Exception ex) { Util_Loggers.ERROR.Logger.DonimoNaranAkirameta(ex, "SFEN文字列の解析中。"); throw ex; }
 
             return genjo.InputLine;
         }

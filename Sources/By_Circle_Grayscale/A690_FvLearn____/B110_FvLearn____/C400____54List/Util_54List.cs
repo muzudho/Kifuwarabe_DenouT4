@@ -27,7 +27,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C400____54List
             sb.AppendLine("koma1.Komasyurui=[" + Conv_Busstop.ToKomasyurui(busstop) + "]");
             sb.AppendLine("koma1.Masu=[" + Conv_Busstop.ToMasu(busstop) + "]");
             sb.AppendLine("Conv_SyElement.ToOkiba(koma1.Masu)=[" + Conv_Busstop.ToOkiba(busstop) + "]");
-            errH.DonimoNaranAkirameta(sb.ToString());
+            errH.Logger.DonimoNaranAkirameta(sb.ToString());
         }
 
 

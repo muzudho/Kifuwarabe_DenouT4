@@ -15,6 +15,9 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
     {
         public static readonly KwErrorHandler DEFAULT_BY_PROCESS = new ErrorHandlerImpl(new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS, "_log_default_false_(" + System.Diagnostics.Process.GetCurrentProcess() + ")"), ".txt", false, false));
 
+        /// <summary>
+        /// ログを出せなかったときなど、致命的なエラーにも利用。
+        /// </summary>
         public static readonly KwErrorHandler ERROR = new ErrorHandlerImpl( new KwLoggerImpl( Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS, "_log_エラー"), ".txt", true, false));
 
 
@@ -117,7 +120,7 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
                     }
                 }
             }
-            catch (Exception ex) { Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "ﾛｸﾞﾌｧｲﾙ削除中☆"); throw ex; }
+            catch (Exception ex) { Util_Loggers.ERROR.Logger.DonimoNaranAkirameta(ex, "ﾛｸﾞﾌｧｲﾙ削除中☆"); throw ex; }
         }
 
 

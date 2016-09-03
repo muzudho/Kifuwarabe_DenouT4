@@ -369,7 +369,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
 
             {
 #if DEBUG
-                errH.Logger.WriteLine_Add("(^o^)乱数のたね＝[" + KwRandom.Seed + "]",LogTypes.Memo);
+                errH.Logger.WriteLine("(^o^)乱数のたね＝[" + KwRandom.Seed + "]",LogTypes.Memo);
 #endif
 
                 this.Data_Settei_Csv.Read_Add(Const_Filepath.m_EXE_TO_CONFIG + "data_settei.csv", Encoding.UTF8);

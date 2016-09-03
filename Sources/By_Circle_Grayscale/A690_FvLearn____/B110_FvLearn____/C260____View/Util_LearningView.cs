@@ -347,7 +347,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     sb.Append("指し手[" + Conv_Move.ToSfen(move) + "]はありませんでした。\n" + learningData.DumpToAllGohosyu(learningData.Kifu.CurNode.Value.Kyokumen));
 
                     //Debug.Fail(sb.ToString());
-                    errH.DonimoNaranAkirameta("Util_LearningView#Ittesasu_ByBtnClick：" + sb.ToString());
+                    errH.Logger.DonimoNaranAkirameta("Util_LearningView#Ittesasu_ByBtnClick：" + sb.ToString());
                     MessageBox.Show(sb.ToString(), "エラー");
                 }
             }

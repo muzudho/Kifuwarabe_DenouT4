@@ -40,42 +40,6 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
         {
             this.logger = logTag;
         }
-
-        /// <summary>
-        /// 「どうにもならん、あきらめた」
-        /// 
-        /// 例外が発生したが、対応できないのでログだけ出します。
-        /// デバッグ時は、ダイアログボックスを出します。
-        /// </summary>
-        /// <param name="okottaBasho"></param>
-        public void DonimoNaranAkirameta( string okottaBasho)
-        {
-            //>>>>> エラーが起こりました。
-            string message = "起こった場所：" + okottaBasho;
-            Debug.Fail(message);
-
-            // どうにもできないので  ログだけ取って、上に投げます。
-            this.Logger.WriteLine(message, LogTypes.Error);
-            // ログ出力に失敗することがありますが、無視します。
-        }
-
-        /// <summary>
-        /// 「どうにもならん、あきらめた」
-        /// 
-        /// 例外が発生したが、対応できないのでログだけ出します。
-        /// デバッグ時は、ダイアログボックスを出します。
-        /// </summary>
-        /// <param name="okottaBasho"></param>
-        public void DonimoNaranAkirameta( Exception ex, string okottaBasho)
-        {
-            //>>>>> エラーが起こりました。
-            string message = ex.GetType().Name + " " + ex.Message + "：" + okottaBasho;
-            Debug.Fail(message);
-
-            // どうにもできないので  ログだけ取って、上に投げます。
-            this.Logger.WriteLine(message, LogTypes.Error);
-            // ログ出力に失敗することがありますが、無視します。
-        }
     }
 
 }

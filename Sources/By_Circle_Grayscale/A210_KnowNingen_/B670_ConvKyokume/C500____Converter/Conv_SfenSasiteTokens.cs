@@ -128,7 +128,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                     {
                         string message = "TuginoItte_Sfen#GetData_FromTextSub：駒台から種類[" + uttaSyurui + "]の駒を掴もうとしましたが、エラーでした。";
                         Exception ex = new Exception(message);
-                        Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "moves解析中☆"); throw ex;
+                        Util_Loggers.ERROR.Logger.DonimoNaranAkirameta(ex, "moves解析中☆"); throw ex;
                     }
 
 
@@ -195,7 +195,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                             src_Sky.Temezumi));
 
                         Exception ex = new Exception(sb.ToString());
-                        Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "SFEN解析中の失敗"); throw ex;
+                        Util_Loggers.ERROR.Logger.DonimoNaranAkirameta(ex, "SFEN解析中の失敗"); throw ex;
                     }
                 }
 
@@ -277,7 +277,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                     false
                 );
             }
-            catch (Exception ex) { Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "moves解析中☆　str1=「" + str1 + "」　str2=「" + str2 + "」　str3=「" + str3 + "」　str4=「" + str4 + "」　strNari=「" + strNari + "」　"); throw ex; }
+            catch (Exception ex) { Util_Loggers.ERROR.Logger.DonimoNaranAkirameta(ex, "moves解析中☆　str1=「" + str1 + "」　str2=「" + str2 + "」　str3=「" + str3 + "」　str4=「" + str4 + "」　strNari=「" + strNari + "」　"); throw ex; }
         }
     }
 }

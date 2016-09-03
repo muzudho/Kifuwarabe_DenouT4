@@ -427,7 +427,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
                     sMs_effect.AddRange_New( kmEffect_seme_BANJO);
 
                 }
-                catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "ランダムチョイス(50)"); throw ex; }
+                catch (Exception ex) { errH.Logger.DonimoNaranAkirameta(ex, "ランダムチョイス(50)"); throw ex; }
 
             }
 

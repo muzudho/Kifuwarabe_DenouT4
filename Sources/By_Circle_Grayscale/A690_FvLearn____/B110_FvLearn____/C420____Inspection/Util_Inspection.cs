@@ -89,16 +89,16 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C420____Inspection
                     longest_positive = false;
                 }
 #if DEBUG
-                errH.Logger.WriteLine_Add("PP",LogTypes.Memo);
-                errH.Logger.WriteLine_Add("----------------------------------------", LogTypes.Memo);
-                errH.Logger.WriteLine_Add("begin", LogTypes.Memo);
-                errH.Logger.WriteLine_Add("   negative_length =" + negative_length, LogTypes.Memo);
-                errH.Logger.WriteLine_Add("   positive_length =" + positive_length, LogTypes.Memo);
-                errH.Logger.WriteLine_Add("   longest_positive=" + longest_positive, LogTypes.Memo);
-                errH.Logger.WriteLine_Add("   negative_average=" + (negative_items == 0 ? 0 : negative_total / negative_items), LogTypes.Memo);
-                errH.Logger.WriteLine_Add("   positive_average=" + (positive_items == 0 ? 0 : positive_total / positive_items), LogTypes.Memo);
-                errH.Logger.WriteLine_Add("   notZero         =" + notZero, LogTypes.Memo);
-                errH.Logger.WriteLine_Add("----------------------------------------", LogTypes.Memo);
+                errH.Logger.WriteLine("PP",LogTypes.Memo);
+                errH.Logger.WriteLine("----------------------------------------", LogTypes.Memo);
+                errH.Logger.WriteLine("begin", LogTypes.Memo);
+                errH.Logger.WriteLine("   negative_length =" + negative_length, LogTypes.Memo);
+                errH.Logger.WriteLine("   positive_length =" + positive_length, LogTypes.Memo);
+                errH.Logger.WriteLine("   longest_positive=" + longest_positive, LogTypes.Memo);
+                errH.Logger.WriteLine("   negative_average=" + (negative_items == 0 ? 0 : negative_total / negative_items), LogTypes.Memo);
+                errH.Logger.WriteLine("   positive_average=" + (positive_items == 0 ? 0 : positive_total / positive_items), LogTypes.Memo);
+                errH.Logger.WriteLine("   notZero         =" + notZero, LogTypes.Memo);
+                errH.Logger.WriteLine("----------------------------------------", LogTypes.Memo);
 #endif
             }
         }

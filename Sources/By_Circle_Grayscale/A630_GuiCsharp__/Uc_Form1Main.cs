@@ -427,7 +427,7 @@ namespace Grayscale.P699_Form_______
 
 #if DEBUG
                         // ログ
-                        errH.Logger.WriteLine_Add(form2.GetOutputareaText(),LogTypes.Memo);
+                        errH.Logger.WriteLine(form2.GetOutputareaText(),LogTypes.Memo);
 #endif
                     }
                     break;

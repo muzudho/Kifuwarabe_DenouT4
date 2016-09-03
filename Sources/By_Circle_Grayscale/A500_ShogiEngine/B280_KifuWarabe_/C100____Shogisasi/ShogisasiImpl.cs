@@ -127,7 +127,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                     searchedPv,
                     kifu, isHonshogi, Mode_Tansaku.Shogi_ENgine, alphabeta_otherBranchDecidedValue, args, errH);
             }
-            catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "棋譜ツリーを作っていたときです。"); throw ex; }
+            catch (Exception ex) { errH.Logger.DonimoNaranAkirameta(ex, "棋譜ツリーを作っていたときです。"); throw ex; }
 
 
 #if DEBUG
@@ -153,7 +153,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                 // 評価値の高いノードだけを残します。
                 this.EdagariEngine.EdaSibori_HighScore(kifu, this, errH);
             }
-            catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "ベストムーブ後半２０：ハイスコア抽出"); throw ex; }
+            catch (Exception ex) { errH.Logger.DonimoNaranAkirameta(ex, "ベストムーブ後半２０：ハイスコア抽出"); throw ex; }
 
 
             // 評価値の同点があれば、同点決勝をして　1手に決めます。
@@ -162,7 +162,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
             {
                 bestKifuNode = this.ChoiceNode_DoutenKessyou(kifu, isHonshogi, errH);
             }
-            catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "ベストムーブ後半３０：同点決勝"); throw ex; }
+            catch (Exception ex) { errH.Logger.DonimoNaranAkirameta(ex, "ベストムーブ後半３０：同点決勝"); throw ex; }
 
 
             this.TimeManager.Stopwatch.Stop();

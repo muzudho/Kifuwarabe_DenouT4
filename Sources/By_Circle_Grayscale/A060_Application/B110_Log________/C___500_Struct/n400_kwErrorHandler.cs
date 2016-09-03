@@ -33,22 +33,5 @@ namespace Grayscale.A060_Application.B110_Log________.C___500_Struct
         //DLGT_OnLogAppend Dlgt_OnNaibuDataAppend_or_Null { get; set; }
         //DLGT_OnLogClear Dlgt_OnNaibuDataClear_or_Null { get; set; }
 
-        /// <summary>
-        /// 「どうにもならん、あきらめた」
-        /// 
-        /// 例外が発生したが、対応できないのでログだけ出して例外をさらに上へ投げ返すとき。
-        /// </summary>
-        /// <param name="okottaBasho"></param>
-        void DonimoNaranAkirameta( string okottaBasho);
-
-
-        /// <summary>
-        /// 「どうにもならん、あきらめた」
-        /// 
-        /// 例外が発生したが、対応できないのでログだけ出して例外をさらに上へ投げ返すとき。
-        /// </summary>
-        /// <param name="okottaBasho"></param>
-        void DonimoNaranAkirameta(Exception ex, string okottaBasho);
-
     }
 }

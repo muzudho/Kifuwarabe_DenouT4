@@ -153,7 +153,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
                         genjo.InputLine = rest;
                     }
-                    catch (Exception ex) { Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "moves解析中☆"); throw ex; }
+                    catch (Exception ex) { Util_Loggers.ERROR.Logger.DonimoNaranAkirameta(ex, "moves解析中☆"); throw ex; }
 
 
 

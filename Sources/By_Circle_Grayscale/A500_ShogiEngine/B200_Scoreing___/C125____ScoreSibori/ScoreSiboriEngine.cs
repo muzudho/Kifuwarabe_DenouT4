@@ -128,7 +128,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C125____ScoreSibori
             }
             catch (Exception ex)
             {
-                errH.DonimoNaranAkirameta(ex, "ベストムーブ／ハイスコア抽出中 exception_area=[" + exception_area + "]"); throw ex;
+                errH.Logger.DonimoNaranAkirameta(ex, "ベストムーブ／ハイスコア抽出中 exception_area=[" + exception_area + "]"); throw ex;
             }
 
         gt_EndMethod:
@@ -167,7 +167,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C125____ScoreSibori
             }
             catch (Exception ex)
             {
-                errH.DonimoNaranAkirameta(ex, "ベストムーブ／ハイスコア抽出中 exception_area=[" + exception_area + "]"); throw ex;
+                errH.Logger.DonimoNaranAkirameta(ex, "ベストムーブ／ハイスコア抽出中 exception_area=[" + exception_area + "]"); throw ex;
             }
 
             return list;
