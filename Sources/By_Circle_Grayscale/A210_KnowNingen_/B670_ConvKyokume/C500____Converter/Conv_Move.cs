@@ -415,6 +415,21 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             }
         }
 
+        public static Move SetCaptured(Move baseMove, Komasyurui14 foodKoma)
+        {
+            return (Move)(
+                //
+                ((int)baseMove)
+                // マスクを重ねる。
+                &
+                ~(((int)MoveMask.Captured) << ((int)MoveShift.Captured))
+                // 駒を足す。
+                |
+                (((int)foodKoma) << ((int)MoveShift.Captured))
+                //
+                );
+        }
+
         public static Komasyurui14 ToCaptured(Move move)
         {
             int v = (int)move;              // バリュー

@@ -375,9 +375,10 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             if (ittesasuReference.FoodKomaSyurui != Komasyurui14.H00_Null___)
             {
                 // 元のキーの、取った駒の種類だけを差替えます。
+                move = Conv_Move.SetCaptured(move, ittesasuReference.FoodKomaSyurui);
+                /*
                 move = Conv_Move.ToMove(
                     Conv_Move.ToSrcMasu(move),
-                    //Conv_MasuHandle.ToMasu((int)Conv_Move.ToSrcMasu(move)),
                     Conv_Move.ToDstMasu(move),
                     Conv_Move.ToSrcKomasyurui(move),
                     ittesasuReference.FoodKomaSyurui,//ここだけ差し替えるんだぜ☆（＾～＾）
@@ -386,6 +387,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     Conv_Move.ToPlayerside(move),
                     Conv_Move.ToErrorCheck(move)
                     );
+                    */
 
                 // 現手番
                 Playerside genTebanside = ((KifuNode)editNodeRef).Value.Kyokumen.KaisiPside;
