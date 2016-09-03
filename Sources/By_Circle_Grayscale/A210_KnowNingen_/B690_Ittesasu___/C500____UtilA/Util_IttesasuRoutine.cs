@@ -59,9 +59,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 );
 
             Util_IttesasuRoutine.Before2(
-                ref ittesasuResult,
-                susunda_Sky_orNull2,
-                errH
+                ref ittesasuResult
                 );
 
             //----------------------------------------
@@ -101,9 +99,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             );
             Debug.Assert(ittesasuResult.Get_SyuryoNode_OrNull != null, "ittesasuResult.Get_SyuryoNode_OrNull がヌル☆？！");
             Util_IttesasuRoutine.Before2(
-                ref ittesasuResult,
-                susunda_Sky_orNull,
-                errH
+                ref ittesasuResult
             );
             //
             //次ノートを追加します。次ノードを、これからのカレントとします。
@@ -142,9 +138,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             );
             Debug.Assert(ittesasuResult.Get_SyuryoNode_OrNull != null, "ittesasuResult.Get_SyuryoNode_OrNull がヌル☆？！");
             Util_IttesasuRoutine.Before2(
-                ref ittesasuResult,
-                susunda_Sky_orNull,
-                errH
+                ref ittesasuResult
             );
             //
             //次ノートを追加します。次ノードを、これからのカレントとします。
@@ -364,43 +358,23 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <param name="ittesasuReference"></param>
         /// <param name="errH"></param>
         public static void Before2(
-            ref IttesasuResult ittesasuReference,
-            Sky susunda_Sky_orNull,
-            KwLogger errH
+            ref IttesasuResult ittesasuReference
             )
         {
-            Node<Move, KyokumenWrapper> editNodeRef = ittesasuReference.Get_SyuryoNode_OrNull;
-
-            Move move = editNodeRef.Key;
             if (ittesasuReference.FoodKomaSyurui != Komasyurui14.H00_Null___)
             {
                 // 元のキーの、取った駒の種類だけを差替えます。
-                move = Conv_Move.SetCaptured(move, ittesasuReference.FoodKomaSyurui);
-                /*
-                move = Conv_Move.ToMove(
-                    Conv_Move.ToSrcMasu(move),
-                    Conv_Move.ToDstMasu(move),
-                    Conv_Move.ToSrcKomasyurui(move),
-                    ittesasuReference.FoodKomaSyurui,//ここだけ差し替えるんだぜ☆（＾～＾）
-                    Conv_Move.ToPromotion(move),
-                    Conv_Move.ToDrop(move),
-                    Conv_Move.ToPlayerside(move),
-                    Conv_Move.ToErrorCheck(move)
+                Move move = Conv_Move.SetCaptured(
+                    ittesasuReference.Get_SyuryoNode_OrNull.Key,
+                    ittesasuReference.FoodKomaSyurui
                     );
-                    */
-
-                // 現手番
-                Playerside genTebanside = ((KifuNode)editNodeRef).Value.Kyokumen.KaisiPside;
 
                 // キーを差替えたノード
-                editNodeRef = new KifuNodeImpl(
+                ittesasuReference.Set_SyuryoNode_OrNull = new KifuNodeImpl(
                     move,
-                    new KyokumenWrapper(susunda_Sky_orNull));//, genTebanside
+                    ittesasuReference.Get_SyuryoNode_OrNull.Value
+                    );
             }
-
-
-            //string nextSasiteStr = Conv_Move.ToSfen(move);
-            ittesasuReference.Set_SyuryoNode_OrNull = editNodeRef;// この変数を返すのがポイント。棋譜とは別に、現局面。
         }
 
         /// <summary>
