@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 #if DEBUG
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C480____UtilFvEdit;
-using Grayscale.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 #endif
 
 namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo

@@ -4,7 +4,7 @@ using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___490_Option__;
 using System.Diagnostics;
 
 #if DEBUG
-using Grayscale.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 #endif
 
 namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C249____Noop

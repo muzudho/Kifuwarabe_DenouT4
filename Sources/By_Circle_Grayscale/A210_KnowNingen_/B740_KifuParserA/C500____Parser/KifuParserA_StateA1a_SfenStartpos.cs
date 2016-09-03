@@ -3,6 +3,7 @@ using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 using System;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 {
@@ -62,13 +63,13 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     // FIXME: コンピューターが先手のとき、ここにくる？
 
                     // 異常時。
-                    errH.Logger.WriteLine_Error("＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない1☆！　終わるぜ☆");
+                    errH.Logger.WriteLine("＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない1☆！　終わるぜ☆",LogTypes.Error);
                     genjo.ToBreak_Abnormal();
                 }
                 else
                 {
                     // 異常時。
-                    errH.Logger.WriteLine_Error("＼（＾ｏ＾）／「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　movesがない☆！　終わるぜ☆");
+                    errH.Logger.WriteLine("＼（＾ｏ＾）／「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　movesがない☆！　終わるぜ☆", LogTypes.Error);
                     genjo.ToBreak_Abnormal();
                 }
             }

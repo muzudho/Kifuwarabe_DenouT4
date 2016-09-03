@@ -37,7 +37,7 @@ using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 
 #if DEBUG
-using Grayscale.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 #endif
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI

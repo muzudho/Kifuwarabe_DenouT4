@@ -52,7 +52,7 @@ using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
 using Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C500____UtilWriter;
 using Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct;
-using Grayscale.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 #endif
 
 namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe

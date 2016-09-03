@@ -9,6 +9,12 @@ using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 
+#if DEBUG
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+#else
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+#endif
+
 namespace Grayscale.A500_ShogiEngine.B260_UtilClient_.C500____Util
 {
     public abstract class Util_InClient
@@ -26,7 +32,7 @@ namespace Grayscale.A500_ShogiEngine.B260_UtilClient_.C500____Util
             KwErrorHandler errH
             )
         {
-            errH.Logger.WriteLine_Error("（＾△＾）「" + genjo.InputLine + "」Util_InClient　：　クライアントの委譲メソッドｷﾀｰ☆");
+            errH.Logger.WriteLine("（＾△＾）「" + genjo.InputLine + "」Util_InClient　：　クライアントの委譲メソッドｷﾀｰ☆", LogTypes.Error);
 
 
             string old_inputLine = genjo.InputLine;//退避
@@ -38,7 +44,7 @@ namespace Grayscale.A500_ShogiEngine.B260_UtilClient_.C500____Util
                 out ro_Kyokumen2_ForTokenize
                 );
 
-            errH.Logger.WriteLine_Error("（＾△＾）old_inputLine=「" + old_inputLine + "」 rest=「" + rest + "」 Util_InClient　：　ﾊﾊｯ☆");
+            errH.Logger.WriteLine("（＾△＾）old_inputLine=「" + old_inputLine + "」 rest=「" + rest + "」 Util_InClient　：　ﾊﾊｯ☆", LogTypes.Error);
 
             //string old_inputLine = genjo.InputLine;
             //genjo.InputLine = "";

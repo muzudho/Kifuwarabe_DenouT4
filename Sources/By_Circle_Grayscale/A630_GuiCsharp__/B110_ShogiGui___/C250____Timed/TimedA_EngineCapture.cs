@@ -5,7 +5,7 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function;
 
 #if DEBUG
-using Grayscale.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 #endif
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed

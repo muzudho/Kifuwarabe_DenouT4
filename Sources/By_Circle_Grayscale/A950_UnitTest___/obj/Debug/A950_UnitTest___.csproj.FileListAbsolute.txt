@@ -1,0 +1,5 @@
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A950_UnitTest___\Grayscale.A950_UnitTest___.exe.config
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A950_UnitTest___\Grayscale.A950_UnitTest___.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A950_UnitTest___\Grayscale.A950_UnitTest___.pdb
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A950_UnitTest___\obj\Debug\Grayscale.A950_UnitTest___.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A950_UnitTest___\obj\Debug\Grayscale.A950_UnitTest___.pdb

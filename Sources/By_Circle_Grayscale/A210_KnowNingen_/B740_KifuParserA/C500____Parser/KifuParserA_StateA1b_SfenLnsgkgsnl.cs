@@ -4,6 +4,7 @@ using Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct;
 using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 using System;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 {
@@ -48,7 +49,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             try
             {
 
-                errH.Logger.WriteLine_Error("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　さて、どんな内容なんだぜ☆？");
+                errH.Logger.WriteLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　さて、どんな内容なんだぜ☆？", LogTypes.Error);
 
                 StartposImporter startposImporter1;
                 string restText;
@@ -59,7 +60,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     out restText
                     );
                 genjo.StartposImporter_OrNull = startposImporter1;
-                errH.Logger.WriteLine_Error("（＾△＾）restText=「" + restText + "」 successful=【" + successful + "】");
+                errH.Logger.WriteLine("（＾△＾）restText=「" + restText + "」 successful=【" + successful + "】", LogTypes.Error);
 
                 if (successful)
                 {

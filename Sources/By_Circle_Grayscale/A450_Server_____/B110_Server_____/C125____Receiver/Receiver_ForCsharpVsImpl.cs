@@ -6,7 +6,7 @@ using Grayscale.A450_Server_____.B110_Server_____.C___498_Server;
 using System.Diagnostics;
 
 #if DEBUG
-using Grayscale.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 #endif
 
 namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient

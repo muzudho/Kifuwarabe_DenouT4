@@ -32,6 +32,8 @@ using Grayscale.A210_KnowNingen_.B110_GraphicLog_.C500____Util;
 using Grayscale.A210_KnowNingen_.B460_KyokumMoves.C250____Log;
 using Grayscale.A210_KnowNingen_.B810_LogGraphiEx.C500____Util;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+#else
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 #endif
 
 namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
@@ -295,7 +297,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                             Debug.Fail(message);
 
                             // どうにもできないので  ログだけ取って、上に投げます。
-                            errH.Logger.WriteLine_Error(message);
+                            errH.Logger.WriteLine(message,LogTypes.Error);
                             throw ex;
                         }
 #if DEBUG

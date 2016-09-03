@@ -32,7 +32,7 @@ using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using Grayscale.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 #endif
 
 namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
