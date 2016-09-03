@@ -108,11 +108,11 @@ namespace Grayscale.A690_FvLearn____
             //
             // イベントハンドラー登録
             //
-            Util_Loggers.LEARNER.Dlgt_OnLog1Append_or_Null = (string log) =>
+            Util_Loggers.LEARNER_D.Dlgt_OnLog1Append_or_Null = (string log) =>
             {
                 this.txtIttesasuLog.Text += log;
             };
-            Util_Loggers.LEARNER.Dlgt_OnLog1Clear_or_Null = () =>
+            Util_Loggers.LEARNER_D.Dlgt_OnLog1Clear_or_Null = () =>
             {
                 this.txtIttesasuLog.Text = "";
             };
@@ -140,7 +140,7 @@ namespace Grayscale.A690_FvLearn____
         /// <param name="e"></param>
         private void btnSasu_Click(object sender, EventArgs e)
         {
-            KwErrorHandler errH = Util_Loggers.LEARNER;
+            KwLogger errH = Util_Loggers.LEARNER;
             bool isRequest_ShowGohosyu = false;
             bool isRequest_ChangeKyokumenPng = false;
 
@@ -149,7 +149,8 @@ namespace Grayscale.A690_FvLearn____
                 ref isRequest_ChangeKyokumenPng,
                 this.LearningData,
                 this,
-                errH
+                errH,
+                Util_Loggers.LEARNER_D
             );
 
             if (isRequest_ShowGohosyu)
@@ -196,7 +197,7 @@ namespace Grayscale.A690_FvLearn____
 
         private void btnOpenCsa_Click(object sender, EventArgs e)
         {
-            KwErrorHandler errH = Util_Loggers.LEARNER;
+            KwLogger errH = Util_Loggers.LEARNER;
             bool isRequest_ShowGohosyu = false;
             bool isRequest_ChangeKyokumenPng = false;
 
@@ -246,7 +247,7 @@ namespace Grayscale.A690_FvLearn____
         /// <param name="e"></param>
         private void btnOpenFvCsv_Click(object sender, EventArgs e)
         {
-            KwErrorHandler errH = Util_Loggers.LEARNER;
+            KwLogger errH = Util_Loggers.LEARNER;
 
             Util_LearnOperation.Do_OpenFvCsv(this,errH);
         }
@@ -258,7 +259,7 @@ namespace Grayscale.A690_FvLearn____
         /// <param name="e"></param>
         private void btnWriteFv_Click(object sender, EventArgs e)
         {
-            KwErrorHandler errH = Util_Loggers.LEARNER;
+            KwLogger errH = Util_Loggers.LEARNER;
 
             Util_LearnFunctions.Do_Save(this, errH);
         }
@@ -270,14 +271,16 @@ namespace Grayscale.A690_FvLearn____
         /// <param name="e"></param>
         private void btnUpdateKyokumenHyoka_Click(object sender, EventArgs e)
         {
-            KwErrorHandler errH = Util_Loggers.LEARNER;
+            KwLogger errH = Util_Loggers.LEARNER;
             bool isRequest_ShowGohosyu = false;
             bool isRequest_ChangeKyokumenPng = false;
 
             Util_AutoKifuRead.Do_UpdateKyokumenHyoka(
                 ref isRequest_ShowGohosyu,
                 ref isRequest_ChangeKyokumenPng,
-                this, errH);
+                this, errH,
+                Util_Loggers.LEARNER_D
+                );
 
             if (isRequest_ShowGohosyu)
             {
@@ -299,7 +302,7 @@ namespace Grayscale.A690_FvLearn____
         /// </summary>
         public void SeikoIdo()
         {
-            KwErrorHandler errH = Util_Loggers.LEARNER;
+            KwLogger errH = Util_Loggers.LEARNER;
 
             // 今読んだ棋譜を移す先（成功時）
             if (2 <= this.search_kifu_folder_lines.Length)
@@ -318,7 +321,7 @@ namespace Grayscale.A690_FvLearn____
                 }
                 catch(Exception ex)
                 {
-                    errH.Logger.DonimoNaranAkirameta("Uc_Main#SeikoIdo: "+ex.GetType().Name+"："+ ex.Message);
+                    errH.DonimoNaranAkirameta("Uc_Main#SeikoIdo: "+ex.GetType().Name+"："+ ex.Message);
                 }
             }
         }
@@ -328,7 +331,7 @@ namespace Grayscale.A690_FvLearn____
         /// </summary>
         private void SippaiIdo()
         {
-            KwErrorHandler errH = Util_Loggers.LEARNER;
+            KwLogger errH = Util_Loggers.LEARNER;
 
             // 今読んだ棋譜を移す先（失敗時）
             if (3 <= this.search_kifu_folder_lines.Length)
@@ -347,7 +350,7 @@ namespace Grayscale.A690_FvLearn____
                 }
                 catch (Exception ex)
                 {
-                    errH.Logger.DonimoNaranAkirameta("Uc_Main#SippaiIdo: " + ex.GetType().Name + "：" + ex.Message);
+                    errH.DonimoNaranAkirameta("Uc_Main#SippaiIdo: " + ex.GetType().Name + "：" + ex.Message);
                 }
             }
         }
@@ -360,7 +363,7 @@ namespace Grayscale.A690_FvLearn____
         /// <param name="e"></param>
         private void btnFv999_999_Click(object sender, EventArgs e)
         {
-            KwErrorHandler errH = Util_Loggers.LEARNER;
+            KwLogger errH = Util_Loggers.LEARNER;
             bool isRequest_ShowGohosyu = false;
 
             isRequest_ShowGohosyu = true;
@@ -390,7 +393,7 @@ namespace Grayscale.A690_FvLearn____
         /// <param name="e"></param>
         private void btnSasiteRankDown_Click(object sender, EventArgs e)
         {
-            KwErrorHandler errH = Util_Loggers.LEARNER;
+            KwLogger errH = Util_Loggers.LEARNER;
             bool isRequest_ShowGohosyu = false;
             bool isRequest_ChangeKyokumenPng = false;
 
@@ -421,7 +424,7 @@ namespace Grayscale.A690_FvLearn____
         /// <param name="e"></param>
         private void btnSasiteRankUp_Click(object sender, EventArgs e)
         {
-            KwErrorHandler errH = Util_Loggers.LEARNER;
+            KwLogger errH = Util_Loggers.LEARNER;
             bool isRequest_ShowGohosyu = false;
             bool isRequest_ChangeKyokumenPng = false;
 
@@ -453,7 +456,7 @@ namespace Grayscale.A690_FvLearn____
         /// <param name="e"></param>
         private void btnStartZero_Click(object sender, EventArgs e)
         {
-            KwErrorHandler errH = Util_Loggers.LEARNER;
+            KwLogger errH = Util_Loggers.LEARNER;
             bool isRequest_ShowGohosyu = false;
 
             Util_LearnOperation.Do_ZeroStart( ref isRequest_ShowGohosyu, this, errH);
@@ -484,7 +487,7 @@ namespace Grayscale.A690_FvLearn____
             out bool out_isEmptyKifu,
             ref bool ref_isRequest_ShowGohosyu,
             ref bool ref_isRequest_ChangeKyokumenPng,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             //
@@ -519,7 +522,7 @@ namespace Grayscale.A690_FvLearn____
         /// <param name="e"></param>
         private void btnNextKifuSet_Click(object sender, EventArgs e)
         {
-            KwErrorHandler errH = Util_Loggers.LEARNER;
+            KwLogger errH = Util_Loggers.LEARNER;
             bool isRequest_ShowGohosyu = false;
             bool isRequest_ChangeKyokumenPng = false;
 

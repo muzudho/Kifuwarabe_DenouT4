@@ -23,7 +23,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
         public static List<Couple<Finger, SyElement>> NextNodes_ToKamList(
             Sky src_Sky_genzai,
             Node<Move, KyokumenWrapper> hubNode,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             List<Couple<Finger, SyElement>> kmList = new List<Couple<Finger, SyElement>>();

@@ -38,7 +38,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             out KifuParserA_State nextState,
             KifuParserA owner,
             KifuParserA_Genjo genjo,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             nextState = this;
@@ -49,7 +49,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 {
                     //>>>>> 棋譜が始まります。
 #if DEUBG
-                    errH.Logger.WriteLine_AddMemo("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ｳﾑ☆　moves 分かるぜ☆");
+                    errH.WriteLine_AddMemo("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ｳﾑ☆　moves 分かるぜ☆");
 #endif
 
                     genjo.InputLine = genjo.InputLine.Substring("moves".Length);
@@ -63,17 +63,17 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     // FIXME: コンピューターが先手のとき、ここにくる？
 
                     // 異常時。
-                    errH.Logger.WriteLine("＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない1☆！　終わるぜ☆",LogTypes.Error);
+                    errH.WriteLine("＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない1☆！　終わるぜ☆",LogTypes.Error);
                     genjo.ToBreak_Abnormal();
                 }
                 else
                 {
                     // 異常時。
-                    errH.Logger.WriteLine("＼（＾ｏ＾）／「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　movesがない☆！　終わるぜ☆", LogTypes.Error);
+                    errH.WriteLine("＼（＾ｏ＾）／「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　movesがない☆！　終わるぜ☆", LogTypes.Error);
                     genjo.ToBreak_Abnormal();
                 }
             }
-            catch (Exception ex) { Util_Loggers.ERROR.Logger.DonimoNaranAkirameta(ex, "SFEN文字列の解析中。"); throw ex; }
+            catch (Exception ex) { Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "SFEN文字列の解析中。"); throw ex; }
 
             return genjo.InputLine;
         }

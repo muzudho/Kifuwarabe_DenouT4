@@ -43,7 +43,7 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C125____Receiver
         /// <param name="e"></param>
         public override void OnListenUpload_Async(object sender, DataReceivedEventArgs e)
         {
-            KwErrorHandler errH = Util_Loggers.AIMS_DEFAULT;
+            KwLogger errH = Util_Loggers.AIMS_DEFAULT;
 
             string line = e.Data;
 

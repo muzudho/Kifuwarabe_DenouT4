@@ -39,7 +39,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C506____AutoSasiteSort
             int loopLimit,
             ref float ref_tyoseiryo,
             Move move1,
-            Uc_Main uc_Main, KwErrorHandler errH
+            Uc_Main uc_Main, KwLogger errH
             )
         {
             out_isEndAutoLearn = false;
@@ -70,7 +70,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C506____AutoSasiteSort
                         // 1位なら終了
 #if DEBUG
                         string sfen = Conv_Move.ToSfen(gohosyuItem.Move);
-                        errH.Logger.WriteLine("items.Count=[" + uc_Main.LstGohosyu.Items.Count + "] sfen=[" + sfen + "]", LogTypes.Memo);
+                        errH.WriteLine("items.Count=[" + uc_Main.LstGohosyu.Items.Count + "] sfen=[" + sfen + "]", LogTypes.Memo);
 #endif
                         break;
                     }

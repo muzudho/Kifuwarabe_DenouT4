@@ -30,7 +30,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
         public static KifuNode ToNextNodes_AsHubNode(
             Maps_OneAndMulti<Finger,Move> komabetuAllMoves,
             Sky src_Sky,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             KifuNode hubNode = new KifuNodeImpl(

@@ -24,7 +24,7 @@ namespace Grayscale.A210_KnowNingen_.B430_Play_______.C250____Calc
         public static Maps_OneAndOne<Finger, SySet<SyElement>> Get_PotentialMoves(
             Sky src_Sky,
             Fingers fingers,
-            KwErrorHandler errH_orNull
+            KwLogger errH_orNull
             )
         {
             Maps_OneAndOne<Finger, SySet<SyElement>> kiki_fMs = new Maps_OneAndOne<Finger, SySet<SyElement>>();// 「どの駒を、どこに進める」の一覧

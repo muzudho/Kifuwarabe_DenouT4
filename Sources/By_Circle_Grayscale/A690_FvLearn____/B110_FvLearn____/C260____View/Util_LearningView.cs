@@ -46,7 +46,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
         public static void ShowSasiteList(
             LearningData learningData,
             Uc_Main uc_Main,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             //
@@ -179,7 +179,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
         /// ノード情報の表示
         /// </summary>
         /// <param name="uc_Main"></param>
-        public static void Aa_ShowNode2(LearningData learningData, Uc_Main uc_Main, KwErrorHandler errH)
+        public static void Aa_ShowNode2(LearningData learningData, Uc_Main uc_Main, KwLogger errH)
         {
             // 手目済み
             uc_Main.TxtTemezumi.Text = learningData.Kifu.CurNode.Value.Kyokumen.Temezumi.ToString();
@@ -195,7 +195,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
         /// 合法手リストの表示
         /// </summary>
         /// <param name="uc_Main"></param>
-        public static void Aa_ShowGohosyu2(LearningData learningData, Uc_Main uc_Main, KwErrorHandler errH)
+        public static void Aa_ShowGohosyu2(LearningData learningData, Uc_Main uc_Main, KwLogger errH)
         {
             //----------------------------------------
             // フォルダー作成
@@ -298,7 +298,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
         public static void Ittesasu_ByBtnClick(
             ref bool isRequestShowGohosyu,
             ref bool isRequestChangeKyokumenPng,
-            LearningData learningData, Uc_Main uc_Main, KwErrorHandler errH)
+            LearningData learningData, Uc_Main uc_Main, KwLogger errH, KwDisplayer kd)
         {
 #if DEBUG
             Stopwatch sw1 = new Stopwatch();
@@ -318,9 +318,9 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             // リストボックスの先頭から指し手をSFEN形式で１つ取得。
             HonpuSasiteListItemImpl item = (HonpuSasiteListItemImpl)uc_Main.LstSasite.Items[0];
             Move move = item.Move;
-            if (null != errH.Dlgt_OnLog1Append_or_Null)
+            if (null != kd.Dlgt_OnLog1Append_or_Null)
             {
-                errH.Dlgt_OnLog1Append_or_Null("sfen=" + Conv_Move.ToSfen(move) + Environment.NewLine);
+                kd.Dlgt_OnLog1Append_or_Null("sfen=" + Conv_Move.ToSfen(move) + Environment.NewLine);
             }
 
             //
@@ -347,7 +347,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     sb.Append("指し手[" + Conv_Move.ToSfen(move) + "]はありませんでした。\n" + learningData.DumpToAllGohosyu(learningData.Kifu.CurNode.Value.Kyokumen));
 
                     //Debug.Fail(sb.ToString());
-                    errH.Logger.DonimoNaranAkirameta("Util_LearningView#Ittesasu_ByBtnClick：" + sb.ToString());
+                    errH.DonimoNaranAkirameta("Util_LearningView#Ittesasu_ByBtnClick：" + sb.ToString());
                     MessageBox.Show(sb.ToString(), "エラー");
                 }
             }

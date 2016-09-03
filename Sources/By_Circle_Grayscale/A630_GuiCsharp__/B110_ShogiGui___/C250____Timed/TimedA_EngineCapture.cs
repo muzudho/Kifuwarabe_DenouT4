@@ -28,7 +28,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
         }
 
 
-        public override void Step(KwErrorHandler errH)
+        public override void Step(KwLogger errH)
         {
             // 将棋エンジンからの入力が、input99 に溜まるものとします。
             if (0 < this.mainGui.ConsoleWindowGui.InputString99.Length)
@@ -36,7 +36,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
 
 #if DEBUG
                 string message = "(^o^)timer入力 input99=[" + this.mainGui.ConsoleWindowGui.InputString99 + "]";
-                errH.Logger.WriteLine(message,LogTypes.Memo);
+                errH.WriteLine(message,LogTypes.Memo);
 #endif
 
                 //

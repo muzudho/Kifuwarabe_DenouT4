@@ -93,11 +93,11 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C499____UtilFv
 
             if (index_playerside == -1)
             {
-                Util_Loggers.ERROR.Logger.DonimoNaranAkirameta("二駒関係の先後不明の駒");
+                Util_Loggers.ERROR.DonimoNaranAkirameta("二駒関係の先後不明の駒");
             }
             else if (index_komasyurui == -1)
             {
-                Util_Loggers.ERROR.Logger.DonimoNaranAkirameta("二駒関係の駒種類が対象外の駒");
+                Util_Loggers.ERROR.DonimoNaranAkirameta("二駒関係の駒種類が対象外の駒");
             }
 
             koumokuP = index_playerside + index_komasyurui + p_masuHandle;
@@ -123,11 +123,11 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C499____UtilFv
 
             if (index_playerside == -1)
             {
-                Util_Loggers.ERROR.Logger.DonimoNaranAkirameta("二駒関係の持ち駒_先後不明の駒");
+                Util_Loggers.ERROR.DonimoNaranAkirameta("二駒関係の持ち駒_先後不明の駒");
             }
             else if (index_komasyurui == -1)
             {
-                Util_Loggers.ERROR.Logger.DonimoNaranAkirameta("二駒関係の持ち駒_駒種類が対象外の駒");
+                Util_Loggers.ERROR.DonimoNaranAkirameta("二駒関係の持ち駒_駒種類が対象外の駒");
             }
 
             int koumokuP = index_playerside + index_komasyurui + fingers.Count;

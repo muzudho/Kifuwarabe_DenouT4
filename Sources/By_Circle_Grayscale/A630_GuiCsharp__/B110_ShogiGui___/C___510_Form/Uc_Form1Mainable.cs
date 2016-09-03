@@ -12,7 +12,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___510_Form
         Form1_Mutex MutexOwner { get; set; }
 
         void Solute_RepaintRequest(
-            Form1_Mutex mutex, MainGui_Csharp mainGui, KwErrorHandler errH);
+            Form1_Mutex mutex, MainGui_Csharp mainGui, KwLogger errH);
 
         MainGui_Csharp MainGui { get; }
 

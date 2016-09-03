@@ -19,7 +19,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C400____54List
     public class Util_54List
     {
 
-        private static void Error1(Busstop busstop, KwErrorHandler errH)
+        private static void Error1(Busstop busstop, KwLogger errH)
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("Util_54List#Error1：２駒関係FVの配列添え字がわからないぜ☆！処理は続けられない。");
@@ -27,7 +27,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C400____54List
             sb.AppendLine("koma1.Komasyurui=[" + Conv_Busstop.ToKomasyurui(busstop) + "]");
             sb.AppendLine("koma1.Masu=[" + Conv_Busstop.ToMasu(busstop) + "]");
             sb.AppendLine("Conv_SyElement.ToOkiba(koma1.Masu)=[" + Conv_Busstop.ToOkiba(busstop) + "]");
-            errH.Logger.DonimoNaranAkirameta(sb.ToString());
+            errH.DonimoNaranAkirameta(sb.ToString());
         }
 
 
@@ -37,7 +37,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C400____54List
         /// 盤上の40駒リスト。
         /// 駒台の14駒リスト。
         /// </summary>
-        public static N54List Calc_54List(Sky src_Sky, KwErrorHandler errH)
+        public static N54List Calc_54List(Sky src_Sky, KwLogger errH)
         {
             N54List result_n54List = new N54ListImpl();
 

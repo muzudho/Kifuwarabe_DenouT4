@@ -30,7 +30,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
         /// </summary>
         public static void Perform_SyokiHaichi(
             MainGui_Csharp mainGui,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             mainGui.Link_Server.Model_Taikyoku.Kifu.Clear();// 棋譜を空っぽにします。
@@ -67,7 +67,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             Finger foodKoma,
             string fugoJStr,
             string backedInputText,
-            KwErrorHandler errH)
+            KwLogger errH)
         {
             //------------------------------
             // チェンジターン
@@ -105,7 +105,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             return true;
         }
 
-        public static bool Komaokuri_Gui(string restText, MainGui_Csharp shogiGui, KwErrorHandler errH)
+        public static bool Komaokuri_Gui(string restText, MainGui_Csharp shogiGui, KwLogger errH)
         {
             //------------------------------
             // 符号表示
@@ -213,7 +213,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
         public static void Redraw_KomaLocation(
             Finger figKoma,
             MainGui_Csharp mainGui,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             mainGui.SkyWrapper_Gui.GuiSky.AssertFinger(figKoma);

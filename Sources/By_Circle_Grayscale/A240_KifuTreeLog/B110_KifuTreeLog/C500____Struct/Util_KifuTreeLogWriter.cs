@@ -61,7 +61,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
         public static void A_Write_KifuTreeLog(
             KaisetuBoards logF_kiki,
             KifuTree kifu,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
 #if DEBUG
@@ -122,7 +122,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
                 Debug.Fail(message);
 
                 // どうにもできないので  ログだけ取って、上に投げます。
-                errH.Logger.WriteLine(message, LogTypes.Error);
+                errH.WriteLine(message, LogTypes.Error);
                 throw ex;
             }
 
@@ -144,7 +144,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
                     logF_kiki.boards.Clear();
                 }
             }
-            catch (Exception ex) { errH.Logger.DonimoNaranAkirameta(ex, "局面評価明細を出力しようとしたときです。"); throw ex; }
+            catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "局面評価明細を出力しようとしたときです。"); throw ex; }
 #endif
         }
 
@@ -158,7 +158,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
             KifuTree kifu,
             string relFolder,
             KyokumenPngEnvironment reportEnvironment,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
 
@@ -211,7 +211,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
             KifuTree kifu,
             string relFolder,
             KyokumenPngEnvironment reportEnvironment,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             string fileName = "";
@@ -287,7 +287,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
             }
             catch (System.Exception ex)
             {
-                errH.Logger.DonimoNaranAkirameta(ex, "盤１個分のログを出力しようとしていたときです。\n fileName=[" + fileName + "]\n relFolder=[" + relFolder + "]"); throw ex;
+                errH.DonimoNaranAkirameta(ex, "盤１個分のログを出力しようとしていたときです。\n fileName=[" + fileName + "]\n relFolder=[" + relFolder + "]"); throw ex;
             }
         }
 
@@ -363,7 +363,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
 //            //Shogisasi shogisasi,
 //            KaisetuBoards logF_kiki,
 //            KifuTree kifu,
-//            KwErrorHandler errH
+//            KwLogger errH
 //            )
 //        {
 //#if DEBUG
@@ -385,7 +385,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
 //                    logF_kiki.boards.Clear();
 //                }
 //            }
-//            catch (Exception ex) { errH.Logger.DonimoNaranAkirameta(ex, "HTML5ログを出力しようとしたときです。"); throw ex; }
+//            catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "HTML5ログを出力しようとしたときです。"); throw ex; }
 //#endif
 //        }
 

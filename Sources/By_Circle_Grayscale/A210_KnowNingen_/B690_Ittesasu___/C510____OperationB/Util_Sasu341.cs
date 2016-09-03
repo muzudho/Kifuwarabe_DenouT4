@@ -31,7 +31,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
             Finger finger,//動かす駒
             SyElement masu,//移動先マス
             bool toNaru,//成るなら真
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             Sky newSky = new SkyImpl(src_Sky); // 現局面を元に、新規局面を書き換えます。

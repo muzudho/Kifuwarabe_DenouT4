@@ -143,7 +143,7 @@ namespace Grayscale.P910_SpeedKeisok
         /// <param name="e"></param>
         private void btnOpenFv_Click(object sender, EventArgs e)
         {
-            KwErrorHandler errH = Util_Loggers.SPEED_KEISOKU;
+            KwLogger errH = Util_Loggers.SPEED_KEISOKU;
             
 
             if ("" != this.txtFvFilepath.Text)

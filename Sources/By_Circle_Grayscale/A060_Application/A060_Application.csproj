@@ -7,7 +7,7 @@
     <ProjectGuid>{8AC05075-A6EF-4779-B18C-3D0E801A4BCD}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Grayscale</RootNamespace>
+    <RootNamespace>Grayscale.A060_Application</RootNamespace>
     <AssemblyName>Grayscale.P060_Application</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -48,11 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="B110_Log________\C500____Struct\n400_errorHandlerImpl.cs" />
+    <Compile Include="B110_Log________\C500____Struct\n350_kwDisplayerImpl.cs" />
     <Compile Include="B110_Log________\C500____Struct\n300_kwLoggerImpl.cs" />
     <Compile Include="B110_Log________\C500____Struct\n500_util_Loggers.cs" />
     <Compile Include="B110_Log________\C___500_Struct\n200_logTypes.cs" />
-    <Compile Include="B110_Log________\C___500_Struct\n400_kwErrorHandler.cs" />
+    <Compile Include="B110_Log________\C___500_Struct\n350_kwDisplayer.cs" />
     <Compile Include="B110_Log________\C___500_Struct\n300_kwLogger.cs" />
     <Compile Include="B210_Tushin_____\C500____Util\Util_Message.cs" />
     <Compile Include="B310_Settei_____\C500____Struct\Const_Filepath.cs" />

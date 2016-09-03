@@ -57,7 +57,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
 #endif
 
             string hint,
-            KwErrorHandler errH)
+            KwLogger errH)
         {
             Node<Move, KyokumenWrapper> hubNode = Conv_StarbetuSasites.ToNextNodes_AsHubNode(
                 genTeban_komabetuAllMoves1,
@@ -125,10 +125,10 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             Node<Move, KyokumenWrapper> hubNode,
             int temezumi_yomiGenTeban,
             string hint,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
-            bool enableLog = false;//errH.Logger.Enable
+            bool enableLog = false;//errH.Enable
             Util_GraphicalLog.WriteHtml5(enableLog, "Util_LegalMove(王手回避漏れ02)王手を回避するかどうかに関わらず、ひとまず全ての次の手", "[" +
                 ((KifuNode)hubNode).Json_NextNodes_MultiSky(
                     "(王手回避漏れ02." + temezumi_yomiGenTeban + "手目)",
@@ -150,7 +150,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             KaisetuBoards logF_kiki,
 #endif
 
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             // Node<,>の形で。
@@ -208,7 +208,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             KaisetuBoards logF_kiki,
 #endif
             Move move_forLog,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             bool isHonshogi = true;
@@ -294,7 +294,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             string logBrd_caption,
             int temezumi_yomiCur_forLog,
             Move move_forLog,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
 #if DEBUG
@@ -427,7 +427,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
                     sMs_effect.AddRange_New( kmEffect_seme_BANJO);
 
                 }
-                catch (Exception ex) { errH.Logger.DonimoNaranAkirameta(ex, "ランダムチョイス(50)"); throw ex; }
+                catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "ランダムチョイス(50)"); throw ex; }
 
             }
 

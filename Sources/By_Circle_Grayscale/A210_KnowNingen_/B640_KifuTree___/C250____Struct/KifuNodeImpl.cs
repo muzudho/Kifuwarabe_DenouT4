@@ -118,7 +118,7 @@ namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct
             string memo,
             string hint,
             int temezumi_yomiGenTeban_forLog,//読み進めている現在の手目済
-            KwErrorHandler errH)
+            KwLogger errH)
         {
             StringBuilder sb = new StringBuilder();
 

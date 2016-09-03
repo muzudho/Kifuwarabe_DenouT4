@@ -37,7 +37,7 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
 #endif
             Sky src_Sky,
             FeatureVector fv,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             float score_p1 = 0.0f;

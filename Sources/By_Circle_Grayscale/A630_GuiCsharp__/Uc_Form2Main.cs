@@ -98,7 +98,7 @@ namespace Grayscale.P699_Form_______
 
         private void Uc_Form2Main_MouseDown(object sender, MouseEventArgs e)
         {
-            KwErrorHandler errH = Util_Loggers.CsharpGui_DEFAULT;
+            KwLogger errH = Util_Loggers.CsharpGui_DEFAULT;
             MainGui_Csharp shogibanGui = ((Form2_Console)this.ParentForm).Form1_Shogi.Uc_Form1Main.MainGui;
 
             if (null == shogibanGui.Shape_PnlTaikyoku)
@@ -150,7 +150,7 @@ namespace Grayscale.P699_Form_______
 
         private void Uc_Form2Main_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            KwErrorHandler errH = Util_Loggers.CsharpGui_DEFAULT;
+            KwLogger errH = Util_Loggers.CsharpGui_DEFAULT;
             MainGui_Csharp mainGui = ((Form2_Console)this.ParentForm).Form1_Shogi.Uc_Form1Main.MainGui;
 
             // このメインパネルに、何かして欲しいという要求は、ここに入れられます。

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Grayscale.A060_Application.B110_Log________.C___500_Struct
+﻿namespace Grayscale.A060_Application.B110_Log________.C___500_Struct
 {
 
     /// <summary>
@@ -10,16 +8,8 @@ namespace Grayscale.A060_Application.B110_Log________.C___500_Struct
     public delegate void DLGT_OnLogAppend(string log);
     public delegate void DLGT_OnLogClear();
 
-    /// <summary>
-    /// エラーの対応はお任せ、エラーハンドラー☆！
-    /// </summary>
-    public interface KwErrorHandler
+    public interface KwDisplayer
     {
-
-        /// <summary>
-        /// ロガー。
-        /// </summary>
-        KwLogger Logger { get; }
 
         /// <summary>
         /// 用途は任意のイベント・ハンドラー＜その１＞。主にフォームにログ出力するのに使う。任意に着脱可。

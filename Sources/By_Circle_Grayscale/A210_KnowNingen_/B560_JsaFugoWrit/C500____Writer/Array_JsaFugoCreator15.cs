@@ -23,7 +23,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
     /// </summary>
     public abstract class Array_JsaFugoCreator15
     {
-        public delegate JsaFugoImpl DELEGATE_CreateJFugo(Move move, KyokumenWrapper kWrap, KwErrorHandler errH);
+        public delegate JsaFugoImpl DELEGATE_CreateJFugo(Move move, KyokumenWrapper kWrap, KwLogger errH);
 
         public static DELEGATE_CreateJFugo[] ItemMethods
         {
@@ -58,7 +58,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
         }
 
 
-        public static JsaFugoImpl CreateNullKoma(Move move, KyokumenWrapper kWrap, KwErrorHandler errH)
+        public static JsaFugoImpl CreateNullKoma(Move move, KyokumenWrapper kWrap, KwLogger errH)
         {
             JsaFugoImpl result;
 
@@ -93,7 +93,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
         /// </summary>
         /// <param name="sasite">移動先、移動元、両方のマス番号</param>
         /// <returns></returns>
-        public static JsaFugoImpl CreateFu(Move move, KyokumenWrapper kWrap, KwErrorHandler errH)
+        public static JsaFugoImpl CreateFu(Move move, KyokumenWrapper kWrap, KwLogger errH)
         {
             JsaFugoImpl result;
 
@@ -191,7 +191,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return result;
         }
 
-        public static JsaFugoImpl CreateKyo(Move move, KyokumenWrapper kWrap, KwErrorHandler errH)
+        public static JsaFugoImpl CreateKyo(Move move, KyokumenWrapper kWrap, KwLogger errH)
         {
             JsaFugoImpl fugo;
 
@@ -302,7 +302,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateKei(Move move, KyokumenWrapper kWrap, KwErrorHandler errH)
+        public static JsaFugoImpl CreateKei(Move move, KyokumenWrapper kWrap, KwLogger errH)
         {
             JsaFugoImpl fugo;
 
@@ -417,7 +417,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateGin(Move move, KyokumenWrapper kWrap, KwErrorHandler errH)
+        public static JsaFugoImpl CreateGin(Move move, KyokumenWrapper kWrap, KwLogger errH)
         {
             JsaFugoImpl fugo;
 
@@ -589,7 +589,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateKin(Move move, KyokumenWrapper kWrap, KwErrorHandler errH)
+        public static JsaFugoImpl CreateKin(Move move, KyokumenWrapper kWrap, KwLogger errH)
         {
             JsaFugoImpl fugo;
 
@@ -617,7 +617,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             Move move,//移動先、移動元、両方のマス番号
             KyokumenWrapper kWrap,
             out MigiHidari migiHidari, out AgaruHiku agaruHiku, out NariNarazu nari, out DaHyoji daHyoji,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             Sky src_Sky = kWrap.Kyokumen;
@@ -777,7 +777,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             nari = NariNarazu.CTRL_SONOMAMA;
         }
 
-        public static JsaFugoImpl CreateOh(Move move, KyokumenWrapper kWrap, KwErrorHandler errH)
+        public static JsaFugoImpl CreateOh(Move move, KyokumenWrapper kWrap, KwLogger errH)
         {
             JsaFugoImpl fugo;
 
@@ -824,7 +824,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateHisya(Move move, KyokumenWrapper kWrap, KwErrorHandler errH)
+        public static JsaFugoImpl CreateHisya(Move move, KyokumenWrapper kWrap, KwLogger errH)
         {
             JsaFugoImpl fugo;
 
@@ -993,7 +993,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateKaku(Move move, KyokumenWrapper kWrap, KwErrorHandler errH)
+        public static JsaFugoImpl CreateKaku(Move move, KyokumenWrapper kWrap, KwLogger errH)
         {
             JsaFugoImpl fugo;
 
@@ -1161,7 +1161,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateRyu(Move move, KyokumenWrapper kWrap, KwErrorHandler errH)
+        public static JsaFugoImpl CreateRyu(Move move, KyokumenWrapper kWrap, KwLogger errH)
         {
             JsaFugoImpl fugo;
 
@@ -1357,7 +1357,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateUma(Move move, KyokumenWrapper kWrap, KwErrorHandler errH)
+        public static JsaFugoImpl CreateUma(Move move, KyokumenWrapper kWrap, KwLogger errH)
         {
             JsaFugoImpl fugo;
 
@@ -1554,7 +1554,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateTokin(Move move, KyokumenWrapper kWrap, KwErrorHandler errH)
+        public static JsaFugoImpl CreateTokin(Move move, KyokumenWrapper kWrap, KwLogger errH)
         {
             JsaFugoImpl fugo;
 
@@ -1578,7 +1578,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateNariKyo(Move move, KyokumenWrapper kWrap, KwErrorHandler errH)
+        public static JsaFugoImpl CreateNariKyo(Move move, KyokumenWrapper kWrap, KwLogger errH)
         {
             MigiHidari migiHidari;
             AgaruHiku agaruHiku;
@@ -1602,7 +1602,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateNariKei(Move move, KyokumenWrapper kWrap, KwErrorHandler errH)
+        public static JsaFugoImpl CreateNariKei(Move move, KyokumenWrapper kWrap, KwLogger errH)
         {
             JsaFugoImpl fugo;
 
@@ -1626,7 +1626,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateNariGin(Move move, KyokumenWrapper kWrap, KwErrorHandler errH)
+        public static JsaFugoImpl CreateNariGin(Move move, KyokumenWrapper kWrap, KwLogger errH)
         {
             JsaFugoImpl fugo;
 
@@ -1650,7 +1650,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateErrorKoma(Move move, KyokumenWrapper kWrap, KwErrorHandler errH)
+        public static JsaFugoImpl CreateErrorKoma(Move move, KyokumenWrapper kWrap, KwLogger errH)
         {
             JsaFugoImpl fugo;
 

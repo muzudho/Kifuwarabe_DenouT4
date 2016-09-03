@@ -41,7 +41,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C___240_Shogisasi
             string[] searchedPv,
             bool isHonshogi,
             KifuTree kifu,
-            KwErrorHandler errH
+            KwLogger errH
             );
 
     }

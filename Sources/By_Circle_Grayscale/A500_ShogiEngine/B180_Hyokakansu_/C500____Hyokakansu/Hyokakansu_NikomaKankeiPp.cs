@@ -53,7 +53,7 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
 #endif
             Sky src_Sky,
             FeatureVector fv,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             out_score = 0.0f;            // -999～999(*bairitu) が 40×40個ほど足し合わせた数になるはず。

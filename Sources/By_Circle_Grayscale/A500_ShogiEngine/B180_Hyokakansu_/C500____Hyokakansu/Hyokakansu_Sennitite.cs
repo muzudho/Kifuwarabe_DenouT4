@@ -40,7 +40,7 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
 #endif
             Sky src_Sky,
             FeatureVector featureVector,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             out_score = 0.0f;//互角

@@ -63,13 +63,13 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
             this.ShogiEngineProcessWrapper = new EngineProcessWrapperImpl();
 
 #if DEBUG
-            this.ShogiEngineProcessWrapper.SetDelegate_ShogiServer_ToEngine( (string line, KwErrorHandler errH) =>
+            this.ShogiEngineProcessWrapper.SetDelegate_ShogiServer_ToEngine( (string line, KwLogger errH) =>
             {
                 //
                 // USIコマンドを将棋エンジンに送ったタイミングで、なにかすることがあれば、
                 // ここに書きます。
                 //
-                errH.Logger.WriteLine(line,LogTypes.ToClient);
+                errH.WriteLine(line,LogTypes.ToClient);
             });
 #endif
         }
@@ -131,7 +131,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
         /// <param name="e"></param>
         private void OnExited(object sender, System.EventArgs e)
         {
-            KwErrorHandler errH = Util_Loggers.ENGINE_DEFAULT;
+            KwLogger errH = Util_Loggers.ENGINE_DEFAULT;
             this.ShogiEngineProcessWrapper.Send_Shutdown(errH);
         }
 
@@ -140,7 +140,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
         /// 手番が替わったときの挙動を、ここに書きます。
         /// ************************************************************************************************************************
         /// </summary>
-        public void OnChangedTurn(KifuTree kifu, KwErrorHandler errH)
+        public void OnChangedTurn(KifuTree kifu, KwLogger errH)
         {
             if (!this.ShogiEngineProcessWrapper.IsLive_ShogiEngine())
             {
@@ -176,7 +176,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
         /// </summary>
-        public void Send_Shutdown(KwErrorHandler errH)
+        public void Send_Shutdown(KwLogger errH)
         {
             this.ShogiEngineProcessWrapper.Send_Shutdown(errH);
         }
@@ -184,7 +184,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
         /// <summary>
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
-        public void Send_Logdase(KwErrorHandler errH)
+        public void Send_Logdase(KwLogger errH)
         {
             this.ShogiEngineProcessWrapper.Send_Logdase(errH);
         }
@@ -192,7 +192,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
         ///// <summary>
         ///// 将棋エンジンを先手にするために、go を出します。
         ///// </summary>
-        //public void Send_Go(KwErrorHandler errH)
+        //public void Send_Go(KwLogger errH)
         //{
         //    this.ShogiEngineProcessWrapper.Send_Go(errH);
         //}

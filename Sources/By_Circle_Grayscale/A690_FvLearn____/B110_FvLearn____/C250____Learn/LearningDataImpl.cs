@@ -171,7 +171,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
             string[] searchedPv,
-            KwErrorHandler errH)
+            KwLogger errH)
         {
             //----------------------------------------
             // 合法手のNextNodesを作成します。
@@ -257,7 +257,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
         /// <summary>
         /// 局面PNG画像書き出し。
         /// </summary>
-        public void WritePng(KwErrorHandler errH)
+        public void WritePng(KwLogger errH)
         {
             int srcMasu_orMinusOne = -1;
             int dstMasu_orMinusOne = -1;
@@ -317,7 +317,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
             ref ulong searchedNodes,
             string[] searchedPv,
             EvaluationArgs args,
-            KwErrorHandler errH)
+            KwLogger errH)
         {
             try
             {
@@ -346,7 +346,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
                     searchedPv,
                     this.Kifu, isHonshogi, Mode_Tansaku.Learning, alphabeta_otherBranchDecidedValue, args, errH);
             }
-            catch (Exception ex) { errH.Logger.DonimoNaranAkirameta(ex, "棋譜ツリーを作っていたときです。"); throw ex; }
+            catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "棋譜ツリーを作っていたときです。"); throw ex; }
 
         }
 

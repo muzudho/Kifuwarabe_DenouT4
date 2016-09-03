@@ -35,18 +35,18 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui
         /// 手番が替わったときの挙動を、ここに書きます。
         /// ************************************************************************************************************************
         /// </summary>
-        void ChangedTurn(KwErrorHandler errH);
+        void ChangedTurn(KwLogger errH);
 
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
         /// </summary>
-        void Shutdown(KwErrorHandler errH);
+        void Shutdown(KwLogger errH);
 
 
         /// <summary>
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
-        void Logdase(KwErrorHandler errH);
+        void Logdase(KwLogger errH);
 
 
         /// <summary>
@@ -54,12 +54,12 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui
         /// 将棋エンジンを起動します。
         /// ************************************************************************************************************************
         /// </summary>
-        void Start_ShogiEngine(string shogiEngineFilePath, KwErrorHandler errH);
+        void Start_ShogiEngine(string shogiEngineFilePath, KwLogger errH);
 
         /// <summary>
         /// コンピューターの先手
         /// </summary>
-        void Do_ComputerSente( KwErrorHandler errH);
+        void Do_ComputerSente( KwLogger errH);
 
 
         Busstop GetKoma(Finger finger);
@@ -109,7 +109,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui
         Timed TimedA { get; set; }
         Timed TimedB_MouseCapture { get; set; }
         Timed TimedC { get; set; }
-        void Timer_Tick( KwErrorHandler errH);
+        void Timer_Tick( KwLogger errH);
 
         RepaintRequest RepaintRequest { get; set; }
 
@@ -136,7 +136,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui
         void SetScene(SceneName scene);
 
 
-        void Response(string mutexString, KwErrorHandler errH);
+        void Response(string mutexString, KwLogger errH);
 
 
 

@@ -43,7 +43,7 @@ namespace Grayscale.A210_KnowNingen_.B440_Utifudume__.C500____Util
             SySet<SyElement> masus_mikata_onBanjo,//打ち歩詰めチェック用
             SySet<SyElement> masus_aite_onBanjo,//打ち歩詰めチェック用
             SySet<SyElement>[] aMasus,//駒種類別、置こうとする升
-            KwErrorHandler errH_orNull
+            KwLogger errH_orNull
             )
         {
             // 攻め側

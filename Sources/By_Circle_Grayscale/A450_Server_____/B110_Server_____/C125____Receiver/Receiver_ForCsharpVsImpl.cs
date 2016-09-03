@@ -53,7 +53,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
         /// <param name="e"></param>
         public virtual void OnListenUpload_Async(object sender, DataReceivedEventArgs e)
         {
-            KwErrorHandler errH = Util_Loggers.SERVER_NETWORK_ASYNC;
+            KwLogger errH = Util_Loggers.SERVER_NETWORK_ASYNC;
 
             string line = e.Data;
 
@@ -65,7 +65,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
             {
                 //>>>>>>>>>> メッセージを受け取りました。
 #if DEBUG
-                errH.Logger.WriteLine(line, LogTypes.ToServer);
+                errH.WriteLine(line, LogTypes.ToServer);
 #endif
 
                 if("noop" == line)
@@ -139,7 +139,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
                         );
 
 #if DEBUG
-                    errH.Logger.WriteLine("USI受信：bestmove input99=[" + ((Server)((EngineClient)this.Owner_EngineClient).Owner_Server).InputString99 + "]", LogTypes.Memo);
+                    errH.WriteLine("USI受信：bestmove input99=[" + ((Server)((EngineClient)this.Owner_EngineClient).Owner_Server).InputString99 + "]", LogTypes.Memo);
 #endif
                 }
                 else

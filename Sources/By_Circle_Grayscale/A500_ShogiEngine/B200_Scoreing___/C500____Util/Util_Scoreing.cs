@@ -108,7 +108,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
         public static void DoScoreing_Kyokumen(
             KifuNode node_yomi_mutable,
             EvaluationArgs args,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             //----------------------------------------

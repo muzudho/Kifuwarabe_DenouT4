@@ -81,7 +81,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
         /// <param name="comment"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static string JsonElements_Node(bool enableLog, Sky src_Sky_base, Node<Move, KyokumenWrapper> thisNode, string comment, KwErrorHandler errH)
+        public static string JsonElements_Node(bool enableLog, Sky src_Sky_base, Node<Move, KyokumenWrapper> thisNode, string comment, KwLogger errH)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -130,7 +130,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
         /// <param name="comment"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static string JsonKyokumens_NextNodes(bool enableLog, Sky src_Sky_base, Node<Move, KyokumenWrapper> hubNode, string comment, KwErrorHandler errH)
+        public static string JsonKyokumens_NextNodes(bool enableLog, Sky src_Sky_base, Node<Move, KyokumenWrapper> hubNode, string comment, KwLogger errH)
         {
             StringBuilder sb = new StringBuilder();
 

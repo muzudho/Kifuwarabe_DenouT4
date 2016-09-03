@@ -28,7 +28,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             out string str9,
             out string rest,
             KifuTree kifu,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             //nextTe = null;
@@ -88,7 +88,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                errH.Logger.DonimoNaranAkirameta("TuginoItte_JapanFugo.GetData_FromText（A）：" + ex.GetType().Name + "：" + ex.Message + "：text=「" + inputLine + "」");
+                errH.DonimoNaranAkirameta("TuginoItte_JapanFugo.GetData_FromText（A）：" + ex.GetType().Name + "：" + ex.Message + "：text=「" + inputLine + "」");
             }
 
 

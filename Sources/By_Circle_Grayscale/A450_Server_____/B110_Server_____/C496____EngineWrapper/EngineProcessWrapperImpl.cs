@@ -57,7 +57,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C496____EngineWrapper
         /// </summary>
         public EngineProcessWrapperImpl()
         {
-            this.SetDelegate_ShogiServer_ToEngine((string line, KwErrorHandler errH) =>
+            this.SetDelegate_ShogiServer_ToEngine((string line, KwLogger errH) =>
             {
                 // デフォルトでは何もしません。
             });
@@ -69,9 +69,9 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C496____EngineWrapper
         /// 
         /// 二度手間なんだが、メソッドを１箇所に集約するためにこれを使う☆
         /// </summary>
-        private void Download(string message, KwErrorHandler errH)
+        private void Download(string message, KwLogger errH)
         {
-            //KwErrorHandler errH = OwataMinister.SERVER_NETWORK;
+            //KwLogger errH = OwataMinister.SERVER_NETWORK;
 
             this.ShogiEngine.StandardInput.WriteLine(message);
 
@@ -84,7 +84,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C496____EngineWrapper
         /// <summary>
         /// 将棋エンジンに、"position ～略～"を送信します。
         /// </summary>
-        public void Send_Position(string position, KwErrorHandler errH)
+        public void Send_Position(string position, KwLogger errH)
         {
             // 将棋エンジンの標準入力へ、メッセージを送ります。
             this.Download(position, errH);
@@ -93,7 +93,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C496____EngineWrapper
         /// <summary>
         /// 将棋エンジンに、"setoption ～略～"を送信します。
         /// </summary>
-        public void Send_Setoption(string setoption, KwErrorHandler errH)
+        public void Send_Setoption(string setoption, KwLogger errH)
         {
             // 将棋エンジンの標準入力へ、メッセージを送ります。
             this.Download(setoption, errH);
@@ -102,7 +102,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C496____EngineWrapper
         /// <summary>
         /// 将棋エンジンに、"usi"を送信します。
         /// </summary>
-        public void Send_Usi( KwErrorHandler errH)
+        public void Send_Usi( KwLogger errH)
         {
             // 将棋エンジンの標準入力へ、メッセージを送ります。
             this.Download("usi", errH);
@@ -111,7 +111,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C496____EngineWrapper
         /// <summary>
         /// 将棋エンジンに、"isready"を送信します。
         /// </summary>
-        public void Send_Isready( KwErrorHandler errH)
+        public void Send_Isready( KwLogger errH)
         {
             this.Download("isready", errH);
         }
@@ -119,7 +119,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C496____EngineWrapper
         /// <summary>
         /// 将棋エンジンに、"usinewgame"を送信します。
         /// </summary>
-        public void Send_Usinewgame( KwErrorHandler errH)
+        public void Send_Usinewgame( KwLogger errH)
         {
             // 将棋エンジンの標準入力へ、メッセージを送ります。
             this.Download("usinewgame", errH);
@@ -128,7 +128,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C496____EngineWrapper
         /// <summary>
         /// 将棋エンジンに、"gameover lose"を送信します。
         /// </summary>
-        public void Send_Gameover_lose( KwErrorHandler errH)
+        public void Send_Gameover_lose( KwLogger errH)
         {
             // 将棋エンジンの標準入力へ、メッセージを送ります。
             this.Download("gameover lose",errH);
@@ -137,7 +137,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C496____EngineWrapper
         /// <summary>
         /// 将棋エンジンに、"quit"を送信します。
         /// </summary>
-        public void Send_Quit( KwErrorHandler errH)
+        public void Send_Quit( KwLogger errH)
         {
             // 将棋エンジンの標準入力へ、メッセージを送ります。
             this.Download("quit",errH);
@@ -146,7 +146,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C496____EngineWrapper
         /// <summary>
         /// 将棋エンジンに、"ok"を送信します。"noop"への返事です。
         /// </summary>
-        public void Send_Noop_from_server( KwErrorHandler errH)
+        public void Send_Noop_from_server( KwLogger errH)
         {
             // 将棋エンジンの標準入力へ、メッセージを送ります。
             this.Download("noop from server",errH);
@@ -155,7 +155,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C496____EngineWrapper
         /// <summary>
         /// 将棋エンジンに、"go"を送信します。
         /// </summary>
-        public void Send_Go( KwErrorHandler errH)
+        public void Send_Go( KwLogger errH)
         {
             // 将棋エンジンの標準入力へ、メッセージを送ります。
             this.Download("go",errH);
@@ -164,7 +164,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C496____EngineWrapper
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
         /// </summary>
-        public void Send_Shutdown( KwErrorHandler errH)
+        public void Send_Shutdown( KwLogger errH)
         {
             if (this.IsLive_ShogiEngine())
             {
@@ -176,7 +176,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C496____EngineWrapper
         /// <summary>
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
-        public void Send_Logdase( KwErrorHandler errH)
+        public void Send_Logdase( KwLogger errH)
         {
             if (this.IsLive_ShogiEngine())
             {

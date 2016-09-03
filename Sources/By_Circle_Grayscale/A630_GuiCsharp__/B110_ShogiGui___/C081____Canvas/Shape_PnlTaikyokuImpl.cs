@@ -337,7 +337,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C081____Canvas
             object sender, PaintEventArgs e,
             MainGui_Csharp shogiGui,
             string windowName,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             if (!this.Visible)

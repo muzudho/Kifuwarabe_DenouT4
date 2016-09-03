@@ -41,7 +41,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             out KifuParserA_State nextState,
             KifuParserA owner,
             KifuParserA_Genjo genjo,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             nextState = this;
@@ -62,7 +62,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     // 
 
 #if DEBUG
-                    errH.Logger.WriteLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... SFEN形式か...☆", LogTypes.Memo);
+                    errH.WriteLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... SFEN形式か...☆", LogTypes.Memo);
 #endif
                     genjo.InputLine = genjo.InputLine.Substring("position".Length);
                     genjo.InputLine = genjo.InputLine.Trim();
@@ -73,20 +73,20 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 else if (""==genjo.InputLine)
                 {
                     // 異常時。
-                    errH.Logger.WriteLine("＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない2☆！　終わるぜ☆", LogTypes.Error);
+                    errH.WriteLine("＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない2☆！　終わるぜ☆", LogTypes.Error);
                     genjo.ToBreak_Abnormal();
                 }
                 else
                 {
 #if DEBUG
                     Playerside pside = model_Taikyoku.Kifu.CurNode.Value.Kyokumen.KaisiPside;
-                    errH.Logger.WriteLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... positionじゃなかったぜ☆　日本式か☆？　SFENでmovesを読んだあとのプログラムに合流させるぜ☆　：　先後＝[" + pside + "]", LogTypes.Memo);
+                    errH.WriteLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... positionじゃなかったぜ☆　日本式か☆？　SFENでmovesを読んだあとのプログラムに合流させるぜ☆　：　先後＝[" + pside + "]", LogTypes.Memo);
 #endif
                     nextState = KifuParserA_StateA2_SfenMoves.GetInstance();
                 }
 
             }
-            catch (Exception ex) { Util_Loggers.ERROR.Logger.DonimoNaranAkirameta(ex, "棋譜ドキュメント解析中☆"); throw ex; }
+            catch (Exception ex) { Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "棋譜ドキュメント解析中☆"); throw ex; }
 
 
             return genjo.InputLine;

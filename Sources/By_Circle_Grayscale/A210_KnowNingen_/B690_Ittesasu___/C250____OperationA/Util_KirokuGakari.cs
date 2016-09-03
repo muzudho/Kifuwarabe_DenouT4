@@ -39,7 +39,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
         public static string ToJsaFugoListString(
             KifuTree src_kifu,
             string hint,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             StringBuilder sb = new StringBuilder();

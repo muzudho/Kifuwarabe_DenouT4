@@ -86,7 +86,7 @@ namespace Grayscale.P699_Form_______
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            KwErrorHandler errH = Util_Loggers.CsharpGui_DEFAULT;
+            KwLogger errH = Util_Loggers.CsharpGui_DEFAULT;
             this.MainGui.Timer_Tick(errH);
         }
 
@@ -101,7 +101,7 @@ namespace Grayscale.P699_Form_______
         /// <param name="e"></param>
         private void Uc_Form1Main_Load(object sender, EventArgs e)
         {
-            KwErrorHandler errH = Util_Loggers.CsharpGui_DEFAULT;
+            KwLogger errH = Util_Loggers.CsharpGui_DEFAULT;
 
             Uc_Form2Main uc_Form2Main = ((Form1_Shogi)this.ParentForm).Form2_Console.Uc_Form2Main;
 
@@ -228,7 +228,7 @@ namespace Grayscale.P699_Form_______
         /// <param name="e"></param>
         private void Uc_Form1Main_MouseMove(object sender, MouseEventArgs e)
         {
-            KwErrorHandler errH = Util_Loggers.CsharpGui_DEFAULT;
+            KwLogger errH = Util_Loggers.CsharpGui_DEFAULT;
 
             if (null != this.MainGui.Shape_PnlTaikyoku)
             {
@@ -261,7 +261,7 @@ namespace Grayscale.P699_Form_______
         /// <param name="e"></param>
         private void Uc_Form1Main_MouseDown(object sender, MouseEventArgs e)
         {
-            KwErrorHandler errH = Util_Loggers.CsharpGui_DEFAULT;
+            KwLogger errH = Util_Loggers.CsharpGui_DEFAULT;
 
             if (null == this.MainGui.Shape_PnlTaikyoku)
             {
@@ -318,7 +318,7 @@ namespace Grayscale.P699_Form_______
         /// <param name="e"></param>
         private void Uc_Form1Main_MouseUp(object sender, MouseEventArgs e)
         {
-            KwErrorHandler errH = Util_Loggers.CsharpGui_DEFAULT;
+            KwLogger errH = Util_Loggers.CsharpGui_DEFAULT;
 
             // このメインパネルに、何かして欲しいという要求は、ここに入れられます。
             this.MainGui.RepaintRequest = new RepaintRequestImpl();
@@ -361,7 +361,7 @@ namespace Grayscale.P699_Form_______
         /// </summary>
         /// <param name="response"></param>
         public void Solute_RepaintRequest(
-            Form1_Mutex mutex, MainGui_Csharp mainGui, KwErrorHandler errH)
+            Form1_Mutex mutex, MainGui_Csharp mainGui, KwLogger errH)
         {
             Uc_Form2Main form2 = ((Form1_Shogi)this.ParentForm).Form2_Console.Uc_Form2Main;
 
@@ -404,8 +404,8 @@ namespace Grayscale.P699_Form_______
                         form2.WriteLine_Syuturyoku("");
 
                         // ログ
-                        //errH.Logger.WriteLine_AddMemo( "");
-                        //errH.Logger.WriteLine_AddMemo( "");
+                        //errH.WriteLine_AddMemo( "");
+                        //errH.WriteLine_AddMemo( "");
                     }
                     break;
 
@@ -427,7 +427,7 @@ namespace Grayscale.P699_Form_______
 
 #if DEBUG
                         // ログ
-                        errH.Logger.WriteLine(form2.GetOutputareaText(),LogTypes.Memo);
+                        errH.WriteLine(form2.GetOutputareaText(),LogTypes.Memo);
 #endif
                     }
                     break;

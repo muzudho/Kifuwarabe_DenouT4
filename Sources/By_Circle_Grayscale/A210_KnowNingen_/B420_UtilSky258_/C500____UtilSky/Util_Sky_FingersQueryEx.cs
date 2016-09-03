@@ -26,7 +26,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <returns></returns>
         public static void Fingers_EachSrcNow(
             out Fingers out_fingers, SySet<SyElement> srcList, Sky src_Sky, Playerside pside,
-            KwErrorHandler errH)
+            KwLogger errH)
         {
             out_fingers = new Fingers();
 

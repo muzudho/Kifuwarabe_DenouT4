@@ -32,7 +32,7 @@ namespace Grayscale.A210_KnowNingen_.B430_Play_______.C500____Query
             SySet<SyElement> masus_mikata_Banjo,
             SySet<SyElement> masus_aite_Banjo,
             Sky src_Sky,
-            KwErrorHandler errH_orNull
+            KwLogger errH_orNull
             )
         {
             // 利きを調べる側の利き（戦駒）

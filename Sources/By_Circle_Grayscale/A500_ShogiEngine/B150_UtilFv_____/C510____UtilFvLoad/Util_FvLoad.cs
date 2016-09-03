@@ -65,7 +65,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad
         /// <param name="rv_orNull">学習でしか使いません。</param>
         /// <param name="filepath_komawari_base"></param>
         /// <returns></returns>
-        public static string OpenFv(FeatureVector fv, string filepath_komawari_base, KwErrorHandler errH)
+        public static string OpenFv(FeatureVector fv, string filepath_komawari_base, KwLogger errH)
         {
             StringBuilder sb_result = new StringBuilder();
 

@@ -47,7 +47,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
         /// </summary>
         /// <param name="uc_Main"></param>
         /// <param name="tyoseiryo"></param>
-        public static void A_RankUp_SelectedSasite(Uc_Main uc_Main, float tyoseiryo, KwErrorHandler errH)
+        public static void A_RankUp_SelectedSasite(Uc_Main uc_Main, float tyoseiryo, KwLogger errH)
         {
             //----------------------------------------
             // 選択したノードを参考に、減点を行う。
@@ -57,16 +57,16 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                 Move move1 = item.Move;
 #if DEBUG
                 string sfen = Conv_Move.ToSfen(item.Move);
-                errH.Logger.WriteLine("sfen=" + sfen, LogTypes.Memo);
+                errH.WriteLine("sfen=" + sfen, LogTypes.Memo);
 #endif
 
                 if (uc_Main.LearningData.Kifu.CurNode.HasChildNode(move1))
                 {
 #if DEBUG
-                    errH.Logger.WriteLine("----------------------------------------", LogTypes.Memo);
-                    errH.Logger.WriteLine("FV 総合点（読込前）1", LogTypes.Memo);
-                    errH.Logger.WriteLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(uc_Main.LearningData.Fv), LogTypes.Memo);
-                    errH.Logger.WriteLine("----------------------------------------", LogTypes.Memo);
+                    errH.WriteLine("----------------------------------------", LogTypes.Memo);
+                    errH.WriteLine("FV 総合点（読込前）1", LogTypes.Memo);
+                    errH.WriteLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(uc_Main.LearningData.Fv), LogTypes.Memo);
+                    errH.WriteLine("----------------------------------------", LogTypes.Memo);
 #endif
                     Node<Move, KyokumenWrapper> nextNode = uc_Main.LearningData.Kifu.CurNode.GetChildNode(move1);
 
@@ -83,10 +83,10 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                         errH
                         );//相手が有利になる点
 #if DEBUG
-                    errH.Logger.WriteLine("----------------------------------------", LogTypes.Memo);
-                    errH.Logger.WriteLine("FV 総合点（読込後）6", LogTypes.Memo);
-                    errH.Logger.WriteLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(uc_Main.LearningData.Fv), LogTypes.Memo);
-                    errH.Logger.WriteLine("----------------------------------------", LogTypes.Memo);
+                    errH.WriteLine("----------------------------------------", LogTypes.Memo);
+                    errH.WriteLine("FV 総合点（読込後）6", LogTypes.Memo);
+                    errH.WriteLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(uc_Main.LearningData.Fv), LogTypes.Memo);
+                    errH.WriteLine("----------------------------------------", LogTypes.Memo);
 #endif
                 }
             }
@@ -114,7 +114,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
         /// <summary>
         /// 初期局面の評価値を 0 点にするようにFVを調整します。
         /// </summary>
-        public static void Do_ZeroStart(ref bool isRequest_ShowGohosyu, Uc_Main uc_Main, KwErrorHandler errH)
+        public static void Do_ZeroStart(ref bool isRequest_ShowGohosyu, Uc_Main uc_Main, KwLogger errH)
         {
             bool isRequestDoEvents = false;
             Util_StartZero.Adjust_HirateSyokiKyokumen_0ten_AndFvParamRange(ref isRequestDoEvents, uc_Main.LearningData.Fv, errH);
@@ -133,7 +133,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
         public static void Do_RankUpSasite(
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
-            Uc_Main uc_Main, KwErrorHandler errH)
+            Uc_Main uc_Main, KwLogger errH)
         {
             // 評価値変化量
             float chosei_bairitu;
@@ -159,7 +159,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
         public static void Do_RankDownSasite(
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
-            Uc_Main uc_Main, KwErrorHandler errH)
+            Uc_Main uc_Main, KwLogger errH)
         {
             // 評価値変化量
             float badScore;
@@ -217,7 +217,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
         ///// <summary>
         ///// FVを0～999(*bairitu)に矯正。
         ///// </summary>
-        //public static void Do_FvRange999(ref bool isRequest_ShowGohosyu, Uc_Main uc_Main, KwErrorHandler errH)
+        //public static void Do_FvRange999(ref bool isRequest_ShowGohosyu, Uc_Main uc_Main, KwLogger errH)
         //{
         //    Util_LearnFunctions.FvParamRange_PP(uc_Main.LearningData.Fv, errH);
 
@@ -226,7 +226,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
         //}
 
 
-        public static void Do_OpenFvCsv(Uc_Main uc_Main, KwErrorHandler errH)
+        public static void Do_OpenFvCsv(Uc_Main uc_Main, KwLogger errH)
         {
             if ("" != uc_Main.TxtFvFilepath.Text)
             {
@@ -279,7 +279,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
 
 
 
-        public static void Load_CsaKifu(Uc_Main uc_Main, KwErrorHandler errH)
+        public static void Load_CsaKifu(Uc_Main uc_Main, KwLogger errH)
         {
             uc_Main.LearningData.ReadKifu(uc_Main);
 
@@ -291,7 +291,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
             string kifuFilepath,
-            Uc_Main uc_Main, KwErrorHandler errH)
+            Uc_Main uc_Main, KwLogger errH)
         {
             uc_Main.TxtKifuFilepath.Text = kifuFilepath;
 
@@ -329,7 +329,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
         public static void Setup_KifuTree(
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
-            Uc_Main uc_Main, KwErrorHandler errH)
+            Uc_Main uc_Main, KwLogger errH)
         {
             {
                 KifuTree kifu_newHirate;

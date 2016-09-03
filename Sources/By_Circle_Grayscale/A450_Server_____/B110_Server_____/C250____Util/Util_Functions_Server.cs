@@ -54,7 +54,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             SkyWrapper_Gui model_Manual,
             Node<Move, KyokumenWrapper> newNode,
             out string jsaFugoStr,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             Debug.Assert(null != newNode, "新規ノードがヌル。");
@@ -86,14 +86,14 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             SkyWrapper_Gui model_Manual,
             out bool toBreak,
             string hint,
-            KwErrorHandler errH
+            KwLogger errH
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
             )
         {
-            //KwErrorHandler errH = OwataMinister.SERVER_KIFU_YOMITORI;
+            //KwLogger errH = OwataMinister.SERVER_KIFU_YOMITORI;
 
             bool successful = false;
             KifuParserA_Impl kifuParserA_Impl = new KifuParserA_Impl();
@@ -108,8 +108,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     // 最初はここ
 
 #if DEBUG
-                    errH.Logger.WriteLine("(^o^)... ...", LogTypes.Memo);
-                    errH.Logger.WriteLine("ｻｲｼｮﾊｺｺ☆　：　" + memberName + "." + sourceFilePath + "." + sourceLineNumber, LogTypes.Memo);
+                    errH.WriteLine("(^o^)... ...", LogTypes.Memo);
+                    errH.WriteLine("ｻｲｼｮﾊｺｺ☆　：　" + memberName + "." + sourceFilePath + "." + sourceLineNumber, LogTypes.Memo);
 #endif
                     inputLine = kifuParserA_Impl.Execute_Step(
                         ref result,
@@ -140,7 +140,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     {
 #if DEBUG
                         string message = "(^o^)ﾂｷﾞﾊ　ﾋﾗﾃ　ﾏﾀﾊ　ｼﾃｲｷｮｸﾒﾝ　ｦ　ｼｮﾘｼﾀｲ☆ inputLine=[" + inputLine + "]";
-                        errH.Logger.WriteLine(message, LogTypes.Memo);
+                        errH.WriteLine(message, LogTypes.Memo);
 #endif
 
                         inputLine = kifuParserA_Impl.Execute_Step(
@@ -161,7 +161,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
                     {
 #if DEBUG
-                        errH.Logger.WriteLine("(^o^)ﾂｷﾞﾊ　ﾑｰﾌﾞｽ　ｦ　ｼｮﾘｼﾀｲ☆", LogTypes.Memo);
+                        errH.WriteLine("(^o^)ﾂｷﾞﾊ　ﾑｰﾌﾞｽ　ｦ　ｼｮﾘｼﾀｲ☆", LogTypes.Memo);
 #endif
 
                         inputLine = kifuParserA_Impl.Execute_Step(
@@ -191,7 +191,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                 if (kifuParserA_Impl.State is KifuParserA_StateA2_SfenMoves)
                 {
 #if DEBUG
-                    errH.Logger.WriteLine("ﾂｷﾞﾊ　ｲｯﾃ　ｼｮﾘｼﾀｲ☆", LogTypes.Memo);
+                    errH.WriteLine("ﾂｷﾞﾊ　ｲｯﾃ　ｼｮﾘｼﾀｲ☆", LogTypes.Memo);
 #endif
 
                     inputLine = kifuParserA_Impl.Execute_Step(
@@ -280,7 +280,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             out Finger foodKoma,
             out string jsaFugoStr,
             Model_Taikyoku model_Taikyoku,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             bool successful = false;
@@ -347,7 +347,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             ref string inputLine,
             Model_Taikyoku model_Taikyoku,
             SkyWrapper_Gui model_Manual,
-            KwErrorHandler errH
+            KwLogger errH
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -393,7 +393,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             Finger fig_btnTumandeiruKoma,
             Busstop foodee_koma,//取られる対象の駒
             SkyWrapper_Gui model_Manual,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
 

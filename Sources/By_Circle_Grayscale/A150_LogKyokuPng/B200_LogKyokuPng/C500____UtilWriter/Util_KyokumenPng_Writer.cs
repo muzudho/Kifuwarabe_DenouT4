@@ -86,7 +86,7 @@ namespace Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C500____UtilWriter
             string appendFilepath,
             string outFile,
             KyokumenPngEnvironment reportEnvironment,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             bool successful = true;

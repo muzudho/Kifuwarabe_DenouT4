@@ -57,7 +57,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             out KifuParserA_State nextState,
             KifuParserA owner,
             KifuParserA_Genjo genjo,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             int exceptionArea = 0;
@@ -144,7 +144,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                             {
                                 //「6g6f」形式でもなかった☆
 
-                                errH.Logger.WriteLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　！？　次の一手が読めない☆　inputLine=[" + genjo.InputLine + "]", LogTypes.Error);
+                                errH.WriteLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　！？　次の一手が読めない☆　inputLine=[" + genjo.InputLine + "]", LogTypes.Error);
                                 genjo.ToBreak_Abnormal();
                                 goto gt_EndMethod;
                             }
@@ -153,7 +153,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
                         genjo.InputLine = rest;
                     }
-                    catch (Exception ex) { Util_Loggers.ERROR.Logger.DonimoNaranAkirameta(ex, "moves解析中☆"); throw ex; }
+                    catch (Exception ex) { Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "moves解析中☆"); throw ex; }
 
 
 
@@ -180,7 +180,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                             //------------------------------
                             // ★棋譜読込専用  駒移動
                             //------------------------------
-                            //errH.Logger.WriteLine_AddMemo("一手指し開始　：　残りの符号つ「" + genjo.InputLine + "」");
+                            //errH.WriteLine_AddMemo("一手指し開始　：　残りの符号つ「" + genjo.InputLine + "」");
 
 
                             exceptionArea = 1030;
@@ -201,7 +201,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                             //↑↑一手指し
 
                             //exceptionArea = 1090;
-                            //errH.Logger.WriteLine_AddMemo(Util_Sky307.Json_1Sky(
+                            //errH.WriteLine_AddMemo(Util_Sky307.Json_1Sky(
                             //    src_Sky,
                             //    "一手指し終了",
                             //    "SFENパース2",
@@ -216,7 +216,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
                             // どうにもできないので  ログだけ取って無視します。
                             string message = this.GetType().Name + "#Execute（B）： exceptionArea=" + exceptionArea + "\n" + ex.GetType().Name + "：" + ex.Message;
-                            errH.Logger.WriteLine(message, LogTypes.Error);
+                            errH.WriteLine(message, LogTypes.Error);
                         }
 
                     }
@@ -224,13 +224,13 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     {
                         genjo.ToBreak_Abnormal();
                         string message = "＼（＾ｏ＾）／teSasiteオブジェクトがない☆！　inputLine=[" + genjo.InputLine + "]";
-                        errH.Logger.WriteLine(message, LogTypes.Error);
+                        errH.WriteLine(message, LogTypes.Error);
                         throw new Exception(message);
                     }
                 }
                 else
                 {
-                    //errH.Logger.WriteLine_AddMemo("（＾△＾）現局面まで進んだのかだぜ☆？\n" + Util_Sky307.Json_1Sky(
+                    //errH.WriteLine_AddMemo("（＾△＾）現局面まで進んだのかだぜ☆？\n" + Util_Sky307.Json_1Sky(
                     //    src_Sky,
                     //    "棋譜パース",
                     //    "SFENパース3",
@@ -246,7 +246,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
                 // どうにもできないので  ログだけ取って無視します。
                 string message = this.GetType().Name + "#Execute：" + ex.GetType().Name + "：" + ex.Message;
-                errH.Logger.WriteLine(message, LogTypes.Error);
+                errH.WriteLine(message, LogTypes.Error);
             }
 
         gt_EndMethod:

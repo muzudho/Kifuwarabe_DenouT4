@@ -36,7 +36,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C081____Canvas
             PaintEventArgs e,
             MainGui_Csharp shogibanGui,
             string windowName,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             //----------------------------------------

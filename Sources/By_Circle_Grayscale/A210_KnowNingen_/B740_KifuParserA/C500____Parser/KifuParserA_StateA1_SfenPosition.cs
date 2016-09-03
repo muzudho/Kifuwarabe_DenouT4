@@ -40,7 +40,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             out KifuParserA_State nextState,
             KifuParserA owner,
             KifuParserA_Genjo genjo,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             nextState = this;
@@ -53,7 +53,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 #if DEBUG
-                    errH.Logger.WriteLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　平手のようなんだぜ☆", LogTypes.Memo);
+                    errH.WriteLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　平手のようなんだぜ☆", LogTypes.Memo);
 #endif
 
                     genjo.InputLine = genjo.InputLine.Substring("startpos".Length);
@@ -75,13 +75,13 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 else
                 {
 //#if DEBUG
-                    errH.Logger.WriteLine("（＾△＾）ここはスルーして次に状態遷移するんだぜ☆\n「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】",LogTypes.Error);//　：　局面の指定のようなんだぜ☆　対応していない☆？
-                    //errH.Logger.WriteLine_Error("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　局面の指定のようなんだぜ☆　対応していない☆？");
+                    errH.WriteLine("（＾△＾）ここはスルーして次に状態遷移するんだぜ☆\n「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】",LogTypes.Error);//　：　局面の指定のようなんだぜ☆　対応していない☆？
+                    //errH.WriteLine_Error("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　局面の指定のようなんだぜ☆　対応していない☆？");
 //#endif
                     nextState = KifuParserA_StateA1b_SfenLnsgkgsnl.GetInstance();
                 }
             }
-            catch (Exception ex) { Util_Loggers.ERROR.Logger.DonimoNaranAkirameta(ex, "positionの解析中。"); throw ex; }
+            catch (Exception ex) { Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "positionの解析中。"); throw ex; }
 
             return genjo.InputLine;
         }

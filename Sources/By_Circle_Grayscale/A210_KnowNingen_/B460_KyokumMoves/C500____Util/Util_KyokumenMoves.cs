@@ -91,7 +91,7 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util
 #endif
             )
         {
-            KwErrorHandler errH = null;
+            KwLogger errH = null;
 #if DEBUG
                     if (mmLog_orNull != null)
                     {
@@ -247,7 +247,7 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util
             SySet<SyElement> masus_mikata_onBanjo,
             SySet<SyElement> masus_aite_onBanjo,
             Sky src_Sky,
-            KwErrorHandler errH_orNull
+            KwLogger errH_orNull
             )
         {
             // 持ち駒を置けない升

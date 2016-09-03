@@ -14,13 +14,13 @@ namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct
         /// <returns></returns>
         SennititeCounter GetSennititeCounter();
 
-        //void AssertPside(Node<Move, KyokumenWrapper> node, string hint, KwErrorHandler errH);
+        //void AssertPside(Node<Move, KyokumenWrapper> node, string hint, KwLogger errH);
         /// <summary>
         /// これから追加する予定のノードの先後を診断します。
         /// </summary>
         /// <param name="node"></param>
         void AssertChildPside(Playerside parentPside, Playerside childPside);
-        //Playerside CountPside(Node<Move, KyokumenWrapper> node, KwErrorHandler errH);
+        //Playerside CountPside(Node<Move, KyokumenWrapper> node, KwLogger errH);
 
 
         
@@ -29,7 +29,7 @@ namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct
         ///// [ここから採譜]機能
         ///// ************************************************************************************************************************
         ///// </summary>
-        //void SetStartpos_KokokaraSaifu(Playerside pside, KwErrorHandler errH);
+        //void SetStartpos_KokokaraSaifu(Playerside pside, KwLogger errH);
 
         ///// <summary>
         ///// この木の、全てのノードを、フォルダーとして作成します。

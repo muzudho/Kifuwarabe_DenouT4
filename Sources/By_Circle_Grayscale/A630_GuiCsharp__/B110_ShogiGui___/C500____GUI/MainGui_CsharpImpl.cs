@@ -156,7 +156,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
                 return this.flowB;
             }
         }
-        public void SetFlowB(SceneName name1, KwErrorHandler errH)
+        public void SetFlowB(SceneName name1, KwLogger errH)
         {
             this.flowB = name1;
 
@@ -227,14 +227,14 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
         /// 将棋エンジンを起動します。
         /// ************************************************************************************************************************
         /// </summary>
-        public virtual void Start_ShogiEngine(string shogiEngineFilePath, KwErrorHandler errH)
+        public virtual void Start_ShogiEngine(string shogiEngineFilePath, KwLogger errH)
         {
         }
 
         /// <summary>
         /// コンピューターの先手
         /// </summary>
-        public virtual void Do_ComputerSente(KwErrorHandler errH)
+        public virtual void Do_ComputerSente(KwLogger errH)
         {
         }
 
@@ -243,7 +243,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
         /// 手番が替わったときの挙動を、ここに書きます。
         /// ************************************************************************************************************************
         /// </summary>
-        public virtual void ChangedTurn(KwErrorHandler errH)
+        public virtual void ChangedTurn(KwLogger errH)
         {
         }
 
@@ -251,7 +251,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
         /// </summary>
-        public virtual void Shutdown(KwErrorHandler errH)
+        public virtual void Shutdown(KwLogger errH)
         {
         }
 
@@ -259,14 +259,14 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
         /// <summary>
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
-        public virtual void Logdase(KwErrorHandler errH)
+        public virtual void Logdase(KwLogger errH)
         {
         }
 
 
 
         private int noopSend_counter;
-        public void Timer_Tick( KwErrorHandler errH)
+        public void Timer_Tick( KwLogger errH)
         {
             if (this.server.EngineClient.ShogiEngineProcessWrapper.IsLive_ShogiEngine())
             {
@@ -358,7 +358,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
         /// <summary>
         /// このアプリケーションソフトの開始時の処理。
         /// </summary>
-        public virtual void Load_AsStart(KwErrorHandler errH)
+        public virtual void Load_AsStart(KwLogger errH)
         {
             //
             // 既存のログファイルを削除したい。
@@ -369,7 +369,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
 
             {
 #if DEBUG
-                errH.Logger.WriteLine("(^o^)乱数のたね＝[" + KwRandom.Seed + "]",LogTypes.Memo);
+                errH.WriteLine("(^o^)乱数のたね＝[" + KwRandom.Seed + "]",LogTypes.Memo);
 #endif
 
                 this.Data_Settei_Csv.Read_Add(Const_Filepath.m_EXE_TO_CONFIG + "data_settei.csv", Encoding.UTF8);
@@ -421,7 +421,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
             this.WidgetLoaders.Add(new WidgetsLoader_CsharpImpl(filepath_widgets02, this));
         }
 
-        public void LaunchForm_AsBody(KwErrorHandler errH)
+        public void LaunchForm_AsBody(KwLogger errH)
         {
             ((Form1_Shogiable)this.OwnerForm).Delegate_Form1_Load = (MainGui_Csharp shogiGui, object sender, EventArgs e) =>
             {
@@ -463,7 +463,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
         }
 
 
-        public void Response( string mutexString, KwErrorHandler errH)
+        public void Response( string mutexString, KwLogger errH)
         {
             Uc_Form1Mainable uc_Form1Main = ((Form1_Shogiable)this.OwnerForm).Uc_Form1Main;
 

@@ -26,7 +26,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
         /// </summary>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static RO_Kyokumen1_ForFormat ToRO_Kyokumen1(KifuNode kifuNode, KwErrorHandler errH)
+        public static RO_Kyokumen1_ForFormat ToRO_Kyokumen1(KifuNode kifuNode, KwLogger errH)
         {
             RO_Kyokumen1_ForFormat ro_Kyokumen1 = new RO_Kyokumen1_ForFormatImpl();
 
@@ -77,7 +77,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
         /// <param name="pside"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static string ToSfenstring(KifuNode kifuNode, Playerside pside, KwErrorHandler errH)
+        public static string ToSfenstring(KifuNode kifuNode, Playerside pside, KwLogger errH)
         {
             Sky src_Sky = kifuNode.Value.Kyokumen;
 

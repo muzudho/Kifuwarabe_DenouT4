@@ -225,7 +225,7 @@ namespace Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table
                         "rowCount=[" + rowCount2 + "]\n" +
                         "columnCount=[" + columnCount + "]\n";
                         Exception ex = new Exception(message);
-                        Util_Loggers.ERROR.Logger.DonimoNaranAkirameta(ex, "配役変換中☆"); throw ex;
+                        Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "配役変換中☆"); throw ex;
                     }
 
                     int masuHandle = (8 - columnCount) * 9 + (rowCount2 % 9);//0～80

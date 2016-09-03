@@ -38,8 +38,8 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C250____Log
         public Move Move { get { return this.m_move_; } }
         private Move m_move_;
 
-        public KwErrorHandler ErrH { get { return this.errH; } }
-        private KwErrorHandler errH;
+        public KwLogger ErrH { get { return this.errH; } }
+        private KwLogger errH;
 
 
         public MmLogGenjoImpl(
@@ -47,7 +47,7 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C250____Log
             KaisetuBoard brdMove,
             int temezumi_yomiCur,
             Move move,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             this.BrdMove = brdMove;

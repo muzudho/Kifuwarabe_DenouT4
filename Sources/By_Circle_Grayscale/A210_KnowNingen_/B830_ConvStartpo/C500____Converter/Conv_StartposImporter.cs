@@ -33,7 +33,7 @@ namespace Grayscale.A210_KnowNingen_.B830_ConvStartpo.C500____Converter
             SkyWrapper_Gui model_Manual,// Gui局面を使用
             StartposImporter startposImporter,
             KifuParserA_Genjo genjo,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             ParsedKyokumen parsedKyokumen = new ParsedKyokumenImpl();

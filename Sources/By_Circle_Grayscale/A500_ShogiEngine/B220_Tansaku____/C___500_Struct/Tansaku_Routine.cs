@@ -27,7 +27,7 @@ namespace Grayscale.A500_ShogiEngine.B220_Tansaku____.C___500_Tansaku
             Mode_Tansaku mode_Tansaku,
             float alphabeta_otherBranchDecidedValue,
             EvaluationArgs args,
-            KwErrorHandler log
+            KwLogger log
             );
 
     }

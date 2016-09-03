@@ -49,7 +49,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             KifuTree kifu,
             bool isHonshogi,
             Mode_Tansaku mode_Tansaku,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             // TODO:ここではログを出力せずに、ツリーの先端で出力したい。
@@ -207,7 +207,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             Mode_Tansaku mode_Tansaku,
             float alphabeta_otherBranchDecidedValue,
             EvaluationArgs args,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             int exceptionArea = 0;
@@ -297,13 +297,13 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                             Debug.Fail(message);
 
                             // どうにもできないので  ログだけ取って、上に投げます。
-                            errH.Logger.WriteLine(message,LogTypes.Error);
+                            errH.WriteLine(message,LogTypes.Error);
                             throw ex;
                         }
 #if DEBUG
                     case 20:
                         {
-                            errH.Logger.DonimoNaranAkirameta(ex, "棋譜ツリーの読みの後半９０です。"); throw ex;
+                            errH.DonimoNaranAkirameta(ex, "棋譜ツリーの読みの後半９０です。"); throw ex;
                         }
 #endif
                     default: throw ex;
@@ -354,7 +354,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             ref int searchedMaxDepth,
             out int out_yomiDeep,
             out float out_a_childrenBest,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             out_movelist = Tansaku_FukasaYusen_Routine.WAAAA_Create_ChildNodes(
@@ -387,7 +387,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             KifuNode node_yomi,
             EvaluationArgs args,
             out float out_a_childrenBest,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             // 局面に評価値を付けます。
@@ -400,7 +400,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             out_a_childrenBest = node_yomi.Score;
 
 #if DEBUG_ALPHA_METHOD
-                    errH.Logger.WriteLine_AddMemo("1. 手(" + node_yomi.Value.ToKyokumenConst.Temezumi + ")読(" + yomiDeep + ") 兄弟最善=[" + a_siblingDecidedValue + "] 子ベスト=[" + a_childrenBest + "]");
+                    errH.WriteLine_AddMemo("1. 手(" + node_yomi.Value.ToKyokumenConst.Temezumi + ")読(" + yomiDeep + ") 兄弟最善=[" + a_siblingDecidedValue + "] 子ベスト=[" + a_childrenBest + "]");
 #endif
 
 #if DEBUG
@@ -449,7 +449,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             KifuNode node_yomi,
             int movelist_count,
             EvaluationArgs args,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             int exceptionArea = 0;
@@ -573,7 +573,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                                 i++;
                             }
 
-                            errH.Logger.DonimoNaranAkirameta(ex, "棋譜ツリーで例外です(A)。exceptionArea=" + exceptionArea
+                            errH.DonimoNaranAkirameta(ex, "棋譜ツリーで例外です(A)。exceptionArea=" + exceptionArea
                                 + " entry.Key=" + Conv_Move.ToSfen(move) + " node_yomi.CountAllNodes=" + node_yomi.CountAllNodes()
                                 + " 指し手候補="+sb.ToString()); throw ex;
 
@@ -632,12 +632,12 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         wideCount1++;
 
 #if DEBUG_ALPHA_METHOD
-                errH.Logger.WriteLine_AddMemo("3. 手(" + node_yomi.Value.ToKyokumenConst.Temezumi + ")読(" + yomiDeep + ") 兄弟最善=[" + a_siblingDecidedValue + "] 子ベスト=[" + a_childrenBest + "] 自点=[" + a_myScore + "]");
+                errH.WriteLine_AddMemo("3. 手(" + node_yomi.Value.ToKyokumenConst.Temezumi + ")読(" + yomiDeep + ") 兄弟最善=[" + a_siblingDecidedValue + "] 子ベスト=[" + a_childrenBest + "] 自点=[" + a_myScore + "]");
 #endif
                         if (alpha_cut)
                         {
 #if DEBUG_ALPHA_METHOD
-                        errH.Logger.WriteLine_AddMemo("アルファ・カット☆！");
+                        errH.WriteLine_AddMemo("アルファ・カット☆！");
 #endif
                             //----------------------------------------
                             // 次の「子の弟」要素はもう読みません。
@@ -660,7 +660,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             }
             catch (Exception ex)
             {
-                errH.Logger.DonimoNaranAkirameta(ex, "棋譜ツリーで例外です(B)。exceptionArea=" + exceptionArea); throw ex;
+                errH.DonimoNaranAkirameta(ex, "棋譜ツリーで例外です(B)。exceptionArea=" + exceptionArea); throw ex;
             }
 
             return a_childrenBest;
@@ -684,7 +684,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             Tansaku_Genjo genjo,
             Sky src_Sky,
             Move move_ForLog,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             int exceptionArea = 0;
@@ -842,7 +842,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             }
             catch (Exception ex)
             {
-                errH.Logger.DonimoNaranAkirameta(ex, "探索深さルーチンでエラー☆ exceptionArea=" + exceptionArea);
+                errH.DonimoNaranAkirameta(ex, "探索深さルーチンでエラー☆ exceptionArea=" + exceptionArea);
                 throw ex;
             }
 
@@ -856,7 +856,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             Sky src_Sky,
             out MmLogGenjoImpl out_mm_log,
             out KaisetuBoard out_logBrd_move1,
-            KwErrorHandler errH
+            KwLogger errH
         )
         {
             out_logBrd_move1 = new KaisetuBoard();// 盤１個分のログの準備
@@ -873,14 +873,14 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             }
             catch (Exception ex)
             {
-                errH.Logger.DonimoNaranAkirameta(ex, "棋譜ツリーの読みループの作成次ノードの前半２０です。"); throw ex;
+                errH.DonimoNaranAkirameta(ex, "棋譜ツリーの読みループの作成次ノードの前半２０です。"); throw ex;
             }
         }
         private static void Log2(
             Tansaku_Genjo genjo,
             KifuNode node_yomi,
             KaisetuBoard logBrd_move1,
-            KwErrorHandler errH
+            KwLogger errH
         )
         {
             try
@@ -897,7 +897,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             }
             catch (Exception ex)
             {
-                errH.Logger.DonimoNaranAkirameta(ex, "棋譜ツリーの読みループの作成次ノードの前半４０です。"); throw ex;
+                errH.DonimoNaranAkirameta(ex, "棋譜ツリーの読みループの作成次ノードの前半４０です。"); throw ex;
             }
         }
 #endif

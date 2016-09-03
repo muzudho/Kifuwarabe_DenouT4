@@ -155,7 +155,7 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
             }
             catch (Exception ex)
             {
-                Util_Loggers.ERROR.Logger.DonimoNaranAkirameta(ex, "ログ中☆");
+                Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "ログ中☆");
                 // ログ出力に失敗しても、続行します。
 
                 ////>>>>> エラーが起こりました。

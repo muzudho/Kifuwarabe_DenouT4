@@ -46,7 +46,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
         /// <summary>
         /// 局面PNG画像書き出し。
         /// </summary>
-        void WritePng(KwErrorHandler errH);
+        void WritePng(KwLogger errH);
 
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
             string[] searchedPv,
-            EvaluationArgs args, KwErrorHandler errH);
+            EvaluationArgs args, KwLogger errH);
 
         /// <summary>
         /// 全合法手をダンプ。デバッグ用途。
@@ -86,7 +86,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
             string[] searchedPv,
-            KwErrorHandler errH);
+            KwLogger errH);
 
     }
 }

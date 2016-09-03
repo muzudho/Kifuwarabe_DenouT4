@@ -20,7 +20,10 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C510____AutoKifuRead
         public static void Do_UpdateKyokumenHyoka(
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
-            Uc_Main uc_Main, KwErrorHandler errH)
+            Uc_Main uc_Main,
+            KwLogger errH,
+            KwDisplayer kd
+            )
         {
 
             int renzokuTe;
@@ -43,7 +46,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C510____AutoKifuRead
                     ref isRequest_ShowGohosyu,
                     ref isRequest_ChangeKyokumenPng,
                     renzokuTe,
-                    uc_Main, errH);
+                    uc_Main, errH, kd);
 
                 if (isEndKifuread)
                 {

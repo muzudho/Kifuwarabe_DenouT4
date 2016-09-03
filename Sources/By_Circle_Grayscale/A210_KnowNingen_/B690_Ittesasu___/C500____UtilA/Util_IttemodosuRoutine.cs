@@ -34,7 +34,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             Node<Move, KyokumenWrapper> removeeLeaf,
             int korekaranoTemezumi,
             Model_Taikyoku model_Taikyoku,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             Sky susunda_Sky_orNull = null;
@@ -78,7 +78,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             int korekaranoTemezumi,//これから作る局面の、手目済み。
 
             out IttemodosuResult ittemodosuResult,
-            KwErrorHandler errH
+            KwLogger errH
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -229,7 +229,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         public static void DoStep2(
             ref IttemodosuResult ittemodosuReference,
             Sky susunda_Sky_orNull,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             Node<Move, KyokumenWrapper> editNodeRef = ittemodosuReference.SyuryoNode_OrNull;
@@ -295,7 +295,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             Move move,
             Playerside kaisi_tebanside,
             Sky kaisi_Sky,
-            KwErrorHandler errH
+            KwLogger errH
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -383,7 +383,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             Sky kaisi_Sky,//巻き戻しのとき
             Sky susunda_Sky_orNull,
             out Finger out_figFoodKoma,
-            KwErrorHandler errH
+            KwLogger errH
         )
         {
             Komasyurui14 captured = Conv_Move.ToCaptured(move);

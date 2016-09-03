@@ -60,7 +60,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="syurui"></param>
         /// <param name="hKomas"></param>
         /// <returns></returns>
-        public static Fingers InKomasyuruiNow(Sky src_Sky, Komasyurui14 syurui, KwErrorHandler errH)
+        public static Fingers InKomasyuruiNow(Sky src_Sky, Komasyurui14 syurui, KwLogger errH)
         {
             Fingers figKomas = new Fingers();
 
@@ -149,7 +149,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
         /// <returns>スプライト番号。なければエラー番号。</returns>
-        public static Fingers InMasuNow_Old(Sky src_Sky, SyElement masu)//, KwErrorHandler errH
+        public static Fingers InMasuNow_Old(Sky src_Sky, SyElement masu)//, KwLogger errH
         {
             // １個入る。
             Fingers found = new Fingers();
@@ -292,7 +292,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="kifu"></param>
         /// <param name="okiba"></param>
         /// <returns></returns>
-        public static Fingers InOkibaNow(Sky src_Sky, Okiba okiba, KwErrorHandler errH)
+        public static Fingers InOkibaNow(Sky src_Sky, Okiba okiba, KwLogger errH)
         {
             Fingers komas = new Fingers();
 
@@ -318,7 +318,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="pside"></param>
         /// <param name="hKomas"></param>
         /// <returns></returns>
-        public static Fingers InPsideNow(Sky src_Sky, Playerside pside, KwErrorHandler errH)
+        public static Fingers InPsideNow(Sky src_Sky, Playerside pside, KwLogger errH)
         {
             Fingers fingers = new Fingers();
 

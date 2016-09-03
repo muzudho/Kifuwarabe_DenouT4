@@ -26,7 +26,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
         /// </summary>
         public static int IzennoHenkaCutter(
             KifuTree kifu_mutable,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             int result_removedCount = 0;
@@ -110,7 +110,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             KifuTree kifuRef,
             KifuNode nextNode_and_nextCurrent,
             string hint,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             Move move1 = nextNode_and_nextCurrent.Key;
@@ -133,7 +133,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
         /// [ここから採譜]機能
         /// ************************************************************************************************************************
         /// </summary>
-        public static void SetStartpos_KokokaraSaifu(KifuTree kifu, Playerside pside, KwErrorHandler errH)
+        public static void SetStartpos_KokokaraSaifu(KifuTree kifu, Playerside pside, KwLogger errH)
         {
 
             //------------------------------------------------------------

@@ -193,7 +193,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <returns>駒毎の、全指し手</returns>
         public static Maps_OneAndMulti<Finger, Move> SplitSasite_ByStar(
             Sky src_Sky,
-            Node<Move, KyokumenWrapper> hubNode, KwErrorHandler errH)
+            Node<Move, KyokumenWrapper> hubNode, KwLogger errH)
         {
             Maps_OneAndMulti<Finger, Move> enable_moveMap = new Maps_OneAndMulti<Finger, Move>();
 

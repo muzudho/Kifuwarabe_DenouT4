@@ -21,7 +21,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C430____Zooming
         /// 
         /// 順位を点数に変換します。
         /// </summary>
-        public static void ZoomTo_FvParamRange(FeatureVector fv, KwErrorHandler errH)
+        public static void ZoomTo_FvParamRange(FeatureVector fv, KwLogger errH)
         {
             float negative_length;// 負の数の一番小さな値の絶対値。
             float positive_length;// 正の数の一番大きな値の絶対値。
@@ -82,14 +82,14 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C430____Zooming
                     longest_positive = false;
                 }
 #if DEBUG
-                errH.Logger.WriteLine("topology", LogTypes.Memo);
-                errH.Logger.WriteLine("   negative_length =" + negative_length, LogTypes.Memo);
-                errH.Logger.WriteLine("   positive_length =" + positive_length, LogTypes.Memo);
-                errH.Logger.WriteLine("   longest_positive=" + longest_positive, LogTypes.Memo);
-                errH.Logger.WriteLine("   negative_average=" + (negative_items == 0 ? 0 : negative_total / negative_items), LogTypes.Memo);
-                errH.Logger.WriteLine("   positive_average=" + (positive_items == 0 ? 0 : positive_total / positive_items), LogTypes.Memo);
-                errH.Logger.WriteLine("   notZero         =" + notZero, LogTypes.Memo);
-                errH.Logger.WriteLine("----------------------------------------", LogTypes.Memo);
+                errH.WriteLine("topology", LogTypes.Memo);
+                errH.WriteLine("   negative_length =" + negative_length, LogTypes.Memo);
+                errH.WriteLine("   positive_length =" + positive_length, LogTypes.Memo);
+                errH.WriteLine("   longest_positive=" + longest_positive, LogTypes.Memo);
+                errH.WriteLine("   negative_average=" + (negative_items == 0 ? 0 : negative_total / negative_items), LogTypes.Memo);
+                errH.WriteLine("   positive_average=" + (positive_items == 0 ? 0 : positive_total / positive_items), LogTypes.Memo);
+                errH.WriteLine("   notZero         =" + notZero, LogTypes.Memo);
+                errH.WriteLine("----------------------------------------", LogTypes.Memo);
 #endif
             }
 
@@ -156,15 +156,15 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C430____Zooming
                 longest_positive = false;
             }
 #if DEBUG
-            errH.Logger.WriteLine("end", LogTypes.Memo);
-            errH.Logger.WriteLine("   negative_length =" + negative_length, LogTypes.Memo);
-            errH.Logger.WriteLine("   positive_length =" + positive_length, LogTypes.Memo);
-            errH.Logger.WriteLine("   longest_positive=" + longest_positive, LogTypes.Memo);
-            errH.Logger.WriteLine("   zoom            =" + zoom, LogTypes.Memo);
-            errH.Logger.WriteLine("   negative_average=" + (negative_items == 0 ? 0 : negative_total / negative_items), LogTypes.Memo);
-            errH.Logger.WriteLine("   positive_average=" + (positive_items == 0 ? 0 : positive_total / positive_items), LogTypes.Memo);
-            errH.Logger.WriteLine("   notZero         =" + notZero, LogTypes.Memo);
-            errH.Logger.WriteLine("----------------------------------------", LogTypes.Memo);
+            errH.WriteLine("end", LogTypes.Memo);
+            errH.WriteLine("   negative_length =" + negative_length, LogTypes.Memo);
+            errH.WriteLine("   positive_length =" + positive_length, LogTypes.Memo);
+            errH.WriteLine("   longest_positive=" + longest_positive, LogTypes.Memo);
+            errH.WriteLine("   zoom            =" + zoom, LogTypes.Memo);
+            errH.WriteLine("   negative_average=" + (negative_items == 0 ? 0 : negative_total / negative_items), LogTypes.Memo);
+            errH.WriteLine("   positive_average=" + (positive_items == 0 ? 0 : positive_total / positive_items), LogTypes.Memo);
+            errH.WriteLine("   notZero         =" + notZero, LogTypes.Memo);
+            errH.WriteLine("----------------------------------------", LogTypes.Memo);
 #endif
         }
 

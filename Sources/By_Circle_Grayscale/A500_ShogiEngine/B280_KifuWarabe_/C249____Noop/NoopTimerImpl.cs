@@ -36,10 +36,10 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C249____Noop
         /// </summary>
         /// <param name="owner"></param>
         /// <param name="isTimeoutShutdown"></param>
-        public void _02_AtEmptyMessage(ShogiEngine owner, out bool isTimeoutShutdown, KwErrorHandler errH)
+        public void _02_AtEmptyMessage(ShogiEngine owner, out bool isTimeoutShutdown, KwLogger errH)
         {
             isTimeoutShutdown = false;
-            //errH.Logger.WriteLine_AddMemo("メッセージは届いていませんでした。this.sw_forNoop.Elapsed.Seconds=[" + this.sw_forNoop.Elapsed.Seconds + "]");
+            //errH.WriteLine_AddMemo("メッセージは届いていませんでした。this.sw_forNoop.Elapsed.Seconds=[" + this.sw_forNoop.Elapsed.Seconds + "]");
 
             if (owner.EngineOptions.GetOption(EngineOptionNames.NOOPABLE).IsTrue() && 10 < this.sw_forNoop.Elapsed.Seconds)//0 < this.sw_forNoop.Elapsed.Se.Minutes
             {
@@ -52,7 +52,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C249____Noop
 
                             // noop を投げて 1分過ぎていれば。
 #if DEBUG
-                            errH.Logger.WriteLine("計20秒ほど、サーバーからの応答がなかったぜ☆ (^-^)ﾉｼ",LogTypes.Memo);
+                            errH.WriteLine("計20秒ほど、サーバーからの応答がなかったぜ☆ (^-^)ﾉｼ",LogTypes.Memo);
 #endif
 
                             // このプログラムを終了します。
@@ -63,7 +63,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C249____Noop
                     case NoopPhase.None:
                         {
 #if DEBUG
-                            errH.Logger.WriteLine("noopを投げるぜ☆", LogTypes.Memo);
+                            errH.WriteLine("noopを投げるぜ☆", LogTypes.Memo);
 #endif
                             // まだ noop を投げていないなら
                             owner.Send("noop");// サーバーが生きていれば、"ok" と返してくるはず。（独自実装）
@@ -78,7 +78,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C249____Noop
         /// <summary>
         /// 応答があったとき。
         /// </summary>
-        public void _03_AtResponsed(ShogiEngine owner, string command, KwErrorHandler errH)
+        public void _03_AtResponsed(ShogiEngine owner, string command, KwLogger errH)
         {
             //System.Windows.Forms.MessageBox.Show("メッセージが届いています [" + line + "]");
 
@@ -87,7 +87,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C249____Noop
             //{
                 // noopを投げてなくても、毎回ストップウォッチはリスタートさせます。
 //#if DEBUG
-                errH.Logger.WriteLine("サーバーから応答[" + command + "]があったのでタイマーをリスタートさせるぜ☆", LogTypes.ToClient);
+                errH.WriteLine("サーバーから応答[" + command + "]があったのでタイマーをリスタートさせるぜ☆", LogTypes.ToClient);
 //#endif
                 this.noopPhase = NoopPhase.None;
                 this.sw_forNoop.Restart();

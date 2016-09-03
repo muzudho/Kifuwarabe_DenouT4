@@ -38,7 +38,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
             Sky src_Sky,
             Playerside tebanSeme,
             Playerside tebanKurau,
-            KwErrorHandler errH_OrNull
+            KwLogger errH_OrNull
         )
         {
             Fingers fs_banjoSeme_temp = new Fingers();// （１）盤上駒_攻め手
@@ -129,7 +129,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
             out Fingers fingers_moti1p,// 持駒 1P
             out Fingers fingers_moti2p,// 持駒 2=
             Sky src_Sky,
-            KwErrorHandler errH_OrNull
+            KwLogger errH_OrNull
         )
         {
             Fingers fingers_moti1p_temp = new Fingers();// （３）持ち駒_攻め手

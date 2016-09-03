@@ -50,7 +50,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             string strDaHyoji, //打
             out Move move,
             KifuTree kifu,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             Node<Move, KyokumenWrapper> siteiNode = kifu.CurNode;

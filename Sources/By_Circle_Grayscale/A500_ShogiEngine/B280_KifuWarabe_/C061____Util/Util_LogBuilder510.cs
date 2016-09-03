@@ -28,7 +28,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C061____Util
             //KifuTree kifu_forAssert,
             KyokumenPngEnvironment reportEnvironment,
             KaisetuBoards logF_kiki,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             //

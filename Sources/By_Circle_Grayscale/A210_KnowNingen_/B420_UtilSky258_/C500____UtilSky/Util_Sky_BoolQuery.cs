@@ -25,7 +25,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// </summary>
         /// <param name="masus"></param>
         /// <returns></returns>
-        public static bool ExistsIn(Move move, SySet<SyElement> masus, Sky src_Sky, KwErrorHandler errH)
+        public static bool ExistsIn(Move move, SySet<SyElement> masus, Sky src_Sky, KwLogger errH)
         {
             bool matched = false;
 
@@ -221,7 +221,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
             }
             catch (Exception ex)
             {
-                Util_Loggers.ERROR.Logger.DonimoNaranAkirameta(ex, "IsDaAction:");// exceptionArea=" + exceptionArea
+                Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "IsDaAction:");// exceptionArea=" + exceptionArea
                 throw ex;
             }
 

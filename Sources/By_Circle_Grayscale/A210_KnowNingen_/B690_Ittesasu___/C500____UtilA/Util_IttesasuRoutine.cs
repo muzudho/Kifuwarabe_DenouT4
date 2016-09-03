@@ -39,7 +39,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             int korekaranoTemezumi,
             Sky src_Sky,
             Model_Taikyoku model_Taikyoku,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             Sky susunda_Sky_orNull2;
@@ -76,7 +76,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         public static void DoIttesasuB(
             KifuTree kifu1,
             Move nextMove,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             Sky susunda_Sky_orNull;
@@ -115,7 +115,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         public static void DoIttesasuC(
             KifuTree kifu1,//learningData.Kifu
             Move nextMove,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             Sky susunda_Sky_orNull;
@@ -171,7 +171,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
             out Sky susunda_Sky_orNull,// 終了ノードの局面データ。
             out IttesasuResult ittesasuResult,
-            KwErrorHandler errH,
+            KwLogger errH,
             string hint
             ,
             [CallerMemberName] string memberName = "",
@@ -343,7 +343,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
                 // どうにもできないので  ログだけ取って無視します。
                 string message = "Util_IttesasuRoutine#Execute（B）： exceptionArea=" + exceptionArea + "\n" + ex.GetType().Name + "：" + ex.Message;
-                errH.Logger.WriteLine(message, LogTypes.Error);
+                errH.WriteLine(message, LogTypes.Error);
                 throw ex;
             }
         }
@@ -357,7 +357,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         public static void Before2(
             ref IttesasuResult ittesasuReference,
             Sky susunda_Sky_orNull,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             Node<Move, KyokumenWrapper> editNodeRef = ittesasuReference.Get_SyuryoNode_OrNull;
@@ -403,7 +403,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             KifuTree kifu_mutable,
             Move nextMove1,
             Node<Move, KyokumenWrapper> edit_childNode_Ref,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
 
@@ -443,7 +443,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             Move move,
             Playerside kaisi_tebanside,
             Sky kaisi_Sky,
-            KwErrorHandler errH,
+            KwLogger errH,
             string hint
             ,
             [CallerMemberName] string memberName = "",
@@ -512,7 +512,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 //>>>>> エラーが起こりました。
 
                 // どうにもできないので  ログだけ取って無視します。
-                errH.Logger.DonimoNaranAkirameta(ex, "Util_IttesasuRoutine#Sasu24_UgokasuKoma_IdoSakiHe： exceptionArea=" + exceptionArea+"\n"+
+                errH.DonimoNaranAkirameta(ex, "Util_IttesasuRoutine#Sasu24_UgokasuKoma_IdoSakiHe： exceptionArea=" + exceptionArea+"\n"+
                     "hint=["+hint+"]");
                 throw ex;
             }
@@ -554,7 +554,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             out Busstop out_food_koma,
             out Playerside pside,
             out SyElement akiMasu,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             //----------

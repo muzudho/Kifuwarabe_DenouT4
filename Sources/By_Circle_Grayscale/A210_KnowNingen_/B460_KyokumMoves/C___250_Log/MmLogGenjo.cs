@@ -27,7 +27,7 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C___250_Log
 
         Move Move { get; }
 
-        KwErrorHandler ErrH { get; }
+        KwLogger ErrH { get; }
 
         void Log1(Playerside pside_genTeban3);
 

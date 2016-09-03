@@ -41,7 +41,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             out KifuParserA_State nextState,
             KifuParserA owner,
             KifuParserA_Genjo genjo,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             nextState = this;
@@ -49,7 +49,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             try
             {
 
-                errH.Logger.WriteLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　さて、どんな内容なんだぜ☆？", LogTypes.Error);
+                errH.WriteLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　さて、どんな内容なんだぜ☆？", LogTypes.Error);
 
                 StartposImporter startposImporter1;
                 string restText;
@@ -60,7 +60,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     out restText
                     );
                 genjo.StartposImporter_OrNull = startposImporter1;
-                errH.Logger.WriteLine("（＾△＾）restText=「" + restText + "」 successful=【" + successful + "】", LogTypes.Error);
+                errH.WriteLine("（＾△＾）restText=「" + restText + "」 successful=【" + successful + "】", LogTypes.Error);
 
                 if (successful)
                 {
@@ -87,7 +87,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 }
 
             }
-            catch (Exception ex) { Util_Loggers.ERROR.Logger.DonimoNaranAkirameta(ex, "SFEN解析中☆"); throw ex; }
+            catch (Exception ex) { Util_Loggers.ERROR.DonimoNaranAkirameta(ex, "SFEN解析中☆"); throw ex; }
 
             return genjo.InputLine;
         }

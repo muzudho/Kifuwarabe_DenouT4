@@ -25,7 +25,7 @@ namespace Grayscale.A210_KnowNingen_.B720_Conv_SasuEx.C500____Converter
         public static KifuNode ToKifuNode(
             Move move,
             Sky src_Sky,
-            KwErrorHandler errH
+            KwLogger errH
             )
         {
             // 指す前の駒を、盤上のマス目で指定
