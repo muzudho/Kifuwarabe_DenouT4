@@ -85,6 +85,28 @@ namespace Grayscale.A950_UnitTest___
             logger.Flush(LogTypes.Plain);
             MachineImpl.GetInstance().ReadKey();
 
+            // 一手戻す☆
+            IttemodosuResult syuryoResult2;
+            Util_IttemodosuRoutine.UndoMove(
+                out syuryoResult2,
+                new KifuNodeImpl(move, new KyokumenWrapper(sky)),
+                sky.Temezumi,
+                move,
+                syuryoResult.SyuryoKyokumenW,
+                logger
+                );
+
+            string sfen2 = Conv_Move.ToSfen(syuryoResult2.SyuryoMove);
+
+            logger.AppendLine("sfen2=[" + sfen2 + "]");
+            logger.Flush(LogTypes.Plain);
+            MachineImpl.GetInstance().ReadKey();
+
+            // 盤面をログ出力したいぜ☆
+            logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(syuryoResult2.SyuryoKyokumenW.Kyokumen)));
+            logger.Flush(LogTypes.Plain);
+            MachineImpl.GetInstance().ReadKey();
+
         }
     }
 }

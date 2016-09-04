@@ -29,35 +29,35 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
     public abstract class Util_IttemodosuRoutine
     {
 
-        public static void DoIttemodosu(
+        public static void UndoMove(
             out IttemodosuResult ittemodosuResult,
             Node<Move, KyokumenWrapper> removeeLeaf,
             int korekaranoTemezumi,
-            Model_Taikyoku model_Taikyoku,
+            Move kaisiMove,//Model_Taikyoku model_Taikyoku,
+            KyokumenWrapper kaisiKyokumenW,
             KwLogger errH
             )
         {
-            Sky susunda_Sky_orNull = null;
-            ittemodosuResult = new IttemodosuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
+            ittemodosuResult = new IttemodosuResultImpl(Fingers.Error_1, Fingers.Error_1, Move.Empty, null, Komasyurui14.H00_Null___);
+            //
+            // 一手巻き戻す
+            //
+            Util_IttemodosuRoutine.DoStep1(
+                out ittemodosuResult,
+                kaisiMove,
+                kaisiKyokumenW,
+                removeeLeaf.Key,
+                korekaranoTemezumi,
+                errH
+                );
+
+            if (ittemodosuResult.FoodKomaSyurui != Komasyurui14.H00_Null___)
             {
-                //
-                // 一手巻き戻す
-                //
-                Util_IttemodosuRoutine.DoStep1(
-                    model_Taikyoku.Kifu.CurNode,
-                    removeeLeaf.Key,
-                    korekaranoTemezumi,
-                    out ittemodosuResult,
-                    errH
-                    );
-                Util_IttemodosuRoutine.DoStep2(
-                    ref ittemodosuResult,
-                    susunda_Sky_orNull,
-                    errH
-                    );
-                Util_IttemodosuRoutine.DoStep3_ChangeCurrent(
-                    model_Taikyoku.Kifu
-                    );
+                // 元のキーの、取った駒の種類だけを差替えます。
+                ittemodosuResult.SyuryoMove = Conv_Move.SetCaptured(
+                    ittemodosuResult.SyuryoMove,
+                    ittemodosuResult.FoodKomaSyurui//ここだけ差し替えるぜ☆（＾▽＾）
+                );
             }
         }
 
@@ -72,12 +72,13 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <param name="sourceFilePath"></param>
         /// <param name="sourceLineNumber"></param>
         public static void DoStep1(
-            Node<Move, KyokumenWrapper> kaisiNode,// 一手指し局面開始ノード。
+            out IttemodosuResult ittemodosuResult,
+            Move kaisiMove,
+            KyokumenWrapper kaisiKyokumenW,// 一手指し局面開始ノード。
 
             Move move,//指し手。棋譜に記録するために「指す前／指した後」を含めた手。
             int korekaranoTemezumi,//これから作る局面の、手目済み。
 
-            out IttemodosuResult ittemodosuResult,
             KwLogger errH
             ,
             [CallerMemberName] string memberName = "",
@@ -87,29 +88,14 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         {
             bool isMakimodosi = true;
 
-            Sky susunda_Sky_orNull = null;// 終了ノードの局面データ。
-            ittemodosuResult = new IttemodosuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
+            ittemodosuResult = new IttemodosuResultImpl(Fingers.Error_1, Fingers.Error_1, Move.Empty, null, Komasyurui14.H00_Null___);
 
             //
             // 一手指し開始局面（不変）
             // 一手指し終了局面（null or 可変）
             //
-            Playerside kaisi_tebanside = ((KifuNode)kaisiNode).Value.Kyokumen.KaisiPside;
-            Sky kaisi_Sky = kaisiNode.Value.Kyokumen;
-
-            //
-            // 編集対象ノード（巻き戻し時と、進む時で異なる）
-            //
-            Node<Move, KyokumenWrapper> modottaNode;
-
-            //------------------------------
-            // 符号の追加（一手進む）
-            //------------------------------
-            {
-                // 戻る時。
-                susunda_Sky_orNull = null;
-                modottaNode = kaisiNode;
-            }
+            Playerside kaisi_tebanside = kaisiKyokumenW.Kyokumen.KaisiPside;
+            Sky kaisi_Sky = kaisiKyokumenW.Kyokumen;
 
 
             //
@@ -158,7 +144,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             Util_IttemodosuRoutine.Do62_TorareteitaKoma_ifExists(
                 move,
                 kaisi_Sky,//巻き戻しのとき
-                susunda_Sky_orNull,
+                null,
                 out figFoodKoma,//変更される場合あり。
                 errH
                 );
@@ -207,72 +193,21 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     //
                     new Finger[] { figMovedKoma }, new Busstop[] { dst });
             }
-            modottaNode.Value.SetKyokumen(kaisi_Sky);
+            //kaisiNode.Value.SetKyokumen(kaisi_Sky);
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
             // この時点で、必ず現局面データに差替えあり
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 
 
             // ノード
-            ittemodosuResult.SyuryoNode_OrNull = modottaNode;// この変数を返すのがポイント。棋譜とは別に、現局面。
+            ittemodosuResult.SyuryoMove = kaisiMove;
+            ittemodosuResult.SyuryoKyokumenW = kaisiKyokumenW;// この変数を返すのがポイント。棋譜とは別に、現局面。
 
         gt_EndMethod:
             ;
         }
 
-        /// <summary>
-        /// 棋譜ツリーのカレントを変更します。
-        /// </summary>
-        /// <param name="isMakimodosi"></param>
-        /// <param name="ittemodosuReference"></param>
-        /// <param name="errH"></param>
-        public static void DoStep2(
-            ref IttemodosuResult ittemodosuReference,
-            Sky susunda_Sky_orNull,
-            KwLogger errH
-            )
-        {
-            Node<Move, KyokumenWrapper> editNodeRef = ittemodosuReference.SyuryoNode_OrNull;
-
-            Move nextMove = editNodeRef.Key;
-
-            if (ittemodosuReference.FoodKomaSyurui != Komasyurui14.H00_Null___)
-            {
-                // 元のキーの、取った駒の種類だけを差替えます。
-                nextMove = Conv_Move.ToMove(
-                    Conv_Move.ToSrcMasu(editNodeRef.Key),
-                    //Conv_MasuHandle.ToMasu((int)Conv_Move.ToSrcMasu(editNodeRef.Key)),
-                    Conv_Move.ToDstMasu(editNodeRef.Key),
-                    Conv_Move.ToSrcKomasyurui(editNodeRef.Key),
-                    ittemodosuReference.FoodKomaSyurui,//ここだけ差し替えるぜ☆（＾▽＾）
-                    Conv_Move.ToPromotion(editNodeRef.Key),
-                    Conv_Move.ToDrop(editNodeRef.Key),
-                    Conv_Move.ToPlayerside(editNodeRef.Key),
-                    Conv_Move.ToErrorCheck(editNodeRef.Key)
-                );
-
-                // 現手番
-                Playerside genTebanside = ((KifuNode)editNodeRef).Value.Kyokumen.KaisiPside;
-
-                // キーを差替えたノード
-                editNodeRef = new KifuNodeImpl(
-                    nextMove,
-                    new KyokumenWrapper(susunda_Sky_orNull));
-            }
-
-
-            string nextSasiteStr = Conv_Move.ToSfen(nextMove);
-
-
-
-
-            ittemodosuReference.SyuryoNode_OrNull = editNodeRef;// この変数を返すのがポイント。棋譜とは別に、現局面。
-
-
-            //Util_IttesasuRoutine.iIttemodosuAfter3_ChangeCurrent(kifu_mutable);
-        }
-
-        public static void DoStep3_ChangeCurrent(
+        public static void UpdateKifuTree(
             KifuTree kifu_mutable
             )
         {

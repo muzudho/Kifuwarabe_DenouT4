@@ -317,12 +317,16 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             // 前の手に戻します
             //------------------------------
             IttemodosuResult ittemodosuResult;
-            Util_IttemodosuRoutine.DoIttemodosu(
+            Util_IttemodosuRoutine.UndoMove(
                 out ittemodosuResult,
                 removeeLeaf,
                 korekaranoTemezumi,
-                model_Taikyoku,
+                model_Taikyoku.Kifu.CurNode.Key,
+                model_Taikyoku.Kifu.CurNode.Value,
                 errH
+                );
+            Util_IttemodosuRoutine.UpdateKifuTree(
+                model_Taikyoku.Kifu
                 );
             movedKoma = ittemodosuResult.FigMovedKoma;
             foodKoma = ittemodosuResult.FigFoodKoma;

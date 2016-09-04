@@ -15,22 +15,24 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
         public Finger FigFoodKoma { get; set; }
 
-        public Node<Move, KyokumenWrapper> SyuryoNode_OrNull { get; set; }
+        public Move SyuryoMove { get; set; }
+        public KyokumenWrapper SyuryoKyokumenW { get; set; }
 
         public Komasyurui14 FoodKomaSyurui{ get; set; }
 
         public IttemodosuResultImpl(
             Finger figMovedKoma,
             Finger figFoodKoma,
-            Node<Move, KyokumenWrapper> out_newNode_OrNull,
+            Move syuryoMove,
+            KyokumenWrapper syuryoKyokumenW,
             Komasyurui14 foodKomaSyurui
             )
         {
             this.FigMovedKoma = figMovedKoma;
             this.FigFoodKoma = figFoodKoma;
-            this.SyuryoNode_OrNull = out_newNode_OrNull;
+            this.SyuryoMove = syuryoMove;
+            this.SyuryoKyokumenW = syuryoKyokumenW;
             this.FoodKomaSyurui = foodKomaSyurui;
         }
-
     }
 }
