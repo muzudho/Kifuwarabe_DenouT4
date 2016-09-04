@@ -15,7 +15,6 @@ using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
-using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA;
@@ -24,7 +23,6 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 {
@@ -44,7 +42,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <param name="sourceLineNumber"></param>
         public static void DoMove(
             out IttesasuResult ittesasuResult,
-            KifuTree kifu1,
+            KyokumenWrapper kaisiKyokumenW,//kifu1.CurNode.Value;// 一手指し、開始局面。
             Move korekaranoMove,//一手指し、終了局面。これから指されるはずの手。棋譜に記録するために「指す前／指した後」を含めた手。
             KwLogger errH,
             KwDisplayer kd,
@@ -55,9 +53,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             [CallerLineNumber] int sourceLineNumber = 0
             )
         {
-            KyokumenWrapper kaisiKyokumen = kifu1.CurNode.Value;// 一手指し、開始局面。
-            Playerside kaisiTebanside = kifu1.CurNode.Value.Kyokumen.KaisiPside;//一手指し、開始局面、手番。
-            int korekaranoTemezumi = kifu1.CurNode.Value.Kyokumen.Temezumi + 1;//1手進める //これから作る局面の、手目済み。
+            Playerside kaisiTebanside = kaisiKyokumenW.Kyokumen.KaisiPside;//一手指し、開始局面、手番。
+            int korekaranoTemezumi = kaisiKyokumenW.Kyokumen.Temezumi + 1;//1手進める //これから作る局面の、手目済み。
 
 
 
@@ -65,6 +62,10 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
             int exceptionArea = 0;
 
+
+            // 編集対象ノード（巻き戻し時と、進む時で異なる）
+            Move editNodeRef_Move;
+            KyokumenWrapper editNodeRef_KyokumenW;
             try
             {
                 //------------------------------
@@ -73,8 +74,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 exceptionArea = 1010;
                 susunda_Sky_orNull = null;
                 ittesasuResult = new IttesasuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
-                Sky kaisi_Sky = kaisiKyokumen.Kyokumen;// 一手指し開始局面（不変）
-                Node<Move, KyokumenWrapper> editNodeRef;// 編集対象ノード（巻き戻し時と、進む時で異なる）
+                Sky kaisi_Sky = kaisiKyokumenW.Kyokumen;// 一手指し開始局面（不変）
 
                 exceptionArea = 1040;
                 //------------------------------
@@ -84,15 +84,12 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     //進むときは、必ずノードの追加と、カレントの移動がある。
 
                     //現局面ノードのクローンを作成します。
-                    editNodeRef = new KifuNodeImpl(
-                        korekaranoMove,
-                        new KyokumenWrapper(new SkyImpl(kaisi_Sky))
-                        );
-                    editNodeRef.Value.Kyokumen.SetKaisiPside(Conv_Playerside.Reverse(editNodeRef.Value.Kyokumen.KaisiPside));
-                    editNodeRef.Value.Kyokumen.SetTemezumi(korekaranoTemezumi);
-
-
-                    susunda_Sky_orNull = editNodeRef.Value.Kyokumen;
+                    editNodeRef_Move = korekaranoMove;
+                    susunda_Sky_orNull = new SkyImpl(kaisi_Sky);
+                    editNodeRef_KyokumenW = new KyokumenWrapper(susunda_Sky_orNull);
+                    editNodeRef_KyokumenW.Kyokumen.SetKaisiPside(
+                        Conv_Playerside.Reverse(editNodeRef_KyokumenW.Kyokumen.KaisiPside));
+                    editNodeRef_KyokumenW.Kyokumen.SetTemezumi(korekaranoTemezumi);
                 }
 
 
@@ -205,7 +202,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                         new Finger[] { figMovedKoma }, new Busstop[] { afterStar }
                         );
                 }
-                editNodeRef.Value.SetKyokumen(susunda_Sky_orNull);
+                //editNodeRef_KyokumenW.SetKyokumen(susunda_Sky_orNull);
                 // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
                 // この時点で、必ず現局面データに差替えあり
                 // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
@@ -217,10 +214,6 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
                 exceptionArea = 1090;
                 ittesasuResult.FigFoodKoma = figFoodKoma; //取った駒更新
-
-                //
-                // ノード
-                ittesasuResult.Set_SyuryoNode_OrNull = editNodeRef;// この変数を返すのがポイント。棋譜とは別に、現局面。
             }
             catch (Exception ex)
             {
@@ -239,21 +232,26 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             if (ittesasuResult.FoodKomaSyurui != Komasyurui14.H00_Null___)
             {
                 // 元のキーの、取った駒の種類だけを差替えます。
-                Move move = Conv_Move.SetCaptured(
-                    ittesasuResult.Get_SyuryoNode_OrNull.Key,
+                editNodeRef_Move = Conv_Move.SetCaptured(
+                    editNodeRef_Move,
                     ittesasuResult.FoodKomaSyurui
-                    );
-
-                // キーを差替えたノード
-                ittesasuResult.Set_SyuryoNode_OrNull = new KifuNodeImpl(
-                    move,
-                    ittesasuResult.Get_SyuryoNode_OrNull.Value
                     );
             }
 
 
+            //
+            // ノード
+            ittesasuResult.Set_SyuryoNode_OrNull =
+                new KifuNodeImpl(editNodeRef_Move, editNodeRef_KyokumenW);
+            // この変数を返すのがポイント。棋譜とは別に、現局面。
 
-            // 棋譜ツリーのカレントを変更します。
+        }
+
+        /// <summary>
+        /// 棋譜ツリーのカレントを変更します。
+        /// </summary>
+        public static void UpdateKifuTree(KifuTree kifu1, IttesasuResult ittesasuResult)
+        {
             if (!((KifuNode)kifu1.CurNode).HasTuginoitte(ittesasuResult.Get_SyuryoNode_OrNull.Key))
             {
                 //----------------------------------------
@@ -275,8 +273,6 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             kifu1.SetCurNode(ittesasuResult.Get_SyuryoNode_OrNull);//次ノードを、これからのカレントとします。
             ittesasuResult.Get_SyuryoNode_OrNull.SetParentNode(temp);
         }
-
-
 
 
         /// <summary>

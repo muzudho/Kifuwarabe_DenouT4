@@ -143,12 +143,13 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     IttesasuResult ittesasuResult;
                     Util_IttesasuRoutine.DoMove(
                         out ittesasuResult,
-                        kifu1,
+                        kifu1.CurNode.Value,
                         nextMove,
                         errH,
                         kd,
                         "Utli_LearningViews#ShowSasiteList"
                     );
+                    Util_IttesasuRoutine.UpdateKifuTree(kifu1, ittesasuResult);
                     // これで、棋譜ツリーに、構造変更があったはず。
                     //↑↑一手指し
                 }
@@ -364,13 +365,13 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             IttesasuResult ittesasuResult;
             Util_IttesasuRoutine.DoMove(
                 out ittesasuResult,
-                learningData.Kifu,
+                learningData.Kifu.CurNode.Value,
                 nextMove,
                 errH,
                 kd,
                 "Util_LearningView#Ittesasu_ByBtnClick"
             );
-
+            Util_IttesasuRoutine.UpdateKifuTree(learningData.Kifu, ittesasuResult);
             // これで、棋譜ツリーに、構造変更があったはず。
             //↑↑一手指し
 

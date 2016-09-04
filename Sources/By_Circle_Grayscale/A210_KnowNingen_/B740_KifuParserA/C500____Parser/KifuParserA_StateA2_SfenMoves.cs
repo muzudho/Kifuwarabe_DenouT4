@@ -184,12 +184,14 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                             //
                             Util_IttesasuRoutine.DoMove(
                                 out ittesasuResult,
-                                model_Taikyoku.Kifu,
+                                model_Taikyoku.Kifu.CurNode.Value,
                                 nextMove,//FIXME: if文で分けているので、これがヌルなはずはないと思うが。
                                 errH,
                                 kd,
                                 "KifuParserA_StateA2_SfenMoves#Execute"
                                 );
+                            // 棋譜ツリーのカレントを変更します。
+                            Util_IttesasuRoutine.UpdateKifuTree(model_Taikyoku.Kifu, ittesasuResult);
 
                             exceptionArea = 1080;
                             result.Out_newNode_OrNull = ittesasuResult.Get_SyuryoNode_OrNull;
