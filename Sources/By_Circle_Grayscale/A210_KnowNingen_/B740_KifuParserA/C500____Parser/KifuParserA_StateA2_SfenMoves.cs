@@ -56,8 +56,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             out KifuParserA_State nextState,
             KifuParserA owner,
             KifuParserA_Genjo genjo,
-            KwLogger errH,
-            KwDisplayer kd
+            KwLogger errH
             )
         {
             int exceptionArea = 0;
@@ -121,9 +120,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                                 out ittesasuResult,
                                 nextMove,
                                 model_Taikyoku.Kifu.CurNode.Value.Kyokumen,
-                                errH,
-                                kd,
-                                "KifuParserA_StateA2_SfenMoves#Execute"
+                                errH
                                 );
                             // 棋譜ツリーのカレントを変更します。
                             Util_IttesasuRoutine.UpdateKifuTree(model_Taikyoku.Kifu, ittesasuResult);

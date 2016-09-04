@@ -5,8 +5,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___125_Scene
     public interface Timed
     {
 
-        void Step(KwLogger errH,
-            KwDisplayer kd);
+        void Step(KwLogger errH);
 
     }
 }

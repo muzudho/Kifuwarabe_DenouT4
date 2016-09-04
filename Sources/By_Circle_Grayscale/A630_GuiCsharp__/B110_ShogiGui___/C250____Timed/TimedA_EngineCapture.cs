@@ -28,8 +28,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
         }
 
 
-        public override void Step(KwLogger errH,
-            KwDisplayer kd)
+        public override void Step(KwLogger errH)
         {
             // 将棋エンジンからの入力が、input99 に溜まるものとします。
             if (0 < this.mainGui.ConsoleWindowGui.InputString99.Length)
@@ -67,7 +66,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                         ref restText,
                         this.mainGui.Link_Server.Model_Taikyoku,
                         this.mainGui.SkyWrapper_Gui,
-                        errH,kd);// 棋譜の[コマ送り]を実行します。
+                        errH
+                        );// 棋譜の[コマ送り]を実行します。
                     Util_Function_Csharp.Komaokuri_Gui(restText, this.mainGui, errH);//追加
                     // ↑チェンジターン済み
                     Util_Menace.Menace((MainGui_Csharp)this.mainGui, errH);// メナス

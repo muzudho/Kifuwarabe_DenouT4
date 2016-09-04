@@ -10,6 +10,11 @@ namespace Grayscale.A060_Application.B110_Log________.C___500_Struct
     /// </summary>
     public interface KwLogger
     {
+
+
+        KwDisplayer KwDisplayer_OrNull { get; set; }
+
+
         /// <summary>
         /// ファイル名
         /// </summary>

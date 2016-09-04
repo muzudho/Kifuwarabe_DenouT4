@@ -45,8 +45,6 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             Move kaisiMove,//これから指されるはずの手。棋譜に記録するために「指す前／指した後」を含めた手。
             Sky kaisiSky,// 一手指し、開始局面。
             KwLogger errH,
-            KwDisplayer kd,
-            //string hint,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
@@ -138,8 +136,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                         out food_koma,
                         out food_pside,
                         out food_akiMasu,
-                        errH,
-                        kd
+                        errH
                         );
 
                     if (Fingers.Error_1 != figFoodKoma)
@@ -385,8 +382,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             out Busstop out_food_koma,
             out Playerside pside,
             out SyElement akiMasu,
-            KwLogger errH,
-            KwDisplayer kd
+            KwLogger errH
             )
         {
             //----------

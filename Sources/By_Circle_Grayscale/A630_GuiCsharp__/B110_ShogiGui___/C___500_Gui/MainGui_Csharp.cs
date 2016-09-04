@@ -109,8 +109,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui
         Timed TimedA { get; set; }
         Timed TimedB_MouseCapture { get; set; }
         Timed TimedC { get; set; }
-        void Timer_Tick( KwLogger errH,
-            KwDisplayer kd);
+        void Timer_Tick( KwLogger errH);
 
         RepaintRequest RepaintRequest { get; set; }
 

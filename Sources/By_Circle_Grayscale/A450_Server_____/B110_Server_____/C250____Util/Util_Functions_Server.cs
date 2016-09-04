@@ -87,8 +87,6 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             out bool toBreak,
             string hint,
             KwLogger errH,
-            KwDisplayer kd
-            ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
@@ -117,7 +115,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                         ref result,
                         model_Taikyoku,
                         genjo,
-                        errH,kd
+                        errH
                         );
 
                     Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
@@ -150,7 +148,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                             ref result,
                             model_Taikyoku,
                             genjo,
-                            errH,kd
+                            errH
                             );
                         Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
 
@@ -172,7 +170,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                             ref result,
                             model_Taikyoku,
                             genjo,
-                            errH,kd
+                            errH
                             );
                         Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
 
@@ -203,7 +201,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                         ref result,
                         model_Taikyoku,
                         genjo,
-                        errH,kd
+                        errH
                         );
 
                     if (null != result.Out_newNode_OrNull)
@@ -353,8 +351,6 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             Model_Taikyoku model_Taikyoku,
             SkyWrapper_Gui model_Manual,
             KwLogger errH,
-            KwDisplayer kd
-            ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
@@ -373,7 +369,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                 model_Manual,
                 out toBreak,
                 "hint",
-                errH,kd
+                errH
                 );
 
         gt_EndMethod:

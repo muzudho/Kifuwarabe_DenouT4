@@ -26,7 +26,7 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
         /// <param name="extension">ドット付き拡張子。(with dot)</param>
         /// <param name="enable">ログ出力の有無</param>
         /// <param name="print_TimeStamp">タイムスタンプ出力のON/OFF</param>
-        public KwLoggerImpl(string fileNameWoe, string extension, bool enable, bool print_TimeStamp, bool enableConsole)
+        public KwLoggerImpl(string fileNameWoe, string extension, bool enable, bool print_TimeStamp, bool enableConsole, KwDisplayer kwDisplayer_OrNull)
         {
             this.fileNameWoe = fileNameWoe;
             this.extension = extension;
@@ -34,7 +34,12 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
             this.print_TimeStamp = print_TimeStamp;
             this.EnableConsole = enableConsole;
             this.m_buffer_ = new StringBuilder();
+            this.KwDisplayer_OrNull = kwDisplayer_OrNull;
         }
+
+
+        public KwDisplayer KwDisplayer_OrNull { get; set; }
+
 
         private StringBuilder m_buffer_;
 

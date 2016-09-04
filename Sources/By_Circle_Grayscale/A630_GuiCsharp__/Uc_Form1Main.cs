@@ -87,9 +87,8 @@ namespace Grayscale.P699_Form_______
         private void timer1_Tick(object sender, EventArgs e)
         {
             KwLogger errH = Util_Loggers.ProcessGui_DEFAULT;
-            KwDisplayer kd = Util_Loggers.ProcessGui_DEFAULT_D;
 
-            this.MainGui.Timer_Tick(errH,kd);
+            this.MainGui.Timer_Tick(errH);
         }
 
 

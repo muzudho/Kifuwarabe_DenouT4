@@ -282,12 +282,11 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
 
 
 
-        public static void Load_CsaKifu(Uc_Main uc_Main, KwLogger errH,
-            KwDisplayer kd)
+        public static void Load_CsaKifu(Uc_Main uc_Main, KwLogger errH)
         {
             uc_Main.LearningData.ReadKifu(uc_Main);
 
-            Util_LearningView.ShowSasiteList(uc_Main.LearningData, uc_Main, errH,kd);
+            Util_LearningView.ShowSasiteList(uc_Main.LearningData, uc_Main, errH);
         }
 
 
@@ -295,8 +294,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
             string kifuFilepath,
-            Uc_Main uc_Main, KwLogger errH,
-            KwDisplayer kd)
+            Uc_Main uc_Main, KwLogger errH)
         {
             uc_Main.TxtKifuFilepath.Text = kifuFilepath;
 
@@ -310,7 +308,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             Application.DoEvents();
 
             // CSA棋譜を読み込みます。
-            Util_LearnOperation.Load_CsaKifu(uc_Main,errH,kd);
+            Util_LearnOperation.Load_CsaKifu(uc_Main,errH);
 
             // 合法手を調べます。
             int searchedMaxDepth = 0;

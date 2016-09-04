@@ -46,9 +46,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
         public static void ShowSasiteList(
             LearningData learningData,
             Uc_Main uc_Main,
-            KwLogger errH,
-            KwDisplayer kd
-            )
+            KwLogger errH)
         {
             //
             // まず、リストを空っぽにします。
@@ -145,9 +143,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                         out ittesasuResult,
                         nextMove,
                         kifu1.CurNode.Value.Kyokumen,
-                        errH,
-                        kd,
-                        "Utli_LearningViews#ShowSasiteList"
+                        errH
                     );
                     Util_IttesasuRoutine.UpdateKifuTree(kifu1, ittesasuResult);
                     // これで、棋譜ツリーに、構造変更があったはず。
@@ -304,7 +300,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
         public static void Ittesasu_ByBtnClick(
             ref bool isRequestShowGohosyu,
             ref bool isRequestChangeKyokumenPng,
-            LearningData learningData, Uc_Main uc_Main, KwLogger errH, KwDisplayer kd)
+            LearningData learningData, Uc_Main uc_Main, KwLogger errH)
         {
 #if DEBUG
             Stopwatch sw1 = new Stopwatch();
@@ -324,9 +320,9 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             // リストボックスの先頭から指し手をSFEN形式で１つ取得。
             HonpuSasiteListItemImpl item = (HonpuSasiteListItemImpl)uc_Main.LstSasite.Items[0];
             Move move = item.Move;
-            if (null != kd.Dlgt_OnLog1Append_or_Null)
+            if (null != errH.KwDisplayer_OrNull.Dlgt_OnLog1Append_or_Null)
             {
-                kd.Dlgt_OnLog1Append_or_Null("sfen=" + Conv_Move.ToSfen(move) + Environment.NewLine);
+                errH.KwDisplayer_OrNull.Dlgt_OnLog1Append_or_Null("sfen=" + Conv_Move.ToSfen(move) + Environment.NewLine);
             }
 
             //
@@ -367,9 +363,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 out ittesasuResult,
                 nextMove,
                 learningData.Kifu.CurNode.Value.Kyokumen,
-                errH,
-                kd,
-                "Util_LearningView#Ittesasu_ByBtnClick"
+                errH
             );
             Util_IttesasuRoutine.UpdateKifuTree(learningData.Kifu, ittesasuResult);
             // これで、棋譜ツリーに、構造変更があったはず。

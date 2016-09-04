@@ -108,11 +108,11 @@ namespace Grayscale.A690_FvLearn____
             //
             // イベントハンドラー登録
             //
-            Util_Loggers.ProcessLearner_DEFAULT_D.Dlgt_OnLog1Append_or_Null = (string log) =>
+            Util_Loggers.ProcessLearner_DEFAULT.KwDisplayer_OrNull.Dlgt_OnLog1Append_or_Null = (string log) =>
             {
                 this.txtIttesasuLog.Text += log;
             };
-            Util_Loggers.ProcessLearner_DEFAULT_D.Dlgt_OnLog1Clear_or_Null = () =>
+            Util_Loggers.ProcessLearner_DEFAULT.KwDisplayer_OrNull.Dlgt_OnLog1Clear_or_Null = () =>
             {
                 this.txtIttesasuLog.Text = "";
             };
@@ -149,8 +149,7 @@ namespace Grayscale.A690_FvLearn____
                 ref isRequest_ChangeKyokumenPng,
                 this.LearningData,
                 this,
-                errH,
-                Util_Loggers.ProcessLearner_DEFAULT_D
+                errH
             );
 
             if (isRequest_ShowGohosyu)
@@ -198,7 +197,6 @@ namespace Grayscale.A690_FvLearn____
         private void btnOpenCsa_Click(object sender, EventArgs e)
         {
             KwLogger errH = Util_Loggers.ProcessLearner_DEFAULT;
-            KwDisplayer kd = Util_Loggers.ProcessLearner_DEFAULT_D;
 
             bool isRequest_ShowGohosyu = false;
             bool isRequest_ChangeKyokumenPng = false;
@@ -223,7 +221,7 @@ namespace Grayscale.A690_FvLearn____
                     ref isRequest_ShowGohosyu,
                     ref isRequest_ChangeKyokumenPng,
                     kifuFilepath,
-                    this,errH,kd);
+                    this,errH);
             }
 
             if (isRequest_ShowGohosyu)
@@ -280,8 +278,7 @@ namespace Grayscale.A690_FvLearn____
             Util_AutoKifuRead.Do_UpdateKyokumenHyoka(
                 ref isRequest_ShowGohosyu,
                 ref isRequest_ChangeKyokumenPng,
-                this, errH,
-                Util_Loggers.ProcessLearner_DEFAULT_D
+                this, errH
                 );
 
             if (isRequest_ShowGohosyu)
@@ -489,9 +486,7 @@ namespace Grayscale.A690_FvLearn____
             out bool out_isEmptyKifu,
             ref bool ref_isRequest_ShowGohosyu,
             ref bool ref_isRequest_ChangeKyokumenPng,
-            KwLogger errH,
-            KwDisplayer kd
-            )
+            KwLogger errH)
         {
             //
             // 前対局の情報のクリアー
@@ -509,7 +504,7 @@ namespace Grayscale.A690_FvLearn____
                     ref ref_isRequest_ShowGohosyu,
                     ref ref_isRequest_ChangeKyokumenPng,
                     kifuFilepath,
-                    this, errH,kd);
+                    this, errH);
                 out_isEmptyKifu = false;
             }
             else
@@ -526,13 +521,12 @@ namespace Grayscale.A690_FvLearn____
         private void btnNextKifuSet_Click(object sender, EventArgs e)
         {
             KwLogger errH = Util_Loggers.ProcessLearner_DEFAULT;
-            KwDisplayer kd = Util_Loggers.ProcessLearner_DEFAULT_D;
 
             bool isRequest_ShowGohosyu = false;
             bool isRequest_ChangeKyokumenPng = false;
 
             bool isEmptyKifu;
-            this.Do_NextKifuSet(out isEmptyKifu, ref isRequest_ShowGohosyu, ref isRequest_ChangeKyokumenPng, errH,kd);
+            this.Do_NextKifuSet(out isEmptyKifu, ref isRequest_ShowGohosyu, ref isRequest_ChangeKyokumenPng, errH);
 
 
             if (isRequest_ShowGohosyu)

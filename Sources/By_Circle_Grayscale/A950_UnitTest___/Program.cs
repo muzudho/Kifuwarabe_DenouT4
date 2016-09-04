@@ -40,7 +40,6 @@ namespace Grayscale.A950_UnitTest___
         static void Main(string[] args)
         {
             KwLogger logger = Util_Loggers.ProcessUnitTest_DEFAULT;
-            KwDisplayer kd = Util_Loggers.ProcessUnitTest_DEFAULT_D;
 
             logger.AppendLine("テストＡ");
             logger.Flush(LogTypes.Plain);
@@ -79,9 +78,7 @@ namespace Grayscale.A950_UnitTest___
                 out syuryoResult,
                 move,
                 sky,
-                logger,
-                kd
-                );
+                logger);
 
             // 盤面をログ出力したいぜ☆
             logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(syuryoResult.SyuryoKyokumenW.Kyokumen)));

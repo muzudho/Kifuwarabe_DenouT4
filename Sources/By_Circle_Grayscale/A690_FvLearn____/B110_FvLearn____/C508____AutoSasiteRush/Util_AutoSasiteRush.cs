@@ -32,9 +32,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C508____AutoSasiteRush
             ref bool isRequest_ChangeKyokumenPng,
             int renzokuTe,
             Uc_Main uc_Main,
-            KwLogger errH,
-            KwDisplayer kd
-            )
+            KwLogger errH)
         {
             out_isEndKifuread = false;
 
@@ -149,7 +147,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C508____AutoSasiteRush
                     Util_LearningView.Ittesasu_ByBtnClick(
                         ref isRequest_ShowGohosyu,
                         ref isRequest_ChangeKyokumenPng,
-                        uc_Main.LearningData, uc_Main, errH, kd);
+                        uc_Main.LearningData, uc_Main, errH);
 
                     // 局面PNG画像の更新を要求
                     //isRequest_ChangeKyokumenPng = true;
@@ -251,7 +249,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C508____AutoSasiteRush
                 uc_Main.SeikoIdo();
 
                 bool isEmptyKifu;
-                uc_Main.Do_NextKifuSet(out isEmptyKifu, ref isRequest_ShowGohosyu, ref isRequest_ChangeKyokumenPng, errH,kd);
+                uc_Main.Do_NextKifuSet(out isEmptyKifu, ref isRequest_ShowGohosyu, ref isRequest_ChangeKyokumenPng, errH);
 
                 if (isEmptyKifu)
                 {

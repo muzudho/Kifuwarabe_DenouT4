@@ -618,8 +618,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
         private PhaseResult_Usi_Loop2 OnPositionReceived_AtLoop2Body(string line)
         {
-            KwLogger errH2 = Util_Loggers.ProcessEngine_DEFAULT;
-            KwDisplayer kd = Util_Loggers.ProcessEngine_DEFAULT_D;
+            KwLogger logger = Util_Loggers.ProcessEngine_DEFAULT;
 
             try
             {
@@ -729,7 +728,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                     ref result,
                     model_Taikyoku,
                     genjo,
-                    errH2,kd
+                    logger
                     );
                 if (null != genjo.StartposImporter_OrNull)
                 {
@@ -738,7 +737,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                     Util_InClient.OnChangeSky_Im_Client(
                         model_Taikyoku,
                         genjo,
-                        errH2
+                        logger
                         );
                 }
 

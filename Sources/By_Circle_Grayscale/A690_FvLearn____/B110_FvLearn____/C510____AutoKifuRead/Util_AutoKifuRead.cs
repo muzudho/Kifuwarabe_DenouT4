@@ -21,9 +21,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C510____AutoKifuRead
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
             Uc_Main uc_Main,
-            KwLogger errH,
-            KwDisplayer kd
-            )
+            KwLogger errH)
         {
 
             int renzokuTe;
@@ -46,7 +44,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C510____AutoKifuRead
                     ref isRequest_ShowGohosyu,
                     ref isRequest_ChangeKyokumenPng,
                     renzokuTe,
-                    uc_Main, errH, kd);
+                    uc_Main, errH);
 
                 if (isEndKifuread)
                 {

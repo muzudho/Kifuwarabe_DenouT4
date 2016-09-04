@@ -266,8 +266,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
 
 
         private int noopSend_counter;
-        public void Timer_Tick( KwLogger errH,
-            KwDisplayer kd)
+        public void Timer_Tick( KwLogger errH)
         {
             if (this.server.EngineClient.ShogiEngineProcessWrapper.IsLive_ShogiEngine())
             {
@@ -284,9 +283,9 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
                 }
             }
 
-            this.TimedA.Step(errH,kd);
-            this.TimedB_MouseCapture.Step(errH,kd);
-            this.TimedC.Step(errH,kd);
+            this.TimedA.Step(errH);
+            this.TimedB_MouseCapture.Step(errH);
+            this.TimedC.Step(errH);
         }
 
 
