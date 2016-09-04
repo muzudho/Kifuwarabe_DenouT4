@@ -142,7 +142,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             else
             {
                 //System.Windows.Forms.MessageBox.Show("本番モード");
-                /* ２手の読み。
+                //* ２手の読み。
                 yomuLimitter = new int[]{
                     0,   // 現局面は無視します。
                     600, // 読みの1手目の横幅   // 王手回避漏れのために、１手目は、合法手全読み(約600)は必要です。
@@ -150,7 +150,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                 };
                 // */
 
-                //* ３手の読み。
+                /* ３手の読み。
                 yomuLimitter = new int[]{
                     0,   // 現局面は無視します。
                     600, // 読みの1手目の横幅   // 王手回避漏れのために、１手目は、合法手全読み(約600)は必要です。
@@ -353,7 +353,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             Tansaku_Genjo genjo,
 
             Sky position,//改造後
-            KifuNode node_yomi,//改造前: スコアを覚えておくのに使っている。
+            KifuNode node_yomi_KAIZOMAE,//改造前: スコアを覚えておくのに使っている。
 
             EvaluationArgs args,
             out float out_a_childrenBest,
@@ -364,13 +364,13 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             Util_Scoreing.DoScoreing_Kyokumen(
 
                 position,
-                node_yomi,//mutable: スコアを覚えるのに使っている。
+                node_yomi_KAIZOMAE,//mutable: スコアを覚えるのに使っている。
 
                 args,
                 errH
                 );
             // 局面の評価値。
-            out_a_childrenBest = node_yomi.Score;
+            out_a_childrenBest = node_yomi_KAIZOMAE.Score;
 
 #if DEBUG_ALPHA_METHOD
                     errH.AppendLine_AddMemo("1. 手(" + node_yomi.Value.ToKyokumenConst.Temezumi + ")読(" + yomiDeep + ") 兄弟最善=[" + a_siblingDecidedValue + "] 子ベスト=[" + a_childrenBest + "]");
@@ -483,7 +483,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         Tansaku_FukasaYusen_Routine.Do_Leaf(
                             genjo,
 
-                            node_yomi_KAIZOMAE.Value.Kyokumen,//改造前
+                            position,//改造前
                             node_yomi_KAIZOMAE,//改造後: スコアを覚えるのに使っている。
 
                             args,

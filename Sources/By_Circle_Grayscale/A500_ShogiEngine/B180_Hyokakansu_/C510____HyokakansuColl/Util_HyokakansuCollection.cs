@@ -4,6 +4,7 @@ using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C___500_Hyokakansu;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu;
 using System.Collections.Generic;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
@@ -38,11 +39,12 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C510____HyokakansuColl
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="node_mutable">この評価シートに明細項目を追加します。</param>
+        /// <param name="node_mutable_KAIZOMAE">この評価シートに明細項目を追加します。</param>
         /// <param name="fv"></param>
         /// <param name="errH"></param>
         public static void EvaluateAll_Normal(
-            KifuNode node_mutable,
+            Sky position,
+            KifuNode node_mutable_KAIZOMAE,
             FeatureVector fv,
             KwLogger errH
             )
@@ -59,12 +61,12 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C510____HyokakansuColl
 #if DEBUG || LEARN
                     out meisai,
 #endif
-                    node_mutable.Value.Kyokumen,
+                    position,
                     fv,
                     errH
                 );
 
-                node_mutable.AddScore(score);
+                node_mutable_KAIZOMAE.AddScore(score);
 #if DEBUG || LEARN
                 node_mutable.KyHyokaSheet_Mutable.Add(
                     hyokakansu.Name.ToString(),

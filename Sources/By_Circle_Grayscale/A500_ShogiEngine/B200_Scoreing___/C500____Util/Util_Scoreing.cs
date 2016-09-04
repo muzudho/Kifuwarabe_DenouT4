@@ -166,6 +166,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
             else
             {
                 Util_HyokakansuCollection.EvaluateAll_Normal(
+                    position,
                     node_yomi_mutable_KAIZOMAE,
                     args.FeatureVector,
                     errH
