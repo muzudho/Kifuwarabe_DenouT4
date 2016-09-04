@@ -6,6 +6,7 @@ using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 {
@@ -15,23 +16,20 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
         public Finger FigFoodKoma { get; set; }
 
-        public Move SyuryoMove { get; set; }
-        public KyokumenWrapper SyuryoKyokumenW { get; set; }
+        public Sky SyuryoSky { get; set; }
 
         public Komasyurui14 FoodKomaSyurui{ get; set; }
 
         public IttemodosuResultImpl(
             Finger figMovedKoma,
             Finger figFoodKoma,
-            Move syuryoMove,
-            KyokumenWrapper syuryoKyokumenW,
+            Sky syuryoSky,
             Komasyurui14 foodKomaSyurui
             )
         {
             this.FigMovedKoma = figMovedKoma;
             this.FigFoodKoma = figFoodKoma;
-            this.SyuryoMove = syuryoMove;
-            this.SyuryoKyokumenW = syuryoKyokumenW;
+            this.SyuryoSky = syuryoSky;
             this.FoodKomaSyurui = foodKomaSyurui;
         }
     }

@@ -12,18 +12,16 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C400____Conv
     public abstract class Conv_StringMove
     {
         public static Move ToMove(
-            out bool out_abnormal,
             out string out_restString,
             string sfenMove1,
-            Move src_Move,
-            Sky src_Sky,//            KifuTree kifu1,//model_Taikyoku.Kifu
+            Move previous_Move,  // 「同」を調べるためのもの。
+            Sky previous_Sky,
             KwLogger errH
             )
         {
             bool isHonshogi = true;
             Move nextMove = Move.Empty;
 
-            out_abnormal = false;
             out_restString = sfenMove1;
             string sfenMove2 = sfenMove1.Trim();
             if (0 < sfenMove2.Length)
@@ -56,7 +54,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C400____Conv
                             str4,  //abcdefghi
                             str5,  //+
                             out nextMove,
-                            src_Sky,
+                            previous_Sky,
                             "棋譜パーサーA_SFENパース1",
                             errH
                             );
@@ -85,8 +83,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C400____Conv
                                     str8, //成|不成
                                     str9,  //打
                                     out nextMove,
-                                    src_Move,
-                                    src_Sky,
+                                    previous_Move,
+                                    previous_Sky,
                                     errH
                                     );
                             }
@@ -96,9 +94,11 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C400____Conv
                         {
                             //「6g6f」形式でもなかった☆
 
-                            errH.AppendLine("（＾△＾）「" + sfenMove1 + "」！？　次の一手が読めない☆");
+                            string message = "（＾△＾）「" + sfenMove1 + "」！？　次の一手が読めない☆";
+                            errH.AppendLine(message);
                             errH.Flush(LogTypes.Error);
-                            out_abnormal = true;
+                            
+                            Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(message);
                             goto gt_EndMethod;
                         }
 

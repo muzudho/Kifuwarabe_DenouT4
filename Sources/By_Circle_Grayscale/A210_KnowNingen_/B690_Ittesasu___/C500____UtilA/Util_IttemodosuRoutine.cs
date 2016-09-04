@@ -29,83 +29,31 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
     public abstract class Util_IttemodosuRoutine
     {
 
+        /// <summary>
+        /// 一手巻き戻す
+        /// </summary>
+        /// <param name="ittemodosuResult"></param>
+        /// <param name="korekaranoTemezumi"></param>
+        /// <param name="moved"></param>
+        /// <param name="kaisiKyokumenW"></param>
+        /// <param name="errH"></param>
         public static void UndoMove(
             out IttemodosuResult ittemodosuResult,
-            Node<Move, KyokumenWrapper> removeeLeaf,
             int korekaranoTemezumi,
-            Move kaisiMove,//Model_Taikyoku model_Taikyoku,
-            KyokumenWrapper kaisiKyokumenW,
+            Move moved,
+            Sky kaisi_Sky,
             KwLogger errH
             )
         {
-            ittemodosuResult = new IttemodosuResultImpl(Fingers.Error_1, Fingers.Error_1, Move.Empty, null, Komasyurui14.H00_Null___);
-            //
-            // 一手巻き戻す
-            //
-            Util_IttemodosuRoutine.DoStep1(
-                out ittemodosuResult,
-                kaisiMove,
-                kaisiKyokumenW,
-                removeeLeaf.Key,
-                korekaranoTemezumi,
-                errH
-                );
-
-            if (ittemodosuResult.FoodKomaSyurui != Komasyurui14.H00_Null___)
-            {
-                // 元のキーの、取った駒の種類だけを差替えます。
-                ittemodosuResult.SyuryoMove = Conv_Move.SetCaptured(
-                    ittemodosuResult.SyuryoMove,
-                    ittemodosuResult.FoodKomaSyurui//ここだけ差し替えるぜ☆（＾▽＾）
-                );
-            }
-        }
-
-        /// <summary>
-        /// 一手戻します。
-        /// </summary>
-        /// <param name="ittemodosuArg"></param>
-        /// <param name="ittesasu_mutable"></param>
-        /// <param name="ittemodosuResult"></param>
-        /// <param name="errH"></param>
-        /// <param name="memberName"></param>
-        /// <param name="sourceFilePath"></param>
-        /// <param name="sourceLineNumber"></param>
-        public static void DoStep1(
-            out IttemodosuResult ittemodosuResult,
-            Move kaisiMove,
-            KyokumenWrapper kaisiKyokumenW,// 一手指し局面開始ノード。
-
-            Move move,//指し手。棋譜に記録するために「指す前／指した後」を含めた手。
-            int korekaranoTemezumi,//これから作る局面の、手目済み。
-
-            KwLogger errH
-            ,
-            [CallerMemberName] string memberName = "",
-            [CallerFilePath] string sourceFilePath = "",
-            [CallerLineNumber] int sourceLineNumber = 0
-            )
-        {
-            bool isMakimodosi = true;
-
-            ittemodosuResult = new IttemodosuResultImpl(Fingers.Error_1, Fingers.Error_1, Move.Empty, null, Komasyurui14.H00_Null___);
-
-            //
-            // 一手指し開始局面（不変）
-            // 一手指し終了局面（null or 可変）
-            //
-            Playerside kaisi_tebanside = kaisiKyokumenW.Kyokumen.KaisiPside;
-            Sky kaisi_Sky = kaisiKyokumenW.Kyokumen;
-
+            ittemodosuResult = new IttemodosuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
 
             //
             // 動かす駒を移動先へ。
             //
             Finger figMovedKoma;
-            Util_IttemodosuRoutine.Do25_UgokasuKoma_IdoSakiHe(
+            Util_IttemodosuRoutine.Do25_UgokasuKoma(
                 out figMovedKoma,
-                move,
-                kaisi_tebanside,
+                moved,
                 kaisi_Sky,
                 errH
                 );
@@ -121,15 +69,13 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             //
             // 巻き戻しなら、非成りに戻します。
             //
-            Komasyurui14 syurui2 = Util_IttemodosuRoutine.Do30_MakimodosiNara_HinariNiModosu(
-                move,
-                isMakimodosi);
+            Komasyurui14 syurui2 = Util_IttemodosuRoutine.Do30_MakimodosiNara_HinariNiModosu(moved);
 
 
             Busstop dst;
             {
                 dst = Util_IttemodosuRoutine.Do37_KomaOnDestinationMasu(syurui2,
-                    move,
+                    moved,
                     kaisi_Sky);
             }
 
@@ -142,9 +88,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             //------------------------------------------------------------
             Finger figFoodKoma;//取られていた駒
             Util_IttemodosuRoutine.Do62_TorareteitaKoma_ifExists(
-                move,
+                moved,
                 kaisi_Sky,//巻き戻しのとき
-                null,
                 out figFoodKoma,//変更される場合あり。
                 errH
                 );
@@ -162,9 +107,9 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 //------------------------------
                 // 指し手の、取った駒部分を差替えます。
                 //------------------------------
-                SyElement dstMasu = Conv_Move.ToDstMasu(move);
-                Playerside pside = Conv_Move.ToPlayerside(move);
-                Komasyurui14 captured = Conv_Move.ToCaptured(move);
+                SyElement dstMasu = Conv_Move.ToDstMasu(moved);
+                Playerside pside = Conv_Move.ToPlayerside(moved);
+                Komasyurui14 captured = Conv_Move.ToCaptured(moved);
 
                 kaisi_Sky.SetTemezumi(korekaranoTemezumi);
                 kaisi_Sky.AddObjects(
@@ -193,17 +138,15 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     //
                     new Finger[] { figMovedKoma }, new Busstop[] { dst });
             }
-            //kaisiNode.Value.SetKyokumen(kaisi_Sky);
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
             // この時点で、必ず現局面データに差替えあり
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 
 
             // ノード
-            ittemodosuResult.SyuryoMove = kaisiMove;
-            ittemodosuResult.SyuryoKyokumenW = kaisiKyokumenW;// この変数を返すのがポイント。棋譜とは別に、現局面。
+            ittemodosuResult.SyuryoSky = kaisi_Sky;// この変数を返すのがポイント。棋譜とは別に、現局面。
 
-        gt_EndMethod:
+            gt_EndMethod:
             ;
         }
 
@@ -225,16 +168,11 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <param name="sasite">棋譜に記録するために「指す前／指した後」を含めた手。</param>
         /// <param name="obsoluted_kifu_mutable"></param>
         /// <param name="isMakimodosi"></param>
-        private static void Do25_UgokasuKoma_IdoSakiHe(
+        private static void Do25_UgokasuKoma(
             out Finger figMovedKoma,
             Move move,
-            Playerside kaisi_tebanside,
             Sky kaisi_Sky,
             KwLogger errH
-            ,
-            [CallerMemberName] string memberName = "",
-            [CallerFilePath] string sourceFilePath = "",
-            [CallerLineNumber] int sourceLineNumber = 0
             )
         {
             figMovedKoma = Fingers.Error_1;
@@ -247,14 +185,11 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
             // 打った駒も、指した駒も、結局は将棋盤の上にあるはず。
 
-            Playerside pside = Conv_Move.ToPlayerside(move);
-            SyElement dstMasu = Conv_Move.ToDstMasu(move);
-
             // 動かす駒
             figMovedKoma = Util_Sky_FingerQuery.InMasuNow_FilteringBanjo(
                 kaisi_Sky,
-                pside,
-                dstMasu,//[巻戻し]のときは、先位置が　駒の居場所。
+                Conv_Move.ToPlayerside(move),
+                Conv_Move.ToDstMasu(move),//[巻戻し]のときは、先位置が　駒の居場所。
                 errH
                 );
             Debug.Assert(figMovedKoma != Fingers.Error_1, "駒を動かせなかった？5");
@@ -310,13 +245,11 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// </summary>
         /// <param name="sasite"></param>
         /// <param name="kaisi_Sky"></param>
-        /// <param name="susunda_Sky_orNull"></param>
         /// <param name="out_figFoodKoma"></param>
         /// <param name="errH"></param>
         private static void Do62_TorareteitaKoma_ifExists(
             Move move,
             Sky kaisi_Sky,//巻き戻しのとき
-            Sky susunda_Sky_orNull,
             out Finger out_figFoodKoma,
             KwLogger errH
         )
@@ -361,8 +294,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <param name="isBack"></param>
         /// <returns></returns>
         private static Komasyurui14 Do30_MakimodosiNara_HinariNiModosu(
-            Move move,
-            bool isBack)
+            Move move)
         {
             //------------------------------------------------------------
             // 確定  ：  移動先升
@@ -378,15 +310,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
                 if (Util_Sky_BoolQuery.IsNatta_Sasite(move))
                 {
-                    if (isBack)
-                    {
-                        // 正順で成ったのなら、巻戻しでは「非成」に戻します。
-                        syurui2 = Util_Komasyurui14.NarazuCaseHandle(dstKs);
-                    }
-                    else
-                    {
-                        syurui2 = dstKs;
-                    }
+                    // 正順で成ったのなら、巻戻しでは「非成」に戻します。
+                    syurui2 = Util_Komasyurui14.NarazuCaseHandle(dstKs);
                 }
                 else
                 {

@@ -319,10 +319,9 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             IttemodosuResult ittemodosuResult;
             Util_IttemodosuRoutine.UndoMove(
                 out ittemodosuResult,
-                removeeLeaf,
                 korekaranoTemezumi,
                 model_Taikyoku.Kifu.CurNode.Key,
-                model_Taikyoku.Kifu.CurNode.Value,
+                model_Taikyoku.Kifu.CurNode.Value.Kyokumen,
                 errH
                 );
             Util_IttemodosuRoutine.UpdateKifuTree(

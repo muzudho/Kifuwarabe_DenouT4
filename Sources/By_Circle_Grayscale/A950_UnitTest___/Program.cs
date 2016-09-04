@@ -32,6 +32,7 @@ using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Collections.Generic;
 
 namespace Grayscale.A950_UnitTest___
 {
@@ -47,65 +48,67 @@ namespace Grayscale.A950_UnitTest___
 
 
 
-            Sky sky = Util_SkyCreator.New_Hirate();
+            Sky position_Sky = Util_SkyCreator.New_Hirate();
 
             // 盤面をログ出力したいぜ☆
-            logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(sky)));
+            logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(position_Sky)));
             logger.Flush(LogTypes.Plain);
             MachineImpl.GetInstance().ReadKey();
 
-            // ７六歩
-            bool abnormal;
-            string rest;
-            Move move = Conv_StringMove.ToMove(
-                out abnormal,
-                out rest,
-                "7g7f",
-                Move.Empty,
-                sky,
-                logger
-                );
 
-            string sfen = Conv_Move.ToSfen(move);
+            List<Move> pv = new List<Move>();
+            pv.Add(Move.Empty);// 「同」（※同歩など）を調べるために１つ前を見にくるので、空を入れておく。
 
-            logger.AppendLine("sfen=["+ sfen+"]");
-            logger.Flush(LogTypes.Plain);
-            MachineImpl.GetInstance().ReadKey();
-
+            //────────────────────────────────────────
             // 一手指す☆
-            IttesasuResult syuryoResult;
-            Util_IttesasuRoutine.DoMove(
-                out syuryoResult,
-                move,
-                sky,
-                logger);
+            //────────────────────────────────────────
+            // ▲７六歩
+            string commandLine = "7g7f 3c3d 8h2b+ 3a2b B*8h";
 
-            // 盤面をログ出力したいぜ☆
-            logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(syuryoResult.SyuryoKyokumenW.Kyokumen)));
-            logger.Flush(LogTypes.Plain);
-            MachineImpl.GetInstance().ReadKey();
+            for (int iPly=1; iPly<6; iPly++)
+            {
+                string rest;
+                Move move = Conv_StringMove.ToMove(out rest, commandLine, pv[pv.Count - 1], position_Sky, logger);
+                commandLine = rest;
 
+                IttesasuResult syuryoResult;
+                Util_IttesasuRoutine.DoMove(out syuryoResult, move, position_Sky, logger);
+                pv.Add(move);
+                position_Sky = syuryoResult.SyuryoKyokumenW.Kyokumen;
+
+                // 盤面をログ出力したいぜ☆
+                logger.AppendLine("sfen=[" + Conv_Move.ToSfen(move) + "]");
+                logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(position_Sky)));
+                logger.Flush(LogTypes.Plain);
+                MachineImpl.GetInstance().ReadKey();
+            }
+
+
+
+
+            //────────────────────────────────────────
             // 一手戻す☆
-            IttemodosuResult syuryoResult2;
-            Util_IttemodosuRoutine.UndoMove(
-                out syuryoResult2,
-                new KifuNodeImpl(move, new KyokumenWrapper(sky)),
-                sky.Temezumi,
-                move,
-                syuryoResult.SyuryoKyokumenW,
-                logger
-                );
+            //────────────────────────────────────────
+            for (int iPly = 5; 0<iPly; iPly--)
+            {
+                IttemodosuResult syuryoResult2;
+                Util_IttemodosuRoutine.UndoMove(
+                    out syuryoResult2,
+                    position_Sky.Temezumi,
+                    pv[pv.Count - 1],
+                    position_Sky,
+                    logger
+                    );
+                position_Sky = syuryoResult2.SyuryoSky;
 
-            string sfen2 = Conv_Move.ToSfen(syuryoResult2.SyuryoMove);
+                string sfen2 = Conv_Move.ToSfen(pv[pv.Count - 1]);
 
-            logger.AppendLine("sfen2=[" + sfen2 + "]");
-            logger.Flush(LogTypes.Plain);
-            MachineImpl.GetInstance().ReadKey();
-
-            // 盤面をログ出力したいぜ☆
-            logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(syuryoResult2.SyuryoKyokumenW.Kyokumen)));
-            logger.Flush(LogTypes.Plain);
-            MachineImpl.GetInstance().ReadKey();
+                // 盤面をログ出力したいぜ☆
+                logger.AppendLine("back sfen2=[" + sfen2 + "]");
+                logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(position_Sky)));
+                logger.Flush(LogTypes.Plain);
+                MachineImpl.GetInstance().ReadKey();
+            }
 
         }
     }

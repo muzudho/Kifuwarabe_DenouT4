@@ -70,10 +70,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             {
                 if (0 < genjo.InputLine.Trim().Length)
                 {
-                    bool abnormal;
                     string rest;
                     Move nextMove = Conv_StringMove.ToMove(
-                        out abnormal,
                         out rest,
                         genjo.InputLine,
                         model_Taikyoku.Kifu.CurNode.Key,
@@ -81,11 +79,6 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                         errH
                         );
                     genjo.InputLine = rest;
-                    if (abnormal)
-                    {
-                        genjo.ToBreak_Abnormal();
-                        goto gt_EndMethod;
-                    }
 
 
                     if (Move.Empty != nextMove)
@@ -179,9 +172,13 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 string message = this.GetType().Name + "#Execute：" + ex.GetType().Name + "：" + ex.Message;
                 errH.AppendLine(message);
                 errH.Flush(LogTypes.Error);
+
+                // サーバーを止めるフラグ☆（＾▽＾）
+                genjo.ToBreak_Abnormal();
+                goto gt_EndMethod;
             }
 
-        gt_EndMethod:
+            gt_EndMethod:
             return genjo.InputLine;
         }
 
