@@ -92,6 +92,7 @@
     <Compile Include="B240_Move\C___500_Move\n2_MoveMask.cs" />
     <Compile Include="B670_ConvKyokume\C500____Converter\Conv_Busstop.cs" />
     <Compile Include="B670_ConvKyokume\C500____Converter\Conv_Move.cs" />
+    <Compile Include="B740_KifuParserA\C400____Conv\Conv_StringMove.cs" />
     <Compile Include="B800_ConvCsa____\C500____Converter\Util_CsaSasite.cs" />
     <Compile Include="B250_Log_Kaisetu\C500____Util\Util_LogWriter022_Json.cs" />
     <Compile Include="B290_Komahaiyaku\C250____Word\Array_Komahaiyaku185.cs" />

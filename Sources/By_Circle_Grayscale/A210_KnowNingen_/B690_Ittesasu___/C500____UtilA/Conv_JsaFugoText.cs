@@ -27,7 +27,6 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             out string str8,
             out string str9,
             out string rest,
-            KifuTree kifu,
             KwLogger errH
             )
         {

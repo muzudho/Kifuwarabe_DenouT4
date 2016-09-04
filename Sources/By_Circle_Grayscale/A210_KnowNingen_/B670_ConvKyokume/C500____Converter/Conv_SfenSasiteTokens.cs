@@ -49,15 +49,13 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             string str4, //abcdefghi
             string strNari, //+
             out Move move,
-            KifuTree kifu,
+            Sky src_Sky,//KifuTree kifu,//Node<Move, KyokumenWrapper> siteiNode = kifu.CurNode;Sky src_Sky = siteiNode.Value.Kyokumen;
             string hint,
             KwLogger errH
             )
         {
             move = Move.Empty;
-
-            Node<Move, KyokumenWrapper> siteiNode = kifu.CurNode;
-            Sky src_Sky = siteiNode.Value.Kyokumen;
+            
             //kifu.AssertPside(kifu.CurNode, "str1=" + str1, errH);
             Playerside pside1 = src_Sky.KaisiPside;
 
@@ -121,7 +119,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
 
                     // 駒台から、打った種類の駒を取得
                     koma = Util_Sky_FingerQuery.InOkibaSyuruiNow_IgnoreCase(
-                        siteiNode.Value.Kyokumen,
+                        src_Sky,// siteiNode.Value.Kyokumen,
                         Conv_Playerside.ToKomadai(pside1),//FIXME:
                         uttaSyurui, errH);
                     if (Fingers.Error_1 == koma)
@@ -226,7 +224,9 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                     }
 
 
-                    Finger srcKoma = Util_Sky_FingerQuery.InOkibaSyuruiNow_IgnoreCase(siteiNode.Value.Kyokumen, srcOkiba, srcSyurui, errH);
+                    Finger srcKoma = Util_Sky_FingerQuery.InOkibaSyuruiNow_IgnoreCase(
+                        src_Sky,// siteiNode.Value.Kyokumen,
+                        srcOkiba, srcSyurui, errH);
 
                     src_Sky.AssertFinger(srcKoma);
                     Busstop dstKoma = src_Sky.BusstopIndexOf(srcKoma);

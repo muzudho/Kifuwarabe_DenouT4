@@ -11,8 +11,7 @@ using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 using System;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B740_KifuParserA.C400____Conv;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 {
@@ -72,85 +71,21 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             {
                 if (0 < genjo.InputLine.Trim().Length)
                 {
-                    Move nextMove = Move.Empty;
+                    bool abnormal;
                     string rest;
-
-                    try
+                    Move nextMove = Conv_StringMove.ToMove(
+                        out abnormal,
+                        out rest,
+                        genjo.InputLine,
+                        model_Taikyoku.Kifu,
+                        errH
+                        );
+                    genjo.InputLine = rest;
+                    if (abnormal)
                     {
-                        //「6g6f」形式と想定して、１手だけ読込み
-                        string str1;
-                        string str2;
-                        string str3;
-                        string str4;
-                        string str5;
-                        string str6;
-                        string str7;
-                        string str8;
-                        string str9;
-                        if (Conv_Sfen.ToTokens_FromMove(
-                            genjo.InputLine, out str1, out str2, out str3, out str4, out str5, out rest, errH)
-                            &&
-                            !(str1=="" && str2=="" && str3=="" && str4=="" && str5=="")
-                            )
-                        {
-
-                            Conv_SfenSasiteTokens.ToMove(
-                                isHonshogi,
-                                str1,  //123456789 か、 PLNSGKRB
-                                str2,  //abcdefghi か、 *
-                                str3,  //123456789
-                                str4,  //abcdefghi
-                                str5,  //+
-                                out nextMove,
-                                model_Taikyoku.Kifu,
-                                "棋譜パーサーA_SFENパース1",
-                                errH
-                                );
-                        }
-                        else
-                        {
-                            //>>>>> 「6g6f」形式ではなかった☆
-
-                            //「▲６六歩」形式と想定して、１手だけ読込み
-                            if (Conv_JsaFugoText.ToTokens(
-                                genjo.InputLine, out str1, out str2, out str3, out str4, out str5, out str6, out str7, out str8, out str9, out rest, model_Taikyoku.Kifu, errH))
-                            {
-                                if (!(str1 == "" && str2 == "" && str3 == "" && str4 == "" && str5 == "" && str6 == "" && str7 == "" && str8 == "" && str9 == ""))
-                                {
-                                    Conv_JsaFugoTokens.ToMove(
-                                        str1,  //▲△
-                                        str2,  //123…9、１２３…９、一二三…九
-                                        str3,  //123…9、１２３…９、一二三…九
-                                        str4,  // “同”
-                                        str5,  //(歩|香|桂|…
-                                        str6,           // 右|左…
-                                        str7,  // 上|引
-                                        str8, //成|不成
-                                        str9,  //打
-                                        out nextMove,
-                                        model_Taikyoku.Kifu,
-                                        errH
-                                        );
-                                }
-
-                            }
-                            else
-                            {
-                                //「6g6f」形式でもなかった☆
-
-                                errH.AppendLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　！？　次の一手が読めない☆　inputLine=[" + genjo.InputLine + "]");
-                                errH.Flush(LogTypes.Error);
-                                genjo.ToBreak_Abnormal();
-                                goto gt_EndMethod;
-                            }
-
-                        }
-
-                        genjo.InputLine = rest;
+                        genjo.ToBreak_Abnormal();
+                        goto gt_EndMethod;
                     }
-                    catch (Exception ex) { Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "moves解析中☆"); throw ex; }
-
-
 
 
                     if (Move.Empty != nextMove)
