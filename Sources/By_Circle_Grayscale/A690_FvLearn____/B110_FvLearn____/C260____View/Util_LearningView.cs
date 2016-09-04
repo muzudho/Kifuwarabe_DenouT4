@@ -143,8 +143,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     IttesasuResult ittesasuResult;
                     Util_IttesasuRoutine.DoMove(
                         out ittesasuResult,
-                        kifu1.CurNode.Value,
                         nextMove,
+                        kifu1.CurNode.Value.Kyokumen,
                         errH,
                         kd,
                         "Utli_LearningViews#ShowSasiteList"
@@ -365,8 +365,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             IttesasuResult ittesasuResult;
             Util_IttesasuRoutine.DoMove(
                 out ittesasuResult,
-                learningData.Kifu.CurNode.Value,
                 nextMove,
+                learningData.Kifu.CurNode.Value.Kyokumen,
                 errH,
                 kd,
                 "Util_LearningView#Ittesasu_ByBtnClick"

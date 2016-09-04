@@ -49,7 +49,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             string strNariNarazu, //成|不成
             string strDaHyoji, //打
             out Move move,
-            Move src_Move,// = kifu.CurNode.Key
+            Move src_Move,// 「同」を調べるためだけに使う☆
             Sky src_Sky,// = kifu.CurNode.Value.Kyokumen;
             KwLogger errH
             )

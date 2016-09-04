@@ -119,8 +119,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                             //
                             Util_IttesasuRoutine.DoMove(
                                 out ittesasuResult,
-                                model_Taikyoku.Kifu.CurNode.Value,
-                                nextMove,//FIXME: if文で分けているので、これがヌルなはずはないと思うが。
+                                nextMove,
+                                model_Taikyoku.Kifu.CurNode.Value.Kyokumen,
                                 errH,
                                 kd,
                                 "KifuParserA_StateA2_SfenMoves#Execute"

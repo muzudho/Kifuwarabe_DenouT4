@@ -42,21 +42,19 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <param name="sourceLineNumber"></param>
         public static void DoMove(
             out IttesasuResult syuryoResult,
-            KyokumenWrapper kaisiKyokumenW,//kifu1.CurNode.Value;// 一手指し、開始局面。
-            Move kaisiMove,//一手指し、終了局面。これから指されるはずの手。棋譜に記録するために「指す前／指した後」を含めた手。
+            Move kaisiMove,//これから指されるはずの手。棋譜に記録するために「指す前／指した後」を含めた手。
+            Sky kaisiSky,// 一手指し、開始局面。
             KwLogger errH,
             KwDisplayer kd,
-            string hint
-            ,
+            //string hint,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
             )
         {
             // 退避☆
-            Sky kaisiSky = kaisiKyokumenW.Kyokumen;// 一手指し開始局面（不変）
-            Playerside kaisiTebanside = kaisiKyokumenW.Kyokumen.KaisiPside;//一手指し、開始局面、手番。
-            int syuryoTemezumi = kaisiKyokumenW.Kyokumen.Temezumi + 1;//1手進める //これから作る局面の、手目済み。
+            Playerside kaisiTebanside = kaisiSky.KaisiPside;//一手指し、開始局面、手番。
+            int syuryoTemezumi = kaisiSky.Temezumi + 1;//1手進める //これから作る局面の、手目済み。
 
 
 
@@ -101,8 +99,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     kaisiMove,
                     kaisiTebanside,
                     kaisiSky,
-                    errH,
-                    hint
+                    errH
+                    //hint
                     );
                 syuryoResult.FigMovedKoma = figMovedKoma; //動かした駒更新
                 Debug.Assert(Fingers.Error_1 != syuryoResult.FigMovedKoma, "動かした駒がない☆！？エラーだぜ☆！");
@@ -277,8 +275,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             Playerside kaisi_tebanside,
             Sky kaisi_Sky,
             KwLogger errH,
-            string hint
-            ,
+            //string hint,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
@@ -345,8 +342,9 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 //>>>>> エラーが起こりました。
 
                 // どうにもできないので  ログだけ取って無視します。
-                errH.DonimoNaranAkirameta(ex, "Util_IttesasuRoutine#Sasu24_UgokasuKoma_IdoSakiHe： exceptionArea=" + exceptionArea+"\n"+
-                    "hint=["+hint+"]");
+                errH.DonimoNaranAkirameta(ex, "Util_IttesasuRoutine#Sasu24_UgokasuKoma_IdoSakiHe： exceptionArea=" + exceptionArea+"\n"
+                    //+"hint=["+hint+"]"
+                    );
                 throw ex;
             }
         }

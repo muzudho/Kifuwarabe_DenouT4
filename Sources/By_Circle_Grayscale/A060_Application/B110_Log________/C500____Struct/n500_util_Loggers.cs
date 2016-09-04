@@ -95,6 +95,7 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
         /// ユニット・テスト用。
         /// </summary>
         public static readonly KwLogger ProcessUnitTest_DEFAULT = new KwLoggerImpl(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS, "_log_ユニットテスト用"), ".txt", true, false, true);
+        public static readonly KwDisplayer ProcessUnitTest_DEFAULT_D = new KwDisplayerImpl();
         #endregion
 
 
