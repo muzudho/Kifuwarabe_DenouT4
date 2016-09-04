@@ -55,7 +55,9 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
         /// <param name="alpha_cut"></param>
         public static void Update_BestScore_And_Check_AlphaCut(
             int yomiDeep,//1start
-            KifuNode node_yomi,
+
+            Sky position,// KifuNode node_yomi,
+
             float a_parentsiblingDecidedValue,
             float a_myScore,
             ref float ref_a_childBest,
@@ -63,7 +65,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
             )
         {
             // このノードが、どちらの手番か。
-            Playerside pside = node_yomi.Value.Kyokumen.KaisiPside;
+            Playerside pside = position.KaisiPside;
 
             alpha_cut = false;
             switch (pside)
@@ -106,7 +108,10 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
         /// 局面に、評価値を付けます。
         /// </summary>
         public static void DoScoreing_Kyokumen(
-            KifuNode node_yomi_mutable,
+
+            Sky position,//node_yomi_mutable_KAIZOMAE.Value.Kyokumen
+            KifuNode node_yomi_mutable_KAIZOMAE,//改造前
+
             EvaluationArgs args,
             KwLogger errH
             )
@@ -116,7 +121,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
             //----------------------------------------
             bool isSennitite;
             {
-                ulong hash = Conv_Sky.ToKyokumenHash(node_yomi_mutable.Value.Kyokumen);
+                ulong hash = Conv_Sky.ToKyokumenHash(position);
                 if (args.SennititeConfirmer.IsNextSennitite(hash))
                 {
                     // 千日手になる場合。
@@ -129,7 +134,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
             }
 
             // 局面スコア
-            node_yomi_mutable.KyHyokaSheet_Mutable.Clear();
+            node_yomi_mutable_KAIZOMAE.KyHyokaSheet_Mutable.Clear();
 
             if (isSennitite)
             {
@@ -145,12 +150,12 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
 #if DEBUG || LEARN
                     out meisai,
 #endif
-                    node_yomi_mutable.Value.Kyokumen,
+                    position,//node_yomi_mutable_KAIZOMAE.Value.Kyokumen,
                     args.FeatureVector,
                     errH
                 );
 
-                node_yomi_mutable.AddScore(score);
+                node_yomi_mutable_KAIZOMAE.AddScore(score);
 #if DEBUG || LEARN
                 node_yomi_mutable.KyHyokaSheet_Mutable.Add(
                     hyokakansu.Name.ToString(),
@@ -161,7 +166,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
             else
             {
                 Util_HyokakansuCollection.EvaluateAll_Normal(
-                    node_yomi_mutable,
+                    node_yomi_mutable_KAIZOMAE,
                     args.FeatureVector,
                     errH
                     );
@@ -171,7 +176,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
 
         public static void Update_Branch(
             float alphabeta_bestScore,
-            KifuNode node_yomi_mutable
+            KifuNode node_yomi_mutable // スコアを覚えるのに使っている。
             )
         {
             // FIXME: 点数（評価明細）を上書きしているような。

@@ -38,7 +38,11 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         /// <param name="errH"></param>
         public static void CreateMovelist_BeforeLoop(
             Tansaku_Genjo genjo,
-            KifuNode node_yomi,
+            
+            Move move_ForLog,//node_yomi.Key
+            Sky position_Sky,//node_yomi.Value.Kyokumen
+                             //KifuNode node_yomi,//改造前
+
             out List<Move> out_movelist,
             ref int searchedMaxDepth,
             out int out_yomiDeep,
@@ -48,11 +52,11 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         {
             out_movelist = Util_MovePicker.WAAAA_Create_ChildNodes(
                 genjo,
-                node_yomi.Value.Kyokumen,
-                node_yomi.Key,//ログ用
+                position_Sky,
+                move_ForLog,//ログ用
                 errH);
 
-            out_yomiDeep = node_yomi.Value.Kyokumen.Temezumi - genjo.YomikaisiTemezumi + 1;
+            out_yomiDeep = position_Sky.Temezumi - genjo.YomikaisiTemezumi + 1;
             if (searchedMaxDepth < out_yomiDeep - 1)//これから探索する分をマイナス1しているんだぜ☆（＾～＾）
             {
                 searchedMaxDepth = out_yomiDeep - 1;
@@ -62,7 +66,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             //--------------------------------------------------------------------------------
             // ↓↓↓↓アルファベータ法の準備
             //--------------------------------------------------------------------------------
-            out_a_childrenBest = Util_Scoreing.Initial_BestScore(node_yomi.Value.Kyokumen);// プレイヤー1ならmax値、プレイヤー2ならmin値。
+            out_a_childrenBest = Util_Scoreing.Initial_BestScore(position_Sky);// プレイヤー1ならmax値、プレイヤー2ならmin値。
             //--------------------------------------------------------------------------------
             // ↑↑↑↑アルファベータ法の準備
             //--------------------------------------------------------------------------------
