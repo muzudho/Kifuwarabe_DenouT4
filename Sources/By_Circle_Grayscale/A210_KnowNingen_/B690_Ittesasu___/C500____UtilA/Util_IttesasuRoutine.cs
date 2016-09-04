@@ -73,7 +73,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 //------------------------------
                 exceptionArea = 1010;
                 susunda_Sky_orNull = null;
-                ittesasuResult = new IttesasuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
+                ittesasuResult = new IttesasuResultImpl(Fingers.Error_1, Fingers.Error_1, Move.Empty, null, Komasyurui14.H00_Null___);
                 Sky kaisi_Sky = kaisiKyokumenW.Kyokumen;// 一手指し開始局面（不変）
 
                 exceptionArea = 1040;
@@ -241,10 +241,9 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
             //
             // ノード
-            ittesasuResult.Set_SyuryoNode_OrNull =
-                new KifuNodeImpl(editNodeRef_Move, editNodeRef_KyokumenW);
+            ittesasuResult.SyuryoMove = editNodeRef_Move;
+            ittesasuResult.SyuryoKyokumenW = editNodeRef_KyokumenW;
             // この変数を返すのがポイント。棋譜とは別に、現局面。
-
         }
 
         /// <summary>
@@ -252,26 +251,27 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// </summary>
         public static void UpdateKifuTree(KifuTree kifu1, IttesasuResult ittesasuResult)
         {
-            if (!((KifuNode)kifu1.CurNode).HasTuginoitte(ittesasuResult.Get_SyuryoNode_OrNull.Key))
+            KifuNode newNode = new KifuNodeImpl(ittesasuResult.SyuryoMove, ittesasuResult.SyuryoKyokumenW);
+            if (!((KifuNode)kifu1.CurNode).HasTuginoitte(ittesasuResult.SyuryoMove))
             {
                 //----------------------------------------
                 // 次ノード追加（なければ）
                 //----------------------------------------
-                kifu1.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(ittesasuResult.Get_SyuryoNode_OrNull.Value.Kyokumen), "After3_ChangeCurrent(次の一手なし)");
-                ((KifuNode)kifu1.CurNode).PutTuginoitte_New(ittesasuResult.Get_SyuryoNode_OrNull);//次ノートを追加します。
+                kifu1.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(ittesasuResult.SyuryoKyokumenW.Kyokumen), "After3_ChangeCurrent(次の一手なし)");
+                ((KifuNode)kifu1.CurNode).PutTuginoitte_New(newNode);//次ノートを追加します。
             }
             else
             {
                 //----------------------------------------
                 // 次ノード上書き（あれば）
                 //----------------------------------------
-                kifu1.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(ittesasuResult.Get_SyuryoNode_OrNull.Value.Kyokumen), "After3_ChangeCurrent（次の一手あり）");
-                ((KifuNode)kifu1.CurNode).PutTuginoitte_Override(ittesasuResult.Get_SyuryoNode_OrNull);//次ノートを上書きします。
+                kifu1.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(ittesasuResult.SyuryoKyokumenW.Kyokumen), "After3_ChangeCurrent（次の一手あり）");
+                ((KifuNode)kifu1.CurNode).PutTuginoitte_Override(newNode);//次ノートを上書きします。
             }
 
             Node<Move, KyokumenWrapper> temp = kifu1.CurNode;
-            kifu1.SetCurNode(ittesasuResult.Get_SyuryoNode_OrNull);//次ノードを、これからのカレントとします。
-            ittesasuResult.Get_SyuryoNode_OrNull.SetParentNode(temp);
+            kifu1.SetCurNode(newNode);//次ノードを、これからのカレントとします。
+            newNode.SetParentNode(temp);
         }
 
 

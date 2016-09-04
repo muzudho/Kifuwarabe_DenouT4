@@ -157,9 +157,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     {
                         exceptionArea = 1000;
 
-                        Sky susunda_Sky_orNull1 = null;
                         IttesasuResult ittesasuResult = new IttesasuResultImpl(
-                            Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
+                            Fingers.Error_1, Fingers.Error_1, Move.Empty, null, Komasyurui14.H00_Null___);
 
                         try
                         {
@@ -194,7 +193,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                             Util_IttesasuRoutine.UpdateKifuTree(model_Taikyoku.Kifu, ittesasuResult);
 
                             exceptionArea = 1080;
-                            result.Out_newNode_OrNull = ittesasuResult.Get_SyuryoNode_OrNull;
+                            result.Out_newNode_OrNull = model_Taikyoku.Kifu.CurNode;// ittesasuResult.Get_SyuryoNode_OrNull;
                             //↑↑一手指し
 
                             //exceptionArea = 1090;

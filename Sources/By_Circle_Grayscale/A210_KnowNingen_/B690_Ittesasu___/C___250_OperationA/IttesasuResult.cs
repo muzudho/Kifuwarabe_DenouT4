@@ -1,10 +1,7 @@
 ﻿using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA
 {
@@ -30,7 +27,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA
         /// 「進む」ときは、一手指す局面の「指した後」のツリー・ノード。
         /// 「巻き戻す」のときは、ヌル。
         /// </summary>
-        Node<Move, KyokumenWrapper> Get_SyuryoNode_OrNull { get; }
-        Node<Move, KyokumenWrapper> Set_SyuryoNode_OrNull { set; }
+        Move SyuryoMove { get; set; }
+        KyokumenWrapper SyuryoKyokumenW { get; set; }
     }
 }
