@@ -7,7 +7,7 @@
     <ProjectGuid>{E96A7341-B8E6-4979-8B2A-94FF2818962C}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Grayscale</RootNamespace>
+    <RootNamespace>Grayscale.A500_ShogiEngine</RootNamespace>
     <AssemblyName>Grayscale.A500_ShogiEngine</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -102,6 +102,7 @@
     <Compile Include="B180_Hyokakansu_\C490____UtilSokutei\Util_KomanoKyori.cs" />
     <Compile Include="B180_Hyokakansu_\C500____Hyokakansu\HyokakansuAbstract.cs" />
     <Compile Include="B180_Hyokakansu_\C500____Hyokakansu\Hyokakansu_Komawari.cs" />
+    <Compile Include="B240_TansaFukasa\C500____Struct\Util_MovePicker.cs" />
     <Compile Include="B240_TansaFukasa\C___500_Struct\Mode_Tansaku.cs" />
     <Compile Include="B260_UtilClient_\C500____Util\Util_InClient.cs" />
     <Compile Include="B200_Scoreing___\C___240_Shogisasi\Shogisasi.cs" />

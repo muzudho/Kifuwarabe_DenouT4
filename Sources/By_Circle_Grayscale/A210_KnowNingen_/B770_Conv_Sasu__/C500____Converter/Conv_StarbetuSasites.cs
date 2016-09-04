@@ -61,8 +61,8 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
                             new KifuNodeImpl(
                                 move,
                                 new KyokumenWrapper(
-                            Util_Sasu341.Sasu(
-                                src_Sky,// to_parentNode.Value.ToKyokumenConst,//指定局面
+                            Util_IttesasuSuperRoutine.DoMove_Super(
+                                src_Sky,//指定局面
                                 figKoma,//動かす駒
                                 dstMasu,//移動先升
                                 false,//成りません。

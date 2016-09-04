@@ -3,16 +3,12 @@ using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B480_Util_Sasu__.C500____Util;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using Grayscale.A210_KnowNingen_.B720_Conv_SasuEx.C500____Converter;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B730_Util_SasuEx.C500____Util
 {
@@ -135,42 +131,6 @@ namespace Grayscale.A210_KnowNingen_.B730_Util_SasuEx.C500____Util
 
             return result_komabetuEntry;
         }
-
-        //public static void PutAddAll_ToHubNode(
-        //    Dictionary<string, SasuEntry> result_komabetuEntry,
-        //    SkyConst src_Sky,
-        //    KifuNode hubNode_mutable,
-        //    KwLogger errH
-        //    )
-        //{
-        //    foreach (KeyValuePair<string, SasuEntry> entry in result_komabetuEntry)
-        //    {
-        //        Util_SasuEx.PutAdd_ToHubNode(
-        //            entry.Key,
-        //            entry.Value,
-        //            src_Sky,
-        //            hubNode_mutable,
-        //            errH
-        //            );
-        //    }
-        //}
-
-        //public static void PutAdd_ToHubNode(
-        //    string sasiteStr_sfen,
-        //    SasuEntry sasuEntry,
-        //    SkyConst src_Sky,
-        //    KifuNode hubNode_mutable,
-        //    KwLogger errH
-        //    )
-        //{
-        //    if (!hubNode_mutable.ContainsKey_ChildNodes(sasiteStr_sfen))//チェックを追加
-        //    {
-        //        hubNode_mutable.PutAdd_ChildNode(
-        //            sasiteStr_sfen,
-        //            Conv_SasuEntry.ToKifuNode(sasuEntry, src_Sky, errH)
-        //        );
-        //    }
-        //}
 
     }
 }

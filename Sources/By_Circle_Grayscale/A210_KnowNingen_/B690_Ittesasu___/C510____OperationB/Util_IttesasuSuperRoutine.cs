@@ -14,7 +14,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
 {
-    public abstract class Util_Sasu341
+    public abstract class Util_IttesasuSuperRoutine
     {
 
         /// <summary>
@@ -22,14 +22,14 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
         /// </summary>
         /// <param name="src_Sky"></param>
         /// <param name="finger"></param>
-        /// <param name="masu"></param>
+        /// <param name="dstMasu"></param>
         /// <param name="pside_genTeban"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static Sky Sasu(
+        public static Sky DoMove_Super(
             Sky src_Sky,//指定局面
             Finger finger,//動かす駒
-            SyElement masu,//移動先マス
+            SyElement dstMasu,//移動先マス
             bool toNaru,//成るなら真
             KwLogger errH
             )
@@ -39,13 +39,14 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
             newSky.SetTemezumi(newSky.Temezumi+1);// 1手進めます。
 
             // 移動先に相手の駒がないか、確認します。
-            Finger tottaKoma = Util_Sky_FingersQuery.InMasuNow_Old(newSky, masu).ToFirst();
+            Finger tottaKoma = Util_Sky_FingersQuery.InMasuNow_Old(newSky, dstMasu).ToFirst();
 
             if (tottaKoma != Fingers.Error_1)
             {
                 // なにか駒を取ったら
-                SyElement akiMasu;
 
+                // 駒台の空いているマス１つ。
+                SyElement akiMasu;
                 if (src_Sky.KaisiPside == Playerside.P1)
                 {
                     akiMasu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Okiba.Sente_Komadai, newSky);
@@ -58,23 +59,21 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
                 newSky.AssertFinger(tottaKoma);
                 Busstop koma = newSky.BusstopIndexOf(tottaKoma);
 
-                    // FIXME:配役あってるか？
+                // 駒台の空いているマスへ移動☆
                 newSky.PutOverwriteOrAdd_Busstop(tottaKoma, Conv_Busstop.ToBusstop(src_Sky.KaisiPside, akiMasu, Conv_Busstop.ToKomasyurui( koma)));
             }
 
             // 駒を１個動かします。
-            // FIXME: 取った駒はどうなっている？
             {
                 newSky.AssertFinger(finger);
-                Busstop koma = newSky.BusstopIndexOf(finger);
-                Komasyurui14 komaSyurui = Conv_Busstop.ToKomasyurui( koma);
+                Komasyurui14 komaSyurui = Conv_Busstop.ToKomasyurui(newSky.BusstopIndexOf(finger));
 
                 if (toNaru)
                 {
                     komaSyurui = Util_Komasyurui14.ToNariCase(komaSyurui);
                 }
 
-                newSky.PutOverwriteOrAdd_Busstop(finger, Conv_Busstop.ToBusstop(src_Sky.KaisiPside, masu, komaSyurui));
+                newSky.PutOverwriteOrAdd_Busstop(finger, Conv_Busstop.ToBusstop(src_Sky.KaisiPside, dstMasu, komaSyurui));
             }
 
             return newSky;
