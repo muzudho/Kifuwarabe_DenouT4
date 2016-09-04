@@ -743,7 +743,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
 
 #if DEBUG
-                this.Log2_Png_Tyokkin_AtLoop2(line, (KifuNode)result.Out_newNode_OrNull, errH2);
+                this.Log2_Png_Tyokkin_AtLoop2(line, (KifuNode)result.Out_newNode_OrNull, logger);
 #endif
 
                 //------------------------------------------------------------

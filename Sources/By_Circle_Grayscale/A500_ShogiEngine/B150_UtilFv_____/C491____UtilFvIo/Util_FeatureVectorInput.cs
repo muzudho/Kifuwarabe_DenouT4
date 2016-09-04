@@ -3,7 +3,7 @@ using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B610_ConstShogi_.C250____Const;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct;
 using Grayscale.A500_ShogiEngine.B140_Conv_FvKoumoku.C500____Converter;
@@ -329,8 +329,8 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
                                 int k2suji = 9 - (int)(col % 9);
 
                                 // 升番号
-                                int k1 = Util_Masu10.ToMasuHandle_FromBanjoSujiDan( k1suji, k1dan);
-                                int k2 = Util_Masu10.ToMasuHandle_FromBanjoSujiDan( k2suji, k2dan);
+                                int k1 = Conv_Masu10.ToMasuHandle_FromBanjoSujiDan( k1suji, k1dan);
+                                int k2 = Conv_Masu10.ToMasuHandle_FromBanjoSujiDan( k2suji, k2dan);
 
                                 int p1;
                                 Conv_FvKoumoku522.Converter_K1_to_P(Playerside.P1, k1dan, k1suji, out p1);
@@ -472,7 +472,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
                                 // 升番号。
                                 int k1;
                                 Conv_FvKoumoku522.Converter_K1_to_P(k_pside, kDan, kSuji, out k1);
-                                int p2 = Util_Masu10.ToMasuHandle_FromBanjoSujiDan( pSuji, pDan);
+                                int p2 = Conv_Masu10.ToMasuHandle_FromBanjoSujiDan( pSuji, pDan);
 
                                 if (Const_FeatureVectorFormat.PARAMETER_INDEX_INPUT)
                                 {
@@ -730,8 +730,8 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
 
 
                                 // 大テーブル升と、小テーブル升。
-                                int p1 = p1_base + Util_Masu10.ToMasuHandle_FromBanjoSujiDan( largeSuji, largeDan);
-                                int p2 = p2_base + Util_Masu10.ToMasuHandle_FromBanjoSujiDan( smallSuji, smallDan);
+                                int p1 = p1_base + Conv_Masu10.ToMasuHandle_FromBanjoSujiDan( largeSuji, largeDan);
+                                int p2 = p2_base + Conv_Masu10.ToMasuHandle_FromBanjoSujiDan( smallSuji, smallDan);
 
                                 if (Const_FeatureVectorFormat.PARAMETER_INDEX_INPUT)
                                 {
@@ -828,7 +828,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
 
                                 //　小テーブル升は、P1項目。
                                 //p1_base + 
-                                int p1 = Util_Masu10.ToMasuHandle_FromBanjoSujiDan( smallSuji, smallDan);
+                                int p1 = Conv_Masu10.ToMasuHandle_FromBanjoSujiDan( smallSuji, smallDan);
 
                                 if (Const_FeatureVectorFormat.PARAMETER_INDEX_INPUT)
                                 {
@@ -995,7 +995,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
                                 int largeFuMaisu = (largeDan - 1) * 10 + largeCol;//上段１０列、下段９列。0～18。
 
                                 int p1 = p1_base + largeFuMaisu;
-                                int p2 = p2_base + Util_Masu10.ToMasuHandle_FromBanjoSujiDan( smallSuji, smallDan);
+                                int p2 = p2_base + Conv_Masu10.ToMasuHandle_FromBanjoSujiDan( smallSuji, smallDan);
                                 if (Const_FeatureVectorFormat.PARAMETER_INDEX_INPUT)
                                 {
                                     // これは、評価値の代わりにインデックスを入れています。
@@ -1239,7 +1239,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
                                 int smallSuji = 9 - (int)(col % 9);
 
                                 int p1 = p1_base + largeCol_motiMaisu;
-                                int p2 = p2_base + Util_Masu10.ToMasuHandle_FromBanjoSujiDan( smallSuji, smallDan);
+                                int p2 = p2_base + Conv_Masu10.ToMasuHandle_FromBanjoSujiDan( smallSuji, smallDan);
                                 if (Const_FeatureVectorFormat.PARAMETER_INDEX_INPUT)
                                 {
                                     // これは、評価値の代わりにインデックスを入れています。

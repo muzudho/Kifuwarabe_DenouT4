@@ -4,7 +4,7 @@ using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
-using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C250____Word;
 using System;
 using System.Collections.Generic;
@@ -137,7 +137,7 @@ namespace Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct
                 foreach (KeyValuePair<int, Komahaiyaku185> entry2 in entry1.Value)
                 {
                     sb.Append(
-                        Util_Masu10.ToBanjoArabiaAndKanji(Masu_Honshogi.Query_Basho(entry2.Key))
+                        Conv_Masu10.ToBanjoArabiaAndKanji_FromMasu(Masu_Honshogi.Query_Basho(entry2.Key))
                         );
                     sb.Append(".");
                     sb.Append(entry2.Value);
@@ -194,7 +194,7 @@ namespace Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct
                     for (int suji = 9; suji >= 1; suji--)
                     {
 
-                        SyElement masu = Util_Masu10.BanjoSujiDanToMasu( suji, dan);
+                        SyElement masu = Conv_Masu10.ToMasu_FromBanjoSujiDan( suji, dan);
 
                         sb.Append("<td>");
 

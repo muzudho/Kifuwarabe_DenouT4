@@ -47,9 +47,9 @@ using System.Text;
 
  */
 
-namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
+namespace Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv
 {
-    public abstract class Util_Masu10
+    public abstract class Conv_Masu10
     {
 
         /// <summary>
@@ -78,9 +78,9 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
         /// <returns></returns>
         public static int ToMasuHandle_FromBanjoSujiDan( int suji, int dan)
         {
-            if (1 <= suji && suji <= Util_Masu10.SHOGIBAN_LAST_SUJI && 1 <= dan && dan <= Util_Masu10.SHOGIBAN_LAST_DAN)
+            if (1 <= suji && suji <= Conv_Masu10.SHOGIBAN_LAST_SUJI && 1 <= dan && dan <= Conv_Masu10.SHOGIBAN_LAST_DAN)
             {
-                return (suji - 1) * Util_Masu10.SHOGIBAN_LAST_DAN + (dan - 1);
+                return (suji - 1) * Conv_Masu10.SHOGIBAN_LAST_DAN + (dan - 1);
             }
             return ERROR_MASU_HANDLE;
         }
@@ -96,9 +96,9 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
                 case Okiba.Sente_Komadai:
                 case Okiba.Gote_Komadai:
                 case Okiba.KomaBukuro:
-                    if (1 <= suji && suji <= Util_Masu10.KOMADAI_LAST_SUJI && 1 <= dan && dan <= Util_Masu10.KOMADAI_LAST_DAN)
+                    if (1 <= suji && suji <= Conv_Masu10.KOMADAI_LAST_SUJI && 1 <= dan && dan <= Conv_Masu10.KOMADAI_LAST_DAN)
                     {
-                        masuHandle = (suji - 1) * Util_Masu10.KOMADAI_LAST_DAN + (dan - 1);
+                        masuHandle = (suji - 1) * Conv_Masu10.KOMADAI_LAST_DAN + (dan - 1);
                         masuHandle += Conv_SyElement.ToMasuNumber(Conv_Okiba.GetFirstMasuFromOkiba(okiba));
                     }
                     break;
@@ -117,9 +117,9 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
         /// <param name="suji"></param>
         /// <param name="dan"></param>
         /// <returns></returns>
-        public static SyElement BanjoSujiDanToMasu(int suji, int dan)
+        public static SyElement ToMasu_FromBanjoSujiDan(int suji, int dan)
         {
-            int masuHandle = Util_Masu10.ToMasuHandle_FromBanjoSujiDan(suji,dan);
+            int masuHandle = Conv_Masu10.ToMasuHandle_FromBanjoSujiDan(suji,dan);
 
             SyElement masu = Masu_Honshogi.Query_Basho(Masu_Honshogi.nError);//範囲外が指定されることもあります。
 
@@ -130,9 +130,9 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
 
             return masu;
         }
-        public static SyElement BangaiSujiDanToMasu(Okiba okiba, int suji, int dan)
+        public static SyElement ToMasu_FromBangaiSujiDan(Okiba okiba, int suji, int dan)
         {
-            int masuHandle = Util_Masu10.ToMasuHandle_FromBangaiSujiDan(okiba, suji, dan);
+            int masuHandle = Conv_Masu10.ToMasuHandle_FromBangaiSujiDan(okiba, suji, dan);
 
             SyElement masu = Masu_Honshogi.Query_Basho(Masu_Honshogi.nError);//範囲外が指定されることもあります。
 
@@ -159,14 +159,14 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
         {
             int offsetSuji;
             int offsetDan;
-            Util_Muki.MukiToOffsetSujiDan(muki, pside, out offsetSuji, out offsetDan);
+            Conv_Muki.MukiToOffsetSujiDan(muki, pside, out offsetSuji, out offsetDan);
 
             int suji;
             int dan;
-            Util_MasuNum.TryBanjoMasuToSuji(masu, out suji);
-            Util_MasuNum.TryBanjoMasuToDan(masu, out dan);
+            Conv_MasuNum.ToSuji_FromBanjoMasu(masu, out suji);
+            Conv_MasuNum.ToDan_FromBanjoMasu(masu, out dan);
 
-            return Util_Masu10.BanjoSujiDanToMasu(
+            return Conv_Masu10.ToMasu_FromBanjoSujiDan(
                 suji + offsetSuji,
                 dan + offsetDan
                 );
@@ -187,10 +187,10 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
         {
             int suji;
             int dan;
-            Util_MasuNum.TryBanjoMasuToSuji(masu, out suji);
-            Util_MasuNum.TryBanjoMasuToDan(masu, out dan);
+            Conv_MasuNum.ToSuji_FromBanjoMasu(masu, out suji);
+            Conv_MasuNum.ToDan_FromBanjoMasu(masu, out dan);
 
-            return Util_Masu10.BanjoSujiDanToMasu(
+            return Conv_Masu10.ToMasu_FromBanjoSujiDan(
                     suji + offsetSuji,
                     dan + offsetDan
                 );
@@ -233,7 +233,7 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
         public static bool InBanjoAitejin(SyElement masu, Playerside pside)
         {
             int dan;
-            Util_MasuNum.TryBanjoMasuToDan(masu, out dan);
+            Conv_MasuNum.ToDan_FromBanjoMasu(masu, out dan);
 
             return (Playerside.P2 == pside && 7 <= dan)
                 || (Playerside.P1 == pside && dan <= 3);
@@ -257,12 +257,12 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
 
         public static bool YukoSuji(int suji)
         {
-            return Util_Masu10.YUKO_SUJI_MIN <= suji && suji <= Util_Masu10.YUKO_SUJI_MAX;
+            return Conv_Masu10.YUKO_SUJI_MIN <= suji && suji <= Conv_Masu10.YUKO_SUJI_MAX;
         }
 
         public static bool YukoDan(int dan)
         {
-            return Util_Masu10.YUKO_DAN_MIN <= dan && dan <= Util_Masu10.YUKO_DAN_MAX;
+            return Conv_Masu10.YUKO_DAN_MIN <= dan && dan <= Conv_Masu10.YUKO_DAN_MAX;
         }
         #endregion
 
@@ -275,14 +275,14 @@ namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
         /// </summary>
         /// <param name="masu"></param>
         /// <returns></returns>
-        public static string ToBanjoArabiaAndKanji(SyElement masu)
+        public static string ToBanjoArabiaAndKanji_FromMasu(SyElement masu)
         {
             StringBuilder sb = new StringBuilder();
 
             int suji;
             int dan;
-            Util_MasuNum.TryBanjoMasuToSuji(masu, out suji);
-            Util_MasuNum.TryBanjoMasuToDan(masu, out dan);
+            Conv_MasuNum.ToSuji_FromBanjoMasu(masu, out suji);
+            Conv_MasuNum.ToDan_FromBanjoMasu(masu, out dan);
 
             sb.Append(Conv_Int.ToArabiaSuji(suji));
             sb.Append(Conv_Int.ToKanSuji(dan));

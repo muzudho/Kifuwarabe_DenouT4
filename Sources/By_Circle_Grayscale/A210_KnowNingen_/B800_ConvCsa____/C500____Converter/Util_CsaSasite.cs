@@ -6,7 +6,7 @@ using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C250____Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
-using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
@@ -32,7 +32,7 @@ namespace Grayscale.A210_KnowNingen_.B800_ConvCsa____.C500____Converter
             int.TryParse(csa.SourceMasu[0].ToString(), out suji);
             int.TryParse(csa.SourceMasu[1].ToString(), out dan);
 
-            return Util_Masu10.BanjoSujiDanToMasu( suji, dan);
+            return Conv_Masu10.ToMasu_FromBanjoSujiDan( suji, dan);
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace Grayscale.A210_KnowNingen_.B800_ConvCsa____.C500____Converter
             int.TryParse(csa.DestinationMasu[0].ToString(), out suji);
             int.TryParse(csa.DestinationMasu[1].ToString(), out dan);
 
-            return Util_Masu10.BanjoSujiDanToMasu( suji, dan);
+            return Conv_Masu10.ToMasu_FromBanjoSujiDan( suji, dan);
         }
 
 
@@ -181,7 +181,7 @@ namespace Grayscale.A210_KnowNingen_.B800_ConvCsa____.C500____Converter
                     //    System.Console.WriteLine("[" + finger + "] " + koma.Masu.Word + "　" + koma.Pside + "　" + KomaSyurui14Array.Ichimoji[(int)koma.Syurui]);
                     //});
 
-                    SyElement srcMasu = Util_Masu10.BanjoSujiDanToMasu(srcSuji,srcDan);
+                    SyElement srcMasu = Conv_Masu10.ToMasu_FromBanjoSujiDan(srcSuji,srcDan);
                     Busstop srcKoma = Util_Sky_KomaQuery.InMasuNow(ittemae_Sky_orNull, srcMasu);
                     Debug.Assert(Busstop.Empty!= srcKoma,"元位置の駒を取得できなかった。1");
 

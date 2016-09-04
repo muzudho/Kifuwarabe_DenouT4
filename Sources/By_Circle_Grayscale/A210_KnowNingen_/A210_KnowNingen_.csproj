@@ -156,9 +156,9 @@
     <Compile Include="B190_Komasyurui_\C250____Word\Komasyurui14.cs" />
     <Compile Include="B170_WordShogi__\C250____Masu\BashoImpl.cs" />
     <Compile Include="B170_WordShogi__\C250____Masu\Masu_Honshogi.cs" />
-    <Compile Include="B200_Masu_______\C500____Util\Util_Masu10.cs" />
-    <Compile Include="B200_Masu_______\C500____Util\Util_MasuNum.cs" />
-    <Compile Include="B200_Masu_______\C500____Util\Util_Muki.cs" />
+    <Compile Include="B200_ConvMasu___\C500____Conv\Conv_Masu10.cs" />
+    <Compile Include="B200_ConvMasu___\C500____Conv\Conv_MasuNum.cs" />
+    <Compile Include="B200_ConvMasu___\C500____Conv\Conv_Muki.cs" />
     <Compile Include="B290_Komahaiyaku\C500____Util\Util_Komahaiyaku184.cs" />
     <Compile Include="B290_Komahaiyaku\C250____Word\Komahaiyaku185.cs" />
     <Compile Include="B300_KomahaiyaTr\C500____Table\Data_KomahaiyakuTransition.cs" />

@@ -4,7 +4,7 @@ using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B310_Shogiban___.C500____Util;
@@ -126,7 +126,7 @@ namespace Grayscale.A210_KnowNingen_.B450_Play2______.C500____Struct
                     src_Sky.AssertFinger(figBanjoJiFu);
                     Busstop banjoJiFu = src_Sky.BusstopIndexOf(figBanjoJiFu);
                     int suji;//1～9
-                    Util_MasuNum.TryBanjoMasuToSuji(Conv_Busstop.ToMasu( banjoJiFu), out suji);
+                    Conv_MasuNum.ToSuji_FromBanjoMasu(Conv_Busstop.ToMasu( banjoJiFu), out suji);
                     existsFu_sujibetu[suji] = true;
                 }
 

@@ -4,7 +4,7 @@ using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
-using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System;
@@ -113,14 +113,14 @@ namespace Grayscale.A210_KnowNingen_.B480_Util_Sasu__.C500____Util
             Okiba srcOkiba = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(srcMasu));
             if (srcOkiba==Okiba.ShogiBan)
             {
-                if (!Util_MasuNum.TryBanjoMasuToDan(srcMasu, out srcDan))
+                if (!Conv_MasuNum.ToDan_FromBanjoMasu(srcMasu, out srcDan))
                 {
                     throw new Exception("段に変換失敗");
                 }
             }
             else
             {
-                if (!Util_MasuNum.TryBangaiMasuToDan(srcMasu, out srcDan))
+                if (!Conv_MasuNum.ToDan_FromBangaiMasu(srcMasu, out srcDan))
                 {
                     throw new Exception("段に変換失敗");
                 }
@@ -130,14 +130,14 @@ namespace Grayscale.A210_KnowNingen_.B480_Util_Sasu__.C500____Util
             Okiba dstOkiba = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(dstMasu));
             if (dstOkiba == Okiba.ShogiBan)
             {
-                if (!Util_MasuNum.TryBanjoMasuToDan(dstMasu, out dstDan))
+                if (!Conv_MasuNum.ToDan_FromBanjoMasu(dstMasu, out dstDan))
                 {
                     throw new Exception("段に変換失敗");
                 }
             }
             else
             {
-                if (!Util_MasuNum.TryBangaiMasuToDan(dstMasu, out dstDan))
+                if (!Conv_MasuNum.ToDan_FromBangaiMasu(dstMasu, out dstDan))
                 {
                     throw new Exception("段に変換失敗");
                 }

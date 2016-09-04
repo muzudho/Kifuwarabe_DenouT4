@@ -1,5 +1,5 @@
 ﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___080_Shape;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___492_Widgets;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
@@ -86,7 +86,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
         /// <returns></returns>
         public int SujiToX( int suji)
         {
-            return (Util_Masu10.KOMADAI_LAST_SUJI - suji) * this.MasuWidth + this.Bounds.X;
+            return (Conv_Masu10.KOMADAI_LAST_SUJI - suji) * this.MasuWidth + this.Bounds.X;
         }
 
 
@@ -121,18 +121,18 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
             //----------
             g.FillRectangle(
                 new SolidBrush(Color.Beige),
-                new Rectangle(this.Bounds.X, this.Bounds.Y, Util_Masu10.KOMADAI_LAST_SUJI * this.MasuWidth, Util_Masu10.KOMADAI_LAST_DAN * this.MasuHeight)
+                new Rectangle(this.Bounds.X, this.Bounds.Y, Conv_Masu10.KOMADAI_LAST_SUJI * this.MasuWidth, Conv_Masu10.KOMADAI_LAST_DAN * this.MasuHeight)
                 );
 
             //----------
             // 水平線
             //----------
-            for (int i = 0; i <= Util_Masu10.KOMADAI_LAST_DAN; i++)
+            for (int i = 0; i <= Conv_Masu10.KOMADAI_LAST_DAN; i++)
             {
                 g.DrawLine(Pens.Black,
                                 0 * this.MasuWidth + this.Bounds.X,
                                 i * this.MasuHeight + this.Bounds.Y,
-                    Util_Masu10.KOMADAI_LAST_SUJI * this.MasuWidth + this.Bounds.X,
+                    Conv_Masu10.KOMADAI_LAST_SUJI * this.MasuWidth + this.Bounds.X,
                                 i * this.MasuHeight + this.Bounds.Y
                     );
             }
@@ -140,13 +140,13 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
             //----------
             // 垂直線
             //----------
-            for (int i = 0; i <= Util_Masu10.KOMADAI_LAST_SUJI; i++)
+            for (int i = 0; i <= Conv_Masu10.KOMADAI_LAST_SUJI; i++)
             {
                 g.DrawLine(Pens.Black,
                                 i * this.MasuWidth + this.Bounds.X,
                                 0 * this.MasuHeight + this.Bounds.Y,
                                 i * this.MasuHeight + this.Bounds.X,
-                    Util_Masu10.KOMADAI_LAST_DAN * this.MasuHeight + this.Bounds.Y
+                    Conv_Masu10.KOMADAI_LAST_DAN * this.MasuHeight + this.Bounds.Y
                     );
             }
 

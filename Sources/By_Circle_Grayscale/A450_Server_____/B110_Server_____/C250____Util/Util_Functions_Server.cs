@@ -5,7 +5,7 @@ using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
-using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
@@ -452,7 +452,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
                         koma_Food_after = Conv_Busstop.ToBusstop(
                             Playerside.P2,
-                            Util_Masu10.BangaiSujiDanToMasu(
+                            Conv_Masu10.ToMasu_FromBangaiSujiDan(
                                 Okiba.Gote_Komadai,
                                 Util_Koma.CTRL_NOTHING_PROPERTY_SUJI,
                                 Util_Koma.CTRL_NOTHING_PROPERTY_DAN
@@ -485,7 +485,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
                         koma_Food_after = Conv_Busstop.ToBusstop(
                             Playerside.P1,
-                            Util_Masu10.BangaiSujiDanToMasu(
+                            Conv_Masu10.ToMasu_FromBangaiSujiDan(
                                 Okiba.Sente_Komadai,
                                 Util_Koma.CTRL_NOTHING_PROPERTY_SUJI,
                                 Util_Koma.CTRL_NOTHING_PROPERTY_DAN

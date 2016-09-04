@@ -1,6 +1,6 @@
 ﻿using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct;
 using System;
@@ -591,7 +591,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat
                         for (int smallSuji = 9; smallSuji > 0; smallSuji--)
                         {
                             // 0～80
-                            int smallMasu = Util_Masu10.ToMasuHandle_FromBanjoSujiDan( smallSuji, smallDan);
+                            int smallMasu = Conv_Masu10.ToMasuHandle_FromBanjoSujiDan( smallSuji, smallDan);
 
                             int p1 = p1_base_motiFu + maisu;
                             int p2 = p2Item.P2_base + smallMasu;
@@ -691,7 +691,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat
                         //----------------------------------------
                         for (int p2Suji = 9; p2Suji > 0; p2Suji--)
                         {
-                            int pMasu = Util_Masu10.ToMasuHandle_FromBanjoSujiDan( p2Suji, p2Dan);
+                            int pMasu = Conv_Masu10.ToMasuHandle_FromBanjoSujiDan( p2Suji, p2Dan);
 
                             int p1 = p1_base + maisu;
                             int p2 = p2Item.P2_base + pMasu;

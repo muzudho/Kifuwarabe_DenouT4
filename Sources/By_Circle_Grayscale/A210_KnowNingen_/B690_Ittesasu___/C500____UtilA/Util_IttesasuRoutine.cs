@@ -5,7 +5,7 @@ using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
-using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
@@ -401,9 +401,9 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 susunda_Sky_orNull_before.AssertFinger(out_figFoodKoma);
                 out_food_koma = susunda_Sky_orNull_before.BusstopIndexOf(out_figFoodKoma);
 #if DEBUG
-                if (null != kd.Dlgt_OnLog1Append_or_Null)
+                if (null != errH.KwDisplayer_OrNull.Dlgt_OnLog1Append_or_Null)
                 {
-                    kd.Dlgt_OnLog1Append_or_Null("駒取った=" + Conv_Busstop.ToKomasyurui( out_food_koma) + Environment.NewLine);
+                    errH.KwDisplayer_OrNull.Dlgt_OnLog1Append_or_Null("駒取った=" + Conv_Busstop.ToKomasyurui( out_food_koma) + Environment.NewLine);
                 }
 #endif
                 //
@@ -478,7 +478,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             SyElement akiMasu = Masu_Honshogi.Query_Basho(Masu_Honshogi.nError);
 
             // 先手駒台または後手駒台の、各マスの駒がある場所を調べます。
-            bool[] exists = new bool[Util_Masu10.KOMADAI_KOMABUKURO_SPACE_LENGTH];//駒台スペースは40マスです。
+            bool[] exists = new bool[Conv_Masu10.KOMADAI_KOMABUKURO_SPACE_LENGTH];//駒台スペースは40マスです。
 
 
             src_Sky.Foreach_Busstops((Finger finger, Busstop koma, ref bool toBreak) =>
@@ -493,7 +493,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
 
             //駒台スペースは40マスです。
-            for (int i = 0; i < Util_Masu10.KOMADAI_KOMABUKURO_SPACE_LENGTH;i++ )
+            for (int i = 0; i < Conv_Masu10.KOMADAI_KOMABUKURO_SPACE_LENGTH;i++ )
             {
                 if (!exists[i])
                 {

@@ -8,7 +8,7 @@ using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
-using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
@@ -135,7 +135,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 else
                 {
                     //>>>>> 打ではないとき
-                    SyElement masu1 = Util_Masu10.BanjoSujiDanToMasu( srcSuji, srcDan);
+                    SyElement masu1 = Conv_Masu10.ToMasu_FromBanjoSujiDan( srcSuji, srcDan);
                     Fingers komas1 = Util_Sky_FingersQuery.InMasuNow_Old(//これが空っぽになるときがある。
                         src_Sky, masu1
                         );
@@ -245,7 +245,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                     srcSyurui = dstSyurui; //駒は「元・種類」を記憶していませんので、「現・種類」を指定します。
 
                     srcOkiba = Okiba.ShogiBan;
-                    srcMasu = Util_Masu10.BanjoSujiDanToMasu(srcSuji, srcDan);
+                    srcMasu = Conv_Masu10.ToMasu_FromBanjoSujiDan(srcSuji, srcDan);
                 }
 
 
@@ -267,7 +267,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 // 棋譜
                 move = Conv_Move.ToMove(
                     srcMasu,//FIXME:升ハンドルにしたい
-                    Util_Masu10.BanjoSujiDanToMasu( suji, dan),//符号は将棋盤の升目です。 FIXME:升ハンドルにしたい
+                    Conv_Masu10.ToMasu_FromBanjoSujiDan( suji, dan),//符号は将棋盤の升目です。 FIXME:升ハンドルにしたい
                     srcSyurui,//dstSyurui
                     Komasyurui14.H00_Null___,//符号からは、取った駒は分からない
                     promotion,

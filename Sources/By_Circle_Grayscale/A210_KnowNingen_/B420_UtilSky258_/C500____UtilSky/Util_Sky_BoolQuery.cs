@@ -5,7 +5,7 @@ using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
-using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
@@ -66,7 +66,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         }
         public static bool InBanjoAitejin(SyElement dstMasu, Playerside pside)
         {
-            return Util_Masu10.InBanjoAitejin(dstMasu, pside);
+            return Conv_Masu10.InBanjoAitejin(dstMasu, pside);
         }
 
         /// <summary>
@@ -242,7 +242,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
             if (okiba == Okiba.ShogiBan)
             {
                 int srcDan;
-                if (!Util_MasuNum.TryBanjoMasuToDan(srcMasu, out srcDan))
+                if (!Conv_MasuNum.ToDan_FromBanjoMasu(srcMasu, out srcDan))
                 {
                     enable = false;
                 }
@@ -250,7 +250,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
             else
             {
                 int srcDan;
-                if (!Util_MasuNum.TryBangaiMasuToDan(srcMasu, out srcDan))
+                if (!Conv_MasuNum.ToDan_FromBangaiMasu(srcMasu, out srcDan))
                 {
                     enable = false;
                 }
@@ -261,7 +261,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
             if (okiba == Okiba.ShogiBan)
             {
                 int dan;
-                if (!Util_MasuNum.TryBanjoMasuToDan(dstMasu, out dan))
+                if (!Conv_MasuNum.ToDan_FromBanjoMasu(dstMasu, out dan))
                 {
                     enable = false;
                 }
@@ -269,7 +269,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
             else
             {
                 int dan;
-                if (!Util_MasuNum.TryBangaiMasuToDan(dstMasu, out dan))
+                if (!Conv_MasuNum.ToDan_FromBangaiMasu(dstMasu, out dan))
                 {
                     enable = false;
                 }

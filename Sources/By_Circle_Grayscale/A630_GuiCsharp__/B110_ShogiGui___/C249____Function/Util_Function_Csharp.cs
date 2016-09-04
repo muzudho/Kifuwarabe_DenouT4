@@ -2,7 +2,7 @@
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
-using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
@@ -231,13 +231,13 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             Okiba okiba = Conv_SyElement.ToOkiba(Conv_Busstop.ToMasu(koma));
             if (okiba == Okiba.ShogiBan)
             {
-                Util_MasuNum.TryBanjoMasuToSuji(Conv_Busstop.ToMasu(koma), out suji);
-                Util_MasuNum.TryBanjoMasuToDan(Conv_Busstop.ToMasu(koma), out dan);
+                Conv_MasuNum.ToSuji_FromBanjoMasu(Conv_Busstop.ToMasu(koma), out suji);
+                Conv_MasuNum.ToDan_FromBanjoMasu(Conv_Busstop.ToMasu(koma), out dan);
             }
             else
             {
-                Util_MasuNum.TryBangaiMasuToSuji(Conv_Busstop.ToMasu(koma), out suji);
-                Util_MasuNum.TryBangaiMasuToDan(Conv_Busstop.ToMasu(koma), out dan);
+                Conv_MasuNum.ToSuji_FromBangaiMasu(Conv_Busstop.ToMasu(koma), out suji);
+                Conv_MasuNum.ToDan_FromBangaiMasu(Conv_Busstop.ToMasu(koma), out dan);
             }
 
 

@@ -1,38 +1,16 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B110_Log________.C500____Struct;
-using Grayscale.A000_Platform___.B025_Machine____;
-using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
-using Grayscale.A210_KnowNingen_.B740_KifuParserA.C400____Conv;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
+﻿using Grayscale.A000_Platform___.B025_Machine____;
 using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
-using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA;
-using System;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
-using System.Text;
+using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
+using Grayscale.A210_KnowNingen_.B740_KifuParserA.C400____Conv;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Grayscale.A950_UnitTest___
 {
@@ -73,11 +51,12 @@ namespace Grayscale.A950_UnitTest___
 
                 IttesasuResult syuryoResult;
                 Util_IttesasuRoutine.DoMove(out syuryoResult, move, position_Sky, logger);
-                pv.Add(move);
+                move = syuryoResult.SyuryoMove;// 駒を取った場合、moveは更新される。
                 position_Sky = syuryoResult.SyuryoKyokumenW.Kyokumen;
+                pv.Add(move);
 
                 // 盤面をログ出力したいぜ☆
-                logger.AppendLine("sfen=[" + Conv_Move.ToSfen(move) + "]");
+                logger.AppendLine("sfen=[" + Conv_Move.ToSfen(move) + "] captured=["+Conv_Komasyurui.ToStr_Ichimoji(Conv_Move.ToCaptured(move))+"]");
                 logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(position_Sky)));
                 logger.Flush(LogTypes.Plain);
                 MachineImpl.GetInstance().ReadKey();
@@ -91,20 +70,22 @@ namespace Grayscale.A950_UnitTest___
             //────────────────────────────────────────
             for (int iPly = 5; 0<iPly; iPly--)
             {
+                Move moved = pv[pv.Count - 1];
+                pv.RemoveAt(pv.Count - 1);
+
                 IttemodosuResult syuryoResult2;
                 Util_IttemodosuRoutine.UndoMove(
                     out syuryoResult2,
                     position_Sky.Temezumi,
-                    pv[pv.Count - 1],
+                    moved,
                     position_Sky,
                     logger
                     );
                 position_Sky = syuryoResult2.SyuryoSky;
-
-                string sfen2 = Conv_Move.ToSfen(pv[pv.Count - 1]);
+                Debug.Assert(null!= position_Sky, "局面がヌル");
 
                 // 盤面をログ出力したいぜ☆
-                logger.AppendLine("back sfen2=[" + sfen2 + "]");
+                logger.AppendLine("back sfen=[" + Conv_Move.ToSfen(moved) + "] captured=[" + Conv_Komasyurui.ToStr_Ichimoji(Conv_Move.ToCaptured(moved)) + "]");
                 logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(position_Sky)));
                 logger.Flush(LogTypes.Plain);
                 MachineImpl.GetInstance().ReadKey();

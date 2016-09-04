@@ -19,6 +19,7 @@ using System.Runtime.CompilerServices;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 {
@@ -33,13 +34,13 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// 一手巻き戻す
         /// </summary>
         /// <param name="ittemodosuResult"></param>
-        /// <param name="korekaranoTemezumi"></param>
+        /// <param name="kaisi_Temezumi"></param>
         /// <param name="moved"></param>
         /// <param name="kaisiKyokumenW"></param>
         /// <param name="errH"></param>
         public static void UndoMove(
             out IttemodosuResult ittemodosuResult,
-            int korekaranoTemezumi,
+            int kaisi_Temezumi,
             Move moved,
             Sky kaisi_Sky,
             KwLogger errH
@@ -62,7 +63,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
             if (Fingers.Error_1 == ittemodosuResult.FigMovedKoma)
             {
-                goto gt_EndMethod;
+                errH.DonimoNaranAkirameta("戻せる駒が無かった☆");
+                return;
             }
 
 
@@ -88,20 +90,28 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             //------------------------------------------------------------
             Finger figFoodKoma;//取られていた駒
             Util_IttemodosuRoutine.Do62_TorareteitaKoma_ifExists(
+                out figFoodKoma,//変更される場合あり。
                 moved,
                 kaisi_Sky,//巻き戻しのとき
-                out figFoodKoma,//変更される場合あり。
                 errH
                 );
             ittemodosuResult.FigFoodKoma = figFoodKoma; //取られていた駒更新
 
+            kaisi_Sky.SetTemezumi(kaisi_Temezumi - 1);
+
             //------------------------------------------------------------
-            // 駒の移動
+            // 指されていた駒の移動
             //------------------------------------------------------------
+            kaisi_Sky.AddObjects(
+                //
+                // 指されていた駒
+                //
+                new Finger[] { figMovedKoma }, new Busstop[] { dst });
+
             if (Fingers.Error_1 != figFoodKoma)
             {
                 //------------------------------------------------------------
-                // 指されていた駒と、取られていた駒の移動
+                // 取られていた駒を戻す
                 //------------------------------------------------------------
 
                 //------------------------------
@@ -111,32 +121,18 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 Playerside pside = Conv_Move.ToPlayerside(moved);
                 Komasyurui14 captured = Conv_Move.ToCaptured(moved);
 
-                kaisi_Sky.SetTemezumi(korekaranoTemezumi);
                 kaisi_Sky.AddObjects(
                     //
                     // 指されていた駒と、取られていた駒
                     //
-                    new Finger[] { figMovedKoma, figFoodKoma },
-                    new Busstop[] { dst,
-                        Conv_Busstop.ToBusstop(
-                        Conv_Playerside.Reverse(pside),//先後を逆にして駒台に置きます。
+                    new Finger[] { figFoodKoma },
+                    new Busstop[] { Conv_Busstop.ToBusstop(
+                        Conv_Playerside.Reverse(pside),//先後を逆にして盤上に置きます。
                         dstMasu,// マス
                         captured
                     )
                     }
                     );
-            }
-            else
-            {
-                //------------------------------------------------------------
-                // 指されていた駒の移動
-                //------------------------------------------------------------
-                kaisi_Sky.SetTemezumi(korekaranoTemezumi);
-                kaisi_Sky.AddObjects(
-                    //
-                    // 指されていた駒
-                    //
-                    new Finger[] { figMovedKoma }, new Busstop[] { dst });
             }
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
             // この時点で、必ず現局面データに差替えあり
@@ -145,18 +141,12 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
             // ノード
             ittemodosuResult.SyuryoSky = kaisi_Sky;// この変数を返すのがポイント。棋譜とは別に、現局面。
-
-            gt_EndMethod:
-            ;
         }
 
         public static void UpdateKifuTree(
             KifuTree kifu_mutable
             )
         {
-            //------------------------------------------------------------
-            // 取った駒を戻す
-            //------------------------------------------------------------
             Node<Move, KyokumenWrapper> removedLeaf = kifu_mutable.PopCurrentNode();
         }
 
@@ -175,8 +165,6 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             KwLogger errH
             )
         {
-            figMovedKoma = Fingers.Error_1;
-
             //------------------------------------------------------------
             // 選択  ：  動かす駒
             //------------------------------------------------------------
@@ -192,7 +180,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 Conv_Move.ToDstMasu(move),//[巻戻し]のときは、先位置が　駒の居場所。
                 errH
                 );
-            Debug.Assert(figMovedKoma != Fingers.Error_1, "駒を動かせなかった？5");
+            Debug.Assert(figMovedKoma != Fingers.Error_1, "駒を動かせなかった？ Dst="+ Conv_MasuNum.ToLog_FromBanjoMasu(Conv_Move.ToDstMasu(move)));
         }
 
         /// <summary>
@@ -248,9 +236,9 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <param name="out_figFoodKoma"></param>
         /// <param name="errH"></param>
         private static void Do62_TorareteitaKoma_ifExists(
+            out Finger out_figFoodKoma,
             Move move,
             Sky kaisi_Sky,//巻き戻しのとき
-            out Finger out_figFoodKoma,
             KwLogger errH
         )
         {

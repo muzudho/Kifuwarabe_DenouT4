@@ -1,8 +1,8 @@
 ﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
-namespace Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util
+namespace Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv
 {
-    public abstract class Util_Muki
+    public abstract class Conv_Muki
     {
 
         public static void MukiToOffsetSujiDan(Hogaku muki, Playerside pside, out int offsetSuji, out int offsetDan)

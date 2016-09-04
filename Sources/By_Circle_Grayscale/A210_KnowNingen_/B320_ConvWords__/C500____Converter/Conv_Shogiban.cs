@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
-using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 
 namespace Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter
@@ -43,7 +43,7 @@ namespace Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter
                 sb.Append("│");
                 for (int suji = 9; 0 < suji; suji--)
                 {
-                    int masuNumber = Util_Masu10.ToMasuHandle_FromBanjoSujiDan(suji, dan);
+                    int masuNumber = Conv_Masu10.ToMasuHandle_FromBanjoSujiDan(suji, dan);
                     if(shogiban.ContainsBanjoKoma(masuNumber))
                     {
                         Busstop koma = shogiban.GetBanjoKomaFromMasu(masuNumber);

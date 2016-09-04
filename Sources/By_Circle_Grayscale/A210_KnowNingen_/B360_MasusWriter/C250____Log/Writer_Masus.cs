@@ -4,7 +4,7 @@ using Grayscale.A210_KnowNingen_.B170_WordShogi__.C___250_Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
-using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using System.Text;
 
 namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C250____Writer
@@ -52,7 +52,7 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C250____Writer
                 sb.Append("┃");
                 for (int suji = 9; suji >= 1; suji--)// 筋は左右逆☆
                 {
-                    SyElement masu = Util_Masu10.BanjoSujiDanToMasu( suji, dan);
+                    SyElement masu = Conv_Masu10.ToMasu_FromBanjoSujiDan( suji, dan);
                     if (Okiba.ShogiBan == Conv_SyElement.ToOkiba(masu))
                     {
                         if (ban81[Conv_SyElement.ToMasuNumber(masu)])

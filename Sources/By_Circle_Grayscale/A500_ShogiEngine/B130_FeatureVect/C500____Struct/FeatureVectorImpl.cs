@@ -3,7 +3,7 @@ using Grayscale.A060_Application.B610_ConstShogi_.C250____Const;
 using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using System.Text;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
@@ -151,13 +151,13 @@ namespace Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct
                 Okiba okiba = Conv_SyElement.ToOkiba(masu);
                 if (okiba == Okiba.ShogiBan)
                 {
-                    Util_MasuNum.TryBanjoMasuToSuji(masu, out suji);
-                    Util_MasuNum.TryBanjoMasuToDan(masu, out dan);
+                    Conv_MasuNum.ToSuji_FromBanjoMasu(masu, out suji);
+                    Conv_MasuNum.ToDan_FromBanjoMasu(masu, out dan);
                 }
                 else
                 {
-                    Util_MasuNum.TryBangaiMasuToSuji(masu, out suji);
-                    Util_MasuNum.TryBangaiMasuToDan(masu, out dan);
+                    Conv_MasuNum.ToSuji_FromBangaiMasu(masu, out suji);
+                    Conv_MasuNum.ToDan_FromBangaiMasu(masu, out dan);
                 }
 
 

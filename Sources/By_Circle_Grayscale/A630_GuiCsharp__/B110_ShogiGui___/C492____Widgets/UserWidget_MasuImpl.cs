@@ -1,5 +1,5 @@
 ﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___491_Event;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___492_Widgets;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape;
@@ -113,14 +113,14 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C492____Widgets
 
             if (this.Okiba == Okiba.ShogiBan)
             {
-                srcMasu = Util_Masu10.BanjoSujiDanToMasu(
+                srcMasu = Conv_Masu10.ToMasu_FromBanjoSujiDan(
                             this.Suji,
                             this.Dan
                 );
             }
             else
             {
-                srcMasu = Util_Masu10.BangaiSujiDanToMasu(
+                srcMasu = Conv_Masu10.ToMasu_FromBangaiSujiDan(
                             this.Okiba,
                             this.Suji,
                             this.Dan

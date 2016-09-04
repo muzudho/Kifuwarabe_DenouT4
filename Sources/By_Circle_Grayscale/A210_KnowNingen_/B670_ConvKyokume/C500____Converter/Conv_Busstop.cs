@@ -3,7 +3,7 @@ using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
@@ -26,12 +26,12 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             Okiba okiba2 = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(masu));
             if (okiba2 == Okiba.ShogiBan)
             {
-                if (!Util_MasuNum.TryBanjoMasuToSuji(masu, out suji))
+                if (!Conv_MasuNum.ToSuji_FromBanjoMasu(masu, out suji))
                 {
                     errorCheck = 1;
                 }
 
-                if (!Util_MasuNum.TryBanjoMasuToDan(masu, out dan))
+                if (!Conv_MasuNum.ToDan_FromBanjoMasu(masu, out dan))
                 {
                     errorCheck = 1;
                 }
@@ -39,12 +39,12 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             else
             {
                 // TODO: 盤外☆
-                if (!Util_MasuNum.TryBangaiMasuToSuji(masu, out suji))
+                if (!Conv_MasuNum.ToSuji_FromBangaiMasu(masu, out suji))
                 {
                     errorCheck = 1;
                 }
 
-                if (!Util_MasuNum.TryBangaiMasuToDan(masu, out dan))
+                if (!Conv_MasuNum.ToDan_FromBangaiMasu(masu, out dan))
                 {
                     errorCheck = 1;
                 }
@@ -138,9 +138,9 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             // 自
             if (okiba==Okiba.ShogiBan)
             {
-                return Util_Masu10.BanjoSujiDanToMasu(suji, dan);
+                return Conv_Masu10.ToMasu_FromBanjoSujiDan(suji, dan);
             }
-            return Util_Masu10.BangaiSujiDanToMasu(okiba, suji, dan);
+            return Conv_Masu10.ToMasu_FromBangaiSujiDan(okiba, suji, dan);
         }
 
         public static bool ToKomadai(Busstop busstop)

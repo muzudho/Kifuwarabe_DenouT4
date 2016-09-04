@@ -4,7 +4,7 @@ using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -346,7 +346,7 @@ namespace Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word
                     for (int suji = 9; suji >= 1; suji--)
                     {
 
-                        SyElement masu = Util_Masu10.BanjoSujiDanToMasu( suji, dan);
+                        SyElement masu = Conv_Masu10.ToMasu_FromBanjoSujiDan( suji, dan);
 
                         if (orderOnBanM.ContainsKey(masu))
                         {

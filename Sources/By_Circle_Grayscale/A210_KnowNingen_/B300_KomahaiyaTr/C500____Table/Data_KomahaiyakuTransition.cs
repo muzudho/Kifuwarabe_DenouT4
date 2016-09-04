@@ -4,7 +4,7 @@ using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C250____Word;
 using System;
 using System.Collections.Generic;
@@ -53,7 +53,7 @@ namespace Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table
         {
             Komahaiyaku185 result;
 
-            int masuHandle = Conv_SyElement.ToMasuNumber(Util_Masu10.BothSenteView(masu_shogiban, pside));
+            int masuHandle = Conv_SyElement.ToMasuNumber(Conv_Masu10.BothSenteView(masu_shogiban, pside));
 
             if (Conv_MasuHandle.OnShogiban(masuHandle))
             {
@@ -297,7 +297,7 @@ namespace Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table
                     for (int suji = 9; suji >= 1; suji--)
                     {
 
-                        SyElement masu = Util_Masu10.BanjoSujiDanToMasu( suji, dan);
+                        SyElement masu = Conv_Masu10.ToMasu_FromBanjoSujiDan( suji, dan);
 
                         sb.Append("<td>");
 

@@ -1,6 +1,6 @@
 ﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
-using Grayscale.A210_KnowNingen_.B200_Masu_______.C500____Util;
+using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using System;
 
 namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C490____UtilSokutei
@@ -32,16 +32,16 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C490____UtilSokutei
             //
 
             int mokuhyoDan;
-            Util_MasuNum.TryBanjoMasuToDan(masuNumber, out mokuhyoDan);
+            Conv_MasuNum.ToDan_FromBanjoMasu(masuNumber, out mokuhyoDan);
 
             int mokuhyoSuji;
-            Util_MasuNum.TryBanjoMasuToSuji(masuNumber, out mokuhyoSuji);
+            Conv_MasuNum.ToSuji_FromBanjoMasu(masuNumber, out mokuhyoSuji);
 
             int genzaiDan;
-            Util_MasuNum.TryBanjoMasuToDan(genzai, out genzaiDan);
+            Conv_MasuNum.ToDan_FromBanjoMasu(genzai, out genzaiDan);
 
             int genzaiSuji;
-            Util_MasuNum.TryBanjoMasuToSuji(genzai, out genzaiSuji);
+            Conv_MasuNum.ToSuji_FromBanjoMasu(genzai, out genzaiSuji);
 
             int kyori = Math.Abs(mokuhyoDan - genzaiDan) + Math.Abs(mokuhyoSuji - genzaiSuji);
 
