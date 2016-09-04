@@ -1,19 +1,11 @@
-﻿using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A120_KifuSfen___.B160_ConvSfen___.C500____Converter;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
-using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 using System;
-using Grayscale.A210_KnowNingen_.B740_KifuParserA.C400____Conv;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C400____Conv
 {
@@ -23,7 +15,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C400____Conv
             out bool out_abnormal,
             out string out_restString,
             string sfenMove1,
-            KifuTree kifu1,//model_Taikyoku.Kifu
+            Move src_Move,
+            Sky src_Sky,//            KifuTree kifu1,//model_Taikyoku.Kifu
             KwLogger errH
             )
         {
@@ -63,7 +56,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C400____Conv
                             str4,  //abcdefghi
                             str5,  //+
                             out nextMove,
-                            kifu1.CurNode.Value.Kyokumen,
+                            src_Sky,
                             "棋譜パーサーA_SFENパース1",
                             errH
                             );
@@ -92,7 +85,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C400____Conv
                                     str8, //成|不成
                                     str9,  //打
                                     out nextMove,
-                                    kifu1,
+                                    src_Move,
+                                    src_Sky,
                                     errH
                                     );
                             }

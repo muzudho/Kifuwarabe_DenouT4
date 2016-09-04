@@ -62,7 +62,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
         {
             int exceptionArea = 0;
 
-            bool isHonshogi = true;//FIXME:暫定
+            //bool isHonshogi = true;//FIXME:暫定
 
             
             nextState = this;
@@ -77,7 +77,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                         out abnormal,
                         out rest,
                         genjo.InputLine,
-                        model_Taikyoku.Kifu,
+                        model_Taikyoku.Kifu.CurNode.Key,
+                        model_Taikyoku.Kifu.CurNode.Value.Kyokumen,
                         errH
                         );
                     genjo.InputLine = rest;
