@@ -22,7 +22,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C125____ScoreSibori
         /// </summary>
         /// <param name="kifu"></param>
         /// <param name="atamanosumiCollection"></param>
-        public void EdaSibori_HighScore(KifuTree kifu, Shogisasi shogisasi, KwLogger errH)
+        public void SelectHighScoreNode_OnRoot(KifuTree kifu, Shogisasi shogisasi, KwLogger errH)
         {
             int exception_area = 0;
 
@@ -38,93 +38,85 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C125____ScoreSibori
 
 
                 exception_area = 1000;
-                List<Node<Move, KyokumenWrapper>> rankedNodes = this.RankingNode_WithJudge_ForeachNextNodes(
-                    kifu.CurNode, errH);
 
+                // ソートしたいので、リスト構造に移し変えます。
+                List<Node<Move, KyokumenWrapper>> rankedNodes = new List<Node<Move, KyokumenWrapper>>();
+                {
+                    try
+                    {
+                        kifu.CurNode.Foreach_ChildNodes((Move key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
+                        {
+                            rankedNodes.Add(node);
+                        });
+
+                        exception_area = 1000;
+
+                        // ソートします。
+                        rankedNodes.Sort((a, b) =>
+                        {
+                            float bScore;
+                            float aScore;
+
+                            // 比較できないものは 0 にしておく必要があります。
+                            if (!(a is KifuNode) || !(b is KifuNode))
+                            {
+                                return 0;
+                            }
+
+                            bScore = ((KifuNode)b).Score;
+                            aScore = ((KifuNode)a).Score;
+
+                            return (int)aScore.CompareTo(bScore);//点数が大きいほうが前に行きます。
+                        });
+                    }
+                    catch (Exception ex)
+                    {
+                        errH.DonimoNaranAkirameta(ex, "ベストムーブ／ハイスコア抽出中 exception_area=[" + exception_area + "]"); throw ex;
+                    }
+                }
 
                 exception_area = 1500;
+
+                // 同着もいる☆
                 Dictionary<Move, Node<Move, KyokumenWrapper>> dic = new Dictionary<Move, Node<Move, KyokumenWrapper>>();
-                if (kifu.CurNode.Value.Kyokumen.KaisiPside == Playerside.P1)
+
+                // 先手は先頭、後手は最後尾の要素が、一番高いスコア（同着あり）
+                float goodestScore;
+                if (kifu.CurNode.Value.Kyokumen.KaisiPside == Playerside.P2)
                 {
-                    exception_area = 2000;
                     // 1番高いスコアを調べます。
-                    float goodestScore = float.MinValue;
-                    foreach (Node<Move, KyokumenWrapper> node in rankedNodes)
+                    goodestScore = ((KifuNode)rankedNodes[0]).Score;
+                    for (int iNode=0; iNode< rankedNodes.Count; iNode++)
                     {
-                        if (node is KifuNode)
+                        if (goodestScore == ((KifuNode)rankedNodes[iNode]).Score)
                         {
-                            float score = ((KifuNode)node).Score;
-
-                            if (goodestScore < score)
-                            {
-                                goodestScore = score;
-                            }
-                        }
-                    }
-
-                    exception_area = 2500;
-                    // 1番良いスコアのノードだけ残します。
-                    kifu.CurNode.Foreach_ChildNodes((Move key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
-                    {
-                        float score;
-                        if (node is KifuNode)
-                        {
-                            score = ((KifuNode)node).Score;
+                            dic.Add(rankedNodes[iNode].Key, rankedNodes[iNode]);
                         }
                         else
                         {
-                            score = 0.0f;
+                            break;
                         }
-
-                        if (goodestScore <= score)
-                        {
-                            dic.Add(key, node);
-                        }
-                    });
+                    }
                 }
                 else
                 {
-                    exception_area = 3000;
-
                     // 2Pは、マイナスの方が良い。
-                    float goodestScore = float.MaxValue;
-                    foreach (Node<Move, KyokumenWrapper> node in rankedNodes)
+                    goodestScore = ((KifuNode)rankedNodes[rankedNodes.Count-1]).Score;
+                    for (int iNode = rankedNodes.Count-1; -1 < iNode; iNode--)
                     {
-                        if (node is KifuNode)
+                        if (goodestScore == ((KifuNode)rankedNodes[iNode]).Score)
                         {
-                            float score = ((KifuNode)node).Score;
-
-                            if (score < goodestScore)//より負の値を選びます。
-                            {
-                                goodestScore = score;
-                            }
-                        }
-                    }
-
-                    exception_area = 3500;
-                    // 1番良いスコアのノードだけ残します。
-                    kifu.CurNode.Foreach_ChildNodes((Move key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
-                    {
-                        float score;
-                        if (node is KifuNode)
-                        {
-                            score = ((KifuNode)node).Score;
+                            dic.Add(rankedNodes[iNode].Key, rankedNodes[iNode]);
                         }
                         else
                         {
-                            score = 0.0f;
+                            break;
                         }
-
-                        if (score <= goodestScore)//より負数の方がよい。
-                        {
-                            dic.Add(key, node);
-                        }
-                    });
+                    }
                 }
 
-
                 // 枝を更新します。
-                kifu.CurNode.PutSet_ChildNodes(dic);
+                kifu.CurNode.Set_ChildNodes(dic);
             }
             catch (Exception ex)
             {
@@ -134,67 +126,5 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C125____ScoreSibori
         gt_EndMethod:
             ;
         }
-
-
-
-        /// <summary>
-        /// 局面が、妄想に近いかどうかで点数付けします。
-        /// </summary>
-        /// <param name="nextNodes"></param>
-        /// <returns></returns>
-        private List<Node<Move, KyokumenWrapper>> RankingNode_WithJudge_ForeachNextNodes(
-            Node<Move, KyokumenWrapper> hubNode,
-            KwLogger errH
-            )
-        {
-            int exception_area = 0;
-            List<Node<Move, KyokumenWrapper>> list = null;
-
-            try
-            {
-                // ランク付けしたあと、リスト構造に移し変えます。
-                list = new List<Node<Move, KyokumenWrapper>>();
-
-                hubNode.Foreach_ChildNodes((Move key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
-                {
-                    list.Add(node);
-                });
-
-                exception_area = 1000;
-                // ランク付けするために、リスト構造に変換します。
-
-                ScoreSiboriEngine.Sort(list);
-            }
-            catch (Exception ex)
-            {
-                errH.DonimoNaranAkirameta(ex, "ベストムーブ／ハイスコア抽出中 exception_area=[" + exception_area + "]"); throw ex;
-            }
-
-            return list;
-        }
-
-
-        private static void Sort(List<Node<Move, KyokumenWrapper>> items)
-        {
-            items.Sort((a, b) =>
-            {
-                float bScore;
-                float aScore;
-
-                // 比較できないものは 0 にしておく必要があります。
-                if (!(a is KifuNode) || !(b is KifuNode))
-                {
-                    return 0;
-                }
-
-                bScore = ((KifuNode)b).Score;
-                aScore = ((KifuNode)a).Score;
-
-                return (int)aScore.CompareTo(bScore);//点数が大きいほうが前に行きます。
-            });
-
-        }
-
     }
-
 }

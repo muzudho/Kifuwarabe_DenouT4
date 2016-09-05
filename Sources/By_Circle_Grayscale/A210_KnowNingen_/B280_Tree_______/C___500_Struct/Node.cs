@@ -48,7 +48,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         void Clear_ChildNodes();
         bool ContainsKey_ChildNodes(Move key);
         void PutAdd_ChildNode(Move key, Node<T1, T2> newNode);
-        void PutSet_ChildNodes(Dictionary<Move, Node<T1, T2>> newNextNodes);
+        void Set_ChildNodes(Dictionary<Move, Node<T1, T2>> newNextNodes);
 
         void Foreach_ChildNodes(NodeImpl<T1, T2>.DELEGATE_NextNodes d);
 

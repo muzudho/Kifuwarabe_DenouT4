@@ -96,7 +96,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             newNode.SetParentNode( this);
         }
 
-        public void PutSet_ChildNodes(Dictionary<Move, Node<T1, T2>> newNextNodes)
+        public void Set_ChildNodes(Dictionary<Move, Node<T1, T2>> newNextNodes)
         {
             this.NextNodes = newNextNodes;
             foreach(Node<T1,T2> child in this.NextNodes.Values)

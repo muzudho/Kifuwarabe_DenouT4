@@ -148,24 +148,35 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
             //    );
 #endif
 
+            KifuNode bestKifuNode = this.ChoiceBest(isHonshogi, kifu, errH);
+
+
+            this.TimeManager.Stopwatch.Stop();
+            return bestKifuNode;
+        }
+
+        private KifuNode ChoiceBest(
+            bool isHonshogi,
+            KifuTree kifu,
+            KwLogger errH
+            )
+        {
             try
             {
-                // 評価値の高いノードだけを残します。
-                this.EdagariEngine.EdaSibori_HighScore(kifu, this, errH);
+                // 評価値の高いノードだけを残します。（同点が残る）
+                this.EdagariEngine.SelectHighScoreNode_OnRoot(kifu, this, errH);
             }
             catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "ベストムーブ後半２０：ハイスコア抽出"); throw ex; }
 
 
             // 評価値の同点があれば、同点決勝をして　1手に決めます。
-            KifuNode bestKifuNode = null;
+            KifuNode bestKifuNode;
             try
             {
                 bestKifuNode = this.ChoiceNode_DoutenKessyou(kifu, isHonshogi, errH);
             }
             catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "ベストムーブ後半３０：同点決勝"); throw ex; }
 
-
-            this.TimeManager.Stopwatch.Stop();
             return bestKifuNode;
         }
 
@@ -184,9 +195,6 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
             KifuNode bestKifuNode = null;
 
             {
-                // 次のノードをリストにします。
-                //List<KifuNode> nextNodes = Util_Converter280.NextNodes_ToList(kifu.CurNode);
-
                 // 次のノードをシャッフル済みリストにします。
                 List<KifuNode> nextNodes_shuffled = Conv_NextNodes.ToList(kifu.CurNode);
                 LarabeShuffle<KifuNode>.Shuffle_FisherYates(ref nextNodes_shuffled);
