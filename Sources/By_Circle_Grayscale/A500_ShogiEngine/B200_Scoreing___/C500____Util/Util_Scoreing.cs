@@ -155,7 +155,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
                     errH
                 );
 
-                node_yomi_mutable_KAIZOMAE.AddScore(score);
+                node_yomi_mutable_KAIZOMAE.NodeEx.AddScore(score);
 #if DEBUG || LEARN
                 node_yomi_mutable.KyHyokaSheet_Mutable.Add(
                     hyokakansu.Name.ToString(),
@@ -182,7 +182,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
         {
             // FIXME: 点数（評価明細）を上書きしているような。
             // 枝はこれでいいのか？
-            node_yomi_mutable.SetScore( alphabeta_bestScore);
+            node_yomi_mutable.NodeEx.SetScore( alphabeta_bestScore);
             node_yomi_mutable.SetBranchKyHyokaSheet(new KyHyokaSheetImpl( alphabeta_bestScore));
         }
 

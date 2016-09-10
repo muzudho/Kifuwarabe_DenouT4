@@ -16,12 +16,7 @@ namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct
 
         #region プロパティー
 
-        /// <summary>
-        /// スコア
-        /// </summary>
-        float Score { get; }
-        void AddScore(float offset);
-        void SetScore(float score);
+        NodeEx NodeEx { get; set; }
 
         /// <summary>
         /// 局面評価明細。Mutable なので、SkyConst には入れられない。

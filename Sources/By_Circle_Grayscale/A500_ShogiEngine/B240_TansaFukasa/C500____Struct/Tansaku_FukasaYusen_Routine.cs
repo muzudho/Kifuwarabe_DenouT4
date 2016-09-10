@@ -370,7 +370,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                 errH
                 );
             // 局面の評価値。
-            out_a_childrenBest = node_yomi_KAIZOMAE.Score;
+            out_a_childrenBest = node_yomi_KAIZOMAE.NodeEx.Score;
 
 #if DEBUG_ALPHA_METHOD
                     errH.AppendLine_AddMemo("1. 手(" + node_yomi.Value.ToKyokumenConst.Temezumi + ")読(" + yomiDeep + ") 兄弟最善=[" + a_siblingDecidedValue + "] 子ベスト=[" + a_childrenBest + "]");

@@ -202,8 +202,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                                     return 0;
                                 }
 
-                                bScore = ((KifuNode)b).Score;
-                                aScore = ((KifuNode)a).Score;
+                                bScore = ((KifuNode)b).NodeEx.Score;
+                                aScore = ((KifuNode)a).NodeEx.Score;
 
                                 return (int)aScore.CompareTo(bScore);//点数が大きいほうが前に行きます。
                             });
@@ -221,10 +221,10 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                     if (rootNode.Value.KaisiPside == Playerside.P2)
                     {
                         // 1番高いスコアを調べます。
-                        goodestScore = ((KifuNode)rankedNodes[0]).Score;
+                        goodestScore = ((KifuNode)rankedNodes[0]).NodeEx.Score;
                         for (int iNode = 0; iNode < rankedNodes.Count; iNode++)
                         {
-                            if (goodestScore == ((KifuNode)rankedNodes[iNode]).Score)
+                            if (goodestScore == ((KifuNode)rankedNodes[iNode]).NodeEx.Score)
                             {
                                 bestNodes.Add((KifuNode)rankedNodes[iNode]);
                             }
@@ -237,10 +237,10 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                     else
                     {
                         // 2Pは、マイナスの方が良い。
-                        goodestScore = ((KifuNode)rankedNodes[rankedNodes.Count - 1]).Score;
+                        goodestScore = ((KifuNode)rankedNodes[rankedNodes.Count - 1]).NodeEx.Score;
                         for (int iNode = rankedNodes.Count - 1; -1 < iNode; iNode--)
                         {
-                            if (goodestScore == ((KifuNode)rankedNodes[iNode]).Score)
+                            if (goodestScore == ((KifuNode)rankedNodes[iNode]).NodeEx.Score)
                             {
                                 bestNodes.Add((KifuNode)rankedNodes[iNode]);
                             }

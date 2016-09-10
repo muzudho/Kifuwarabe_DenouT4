@@ -1025,9 +1025,9 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                             {
                                 KifuNode node = bestKifuNodeList[iMultiPV];
 
-                                if (null != node && null != node.KyHyokaSheet_Mutable && bestScore <= node.Score)
+                                if (null != node && null != node.KyHyokaSheet_Mutable && bestScore <= node.NodeEx.Score)
                                 {
-                                    bestScore = node.Score;
+                                    bestScore = node.NodeEx.Score;
                                     bestKifuNode = node;
                                 }
                             }

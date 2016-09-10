@@ -14,15 +14,23 @@ namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct
 {
     public class KifuNodeImpl : NodeImpl<Move, Sky>, KifuNode
     {
-        #region プロパティー
 
         /// <summary>
-        /// スコア
+        /// コンストラクター。
         /// </summary>
-        public float Score { get { return this.m_score_; } }
-        public void AddScore(float offset) { this.m_score_ += offset; }
-        public void SetScore(float score) { this.m_score_ = score; }
-        private float m_score_;
+        /// <param name="shootingStarlightable"></param>
+        /// <param name="Sky"></param>
+        public KifuNodeImpl(Move shootingStarlightable, Sky Sky)
+            : base(shootingStarlightable, Sky)
+        {
+            this.NodeEx = new NodeExImpl();
+            this.kyHyokaSheet = new KyHyokaSheetImpl();
+        }
+
+
+        #region プロパティー
+
+        public NodeEx NodeEx { get; set; }
 
         /// <summary>
         /// 局面評価明細。Mutable なので、SkyConst には入れられない。
@@ -51,17 +59,6 @@ namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct
         public bool IsLeaf { get { return 0 == this.Count_ChildNodes; } }
 
 
-
-        /// <summary>
-        /// コンストラクター。
-        /// </summary>
-        /// <param name="shootingStarlightable"></param>
-        /// <param name="Sky"></param>
-        public KifuNodeImpl(Move shootingStarlightable, Sky Sky)
-            : base(shootingStarlightable, Sky)
-        {
-            this.kyHyokaSheet = new KyHyokaSheetImpl();
-        }
 
         public bool HasTuginoitte(
             Move key
