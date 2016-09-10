@@ -1,11 +1,9 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B600_UtilSky____.C500____Util;
-using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
-using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C250____Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System.Text;
@@ -18,43 +16,18 @@ namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct
         /// <summary>
         /// コンストラクター。
         /// </summary>
-        /// <param name="shootingStarlightable"></param>
+        /// <param name="move"></param>
         /// <param name="Sky"></param>
-        public KifuNodeImpl(Move shootingStarlightable, Sky Sky)
-            : base(shootingStarlightable, Sky)
+        public KifuNodeImpl(Move move, Sky Sky)
+            : base(move, Sky)
         {
-            this.NodeEx = new NodeExImpl();
-            this.kyHyokaSheet = new KyHyokaSheetImpl();
+            this.MoveEx = new MoveExImpl(move);
         }
 
 
-        #region プロパティー
+        public MoveEx MoveEx { get; set; }
 
-        public NodeEx NodeEx { get; set; }
 
-        /// <summary>
-        /// 局面評価明細。Mutable なので、SkyConst には入れられない。
-        /// </summary>
-        public KyHyokaSheet KyHyokaSheet_Mutable { get { return this.kyHyokaSheet; } }
-        /// <summary>
-        /// 枝専用。
-        /// </summary>
-        /// <param name="branchKyHyoka"></param>
-        public void SetBranchKyHyokaSheet(KyHyokaSheet branchKyHyoka)
-        {
-            this.kyHyokaSheet = branchKyHyoka;
-        }
-        private KyHyokaSheet kyHyokaSheet;
-
-        #endregion
-
-        /// <summary>
-        /// TODO:この局面データを、読み込めないようにします。（使っていないことを確認するため用）
-        /// </summary>
-        public void Lock_Kyokumendata()
-        {
-            this.Value = null;
-        }
 
         public bool IsLeaf { get { return 0 == this.Count_ChildNodes; } }
 

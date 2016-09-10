@@ -966,7 +966,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                         break;
                     default:// どちらの王さまも、まだまだ健在だぜ☆！
                         {
-                            List<KifuNode> bestKifuNodeList = new List<KifuNode>();
+                            List<MoveEx> multiPvNodeExList = new List<MoveEx>();
 
                             exceptionArea = 2100;
                             //------------------------------------------------------------
@@ -993,7 +993,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                                 // 最善手、次善手、三次善手、四次善手、五次善手
                                 for (int iMultiPV = 0; iMultiPV < multiPV_Count; iMultiPV++)
                                 {
-                                    bestKifuNodeList.Add(this.Shogisasi.WA_Bestmove(
+                                    // null を返すことがある？
+                                    multiPvNodeExList.Add(this.Shogisasi.WA_Bestmove(
                                         ref searchedMaxDepth,
                                         ref searchedNodes,
                                         searchedPv,
@@ -1018,17 +1019,19 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                             }
 
                             exceptionArea = 2200;
-                            KifuNode bestKifuNode = null;
+                            Move bestmove = Move.Empty;
                             // 最善手、次善手、三次善手、四次善手、五次善手
                             float bestScore = float.MinValue;
-                            for (int iMultiPV = 0; iMultiPV < bestKifuNodeList.Count; iMultiPV++)
+                            for (int iMultiPV = 0; iMultiPV < multiPvNodeExList.Count; iMultiPV++)
                             {
-                                KifuNode node = bestKifuNodeList[iMultiPV];
+                                MoveEx nodeEx = multiPvNodeExList[iMultiPV];
 
-                                if (null != node && null != node.KyHyokaSheet_Mutable && bestScore <= node.NodeEx.Score)
+                                if (
+                                    null != nodeEx // 投了か？
+                                    && null != nodeEx.KyHyokaSheet_Mutable && bestScore <= nodeEx.Score)
                                 {
-                                    bestScore = node.NodeEx.Score;
-                                    bestKifuNode = node;
+                                    bestScore = nodeEx.Score;
+                                    bestmove = nodeEx.Move;
                                 }
                             }
 
@@ -1038,14 +1041,14 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
                             if (
                                 // 投了ではなく
-                                null != bestKifuNode
+                                Move.Empty != bestmove
                                 //&&
                                 // src,dstが指定されていれば。
                                 //Util_Sky_BoolQuery.isEnableSfen(bestKifuNode.Key)
                                 )
                             {
                                 // Ｍｏｖｅを使っていきたい。
-                                string sfenText = Conv_Move.ToSfen(bestKifuNode.Key);
+                                string sfenText = Conv_Move.ToSfen(bestmove);
 
                                 // ログが重過ぎる☆！
                                 //OwataMinister.WARABE_ENGINE.Logger.WriteLine_AddMemo("(Warabe)指し手のチョイス： bestmove＝[" + sfenText + "]" +

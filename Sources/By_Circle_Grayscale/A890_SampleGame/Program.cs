@@ -46,13 +46,13 @@ namespace P930_SampleGame
             int searchedMaxDepth = 0;
             ulong searchedNodes = 0;
             string[] searchedPv = new string[KifuWarabeImpl.SEARCHED_PV_LENGTH];
-            KifuNode bestmoveNode = shogisasi.WA_Bestmove(
+            MoveEx bestmoveNode = shogisasi.WA_Bestmove(
                 ref searchedMaxDepth,
                 ref searchedNodes,
                 searchedPv,
                 true, kifu, errH);
 
-            Move move = bestmoveNode.Key;
+            Move move = bestmoveNode.Move;
             string sfenText = Conv_Move.ToSfen(move);
             System.Console.WriteLine("sfenText="+ sfenText + " move=" + Convert.ToString((int)move, 2));
 

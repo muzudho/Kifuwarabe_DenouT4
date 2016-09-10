@@ -134,7 +134,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
             }
 
             // 局面スコア
-            node_yomi_mutable_KAIZOMAE.KyHyokaSheet_Mutable.Clear();
+            node_yomi_mutable_KAIZOMAE.MoveEx.KyHyokaSheet_Mutable.Clear();
 
             if (isSennitite)
             {
@@ -155,9 +155,9 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
                     errH
                 );
 
-                node_yomi_mutable_KAIZOMAE.NodeEx.AddScore(score);
+                node_yomi_mutable_KAIZOMAE.MoveEx.AddScore(score);
 #if DEBUG || LEARN
-                node_yomi_mutable.KyHyokaSheet_Mutable.Add(
+                node_yomi_mutable_KAIZOMAE.MoveEx.KyHyokaSheet_Mutable.Add(
                     hyokakansu.Name.ToString(),
                     meisai
                 );
@@ -182,8 +182,8 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
         {
             // FIXME: 点数（評価明細）を上書きしているような。
             // 枝はこれでいいのか？
-            node_yomi_mutable.NodeEx.SetScore( alphabeta_bestScore);
-            node_yomi_mutable.SetBranchKyHyokaSheet(new KyHyokaSheetImpl( alphabeta_bestScore));
+            node_yomi_mutable.MoveEx.SetScore( alphabeta_bestScore);
+            node_yomi_mutable.MoveEx.SetBranchKyHyokaSheet(new KyHyokaSheetImpl( alphabeta_bestScore));
         }
 
     }

@@ -24,6 +24,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 #if DEBUG
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B110_GraphicLog_.C500____Util;
 using Grayscale.A210_KnowNingen_.B460_KyokumMoves.C250____Log;
 using Grayscale.A210_KnowNingen_.B810_LogGraphiEx.C500____Util;
@@ -370,7 +371,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                 errH
                 );
             // 局面の評価値。
-            out_a_childrenBest = node_yomi_KAIZOMAE.NodeEx.Score;
+            out_a_childrenBest = node_yomi_KAIZOMAE.MoveEx.Score;
 
 #if DEBUG_ALPHA_METHOD
                     errH.AppendLine_AddMemo("1. 手(" + node_yomi.Value.ToKyokumenConst.Temezumi + ")読(" + yomiDeep + ") 兄弟最善=[" + a_siblingDecidedValue + "] 子ベスト=[" + a_childrenBest + "]");
@@ -679,7 +680,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             return a_childrenBest;
         }
 #if DEBUG
-        private static void Log1(
+        public static void Log1(
             Tansaku_Genjo genjo,
             Move move_forLog,
             Sky src_Sky,

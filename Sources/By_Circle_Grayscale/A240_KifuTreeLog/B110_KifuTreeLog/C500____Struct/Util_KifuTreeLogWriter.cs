@@ -172,7 +172,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
                 // 先に奥の枝から。
                 node.Foreach_ChildNodes((Move key, Node<Move, Sky> nextNode, ref bool toBreak) =>
                 {
-                    float score = ((KifuNode)nextNode).NodeEx.Score;
+                    float score = ((KifuNode)nextNode).MoveEx.Score;
 
                     // 再帰
                     Util_KifuTreeLogWriter.AA_Write_ForeachLeafs_ForDebug(
@@ -221,7 +221,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
             {
 
                 // 出力先
-                fileName = Conv_Filepath.ToEscape("_log_" + ((int)node.NodeEx.Score) + "点_" + logFileCounter + "_" + nodePath + ".png");
+                fileName = Conv_Filepath.ToEscape("_log_" + ((int)node.MoveEx.Score) + "点_" + logFileCounter + "_" + nodePath + ".png");
                 relFolder = Conv_Filepath.ToEscape(relFolder);
                 //
                 // 画像ﾛｸﾞ
@@ -313,7 +313,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
             // 見出し
             sb.Append(id);
             sb.Append("    ");
-            sb.Append(((int)node.NodeEx.Score).ToString());
+            sb.Append(((int)node.MoveEx.Score).ToString());
             sb.Append("    ");
             switch (node.Value.KaisiPside)
             {
@@ -323,7 +323,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
             }
             sb.AppendLine();
 
-            foreach (KeyValuePair<string, KyHyokaMeisai_Koumoku> entry in node.KyHyokaSheet_Mutable.Items)
+            foreach (KeyValuePair<string, KyHyokaMeisai_Koumoku> entry in node.MoveEx.KyHyokaSheet_Mutable.Items)
             {
                 KyHyokaMeisai_Koumoku koumoku = ((KyHyokaMeisai_Koumoku)entry.Value);
 

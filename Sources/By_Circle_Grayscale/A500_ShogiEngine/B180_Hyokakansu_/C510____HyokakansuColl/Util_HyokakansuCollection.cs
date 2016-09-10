@@ -66,9 +66,9 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C510____HyokakansuColl
                     errH
                 );
 
-                node_mutable_KAIZOMAE.NodeEx.AddScore(score);
+                node_mutable_KAIZOMAE.MoveEx.AddScore(score);
 #if DEBUG || LEARN
-                node_mutable.KyHyokaSheet_Mutable.Add(
+                node_mutable_KAIZOMAE.MoveEx.KyHyokaSheet_Mutable.Add(
                     hyokakansu.Name.ToString(),
                     meisai
                 );

@@ -70,7 +70,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
         /// <param name="kifu"></param>
         /// <param name="logTag"></param>
         /// <returns></returns>
-        public KifuNode WA_Bestmove(
+        public MoveEx WA_Bestmove(
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
             string[] searchedPv,
@@ -144,21 +144,22 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
             //    );
 #endif
 
-            KifuNode bestKifuNode = this.ChoiceBest(isHonshogi, kifu.CurNode, errH);
+            // ヌルになることがある？
+            MoveEx bestNode = this.ChoiceBest(isHonshogi, kifu.CurNode, errH);
 
 
             this.TimeManager.Stopwatch.Stop();
-            return bestKifuNode;
+            return bestNode;
         }
 
-        private KifuNode ChoiceBest(
+        private MoveEx ChoiceBest(
             bool isHonshogi,
             Node<Move, Sky> rootNode,
             KwLogger errH
             )
         {
             // 同着もいる☆
-            List<KifuNode> bestNodes = new List<KifuNode>();
+            List<MoveEx> bestmoveExs = new List<MoveEx>();
 
             // 評価値の高いノードだけを残します。（同点が残る）
             try
@@ -202,8 +203,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                                     return 0;
                                 }
 
-                                bScore = ((KifuNode)b).NodeEx.Score;
-                                aScore = ((KifuNode)a).NodeEx.Score;
+                                bScore = ((KifuNode)b).MoveEx.Score;
+                                aScore = ((KifuNode)a).MoveEx.Score;
 
                                 return (int)aScore.CompareTo(bScore);//点数が大きいほうが前に行きます。
                             });
@@ -221,12 +222,12 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                     if (rootNode.Value.KaisiPside == Playerside.P2)
                     {
                         // 1番高いスコアを調べます。
-                        goodestScore = ((KifuNode)rankedNodes[0]).NodeEx.Score;
+                        goodestScore = ((KifuNode)rankedNodes[0]).MoveEx.Score;
                         for (int iNode = 0; iNode < rankedNodes.Count; iNode++)
                         {
-                            if (goodestScore == ((KifuNode)rankedNodes[iNode]).NodeEx.Score)
+                            if (goodestScore == ((KifuNode)rankedNodes[iNode]).MoveEx.Score)
                             {
-                                bestNodes.Add((KifuNode)rankedNodes[iNode]);
+                                bestmoveExs.Add(((KifuNode)rankedNodes[iNode]).MoveEx);
                             }
                             else
                             {
@@ -237,12 +238,12 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                     else
                     {
                         // 2Pは、マイナスの方が良い。
-                        goodestScore = ((KifuNode)rankedNodes[rankedNodes.Count - 1]).NodeEx.Score;
+                        goodestScore = ((KifuNode)rankedNodes[rankedNodes.Count - 1]).MoveEx.Score;
                         for (int iNode = rankedNodes.Count - 1; -1 < iNode; iNode--)
                         {
-                            if (goodestScore == ((KifuNode)rankedNodes[iNode]).NodeEx.Score)
+                            if (goodestScore == ((KifuNode)rankedNodes[iNode]).MoveEx.Score)
                             {
-                                bestNodes.Add((KifuNode)rankedNodes[iNode]);
+                                bestmoveExs.Add(((KifuNode)rankedNodes[iNode]).MoveEx);
                             }
                             else
                             {
@@ -263,23 +264,23 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
 
 
             // 評価値の同点があれば、同点決勝をして　1手に決めます。
-            KifuNode bestKifuNode = null;
+            MoveEx bestmoveEx = null;// 投了のとき
             try
             {
                 {
                     // 次のノードをシャッフル済みリストにします。
-                    LarabeShuffle<KifuNode>.Shuffle_FisherYates(ref bestNodes);
+                    LarabeShuffle<MoveEx>.Shuffle_FisherYates(ref bestmoveExs);
 
                     // シャッフルした最初のノードを選びます。
-                    if (0 < bestNodes.Count)
+                    if (0 < bestmoveExs.Count)
                     {
-                        bestKifuNode = bestNodes[0];
+                        bestmoveEx = bestmoveExs[0];
                     }
                 }
             }
             catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "ベストムーブ後半３０：同点決勝"); throw ex; }
 
-            return bestKifuNode;
+            return bestmoveEx;
         }
     }
 }

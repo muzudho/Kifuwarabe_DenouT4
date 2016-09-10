@@ -35,7 +35,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C___240_Shogisasi
         /// <param name="kifu"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
-        KifuNode WA_Bestmove(
+        MoveEx WA_Bestmove(
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
             string[] searchedPv,
