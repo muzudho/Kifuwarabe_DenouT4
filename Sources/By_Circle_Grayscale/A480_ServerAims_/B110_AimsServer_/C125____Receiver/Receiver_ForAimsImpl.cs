@@ -104,13 +104,13 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C125____Receiver
                                 ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Usinewgame(errH);
 
                                 // FIXME:平手とは限らないが、平手という前提で、毎回一から作りなおします。
-                                this.Owner_AimsServer.Model_Taikyoku.SetKifu(new KifuTreeImpl(
+                                this.Owner_AimsServer.SetKifuTree(new KifuTreeImpl(
                                         new KifuNodeImpl(
                                             Conv_Move.GetErrorMove(),
                                             new SkyImpl(Util_SkyCreator.New_Hirate())
                                         )
                                 ));
-                                this.Owner_AimsServer.Model_Taikyoku.Kifu.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");
+                                this.Owner_AimsServer.KifuTree.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");
 
 
                                 ////
@@ -126,12 +126,12 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C125____Receiver
                                 // 将棋エンジンに対して
                                 // 例：「position startpos moves 7g7f」
                                 ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Position(
-                                    Util_KirokuGakari.ToSfen_PositionCommand(this.Owner_AimsServer.Model_Taikyoku.Kifu), errH
+                                    Util_KirokuGakari.ToSfen_PositionCommand(this.Owner_AimsServer.KifuTree), errH
                                 );
 
                                 // AIMS GUIに対して
                                 // 例：「position startpos moves 7g7f」
-                                Console.Out.WriteLine( Util_KirokuGakari.ToSfen_PositionCommand(this.Owner_AimsServer.Model_Taikyoku.Kifu));
+                                Console.Out.WriteLine( Util_KirokuGakari.ToSfen_PositionCommand(this.Owner_AimsServer.KifuTree));
 
                                 Console.Out.WriteLine("go");
                             }

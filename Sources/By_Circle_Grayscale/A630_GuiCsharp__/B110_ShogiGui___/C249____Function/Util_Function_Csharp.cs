@@ -34,8 +34,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             KwLogger errH
             )
         {
-            mainGui.Link_Server.Model_Taikyoku.Kifu.Clear();// 棋譜を空っぽにします。
-            mainGui.Link_Server.Model_Taikyoku.Kifu.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
+            mainGui.Link_Server.KifuTree.Clear();// 棋譜を空っぽにします。
+            mainGui.Link_Server.KifuTree.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
 
             KifuNode newNode = new KifuNodeImpl(
                                         Conv_Move.GetErrorMove(),//ルートなので
@@ -47,7 +47,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
             string jsaFugoStr;
             Util_Functions_Server.SetCurNode_Srv(
-                mainGui.Link_Server.Model_Taikyoku,
+                mainGui.Link_Server.KifuTree,
                 mainGui.SkyWrapper_Gui,
                 newNode,
                 out jsaFugoStr, errH);
@@ -113,7 +113,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             // 符号表示
             //------------------------------
             {
-                Node<Move, Sky> node6 = shogiGui.Link_Server.Model_Taikyoku.Kifu.CurNode;
+                Node<Move, Sky> node6 = shogiGui.Link_Server.KifuTree.CurNode;
 
                 // [コマ送り][再生]ボタン
                 string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(node6,errH);

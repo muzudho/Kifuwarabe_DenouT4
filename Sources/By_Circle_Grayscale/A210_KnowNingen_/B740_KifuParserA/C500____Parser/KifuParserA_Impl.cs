@@ -5,6 +5,7 @@ using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 using System;
 using System.Runtime.CompilerServices;
 using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 {
@@ -34,7 +35,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
         /// <returns></returns>
         public string Execute_Step(
             ref KifuParserA_Result result,
-            Model_Taikyoku model_Taikyoku,
+            KifuTree kifu1,
             KifuParserA_Genjo genjo,
             KwLogger errH
             ,
@@ -56,7 +57,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 KifuParserA_State nextState;
                 genjo.InputLine = this.State.Execute(
                     ref result,
-                    model_Taikyoku,
+                    kifu1,
                     out nextState, this,
                     genjo, errH);
                 this.State = nextState;
@@ -75,7 +76,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
         /// <param name="larabeLogger"></param>
         public void Execute_All(
             ref KifuParserA_Result result,
-            Model_Taikyoku model_Taikyoku,
+            KifuTree kifu1,
             KifuParserA_Genjo genjo,
             KwLogger errH
             ,
@@ -109,7 +110,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
                     genjo.InputLine = this.State.Execute(
                         ref result,
-                        model_Taikyoku,
+                        kifu1,
                         out nextState, this,
                         genjo, errH);
                     this.State = nextState;

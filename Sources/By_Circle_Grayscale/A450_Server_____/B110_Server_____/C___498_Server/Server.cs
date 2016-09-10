@@ -1,5 +1,6 @@
 ﻿using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
 using Grayscale.A450_Server_____.B110_Server_____.C___497_EngineClient;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 
 namespace Grayscale.A450_Server_____.B110_Server_____.C___498_Server
 {
@@ -8,7 +9,6 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C___498_Server
     /// </summary>
     public interface Server
     {
-
         /// <summary>
         /// 将棋エンジン。
         /// </summary>
@@ -23,6 +23,6 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C___498_Server
         void ClearInputString99();
 
 
-        Model_Taikyoku Model_Taikyoku { get; }
+        KifuTree KifuTree { get; }
     }
 }

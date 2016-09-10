@@ -12,6 +12,7 @@ using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 using System;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C400____Conv;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 {
@@ -44,7 +45,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
         /// 
         /// </summary>
         /// <param name="result"></param>
-        /// <param name="model_Taikyoku"></param>
+        /// <param name="kifu1"></param>
         /// <param name="nextState"></param>
         /// <param name="owner"></param>
         /// <param name="genjo"></param>
@@ -52,7 +53,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
         /// <returns></returns>
         public string Execute(
             ref KifuParserA_Result result,
-            Model_Taikyoku model_Taikyoku,
+            KifuTree kifu1,
             out KifuParserA_State nextState,
             KifuParserA owner,
             KifuParserA_Genjo genjo,
@@ -74,8 +75,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     Move nextMove = Conv_StringMove.ToMove(
                         out rest,
                         genjo.InputLine,
-                        model_Taikyoku.Kifu.CurNode.Key,
-                        model_Taikyoku.Kifu.CurNode.Value,
+                        kifu1.CurNode.Key,
+                        kifu1.CurNode.Value,
                         errH
                         );
                     genjo.InputLine = rest;
@@ -112,14 +113,14 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                             Util_IttesasuRoutine.DoMove(
                                 out ittesasuResult,
                                 nextMove,
-                                model_Taikyoku.Kifu.CurNode.Value,
+                                kifu1.CurNode.Value,
                                 errH
                                 );
                             // 棋譜ツリーのカレントを変更します。
-                            Util_IttesasuRoutine.UpdateKifuTree(model_Taikyoku.Kifu, ittesasuResult);
+                            Util_IttesasuRoutine.UpdateKifuTree(kifu1, ittesasuResult);
 
                             exceptionArea = 1080;
-                            result.Out_newNode_OrNull = model_Taikyoku.Kifu.CurNode;// ittesasuResult.Get_SyuryoNode_OrNull;
+                            result.Out_newNode_OrNull = kifu1.CurNode;// ittesasuResult.Get_SyuryoNode_OrNull;
                             //↑↑一手指し
 
                             //exceptionArea = 1090;

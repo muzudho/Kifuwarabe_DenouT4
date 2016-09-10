@@ -9,6 +9,7 @@ using Grayscale.A450_Server_____.B110_Server_____.C___497_EngineClient;
 using Grayscale.A450_Server_____.B110_Server_____.C___498_Server;
 using Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 
 namespace Grayscale.A450_Server_____.B110_Server_____.C498____Server
 {
@@ -19,8 +20,12 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C498____Server
     {
         #region プロパティ
 
-        public Model_Taikyoku Model_Taikyoku { get { return this.model_Taikyoku; } }
-        private Model_Taikyoku model_Taikyoku;
+        public KifuTree KifuTree { get { return this.m_kifuTree_; } }
+        public void SetKifuTree(KifuTree kifu1)
+        {
+            this.m_kifuTree_ = kifu1;
+        }
+        private KifuTree m_kifuTree_;
 
 
         /// <summary>
@@ -58,13 +63,13 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C498____Server
             //----------
             // モデル
             //----------
-            this.model_Taikyoku = new Model_TaikyokuImpl(new KifuTreeImpl(
+            this.m_kifuTree_ = new KifuTreeImpl(
                     new KifuNodeImpl(
                         Conv_Move.GetErrorMove(),
                         new SkyImpl(src_Sky)
                     )
-            ));
-            this.Model_Taikyoku.Kifu.SetProperty(Word_KifuTree.PropName_Startpos, "9/9/9/9/9/9/9/9/9");
+            );
+            this.KifuTree.SetProperty(Word_KifuTree.PropName_Startpos, "9/9/9/9/9/9/9/9/9");
 
             this.inputString99 = "";
         }

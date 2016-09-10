@@ -134,7 +134,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     string restText = Util_Function_Csharp.ReadLine_FromTextbox();
                     Util_Functions_Server.Komaokuri_Srv(
                         ref restText,
-                        mainGui3.Link_Server.Model_Taikyoku,
+                        mainGui3.Link_Server.KifuTree,
                         mainGui3.SkyWrapper_Gui,
                         errH
                         );
@@ -159,7 +159,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     Finger foodKoma;//取られた駒
                     string fugoJStr;
 
-                    if (!Util_Functions_Server.Makimodosi_Srv(out movedKoma, out foodKoma, out fugoJStr, shogibanGui2.Link_Server.Model_Taikyoku, errH))
+                    if (!Util_Functions_Server.Makimodosi_Srv(out movedKoma, out foodKoma, out fugoJStr, shogibanGui2.Link_Server.KifuTree, errH))
                     {
                         goto gt_EndBlock;
                     }
@@ -291,7 +291,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
                     MainGui_Csharp shogibanGui2 = (MainGui_Csharp)obj_shogiGui2;
 
-                    Util_KifuTree282.SetStartpos_KokokaraSaifu(shogibanGui2.Link_Server.Model_Taikyoku.Kifu, shogibanGui2.Link_Server.Model_Taikyoku.Kifu.CurNode.Value.KaisiPside, errH2);
+                    Util_KifuTree282.SetStartpos_KokokaraSaifu(shogibanGui2.Link_Server.KifuTree, shogibanGui2.Link_Server.KifuTree.CurNode.Value.KaisiPside, errH2);
                     shogibanGui2.RepaintRequest.SyuturyokuRequest = RepaintRequestGedanTxt.Kifu;
                 };
 
@@ -351,7 +351,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     if (Busstop.Empty != koma)
                     {
                         KifuNode modifyNode = new KifuNodeImpl(
-                            mainGui3.Link_Server.Model_Taikyoku.Kifu.CurNode.Key,//現在の局面を流用
+                            mainGui3.Link_Server.KifuTree.CurNode.Key,//現在の局面を流用
                             new SkyImpl(mainGui3.SkyWrapper_Gui.GuiSky)
                         );
                         modifyNode.Value.AddObjects(
@@ -369,7 +369,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
                         string jsaFugoStr;
                         Util_Functions_Server.SetCurNode_Srv(
-                            mainGui3.Link_Server.Model_Taikyoku,
+                            mainGui3.Link_Server.KifuTree,
                             mainGui3.SkyWrapper_Gui,
                             modifyNode, out jsaFugoStr, errH2);
                         mainGui3.RepaintRequest.SetFlag_RefreshRequest();
@@ -537,8 +537,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         //----------------------------------------
                         // 次ノード追加
                         //----------------------------------------
-                        mainGui.Link_Server.Model_Taikyoku.Kifu.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.Value), "After_NaruNaranai");
-                        ((KifuNode)mainGui.Link_Server.Model_Taikyoku.Kifu.CurNode).PutTuginoitte_New(newNode);
+                        mainGui.Link_Server.KifuTree.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.Value), "After_NaruNaranai");
+                        ((KifuNode)mainGui.Link_Server.KifuTree.CurNode).PutTuginoitte_New(newNode);
                     }
 
                     // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
@@ -546,7 +546,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
                     string jsaFugoStr;
                     Util_Functions_Server.SetCurNode_Srv(
-                        mainGui.Link_Server.Model_Taikyoku,
+                        mainGui.Link_Server.KifuTree,
                         mainGui.SkyWrapper_Gui,
                         newNode, out jsaFugoStr, errH);
                     mainGui.RepaintRequest.SetFlag_RefreshRequest();

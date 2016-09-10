@@ -71,7 +71,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                 // [コマ送り]に成功している間、コマ送りし続けます。
                                 Util_Functions_Server.ReadLine_TuginoItteSusumu_Srv(
                                     ref restText,
-                                    this.mainGui.Link_Server.Model_Taikyoku,
+                                    this.mainGui.Link_Server.KifuTree,
                                     this.mainGui.SkyWrapper_Gui,
                                     out toBreak,
                                     "再生ボタン",

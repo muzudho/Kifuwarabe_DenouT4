@@ -64,7 +64,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
 
                     Util_Functions_Server.Komaokuri_Srv(
                         ref restText,
-                        this.mainGui.Link_Server.Model_Taikyoku,
+                        this.mainGui.Link_Server.KifuTree,
                         this.mainGui.SkyWrapper_Gui,
                         errH
                         );// 棋譜の[コマ送り]を実行します。

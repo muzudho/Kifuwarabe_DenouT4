@@ -8,6 +8,7 @@ using Grayscale.A210_KnowNingen_.B600_UtilSky____.C500____Util;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 
 #if DEBUG
 using Grayscale.A060_Application.B110_Log________.C___500_Struct;
@@ -27,7 +28,7 @@ namespace Grayscale.A500_ShogiEngine.B260_UtilClient_.C500____Util
         /// <param name="startposImporter"></param>
         /// <param name="logTag"></param>
         public static void OnChangeSky_Im_Client(
-            Model_Taikyoku model_Taikyoku,
+            KifuTree kifu1,
             KifuParserA_Genjo genjo,
             KwLogger errH
             )
@@ -56,12 +57,12 @@ namespace Grayscale.A500_ShogiEngine.B260_UtilClient_.C500____Util
             // 棋譜を空っぽにし、指定の局面を与えます。
             //----------------------------------------
             {
-                model_Taikyoku.Kifu.Clear();// 棋譜を空っぽにします。
+                kifu1.Clear();// 棋譜を空っぽにします。
 
                 // 文字列から、指定局面を作成します。
                 Playerside pside = Playerside.P1;
-                model_Taikyoku.Kifu.GetRoot().Value = Conv_Sfenstring307.ToSkyConst(new SfenstringImpl(old_inputLine), pside);//SFENのstartpos解析時
-                model_Taikyoku.Kifu.SetProperty(Word_KifuTree.PropName_Startpos, old_inputLine);//指定の初期局面
+                kifu1.GetRoot().Value = Conv_Sfenstring307.ToSkyConst(new SfenstringImpl(old_inputLine), pside);//SFENのstartpos解析時
+                kifu1.SetProperty(Word_KifuTree.PropName_Startpos, old_inputLine);//指定の初期局面
             }
 
 

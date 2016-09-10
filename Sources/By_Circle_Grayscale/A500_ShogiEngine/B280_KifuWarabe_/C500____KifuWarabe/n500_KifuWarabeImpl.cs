@@ -722,11 +722,10 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 // 入力行を解析します。
                 KifuParserA_Result result = new KifuParserA_ResultImpl();
                 KifuParserA_Impl kifuParserA = new KifuParserA_Impl();
-                Model_Taikyoku model_Taikyoku = new Model_TaikyokuImpl(this.Kifu_AtLoop2);//FIXME:  この棋譜を委譲メソッドで修正するはず。 ShogiGui_Warabeは？
                 KifuParserA_Genjo genjo = new KifuParserA_GenjoImpl(line);
                 kifuParserA.Execute_All(
                     ref result,
-                    model_Taikyoku,
+                    this.Kifu_AtLoop2,
                     genjo,
                     logger
                     );
@@ -735,7 +734,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                     // SFENの解析結果を渡すので、
                     // その解析結果をどう使うかは、委譲します。
                     Util_InClient.OnChangeSky_Im_Client(
-                        model_Taikyoku,
+                        this.Kifu_AtLoop2,
                         genjo,
                         logger
                         );

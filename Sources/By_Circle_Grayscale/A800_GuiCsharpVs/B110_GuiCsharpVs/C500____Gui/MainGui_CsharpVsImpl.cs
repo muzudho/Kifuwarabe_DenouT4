@@ -25,7 +25,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500____Gui
         /// </summary>
         public override void ChangedTurn( KwLogger errH)
         {
-            this.Link_Server.EngineClient.OnChangedTurn(this.Link_Server.Model_Taikyoku.Kifu, errH);
+            this.Link_Server.EngineClient.OnChangedTurn(this.Link_Server.KifuTree, errH);
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500____Gui
         public override void Do_ComputerSente(KwLogger errH)
         {
             this.Link_Server.EngineClient.ShogiEngineProcessWrapper.Send_Position(
-                Util_KirokuGakari.ToSfen_PositionCommand(this.Link_Server.Model_Taikyoku.Kifu), errH);
+                Util_KirokuGakari.ToSfen_PositionCommand(this.Link_Server.KifuTree), errH);
             this.Link_Server.EngineClient.ShogiEngineProcessWrapper.Send_Go(errH);
         }
 

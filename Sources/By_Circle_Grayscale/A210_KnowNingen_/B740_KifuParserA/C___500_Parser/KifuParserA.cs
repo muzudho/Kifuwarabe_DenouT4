@@ -1,6 +1,7 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
 using System.Runtime.CompilerServices;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser
 {
@@ -17,7 +18,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser
         /// <returns></returns>
         string Execute_Step(
             ref KifuParserA_Result result,
-            Model_Taikyoku model_Taikyoku,
+            KifuTree kifu1,
             KifuParserA_Genjo genjo,
             KwLogger errH
             ,
@@ -34,7 +35,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser
         /// <param name="larabeLogger"></param>
         void Execute_All(
             ref KifuParserA_Result result,
-            Model_Taikyoku model_Taikyoku,
+            KifuTree kifu1,
             KifuParserA_Genjo genjo,
             KwLogger errH
             ,

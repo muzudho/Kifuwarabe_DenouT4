@@ -134,7 +134,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
         public static void ClearKifu(MainGui_Csharp mainGui, RepaintRequest repaintRequest)
         {
             KwLogger errH = Util_Loggers.ProcessNone_ERROR;
-            mainGui.Link_Server.Model_Taikyoku.Kifu.Clear();// 棋譜を空っぽにします。
+            mainGui.Link_Server.KifuTree.Clear();// 棋譜を空っぽにします。
 
             Sky newSky = new SkyImpl(mainGui.SkyWrapper_Gui.GuiSky);
 
@@ -240,13 +240,13 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
 
                 string jsaFugoStr;
                 Util_Functions_Server.SetCurNode_Srv(
-                    mainGui.Link_Server.Model_Taikyoku,
+                    mainGui.Link_Server.KifuTree,
                     mainGui.SkyWrapper_Gui,
                     newNode,
                     out jsaFugoStr, errH);
                 repaintRequest.SetFlag_RefreshRequest();
 
-                mainGui.Link_Server.Model_Taikyoku.Kifu.SetProperty(Word_KifuTree.PropName_Startpos, "9/9/9/9/9/9/9/9/9 b K1R1B1G2S2N2L2P9 k1r1b1g2s2n2l2p9 1");
+                mainGui.Link_Server.KifuTree.SetProperty(Word_KifuTree.PropName_Startpos, "9/9/9/9/9/9/9/9/9 b K1R1B1G2S2N2L2P9 k1r1b1g2s2n2l2p9 1");
             }
         }
 

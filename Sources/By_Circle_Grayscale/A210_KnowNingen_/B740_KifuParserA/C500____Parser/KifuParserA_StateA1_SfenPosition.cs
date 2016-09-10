@@ -6,6 +6,7 @@ using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using System;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 {
@@ -36,7 +37,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
         public string Execute(
             ref KifuParserA_Result result,
-            Model_Taikyoku model_Taikyoku,
+            KifuTree kifu1,
             out KifuParserA_State nextState,
             KifuParserA owner,
             KifuParserA_Genjo genjo,
@@ -64,10 +65,10 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     // 棋譜を空っぽにし、平手初期局面を与えます。
                     //----------------------------------------
                     {
-                        model_Taikyoku.Kifu.Clear();// 棋譜を空っぽにします。
+                        kifu1.Clear();// 棋譜を空っぽにします。
 
-                        model_Taikyoku.Kifu.GetRoot().Value = Util_SkyCreator.New_Hirate();//SFENのstartpos解析時
-                        model_Taikyoku.Kifu.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
+                        kifu1.GetRoot().Value = Util_SkyCreator.New_Hirate();//SFENのstartpos解析時
+                        kifu1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
                     }
 
                     nextState = KifuParserA_StateA1a_SfenStartpos.GetInstance();

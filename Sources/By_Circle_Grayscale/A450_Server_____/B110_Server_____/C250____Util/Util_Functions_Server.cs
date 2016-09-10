@@ -27,6 +27,7 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 
 #if DEBUG
 using Grayscale.A060_Application.B110_Log________.C___500_Struct;
@@ -50,7 +51,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
         /// <param name="kifu"></param>
         /// <param name="newNode"></param>
         public static void SetCurNode_Srv(
-            Model_Taikyoku model_Taikyoku,// Taikyokuの内容をManualへ移す。
+            KifuTree kifu1,// Taikyokuの内容をManualへ移す。
             SkyWrapper_Gui model_Manual,
             Node<Move, Sky> newNode,
             out string jsaFugoStr,
@@ -59,7 +60,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
         {
             Debug.Assert(null != newNode, "新規ノードがヌル。");
 
-            model_Taikyoku.Kifu.SetCurNode(newNode);
+            kifu1.SetCurNode(newNode);
 
             model_Manual.SetGuiSky(newNode.Value);
 
@@ -82,7 +83,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
         /// </summary>
         public static bool ReadLine_TuginoItteSusumu_Srv(
             ref string inputLine,
-            Model_Taikyoku model_Taikyoku,//SetCurNodeがある。[コマ送り][再生]などで使用。
+            KifuTree kifu1,//SetCurNodeがある。[コマ送り][再生]などで使用。
             SkyWrapper_Gui model_Manual,
             out bool toBreak,
             string hint,
@@ -113,7 +114,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 #endif
                     inputLine = kifuParserA_Impl.Execute_Step(
                         ref result,
-                        model_Taikyoku,
+                        kifu1,
                         genjo,
                         errH
                         );
@@ -146,7 +147,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
                         inputLine = kifuParserA_Impl.Execute_Step(
                             ref result,
-                            model_Taikyoku,
+                            kifu1,
                             genjo,
                             errH
                             );
@@ -168,7 +169,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
                         inputLine = kifuParserA_Impl.Execute_Step(
                             ref result,
-                            model_Taikyoku,
+                            kifu1,
                             genjo,
                             errH
                             );
@@ -199,7 +200,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
                     inputLine = kifuParserA_Impl.Execute_Step(
                         ref result,
-                        model_Taikyoku,
+                        kifu1,
                         genjo,
                         errH
                         );
@@ -207,7 +208,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     if (null != result.Out_newNode_OrNull)
                     {
                         string jsaFugoStr;
-                        Util_Functions_Server.SetCurNode_Srv(model_Taikyoku, model_Manual, result.Out_newNode_OrNull, out jsaFugoStr, errH);
+                        Util_Functions_Server.SetCurNode_Srv(kifu1, model_Manual, result.Out_newNode_OrNull, out jsaFugoStr, errH);
                     }
 
                     if (genjo.IsBreak())
@@ -240,7 +241,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     // 駒の配置
                     //------------------------------
                     string jsaFugoStr;
-                    Util_Functions_Server.SetCurNode_Srv(model_Taikyoku, model_Manual, parsedKyokumen.KifuNode, out jsaFugoStr, errH);// GUIに通知するだけ。
+                    Util_Functions_Server.SetCurNode_Srv(kifu1, model_Manual, parsedKyokumen.KifuNode, out jsaFugoStr, errH);// GUIに通知するだけ。
 
                     ////------------------------------
                     //// 駒を、駒袋から駒台に移動させます。
@@ -282,7 +283,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             out Finger movedKoma,
             out Finger foodKoma,
             out string jsaFugoStr,
-            Model_Taikyoku model_Taikyoku,
+            KifuTree kifu1,
             KwLogger errH
             )
         {
@@ -291,7 +292,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             //------------------------------
             // 棋譜から１手削ります
             //------------------------------
-            Node<Move, Sky> removeeLeaf = model_Taikyoku.Kifu.CurNode;
+            Node<Move, Sky> removeeLeaf = kifu1.CurNode;
             int korekaranoTemezumi = removeeLeaf.Value.Temezumi - 1;//１手前へ。
 
             if (removeeLeaf.IsRoot())
@@ -320,12 +321,12 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             Util_IttemodosuRoutine.UndoMove(
                 out ittemodosuResult,
                 korekaranoTemezumi,
-                model_Taikyoku.Kifu.CurNode.Key,
-                model_Taikyoku.Kifu.CurNode.Value,
+                kifu1.CurNode.Key,
+                kifu1.CurNode.Value,
                 errH
                 );
             Util_IttemodosuRoutine.UpdateKifuTree(
-                model_Taikyoku.Kifu
+                kifu1
                 );
             movedKoma = ittemodosuResult.FigMovedKoma;
             foodKoma = ittemodosuResult.FigFoodKoma;
@@ -351,7 +352,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
         /// </summary>
         public static bool Komaokuri_Srv(
             ref string inputLine,
-            Model_Taikyoku model_Taikyoku,
+            KifuTree kifu1,
             SkyWrapper_Gui model_Manual,
             KwLogger errH,
             [CallerMemberName] string memberName = "",
@@ -368,7 +369,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             bool toBreak = false;
             Util_Functions_Server.ReadLine_TuginoItteSusumu_Srv(
                 ref inputLine,
-                model_Taikyoku,//SetCurNodeがある。
+                kifu1,//SetCurNodeがある。
                 model_Manual,
                 out toBreak,
                 "hint",

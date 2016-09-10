@@ -86,9 +86,7 @@
     <Compile Include="B640_KifuTree___\C250____Struct\MoveExImpl.cs" />
     <Compile Include="B640_KifuTree___\C___250_Struct\MoveEx.cs" />
     <Compile Include="B650_PnlTaikyoku\C250____Struct\SkyWrapper_GuiImpl.cs" />
-    <Compile Include="B650_PnlTaikyoku\C250____Struct\Model_TaikyokuImpl.cs" />
     <Compile Include="B650_PnlTaikyoku\C___250_Struct\SkyWrapper_Gui.cs" />
-    <Compile Include="B650_PnlTaikyoku\C___250_Struct\Model_Taikyoku.cs" />
     <Compile Include="B240_Move\C___500_Move\n1_MoveShift.cs" />
     <Compile Include="B240_Move\C___500_Move\n3_Move.cs" />
     <Compile Include="B240_Move\C___500_Move\n2_MoveMask.cs" />
