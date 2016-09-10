@@ -12,7 +12,7 @@ using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
@@ -95,7 +95,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
                 // カレントノードまでの符号を使って、フォルダーパスを作成。
                 //----------------------------------------
                 StringBuilder sb_folder = new StringBuilder();
-                kifu.ForeachHonpu(kifu.CurNode, (int temezumi2, KyokumenWrapper kWrap, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
+                kifu.ForeachHonpu(kifu.CurNode, (int temezumi2, Sky kWrap, Node<Move, Sky> node, ref bool toBreak) =>
                 {
                     sb_folder.Append(Conv_Move.ToSfen_ForFilename(node.Key) + "/");
                 });
@@ -170,7 +170,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
 
                 int logFileCounter_temp = logFileCounter;
                 // 先に奥の枝から。
-                node.Foreach_ChildNodes((Move key, Node<Move, KyokumenWrapper> nextNode, ref bool toBreak) =>
+                node.Foreach_ChildNodes((Move key, Node<Move, Sky> nextNode, ref bool toBreak) =>
                 {
                     float score = ((KifuNode)nextNode).Score;
 
@@ -315,7 +315,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
             sb.Append("    ");
             sb.Append(((int)node.Score).ToString());
             sb.Append("    ");
-            switch (node.Value.Kyokumen.KaisiPside)
+            switch (node.Value.KaisiPside)
             {
                 case Playerside.P1: sb.Append("P2が指し終えた局面。手番P1"); break;
                 case Playerside.P2: sb.Append("P1が指し終えた局面。手番P2"); break;

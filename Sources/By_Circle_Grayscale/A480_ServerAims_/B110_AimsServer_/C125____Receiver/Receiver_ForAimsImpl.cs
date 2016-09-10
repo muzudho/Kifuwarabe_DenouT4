@@ -2,7 +2,7 @@
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
@@ -107,7 +107,7 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C125____Receiver
                                 this.Owner_AimsServer.Model_Taikyoku.SetKifu(new KifuTreeImpl(
                                         new KifuNodeImpl(
                                             Conv_Move.GetErrorMove(),
-                                            new KyokumenWrapper(Util_SkyCreator.New_Hirate())
+                                            new SkyImpl(Util_SkyCreator.New_Hirate())
                                         )
                                 ));
                                 this.Owner_AimsServer.Model_Taikyoku.Kifu.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");

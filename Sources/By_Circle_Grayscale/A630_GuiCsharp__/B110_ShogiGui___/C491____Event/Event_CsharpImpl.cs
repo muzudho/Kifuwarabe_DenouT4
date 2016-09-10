@@ -4,7 +4,7 @@ using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+
 using Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
@@ -291,7 +291,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
                     MainGui_Csharp shogibanGui2 = (MainGui_Csharp)obj_shogiGui2;
 
-                    Util_KifuTree282.SetStartpos_KokokaraSaifu(shogibanGui2.Link_Server.Model_Taikyoku.Kifu, shogibanGui2.Link_Server.Model_Taikyoku.Kifu.CurNode.Value.Kyokumen.KaisiPside, errH2);
+                    Util_KifuTree282.SetStartpos_KokokaraSaifu(shogibanGui2.Link_Server.Model_Taikyoku.Kifu, shogibanGui2.Link_Server.Model_Taikyoku.Kifu.CurNode.Value.KaisiPside, errH2);
                     shogibanGui2.RepaintRequest.SyuturyokuRequest = RepaintRequestGedanTxt.Kifu;
                 };
 
@@ -352,9 +352,9 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     {
                         KifuNode modifyNode = new KifuNodeImpl(
                             mainGui3.Link_Server.Model_Taikyoku.Kifu.CurNode.Key,//現在の局面を流用
-                            new KyokumenWrapper(new SkyImpl(mainGui3.SkyWrapper_Gui.GuiSky))
+                            new SkyImpl(mainGui3.SkyWrapper_Gui.GuiSky)
                         );
-                        modifyNode.Value.Kyokumen.AddObjects(
+                        modifyNode.Value.AddObjects(
                                 new Finger[] { figKoma }, new Busstop[] {
                                     Conv_Busstop.ToBusstop(
                                         Conv_Playerside.Reverse(Conv_Busstop.ToPlayerside( koma)),//向きを逆さにします。
@@ -526,10 +526,10 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     //
                     newNode = new KifuNodeImpl(
                         move,
-                        new KyokumenWrapper(new SkyImpl(mainGui.SkyWrapper_Gui.GuiSky))
+                        new SkyImpl(mainGui.SkyWrapper_Gui.GuiSky)
                     );
-                    newNode.Value.Kyokumen.SetKaisiPside(Conv_Playerside.Reverse(newNode.Value.Kyokumen.KaisiPside));// 先後を反転させます。
-                    newNode.Value.Kyokumen.SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//１手進める
+                    newNode.Value.SetKaisiPside(Conv_Playerside.Reverse(newNode.Value.KaisiPside));// 先後を反転させます。
+                    newNode.Value.SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//１手進める
 
 
                     //「成る／成らない」ボタンを押したときです。
@@ -537,7 +537,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         //----------------------------------------
                         // 次ノード追加
                         //----------------------------------------
-                        mainGui.Link_Server.Model_Taikyoku.Kifu.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.Value.Kyokumen), "After_NaruNaranai");
+                        mainGui.Link_Server.Model_Taikyoku.Kifu.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.Value), "After_NaruNaranai");
                         ((KifuNode)mainGui.Link_Server.Model_Taikyoku.Kifu.CurNode).PutTuginoitte_New(newNode);
                     }
 

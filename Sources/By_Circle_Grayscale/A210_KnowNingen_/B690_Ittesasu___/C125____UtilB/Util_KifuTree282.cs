@@ -3,7 +3,7 @@ using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
@@ -52,7 +52,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //----------------------------------------
             // １手前の分岐点
             //----------------------------------------
-            Node<Move, KyokumenWrapper> parentNode = kifu_mutable.CurNode.GetParentNode();
+            Node<Move, Sky> parentNode = kifu_mutable.CurNode.GetParentNode();
 
             //----------------------------------------
             // 選ばなかった変化を、ここに入れます。
@@ -62,7 +62,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //----------------------------------------
             // 選んだ変化と、選ばなかった変化の一覧
             //----------------------------------------
-            parentNode.Foreach_ChildNodes((Move key1, Node<Move, KyokumenWrapper> nextNode1, ref bool toBreak1) =>
+            parentNode.Foreach_ChildNodes((Move key1, Node<Move, Sky> nextNode1, ref bool toBreak1) =>
             {
                 if (key1 == move1)
                 {
@@ -120,7 +120,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
                 //----------------------------------------
                 // 次ノート追加
                 //----------------------------------------
-                kifuRef.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(nextNode_and_nextCurrent.Value.Kyokumen), hint+"/AppendChild_And_ChangeCurrentToChild");
+                kifuRef.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(nextNode_and_nextCurrent.Value), hint+"/AppendChild_And_ChangeCurrentToChild");
                 ((KifuNode)kifuRef.CurNode).PutTuginoitte_New(nextNode_and_nextCurrent);
             }
 

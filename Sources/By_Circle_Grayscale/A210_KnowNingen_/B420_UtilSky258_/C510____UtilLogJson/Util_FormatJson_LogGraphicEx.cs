@@ -7,7 +7,7 @@ using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C505____ConvLogJson;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
@@ -81,7 +81,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
         /// <param name="comment"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static string JsonElements_Node(bool enableLog, Sky src_Sky_base, Node<Move, KyokumenWrapper> thisNode, string comment, KwLogger errH)
+        public static string JsonElements_Node(bool enableLog, Sky src_Sky_base, Node<Move, Sky> thisNode, string comment, KwLogger errH)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -130,7 +130,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
         /// <param name="comment"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static string JsonKyokumens_NextNodes(bool enableLog, Sky src_Sky_base, Node<Move, KyokumenWrapper> hubNode, string comment, KwLogger errH)
+        public static string JsonKyokumens_NextNodes(bool enableLog, Sky src_Sky_base, Node<Move, Sky> hubNode, string comment, KwLogger errH)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -139,7 +139,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
                 goto gt_EndMethod;
             }
 
-            hubNode.Foreach_ChildNodes((Move key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
+            hubNode.Foreach_ChildNodes((Move key, Node<Move, Sky> node, ref bool toBreak) =>
             {
 
                 SyElement srcMasu = Conv_Move.ToSrcMasu(node.Key);

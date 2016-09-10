@@ -9,7 +9,7 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C250____Word;
 using Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+
 using Grayscale.A210_KnowNingen_.B390_KomahaiyaEx.C500____Util;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System;
@@ -180,12 +180,12 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <returns>駒毎の、全指し手</returns>
         public static Maps_OneAndMulti<Finger, Move> SplitSasite_ByStar(
             Sky src_Sky,
-            Node<Move, KyokumenWrapper> hubNode, KwLogger errH)
+            Node<Move, Sky> hubNode, KwLogger errH)
         {
             Maps_OneAndMulti<Finger, Move> enable_moveMap = new Maps_OneAndMulti<Finger, Move>();
 
 
-            hubNode.Foreach_ChildNodes((Move key, Node<Move, KyokumenWrapper> nextNode, ref bool toBreak) =>
+            hubNode.Foreach_ChildNodes((Move key, Node<Move, Sky> nextNode, ref bool toBreak) =>
             {
                 Finger figKoma = Util_Sky_FingersQuery.InMasuNow_New(
                     src_Sky,

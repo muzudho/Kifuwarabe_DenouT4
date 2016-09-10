@@ -1,6 +1,6 @@
 ﻿using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
@@ -13,7 +13,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
         public Finger FigFoodKoma { get; set; }
 
         public Move SyuryoMove { get; set; }
-        public KyokumenWrapper SyuryoKyokumenW { get; set; }
+        public Sky SyuryoKyokumenW { get; set; }
 
         public Komasyurui14 FoodKomaSyurui{ get; set; }
 
@@ -22,7 +22,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
             Finger figMovedKoma,
             Finger figFoodKoma,
             Move syuryoMove,
-            KyokumenWrapper syuryoKyokumenW,
+            Sky syuryoKyokumenW,
             Komasyurui14 foodKomaSyurui            
             )
         {

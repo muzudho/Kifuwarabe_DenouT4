@@ -6,7 +6,7 @@ using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+
 using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
@@ -235,7 +235,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
                 newSky.SetTemezumi(0);//空っぽに戻すので、 0手済みに変更。
                 KifuNode newNode = new KifuNodeImpl(
                             Conv_Move.GetErrorMove(),//ルートなので
-                            new KyokumenWrapper(newSky)
+                            new SkyImpl(newSky)
                         );
 
                 string jsaFugoStr;

@@ -75,7 +75,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                         out rest,
                         genjo.InputLine,
                         model_Taikyoku.Kifu.CurNode.Key,
-                        model_Taikyoku.Kifu.CurNode.Value.Kyokumen,
+                        model_Taikyoku.Kifu.CurNode.Value,
                         errH
                         );
                     genjo.InputLine = rest;
@@ -112,7 +112,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                             Util_IttesasuRoutine.DoMove(
                                 out ittesasuResult,
                                 nextMove,
-                                model_Taikyoku.Kifu.CurNode.Value.Kyokumen,
+                                model_Taikyoku.Kifu.CurNode.Value,
                                 errH
                                 );
                             // 棋譜ツリーのカレントを変更します。

@@ -1,5 +1,5 @@
 ﻿using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C250____Struct;
@@ -61,7 +61,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C498____Server
             this.model_Taikyoku = new Model_TaikyokuImpl(new KifuTreeImpl(
                     new KifuNodeImpl(
                         Conv_Move.GetErrorMove(),
-                        new KyokumenWrapper(src_Sky)
+                        new SkyImpl(src_Sky)
                     )
             ));
             this.Model_Taikyoku.Kifu.SetProperty(Word_KifuTree.PropName_Startpos, "9/9/9/9/9/9/9/9/9");

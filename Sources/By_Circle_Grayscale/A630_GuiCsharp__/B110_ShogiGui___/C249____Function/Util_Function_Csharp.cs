@@ -5,7 +5,8 @@ using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
 using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500____Converter;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
@@ -38,7 +39,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
 
             KifuNode newNode = new KifuNodeImpl(
                                         Conv_Move.GetErrorMove(),//ルートなので
-                                        new KyokumenWrapper(Util_SkyCreator.New_Hirate())//[初期配置]ボタン押下時
+                                        new SkyImpl(Util_SkyCreator.New_Hirate())//[初期配置]ボタン押下時
                                         );
 
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
@@ -111,7 +112,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             // 符号表示
             //------------------------------
             {
-                Node<Move, KyokumenWrapper> node6 = shogiGui.Link_Server.Model_Taikyoku.Kifu.CurNode;
+                Node<Move, Sky> node6 = shogiGui.Link_Server.Model_Taikyoku.Kifu.CurNode;
 
                 // [コマ送り][再生]ボタン
                 string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(node6,errH);

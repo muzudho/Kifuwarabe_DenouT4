@@ -108,7 +108,6 @@
     <Compile Include="B200_Scoreing___\C___240_Shogisasi\Shogisasi.cs" />
     <Compile Include="B200_Scoreing___\C010____Log\PerformanceMetrics.cs" />
     <Compile Include="B280_KifuWarabe_\C061____Util\Util_LogBuilder510.cs" />
-    <Compile Include="B200_Scoreing___\C125____ScoreSibori\ScoreSiboriEngine.cs" />
     <Compile Include="B280_KifuWarabe_\C100____Shogisasi\ShogisasiImpl.cs" />
     <Compile Include="B280_KifuWarabe_\C125____KingState\Result_KingState.cs" />
     <Compile Include="B280_KifuWarabe_\C249____Noop\NoopPhase.cs" />

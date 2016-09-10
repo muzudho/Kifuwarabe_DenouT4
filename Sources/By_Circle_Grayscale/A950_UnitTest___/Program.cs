@@ -52,7 +52,7 @@ namespace Grayscale.A950_UnitTest___
                 IttesasuResult syuryoResult;
                 Util_IttesasuRoutine.DoMove(out syuryoResult, move, position_Sky, logger);
                 move = syuryoResult.SyuryoMove;// 駒を取った場合、moveは更新される。
-                position_Sky = syuryoResult.SyuryoKyokumenW.Kyokumen;
+                position_Sky = syuryoResult.SyuryoKyokumenW;
                 pv.Add(move);
 
                 // 盤面をログ出力したいぜ☆

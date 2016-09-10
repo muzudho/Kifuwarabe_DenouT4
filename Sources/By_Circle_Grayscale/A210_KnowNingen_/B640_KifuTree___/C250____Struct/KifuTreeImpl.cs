@@ -2,7 +2,7 @@
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B630_Sennitite__.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B630_Sennitite__.C500____Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
@@ -13,7 +13,7 @@ using System.Diagnostics;
 
 namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct
 {
-    public class KifuTreeImpl : TreeImpl<Move, KyokumenWrapper>, KifuTree
+    public class KifuTreeImpl : TreeImpl<Move, Sky>, KifuTree
     {
         /// <summary>
         /// 千日手カウンター。
@@ -25,7 +25,7 @@ namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct
         }
         private SennititeCounter sennititeCounter;
 
-        public KifuTreeImpl(Node<Move, KyokumenWrapper> root)
+        public KifuTreeImpl(Node<Move, Sky> root)
             : base(root)
         {
             //----------------------------------------

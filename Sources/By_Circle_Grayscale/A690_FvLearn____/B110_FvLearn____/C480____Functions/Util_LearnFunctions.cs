@@ -3,7 +3,7 @@ using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat;
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo;
@@ -166,7 +166,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
             float tyoseiryo_good = 0.0f;//加点に使われる数字です。
 
             float badScore_temp = tyoseiryo_bad;
-            if (uc_Main.LearningData.Kifu.CurNode.Value.Kyokumen.KaisiPside == Playerside.P2)
+            if (uc_Main.LearningData.Kifu.CurNode.Value.KaisiPside == Playerside.P2)
             {
                 tyoseiryo_bad *= -1.0f;//2Pは、負数の方が高得点です。
             }
@@ -174,7 +174,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
             //
             // 合法手一覧
             //
-            uc_Main.LearningData.Kifu.CurNode.Foreach_ChildNodes((Move key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
+            uc_Main.LearningData.Kifu.CurNode.Foreach_ChildNodes((Move key, Node<Move, Sky> node, ref bool toBreak) =>
             {
                 // 本譜手はまだ計算しない。
                 if (key == move1)
@@ -183,12 +183,12 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
                 }
 
                 // 盤上の駒、持駒を数えます。
-                N54List childNode_n54List = Util_54List.Calc_54List(node.Value.Kyokumen, errH);
+                N54List childNode_n54List = Util_54List.Calc_54List(node.Value, errH);
 
                 float real_tyoseiryo; //実際に調整した量。
                 Util_FvScoreing.UpdateKyokumenHyoka(
                     childNode_n54List,
-                    node.Value.Kyokumen,
+                    node.Value,
                     uc_Main.LearningData.Fv,
                     tyoseiryo_bad,
                     out real_tyoseiryo,
@@ -205,12 +205,12 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
             if (uc_Main.LearningData.Kifu.CurNode.HasChildNode(move1))
             {
                 // 盤上の駒、持駒を数えます。
-                N54List currentNode_n54List = Util_54List.Calc_54List(uc_Main.LearningData.Kifu.CurNode.Value.Kyokumen, errH);
+                N54List currentNode_n54List = Util_54List.Calc_54List(uc_Main.LearningData.Kifu.CurNode.Value, errH);
 
                 float real_tyoseiryo; //実際に調整した量。
                 Util_FvScoreing.UpdateKyokumenHyoka(
                     currentNode_n54List,
-                    uc_Main.LearningData.Kifu.CurNode.GetChildNode(move1).Value.Kyokumen,
+                    uc_Main.LearningData.Kifu.CurNode.GetChildNode(move1).Value,
                     uc_Main.LearningData.Fv,
                     tyoseiryo_good,
                     out real_tyoseiryo,
@@ -222,7 +222,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
                 Debug.Fail("指し手[" + move1 +
                     "]に対応する次ノードは作成されていませんでした。\n" +
                     uc_Main.LearningData.DumpToAllGohosyu(
-                        uc_Main.LearningData.Kifu.CurNode.Value.Kyokumen));
+                        uc_Main.LearningData.Kifu.CurNode.Value));
             }
 
             ////----------------------------------------

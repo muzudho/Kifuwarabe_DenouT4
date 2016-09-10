@@ -15,7 +15,7 @@ using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+
 using Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word;
 using Grayscale.A210_KnowNingen_.B390_KomahaiyaEx.C500____Util;
 using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
@@ -206,15 +206,15 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 this.SetKifu_AtLoop2(new KifuTreeImpl(
                         new KifuNodeImpl(
                             Conv_Move.GetErrorMove(),
-                            new KyokumenWrapper(Util_SkyCreator.New_Hirate())// きふわらべ起動時
+                            new SkyImpl(Util_SkyCreator.New_Hirate())// きふわらべ起動時
                         )
                 ));
                 this.Kifu_AtLoop2.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
 
-                this.Kifu_AtLoop2.CurNode.Value.Kyokumen.AssertFinger((Finger)0);
+                this.Kifu_AtLoop2.CurNode.Value.AssertFinger((Finger)0);
                 Debug.Assert(!Conv_MasuHandle.OnKomabukuro(
                     Conv_SyElement.ToMasuNumber(
-                        Conv_Busstop.ToMasu(this.Kifu_AtLoop2.CurNode.Value.Kyokumen.BusstopIndexOf((Finger)0))
+                        Conv_Busstop.ToMasu(this.Kifu_AtLoop2.CurNode.Value.BusstopIndexOf((Finger)0))
                         )
                     ), "駒が駒袋にあった。");
             }
@@ -889,13 +889,13 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
                 // ┏━━━━プログラム━━━━┓
 
-                int latestTemezumi = this.Kifu_AtLoop2.CurNode.Value.Kyokumen.Temezumi;//現・手目済
+                int latestTemezumi = this.Kifu_AtLoop2.CurNode.Value.Temezumi;//現・手目済
 
                 //#if DEBUG
                 // MessageBox.Show("["+latestTemezumi+"]手目済　["+this.owner.PlayerInfo.Playerside+"]の手番");
                 //#endif
 
-                Sky src_Sky = this.Kifu_AtLoop2.NodeAt(latestTemezumi).Value.Kyokumen;//現局面
+                Sky src_Sky = this.Kifu_AtLoop2.NodeAt(latestTemezumi).Value;//現局面
 
                 //errH2.Logger.WriteLine_AddMemo("将棋サーバー「" + latestTemezumi + "手目、きふわらべ　さんの手番ですよ！」　" + line);
 
@@ -1057,7 +1057,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                                 {
                                     //int hyojiScore = (int)(bestScore / 100.0d);//FIXME:適当に調整した。
                                     int hyojiScore = (int)bestScore;
-                                    if (this.Kifu_AtLoop2.CurNode.Value.Kyokumen.KaisiPside == Playerside.P2)
+                                    if (this.Kifu_AtLoop2.CurNode.Value.KaisiPside == Playerside.P2)
                                     {
                                         // 符号を逆転
                                         hyojiScore = -hyojiScore;
@@ -1331,7 +1331,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             sb.Append("ログだせ～（＾▽＾）");
 
             this.Kifu_AtLoop2.ForeachZenpuku(
-                this.Kifu_AtLoop2.GetRoot(), (int temezumi, KyokumenWrapper sky, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
+                this.Kifu_AtLoop2.GetRoot(), (int temezumi, Sky sky, Node<Move, Sky> node, ref bool toBreak) =>
                 {
                     if (null != node)
                     {                        

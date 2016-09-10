@@ -10,7 +10,7 @@ using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B310_Shogiban___.C500____Util;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500____Converter;
 using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
@@ -52,7 +52,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
         public static void SetCurNode_Srv(
             Model_Taikyoku model_Taikyoku,// Taikyokuの内容をManualへ移す。
             SkyWrapper_Gui model_Manual,
-            Node<Move, KyokumenWrapper> newNode,
+            Node<Move, Sky> newNode,
             out string jsaFugoStr,
             KwLogger errH
             )
@@ -61,7 +61,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
             model_Taikyoku.Kifu.SetCurNode(newNode);
 
-            model_Manual.SetGuiSky(newNode.Value.Kyokumen);
+            model_Manual.SetGuiSky(newNode.Value);
 
             jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(newNode, errH);
         }
@@ -291,8 +291,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             //------------------------------
             // 棋譜から１手削ります
             //------------------------------
-            Node<Move, KyokumenWrapper> removeeLeaf = model_Taikyoku.Kifu.CurNode;
-            int korekaranoTemezumi = removeeLeaf.Value.Kyokumen.Temezumi - 1;//１手前へ。
+            Node<Move, Sky> removeeLeaf = model_Taikyoku.Kifu.CurNode;
+            int korekaranoTemezumi = removeeLeaf.Value.Temezumi - 1;//１手前へ。
 
             if (removeeLeaf.IsRoot())
             {
@@ -321,7 +321,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                 out ittemodosuResult,
                 korekaranoTemezumi,
                 model_Taikyoku.Kifu.CurNode.Key,
-                model_Taikyoku.Kifu.CurNode.Value.Kyokumen,
+                model_Taikyoku.Kifu.CurNode.Value,
                 errH
                 );
             Util_IttemodosuRoutine.UpdateKifuTree(

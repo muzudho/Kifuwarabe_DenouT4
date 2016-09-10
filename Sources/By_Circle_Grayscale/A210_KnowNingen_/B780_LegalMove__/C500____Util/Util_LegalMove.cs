@@ -11,7 +11,7 @@ using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+
 using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B430_Play_______.C500____Query;
@@ -59,7 +59,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             string hint,
             KwLogger errH)
         {
-            Node<Move, KyokumenWrapper> hubNode = Conv_StarbetuSasites.ToNextNodes_AsHubNode(
+            Node<Move, Sky> hubNode = Conv_StarbetuSasites.ToNextNodes_AsHubNode(
                 genTeban_komabetuAllMoves1,
                 src_Sky,
                 errH
@@ -122,7 +122,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             return starbetuSusumuMasus;
         }
         private static void Log1(
-            Node<Move, KyokumenWrapper> hubNode,
+            Node<Move, Sky> hubNode,
             int temezumi_yomiGenTeban,
             string hint,
             KwLogger errH
@@ -142,7 +142,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
         /// </summary>
         public static void LAA_RemoveNextNode_IfMate(
             int yomikaisiTemezumi,
-            Node<Move, KyokumenWrapper> hubNode,
+            Node<Move, Sky> hubNode,
             int temezumi_yomiGenTeban_forLog,//読み進めている現在の手目
             Playerside pside_genTeban,
 
@@ -154,16 +154,16 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             )
         {
             // Node<,>の形で。
-            Dictionary<Move, Node<Move, KyokumenWrapper>> newNextNodes = new Dictionary<Move, Node<Move, KyokumenWrapper>>();
+            Dictionary<Move, Node<Move, Sky>> newNextNodes = new Dictionary<Move, Node<Move, Sky>>();
 
-            hubNode.Foreach_ChildNodes((Move key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
+            hubNode.Foreach_ChildNodes((Move key, Node<Move, Sky> node, ref bool toBreak) =>
             {
                 //System.Diagnostics.Debug.Assert(node.Key != null);//指し手がヌルなはず無いはず。
 
                 // 王様が利きに飛び込んだか？
                 bool kingSuicide = Util_LegalMove.LAAA_KingSuicide(
                     yomikaisiTemezumi,
-                    node.Value.Kyokumen,
+                    node.Value,
                     temezumi_yomiGenTeban_forLog,
                     pside_genTeban,//現手番＝攻め手視点
 #if DEBUG

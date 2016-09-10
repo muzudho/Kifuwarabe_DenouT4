@@ -11,7 +11,7 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
@@ -61,7 +61,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
             // 編集対象ノード（巻き戻し時と、進む時で異なる）
             Move editNodeRef_Move;
-            KyokumenWrapper editNodeRef_KyokumenW;
+            Sky editNodeRef_KyokumenW;
             try
             {
                 //------------------------------
@@ -79,10 +79,10 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
                     //現局面ノードのクローンを作成します。
                     editNodeRef_Move = kaisiMove;
-                    editNodeRef_KyokumenW = new KyokumenWrapper(new SkyImpl(kaisiSky));
-                    editNodeRef_KyokumenW.Kyokumen.SetKaisiPside(
-                        Conv_Playerside.Reverse(editNodeRef_KyokumenW.Kyokumen.KaisiPside));
-                    editNodeRef_KyokumenW.Kyokumen.SetTemezumi(syuryoTemezumi);
+                    editNodeRef_KyokumenW = new SkyImpl(kaisiSky);
+                    editNodeRef_KyokumenW.SetKaisiPside(
+                        Conv_Playerside.Reverse(editNodeRef_KyokumenW.KaisiPside));
+                    editNodeRef_KyokumenW.SetTemezumi(syuryoTemezumi);
                 }
 
 
@@ -112,7 +112,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     afterStar = Util_IttesasuRoutine.Do36_KomaOnDestinationMasu(
                         dstKs,
                         kaisiMove,
-                        editNodeRef_KyokumenW.Kyokumen
+                        editNodeRef_KyokumenW
                         );
                 }
 
@@ -131,7 +131,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 {
                     Util_IttesasuRoutine.Do61_KomaToru(
                         afterStar,
-                        editNodeRef_KyokumenW.Kyokumen,
+                        editNodeRef_KyokumenW,
                         out figFoodKoma,
                         out food_koma,
                         out food_pside,
@@ -162,8 +162,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     //------------------------------
                     // 局面データの書き換え
                     //------------------------------
-                    editNodeRef_KyokumenW.Kyokumen.SetTemezumi(syuryoTemezumi);
-                    editNodeRef_KyokumenW.Kyokumen.AddObjects(
+                    editNodeRef_KyokumenW.SetTemezumi(syuryoTemezumi);
+                    editNodeRef_KyokumenW.AddObjects(
                         //
                         // 指した駒と、取った駒
                         //
@@ -186,8 +186,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     //------------------------------------------------------------
 
                     //駒を取って変化しているかもしれない？
-                    editNodeRef_KyokumenW.Kyokumen.SetTemezumi(syuryoTemezumi);// これから作る局面の、手目済み。
-                    editNodeRef_KyokumenW.Kyokumen.AddObjects(
+                    editNodeRef_KyokumenW.SetTemezumi(syuryoTemezumi);// これから作る局面の、手目済み。
+                    editNodeRef_KyokumenW.AddObjects(
                         //
                         // 指した駒
                         //
@@ -241,7 +241,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 //----------------------------------------
                 // 次ノード追加（なければ）
                 //----------------------------------------
-                kifu1.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(ittesasuResult.SyuryoKyokumenW.Kyokumen), "After3_ChangeCurrent(次の一手なし)");
+                kifu1.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(ittesasuResult.SyuryoKyokumenW), "After3_ChangeCurrent(次の一手なし)");
                 ((KifuNode)kifu1.CurNode).PutTuginoitte_New(newNode);//次ノートを追加します。
             }
             else
@@ -249,11 +249,11 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 //----------------------------------------
                 // 次ノード上書き（あれば）
                 //----------------------------------------
-                kifu1.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(ittesasuResult.SyuryoKyokumenW.Kyokumen), "After3_ChangeCurrent（次の一手あり）");
+                kifu1.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(ittesasuResult.SyuryoKyokumenW), "After3_ChangeCurrent（次の一手あり）");
                 ((KifuNode)kifu1.CurNode).PutTuginoitte_Override(newNode);//次ノートを上書きします。
             }
 
-            Node<Move, KyokumenWrapper> temp = kifu1.CurNode;
+            Node<Move, Sky> temp = kifu1.CurNode;
             kifu1.SetCurNode(newNode);//次ノードを、これからのカレントとします。
             newNode.SetParentNode(temp);
         }

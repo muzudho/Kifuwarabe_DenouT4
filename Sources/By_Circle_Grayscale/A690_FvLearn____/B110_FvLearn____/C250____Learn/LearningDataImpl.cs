@@ -326,7 +326,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
                 //
                 bool isHonshogi = true;
                 float alphabeta_otherBranchDecidedValue;
-                switch (((KifuNode)this.Kifu.CurNode).Value.Kyokumen.KaisiPside)
+                switch (((KifuNode)this.Kifu.CurNode).Value.KaisiPside)
                 {
                     case Playerside.P1:
                         // 2プレイヤーはまだ、小さな数を見つけていないという設定。
@@ -373,7 +373,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
 #if DEBUG || LEARN
                     out out_komawariMeisai,
 #endif
-                    node.Value.Kyokumen,
+                    node.Value,
                     this.Fv, //参照してもらうだけ。
                     Util_Loggers.ProcessLearner_DEFAULT
                 );
@@ -389,7 +389,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
 #if DEBUG || LEARN
                     out out_ppMeisai,
 #endif
-                    node.Value.Kyokumen,
+                    node.Value,
                     this.Fv, //参照してもらうだけ。
                     Util_Loggers.ProcessLearner_DEFAULT
                 );

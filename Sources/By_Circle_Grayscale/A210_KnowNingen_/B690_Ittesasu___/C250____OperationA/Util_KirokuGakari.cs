@@ -3,7 +3,7 @@ using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500____Converter;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
@@ -57,14 +57,14 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                 saifuKifu = new KifuTreeImpl(
                         new KifuNodeImpl(
                             move,
-                            new KyokumenWrapper(Util_SkyCreator.New_Hirate())//日本の符号読取時
+                            new SkyImpl(Util_SkyCreator.New_Hirate())//日本の符号読取時
                         )
                 );
                 saifuKifu.Clear();// 棋譜を空っぽにします。
                 saifuKifu.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面 // FIXME:平手とは限らないのでは？
             }
 
-            src_kifu.ForeachHonpu(src_kifu.CurNode, (int temezumi, KyokumenWrapper kWrap, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
+            src_kifu.ForeachHonpu(src_kifu.CurNode, (int temezumi, Sky kWrap, Node<Move, Sky> node, ref bool toBreak) =>
             {
                 if (0 == temezumi)
                 {
@@ -75,16 +75,16 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                 //------------------------------
                 // 符号の追加（記録係）
                 //------------------------------
-                KyokumenWrapper saifu_kWrap = saifuKifu.CurNode.Value;
+                Sky saifu_kWrap = saifuKifu.CurNode.Value;
 
 
                 // 採譜用新ノード
                 KifuNode saifu_newChild = new KifuNodeImpl(
                     node.Key,
-                    new KyokumenWrapper( new SkyImpl(saifu_kWrap.Kyokumen))
+                    new SkyImpl(saifu_kWrap)
                 );
-                saifu_newChild.Value.Kyokumen.SetKaisiPside(Conv_Playerside.Reverse(saifu_kWrap.Kyokumen.KaisiPside));
-                saifu_newChild.Value.Kyokumen.SetTemezumi(temezumi);
+                saifu_newChild.Value.SetKaisiPside(Conv_Playerside.Reverse(saifu_kWrap.KaisiPside));
+                saifu_newChild.Value.SetTemezumi(temezumi);
 
 
                 // 記録係り用棋譜（採譜）
@@ -124,7 +124,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
             // 本譜
             int count = 0;
-            src_kifu.ForeachHonpu(src_kifu.CurNode, (int temezumi, KyokumenWrapper kWrap, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
+            src_kifu.ForeachHonpu(src_kifu.CurNode, (int temezumi, Sky kWrap, Node<Move, Sky> node, ref bool toBreak) =>
             {
                 if (0 == temezumi)
                 {

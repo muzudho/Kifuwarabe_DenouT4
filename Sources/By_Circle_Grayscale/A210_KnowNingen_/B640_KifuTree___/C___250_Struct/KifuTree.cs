@@ -1,12 +1,12 @@
 ﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B630_Sennitite__.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct
 {
-    public interface KifuTree : Tree<Move, KyokumenWrapper>
+    public interface KifuTree : Tree<Move, Sky>
     {
         /// <summary>
         /// 千日手カウンター。
@@ -14,13 +14,13 @@ namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct
         /// <returns></returns>
         SennititeCounter GetSennititeCounter();
 
-        //void AssertPside(Node<Move, KyokumenWrapper> node, string hint, KwLogger errH);
+        //void AssertPside(Node<Move, Sky> node, string hint, KwLogger errH);
         /// <summary>
         /// これから追加する予定のノードの先後を診断します。
         /// </summary>
         /// <param name="node"></param>
         void AssertChildPside(Playerside parentPside, Playerside childPside);
-        //Playerside CountPside(Node<Move, KyokumenWrapper> node, KwLogger errH);
+        //Playerside CountPside(Node<Move, Sky> node, KwLogger errH);
 
 
         

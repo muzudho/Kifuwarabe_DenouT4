@@ -16,7 +16,7 @@ using Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B310_Shogiban___.C500____Util;
 using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B350_SfenTransla.C500____Util;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B600_UtilSky____.C500____Util;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
@@ -49,7 +49,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             string str4, //abcdefghi
             string strNari, //+
             out Move move,
-            Sky src_Sky,//KifuTree kifu,//Node<Move, KyokumenWrapper> siteiNode = kifu.CurNode;Sky src_Sky = siteiNode.Value.Kyokumen;
+            Sky src_Sky,//KifuTree kifu,//Node<Move, Sky> siteiNode = kifu.CurNode;Sky src_Sky = siteiNode.Value.Kyokumen;
             string hint,
             KwLogger errH
             )

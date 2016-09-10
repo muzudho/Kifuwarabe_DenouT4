@@ -4,7 +4,7 @@
 using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
@@ -176,7 +176,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
 
             Tansaku_Args args = new Tansaku_ArgsImpl(isHonshogi, yomuLimitter, logF_moveKiki);
             Tansaku_Genjo genjo = new Tansaku_GenjoImpl(
-                ((KifuNode)kifu.CurNode).Value.Kyokumen.Temezumi,
+                ((KifuNode)kifu.CurNode).Value.Temezumi,
                 args
                 );
 
@@ -224,7 +224,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     genjo,
 
                     node_yomi.Key,
-                    node_yomi.Value.Kyokumen,
+                    node_yomi.Value,
                     //node_yomi,//改造前
 
                     out movelist,
@@ -246,7 +246,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     Tansaku_FukasaYusen_Routine.Do_Leaf(
                         genjo,
 
-                        node_yomi.Value.Kyokumen,//改造後
+                        node_yomi.Value,//改造後
                         node_yomi,//改造前: スコアを覚えるのに使っている。
 
                         args,
@@ -265,7 +265,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         alphabeta_otherBranchDecidedValue,
 
                         node_yomi.Key,
-                        node_yomi.Value.Kyokumen,//改造後
+                        node_yomi.Value,//改造後
                         node_yomi,//改造前
 
                         movelist.Count,
@@ -551,7 +551,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                                 );
                                 childNode1_KAIZOMAE = new KifuNodeImpl(
                                     move,
-                                    null//new KyokumenWrapper(childPosition)// TODO: これを止めたいんだぜ☆（＾～＾）？
+                                    null//new Sky(childPosition)// TODO: これを止めたいんだぜ☆（＾～＾）？
                                     );
 
 

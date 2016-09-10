@@ -2,7 +2,7 @@
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
@@ -42,16 +42,16 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad
             kifu = new KifuTreeImpl(
                     new KifuNodeImpl(
                         Conv_Move.GetErrorMove(),
-                        new KyokumenWrapper(Util_SkyCreator.New_Hirate())
+                        new SkyImpl(Util_SkyCreator.New_Hirate())
                     )
             );
             kifu.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手
 
 
-            kifu.CurNode.Value.Kyokumen.AssertFinger((Finger)0);
+            kifu.CurNode.Value.AssertFinger((Finger)0);
             Debug.Assert(!Conv_MasuHandle.OnKomabukuro(
                 Conv_SyElement.ToMasuNumber(
-                    Conv_Busstop.ToMasu(kifu.CurNode.Value.Kyokumen.BusstopIndexOf((Finger)0))
+                    Conv_Busstop.ToMasu(kifu.CurNode.Value.BusstopIndexOf((Finger)0))
                     )
                 ), "駒が駒袋にあった。");
         }

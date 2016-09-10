@@ -4,7 +4,7 @@ using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
@@ -61,7 +61,7 @@ namespace Grayscale.A210_KnowNingen_.B830_ConvStartpo.C500____Converter
                 newSky.SetTemezumi(startposImporter.RO_SfenStartpos.Temezumi);// FIXME: 将棋所だと常に 1 かも？？
                 parsedKyokumen.KifuNode = new KifuNodeImpl(
                         Conv_Move.GetErrorMove(),//ルートなので
-                        new KyokumenWrapper(newSky)
+                        new SkyImpl(newSky)
                     );
             }
 

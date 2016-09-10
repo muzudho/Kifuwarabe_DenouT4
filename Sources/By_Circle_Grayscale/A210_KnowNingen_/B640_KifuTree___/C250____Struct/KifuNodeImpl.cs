@@ -2,7 +2,7 @@
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B600_UtilSky____.C500____Util;
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C250____Struct;
@@ -12,7 +12,7 @@ using System.Text;
 
 namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct
 {
-    public class KifuNodeImpl : NodeImpl<Move, KyokumenWrapper>, KifuNode
+    public class KifuNodeImpl : NodeImpl<Move, Sky>, KifuNode
     {
         #region プロパティー
 
@@ -56,9 +56,9 @@ namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct
         /// コンストラクター。
         /// </summary>
         /// <param name="shootingStarlightable"></param>
-        /// <param name="kyokumenWrapper"></param>
-        public KifuNodeImpl(Move shootingStarlightable, KyokumenWrapper kyokumenWrapper)
-            : base(shootingStarlightable, kyokumenWrapper)
+        /// <param name="Sky"></param>
+        public KifuNodeImpl(Move shootingStarlightable, Sky Sky)
+            : base(shootingStarlightable, Sky)
         {
             this.kyHyokaSheet = new KyHyokaSheetImpl();
         }
@@ -84,7 +84,7 @@ namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct
         /// カレントノードは変更しません。
         /// </summary>
         public void PutTuginoitte_New(
-            Node<Move, KyokumenWrapper> newNode
+            Node<Move, Sky> newNode
             )
         {
             // 同じ指し手があれば追加してはいけない？
@@ -106,7 +106,7 @@ namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct
         /// </summary>
         /// <param name="existsNode"></param>
         public void PutTuginoitte_Override(
-            Node<Move, KyokumenWrapper> existsNode
+            Node<Move, Sky> existsNode
             )
         {
             // SFENをキーに、次ノードを増やします。
@@ -122,10 +122,10 @@ namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct
         {
             StringBuilder sb = new StringBuilder();
 
-            this.Foreach_ChildNodes((Move key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
+            this.Foreach_ChildNodes((Move key, Node<Move, Sky> node, ref bool toBreak) =>
             {
                 sb.AppendLine(Util_Sky307.Json_1Sky(
-                    node.Value.Kyokumen,
+                    node.Value,
                     memo + "：" + Conv_Move.ToSfen( key),
                     hint + "_SF解1",
                     temezumi_yomiGenTeban_forLog
@@ -156,7 +156,7 @@ namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct
 
         //        if (currentDeep <= limitDeep)
         //        {
-        //            this.Foreach_ChildNodes((string key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
+        //            this.Foreach_ChildNodes((string key, Node<Move, Sky> node, ref bool toBreak) =>
         //            {
         //                ((KifuNode)node).CreateAllFolders(
         //                    folderpath,

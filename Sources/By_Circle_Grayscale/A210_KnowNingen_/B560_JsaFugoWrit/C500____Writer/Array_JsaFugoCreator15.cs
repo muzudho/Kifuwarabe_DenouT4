@@ -6,7 +6,7 @@ using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B550_JsaFugo____.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
@@ -23,7 +23,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
     /// </summary>
     public abstract class Array_JsaFugoCreator15
     {
-        public delegate JsaFugoImpl DELEGATE_CreateJFugo(Move move, KyokumenWrapper kWrap, KwLogger errH);
+        public delegate JsaFugoImpl DELEGATE_CreateJFugo(Move move, Sky kWrap, KwLogger errH);
 
         public static DELEGATE_CreateJFugo[] ItemMethods
         {
@@ -58,7 +58,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
         }
 
 
-        public static JsaFugoImpl CreateNullKoma(Move move, KyokumenWrapper kWrap, KwLogger errH)
+        public static JsaFugoImpl CreateNullKoma(Move move, Sky kWrap, KwLogger errH)
         {
             JsaFugoImpl result;
 
@@ -93,11 +93,9 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
         /// </summary>
         /// <param name="sasite">移動先、移動元、両方のマス番号</param>
         /// <returns></returns>
-        public static JsaFugoImpl CreateFu(Move move, KyokumenWrapper kWrap, KwLogger errH)
+        public static JsaFugoImpl CreateFu(Move move, Sky src_Sky, KwLogger errH)
         {
             JsaFugoImpl result;
-
-            Sky src_Sky = kWrap.Kyokumen;
 
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
@@ -191,11 +189,9 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return result;
         }
 
-        public static JsaFugoImpl CreateKyo(Move move, KyokumenWrapper kWrap, KwLogger errH)
+        public static JsaFugoImpl CreateKyo(Move move, Sky src_Sky, KwLogger errH)
         {
             JsaFugoImpl fugo;
-
-            Sky src_Sky = kWrap.Kyokumen;
 
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
@@ -302,11 +298,9 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateKei(Move move, KyokumenWrapper kWrap, KwLogger errH)
+        public static JsaFugoImpl CreateKei(Move move, Sky src_Sky, KwLogger errH)
         {
             JsaFugoImpl fugo;
-
-            Sky src_Sky = kWrap.Kyokumen;
 
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
@@ -417,11 +411,9 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateGin(Move move, KyokumenWrapper kWrap, KwLogger errH)
+        public static JsaFugoImpl CreateGin(Move move, Sky src_Sky, KwLogger errH)
         {
             JsaFugoImpl fugo;
-
-            Sky src_Sky = kWrap.Kyokumen;
 
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
@@ -589,7 +581,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateKin(Move move, KyokumenWrapper kWrap, KwLogger errH)
+        public static JsaFugoImpl CreateKin(Move move, Sky kWrap, KwLogger errH)
         {
             JsaFugoImpl fugo;
 
@@ -615,13 +607,11 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
 
         public static void CreateKin_static(
             Move move,//移動先、移動元、両方のマス番号
-            KyokumenWrapper kWrap,
+            Sky src_Sky,
             out MigiHidari migiHidari, out AgaruHiku agaruHiku, out NariNarazu nari, out DaHyoji daHyoji,
             KwLogger errH
             )
         {
-            Sky src_Sky = kWrap.Kyokumen;
-
             Playerside pside = Conv_Move.ToPlayerside(move);
             SyElement dstMasu = Conv_Move.ToDstMasu(move);
             Komasyurui14 dstKs = Conv_Move.ToDstKomasyurui(move);
@@ -777,11 +767,9 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             nari = NariNarazu.CTRL_SONOMAMA;
         }
 
-        public static JsaFugoImpl CreateOh(Move move, KyokumenWrapper kWrap, KwLogger errH)
+        public static JsaFugoImpl CreateOh(Move move, Sky copy_Sky, KwLogger errH)
         {
             JsaFugoImpl fugo;
-
-            Sky copy_Sky = kWrap.Kyokumen;
 
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
 
@@ -824,11 +812,9 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateHisya(Move move, KyokumenWrapper kWrap, KwLogger errH)
+        public static JsaFugoImpl CreateHisya(Move move, Sky src_Sky, KwLogger errH)
         {
             JsaFugoImpl fugo;
-
-            Sky src_Sky = kWrap.Kyokumen;
 
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
@@ -993,11 +979,9 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateKaku(Move move, KyokumenWrapper kWrap, KwLogger errH)
+        public static JsaFugoImpl CreateKaku(Move move, Sky src_Sky, KwLogger errH)
         {
             JsaFugoImpl fugo;
-
-            Sky src_Sky = kWrap.Kyokumen;
 
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
@@ -1161,11 +1145,9 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateRyu(Move move, KyokumenWrapper kWrap, KwLogger errH)
+        public static JsaFugoImpl CreateRyu(Move move, Sky src_Sky, KwLogger errH)
         {
             JsaFugoImpl fugo;
-
-            Sky src_Sky = kWrap.Kyokumen;
 
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
@@ -1357,11 +1339,9 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateUma(Move move, KyokumenWrapper kWrap, KwLogger errH)
+        public static JsaFugoImpl CreateUma(Move move, Sky src_Sky, KwLogger errH)
         {
             JsaFugoImpl fugo;
-
-            Sky src_Sky = kWrap.Kyokumen;
 
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
             Playerside pside = Conv_Move.ToPlayerside(move);
@@ -1554,7 +1534,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateTokin(Move move, KyokumenWrapper kWrap, KwLogger errH)
+        public static JsaFugoImpl CreateTokin(Move move, Sky kWrap, KwLogger errH)
         {
             JsaFugoImpl fugo;
 
@@ -1578,7 +1558,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateNariKyo(Move move, KyokumenWrapper kWrap, KwLogger errH)
+        public static JsaFugoImpl CreateNariKyo(Move move, Sky kWrap, KwLogger errH)
         {
             MigiHidari migiHidari;
             AgaruHiku agaruHiku;
@@ -1602,7 +1582,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateNariKei(Move move, KyokumenWrapper kWrap, KwLogger errH)
+        public static JsaFugoImpl CreateNariKei(Move move, Sky kWrap, KwLogger errH)
         {
             JsaFugoImpl fugo;
 
@@ -1626,7 +1606,7 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateNariGin(Move move, KyokumenWrapper kWrap, KwLogger errH)
+        public static JsaFugoImpl CreateNariGin(Move move, Sky kWrap, KwLogger errH)
         {
             JsaFugoImpl fugo;
 
@@ -1650,11 +1630,9 @@ namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateErrorKoma(Move move, KyokumenWrapper kWrap, KwLogger errH)
+        public static JsaFugoImpl CreateErrorKoma(Move move, Sky copy_Sky, KwLogger errH)
         {
             JsaFugoImpl fugo;
-
-            Sky copy_Sky = kWrap.Kyokumen;
 
             Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
 

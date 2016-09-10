@@ -8,7 +8,7 @@ using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500____Converter;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
@@ -56,7 +56,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             KifuTree kifu1 = new KifuTreeImpl(
                 new KifuNodeImpl(
                     Conv_Move.GetErrorMove(),
-                    new KyokumenWrapper(Util_SkyCreator.New_Hirate())//日本の符号読取時
+                    new SkyImpl(Util_SkyCreator.New_Hirate())//日本の符号読取時
                 )
             );
             //kifu1.AssertPside(kifu1.CurNode, "ShowSasiteList",errH);
@@ -65,7 +65,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             foreach (CsaKifuSasite csaSasite in sasiteList)
             {
                 // 開始局面
-                Sky kaisi_Sky = kifu1.CurNode.Value.Kyokumen;
+                Sky kaisi_Sky = kifu1.CurNode.Value;
 
                 //
                 // csaSasite を データ指し手 に変換するには？
@@ -142,7 +142,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     Util_IttesasuRoutine.DoMove(
                         out ittesasuResult,
                         nextMove,
-                        kifu1.CurNode.Value.Kyokumen,
+                        kifu1.CurNode.Value,
                         errH
                     );
                     Util_IttesasuRoutine.UpdateKifuTree(kifu1, ittesasuResult);
@@ -159,7 +159,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 else
                 {
                     // FIXME: 未テスト。
-                    move = Conv_Move.ToMove_ByCsa(csaSasite, kifu1.CurNode.GetParentNode().Value.Kyokumen);
+                    move = Conv_Move.ToMove_ByCsa(csaSasite, kifu1.CurNode.GetParentNode().Value);
                 }
                 HonpuSasiteListItemImpl listItem = new HonpuSasiteListItemImpl(csaSasite, move);
                 uc_Main.LstSasite.Items.Add(listItem);
@@ -184,7 +184,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
         public static void Aa_ShowNode2(LearningData learningData, Uc_Main uc_Main, KwLogger errH)
         {
             // 手目済み
-            uc_Main.TxtTemezumi.Text = learningData.Kifu.CurNode.Value.Kyokumen.Temezumi.ToString();
+            uc_Main.TxtTemezumi.Text = learningData.Kifu.CurNode.Value.Temezumi.ToString();
 
             // 総ノード数
             uc_Main.TxtAllNodesCount.Text = learningData.Kifu.CountAllNodes().ToString();
@@ -212,7 +212,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 List<GohosyuListItem> list = new List<GohosyuListItem>();
                 //uc_Main.LstGohosyu.Items.Clear();
                 int itemNumber = 0;
-                ((KifuNode)learningData.Kifu.CurNode).Foreach_ChildNodes((Move key, Node<Move, KyokumenWrapper> node, ref bool toBreak) =>
+                ((KifuNode)learningData.Kifu.CurNode).Foreach_ChildNodes((Move key, Node<Move, Sky> node, ref bool toBreak) =>
                 {
 #if DEBUG || LEARN
                     KyHyokaMeisai_Koumoku komawariMeisai;
@@ -270,7 +270,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
  0;
 #endif
 
-                    switch (learningData.Kifu.CurNode.Value.Kyokumen.KaisiPside)
+                    switch (learningData.Kifu.CurNode.Value.KaisiPside)
                     {
                         case Playerside.P1: result = bScore - aScore; break;
                         case Playerside.P2: result = aScore - bScore; break;
@@ -338,7 +338,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             {
                 if (learningData.Kifu.CurNode.HasChildNode(move))
                 {
-                    Node<Move, KyokumenWrapper> nextNode = learningData.Kifu.CurNode.GetChildNode(move);
+                    Node<Move, Sky> nextNode = learningData.Kifu.CurNode.GetChildNode(move);
                     nextMove = nextNode.Key;//次の棋譜ノードのキーが、指し手（きふわらべ式）になっています。
 
                 }
@@ -346,7 +346,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 {
                     nextMove = Conv_Move.GetErrorMove();
                     StringBuilder sb = new StringBuilder();
-                    sb.Append("指し手[" + Conv_Move.ToSfen(move) + "]はありませんでした。\n" + learningData.DumpToAllGohosyu(learningData.Kifu.CurNode.Value.Kyokumen));
+                    sb.Append("指し手[" + Conv_Move.ToSfen(move) + "]はありませんでした。\n" + learningData.DumpToAllGohosyu(learningData.Kifu.CurNode.Value));
 
                     //Debug.Fail(sb.ToString());
                     errH.DonimoNaranAkirameta("Util_LearningView#Ittesasu_ByBtnClick：" + sb.ToString());
@@ -362,7 +362,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             Util_IttesasuRoutine.DoMove(
                 out ittesasuResult,
                 nextMove,
-                learningData.Kifu.CurNode.Value.Kyokumen,
+                learningData.Kifu.CurNode.Value,
                 errH
             );
             Util_IttesasuRoutine.UpdateKifuTree(learningData.Kifu, ittesasuResult);

@@ -3,7 +3,7 @@ using Grayscale.A060_Application.B410_Collection_.C500____Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
@@ -60,7 +60,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
                         hubNode.PutAdd_ChildNode(move,
                             new KifuNodeImpl(
                                 move,
-                                new KyokumenWrapper(
+                                new SkyImpl(
                             Util_IttesasuSuperRoutine.DoMove_Super(
                                 src_Sky,//指定局面
                                 figKoma,//動かす駒

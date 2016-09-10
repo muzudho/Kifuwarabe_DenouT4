@@ -1,7 +1,7 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B370_KyokumenWra.C500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
 
 
@@ -11,7 +11,7 @@ namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct
     /// <summary>
     /// 棋譜ノード。
     /// </summary>
-    public interface KifuNode : Node<Move, KyokumenWrapper>
+    public interface KifuNode : Node<Move, Sky>
     {
 
         #region プロパティー
@@ -54,12 +54,12 @@ namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct
         /// 
         /// カレントノードは変更しません。
         /// </summary>
-        void PutTuginoitte_New(Node<Move, KyokumenWrapper> newNode);
+        void PutTuginoitte_New(Node<Move, Sky> newNode);
         /// <summary>
         /// 既存の子要素を上書きします。
         /// </summary>
         /// <param name="existsNode"></param>
-        void PutTuginoitte_Override(Node<Move, KyokumenWrapper> existsNode);
+        void PutTuginoitte_Override(Node<Move, Sky> existsNode);
         bool HasTuginoitte(Move sasiteStr);
 
         string Json_NextNodes_MultiSky(

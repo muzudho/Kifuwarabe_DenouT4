@@ -168,7 +168,6 @@
     <Compile Include="B360_MasusWriter\C250____Log\LogShogibanTermDisplay.cs" />
     <Compile Include="B360_MasusWriter\C500____Util\Util_Masus.cs" />
     <Compile Include="B360_MasusWriter\C250____Log\Writer_Masus.cs" />
-    <Compile Include="B370_KyokumenWra\C500____Struct\KyokumenWrapper.cs" />
     <Compile Include="B380_Michi______\C500____Struct\Michi187Array.cs" />
     <Compile Include="B390_KomahaiyaEx\C500____Util\Util_KomahaiyakuEx184.cs" />
     <Compile Include="B390_KomahaiyaEx\C500____Util\Util_Array_KomahaiyakuEx184.cs" />
