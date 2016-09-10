@@ -150,6 +150,8 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
         }
 
         /// <summary>
+        /// TODO: このログは廃止したい。
+        /// 
         /// 棋譜ツリーの、ノードに格納されている、局面評価明細を、出力していきます。
         /// </summary>
         public static void AA_Write_ForeachLeafs_ForDebug(
@@ -193,7 +195,8 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
             Util_KifuTreeLogWriter.AAA_Write_Node(
                 ref logFileCounter,
                 nodePath,
-                node,
+                node.MoveEx,
+                node.Value,
                 kifu,
                 relFolder,
                 reportEnvironment,
@@ -208,7 +211,8 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
         private static void AAA_Write_Node(
             ref int logFileCounter,
             string nodePath,
-            KifuNode node,
+            MoveEx moveEx,
+            Sky sky,
             KifuTree kifu,
             string relFolder,
             KyokumenPngEnvironment reportEnvironment,
@@ -221,7 +225,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
             {
 
                 // 出力先
-                fileName = Conv_Filepath.ToEscape("_log_" + ((int)node.MoveEx.Score) + "点_" + logFileCounter + "_" + nodePath + ".png");
+                fileName = Conv_Filepath.ToEscape("_log_" + ((int)moveEx.Score) + "点_" + logFileCounter + "_" + nodePath + ".png");
                 relFolder = Conv_Filepath.ToEscape(relFolder);
                 //
                 // 画像ﾛｸﾞ
@@ -231,10 +235,10 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
                     int srcMasu_orMinusOne = -1;
                     int dstMasu_orMinusOne = -1;
 
-                    SyElement srcMasu = Conv_Move.ToSrcMasu(node.Key);
-                    SyElement dstMasu = Conv_Move.ToDstMasu(node.Key);
-                    bool errorCheck = Conv_Move.ToErrorCheck(node.Key);
-                    Komasyurui14 captured = Conv_Move.ToCaptured(node.Key);
+                    SyElement srcMasu = Conv_Move.ToSrcMasu(moveEx.Move);
+                    SyElement dstMasu = Conv_Move.ToDstMasu(moveEx.Move);
+                    bool errorCheck = Conv_Move.ToErrorCheck(moveEx.Move);
+                    Komasyurui14 captured = Conv_Move.ToCaptured(moveEx.Move);
 
                     if (!errorCheck)
                     {
@@ -266,11 +270,11 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
 
                     // 評価明細に添付
                     Util_KyokumenPng_Writer.Write1(
-                        Conv_KifuNode.ToRO_Kyokumen1(node, errH),
+                        Conv_KifuNode.ToRO_Kyokumen1(sky, errH),
                         srcMasu_orMinusOne,
                         dstMasu_orMinusOne,
                         foodKoma,
-                        Conv_Move.ToSfen(node.Key),
+                        Conv_Move.ToSfen(moveEx.Move),
                         relFolder,
                         fileName,
                         reportEnvironment,
@@ -283,7 +287,10 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
                 // 評価明細
                 //
                 {
-                    Util_KifuTreeLogWriter.AAAA_Write_HyokaMeisai(fileName, node, relFolder, reportEnvironment);
+                    Util_KifuTreeLogWriter.AAAA_Write_HyokaMeisai(fileName,
+                        moveEx,
+                        sky,
+                        relFolder, reportEnvironment);
                 }
             }
             catch (System.Exception ex)
@@ -302,7 +309,8 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
         /// <param name="env"></param>
         public static void AAAA_Write_HyokaMeisai(
             string id,
-            KifuNode node,
+            MoveEx moveEx,
+            Sky sky,
             string relFolder,
             KyokumenPngEnvironment env
             )
@@ -313,9 +321,9 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
             // 見出し
             sb.Append(id);
             sb.Append("    ");
-            sb.Append(((int)node.MoveEx.Score).ToString());
+            sb.Append(((int)moveEx.Score).ToString());
             sb.Append("    ");
-            switch (node.Value.KaisiPside)
+            switch (sky.KaisiPside)
             {
                 case Playerside.P1: sb.Append("P2が指し終えた局面。手番P1"); break;
                 case Playerside.P2: sb.Append("P1が指し終えた局面。手番P2"); break;
@@ -323,7 +331,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
             }
             sb.AppendLine();
 
-            foreach (KeyValuePair<string, KyHyokaMeisai_Koumoku> entry in node.MoveEx.KyHyokaSheet_Mutable.Items)
+            foreach (KeyValuePair<string, KyHyokaMeisai_Koumoku> entry in moveEx.KyHyokaSheet_Mutable.Items)
             {
                 KyHyokaMeisai_Koumoku koumoku = ((KyHyokaMeisai_Koumoku)entry.Value);
 

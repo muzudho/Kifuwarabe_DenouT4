@@ -42,7 +42,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
     {
 
         public Tansaku_Genjo CreateGenjo(
-            KifuTree kifu,
+            int temezumi,
             bool isHonshogi,
             Mode_Tansaku mode_Tansaku,
             KwLogger errH
@@ -177,7 +177,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
 
             Tansaku_Args args = new Tansaku_ArgsImpl(isHonshogi, yomuLimitter, logF_moveKiki);
             Tansaku_Genjo genjo = new Tansaku_GenjoImpl(
-                ((KifuNode)kifu.CurNode).Value.Temezumi,
+                temezumi,
                 args
                 );
 
@@ -198,7 +198,10 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
             string[] searchedPv,
-            KifuTree kifu,
+
+            int temezumi,
+            KifuNode kifuNode,
+
             bool isHonshogi,
             Mode_Tansaku mode_Tansaku,
             float alphabeta_otherBranchDecidedValue,
@@ -211,8 +214,13 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             try
             {
                 exceptionArea = 10;
-                Tansaku_Genjo genjo = this.CreateGenjo(kifu, isHonshogi, mode_Tansaku, errH);
-                KifuNode node_yomi = (KifuNode)kifu.CurNode;
+                Tansaku_Genjo genjo = this.CreateGenjo(
+                    temezumi,
+                    isHonshogi, mode_Tansaku, errH);
+
+                MoveEx moveEx = kifuNode.MoveEx;
+                Sky position = kifuNode.Value;
+
                 int wideCount2 = 0;
 
                 // 
@@ -224,9 +232,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                 Util_MovePicker.CreateMovelist_BeforeLoop(
                     genjo,
 
-                    node_yomi.Key,
-                    node_yomi.Value,
-                    //node_yomi,//改造前
+                    moveEx.Move,
+                    position,
 
                     out movelist,
                     ref searchedMaxDepth,
@@ -247,8 +254,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     Tansaku_FukasaYusen_Routine.Do_Leaf(
                         genjo,
 
-                        node_yomi.Value,//改造後
-                        node_yomi,//改造前: スコアを覚えるのに使っている。
+                        moveEx,
+                        position,
 
                         args,
                         out a_childrenBest,
@@ -265,9 +272,9 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         genjo,
                         alphabeta_otherBranchDecidedValue,
 
-                        node_yomi.Key,
-                        node_yomi.Value,//改造後
-                        node_yomi,//改造前
+                        moveEx.Move,
+                        position,
+                        kifuNode,//改造前
 
                         movelist.Count,
                         args,
@@ -353,8 +360,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         private static void Do_Leaf(
             Tansaku_Genjo genjo,
 
-            Sky position,//改造後
-            KifuNode node_yomi_KAIZOMAE,//改造前: スコアを覚えておくのに使っている。
+            MoveEx moveEx,
+            Sky position,
 
             EvaluationArgs args,
             out float out_a_childrenBest,
@@ -364,14 +371,14 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             // 局面に評価値を付けます。
             Util_Scoreing.DoScoreing_Kyokumen(
 
+                moveEx,//mutable: スコアを覚えるのに使っている。
                 position,
-                node_yomi_KAIZOMAE,//mutable: スコアを覚えるのに使っている。
 
                 args,
                 errH
                 );
             // 局面の評価値。
-            out_a_childrenBest = node_yomi_KAIZOMAE.MoveEx.Score;
+            out_a_childrenBest = moveEx.Score;
 
 #if DEBUG_ALPHA_METHOD
                     errH.AppendLine_AddMemo("1. 手(" + node_yomi.Value.ToKyokumenConst.Temezumi + ")読(" + yomiDeep + ") 兄弟最善=[" + a_siblingDecidedValue + "] 子ベスト=[" + a_childrenBest + "]");
@@ -421,8 +428,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             Tansaku_Genjo genjo,
             float a_parentsiblingDecidedValue,
 
-            Move positionKey,//改造後
-            Sky position,//改造後
+            Move move1,//改造後
+            Sky position1,//改造後
             KifuNode node_yomi_KAIZOMAE,//改造前
 
             int movelist_count,
@@ -451,9 +458,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                 Util_MovePicker.CreateMovelist_BeforeLoop(
                     genjo,
 
-                    positionKey,
-                    position,//node_yomi.Value.Kyokumen,
-                    //node_yomi,//改造前
+                    move1,
+                    position1,
 
                     out movelist2,
                     ref searchedMaxDepth,
@@ -465,7 +471,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                 exceptionArea = 2000;
 
                 int wideCount1 = 0;
-                foreach (Move move in movelist2)//次に読む手
+                foreach (Move childMove2 in movelist2)//次に読む手
                 {
                     if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(
                         yomiDeep2,
@@ -484,8 +490,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         Tansaku_FukasaYusen_Routine.Do_Leaf(
                             genjo,
 
-                            position,//改造前
-                            node_yomi_KAIZOMAE,//改造後: スコアを覚えるのに使っている。
+                            node_yomi_KAIZOMAE.MoveEx,//改造後: スコアを覚えるのに使っている。
+                            position1,//改造前
 
                             args,
                             out a_childrenBest,
@@ -497,9 +503,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     }
                     else
                     {
-                        Move childPositionKey;
-                        Sky childPosition;
-                        KifuNode childNode1_KAIZOMAE;
+                        Sky childPosition2;
+                        KifuNode childNode2_KAIZOMAE;
 
                         try
                         {
@@ -519,51 +524,30 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                             // （２）指し手を、ノードに変換し、現在の局面に継ぎ足します。
                             //
                             exceptionArea = 4020;
-                            /*
-                            if (
-                                node_yomi_KAIZOMAE.ContainsKey_ChildNodes( move)
-                                )
-                            {
-                                // 既存なら読み取るだけ☆（＾▽＾）
-                                exceptionArea = 4100;
 
-                                childPositionKey = move;
-                                childNode1_KAIZOMAE = (KifuNode)node_yomi_KAIZOMAE.GetChildNode( move);
-                                childPosition = childNode1_KAIZOMAE.Value.Kyokumen;//TODO: これを止めたいんだぜ☆（＾～＾）
+                            // 指す前の駒を、盤上のマス目で指定
+                            Finger figSasumaenoKoma = Util_Sky_FingersQuery.InMasuNow_Old(position1, Conv_Move.ToSrcMasu(childMove2)).ToFirst();
 
-                                exceptionArea = 4200;
-                            }
-                            else
-                            */
-                            {
-                                // 既存でなければ、作成・追加
-                                exceptionArea = 4300;
-
-                                // 指す前の駒を、盤上のマス目で指定
-                                Finger figSasumaenoKoma = Util_Sky_FingersQuery.InMasuNow_Old(position, Conv_Move.ToSrcMasu(move)).ToFirst();
-
-                                childPositionKey = move;
-                                childPosition = Util_IttesasuSuperRoutine.DoMove_Super(
-                                        position,//指定局面
-                                        figSasumaenoKoma,//指す駒
-                                        Conv_Move.ToDstMasu(move),//移動先升
-                                        Conv_Move.ToPromotion(move),//成るか。
-                                        errH
+                            childPosition2 = Util_IttesasuSuperRoutine.DoMove_Super(
+                                    position1,//指定局面
+                                    figSasumaenoKoma,//指す駒
+                                    Conv_Move.ToDstMasu(childMove2),//移動先升
+                                    Conv_Move.ToPromotion(childMove2),//成るか。
+                                    errH
+                            );
+                            childNode2_KAIZOMAE = new KifuNodeImpl(
+                                childMove2,
+                                null//new Sky(childPosition)// TODO: これを止めたいんだぜ☆（＾～＾）？
                                 );
-                                childNode1_KAIZOMAE = new KifuNodeImpl(
-                                    move,
-                                    null//new Sky(childPosition)// TODO: これを止めたいんだぜ☆（＾～＾）？
-                                    );
 
 
-                                exceptionArea = 4400;
+                            exceptionArea = 4400;
 
-                                // TODO: ここで記憶☆（＾～＾）これを止めたいんだぜ☆（＾～＾）？
-                                node_yomi_KAIZOMAE.PutAdd_ChildNode( move, childNode1_KAIZOMAE);
+                            // TODO: ここで記憶☆（＾～＾）これを止めたいんだぜ☆（＾～＾）？
+                            node_yomi_KAIZOMAE.PutAdd_ChildNode( childMove2, childNode2_KAIZOMAE);
 
 
-                                exceptionArea = 4500;
-                            }
+                            exceptionArea = 4500;
                         }
                         catch (Exception ex)
                         {
@@ -582,7 +566,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                             }
 
                             errH.DonimoNaranAkirameta(ex, "棋譜ツリーで例外です(A)。exceptionArea=" + exceptionArea
-                                + " entry.Key=" + Conv_Move.ToSfen(move) + " node_yomi.CountAllNodes=" + node_yomi_KAIZOMAE.CountAllNodes()
+                                + " entry.Key=" + Conv_Move.ToSfen(childMove2)
+                                //+ " node_yomi.CountAllNodes=" + node_yomi_KAIZOMAE.CountAllNodes()
                                 + " 指し手候補="+sb.ToString()); throw ex;
 
                         }
@@ -598,9 +583,9 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                             genjo,
                             a_childrenBest,
 
-                            childPositionKey,//改造後
-                            childPosition,//改造後
-                            childNode1_KAIZOMAE,//改造前
+                            childMove2,//改造後
+                            childPosition2,//改造後
+                            childNode2_KAIZOMAE,//改造前
 
                             movelist2.Count,
                             args,
@@ -619,7 +604,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         //----------------------------------------
                         // 子要素の検索が終わった時点で、読み筋を格納☆
                         //----------------------------------------
-                        searchedPv[yomiDeep2] = Conv_Move.ToSfen(move); //FIXME:
+                        searchedPv[yomiDeep2] = Conv_Move.ToSfen(childMove2); //FIXME:
                         searchedPv[yomiDeep2 + 1] = "";//後ろの１手を消しておいて 終端子扱いにする。
 
 
@@ -632,7 +617,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         Util_Scoreing.Update_BestScore_And_Check_AlphaCut(
                             yomiDeep2,// yomiDeep0,
 
-                            position,
+                            position1,
 
                             a_parentsiblingDecidedValue,
                             a_myScore,

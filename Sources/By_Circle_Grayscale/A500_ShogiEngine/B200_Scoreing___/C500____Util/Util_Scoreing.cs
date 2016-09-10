@@ -109,8 +109,8 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
         /// </summary>
         public static void DoScoreing_Kyokumen(
 
-            Sky position,//node_yomi_mutable_KAIZOMAE.Value.Kyokumen
-            KifuNode node_yomi_mutable_KAIZOMAE,//改造前
+            MoveEx moveEx,
+            Sky position,
 
             EvaluationArgs args,
             KwLogger errH
@@ -134,7 +134,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
             }
 
             // 局面スコア
-            node_yomi_mutable_KAIZOMAE.MoveEx.KyHyokaSheet_Mutable.Clear();
+            moveEx.KyHyokaSheet_Mutable.Clear();
 
             if (isSennitite)
             {
@@ -155,9 +155,9 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
                     errH
                 );
 
-                node_yomi_mutable_KAIZOMAE.MoveEx.AddScore(score);
+                moveEx.AddScore(score);
 #if DEBUG || LEARN
-                node_yomi_mutable_KAIZOMAE.MoveEx.KyHyokaSheet_Mutable.Add(
+                moveEx.KyHyokaSheet_Mutable.Add(
                     hyokakansu.Name.ToString(),
                     meisai
                 );
@@ -166,13 +166,12 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
             else
             {
                 Util_HyokakansuCollection.EvaluateAll_Normal(
+                    moveEx,
                     position,
-                    node_yomi_mutable_KAIZOMAE,
                     args.FeatureVector,
                     errH
                     );
             }
-
         }
 
         public static void Update_Branch(

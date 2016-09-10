@@ -22,7 +22,10 @@ namespace Grayscale.A500_ShogiEngine.B220_Tansaku____.C___500_Tansaku
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
             string[] searchedPv,
-            KifuTree kifu,
+
+            int temezumi,
+            KifuNode kifuNode,
+
             bool isHonshogi,
             Mode_Tansaku mode_Tansaku,
             float alphabeta_otherBranchDecidedValue,

@@ -140,7 +140,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             // 棋譜を空に
             //------------------------------------------------------------
             kifu.Clear();
-            kifu.SetProperty(Word_KifuTree.PropName_Startpos, Conv_KifuNode.ToSfenstring((KifuNode)kifu.CurNode, pside, errH));
+            kifu.SetProperty(Word_KifuTree.PropName_Startpos, Conv_KifuNode.ToSfenstring(kifu.CurNode.Value, pside, errH));
         }
 
     }

@@ -43,8 +43,8 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C510____HyokakansuColl
         /// <param name="fv"></param>
         /// <param name="errH"></param>
         public static void EvaluateAll_Normal(
+            MoveEx moveEx,
             Sky position,
-            KifuNode node_mutable_KAIZOMAE,
             FeatureVector fv,
             KwLogger errH
             )
@@ -66,9 +66,9 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C510____HyokakansuColl
                     errH
                 );
 
-                node_mutable_KAIZOMAE.MoveEx.AddScore(score);
+                moveEx.AddScore(score);
 #if DEBUG || LEARN
-                node_mutable_KAIZOMAE.MoveEx.KyHyokaSheet_Mutable.Add(
+                moveEx.KyHyokaSheet_Mutable.Add(
                     hyokakansu.Name.ToString(),
                     meisai
                 );

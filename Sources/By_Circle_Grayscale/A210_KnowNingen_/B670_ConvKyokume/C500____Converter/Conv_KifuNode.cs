@@ -26,11 +26,9 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
         /// </summary>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static RO_Kyokumen1_ForFormat ToRO_Kyokumen1(KifuNode kifuNode, KwLogger errH)
+        public static RO_Kyokumen1_ForFormat ToRO_Kyokumen1(Sky src_Sky, KwLogger errH)
         {
             RO_Kyokumen1_ForFormat ro_Kyokumen1 = new RO_Kyokumen1_ForFormatImpl();
-
-            Sky src_Sky = kifuNode.Value;
 
             // 将棋盤
             for (int suji = 1; suji < 10; suji++)
@@ -77,10 +75,8 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
         /// <param name="pside"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static string ToSfenstring(KifuNode kifuNode, Playerside pside, KwLogger errH)
+        public static string ToSfenstring(Sky src_Sky, Playerside pside, KwLogger errH)
         {
-            Sky src_Sky = kifuNode.Value;
-
             StringBuilder sb = new StringBuilder();
             sb.Append("sfen ");
 

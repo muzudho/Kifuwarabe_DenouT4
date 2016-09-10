@@ -75,7 +75,9 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
             ref ulong searchedNodes,
             string[] searchedPv,
             bool isHonshogi,
+
             KifuTree kifu,
+
             KwLogger errH
             )
         {
@@ -99,7 +101,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                 );
 
             float alphabeta_otherBranchDecidedValue;
-            switch (((KifuNode)kifu.CurNode).Value.KaisiPside)
+            switch (kifu.CurNode.Value.KaisiPside)
             {
                 case Playerside.P1:
                     // 2プレイヤーはまだ、小さな数を見つけていないという設定。
@@ -121,7 +123,11 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                     ref searchedMaxDepth,
                     ref searchedNodes,
                     searchedPv,
-                    kifu, isHonshogi, Mode_Tansaku.Shogi_ENgine, alphabeta_otherBranchDecidedValue, args, errH);
+
+                    ((KifuNode)kifu.CurNode).Value.Temezumi,
+                    (KifuNode)kifu.CurNode,
+                    
+                    isHonshogi, Mode_Tansaku.Shogi_ENgine, alphabeta_otherBranchDecidedValue, args, errH);
             }
             catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "棋譜ツリーを作っていたときです。"); throw ex; }
 
@@ -180,31 +186,31 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                     exception_area = 1000;
 
                     // ソートしたいので、リスト構造に移し変えます。
-                    List<Node<Move, Sky>> rankedNodes = new List<Node<Move, Sky>>();
+                    List<MoveEx> rankedMoveExs = new List<MoveEx>();
                     {
                         try
                         {
                             rootNode.Foreach_ChildNodes((Move key, Node<Move, Sky> node, ref bool toBreak) =>
                             {
-                                rankedNodes.Add(node);
+                                rankedMoveExs.Add(((KifuNode)node).MoveEx);
                             });
 
                             exception_area = 1000;
 
                             // ソートします。
-                            rankedNodes.Sort((a, b) =>
+                            rankedMoveExs.Sort((a, b) =>
                             {
                                 float bScore;
                                 float aScore;
 
                                 // 比較できないものは 0 にしておく必要があります。
-                                if (!(a is KifuNode) || !(b is KifuNode))
+                                if (!(a is MoveEx) || !(b is MoveEx))
                                 {
                                     return 0;
                                 }
 
-                                bScore = ((KifuNode)b).MoveEx.Score;
-                                aScore = ((KifuNode)a).MoveEx.Score;
+                                bScore = ((MoveEx)b).Score;
+                                aScore = ((MoveEx)a).Score;
 
                                 return (int)aScore.CompareTo(bScore);//点数が大きいほうが前に行きます。
                             });
@@ -222,12 +228,12 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                     if (rootNode.Value.KaisiPside == Playerside.P2)
                     {
                         // 1番高いスコアを調べます。
-                        goodestScore = ((KifuNode)rankedNodes[0]).MoveEx.Score;
-                        for (int iNode = 0; iNode < rankedNodes.Count; iNode++)
+                        goodestScore = rankedMoveExs[0].Score;
+                        for (int iNode = 0; iNode < rankedMoveExs.Count; iNode++)
                         {
-                            if (goodestScore == ((KifuNode)rankedNodes[iNode]).MoveEx.Score)
+                            if (goodestScore == rankedMoveExs[iNode].Score)
                             {
-                                bestmoveExs.Add(((KifuNode)rankedNodes[iNode]).MoveEx);
+                                bestmoveExs.Add(rankedMoveExs[iNode]);
                             }
                             else
                             {
@@ -238,12 +244,12 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                     else
                     {
                         // 2Pは、マイナスの方が良い。
-                        goodestScore = ((KifuNode)rankedNodes[rankedNodes.Count - 1]).MoveEx.Score;
-                        for (int iNode = rankedNodes.Count - 1; -1 < iNode; iNode--)
+                        goodestScore = rankedMoveExs[rankedMoveExs.Count - 1].Score;
+                        for (int iNode = rankedMoveExs.Count - 1; -1 < iNode; iNode--)
                         {
-                            if (goodestScore == ((KifuNode)rankedNodes[iNode]).MoveEx.Score)
+                            if (goodestScore == rankedMoveExs[iNode].Score)
                             {
-                                bestmoveExs.Add(((KifuNode)rankedNodes[iNode]).MoveEx);
+                                bestmoveExs.Add(rankedMoveExs[iNode]);
                             }
                             else
                             {

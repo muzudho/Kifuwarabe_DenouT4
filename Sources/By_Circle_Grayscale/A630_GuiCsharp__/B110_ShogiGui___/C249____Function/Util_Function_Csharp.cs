@@ -49,7 +49,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             Util_Functions_Server.SetCurNode_Srv(
                 mainGui.Link_Server.Model_Taikyoku,
                 mainGui.SkyWrapper_Gui,
-                newNode, out jsaFugoStr, errH);
+                newNode,
+                out jsaFugoStr, errH);
             mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
             mainGui.RepaintRequest.SetFlag_RecalculateRequested();// 駒の再描画要求

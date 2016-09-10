@@ -190,7 +190,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             uc_Main.TxtAllNodesCount.Text = learningData.Kifu.CountAllNodes().ToString();
 
             // 合法手の数
-            uc_Main.TxtGohosyuTe.Text = ((KifuNode)learningData.Kifu.CurNode).Count_ChildNodes.ToString();
+            uc_Main.TxtGohosyuTe.Text = learningData.Kifu.CurNode.Count_ChildNodes.ToString();
         }
 
         /// <summary>
@@ -212,7 +212,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 List<GohosyuListItem> list = new List<GohosyuListItem>();
                 //uc_Main.LstGohosyu.Items.Clear();
                 int itemNumber = 0;
-                ((KifuNode)learningData.Kifu.CurNode).Foreach_ChildNodes((Move key, Node<Move, Sky> node, ref bool toBreak) =>
+                learningData.Kifu.CurNode.Foreach_ChildNodes((Move key, Node<Move, Sky> node, ref bool toBreak) =>
                 {
 #if DEBUG || LEARN
                     KyHyokaMeisai_Koumoku komawariMeisai;

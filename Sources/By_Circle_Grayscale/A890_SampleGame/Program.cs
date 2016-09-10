@@ -50,7 +50,11 @@ namespace P930_SampleGame
                 ref searchedMaxDepth,
                 ref searchedNodes,
                 searchedPv,
-                true, kifu, errH);
+                true,
+                
+                kifu,
+                
+                errH);
 
             Move move = bestmoveNode.Move;
             string sfenText = Conv_Move.ToSfen(move);

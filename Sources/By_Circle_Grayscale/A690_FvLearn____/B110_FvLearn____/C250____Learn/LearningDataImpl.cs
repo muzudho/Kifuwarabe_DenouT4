@@ -296,7 +296,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
 
             // 学習フォーム
             Util_KyokumenPng_Writer.Write1(
-                Conv_KifuNode.ToRO_Kyokumen1(((KifuNode)this.Kifu.CurNode), errH),
+                Conv_KifuNode.ToRO_Kyokumen1(this.Kifu.CurNode.Value, errH),
                 srcMasu_orMinusOne,
                 dstMasu_orMinusOne,
                 foodKoma,
@@ -326,7 +326,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
                 //
                 bool isHonshogi = true;
                 float alphabeta_otherBranchDecidedValue;
-                switch (((KifuNode)this.Kifu.CurNode).Value.KaisiPside)
+                switch (this.Kifu.CurNode.Value.KaisiPside)
                 {
                     case Playerside.P1:
                         // 2プレイヤーはまだ、小さな数を見つけていないという設定。
@@ -344,7 +344,11 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
                     ref searchedMaxDepth,
                     ref searchedNodes,
                     searchedPv,
-                    this.Kifu, isHonshogi, Mode_Tansaku.Learning, alphabeta_otherBranchDecidedValue, args, errH);
+
+                    ((KifuNode)this.Kifu.CurNode).Value.Temezumi,
+                    (KifuNode)this.Kifu.CurNode,
+                    
+                    isHonshogi, Mode_Tansaku.Learning, alphabeta_otherBranchDecidedValue, args, errH);
             }
             catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "棋譜ツリーを作っていたときです。"); throw ex; }
 

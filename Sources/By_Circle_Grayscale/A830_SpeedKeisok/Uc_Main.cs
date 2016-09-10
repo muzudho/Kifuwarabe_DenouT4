@@ -61,7 +61,7 @@ namespace Grayscale.P910_SpeedKeisok
                 Util_FvLoad.CreateKifuTree(out kifu_newHirate);
                 this.Kifu = kifu_newHirate;
             }
-            this.Src_Sky = ((KifuNode)this.Kifu.CurNode).Value;
+            this.Src_Sky = this.Kifu.CurNode.Value;
             InitializeComponent();
         }
 
