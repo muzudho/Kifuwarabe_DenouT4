@@ -76,7 +76,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
             string[] searchedPv,
             bool isHonshogi,
 
-            KifuTree kifu,
+            Tree kifu,
 
             KwLogger errH
             )
@@ -124,8 +124,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                     ref searchedNodes,
                     searchedPv,
 
-                    ((KifuNode)kifu.CurNode).Value.Temezumi,
-                    (KifuNode)kifu.CurNode,
+                    kifu.CurNode.Value.Temezumi,
+                    kifu.CurNode,
                     
                     isHonshogi, Mode_Tansaku.Shogi_ENgine, alphabeta_otherBranchDecidedValue, args, errH);
             }
@@ -160,7 +160,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
 
         private MoveEx ChoiceBest(
             bool isHonshogi,
-            Node<Move, Sky> rootNode,
+            Node rootNode,
             KwLogger errH
             )
         {
@@ -190,9 +190,9 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                     {
                         try
                         {
-                            rootNode.Foreach_ChildNodes((Move key, Node<Move, Sky> node, ref bool toBreak) =>
+                            rootNode.Foreach_ChildNodes((Move key, Node node, ref bool toBreak) =>
                             {
-                                rankedMoveExs.Add(((KifuNode)node).MoveEx);
+                                rankedMoveExs.Add(node.MoveEx);
                             });
 
                             exception_area = 1000;

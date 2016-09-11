@@ -12,6 +12,8 @@ using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB;
 using System.Text;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 {
@@ -37,7 +39,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
         /// </summary>
         /// <param name="fugoList"></param>
         public static string ToJsaFugoListString(
-            KifuTree src_kifu,
+            Tree src_kifu,
             string hint,
             KwLogger errH
             )
@@ -50,12 +52,12 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
             sb.Append(" moves ");
 
             // 採譜用に、新しい対局を用意します。
-            KifuTree saifuKifu;
+            Tree saifuKifu;
             {
                 Move move = Conv_Move.GetErrorMove();
 
-                saifuKifu = new KifuTreeImpl(
-                        new KifuNodeImpl(
+                saifuKifu = new TreeImpl(
+                        new NodeImpl(
                             move,
                             new SkyImpl(Util_SkyCreator.New_Hirate())//日本の符号読取時
                         )
@@ -64,7 +66,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                 saifuKifu.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面 // FIXME:平手とは限らないのでは？
             }
 
-            src_kifu.ForeachHonpu(src_kifu.CurNode, (int temezumi, Sky kWrap, Node<Move, Sky> node, ref bool toBreak) =>
+            src_kifu.ForeachHonpu(src_kifu.CurNode, (int temezumi, Sky kWrap, Node node, ref bool toBreak) =>
             {
                 if (0 == temezumi)
                 {
@@ -79,7 +81,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
 
                 // 採譜用新ノード
-                KifuNode saifu_newChild = new KifuNodeImpl(
+                Node saifu_newChild = new NodeImpl(
                     node.Key,
                     new SkyImpl(saifu_kWrap)
                 );
@@ -91,10 +93,9 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                 Util_KifuTree282.AppendChild_And_ChangeCurrentToChild(saifuKifu, saifu_newChild, hint+"/ToJsaKifuText", errH);// 新しい次ノードを追加。次ノードを、これからカレントとする。
 
                 // 後手の符号がまだ含まれていない。
-                string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(saifu_newChild,
-                    //saifu_newChild.Value,
+                string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
+                    saifu_newChild,
                     errH);
-                //sb.Append(Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(node, saifu_kWrap, errH));
                 sb.Append(jsaFugoStr);
 
             gt_EndLoop:
@@ -114,7 +115,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
         /// 
         /// </summary>
         /// <param name="fugoList"></param>
-        public static string ToSfen_PositionCommand(KifuTree src_kifu)
+        public static string ToSfen_PositionCommand(Tree src_kifu)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -124,7 +125,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
             // 本譜
             int count = 0;
-            src_kifu.ForeachHonpu(src_kifu.CurNode, (int temezumi, Sky kWrap, Node<Move, Sky> node, ref bool toBreak) =>
+            src_kifu.ForeachHonpu(src_kifu.CurNode, (int temezumi, Sky kWrap, Node node, ref bool toBreak) =>
             {
                 if (0 == temezumi)
                 {

@@ -28,6 +28,8 @@ using System.Runtime.CompilerServices;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 #if DEBUG
 using Grayscale.A060_Application.B110_Log________.C___500_Struct;
@@ -51,9 +53,9 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
         /// <param name="kifu"></param>
         /// <param name="newNode"></param>
         public static void SetCurNode_Srv(
-            KifuTree kifu1,// Taikyokuの内容をManualへ移す。
+            Tree kifu1,// Taikyokuの内容をManualへ移す。
             SkyWrapper_Gui model_Manual,
-            Node<Move, Sky> newNode,
+            Node newNode,
             out string jsaFugoStr,
             KwLogger errH
             )
@@ -83,7 +85,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
         /// </summary>
         public static bool ReadLine_TuginoItteSusumu_Srv(
             ref string inputLine,
-            KifuTree kifu1,//SetCurNodeがある。[コマ送り][再生]などで使用。
+            Tree kifu1,//SetCurNodeがある。[コマ送り][再生]などで使用。
             SkyWrapper_Gui model_Manual,
             out bool toBreak,
             string hint,
@@ -283,7 +285,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             out Finger movedKoma,
             out Finger foodKoma,
             out string jsaFugoStr,
-            KifuTree kifu1,
+            Tree kifu1,
             KwLogger errH
             )
         {
@@ -292,7 +294,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             //------------------------------
             // 棋譜から１手削ります
             //------------------------------
-            Node<Move, Sky> removeeLeaf = kifu1.CurNode;
+            Node removeeLeaf = kifu1.CurNode;
             int korekaranoTemezumi = removeeLeaf.Value.Temezumi - 1;//１手前へ。
 
             if (removeeLeaf.IsRoot())
@@ -352,7 +354,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
         /// </summary>
         public static bool Komaokuri_Srv(
             ref string inputLine,
-            KifuTree kifu1,
+            Tree kifu1,
             SkyWrapper_Gui model_Manual,
             KwLogger errH,
             [CallerMemberName] string memberName = "",

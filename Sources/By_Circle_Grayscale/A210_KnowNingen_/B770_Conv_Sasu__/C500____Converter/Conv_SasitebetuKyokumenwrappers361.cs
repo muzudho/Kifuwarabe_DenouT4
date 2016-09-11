@@ -22,17 +22,17 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
         /// </summary>
         public static List<Couple<Finger, SyElement>> NextNodes_ToKamList(
             Sky src_Sky_genzai,
-            Node<Move, Sky> hubNode,
+            Node hubNode,
             KwLogger errH
             )
         {
             List<Couple<Finger, SyElement>> kmList = new List<Couple<Finger, SyElement>>();
 
             // TODO:
-            hubNode.Foreach_ChildNodes((Move key, Node<Move, Sky> nextNode, ref bool toBreak) =>
+            hubNode.Foreach_ChildNodes((Move move, Node nextNode, ref bool toBreak) =>
             {
-                SyElement srcMasu = Conv_Move.ToSrcMasu(nextNode.Key);
-                SyElement dstMasu = Conv_Move.ToDstMasu(nextNode.Key);
+                SyElement srcMasu = Conv_Move.ToSrcMasu(move);
+                SyElement dstMasu = Conv_Move.ToDstMasu(move);
 
                 Finger figKoma = Util_Sky_FingersQuery.InMasuNow_Old(src_Sky_genzai, srcMasu).ToFirst();
 

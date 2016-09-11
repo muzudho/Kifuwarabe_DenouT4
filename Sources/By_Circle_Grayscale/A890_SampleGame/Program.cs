@@ -13,6 +13,8 @@ using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___240_Shogisasi;
 using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi;
 using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe;
 using System;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace P930_SampleGame
 {
@@ -36,8 +38,8 @@ namespace P930_SampleGame
             Shogisasi shogisasi = new ShogisasiImpl(kifuWarabe);
 
             // 棋譜
-            KifuTree kifu = new KifuTreeImpl(
-                        new KifuNodeImpl(
+            Tree kifu = new TreeImpl(
+                        new NodeImpl(
                             Conv_Move.GetErrorMove(),
                             new SkyImpl(Util_SkyCreator.New_Hirate())//日本の符号読取時
                         )

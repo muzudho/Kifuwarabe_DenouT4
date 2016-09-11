@@ -15,6 +15,8 @@ using Grayscale.A480_ServerAims_.B110_AimsServer_.C___070_ServerBase;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C125____Receiver
 {
@@ -104,8 +106,8 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C125____Receiver
                                 ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Usinewgame(errH);
 
                                 // FIXME:平手とは限らないが、平手という前提で、毎回一から作りなおします。
-                                this.Owner_AimsServer.SetKifuTree(new KifuTreeImpl(
-                                        new KifuNodeImpl(
+                                this.Owner_AimsServer.SetKifuTree(new TreeImpl(
+                                        new NodeImpl(
                                             Conv_Move.GetErrorMove(),
                                             new SkyImpl(Util_SkyCreator.New_Hirate())
                                         )

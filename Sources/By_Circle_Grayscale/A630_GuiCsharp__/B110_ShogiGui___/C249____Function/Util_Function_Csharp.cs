@@ -1,15 +1,15 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
 using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500____Converter;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A450_Server_____.B110_Server_____.C250____Util;
@@ -20,7 +20,6 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C060____TextBoxListener;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C101____Conv;
 using System.Drawing;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
 {
@@ -37,7 +36,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             mainGui.Link_Server.KifuTree.Clear();// 棋譜を空っぽにします。
             mainGui.Link_Server.KifuTree.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
 
-            KifuNode newNode = new KifuNodeImpl(
+            Node newNode = new NodeImpl(
                                         Conv_Move.GetErrorMove(),//ルートなので
                                         new SkyImpl(Util_SkyCreator.New_Hirate())//[初期配置]ボタン押下時
                                         );
@@ -113,7 +112,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             // 符号表示
             //------------------------------
             {
-                Node<Move, Sky> node6 = shogiGui.Link_Server.KifuTree.CurNode;
+                Node node6 = shogiGui.Link_Server.KifuTree.CurNode;
 
                 // [コマ送り][再生]ボタン
                 string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(node6,errH);

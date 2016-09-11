@@ -6,17 +6,15 @@ using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500____Converter;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 using Grayscale.A210_KnowNingen_.B800_ConvCsa____.C500____Converter;
 using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe;
@@ -24,14 +22,13 @@ using Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Text;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
+using System.Diagnostics;
 #endif
 
 namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
@@ -53,8 +50,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             //
             uc_Main.LstSasite.Items.Clear();
 
-            KifuTree kifu1 = new KifuTreeImpl(
-                new KifuNodeImpl(
+            Tree kifu1 = new TreeImpl(
+                new NodeImpl(
                     Conv_Move.GetErrorMove(),
                     new SkyImpl(Util_SkyCreator.New_Hirate())//日本の符号読取時
                 )
@@ -212,7 +209,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 List<GohosyuListItem> list = new List<GohosyuListItem>();
                 //uc_Main.LstGohosyu.Items.Clear();
                 int itemNumber = 0;
-                learningData.Kifu.CurNode.Foreach_ChildNodes((Move key, Node<Move, Sky> node, ref bool toBreak) =>
+                learningData.Kifu.CurNode.Foreach_ChildNodes(
+                    (Move key, Node node, ref bool toBreak) =>
                 {
 #if DEBUG || LEARN
                     KyHyokaMeisai_Koumoku komawariMeisai;
@@ -220,7 +218,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
 #endif
 
                     learningData.DoScoreing_ForLearning(
-                        (KifuNode)node
+                        node.Value
 #if DEBUG || LEARN
 ,
                         out komawariMeisai,
@@ -338,7 +336,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             {
                 if (learningData.Kifu.CurNode.HasChildNode(move))
                 {
-                    Node<Move, Sky> nextNode = learningData.Kifu.CurNode.GetChildNode(move);
+                    Node nextNode = learningData.Kifu.CurNode.GetChildNode(move);
                     nextMove = nextNode.Key;//次の棋譜ノードのキーが、指し手（きふわらべ式）になっています。
 
                 }

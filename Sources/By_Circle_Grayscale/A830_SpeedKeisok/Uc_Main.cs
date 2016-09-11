@@ -14,6 +14,8 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
@@ -50,14 +52,14 @@ namespace Grayscale.P910_SpeedKeisok
         public Sky Src_Sky { get; set; }
         public FeatureVector FeatureVector { get; set; }
 
-        public KifuTree Kifu { get; set; }
+        public Tree Kifu { get; set; }
 
 
         public Uc_Main()
         {
             this.FeatureVector = new FeatureVectorImpl();
             {
-                KifuTree kifu_newHirate;
+                Tree kifu_newHirate;
                 Util_FvLoad.CreateKifuTree(out kifu_newHirate);
                 this.Kifu = kifu_newHirate;
             }

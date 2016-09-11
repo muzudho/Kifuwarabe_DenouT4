@@ -59,7 +59,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             string hint,
             KwLogger errH)
         {
-            Node<Move, Sky> hubNode = Conv_StarbetuSasites.ToNextNodes_AsHubNode(
+            Node hubNode = Conv_StarbetuSasites.ToNextNodes_AsHubNode(
                 genTeban_komabetuAllMoves1,
                 src_Sky,
                 errH
@@ -122,7 +122,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             return starbetuSusumuMasus;
         }
         private static void Log1(
-            Node<Move, Sky> hubNode,
+            Node hubNode,
             int temezumi_yomiGenTeban,
             string hint,
             KwLogger errH
@@ -130,7 +130,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
         {
             bool enableLog = false;//errH.Enable
             Util_GraphicalLog.WriteHtml5(enableLog, "Util_LegalMove(王手回避漏れ02)王手を回避するかどうかに関わらず、ひとまず全ての次の手", "[" +
-                ((KifuNode)hubNode).Json_NextNodes_MultiSky(
+                hubNode.Json_NextNodes_MultiSky(
                     "(王手回避漏れ02." + temezumi_yomiGenTeban + "手目)",
                     hint + "_Lv3_RMHO",
                     temezumi_yomiGenTeban,
@@ -142,7 +142,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
         /// </summary>
         public static void LAA_RemoveNextNode_IfMate(
             int yomikaisiTemezumi,
-            Node<Move, Sky> hubNode,
+            Node hubNode,
             int temezumi_yomiGenTeban_forLog,//読み進めている現在の手目
             Playerside pside_genTeban,
 
@@ -154,9 +154,9 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             )
         {
             // Node<,>の形で。
-            Dictionary<Move, Node<Move, Sky>> newNextNodes = new Dictionary<Move, Node<Move, Sky>>();
+            Dictionary<Move, Node> newNextNodes = new Dictionary<Move, Node>();
 
-            hubNode.Foreach_ChildNodes((Move key, Node<Move, Sky> node, ref bool toBreak) =>
+            hubNode.Foreach_ChildNodes((Move move, Node node, ref bool toBreak) =>
             {
                 //System.Diagnostics.Debug.Assert(node.Key != null);//指し手がヌルなはず無いはず。
 
@@ -176,13 +176,13 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
                 if (!kingSuicide)
                 {
                     // 王様が利きに飛び込んでいない局面だけ、残します。
-                    if (newNextNodes.ContainsKey(key))
+                    if (newNextNodes.ContainsKey(move))
                     {
-                        newNextNodes[key] = node;
+                        newNextNodes[move] = node;
                     }
                     else
                     {
-                        newNextNodes.Add(key, node);
+                        newNextNodes.Add(move, node);
                     }
                 }
             });

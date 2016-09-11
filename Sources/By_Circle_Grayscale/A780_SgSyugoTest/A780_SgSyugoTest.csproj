@@ -34,7 +34,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'LEARN|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\..\..\Engine01_Binaries\P780_SgSyugoTest\</OutputPath>
+    <OutputPath>..\..\..\Engine01_Binaries\A780_SgSyugoTest\</OutputPath>
     <DefineConstants>TRACE;LEARN</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>

@@ -44,6 +44,8 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 #if DEBUG
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
@@ -97,12 +99,12 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
         /// <summary>
         /// 棋譜です。
         /// </summary>
-        public KifuTree Kifu_AtLoop2 { get { return this.m_kifu_AtLoop2_; } }
-        public void SetKifu_AtLoop2(KifuTree kifu)
+        public Tree Kifu_AtLoop2 { get { return this.m_kifu_AtLoop2_; } }
+        public void SetKifu_AtLoop2(Tree kifu)
         {
             this.m_kifu_AtLoop2_ = kifu;
         }
-        private KifuTree m_kifu_AtLoop2_;
+        private Tree m_kifu_AtLoop2_;
 
 
         /// <summary>
@@ -203,8 +205,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             // 棋譜
             {
                 // FIXME:平手とは限らないが、平手という前提で作っておく。
-                this.SetKifu_AtLoop2(new KifuTreeImpl(
-                        new KifuNodeImpl(
+                this.SetKifu_AtLoop2(new TreeImpl(
+                        new NodeImpl(
                             Conv_Move.GetErrorMove(),
                             new SkyImpl(Util_SkyCreator.New_Hirate())// きふわらべ起動時
                         )
@@ -743,8 +745,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
 #if DEBUG
                 this.Log2_Png_Tyokkin_AtLoop2(line,
-                    ((KifuNode)result.Out_newNode_OrNull).MoveEx,
-                    ((KifuNode)result.Out_newNode_OrNull).Value,
+                    result.Out_newNode_OrNull.MoveEx,
+                    result.Out_newNode_OrNull.Value,
                     logger);
 #endif
 
@@ -1338,7 +1340,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             sb.Append("ログだせ～（＾▽＾）");
 
             this.Kifu_AtLoop2.ForeachZenpuku(
-                this.Kifu_AtLoop2.GetRoot(), (int temezumi, Sky sky, Node<Move, Sky> node, ref bool toBreak) =>
+                this.Kifu_AtLoop2.GetRoot(), (int temezumi, Sky sky, Node node, ref bool toBreak) =>
                 {
                     if (null != node)
                     {                        

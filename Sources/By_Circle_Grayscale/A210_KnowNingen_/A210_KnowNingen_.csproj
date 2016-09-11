@@ -34,7 +34,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'LEARN|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\..\..\Engine01_Binaries\P200_KnowNingen_\</OutputPath>
+    <OutputPath>..\..\..\Engine01_Binaries\A210_KnowNingen_\</OutputPath>
     <DefineConstants>TRACE;LEARN</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
@@ -192,12 +192,8 @@
     <Compile Include="B520_SeizaStartp\C500____Struct\StartposImporter.cs" />
     <Compile Include="B600_UtilSky____\C500____Util\Util_Sky307.cs" />
     <Compile Include="B610_NodeWriter_\C500____Writer\NodeWriterImpl.cs" />
-    <Compile Include="B640_KifuTree___\C___250_Struct\KifuNode.cs" />
-    <Compile Include="B640_KifuTree___\C___250_Struct\KifuTree.cs" />
     <Compile Include="B620_KyokumHyoka\C___250_Struct\KyHyokaSheet.cs" />
     <Compile Include="B620_KyokumHyoka\C___250_Struct\KyHyokaMeisai_Koumoku.cs" />
-    <Compile Include="B640_KifuTree___\C250____Struct\KifuNodeImpl.cs" />
-    <Compile Include="B640_KifuTree___\C250____Struct\KifuTreeImpl.cs" />
     <Compile Include="B620_KyokumHyoka\C250____Struct\KyHyokaMeisai_KoumokuImpl.cs" />
     <Compile Include="B620_KyokumHyoka\C250____Struct\KyHyokaSheetImpl.cs" />
     <Compile Include="B420_UtilSky258_\C500____UtilSky\Util_Sky_CountQuery.cs" />

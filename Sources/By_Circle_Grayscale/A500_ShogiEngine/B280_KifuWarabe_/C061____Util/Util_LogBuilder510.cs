@@ -4,15 +4,11 @@ using Grayscale.A060_Application.B410_Collection_.C500____Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-
 using Grayscale.A210_KnowNingen_.B460_KyokumMoves.C250____Log;
 using Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C061____Util
 {
@@ -23,10 +19,9 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C061____Util
         /// 盤１個分のログ。
         /// </summary>
         public static void Build_LogBoard(
-            Node<Move, Sky> node_forLog,
+            Node node_forLog,
             string nodePath,
-            KifuNode niniNode,//任意のノード
-            //KifuTree kifu_forAssert,
+            Node niniNode,//任意のノード
             KyokumenPngEnvironment reportEnvironment,
             KaisetuBoards logF_kiki,
             KwLogger errH

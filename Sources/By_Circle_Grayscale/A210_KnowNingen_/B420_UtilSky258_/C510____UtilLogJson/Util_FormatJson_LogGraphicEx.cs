@@ -15,6 +15,8 @@ using System.Collections.Generic;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
 {
@@ -81,7 +83,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
         /// <param name="comment"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static string JsonElements_Node(bool enableLog, Sky src_Sky_base, Node<Move, Sky> thisNode, string comment, KwLogger errH)
+        public static string JsonElements_Node(bool enableLog, Sky src_Sky_base, Node thisNode, string comment, KwLogger errH)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -130,7 +132,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
         /// <param name="comment"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static string JsonKyokumens_NextNodes(bool enableLog, Sky src_Sky_base, Node<Move, Sky> hubNode, string comment, KwLogger errH)
+        public static string JsonKyokumens_NextNodes(bool enableLog, Sky src_Sky_base, Node hubNode, string comment, KwLogger errH)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -139,15 +141,15 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
                 goto gt_EndMethod;
             }
 
-            hubNode.Foreach_ChildNodes((Move key, Node<Move, Sky> node, ref bool toBreak) =>
+            hubNode.Foreach_ChildNodes((Move move, Node node, ref bool toBreak) =>
             {
 
-                SyElement srcMasu = Conv_Move.ToSrcMasu(node.Key);
-                SyElement dstMasu = Conv_Move.ToDstMasu(node.Key);
+                SyElement srcMasu = Conv_Move.ToSrcMasu(move);
+                SyElement dstMasu = Conv_Move.ToDstMasu(move);
 
                 Finger srcKoma2 = Util_Sky_FingersQuery.InMasuNow_Old(src_Sky_base, srcMasu).ToFirst();
 
-                Komasyurui14 dstKs14 = Conv_Move.ToDstKomasyurui(node.Key);
+                Komasyurui14 dstKs14 = Conv_Move.ToDstKomasyurui(move);
 
                 sb.AppendLine("            [");
 

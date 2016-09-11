@@ -1,4 +1,7 @@
-﻿
+﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B630_Sennitite__.C___500_Struct;
+
 namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
 {
 
@@ -8,25 +11,19 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
     /// <param name="temezumi">手目済</param>
     /// <param name="nodeRef">ノードのかたまりのまま。</param>
     /// <param name="toBreak"></param>
-    public delegate void DELEGATE_Foreach<
-        T1,//ノードのキー
-        T2//ノードの値
-        >(int temezumi, T2 sky, Node<T1, T2> nodeRef, ref bool toBreak);
+    public delegate void DELEGATE_Foreach(int temezumi, Sky sky, Node nodeRef, ref bool toBreak);
 
 
-    public interface Tree<
-        T1,//ノードのキー
-        T2//ノードの値
-        >
+    public interface Tree
     {
         /// <summary>
         /// ツリー構造になっている本譜の葉ノード。
         /// 根を「startpos」等の初期局面コマンドとし、次の節からは棋譜の符号「2g2f」等が連なっている。
         /// </summary>
-        Node<T1, T2> CurNode { get; }
-        void SetCurNode(Node<T1, T2> node);
+        Node CurNode { get; }
+        void SetCurNode(Node node);
 
-        Node<T1, T2> NodeAt(int temezumi1);
+        Node NodeAt(int temezumi1);
 
         /// <summary>
         /// 使い方自由。
@@ -57,10 +54,10 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         /// 
         /// </summary>
         /// <returns>ルートしかないリストの場合、ヌルを返します。</returns>
-        Node<T1, T2> PopCurrentNode();
+        Node PopCurrentNode();
 
 
-        Node<T1, T2> GetRoot();
+        Node GetRoot();
 
         
         /// <summary>
@@ -75,7 +72,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         /// </summary>
         /// <param name="endNode"></param>
         /// <param name="delegate_Foreach"></param>
-        void ForeachHonpu(Node<T1, T2> endNode, DELEGATE_Foreach<T1, T2> delegate_Foreach);
+        void ForeachHonpu(Node endNode, DELEGATE_Foreach delegate_Foreach);
 
                 
         /// <summary>
@@ -83,12 +80,50 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         /// </summary>
         /// <param name="endNode"></param>
         /// <param name="delegate_Foreach"></param>
-        void ForeachZenpuku(Node<T1, T2> startNode, DELEGATE_Foreach<T1, T2> delegate_Foreach);
+        void ForeachZenpuku(Node startNode, DELEGATE_Foreach delegate_Foreach);
 
         /// <summary>
         /// この木の、全てのノード数を数えます。
         /// </summary>
         /// <returns></returns>
         int CountAllNodes();
+
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// 千日手カウンター。
+        /// </summary>
+        /// <returns></returns>
+        SennititeCounter GetSennititeCounter();
+
+        //void AssertPside(Node<Move, Sky> node, string hint, KwLogger errH);
+        /// <summary>
+        /// これから追加する予定のノードの先後を診断します。
+        /// </summary>
+        /// <param name="node"></param>
+        void AssertChildPside(Playerside parentPside, Playerside childPside);
+        //Playerside CountPside(Node<Move, Sky> node, KwLogger errH);
+
+
+
+        ///// <summary>
+        ///// ************************************************************************************************************************
+        ///// [ここから採譜]機能
+        ///// ************************************************************************************************************************
+        ///// </summary>
+        //void SetStartpos_KokokaraSaifu(Playerside pside, KwLogger errH);
+
+        ///// <summary>
+        ///// この木の、全てのノードを、フォルダーとして作成します。
+        ///// </summary>
+        ///// <returns></returns>
+        //void CreateAllFolders(string folderpath, int limitDeep);
+
     }
 }

@@ -2,6 +2,8 @@
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
 using Grayscale.A500_ShogiEngine.B240_TansaFukasa.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A500_ShogiEngine.B220_Tansaku____.C___500_Tansaku
 {
@@ -24,7 +26,7 @@ namespace Grayscale.A500_ShogiEngine.B220_Tansaku____.C___500_Tansaku
             string[] searchedPv,
 
             int temezumi,
-            KifuNode kifuNode,
+            Node kifuNode,
 
             bool isHonshogi,
             Mode_Tansaku mode_Tansaku,

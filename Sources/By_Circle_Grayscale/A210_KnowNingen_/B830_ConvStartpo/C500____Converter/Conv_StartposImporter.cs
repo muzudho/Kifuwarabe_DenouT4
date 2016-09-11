@@ -17,6 +17,8 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A210_KnowNingen_.B830_ConvStartpo.C500____Converter
 {
@@ -59,7 +61,7 @@ namespace Grayscale.A210_KnowNingen_.B830_ConvStartpo.C500____Converter
                 Sky newSky = startposImporter.ToSky();
                 newSky.SetKaisiPside(parsedKyokumen.FirstPside);
                 newSky.SetTemezumi(startposImporter.RO_SfenStartpos.Temezumi);// FIXME: 将棋所だと常に 1 かも？？
-                parsedKyokumen.KifuNode = new KifuNodeImpl(
+                parsedKyokumen.KifuNode = new NodeImpl(
                         Conv_Move.GetErrorMove(),//ルートなので
                         new SkyImpl(newSky)
                     );

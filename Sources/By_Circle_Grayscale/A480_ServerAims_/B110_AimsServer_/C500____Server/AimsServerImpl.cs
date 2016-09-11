@@ -7,6 +7,8 @@ using Grayscale.A480_ServerAims_.B110_AimsServer_.C060____Phase;
 using Grayscale.A480_ServerAims_.B110_AimsServer_.C125____Receiver;
 using System;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C500____Server
 {

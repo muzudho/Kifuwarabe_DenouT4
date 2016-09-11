@@ -37,11 +37,17 @@ using System.IO;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 #if DEBUG
 using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
 using System.Diagnostics;
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
+using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
+#endif
+
+#if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
 #endif
 
@@ -76,7 +82,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
 
         public CsaKifu CsaKifu { get; set; }
 
-        public KifuTree Kifu { get; set; }
+        public Tree Kifu { get; set; }
 
         /// <summary>
         /// フィーチャー・ベクター。
@@ -345,8 +351,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
                     ref searchedNodes,
                     searchedPv,
 
-                    ((KifuNode)this.Kifu.CurNode).Value.Temezumi,
-                    (KifuNode)this.Kifu.CurNode,
+                    this.Kifu.CurNode.Value.Temezumi,
+                    this.Kifu.CurNode,
                     
                     isHonshogi, Mode_Tansaku.Learning, alphabeta_otherBranchDecidedValue, args, errH);
             }
@@ -358,7 +364,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
         /// 二駒関係の評価値を算出します。
         /// </summary>
         public void DoScoreing_ForLearning(
-            KifuNode node
+            Sky position
 #if DEBUG || LEARN
             ,
             out KyHyokaMeisai_Koumoku out_komawariMeisai,
@@ -377,7 +383,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
 #if DEBUG || LEARN
                     out out_komawariMeisai,
 #endif
-                    node.Value,
+                    position,
                     this.Fv, //参照してもらうだけ。
                     Util_Loggers.ProcessLearner_DEFAULT
                 );
@@ -393,7 +399,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
 #if DEBUG || LEARN
                     out out_ppMeisai,
 #endif
-                    node.Value,
+                    position,
                     this.Fv, //参照してもらうだけ。
                     Util_Loggers.ProcessLearner_DEFAULT
                 );

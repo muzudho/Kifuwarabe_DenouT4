@@ -1,7 +1,15 @@
-﻿using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B630_Sennitite__.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B630_Sennitite__.C500____Struct;
 using System;
 using System.Collections.Generic;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+
+#if DEBUG
+using System.Diagnostics;
+#endif
 
 namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 {
@@ -9,23 +17,34 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
     /// <summary>
     /// 棋譜。
     /// </summary>
-    public class TreeImpl<
-        T1,//ノードのキー
-        T2//ノードの値
-        > : Tree<
-        T1,//ノードのキー
-        T2//ノードの値
-        >
+    public class TreeImpl : Tree
     {
+        public TreeImpl(
+    Node root
+    )
+        {
+            this.properties = new Dictionary<string, object>();
+            this.SetCurNode(root);
+
+            //----------------------------------------
+            // 千日手カウンター
+            //----------------------------------------
+            this.sennititeCounter = new SennititeCounterImpl();
+        }
+
+
+
+
+
         #region プロパティ類
 
         /// <summary>
         /// ツリー構造になっている本譜の葉ノード。
         /// 根を「startpos」等の初期局面コマンドとし、次の節からは棋譜の符号「2g2f」等が連なっている。
         /// </summary>
-        public Node<T1, T2> CurNode { get { return this.curNode; } }
-        public void SetCurNode(Node<T1, T2> node) { this.curNode = node; }
-        private Node<T1, T2> curNode;
+        public Node CurNode { get { return this.curNode; } }
+        public void SetCurNode(Node node) { this.curNode = node; }
+        private Node curNode;
 
 
         ///// <summary>
@@ -86,13 +105,6 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
 
 
-        public TreeImpl(
-            Node<T1, T2> root
-            )
-        {
-            this.properties = new Dictionary<string,object>();
-            this.SetCurNode( root);
-        }
 
 
 
@@ -115,9 +127,9 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// 
         /// </summary>
         /// <returns>ルートしかないリストの場合、ヌルを返します。</returns>
-        public Node<T1, T2> PopCurrentNode()
+        public Node PopCurrentNode()
         {
-            Node<T1, T2> deleteeElement = null;
+            Node deleteeElement = null;
 
             if (this.CurNode.IsRoot())
             {
@@ -146,12 +158,12 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// </summary>
         /// <param name="endNode">葉側のノード。</param>
         /// <param name="delegate_Foreach"></param>
-        public void ForeachHonpu(Node<T1, T2> endNode, DELEGATE_Foreach<T1, T2> delegate_Foreach)
+        public void ForeachHonpu(Node endNode, DELEGATE_Foreach delegate_Foreach)
         {
             bool toBreak = false;
 
             // 本譜（ノードのリスト）
-            List<Node<T1, T2>> honpu = new List<Node<T1, T2>>();
+            List<Node> honpu = new List<Node>();
 
             //
             // ツリー型なので、１本のリストに変換するために工夫します。
@@ -172,9 +184,9 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             //
             int temezumi = 0;//初期局面が[0]
 
-            foreach (Node<T1, T2> item in honpu)//正順になっています。
+            foreach (Node item in honpu)//正順になっています。
             {
-                T2 sky = item.Value;
+                Sky sky = item.Value;
 
                 delegate_Foreach(temezumi, sky, item, ref toBreak);
                 if (toBreak)
@@ -190,10 +202,10 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// </summary>
         /// <param name="endNode"></param>
         /// <param name="delegate_Foreach"></param>
-        public void ForeachZenpuku(Node<T1, T2> startNode, DELEGATE_Foreach<T1, T2> delegate_Foreach)
+        public void ForeachZenpuku(Node startNode, DELEGATE_Foreach delegate_Foreach)
         {
 
-            List<Node<T1, T2>> list8 = new List<Node<T1, T2>>();
+            List<Node> list8 = new List<Node>();
 
             //
             // ツリー型なので、１本のリストに変換するために工夫します。
@@ -204,7 +216,9 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             int temezumi = 0;//※指定局面が0。
             bool toFinish_ZenpukuTansaku = false;
 
-            this.Recursive_Node_NextNode(temezumi, startNode, delegate_Foreach, ref toFinish_ZenpukuTansaku);
+            this.Recursive_Node_NextNode(
+                temezumi, startNode, delegate_Foreach, ref toFinish_ZenpukuTansaku
+                );
             if (toFinish_ZenpukuTansaku)
             {
                 goto gt_EndMetdhod;
@@ -214,7 +228,14 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             ;
         }
 
-        private void Recursive_Node_NextNode(int temezumi1, Node<T1, T2> node1, DELEGATE_Foreach<T1, T2> delegate_Foreach1, ref bool toFinish_ZenpukuTansaku)
+        private void Recursive_Node_NextNode(
+            int temezumi1,
+            
+            //Sky position,
+            Node node1,
+            
+            DELEGATE_Foreach delegate_Foreach1, ref bool toFinish_ZenpukuTansaku
+            )
         {
             bool toBreak1 = false;
 
@@ -228,10 +249,12 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             }
 
             // 次のノード
-            node1.Foreach_ChildNodes((Move key2, Node<T1, T2> node2, ref bool toBreak2) =>
+            node1.Foreach_ChildNodes((Move key2, Node node2, ref bool toBreak2) =>
             {
                 bool toFinish_ZenpukuTansaku2 = false;
-                this.Recursive_Node_NextNode(temezumi1 + 1, node2, delegate_Foreach1, ref toFinish_ZenpukuTansaku2);
+                this.Recursive_Node_NextNode(
+                    temezumi1 + 1, node2, delegate_Foreach1, ref toFinish_ZenpukuTansaku2
+                    );
                 if (toFinish_ZenpukuTansaku2)//この全幅探索を終わらせる指示が出ていた場合
                 {
                     toBreak2 = true;
@@ -274,6 +297,11 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
             // ルートの次の手を全クリアーします。
             this.CurNode.Clear_ChildNodes();
+
+            //----------------------------------------
+            // 千日手カウンター
+            //----------------------------------------
+            this.sennititeCounter.Clear();
         }
 
         #endregion
@@ -285,16 +313,16 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
         #region ランダムアクセッサ
 
-        public Node<T1, T2> GetRoot()
+        public Node GetRoot()
         {
-            return (Node<T1, T2>)this.NodeAt(0);
+            return (Node)this.NodeAt(0);
         }
 
-        public Node<T1, T2> NodeAt(int sitei_temezumi)
+        public Node NodeAt(int sitei_temezumi)
         {
-            Node<T1, T2> found = null;
+            Node found = null;
 
-            this.ForeachHonpu(this.CurNode, (int temezumi2, T2 sky, Node<T1, T2> node, ref bool toBreak) =>
+            this.ForeachHonpu(this.CurNode, (int temezumi2, Sky sky, Node node, ref bool toBreak) =>
             {
                 if (sitei_temezumi == temezumi2) //新Verは 0 にも対応。
                 {
@@ -332,6 +360,54 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
             return result;
         }
+
+
+
+
+
+
+
+        /// <summary>
+        /// 千日手カウンター。
+        /// </summary>
+        /// <returns></returns>
+        public SennititeCounter GetSennititeCounter()
+        {
+            return this.sennititeCounter;
+        }
+        private SennititeCounter sennititeCounter;
+
+
+
+        /// <summary>
+        /// これから追加する予定のノードの先後を診断します。
+        /// </summary>
+        /// <param name="node"></param>
+        public void AssertChildPside(Playerside parentPside, Playerside childPside)
+        {
+#if DEBUG
+            Debug.Assert(
+                (parentPside==Playerside.P1 && childPside==Playerside.P2)
+                ||
+                (parentPside==Playerside.P2 && childPside==Playerside.P1)
+                , "親子の先後に、異順序がありました。現手番[" + parentPside + "]　<> 次手番[" + childPside + "]");
+#endif
+        }
+
+
+        ///// <summary>
+        ///// この木の、全てのノードを、フォルダーとして作成します。
+        ///// </summary>
+        ///// <returns></returns>
+        //public void CreateAllFolders(string folderpath, int limitDeep)
+        //{
+        //    int currentDeep = 0;
+
+        //    if (null != this.GetRoot() && currentDeep <= limitDeep)
+        //    {
+        //        ((KifuNode)this.GetRoot()).CreateAllFolders(folderpath, currentDeep+1, limitDeep);
+        //    }
+        //}
 
     }
 

@@ -7,6 +7,8 @@ using Grayscale.A210_KnowNingen_.B550_JsaFugo____.C250____Struct;
 using Grayscale.A210_KnowNingen_.B550_JsaFugo____.C500____Util;
 using Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500____Converter
 {
@@ -20,7 +22,7 @@ namespace Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500____Converter
         /// <param name="errH"></param>
         /// <returns></returns>
         public static string ToSasiteStr_Jsa(
-            Node<Move, Sky> node,
+            Node node,
             KwLogger errH
             )
         {

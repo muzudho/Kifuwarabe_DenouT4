@@ -18,6 +18,8 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C125____Scene;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed;
 using NLua;
 using System;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
 {
@@ -233,7 +235,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
 
             {
                 newSky.SetTemezumi(0);//空っぽに戻すので、 0手済みに変更。
-                KifuNode newNode = new KifuNodeImpl(
+                Node newNode = new NodeImpl(
                             Conv_Move.GetErrorMove(),//ルートなので
                             new SkyImpl(newSky)
                         );

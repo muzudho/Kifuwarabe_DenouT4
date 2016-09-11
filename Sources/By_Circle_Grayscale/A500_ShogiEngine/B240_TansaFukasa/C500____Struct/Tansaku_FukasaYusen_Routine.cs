@@ -22,6 +22,10 @@ using System.Diagnostics;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 #if DEBUG
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
@@ -200,7 +204,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             string[] searchedPv,
 
             int temezumi,
-            KifuNode kifuNode,
+            Node kifuNode,
 
             bool isHonshogi,
             Mode_Tansaku mode_Tansaku,
@@ -430,7 +434,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
 
             Move move1,//改造後
             Sky position1,//改造後
-            KifuNode node_yomi_KAIZOMAE,//改造前
+            Node node_yomi_KAIZOMAE,//改造前
 
             int movelist_count,
             EvaluationArgs args,
@@ -504,7 +508,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     else
                     {
                         Sky childPosition2;
-                        KifuNode childNode2_KAIZOMAE;
+                        Node childNode2_KAIZOMAE;
 
                         try
                         {
@@ -535,7 +539,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                                     Conv_Move.ToPromotion(childMove2),//成るか。
                                     errH
                             );
-                            childNode2_KAIZOMAE = new KifuNodeImpl(
+                            childNode2_KAIZOMAE = new NodeImpl(
                                 childMove2,
                                 null//new Sky(childPosition)// TODO: これを止めたいんだぜ☆（＾～＾）？
                                 );
@@ -693,7 +697,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         }
         private static void Log2(
             Tansaku_Genjo genjo,
-            KifuNode node_yomi,
+            Node node_yomi,
             KaisetuBoard logBrd_move1,
             KwLogger errH
         )

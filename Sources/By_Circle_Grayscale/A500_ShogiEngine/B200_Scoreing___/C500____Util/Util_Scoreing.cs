@@ -9,6 +9,8 @@ using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C510____HyokakansuColl;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
 using System;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
@@ -176,7 +178,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
 
         public static void Update_Branch(
             float alphabeta_bestScore,
-            KifuNode node_yomi_mutable // スコアを覚えるのに使っている。
+            Node node_yomi_mutable // スコアを覚えるのに使っている。
             )
         {
             // FIXME: 点数（評価明細）を上書きしているような。

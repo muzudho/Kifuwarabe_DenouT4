@@ -3,6 +3,8 @@ using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___240_Shogisasi;
 using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___490_Option__;
 using System.Collections.Generic;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C___005_Usi_Loop
 {
@@ -41,7 +43,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C___005_Usi_Loop
         /// <summary>
         /// 棋譜です。
         /// </summary>
-        KifuTree Kifu_AtLoop2 { get; }
+        Tree Kifu_AtLoop2 { get; }
         
         /// <summary>
         /// 「go ponder」の属性一覧です。

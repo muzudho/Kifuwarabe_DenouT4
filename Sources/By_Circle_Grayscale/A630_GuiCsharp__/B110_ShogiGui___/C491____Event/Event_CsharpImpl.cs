@@ -20,6 +20,8 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
 {
@@ -350,7 +352,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
 
                     if (Busstop.Empty != koma)
                     {
-                        KifuNode modifyNode = new KifuNodeImpl(
+                        Node modifyNode = new NodeImpl(
                             mainGui3.Link_Server.KifuTree.CurNode.Key,//現在の局面を流用
                             new SkyImpl(mainGui3.SkyWrapper_Gui.GuiSky)
                         );
@@ -519,12 +521,12 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     false
                     );// 選択している駒の元の場所と、移動先
 
-                KifuNode newNode;
+                Node newNode;
                 {
                     //
                     // 成ったので、指し手データ差替え。
                     //
-                    newNode = new KifuNodeImpl(
+                    newNode = new NodeImpl(
                         move,
                         new SkyImpl(mainGui.SkyWrapper_Gui.GuiSky)
                     );
@@ -538,7 +540,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         // 次ノード追加
                         //----------------------------------------
                         mainGui.Link_Server.KifuTree.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.Value), "After_NaruNaranai");
-                        ((KifuNode)mainGui.Link_Server.KifuTree.CurNode).PutTuginoitte_New(newNode);
+                        ((Node)mainGui.Link_Server.KifuTree.CurNode).PutTuginoitte_New(newNode);
                     }
 
                     // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■

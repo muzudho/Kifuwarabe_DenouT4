@@ -29,6 +29,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 #if DEBUG
 using System.Windows.Forms;
@@ -66,7 +68,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
             //kikiZukei.DebugWrite("駒の利きLv1");
 
             // 味方の駒
-            Node<Move, Sky> siteiNode = shogiGui.Link_Server.KifuTree.CurNode;
+            Node siteiNode = shogiGui.Link_Server.KifuTree.CurNode;
 
             //shogiGui.Model_PnlTaikyoku.Kifu.AssertPside(shogiGui.Model_PnlTaikyoku.Kifu.CurNode, "Check_MouseoverKomaKiki",errH);
             SySet<SyElement> mikataZukei = Util_Sky_SyugoQuery.Masus_Now(siteiNode.Value, shogiGui.Link_Server.KifuTree.CurNode.Value.KaisiPside);
@@ -394,7 +396,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     Sky sky_newChild = new SkyImpl(src_GuiSky);
                                                     sky_newChild.SetKaisiPside(Conv_Playerside.Reverse(Playerside.P1));//FIXME:人間が先手でハードコーディング中
                                                     sky_newChild.SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//1手進ませる。
-                                                    Node<Move, Sky> newNode = new KifuNodeImpl(
+                                                    Node newNode = new NodeImpl(
                                                         move,
                                                         new SkyImpl(sky_newChild)
                                                     );
@@ -404,13 +406,13 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     //    "デバッグ");
 
                                                     //マウスの左ボタンを放したときです。
-                                                    if (!((KifuNode)mainGui.Link_Server.KifuTree.CurNode).HasTuginoitte(newNode.Key))
+                                                    if (!((Node)mainGui.Link_Server.KifuTree.CurNode).HasTuginoitte(newNode.Key))
                                                     {
                                                         //----------------------------------------
                                                         // 次ノード追加
                                                         //----------------------------------------
                                                         mainGui.Link_Server.KifuTree.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.Value), "TimedB.Step(1)");
-                                                        ((KifuNode)mainGui.Link_Server.KifuTree.CurNode).PutTuginoitte_New(newNode);
+                                                        ((Node)mainGui.Link_Server.KifuTree.CurNode).PutTuginoitte_New(newNode);
                                                     }
 
                                                     string jsaFugoStr;
@@ -484,7 +486,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                 case MouseEventStateName.MouseLeftButtonUp:
                                     {
                                         #region マウス左ボタンアップ
-                                        Node<Move, Sky> siteiNode = mainGui.Link_Server.KifuTree.CurNode;
+                                        Node siteiNode = mainGui.Link_Server.KifuTree.CurNode;
                                         Sky src_GuiSky = mainGui.SkyWrapper_Gui.GuiSky;
 
 
@@ -537,8 +539,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                             );// 選択している駒の元の場所と、移動先
 
                                                         // 駒を置いたので、次のノードを準備しておく☆？
-                                                        Node<Move, Sky> newNode =
-                                                            new KifuNodeImpl(
+                                                        Node newNode =
+                                                            new NodeImpl(
                                                                 move,
                                                                 new SkyImpl(src_GuiSky)
                                                             );
@@ -551,7 +553,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                             // 次ノード追加
                                                             //----------------------------------------
                                                             mainGui.Link_Server.KifuTree.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.Value), "TimedB.Step(2)");
-                                                            ((KifuNode)mainGui.Link_Server.KifuTree.CurNode).PutTuginoitte_New(newNode);
+                                                            mainGui.Link_Server.KifuTree.CurNode.PutTuginoitte_New(newNode);
                                                         }
 
                                                         string jsaFugoStr;

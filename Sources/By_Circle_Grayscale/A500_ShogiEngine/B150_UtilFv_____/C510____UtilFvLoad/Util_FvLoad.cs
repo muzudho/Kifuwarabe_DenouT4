@@ -15,6 +15,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad
 {
@@ -34,13 +36,13 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad
         /// <summary>
         /// 棋譜ツリーを、平手初期局面 で準備します。
         /// </summary>
-        public static void CreateKifuTree(out KifuTree kifu)
+        public static void CreateKifuTree(out Tree kifu)
         {
             
 
             // 棋譜
-            kifu = new KifuTreeImpl(
-                    new KifuNodeImpl(
+            kifu = new TreeImpl(
+                    new NodeImpl(
                         Conv_Move.GetErrorMove(),
                         new SkyImpl(Util_SkyCreator.New_Hirate())
                     )

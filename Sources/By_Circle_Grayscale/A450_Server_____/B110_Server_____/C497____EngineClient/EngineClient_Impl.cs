@@ -10,6 +10,8 @@ using Grayscale.A450_Server_____.B110_Server_____.C___497_EngineClient;
 using Grayscale.A450_Server_____.B110_Server_____.C496____EngineWrapper;
 using System;
 using System.Diagnostics;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
 {
@@ -141,7 +143,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
         /// 手番が替わったときの挙動を、ここに書きます。
         /// ************************************************************************************************************************
         /// </summary>
-        public void OnChangedTurn(KifuTree kifu, KwLogger errH)
+        public void OnChangedTurn(Tree kifu, KwLogger errH)
         {
             if (!this.ShogiEngineProcessWrapper.IsLive_ShogiEngine())
             {

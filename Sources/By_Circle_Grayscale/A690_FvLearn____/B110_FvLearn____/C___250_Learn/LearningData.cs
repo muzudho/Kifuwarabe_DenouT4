@@ -5,6 +5,8 @@ using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
@@ -20,7 +22,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
     {
         CsaKifu CsaKifu { get; set; }
 
-        KifuTree Kifu { get; set; }
+        Tree Kifu { get; set; }
 
         /// <summary>
         /// フィーチャー・ベクター。
@@ -70,7 +72,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
         /// 評価値を算出します。
         /// </summary>
         void DoScoreing_ForLearning(
-            KifuNode node
+            Sky position
 #if DEBUG || LEARN
 ,
             out KyHyokaMeisai_Koumoku komawariMeisai,

@@ -13,6 +13,8 @@ using Grayscale.A210_KnowNingen_.B550_JsaFugo____.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System.Text;
 using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A210_KnowNingen_.B550_JsaFugo____.C500____Util
 {
@@ -111,7 +113,7 @@ namespace Grayscale.A210_KnowNingen_.B550_JsaFugo____.C500____Util
         /// <returns></returns>
         public static string ToString_UseDou(
             JsaFugoImpl jsaFugo,
-            Node<Move, Sky> siteiNode
+            Node siteiNode
             )
         {
             StringBuilder sb = new StringBuilder();

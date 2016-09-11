@@ -6,6 +6,8 @@ using System;
 using System.Runtime.CompilerServices;
 using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 {
@@ -35,7 +37,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
         /// <returns></returns>
         public string Execute_Step(
             ref KifuParserA_Result result,
-            KifuTree kifu1,
+            Tree kifu1,
             KifuParserA_Genjo genjo,
             KwLogger errH
             ,
@@ -76,7 +78,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
         /// <param name="larabeLogger"></param>
         public void Execute_All(
             ref KifuParserA_Result result,
-            KifuTree kifu1,
+            Tree kifu1,
             KifuParserA_Genjo genjo,
             KwLogger errH
             ,

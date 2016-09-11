@@ -19,6 +19,8 @@ using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 #if DEBUG
 using System;
@@ -60,7 +62,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
         /// </summary>
         public static void A_Write_KifuTreeLog(
             KaisetuBoards logF_kiki,
-            KifuTree kifu,
+            Tree kifu,
             KwLogger errH
             )
         {
@@ -95,14 +97,14 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
                 // カレントノードまでの符号を使って、フォルダーパスを作成。
                 //----------------------------------------
                 StringBuilder sb_folder = new StringBuilder();
-                kifu.ForeachHonpu(kifu.CurNode, (int temezumi2, Sky kWrap, Node<Move, Sky> node, ref bool toBreak) =>
+                kifu.ForeachHonpu(kifu.CurNode, (int temezumi2, Sky kWrap, Node node, ref bool toBreak) =>
                 {
                     sb_folder.Append(Conv_Move.ToSfen_ForFilename(node.Key) + "/");
                 });
                 //sb_folder.Append( Conv_SasiteStr_Sfen.ToSasiteStr_Sfen_ForFilename(kifu.CurNode.Key) + "/");
 
                 string sasiteText1 = Conv_Move.ToSfen(kifu.CurNode.Key);
-                KifuNode kifuNode1 = (KifuNode)kifu.CurNode;
+                Node kifuNode1 = kifu.CurNode;
 
                 // 評価明細のログ出力。
                 Util_KifuTreeLogWriter.AA_Write_ForeachLeafs_ForDebug(
@@ -157,8 +159,8 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
         public static void AA_Write_ForeachLeafs_ForDebug(
             ref int logFileCounter,
             string nodePath,
-            KifuNode node,
-            KifuTree kifu,
+            Node node,
+            Tree kifu,
             string relFolder,
             KyokumenPngEnvironment reportEnvironment,
             KwLogger errH
@@ -172,17 +174,17 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
 
                 int logFileCounter_temp = logFileCounter;
                 // 先に奥の枝から。
-                node.Foreach_ChildNodes((Move key, Node<Move, Sky> nextNode, ref bool toBreak) =>
+                node.Foreach_ChildNodes((Move move, Node nextNode, ref bool toBreak) =>
                 {
-                    float score = ((KifuNode)nextNode).MoveEx.Score;
+                    float score = nextNode.MoveEx.Score;
 
                     // 再帰
                     Util_KifuTreeLogWriter.AA_Write_ForeachLeafs_ForDebug(
                         ref logFileCounter_temp,
-                        nodePath + " " + Conv_Move.ToSfen_ForFilename(nextNode.Key),
-                        (KifuNode)nextNode,
+                        nodePath + " " + Conv_Move.ToSfen_ForFilename(move),
+                        nextNode,
                         kifu,
-                        relFolder + ((int)score).ToString() + "点_" + Conv_Move.ToSfen(nextNode.Key) + "/",
+                        relFolder + ((int)score).ToString() + "点_" + Conv_Move.ToSfen(move) + "/",
                         reportEnvironment,
                         errH
                         );
@@ -213,7 +215,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
             string nodePath,
             MoveEx moveEx,
             Sky sky,
-            KifuTree kifu,
+            Tree kifu,
             string relFolder,
             KyokumenPngEnvironment reportEnvironment,
             KwLogger errH

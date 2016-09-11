@@ -11,6 +11,8 @@ using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
 {
@@ -27,13 +29,13 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
         /// <param name="kifu"></param>
         /// <param name="pside_genTeban"></param>
         /// <returns>次の局面一覧を持った、入れ物ノード（ハブ・ノード）</returns>
-        public static KifuNode ToNextNodes_AsHubNode(
+        public static Node ToNextNodes_AsHubNode(
             Maps_OneAndMulti<Finger,Move> komabetuAllMoves,
             Sky src_Sky,
             KwLogger errH
             )
         {
-            KifuNode hubNode = new KifuNodeImpl(
+            Node hubNode = new NodeImpl(
                 Conv_Move.GetErrorMove(),
                 null);//蝶番
 
@@ -58,7 +60,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
 
                         // 指したあとの次の局面を作るだけ☆
                         hubNode.PutAdd_ChildNode(move,
-                            new KifuNodeImpl(
+                            new NodeImpl(
                                 move,
                                 new SkyImpl(
                             Util_IttesasuSuperRoutine.DoMove_Super(

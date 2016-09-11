@@ -70,7 +70,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                     errH.AppendLine("----------------------------------------");
                     errH.Flush(LogTypes.Plain);
 #endif
-                    Node<Move, Sky> nextNode = uc_Main.LearningData.Kifu.CurNode.GetChildNode(move1);
+                    Node nextNode = uc_Main.LearningData.Kifu.CurNode.GetChildNode(move1);
 
                     // 盤上の駒、持駒を数えます。
                     N54List nextNode_n54List = Util_54List.Calc_54List(nextNode.Value, errH);
@@ -194,7 +194,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             KyHyokaMeisai_Koumoku ppMeisai;
 #endif
             uc_Main.LearningData.DoScoreing_ForLearning(
-                (KifuNode)uc_Main.LearningData.Kifu.CurNode
+                uc_Main.LearningData.Kifu.CurNode.Value
 #if DEBUG || LEARN
                 ,
                 out komawariMeisai,
@@ -335,7 +335,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             Uc_Main uc_Main, KwLogger errH)
         {
             {
-                KifuTree kifu_newHirate;
+                Tree kifu_newHirate;
                 Util_FvLoad.CreateKifuTree(out kifu_newHirate);
                 uc_Main.LearningData.Kifu = kifu_newHirate;
             }

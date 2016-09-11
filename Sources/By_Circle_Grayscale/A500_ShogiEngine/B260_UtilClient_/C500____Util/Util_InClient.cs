@@ -9,6 +9,8 @@ using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 #if DEBUG
 using Grayscale.A060_Application.B110_Log________.C___500_Struct;
@@ -28,7 +30,7 @@ namespace Grayscale.A500_ShogiEngine.B260_UtilClient_.C500____Util
         /// <param name="startposImporter"></param>
         /// <param name="logTag"></param>
         public static void OnChangeSky_Im_Client(
-            KifuTree kifu1,
+            Tree kifu1,
             KifuParserA_Genjo genjo,
             KwLogger errH
             )

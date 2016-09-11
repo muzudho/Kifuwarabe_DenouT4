@@ -3,6 +3,8 @@ using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using System.Collections.Generic;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
 {
@@ -12,16 +14,16 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
         /// <summary>
         /// 変換『「指し手→局面」のコレクション』→『「「指し手→局面」のリスト』
         /// </summary>
-        public static List<KifuNode> ToList(
-            Node<Move, Sky> hubNode
+        public static List<Node> ToList(
+            Node hubNode
             )
         {
-            List<KifuNode> list = new List<KifuNode>();
+            List<Node> list = new List<Node>();
 
             // TODO:
-            hubNode.Foreach_ChildNodes((Move key, Node<Move, Sky> node, ref bool toBreak) =>
+            hubNode.Foreach_ChildNodes((Move key, Node node, ref bool toBreak) =>
             {
-                list.Add((KifuNode)node);
+                list.Add((Node)node);
             });
 
             return list;

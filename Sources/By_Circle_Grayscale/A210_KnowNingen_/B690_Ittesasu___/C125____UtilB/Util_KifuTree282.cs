@@ -9,6 +9,8 @@ using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
 {
@@ -25,7 +27,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
         /// 本譜を残して、カレントノードより以前の変化は　ツリーから削除します。
         /// </summary>
         public static int IzennoHenkaCutter(
-            KifuTree kifu_mutable,
+            Tree kifu_mutable,
             KwLogger errH
             )
         {
@@ -52,7 +54,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //----------------------------------------
             // １手前の分岐点
             //----------------------------------------
-            Node<Move, Sky> parentNode = kifu_mutable.CurNode.GetParentNode();
+            Node parentNode = kifu_mutable.CurNode.GetParentNode();
 
             //----------------------------------------
             // 選ばなかった変化を、ここに入れます。
@@ -62,9 +64,9 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //----------------------------------------
             // 選んだ変化と、選ばなかった変化の一覧
             //----------------------------------------
-            parentNode.Foreach_ChildNodes((Move key1, Node<Move, Sky> nextNode1, ref bool toBreak1) =>
+            parentNode.Foreach_ChildNodes((Move move2, Node nextNode2, ref bool toBreak2) =>
             {
-                if (key1 == move1)
+                if (move2 == move1)
                 {
                     //----------------------------------------
                     // 本譜の手はスキップ
@@ -80,7 +82,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
                 //----------------------------------------
                 // 選ばなかった変化をピックアップ
                 //----------------------------------------
-                removeeList.Add(key1);
+                removeeList.Add(move2);
 
             gt_Next1:
                 ;
@@ -107,21 +109,21 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
         /// </summary>
         /// <param name="nextNode_and_nextCurrent"></param>
         public static void AppendChild_And_ChangeCurrentToChild(
-            KifuTree kifuRef,
-            KifuNode nextNode_and_nextCurrent,
+            Tree kifuRef,
+            Node nextNode_and_nextCurrent,
             string hint,
             KwLogger errH
             )
         {
             Move move1 = nextNode_and_nextCurrent.Key;
 
-            if (!((KifuNode)kifuRef.CurNode).HasTuginoitte(move1))
+            if (!kifuRef.CurNode.HasTuginoitte(move1))
             {
                 //----------------------------------------
                 // 次ノート追加
                 //----------------------------------------
                 kifuRef.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(nextNode_and_nextCurrent.Value), hint+"/AppendChild_And_ChangeCurrentToChild");
-                ((KifuNode)kifuRef.CurNode).PutTuginoitte_New(nextNode_and_nextCurrent);
+                kifuRef.CurNode.PutTuginoitte_New(nextNode_and_nextCurrent);
             }
 
             kifuRef.SetCurNode( nextNode_and_nextCurrent);//次ノードを、これからのカレントとします。
@@ -133,7 +135,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
         /// [ここから採譜]機能
         /// ************************************************************************************************************************
         /// </summary>
-        public static void SetStartpos_KokokaraSaifu(KifuTree kifu, Playerside pside, KwLogger errH)
+        public static void SetStartpos_KokokaraSaifu(Tree kifu, Playerside pside, KwLogger errH)
         {
 
             //------------------------------------------------------------

@@ -1,8 +1,7 @@
 ﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
-using System.Collections.Generic;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using System.Collections.Generic;
 
 namespace Grayscale.A210_KnowNingen_.B820_KyokuParser.C___500_Parser
 {
@@ -16,7 +15,7 @@ namespace Grayscale.A210_KnowNingen_.B820_KyokuParser.C___500_Parser
         /// <summary>
         /// 棋譜ノード。
         /// </summary>
-        KifuNode KifuNode { get; set; }
+        Node KifuNode { get; set; }
 
         /// <summary>
         /// 持ち駒リスト。

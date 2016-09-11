@@ -174,10 +174,11 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
             //
             // 合法手一覧
             //
-            uc_Main.LearningData.Kifu.CurNode.Foreach_ChildNodes((Move key, Node<Move, Sky> node, ref bool toBreak) =>
+            uc_Main.LearningData.Kifu.CurNode.Foreach_ChildNodes(
+                (Move move, Node node, ref bool toBreak) =>
             {
                 // 本譜手はまだ計算しない。
-                if (key == move1)
+                if (move == move1)
                 {
                     goto gt_NextLoop1;
                 }

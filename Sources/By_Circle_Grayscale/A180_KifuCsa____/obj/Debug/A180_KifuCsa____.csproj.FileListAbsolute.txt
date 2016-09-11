@@ -7,3 +7,4 @@ E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A180_KifuC
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A180_KifuCsa____\obj\Debug\A180_KifuCsa____.csproj.GenerateResource.Cache
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A180_KifuCsa____\obj\Debug\Grayscale.A180_KifuCsa____.exe
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A180_KifuCsa____\obj\Debug\Grayscale.A180_KifuCsa____.pdb
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A180_KifuCsa____\obj\Debug\A180_KifuCsa____.csprojResolveAssemblyReference.cache

@@ -10,6 +10,8 @@ using Grayscale.A450_Server_____.B110_Server_____.C___498_Server;
 using Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A450_Server_____.B110_Server_____.C498____Server
 {
@@ -20,12 +22,12 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C498____Server
     {
         #region プロパティ
 
-        public KifuTree KifuTree { get { return this.m_kifuTree_; } }
-        public void SetKifuTree(KifuTree kifu1)
+        public Tree KifuTree { get { return this.m_kifuTree_; } }
+        public void SetKifuTree(Tree kifu1)
         {
             this.m_kifuTree_ = kifu1;
         }
-        private KifuTree m_kifuTree_;
+        private Tree m_kifuTree_;
 
 
         /// <summary>
@@ -63,8 +65,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C498____Server
             //----------
             // モデル
             //----------
-            this.m_kifuTree_ = new KifuTreeImpl(
-                    new KifuNodeImpl(
+            this.m_kifuTree_ = new TreeImpl(
+                    new NodeImpl(
                         Conv_Move.GetErrorMove(),
                         new SkyImpl(src_Sky)
                     )

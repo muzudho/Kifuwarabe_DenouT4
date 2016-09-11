@@ -2,6 +2,8 @@
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A450_Server_____.B110_Server_____.C___125_Receiver;
 using Grayscale.A450_Server_____.B110_Server_____.C___496_EngineWrapper;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A450_Server_____.B110_Server_____.C___497_EngineClient
 {
@@ -33,7 +35,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C___497_EngineClient
         /// </summary>
         /// <param name="kifu"></param>
         /// <param name="errH"></param>
-        void OnChangedTurn(KifuTree kifu, KwLogger errH);
+        void OnChangedTurn(Tree kifu, KwLogger errH);
 
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
