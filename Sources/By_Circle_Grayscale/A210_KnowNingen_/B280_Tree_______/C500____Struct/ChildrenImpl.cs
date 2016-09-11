@@ -37,6 +37,10 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             return this.Items.ContainsKey(key);
         }
 
+        public Node GetFirst()
+        {
+            return this.Items[0];
+        }
         public Node GetChildNode(Move key)
         {
             return this.Items[key];

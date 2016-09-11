@@ -5,22 +5,16 @@ using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
 using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C___500_Struct;
 using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500____Struct;
 using Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C500____UtilWriter;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 #if DEBUG
 using System;
@@ -284,124 +278,11 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
                         );
                     logFileCounter++;
                 }
-
-                //
-                // 評価明細
-                //
-                {
-                    Util_KifuTreeLogWriter.AAAA_Write_HyokaMeisai(fileName,
-                        moveEx,
-                        sky,
-                        relFolder, reportEnvironment);
-                }
             }
             catch (System.Exception ex)
             {
                 errH.DonimoNaranAkirameta(ex, "盤１個分のログを出力しようとしていたときです。\n fileName=[" + fileName + "]\n relFolder=[" + relFolder + "]"); throw ex;
             }
         }
-
-
-        /// <summary>
-        /// 評価明細の書き出し。
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="node"></param>
-        /// <param name="relFolder"></param>
-        /// <param name="env"></param>
-        public static void AAAA_Write_HyokaMeisai(
-            string id,
-            MoveEx moveEx,
-            Sky sky,
-            string relFolder,
-            KyokumenPngEnvironment env
-            )
-        {
-
-            StringBuilder sb = new StringBuilder();
-
-            // 見出し
-            sb.Append(id);
-            sb.Append("    ");
-            sb.Append(((int)moveEx.Score).ToString());
-            sb.Append("    ");
-            switch (sky.KaisiPside)
-            {
-                case Playerside.P1: sb.Append("P2が指し終えた局面。手番P1"); break;
-                case Playerside.P2: sb.Append("P1が指し終えた局面。手番P2"); break;
-                case Playerside.Empty: sb.Append("手番Empty"); break;
-            }
-            sb.AppendLine();
-
-            foreach (KeyValuePair<string, KyHyokaMeisai_Koumoku> entry in moveEx.KyHyokaSheet_Mutable.Items)
-            {
-                KyHyokaMeisai_Koumoku koumoku = ((KyHyokaMeisai_Koumoku)entry.Value);
-
-                sb.Append("    ");
-
-                sb.Append(entry.Key);//項目名
-                sb.Append("  ");
-                sb.Append(koumoku.UtiwakeValue);//評価値
-                sb.Append("  ");
-
-                sb.Append(koumoku.Utiwake);//内訳
-                sb.AppendLine();
-            }
-            sb.AppendLine();
-
-            ////------------------------------
-            //// TODO: 局面ハッシュ
-            ////------------------------------
-            //sb.Append("hash:");
-            //sb.AppendLine(Conv_Sky.ToKyokumenHash(node.Value.ToKyokumenConst).ToString());
-            //sb.AppendLine();
-
-            File.AppendAllText(env.OutFolder + relFolder + "/_log_評価明細.txt", sb.ToString());
-        }
-
-
-
-
-
-
-
-
-
-//        /// <summary>
-//        /// 評価明細ログの書出し
-//        /// </summary>
-//        private static void B_Write_Html5(
-//            //Shogisasi shogisasi,
-//            KaisetuBoards logF_kiki,
-//            KifuTree kifu,
-//            KwLogger errH
-//            )
-//        {
-//#if DEBUG
-//            try
-//            {
-//                if (0 < logF_kiki.boards.Count)//ﾛｸﾞが残っているなら
-//                {
-//                    bool enableLog = true;// false;
-//                    //
-//                    // ログの書き出し
-//                    //
-//                    Util_GraphicalLog.WriteHtml5(
-//                        enableLog,
-//                        "#評価ログ",
-//                        "[" + Conv_KaisetuBoards.ToJsonStr(logF_kiki) + "]"
-//                    );
-
-//                    // 書き出した分はクリアーします。
-//                    logF_kiki.boards.Clear();
-//                }
-//            }
-//            catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "HTML5ログを出力しようとしたときです。"); throw ex; }
-//#endif
-//        }
-
-
-
-
     }
 }

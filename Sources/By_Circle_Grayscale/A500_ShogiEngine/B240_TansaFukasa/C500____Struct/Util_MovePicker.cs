@@ -13,6 +13,7 @@ using Grayscale.A500_ShogiEngine.B220_Tansaku____.C___500_Tansaku;
 using System;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
@@ -41,36 +42,26 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             Tansaku_Genjo genjo,
             
             Move move_ForLog,//node_yomi.Key
-            Sky position_Sky,//node_yomi.Value.Kyokumen
+            Sky position1,//node_yomi.Value.Kyokumen
                              //KifuNode node_yomi,//改造前
 
             out List<Move> out_movelist,
             ref int searchedMaxDepth,
             out int out_yomiDeep,
-            out float out_a_childrenBest,
             KwLogger errH
             )
         {
             out_movelist = Util_MovePicker.WAAAA_Create_ChildNodes(
                 genjo,
-                position_Sky,
+                position1,
                 move_ForLog,//ログ用
                 errH);
 
-            out_yomiDeep = position_Sky.Temezumi - genjo.YomikaisiTemezumi + 1;
+            out_yomiDeep = position1.Temezumi - genjo.YomikaisiTemezumi + 1;
             if (searchedMaxDepth < out_yomiDeep - 1)//これから探索する分をマイナス1しているんだぜ☆（＾～＾）
             {
                 searchedMaxDepth = out_yomiDeep - 1;
             }
-
-
-            //--------------------------------------------------------------------------------
-            // ↓↓↓↓アルファベータ法の準備
-            //--------------------------------------------------------------------------------
-            out_a_childrenBest = Util_Scoreing.Initial_BestScore(position_Sky);// プレイヤー1ならmax値、プレイヤー2ならmin値。
-            //--------------------------------------------------------------------------------
-            // ↑↑↑↑アルファベータ法の準備
-            //--------------------------------------------------------------------------------
         }
 
 

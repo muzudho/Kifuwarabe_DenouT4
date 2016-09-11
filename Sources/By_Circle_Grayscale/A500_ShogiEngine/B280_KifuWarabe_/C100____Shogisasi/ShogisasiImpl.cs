@@ -15,6 +15,9 @@ using Grayscale.A500_ShogiEngine.B210_timeMan____.C500____struct__;
 using Grayscale.A500_ShogiEngine.B240_TansaFukasa.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct;
 using System;
+using Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
@@ -98,19 +101,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
 #endif
                 );
 
-            float alphabeta_otherBranchDecidedValue;
-            switch (kifu1.CurNode.GetValue().KaisiPside)
-            {
-                case Playerside.P1:
-                    // 2プレイヤーはまだ、小さな数を見つけていないという設定。
-                    alphabeta_otherBranchDecidedValue = float.MaxValue;
-                    break;
-                case Playerside.P2:
-                    // 1プレイヤーはまだ、大きな数を見つけていないという設定。
-                    alphabeta_otherBranchDecidedValue = float.MinValue;
-                    break;
-                default: throw new Exception("探索直前、プレイヤーサイドのエラー");
-            }
+            MoveEx alphabeta_otherBranchDecidedValue = new MoveExImpl(Move.Empty);
+            alphabeta_otherBranchDecidedValue.SetScore(Util_Scoreing.GetWorstScore(kifu1.CurNode.GetValue().KaisiPside));
 
             try
             {
@@ -127,7 +119,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                     kifu1.CurNode.GetValue().Temezumi,
                     kifu1.CurNode,
                     
-                    isHonshogi, Mode_Tansaku.Shogi_ENgine, alphabeta_otherBranchDecidedValue, args, errH);
+                    isHonshogi, Mode_Tansaku.Shogi_ENgine,
+                    alphabeta_otherBranchDecidedValue, args, errH);
             }
             catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "棋譜ツリーを作っていたときです。"); throw ex; }
 

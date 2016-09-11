@@ -8,6 +8,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
     public interface Children
     {
         bool HasChildNode(Move key);
+        Node GetFirst();
         /// <summary>
         /// sfenがキーなのは暫定。
         /// </summary>

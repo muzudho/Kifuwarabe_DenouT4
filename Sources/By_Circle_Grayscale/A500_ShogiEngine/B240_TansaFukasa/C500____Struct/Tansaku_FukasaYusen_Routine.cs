@@ -11,6 +11,7 @@ using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
@@ -207,7 +208,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
 
             bool isHonshogi,
             Mode_Tansaku mode_Tansaku,
-            float alphabeta_otherBranchDecidedValue,
+            MoveEx alphabeta_otherBranchDecidedValue,
             EvaluationArgs args,
             KwLogger errH
             )
@@ -231,7 +232,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                 //
                 List<Move> movelist;
                 int yomiDeep;
-                float a_childrenBest;
+                MoveEx a_bestmoveChildren;
                 Util_MovePicker.CreateMovelist_BeforeLoop(
                     genjo,
 
@@ -241,9 +242,10 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     out movelist,
                     ref searchedMaxDepth,
                     out yomiDeep,
-                    out a_childrenBest,
                     errH
                     );
+                a_bestmoveChildren = new MoveExImpl(Move.Empty);
+                a_bestmoveChildren.SetScore(Util_Scoreing.GetWorstScore(position.KaisiPside));// プレイヤー1ならmax値、プレイヤー2ならmin値。
 
                 if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(yomiDeep, wideCount2, movelist.Count, genjo, args.Shogisasi.TimeManager))
                 {
@@ -261,14 +263,15 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         position,
 
                         args,
-                        out a_childrenBest,
                         errH
                         );
+
+                    a_bestmoveChildren = Util_Scoreing.GetHighScore(moveEx, a_bestmoveChildren, position.KaisiPside);
                 }
                 else
                 {
                     // ここが再帰のスタート地点☆（＾▽＾）
-                    a_childrenBest = Tansaku_FukasaYusen_Routine.WAAA_Yomu_Loop(
+                    a_bestmoveChildren = Tansaku_FukasaYusen_Routine.WAAA_Yomu_Loop(
                         ref searchedMaxDepth,
                         ref searchedNodes,
                         searchedPv,
@@ -500,7 +503,6 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             Sky position,
 
             EvaluationArgs args,
-            out float out_a_childrenBest,
             KwLogger errH
             )
         {
@@ -513,8 +515,6 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                 args,
                 errH
                 );
-            // 局面の評価値。
-            out_a_childrenBest = moveEx.Score;
 
 #if DEBUG_ALPHA_METHOD
                     errH.AppendLine_AddMemo("1. 手(" + node_yomi.Value.ToKyokumenConst.Temezumi + ")読(" + yomiDeep + ") 兄弟最善=[" + a_siblingDecidedValue + "] 子ベスト=[" + a_childrenBest + "]");
@@ -557,12 +557,12 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         /// <param name="args"></param>
         /// <param name="errH"></param>
         /// <returns>子の中で最善の点</returns>
-        private static float WAAA_Yomu_Loop(
+        private static MoveEx WAAA_Yomu_Loop(
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
             string[] searchedPv,
             Tansaku_Genjo genjo,
-            float a_parentsiblingDecidedValue,
+            MoveEx a_parentsiblingDecidedValue,
 
             Move move1,//改造後
             Sky position1,//改造後
@@ -574,7 +574,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             )
         {
             int exceptionArea = 0;
-            float a_childrenBest;
+            MoveEx a_childrenBest;
 
             try
             {
@@ -600,15 +600,18 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     out movelist2,
                     ref searchedMaxDepth,
                     out yomiDeep2,
-                    out a_childrenBest,
                     errH
                     );
+                a_childrenBest = new MoveExImpl(Move.Empty);
+                a_childrenBest.SetScore(Util_Scoreing.GetWorstScore(position1.KaisiPside));// プレイヤー1ならmax値、プレイヤー2ならmin値。
 
                 exceptionArea = 2000;
 
                 int wideCount1 = 0;
                 foreach (Move childMove2 in movelist2)//次に読む手
                 {
+                    MoveEx childMoveEx2 = new MoveExImpl(childMove2);
+
                     if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(
                         yomiDeep2,
                         wideCount1,
@@ -630,9 +633,9 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                             position1,//改造前
 
                             args,
-                            out a_childrenBest,
                             errH
                             );
+                        a_childrenBest = Util_Scoreing.GetHighScore(node_yomi_KAIZOMAE.MoveEx, a_childrenBest, position1.KaisiPside);
 
                         wideCount1++;
                         break;
@@ -677,14 +680,51 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                                 );
 
 
-                            exceptionArea = 4400;
-
+                            exceptionArea = 44011;
+                            //*
+                            if (node_yomi_KAIZOMAE.Children1.Count<1)
+                            {
+                                // １件もなければ、そのまま追加☆（＾～＾）
+                                node_yomi_KAIZOMAE.Children1.AddItem(
+                                    childMove2,
+                                    childNode2_KAIZOMAE,
+                                    node_yomi_KAIZOMAE
+                                    );
+                            }
+                            else
+                            {
+                                /*
+                                // ２件以上あるなら、
+                                // 適当に先頭の１個を取り出して、比較してハイスコアの方だけにするぜ☆（＾～＾）
+                                a_childrenBest = Util_Scoreing.GetHighScore(
+                                    node_yomi_KAIZOMAE.Children1.GetFirst().MoveEx,
+                                    childMoveEx2,
+                                    position1.KaisiPside
+                                    );
+                                    */
+                                //node_yomi_KAIZOMAE.Children1.ClearAll();
+                                /*
+                                node_yomi_KAIZOMAE.Children1.AddItem(
+                                    a_childrenBest.Move,
+                                    new NodeImpl(a_childrenBest.Move,null),
+                                    node_yomi_KAIZOMAE
+                                    );
+                                */
+                                node_yomi_KAIZOMAE.Children1.AddItem(
+                                    childMove2,
+                                    childNode2_KAIZOMAE,
+                                    node_yomi_KAIZOMAE
+                                    );
+                            }
+                            //*/
+                            /*
                             // TODO: ここで記憶☆（＾～＾）これを止めたいんだぜ☆（＾～＾）？
                             node_yomi_KAIZOMAE.Children1.AddItem(
                                 childMove2, childNode2_KAIZOMAE, node_yomi_KAIZOMAE);
+                            //*/
 
 
-                            exceptionArea = 4500;
+                            exceptionArea = 45099;
                         }
                         catch (Exception ex)
                         {
@@ -713,7 +753,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
 
                         // これを呼び出す回数を減らすのが、アルファ法。
                         // 枝か、葉か、確定させにいきます。
-                        float a_myScore = Tansaku_FukasaYusen_Routine.WAAA_Yomu_Loop(
+                        MoveEx a_myScore = Tansaku_FukasaYusen_Routine.WAAA_Yomu_Loop(
                             ref searchedMaxDepth,
                             ref searchedNodes,
                             searchedPv,
@@ -727,14 +767,6 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                             movelist2.Count,
                             args,
                             errH);
-
-                        exceptionArea = 6000;
-
-                        Util_Scoreing.Update_Branch(
-                            a_myScore,//a_childrenBest,
-                            node_yomi_KAIZOMAE//mutable: スコアを覚えるのに使っている。
-                            );
-
 
                         exceptionArea = 7000;
 
@@ -754,10 +786,10 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         Util_Scoreing.Update_BestScore_And_Check_AlphaCut(
                             yomiDeep2,// yomiDeep0,
 
-                            position1,
+                            position1.KaisiPside,
 
                             a_parentsiblingDecidedValue,
-                            a_myScore,
+                            a_myScore.Score,
                             ref a_childrenBest,
                             out alpha_cut
                             );

@@ -39,6 +39,8 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
+using Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util;
 
 #if DEBUG
 using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
@@ -332,19 +334,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
                 // 指し手生成ルーチンで、棋譜ツリーを作ります。
                 //
                 bool isHonshogi = true;
-                float alphabeta_otherBranchDecidedValue;
-                switch (this.Kifu.CurNode.GetValue().KaisiPside)
-                {
-                    case Playerside.P1:
-                        // 2プレイヤーはまだ、小さな数を見つけていないという設定。
-                        alphabeta_otherBranchDecidedValue = float.MaxValue;
-                        break;
-                    case Playerside.P2:
-                        // 1プレイヤーはまだ、大きな数を見つけていないという設定。
-                        alphabeta_otherBranchDecidedValue = float.MinValue;
-                        break;
-                    default: throw new Exception("探索直前、プレイヤーサイドのエラー");
-                }
+                MoveEx alphabeta_otherBranchDecidedValue = new MoveExImpl(Move.Empty);
+                alphabeta_otherBranchDecidedValue.SetScore(Util_Scoreing.GetWorstScore(this.Kifu.CurNode.GetValue().KaisiPside));
 
 
                 MoveEx bestNode = Tansaku_FukasaYusen_Routine.WAA_Yomu_Start(

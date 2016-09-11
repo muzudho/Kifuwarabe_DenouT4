@@ -197,10 +197,6 @@
     <Compile Include="B520_SeizaStartp\C500____Struct\StartposImporter.cs" />
     <Compile Include="B600_UtilSky____\C500____Util\Util_Sky307.cs" />
     <Compile Include="B610_NodeWriter_\C500____Writer\NodeWriterImpl.cs" />
-    <Compile Include="B620_KyokumHyoka\C___250_Struct\KyHyokaSheet.cs" />
-    <Compile Include="B620_KyokumHyoka\C___250_Struct\KyHyokaMeisai_Koumoku.cs" />
-    <Compile Include="B620_KyokumHyoka\C250____Struct\KyHyokaMeisai_KoumokuImpl.cs" />
-    <Compile Include="B620_KyokumHyoka\C250____Struct\KyHyokaSheetImpl.cs" />
     <Compile Include="B420_UtilSky258_\C500____UtilSky\Util_Sky_CountQuery.cs" />
     <Compile Include="B690_Ittesasu___\C125____UtilB\Util_KifuTree282.cs" />
     <Compile Include="B640_KifuTree___\C250____Struct\Word_KifuTree.cs" />
