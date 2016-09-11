@@ -36,24 +36,28 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad
         /// <summary>
         /// 棋譜ツリーを、平手初期局面 で準備します。
         /// </summary>
-        public static void CreateKifuTree(out Tree kifu)
+        public static void CreateKifuTree(
+            out Earth out_earth1,
+            out Tree out_kifu1
+            )
         {
-            
+
 
             // 棋譜
-            kifu = new TreeImpl(
+            out_earth1 = new EarthImpl();
+            out_kifu1 = new TreeImpl(
                     new NodeImpl(
                         Conv_Move.GetErrorMove(),
-                        new SkyImpl(Util_SkyCreator.New_Hirate())
+                        Util_SkyCreator.New_Hirate()
                     )
             );
-            kifu.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手
+            out_earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手
 
 
-            kifu.CurNode.Value.AssertFinger((Finger)0);
+            out_kifu1.CurNode.Value.AssertFinger((Finger)0);
             Debug.Assert(!Conv_MasuHandle.OnKomabukuro(
                 Conv_SyElement.ToMasuNumber(
-                    Conv_Busstop.ToMasu(kifu.CurNode.Value.BusstopIndexOf((Finger)0))
+                    Conv_Busstop.ToMasu(out_kifu1.CurNode.Value.BusstopIndexOf((Finger)0))
                     )
                 ), "駒が駒袋にあった。");
         }

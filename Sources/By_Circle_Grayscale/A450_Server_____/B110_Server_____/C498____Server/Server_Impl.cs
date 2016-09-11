@@ -35,7 +35,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C498____Server
                         new SkyImpl(src_Sky)
                     )
             );
-            this.KifuTree.SetProperty(Word_KifuTree.PropName_Startpos, "9/9/9/9/9/9/9/9/9");
+            this.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "9/9/9/9/9/9/9/9/9");
 
             this.inputString99 = "";
         }

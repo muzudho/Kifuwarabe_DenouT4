@@ -109,10 +109,10 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C125____Receiver
                                 this.Owner_AimsServer.SetKifuTree(new TreeImpl(
                                         new NodeImpl(
                                             Conv_Move.GetErrorMove(),
-                                            new SkyImpl(Util_SkyCreator.New_Hirate())
+                                            Util_SkyCreator.New_Hirate()
                                         )
                                 ));
-                                this.Owner_AimsServer.KifuTree.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");
+                                this.Owner_AimsServer.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");
 
 
                                 ////
@@ -128,12 +128,18 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C125____Receiver
                                 // 将棋エンジンに対して
                                 // 例：「position startpos moves 7g7f」
                                 ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Position(
-                                    Util_KirokuGakari.ToSfen_PositionCommand(this.Owner_AimsServer.KifuTree), errH
+                                    Util_KirokuGakari.ToSfen_PositionCommand(
+                                        this.Owner_AimsServer.Earth,
+                                        this.Owner_AimsServer.KifuTree.CurNode
+                                        ), errH
                                 );
 
                                 // AIMS GUIに対して
                                 // 例：「position startpos moves 7g7f」
-                                Console.Out.WriteLine( Util_KirokuGakari.ToSfen_PositionCommand(this.Owner_AimsServer.KifuTree));
+                                Console.Out.WriteLine( Util_KirokuGakari.ToSfen_PositionCommand(
+                                    this.Owner_AimsServer.Earth,
+                                    this.Owner_AimsServer.KifuTree.CurNode
+                                    ));
 
                                 Console.Out.WriteLine("go");
                             }

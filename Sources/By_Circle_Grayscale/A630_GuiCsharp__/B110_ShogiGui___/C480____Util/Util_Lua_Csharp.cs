@@ -239,7 +239,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
                 newSky.SetTemezumi(0);//空っぽに戻すので、 0手済みに変更。
                 Node newNode = new NodeImpl(
                             Conv_Move.GetErrorMove(),//ルートなので
-                            new SkyImpl(newSky)
+                            newSky
                         );
 
                 string jsaFugoStr;
@@ -250,7 +250,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
                     out jsaFugoStr, errH);
                 repaintRequest.SetFlag_RefreshRequest();
 
-                mainGui.Link_Server.KifuTree.SetProperty(Word_KifuTree.PropName_Startpos, "9/9/9/9/9/9/9/9/9 b K1R1B1G2S2N2L2P9 k1r1b1g2s2n2l2p9 1");
+                mainGui.Link_Server.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "9/9/9/9/9/9/9/9/9 b K1R1B1G2S2N2L2P9 k1r1b1g2s2n2l2p9 1");
             }
         }
 

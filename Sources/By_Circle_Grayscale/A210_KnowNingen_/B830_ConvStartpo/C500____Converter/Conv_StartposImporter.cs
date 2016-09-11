@@ -63,7 +63,7 @@ namespace Grayscale.A210_KnowNingen_.B830_ConvStartpo.C500____Converter
                 newSky.SetTemezumi(startposImporter.RO_SfenStartpos.Temezumi);// FIXME: 将棋所だと常に 1 かも？？
                 parsedKyokumen.KifuNode = new NodeImpl(
                         Conv_Move.GetErrorMove(),//ルートなので
-                        new SkyImpl(newSky)
+                        newSky
                     );
             }
 

@@ -36,11 +36,11 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             mainGui.Link_Server.Earth.Clear();
             mainGui.Link_Server.KifuTree.Clear();// 棋譜を空っぽにします。
 
-            mainGui.Link_Server.KifuTree.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
+            mainGui.Link_Server.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
 
             Node newNode = new NodeImpl(
                                         Conv_Move.GetErrorMove(),//ルートなので
-                                        new SkyImpl(Util_SkyCreator.New_Hirate())//[初期配置]ボタン押下時
+                                        Util_SkyCreator.New_Hirate()//[初期配置]ボタン押下時
                                         );
 
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■

@@ -143,7 +143,10 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
         /// 手番が替わったときの挙動を、ここに書きます。
         /// ************************************************************************************************************************
         /// </summary>
-        public void OnChangedTurn(Tree kifu, KwLogger errH)
+        public void OnChangedTurn(
+            Earth earth1,
+            Node curNode,//Tree kifu1,
+            KwLogger errH)
         {
             if (!this.ShogiEngineProcessWrapper.IsLive_ShogiEngine())
             {
@@ -151,7 +154,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
             }
 
             // FIXME:
-            Playerside pside = kifu.CurNode.Value.KaisiPside;
+            Playerside pside = curNode.Value.KaisiPside;
             switch (pside)
             {
                 case Playerside.P2:
@@ -162,7 +165,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
                     //------------------------------------------------------------
 
                     // 例：「position startpos moves 7g7f」
-                    this.ShogiEngineProcessWrapper.Send_Position(Util_KirokuGakari.ToSfen_PositionCommand(kifu), errH);
+                    this.ShogiEngineProcessWrapper.Send_Position(
+                        Util_KirokuGakari.ToSfen_PositionCommand(earth1,curNode), errH);
 
                     this.ShogiEngineProcessWrapper.Send_Go(errH);
 

@@ -40,7 +40,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
         /// <param name="fugoList"></param>
         public static string ToJsaFugoListString(
             Earth earth1,
-            Tree kifu1,
+            Node curNode,//Tree kifu1,
             string hint,
             KwLogger errH
             )
@@ -49,27 +49,28 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
             sb.Append("position ");
 
-            sb.Append(kifu1.GetProperty(Word_KifuTree.PropName_Startpos));
+            sb.Append(earth1.GetProperty(Word_KifuTree.PropName_Startpos));
             sb.Append(" moves ");
 
             // 採譜用に、新しい対局を用意します。
-            Earth saifuEarth1 = new EarthImpl();
-            Tree saifuKifu;
+            Earth saifuEarth2 = new EarthImpl();
+            Tree saifuKifu2;
             {
                 Move move = Conv_Move.GetErrorMove();
 
-                saifuKifu = new TreeImpl(
+                saifuKifu2 = new TreeImpl(
                         new NodeImpl(
                             move,
-                            new SkyImpl(Util_SkyCreator.New_Hirate())//日本の符号読取時
+                            Util_SkyCreator.New_Hirate()//日本の符号読取時
                         )
                 );
                 earth1.Clear();
-                saifuKifu.Clear();// 棋譜を空っぽにします。
-                saifuKifu.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面 // FIXME:平手とは限らないのでは？
+                saifuKifu2.Clear();// 棋譜を空っぽにします。
+                saifuEarth2.SetProperty(
+                    Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面 // FIXME:平手とは限らないのでは？
             }
 
-            kifu1.ForeachHonpu2(kifu1.CurNode, (int temezumi, Move move, ref bool toBreak) =>
+            Util_Tree.ForeachHonpu2(curNode, (int temezumi, Move move, ref bool toBreak) =>
             {
                 if (0 == temezumi)
                 {
@@ -80,22 +81,22 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                 //------------------------------
                 // 符号の追加（記録係）
                 //------------------------------
-                Sky saifu_kWrap = saifuKifu.CurNode.Value;
+                Sky saifu_Sky = saifuKifu2.CurNode.Value;
 
 
                 // 採譜用新ノード
                 Node saifu_newChild = new NodeImpl(
                     move,
-                    new SkyImpl(saifu_kWrap)
+                    new SkyImpl(saifu_Sky)
                 );
-                saifu_newChild.Value.SetKaisiPside(Conv_Playerside.Reverse(saifu_kWrap.KaisiPside));
+                saifu_newChild.Value.SetKaisiPside(Conv_Playerside.Reverse(saifu_Sky.KaisiPside));
                 saifu_newChild.Value.SetTemezumi(temezumi);
 
 
                 // 記録係り用棋譜（採譜）
                 Util_KifuTree282.AppendChild_And_ChangeCurrentToChild(
-                    saifuEarth1,
-                    saifuKifu,
+                    saifuEarth2,
+                    saifuKifu2,
                     saifu_newChild, hint+"/ToJsaKifuText", errH
                     );// 新しい次ノードを追加。次ノードを、これからカレントとする。
 
@@ -122,17 +123,20 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
         /// 
         /// </summary>
         /// <param name="fugoList"></param>
-        public static string ToSfen_PositionCommand(Tree src_kifu)
+        public static string ToSfen_PositionCommand(
+            Earth earth1,
+            Node curNode //Tree kifu1
+            )
         {
             StringBuilder sb = new StringBuilder();
 
             sb.Append("position ");
-            sb.Append(src_kifu.GetProperty(Word_KifuTree.PropName_Startpos));
+            sb.Append(earth1.GetProperty(Word_KifuTree.PropName_Startpos));
             sb.Append(" moves ");
 
             // 本譜
             int count = 0;
-            src_kifu.ForeachHonpu2(src_kifu.CurNode, (int temezumi, Move move, ref bool toBreak) =>
+            Util_Tree.ForeachHonpu2(curNode, (int temezumi, Move move, ref bool toBreak) =>
             {
                 if (0 == temezumi)
                 {

@@ -127,10 +127,10 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 this.m_kifu_AtLoop2_ = new TreeImpl(
                         new NodeImpl(
                             Conv_Move.GetErrorMove(),
-                            new SkyImpl(Util_SkyCreator.New_Hirate())// きふわらべ起動時
+                            Util_SkyCreator.New_Hirate()// きふわらべ起動時
                         )
                 );
-                this.Kifu_AtLoop2.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
+                this.Earth_AtLoop2.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
 
                 this.Kifu_AtLoop2.CurNode.Value.AssertFinger((Finger)0);
                 Debug.Assert(!Conv_MasuHandle.OnKomabukuro(
@@ -1356,7 +1356,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             StringBuilder sb = new StringBuilder();
             sb.Append("ログだせ～（＾▽＾）");
 
-            this.Kifu_AtLoop2.ForeachZenpuku(
+            Util_Tree.ForeachZenpuku(
                 this.Kifu_AtLoop2.GetRoot(), (int temezumi, Move move, Sky sky, Node node, ref bool toBreak) =>
                 {
                     if (null != node)

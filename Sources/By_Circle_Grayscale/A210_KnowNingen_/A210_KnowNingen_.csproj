@@ -67,6 +67,7 @@
     <Compile Include="B240_Move\C___400_Busstop\n2_BusstopMask.cs" />
     <Compile Include="B240_Move\C___400_Busstop\n3_Busstop.cs" />
     <Compile Include="B280_Tree_______\C500____Struct\EarthImpl.cs" />
+    <Compile Include="B280_Tree_______\C500____Struct\Util_Tree.cs" />
     <Compile Include="B280_Tree_______\C___500_Struct\Earth.cs" />
     <Compile Include="B310_Shogiban___\C250____Struct\ShogibanImpl.cs" />
     <Compile Include="B420_UtilSky258_\C500____UtilSky\Util_Sky_BoolQuery.cs" />

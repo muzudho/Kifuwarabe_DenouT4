@@ -52,6 +52,7 @@ namespace Grayscale.P910_SpeedKeisok
         public Sky Src_Sky { get; set; }
         public FeatureVector FeatureVector { get; set; }
 
+        public Earth Earth { get; set; }
         public Tree Kifu { get; set; }
 
 
@@ -59,9 +60,12 @@ namespace Grayscale.P910_SpeedKeisok
         {
             this.FeatureVector = new FeatureVectorImpl();
             {
-                Tree kifu_newHirate;
-                Util_FvLoad.CreateKifuTree(out kifu_newHirate);
-                this.Kifu = kifu_newHirate;
+                Earth newEarth1;
+                Tree newKifu1_Hirate;
+                Util_FvLoad.CreateKifuTree(out newEarth1, out newKifu1_Hirate);
+
+                this.Earth = newEarth1;
+                this.Kifu = newKifu1_Hirate;
             }
             this.Src_Sky = this.Kifu.CurNode.Value;
             InitializeComponent();

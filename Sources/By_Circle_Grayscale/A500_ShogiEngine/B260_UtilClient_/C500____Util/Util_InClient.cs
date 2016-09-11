@@ -68,7 +68,7 @@ namespace Grayscale.A500_ShogiEngine.B260_UtilClient_.C500____Util
                 // 文字列から、指定局面を作成します。
                 Playerside pside = Playerside.P1;
                 kifu1.GetRoot().Value = Conv_Sfenstring307.ToSkyConst(new SfenstringImpl(old_inputLine), pside);//SFENのstartpos解析時
-                kifu1.SetProperty(Word_KifuTree.PropName_Startpos, old_inputLine);//指定の初期局面
+                earth1.SetProperty(Word_KifuTree.PropName_Startpos, old_inputLine);//指定の初期局面
             }
 
 

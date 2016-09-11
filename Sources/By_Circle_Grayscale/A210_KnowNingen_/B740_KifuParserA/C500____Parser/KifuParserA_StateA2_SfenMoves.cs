@@ -47,7 +47,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
         /// 
         /// </summary>
         /// <param name="result"></param>
-        /// <param name="kifu1"></param>
+        /// <param name="kifu1_notUse"></param>
         /// <param name="nextState"></param>
         /// <param name="owner"></param>
         /// <param name="genjo"></param>
@@ -57,7 +57,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             ref KifuParserA_Result result,
 
             Earth earth1,
-            Tree kifu1,
+            Node curNode,
+            Tree kifu1_notUse,
 
             out KifuParserA_State nextState,
             KifuParserA owner,
@@ -80,8 +81,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     Move nextMove = Conv_StringMove.ToMove(
                         out rest,
                         genjo.InputLine,
-                        kifu1.CurNode.Key,
-                        kifu1.CurNode.Value,
+                        curNode.Key,
+                        curNode.Value,
                         errH
                         );
                     genjo.InputLine = rest;
@@ -118,27 +119,14 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                             Util_IttesasuRoutine.DoMove(
                                 out ittesasuResult,
                                 nextMove,
-                                kifu1.CurNode.Value,
+                                curNode.Value,
                                 errH
                                 );
                             // 棋譜ツリーのカレントを変更します。
                             result.Out_newNode_OrNull = new NodeImpl(ittesasuResult.SyuryoMove, ittesasuResult.SyuryoKyokumenW);
-                            Util_IttesasuRoutine.UpdateKifuTree(
-                                earth1, kifu1, result.Out_newNode_OrNull);
 
                             exceptionArea = 1080;
-                            result.Out_newNode_OrNull = kifu1.CurNode;// ittesasuResult.Get_SyuryoNode_OrNull;
                             //↑↑一手指し
-
-                            //exceptionArea = 1090;
-                            //errH.AppendLine_AddMemo(Util_Sky307.Json_1Sky(
-                            //    src_Sky,
-                            //    "一手指し終了",
-                            //    "SFENパース2",
-                            //    src_Sky.Temezumi//読み進めている現在の手目
-                            //    ));
-
-
                         }
                         catch (Exception ex)
                         {

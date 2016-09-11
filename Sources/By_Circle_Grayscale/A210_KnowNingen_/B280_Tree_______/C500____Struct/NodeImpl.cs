@@ -22,7 +22,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             this.MoveEx = new MoveExImpl(move);
 
             this.SetParentNode(null);
-            this.teSasite = move;
+            this.m_key_ = move;
             this.Value = sky;
             this.NextNodes = new Dictionary<Move, Node>();
         }
@@ -61,10 +61,10 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         {
             get
             {
-                return this.teSasite;
+                return this.m_key_;
             }
         }
-        private Move teSasite;
+        private Move m_key_;
 
         /// <summary>
         /// 次の局面への全ての候補手

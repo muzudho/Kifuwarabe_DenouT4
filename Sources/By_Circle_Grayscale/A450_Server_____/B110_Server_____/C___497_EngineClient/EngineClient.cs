@@ -35,7 +35,9 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C___497_EngineClient
         /// </summary>
         /// <param name="kifu"></param>
         /// <param name="errH"></param>
-        void OnChangedTurn(Tree kifu, KwLogger errH);
+        void OnChangedTurn(Earth earth,
+            Node curNode,//Tree kifu,
+            KwLogger errH);
 
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
@@ -46,11 +48,6 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C___497_EngineClient
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
         void Send_Logdase(KwLogger errH);
-
-        ///// <summary>
-        ///// 将棋エンジンを先手にするために、go を出します。
-        ///// </summary>
-        //void Send_Go(KwLogger errH);
 
     }
 }

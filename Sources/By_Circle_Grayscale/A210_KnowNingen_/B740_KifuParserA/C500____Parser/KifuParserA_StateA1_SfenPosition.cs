@@ -37,6 +37,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             ref KifuParserA_Result result,
 
             Earth earth1,
+            Node curNode_notUse,
             Tree kifu1,
             
             out KifuParserA_State nextState,
@@ -70,7 +71,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                         kifu1.Clear();// 棋譜を空っぽにします。
 
                         kifu1.GetRoot().Value = Util_SkyCreator.New_Hirate();//SFENのstartpos解析時
-                        kifu1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
+                        earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
                     }
 
                     nextState = KifuParserA_StateA1a_SfenStartpos.GetInstance();

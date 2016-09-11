@@ -336,10 +336,15 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             Uc_Main uc_Main, KwLogger errH)
         {
             {
-                Tree kifu_newHirate;
-                Util_FvLoad.CreateKifuTree(out kifu_newHirate);
-                uc_Main.LearningData.Earth = new EarthImpl();
-                uc_Main.LearningData.Kifu = kifu_newHirate;
+                Earth newEarth1;
+                Tree newKifu1_Hirate;
+                Util_FvLoad.CreateKifuTree(
+                    out newEarth1,
+                    out newKifu1_Hirate
+                    );
+
+                uc_Main.LearningData.Earth = newEarth1;
+                uc_Main.LearningData.Kifu = newKifu1_Hirate;
             }
 
             EvaluationArgs args;

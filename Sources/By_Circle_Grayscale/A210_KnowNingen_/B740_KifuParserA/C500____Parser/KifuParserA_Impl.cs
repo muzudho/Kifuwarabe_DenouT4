@@ -1,13 +1,10 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 using System;
 using System.Runtime.CompilerServices;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 {
@@ -61,9 +58,15 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 genjo.InputLine = this.State.Execute(
                     ref result,
                     earth1,
+                    kifu1.CurNode,
                     kifu1,
                     out nextState, this,
                     genjo, errH);
+                if (null!=result.Out_newNode_OrNull)
+                {
+                    Util_IttesasuRoutine.UpdateKifuTree(
+                        earth1, kifu1, result.Out_newNode_OrNull);
+                }
                 this.State = nextState;
 
             }
@@ -116,9 +119,15 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     genjo.InputLine = this.State.Execute(
                         ref result,
                         earth1,
+                        kifu1.CurNode,
                         kifu1,
                         out nextState, this,
                         genjo, errH);
+                    if (null != result.Out_newNode_OrNull)
+                    {
+                        Util_IttesasuRoutine.UpdateKifuTree(
+                            earth1, kifu1, result.Out_newNode_OrNull);
+                    }
                     this.State = nextState;
 
                 gt_NextLoop1:

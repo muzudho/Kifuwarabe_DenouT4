@@ -146,7 +146,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //------------------------------------------------------------
             earth1.Clear();
             kifu1.Clear();
-            kifu1.SetProperty(Word_KifuTree.PropName_Startpos, Conv_KifuNode.ToSfenstring(kifu1.CurNode.Value, pside, errH));
+            earth1.SetProperty(Word_KifuTree.PropName_Startpos, Conv_KifuNode.ToSfenstring(kifu1.CurNode.Value, pside, errH));
         }
 
     }

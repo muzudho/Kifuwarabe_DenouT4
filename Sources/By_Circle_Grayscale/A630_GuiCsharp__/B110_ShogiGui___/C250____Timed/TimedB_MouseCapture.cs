@@ -398,7 +398,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     sky_newChild.SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//1手進ませる。
                                                     Node newNode = new NodeImpl(
                                                         move,
-                                                        new SkyImpl(sky_newChild)
+                                                        sky_newChild
                                                     );
                                                     //MessageBox.Show(
                                                     //    "追加前\n"+

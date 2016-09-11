@@ -16,5 +16,8 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C___070_ServerBase
         /// </summary>
         Tree KifuTree { get; }
         void SetKifuTree(Tree kifu1);
+
+        Earth Earth { get; }
+        //void SetEarth(Earth earth1);
     }
 }
