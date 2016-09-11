@@ -49,7 +49,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
 
                 foreach (Move move in entry1.Value)// 駒の動ける升
                 {
-                    if (hubNode.ContainsKey_ChildNodes(move))
+                    if (hubNode.Children1.ContainsKey(move))
                     {
                         // 既存の指し手なら無視
                         System.Console.WriteLine("既存の指し手なので無視します1。sfenText=[" + Conv_Move.ToSfen(move) + "]");
@@ -59,7 +59,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
                         SyElement dstMasu = Conv_Move.ToDstMasu(move);
 
                         // 指したあとの次の局面を作るだけ☆
-                        hubNode.PutAdd_ChildNode(move,
+                        hubNode.Children1.AddItem(move,
                             new NodeImpl(
                                 move,
                                 new SkyImpl(
@@ -69,7 +69,8 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
                                 dstMasu,//移動先升
                                 false,//成りません。
                                 errH
-                        ))));
+                        ))),
+                            hubNode);
                     }
                 }
             }

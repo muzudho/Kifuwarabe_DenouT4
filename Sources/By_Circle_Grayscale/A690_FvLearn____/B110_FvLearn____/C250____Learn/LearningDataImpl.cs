@@ -303,7 +303,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
 
             // 学習フォーム
             Util_KyokumenPng_Writer.Write1(
-                Conv_KifuNode.ToRO_Kyokumen1(this.Kifu.CurNode.Value, errH),
+                Conv_KifuNode.ToRO_Kyokumen1(this.Kifu.CurNode.GetValue(), errH),
                 srcMasu_orMinusOne,
                 dstMasu_orMinusOne,
                 foodKoma,
@@ -333,7 +333,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
                 //
                 bool isHonshogi = true;
                 float alphabeta_otherBranchDecidedValue;
-                switch (this.Kifu.CurNode.Value.KaisiPside)
+                switch (this.Kifu.CurNode.GetValue().KaisiPside)
                 {
                     case Playerside.P1:
                         // 2プレイヤーはまだ、小さな数を見つけていないという設定。
@@ -347,12 +347,12 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
                 }
 
 
-                new Tansaku_FukasaYusen_Routine().WAA_Yomu_Start(
+                MoveEx bestNode = Tansaku_FukasaYusen_Routine.WAA_Yomu_Start(
                     ref searchedMaxDepth,
                     ref searchedNodes,
                     searchedPv,
 
-                    this.Kifu.CurNode.Value.Temezumi,
+                    this.Kifu.CurNode.GetValue().Temezumi,
                     this.Kifu.CurNode,
                     
                     isHonshogi, Mode_Tansaku.Learning, alphabeta_otherBranchDecidedValue, args, errH);

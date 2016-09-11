@@ -59,20 +59,6 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
 
         
 
-        /// <summary>
-        /// この木の、全てのノード数を数えます。
-        /// </summary>
-        /// <returns></returns>
-        int CountAllNodes();
-
-
-
-
-
-
-
-
-
         /*
         /// <summary>
         /// これから追加する予定のノードの先後を診断します。

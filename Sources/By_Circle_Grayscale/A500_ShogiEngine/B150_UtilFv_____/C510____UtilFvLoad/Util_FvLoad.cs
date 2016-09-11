@@ -54,10 +54,10 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad
             out_earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手
 
 
-            out_kifu1.CurNode.Value.AssertFinger((Finger)0);
+            out_kifu1.CurNode.GetValue().AssertFinger((Finger)0);
             Debug.Assert(!Conv_MasuHandle.OnKomabukuro(
                 Conv_SyElement.ToMasuNumber(
-                    Conv_Busstop.ToMasu(out_kifu1.CurNode.Value.BusstopIndexOf((Finger)0))
+                    Conv_Busstop.ToMasu(out_kifu1.CurNode.GetValue().BusstopIndexOf((Finger)0))
                     )
                 ), "駒が駒袋にあった。");
         }

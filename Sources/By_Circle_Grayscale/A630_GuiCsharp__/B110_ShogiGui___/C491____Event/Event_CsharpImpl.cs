@@ -301,7 +301,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         shogibanGui2.Link_Server.Earth,
                         shogibanGui2.Link_Server.KifuTree,
                         
-                        shogibanGui2.Link_Server.KifuTree.CurNode.Value.KaisiPside, errH2
+                        shogibanGui2.Link_Server.KifuTree.CurNode.GetValue().KaisiPside, errH2
                         );
                     shogibanGui2.RepaintRequest.SyuturyokuRequest = RepaintRequestGedanTxt.Kifu;
                 };
@@ -365,7 +365,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                             mainGui3.Link_Server.KifuTree.CurNode.Key,//現在の局面を流用
                             new SkyImpl(mainGui3.SkyWrapper_Gui.GuiSky)
                         );
-                        modifyNode.Value.AddObjects(
+                        modifyNode.GetValue().AddObjects(
                                 new Finger[] { figKoma }, new Busstop[] {
                                     Conv_Busstop.ToBusstop(
                                         Conv_Playerside.Reverse(Conv_Busstop.ToPlayerside( koma)),//向きを逆さにします。
@@ -539,8 +539,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         move,
                         new SkyImpl(mainGui.SkyWrapper_Gui.GuiSky)
                     );
-                    newNode.Value.SetKaisiPside(Conv_Playerside.Reverse(newNode.Value.KaisiPside));// 先後を反転させます。
-                    newNode.Value.SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//１手進める
+                    newNode.GetValue().SetKaisiPside(Conv_Playerside.Reverse(newNode.GetValue().KaisiPside));// 先後を反転させます。
+                    newNode.GetValue().SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//１手進める
 
 
                     //「成る／成らない」ボタンを押したときです。
@@ -548,8 +548,9 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         //----------------------------------------
                         // 次ノード追加
                         //----------------------------------------
-                        mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.Value), "After_NaruNaranai");
-                        ((Node)mainGui.Link_Server.KifuTree.CurNode).PutTuginoitte_New(newNode);
+                        mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.GetValue()), "After_NaruNaranai");
+                        Node curNode1 = (Node)mainGui.Link_Server.KifuTree.CurNode;
+                        curNode1.Children1.PutTuginoitte_New(newNode, curNode1);
                     }
 
                     // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■

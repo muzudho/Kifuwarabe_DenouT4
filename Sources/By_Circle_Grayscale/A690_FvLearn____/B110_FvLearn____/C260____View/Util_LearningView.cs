@@ -63,7 +63,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             foreach (CsaKifuSasite csaSasite in sasiteList)
             {
                 // 開始局面
-                Sky kaisi_Sky = kifu1.CurNode.Value;
+                Sky kaisi_Sky = kifu1.CurNode.GetValue();
 
                 //
                 // csaSasite を データ指し手 に変換するには？
@@ -140,7 +140,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     Util_IttesasuRoutine.DoMove(
                         out ittesasuResult,
                         nextMove,
-                        kifu1.CurNode.Value,
+                        kifu1.CurNode.GetValue(),
                         errH
                     );
                     Util_IttesasuRoutine.UpdateKifuTree(
@@ -161,7 +161,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 else
                 {
                     // FIXME: 未テスト。
-                    move = Conv_Move.ToMove_ByCsa(csaSasite, kifu1.CurNode.GetParentNode().Value);
+                    move = Conv_Move.ToMove_ByCsa(csaSasite, kifu1.CurNode.GetParentNode().GetValue());
                 }
                 HonpuSasiteListItemImpl listItem = new HonpuSasiteListItemImpl(csaSasite, move);
                 uc_Main.LstSasite.Items.Add(listItem);
@@ -186,13 +186,13 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
         public static void Aa_ShowNode2(LearningData learningData, Uc_Main uc_Main, KwLogger errH)
         {
             // 手目済み
-            uc_Main.TxtTemezumi.Text = learningData.Kifu.CurNode.Value.Temezumi.ToString();
+            uc_Main.TxtTemezumi.Text = learningData.Kifu.CurNode.GetValue().Temezumi.ToString();
 
             // 総ノード数
-            uc_Main.TxtAllNodesCount.Text = learningData.Kifu.CountAllNodes().ToString();
+            uc_Main.TxtAllNodesCount.Text = "--";// FIXME: 一旦削除
 
             // 合法手の数
-            uc_Main.TxtGohosyuTe.Text = learningData.Kifu.CurNode.Count_ChildNodes.ToString();
+            uc_Main.TxtGohosyuTe.Text = learningData.Kifu.CurNode.Children1.Count.ToString();
         }
 
         /// <summary>
@@ -214,7 +214,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 List<GohosyuListItem> list = new List<GohosyuListItem>();
                 //uc_Main.LstGohosyu.Items.Clear();
                 int itemNumber = 0;
-                learningData.Kifu.CurNode.Foreach_ChildNodes(
+                learningData.Kifu.CurNode.Children1.Foreach_ChildNodes(
                     (Move key, Node node, ref bool toBreak) =>
                 {
 #if DEBUG || LEARN
@@ -223,7 +223,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
 #endif
 
                     learningData.DoScoreing_ForLearning(
-                        node.Value
+                        node.GetValue()
 #if DEBUG || LEARN
 ,
                         out komawariMeisai,
@@ -273,7 +273,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
  0;
 #endif
 
-                    switch (learningData.Kifu.CurNode.Value.KaisiPside)
+                    switch (learningData.Kifu.CurNode.GetValue().KaisiPside)
                     {
                         case Playerside.P1: result = bScore - aScore; break;
                         case Playerside.P2: result = aScore - bScore; break;
@@ -339,9 +339,9 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             //
             Move nextMove;
             {
-                if (learningData.Kifu.CurNode.HasChildNode(move))
+                if (learningData.Kifu.CurNode.Children1.HasChildNode(move))
                 {
-                    Node nextNode = learningData.Kifu.CurNode.GetChildNode(move);
+                    Node nextNode = learningData.Kifu.CurNode.Children1.GetChildNode(move);
                     nextMove = nextNode.Key;//次の棋譜ノードのキーが、指し手（きふわらべ式）になっています。
 
                 }
@@ -349,7 +349,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 {
                     nextMove = Conv_Move.GetErrorMove();
                     StringBuilder sb = new StringBuilder();
-                    sb.Append("指し手[" + Conv_Move.ToSfen(move) + "]はありませんでした。\n" + learningData.DumpToAllGohosyu(learningData.Kifu.CurNode.Value));
+                    sb.Append("指し手[" + Conv_Move.ToSfen(move) + "]はありませんでした。\n" + learningData.DumpToAllGohosyu(learningData.Kifu.CurNode.GetValue()));
 
                     //Debug.Fail(sb.ToString());
                     errH.DonimoNaranAkirameta("Util_LearningView#Ittesasu_ByBtnClick：" + sb.ToString());
@@ -365,7 +365,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             Util_IttesasuRoutine.DoMove(
                 out ittesasuResult,
                 nextMove,
-                learningData.Kifu.CurNode.Value,
+                learningData.Kifu.CurNode.GetValue(),
                 errH
             );
             Util_IttesasuRoutine.UpdateKifuTree(

@@ -67,7 +67,7 @@ namespace Grayscale.P910_SpeedKeisok
                 this.Earth = newEarth1;
                 this.Kifu = newKifu1_Hirate;
             }
-            this.Src_Sky = this.Kifu.CurNode.Value;
+            this.Src_Sky = this.Kifu.CurNode.GetValue();
             InitializeComponent();
         }
 

@@ -64,7 +64,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //----------------------------------------
             // 選んだ変化と、選ばなかった変化の一覧
             //----------------------------------------
-            parentNode.Foreach_ChildNodes((Move move2, Node nextNode2, ref bool toBreak2) =>
+            parentNode.Children1.Foreach_ChildNodes((Move move2, Node nextNode2, ref bool toBreak2) =>
             {
                 if (move2 == move1)
                 {
@@ -95,7 +95,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             result_removedCount = removeeList.Count;
             foreach (Move key in removeeList)
             {
-                parentNode.RemoveChild(key);
+                parentNode.Children1.RemoveItem(key);
             }
 
         gt_EndMethod:
@@ -118,13 +118,14 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
         {
             Move move1 = nextNode_and_nextCurrent.Key;
 
-            if (!kifu1.CurNode.HasTuginoitte(move1))
+            if (!kifu1.CurNode.Children1.ContainsKey(move1))
             {
                 //----------------------------------------
                 // 次ノート追加
                 //----------------------------------------
-                earth1.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(nextNode_and_nextCurrent.Value), hint+"/AppendChild_And_ChangeCurrentToChild");
-                kifu1.CurNode.PutTuginoitte_New(nextNode_and_nextCurrent);
+                earth1.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(
+                    nextNode_and_nextCurrent.GetValue()), hint+"/AppendChild_And_ChangeCurrentToChild");
+                kifu1.CurNode.Children1.PutTuginoitte_New(nextNode_and_nextCurrent, kifu1.CurNode);
             }
 
             kifu1.SetCurNode( nextNode_and_nextCurrent);//次ノードを、これからのカレントとします。
@@ -146,7 +147,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //------------------------------------------------------------
             earth1.Clear();
             kifu1.Clear();
-            earth1.SetProperty(Word_KifuTree.PropName_Startpos, Conv_KifuNode.ToSfenstring(kifu1.CurNode.Value, pside, errH));
+            earth1.SetProperty(Word_KifuTree.PropName_Startpos, Conv_KifuNode.ToSfenstring(kifu1.CurNode.GetValue(), pside, errH));
         }
 
     }

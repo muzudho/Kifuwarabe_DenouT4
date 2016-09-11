@@ -79,8 +79,6 @@
     <Compile Include="B220_Tansaku____\C500____Struct\Tansaku_GenjoImpl.cs" />
     <Compile Include="B220_Tansaku____\C___500_Struct\Tansaku_Args.cs" />
     <Compile Include="B220_Tansaku____\C___500_Struct\Tansaku_Genjo.cs" />
-    <Compile Include="B220_Tansaku____\C___500_Struct\Tansaku_Routine.cs" />
-    <Compile Include="B230_TansakuHaba\C500____Struct\Tansaku_HabaYusen_Routine.cs" />
     <Compile Include="B240_TansaFukasa\C500____Struct\Tansaku_FukasaYusen_Routine.cs" />
     <Compile Include="B150_UtilFv_____\C490____UtilFvFormat\Const_FeatureVectorFormat.cs" />
     <Compile Include="B150_UtilFv_____\C490____UtilFvFormat\Format_FeatureVector_KK.cs" />

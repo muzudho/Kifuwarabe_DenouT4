@@ -141,7 +141,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
                 goto gt_EndMethod;
             }
 
-            hubNode.Foreach_ChildNodes((Move move, Node node, ref bool toBreak) =>
+            hubNode.Children1.Foreach_ChildNodes((Move move, Node node, ref bool toBreak) =>
             {
 
                 SyElement srcMasu = Conv_Move.ToSrcMasu(move);

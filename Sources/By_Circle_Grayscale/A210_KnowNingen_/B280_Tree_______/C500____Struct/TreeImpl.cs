@@ -84,7 +84,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             // 一手前の要素（必ずあるはずです）
             deleteeElement = this.CurNode;
             // 残されたリストの最後の要素の、次リンクを切ります。
-            deleteeElement.GetParentNode().Clear_ChildNodes();
+            deleteeElement.GetParentNode().Children1.ClearAll();
 
             // カレントを、１つ前の要素に替えます。
             this.Move_Previous();//this.CurNode = deleteeElement.GetParentNode();
@@ -123,7 +123,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             }
 
             // ルートの次の手を全クリアーします。
-            this.CurNode.Clear_ChildNodes();
+            this.CurNode.Children1.ClearAll();
         }
 
         #endregion
@@ -165,30 +165,6 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         }
 
         #endregion
-
-
-        /// <summary>
-        /// この木の、全てのノード数を数えます。
-        /// </summary>
-        /// <returns></returns>
-        public int CountAllNodes()
-        {
-            int result = 0;
-
-            if(null!=this.GetRoot())
-            {
-                result = this.GetRoot().CountAllNodes();
-            }
-
-            return result;
-        }
-
-
-
-
-
-
-
 
 
         /*

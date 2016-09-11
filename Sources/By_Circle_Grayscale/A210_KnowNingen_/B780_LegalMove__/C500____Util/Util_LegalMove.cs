@@ -130,7 +130,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
         {
             bool enableLog = false;//errH.Enable
             Util_GraphicalLog.WriteHtml5(enableLog, "Util_LegalMove(王手回避漏れ02)王手を回避するかどうかに関わらず、ひとまず全ての次の手", "[" +
-                hubNode.Json_NextNodes_MultiSky(
+                hubNode.Children1.Json_NextNodes_MultiSky(
                     "(王手回避漏れ02." + temezumi_yomiGenTeban + "手目)",
                     hint + "_Lv3_RMHO",
                     temezumi_yomiGenTeban,
@@ -156,14 +156,14 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             // Node<,>の形で。
             Dictionary<Move, Node> newNextNodes = new Dictionary<Move, Node>();
 
-            hubNode.Foreach_ChildNodes((Move move, Node node, ref bool toBreak) =>
+            hubNode.Children1.Foreach_ChildNodes((Move move, Node node, ref bool toBreak) =>
             {
                 //System.Diagnostics.Debug.Assert(node.Key != null);//指し手がヌルなはず無いはず。
 
                 // 王様が利きに飛び込んだか？
                 bool kingSuicide = Util_LegalMove.LAAA_KingSuicide(
                     yomikaisiTemezumi,
-                    node.Value,
+                    node.GetValue(),
                     temezumi_yomiGenTeban_forLog,
                     pside_genTeban,//現手番＝攻め手視点
 #if DEBUG
@@ -189,7 +189,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
 
 
             // 入替え
-            hubNode.Set_ChildNodes(newNextNodes);
+            hubNode.Children1.SetItem(newNextNodes, hubNode);
         }
 
 

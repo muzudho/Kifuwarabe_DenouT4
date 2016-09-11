@@ -239,21 +239,23 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             Earth earth1,
             Tree kifu1, Node newNode)
         {
-            if (!kifu1.CurNode.HasTuginoitte(newNode.Key))
+            if (!kifu1.CurNode.Children1.ContainsKey(newNode.Key))
             {
                 //----------------------------------------
                 // 次ノード追加（なければ）
                 //----------------------------------------
-                earth1.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.Value), "After3_ChangeCurrent(次の一手なし)");
-                kifu1.CurNode.PutTuginoitte_New(newNode);//次ノートを追加します。
+                earth1.GetSennititeCounter().CountUp_New(
+                    Conv_Sky.ToKyokumenHash(newNode.GetValue()), "After3_ChangeCurrent(次の一手なし)");
+                kifu1.CurNode.Children1.PutTuginoitte_New(newNode, kifu1.CurNode);//次ノートを追加します。
             }
             else
             {
                 //----------------------------------------
                 // 次ノード上書き（あれば）
                 //----------------------------------------
-                earth1.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.Value), "After3_ChangeCurrent（次の一手あり）");
-                kifu1.CurNode.PutTuginoitte_Override(newNode);//次ノートを上書きします。
+                earth1.GetSennititeCounter().CountUp_New(
+                    Conv_Sky.ToKyokumenHash(newNode.GetValue()), "After3_ChangeCurrent（次の一手あり）");
+                kifu1.CurNode.Children1.PutTuginoitte_Override(newNode, kifu1.CurNode);//次ノートを上書きします。
             }
 
             Node temp = kifu1.CurNode;

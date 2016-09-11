@@ -35,13 +35,13 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C061____Util
                 KaisetuBoard logBrd_move1 = new KaisetuBoard();
 
                 List_OneAndMulti<Finger, SySet<SyElement>> komaBETUSusumeruMasus;
-                Playerside pside = niniNode.Value.KaisiPside;
+                Playerside pside = niniNode.GetValue().KaisiPside;
                 Util_KyokumenMoves.LA_Split_KomaBETUSusumeruMasus(
                     2,
                     //node_forLog,
                     out komaBETUSusumeruMasus,
                     true,//本将棋
-                    niniNode.Value,//現在の局面
+                    niniNode.GetValue(),//現在の局面
                     pside,
                     false
 //#if DEBUG
@@ -58,7 +58,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C061____Util
 
                 logBrd_move1.Move = niniNode.Key;
 
-                logBrd_move1.YomikaisiTemezumi = niniNode.Value.Temezumi;//読み開始手目済み    // int.MinValue;
+                logBrd_move1.YomikaisiTemezumi = niniNode.GetValue().Temezumi;//読み開始手目済み    // int.MinValue;
                 logBrd_move1.Temezumi = int.MinValue;
                 logBrd_move1.Score = (int)niniNode.MoveEx.Score;
 

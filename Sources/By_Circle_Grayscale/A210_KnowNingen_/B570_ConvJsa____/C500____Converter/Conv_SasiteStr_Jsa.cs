@@ -30,7 +30,7 @@ namespace Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500____Converter
 
             JsaFugoImpl jsaFugo = Array_JsaFugoCreator15.ItemMethods[(int)ks](
                 node.Key,
-                node.Value,// Sky,
+                node.GetValue(),
                 errH);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
 
             return Util_Translator_JsaFugo.ToString_UseDou(jsaFugo, node);

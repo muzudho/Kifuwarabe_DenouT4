@@ -81,7 +81,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                 //------------------------------
                 // 符号の追加（記録係）
                 //------------------------------
-                Sky saifu_Sky = saifuKifu2.CurNode.Value;
+                Sky saifu_Sky = saifuKifu2.CurNode.GetValue();
 
 
                 // 採譜用新ノード
@@ -89,8 +89,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                     move,
                     new SkyImpl(saifu_Sky)
                 );
-                saifu_newChild.Value.SetKaisiPside(Conv_Playerside.Reverse(saifu_Sky.KaisiPside));
-                saifu_newChild.Value.SetTemezumi(temezumi);
+                saifu_newChild.GetValue().SetKaisiPside(Conv_Playerside.Reverse(saifu_Sky.KaisiPside));
+                saifu_newChild.GetValue().SetTemezumi(temezumi);
 
 
                 // 記録係り用棋譜（採譜）

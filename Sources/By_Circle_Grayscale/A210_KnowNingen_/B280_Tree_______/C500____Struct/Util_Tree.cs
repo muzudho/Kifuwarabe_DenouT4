@@ -44,7 +44,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
             foreach (Node item in honpu)//正順になっています。
             {
-                delegate_Foreach(temezumi, item.Key, item.Value, item, ref toBreak);
+                delegate_Foreach(temezumi, item.Key, item.GetValue(), item, ref toBreak);
                 if (toBreak)
                 {
                     break;
@@ -137,7 +137,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             bool toBreak1 = false;
 
             // このノードを、まず報告。
-            delegate_Foreach1(temezumi1, node1.Key, node1.Value, node1, ref toBreak1);
+            delegate_Foreach1(temezumi1, node1.Key, node1.GetValue(), node1, ref toBreak1);
             if (toBreak1)
             {
                 //この全幅探索を終わらせる指示が出ていた場合
@@ -146,7 +146,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             }
 
             // 次のノード
-            node1.Foreach_ChildNodes((Move key2, Node node2, ref bool toBreak2) =>
+            node1.Children1.Foreach_ChildNodes((Move key2, Node node2, ref bool toBreak2) =>
             {
                 bool toFinish_ZenpukuTansaku2 = false;
                 Util_Tree.Recursive_Node_NextNode(

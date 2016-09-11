@@ -64,7 +64,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
             kifu1.SetCurNode(newNode);
 
-            model_Manual.SetGuiSky(newNode.Value);
+            model_Manual.SetGuiSky(newNode.GetValue());
 
             jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(newNode, errH);
         }
@@ -302,7 +302,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             // 棋譜から１手削ります
             //------------------------------
             Node removeeLeaf = kifu1.CurNode;
-            int korekaranoTemezumi = removeeLeaf.Value.Temezumi - 1;//１手前へ。
+            int korekaranoTemezumi = removeeLeaf.GetValue().Temezumi - 1;//１手前へ。
 
             if (removeeLeaf.IsRoot())
             {
@@ -331,7 +331,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                 out ittemodosuResult,
                 korekaranoTemezumi,
                 kifu1.CurNode.Key,
-                kifu1.CurNode.Value,
+                kifu1.CurNode.GetValue(),
                 errH
                 );
             Util_IttemodosuRoutine.UpdateKifuTree(

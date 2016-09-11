@@ -168,13 +168,13 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
         {
 
             // 次ノードの有無
-            if (0 < node.Count_ChildNodes)
+            if (0 < node.Children1.Count)
             {
                 // 葉ノードではないなら
 
                 int logFileCounter_temp = logFileCounter;
                 // 先に奥の枝から。
-                node.Foreach_ChildNodes((Move move, Node nextNode, ref bool toBreak) =>
+                node.Children1.Foreach_ChildNodes((Move move, Node nextNode, ref bool toBreak) =>
                 {
                     float score = nextNode.MoveEx.Score;
 
@@ -198,7 +198,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
                 ref logFileCounter,
                 nodePath,
                 node.MoveEx,
-                node.Value,
+                node.GetValue(),
                 kifu,
                 relFolder,
                 reportEnvironment,

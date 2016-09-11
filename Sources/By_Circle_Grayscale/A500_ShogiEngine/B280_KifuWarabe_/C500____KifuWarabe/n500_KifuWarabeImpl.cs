@@ -132,10 +132,10 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 );
                 this.Earth_AtLoop2.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
 
-                this.Kifu_AtLoop2.CurNode.Value.AssertFinger((Finger)0);
+                this.Kifu_AtLoop2.CurNode.GetValue().AssertFinger((Finger)0);
                 Debug.Assert(!Conv_MasuHandle.OnKomabukuro(
                     Conv_SyElement.ToMasuNumber(
-                        Conv_Busstop.ToMasu(this.Kifu_AtLoop2.CurNode.Value.BusstopIndexOf((Finger)0))
+                        Conv_Busstop.ToMasu(this.Kifu_AtLoop2.CurNode.GetValue().BusstopIndexOf((Finger)0))
                         )
                     ), "駒が駒袋にあった。");
             }
@@ -762,7 +762,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 #if DEBUG
                 this.Log2_Png_Tyokkin_AtLoop2(line,
                     result.Out_newNode_OrNull.MoveEx,
-                    result.Out_newNode_OrNull.Value,
+                    result.Out_newNode_OrNull.GetValue(),
                     logger);
 #endif
 
@@ -909,13 +909,13 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
                 // ┏━━━━プログラム━━━━┓
 
-                int latestTemezumi = this.Kifu_AtLoop2.CurNode.Value.Temezumi;//現・手目済
+                int latestTemezumi = this.Kifu_AtLoop2.CurNode.GetValue().Temezumi;//現・手目済
 
                 //#if DEBUG
                 // MessageBox.Show("["+latestTemezumi+"]手目済　["+this.owner.PlayerInfo.Playerside+"]の手番");
                 //#endif
 
-                Sky src_Sky = this.Kifu_AtLoop2.NodeAt(latestTemezumi).Value;//現局面
+                Sky src_Sky = this.Kifu_AtLoop2.NodeAt(latestTemezumi).GetValue();//現局面
 
                 //errH2.Logger.WriteLine_AddMemo("将棋サーバー「" + latestTemezumi + "手目、きふわらべ　さんの手番ですよ！」　" + line);
 
@@ -1083,7 +1083,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                                 {
                                     //int hyojiScore = (int)(bestScore / 100.0d);//FIXME:適当に調整した。
                                     int hyojiScore = (int)bestScore;
-                                    if (this.Kifu_AtLoop2.CurNode.Value.KaisiPside == Playerside.P2)
+                                    if (this.Kifu_AtLoop2.CurNode.GetValue().KaisiPside == Playerside.P2)
                                     {
                                         // 符号を逆転
                                         hyojiScore = -hyojiScore;
