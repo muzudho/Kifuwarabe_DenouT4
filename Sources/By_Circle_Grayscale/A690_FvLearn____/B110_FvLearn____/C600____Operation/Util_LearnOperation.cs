@@ -23,6 +23,7 @@ using Grayscale.A690_FvLearn____.B110_FvLearn____.C470____StartZero;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 #if DEBUG || LEARN
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C480____UtilFvEdit;
@@ -337,6 +338,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             {
                 Tree kifu_newHirate;
                 Util_FvLoad.CreateKifuTree(out kifu_newHirate);
+                uc_Main.LearningData.Earth = new EarthImpl();
                 uc_Main.LearningData.Kifu = kifu_newHirate;
             }
 
@@ -346,7 +348,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                 KaisetuBoards logF_kiki = new KaisetuBoards();// デバッグ用だが、メソッドはこのオブジェクトを必要としてしまう。
 #endif
                 args = new EvaluationArgsImpl(
-                    uc_Main.LearningData.Kifu.GetSennititeCounter(),
+                    uc_Main.LearningData.Earth.GetSennititeCounter(),
                     new FeatureVectorImpl(),
                     new ShogisasiImpl(new KifuWarabeImpl(new UsiFrameworkImpl())),
                     Util_KifuTreeLogWriter.REPORT_ENVIRONMENT

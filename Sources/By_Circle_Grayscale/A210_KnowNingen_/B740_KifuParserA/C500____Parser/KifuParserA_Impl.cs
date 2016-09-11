@@ -37,6 +37,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
         /// <returns></returns>
         public string Execute_Step(
             ref KifuParserA_Result result,
+            Earth earth1,
             Tree kifu1,
             KifuParserA_Genjo genjo,
             KwLogger errH
@@ -59,6 +60,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 KifuParserA_State nextState;
                 genjo.InputLine = this.State.Execute(
                     ref result,
+                    earth1,
                     kifu1,
                     out nextState, this,
                     genjo, errH);
@@ -78,6 +80,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
         /// <param name="larabeLogger"></param>
         public void Execute_All(
             ref KifuParserA_Result result,
+            Earth earth1,
             Tree kifu1,
             KifuParserA_Genjo genjo,
             KwLogger errH
@@ -112,6 +115,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
                     genjo.InputLine = this.State.Execute(
                         ref result,
+                        earth1,
                         kifu1,
                         out nextState, this,
                         genjo, errH);

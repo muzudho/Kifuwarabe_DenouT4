@@ -20,6 +20,28 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C498____Server
     /// </summary>
     public class Server_Impl : Server
     {
+        public Server_Impl(Sky src_Sky, Receiver receiver)
+        {
+            this.engineClient = new EngineClient_Impl(receiver);
+            this.engineClient.SetOwner_Server(this);
+
+            //----------
+            // モデル
+            //----------
+            this.m_earth_ = new EarthImpl();
+            this.m_kifuTree_ = new TreeImpl(
+                    new NodeImpl(
+                        Conv_Move.GetErrorMove(),
+                        new SkyImpl(src_Sky)
+                    )
+            );
+            this.KifuTree.SetProperty(Word_KifuTree.PropName_Startpos, "9/9/9/9/9/9/9/9/9");
+
+            this.inputString99 = "";
+        }
+
+
+
         #region プロパティ
 
         public Tree KifuTree { get { return this.m_kifuTree_; } }
@@ -29,6 +51,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C498____Server
         }
         private Tree m_kifuTree_;
 
+        public Earth Earth { get { return this.m_earth_; } }
+        private Earth m_earth_;
 
         /// <summary>
         /// サーバーが持つ、将棋エンジン。
@@ -57,24 +81,6 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C498____Server
         #endregion
 
 
-        public Server_Impl(Sky src_Sky, Receiver receiver)
-        {
-            this.engineClient = new EngineClient_Impl(receiver);
-            this.engineClient.SetOwner_Server(this);
-
-            //----------
-            // モデル
-            //----------
-            this.m_kifuTree_ = new TreeImpl(
-                    new NodeImpl(
-                        Conv_Move.GetErrorMove(),
-                        new SkyImpl(src_Sky)
-                    )
-            );
-            this.KifuTree.SetProperty(Word_KifuTree.PropName_Startpos, "9/9/9/9/9/9/9/9/9");
-
-            this.inputString99 = "";
-        }
 
     }
 }

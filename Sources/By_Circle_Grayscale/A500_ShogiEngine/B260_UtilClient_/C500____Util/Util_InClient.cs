@@ -30,7 +30,10 @@ namespace Grayscale.A500_ShogiEngine.B260_UtilClient_.C500____Util
         /// <param name="startposImporter"></param>
         /// <param name="logTag"></param>
         public static void OnChangeSky_Im_Client(
+
+            Earth earth1,
             Tree kifu1,
+
             KifuParserA_Genjo genjo,
             KwLogger errH
             )
@@ -59,6 +62,7 @@ namespace Grayscale.A500_ShogiEngine.B260_UtilClient_.C500____Util
             // 棋譜を空っぽにし、指定の局面を与えます。
             //----------------------------------------
             {
+                earth1.Clear();
                 kifu1.Clear();// 棋譜を空っぽにします。
 
                 // 文字列から、指定局面を作成します。

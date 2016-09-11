@@ -143,7 +143,9 @@ namespace Grayscale.P699_Form_______
             //      平手に並べます。
             //
             {
+                this.MainGui.Link_Server.Earth.Clear();
                 this.MainGui.Link_Server.KifuTree.Clear();// 棋譜を空っぽにします。
+
                 this.MainGui.Link_Server.KifuTree.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
                 this.MainGui.SkyWrapper_Gui.SetGuiSky(
                     Util_SkyCreator.New_Hirate()//起動直後
@@ -416,7 +418,10 @@ namespace Grayscale.P699_Form_______
                         switch (this.MainGui.SyuturyokuKirikae)
                         {
                             case SyuturyokuKirikae.Japanese:
-                                form2.WriteLine_Syuturyoku(Util_KirokuGakari.ToJsaFugoListString(this.MainGui.Link_Server.KifuTree, "Ui_PnlMain.Response", errH));
+                                form2.WriteLine_Syuturyoku(Util_KirokuGakari.ToJsaFugoListString(
+                                    this.MainGui.Link_Server.Earth,
+                                    this.MainGui.Link_Server.KifuTree,
+                                    "Ui_PnlMain.Response", errH));
                                 break;
                             case SyuturyokuKirikae.Sfen:
                                 form2.WriteLine_Syuturyoku(Util_KirokuGakari.ToSfen_PositionCommand(this.MainGui.Link_Server.KifuTree));

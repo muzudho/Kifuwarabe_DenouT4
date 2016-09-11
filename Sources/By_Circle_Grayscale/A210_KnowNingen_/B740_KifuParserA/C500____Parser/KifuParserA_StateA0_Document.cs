@@ -39,7 +39,10 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
         public string Execute(
             ref KifuParserA_Result result,
-            Tree kifu1,
+
+            Earth earth1_notUse,
+            Tree kifu1_forDebug,
+
             out KifuParserA_State nextState,
             KifuParserA owner,
             KifuParserA_Genjo genjo,
@@ -83,7 +86,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 else
                 {
 #if DEBUG
-                    Playerside pside = kifu1.CurNode.Value.KaisiPside;
+                    Playerside pside = kifu1_forDebug.CurNode.Value.KaisiPside;
                     errH.AppendLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... positionじゃなかったぜ☆　日本式か☆？　SFENでmovesを読んだあとのプログラムに合流させるぜ☆　：　先後＝[" + pside + "]");
                     errH.Flush(LogTypes.Plain);
 #endif

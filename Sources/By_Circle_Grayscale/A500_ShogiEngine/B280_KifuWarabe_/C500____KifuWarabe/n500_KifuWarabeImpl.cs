@@ -63,88 +63,6 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
     public class KifuWarabeImpl : ShogiEngine
     {
 
-        #region プロパティー
-        /// <summary>
-        /// きふわらべの作者名です。
-        /// </summary>
-        public string AuthorName { get { return this.authorName; } }
-        private string authorName;
-
-
-        /// <summary>
-        /// 製品名です。
-        /// </summary>
-        public string SeihinName { get { return this.seihinName; } }
-        private string seihinName;
-
-        public KwLogger ErrH { get; set; }
-
-        /// <summary>
-        /// 読み筋を格納する配列の容量。
-        /// </summary>
-        public const int SEARCHED_PV_LENGTH = 2048;
-
-        /// <summary>
-        /// 将棋エンジンの中の一大要素「思考エンジン」です。
-        /// 指す１手の答えを出すのが仕事です。
-        /// </summary>
-        public Shogisasi Shogisasi { get; set; }
-
-        /// <summary>
-        /// USI「setoption」コマンドのリストです。
-        /// </summary>
-        public EngineOptions EngineOptions { get; set; }
-
-
-        /// <summary>
-        /// 棋譜です。
-        /// </summary>
-        public Tree Kifu_AtLoop2 { get { return this.m_kifu_AtLoop2_; } }
-        public void SetKifu_AtLoop2(Tree kifu)
-        {
-            this.m_kifu_AtLoop2_ = kifu;
-        }
-        private Tree m_kifu_AtLoop2_;
-
-
-        /// <summary>
-        /// 「go」の属性一覧です。
-        /// </summary>
-        public Dictionary<string, string> GoProperties_AtLoop2 { get; set; }
-
-
-        /// <summary>
-        /// 「go ponder」の属性一覧です。
-        /// </summary>
-        public bool GoPonderNow_AtLoop2 { get; set; }
-
-
-        /// <summary>
-        /// USIの２番目のループで保持される、「gameover」の一覧です。
-        /// </summary>
-        public Dictionary<string, string> GameoverProperties_AtLoop2 { get; set; }
-
-        #endregion
-
-
-        #region 送信
-        /// <summary>
-        /// 送信
-        /// </summary>
-        /// <param name="line">メッセージ</param>
-        public void Send(string line)
-        {
-            // 将棋サーバーに向かってメッセージを送り出します。
-            Util_Message.Upload(line);
-
-#if DEBUG
-            // 送信記録をつけます。
-            Util_Loggers.ProcessEngine_NETWORK.AppendLine(line);
-            Util_Loggers.ProcessEngine_NETWORK.Flush(LogTypes.ToServer);
-#endif
-        }
-        #endregion
-
         #region コンストラクター
         /// <summary>
         /// コンストラクター
@@ -205,12 +123,13 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             // 棋譜
             {
                 // FIXME:平手とは限らないが、平手という前提で作っておく。
-                this.SetKifu_AtLoop2(new TreeImpl(
+                this.m_earth_AtLoop2_ = new EarthImpl();
+                this.m_kifu_AtLoop2_ = new TreeImpl(
                         new NodeImpl(
                             Conv_Move.GetErrorMove(),
                             new SkyImpl(Util_SkyCreator.New_Hirate())// きふわらべ起動時
                         )
-                ));
+                );
                 this.Kifu_AtLoop2.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
 
                 this.Kifu_AtLoop2.CurNode.Value.AssertFinger((Finger)0);
@@ -267,6 +186,97 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             usiFramework.OnLoop2End = this.OnLoop2End;
             // アプリケーション終了時
             usiFramework.OnApplicationEnd = this.OnApplicationEnd;
+        }
+        #endregion
+
+
+
+        #region プロパティー
+        /// <summary>
+        /// きふわらべの作者名です。
+        /// </summary>
+        public string AuthorName { get { return this.authorName; } }
+        private string authorName;
+
+
+        /// <summary>
+        /// 製品名です。
+        /// </summary>
+        public string SeihinName { get { return this.seihinName; } }
+        private string seihinName;
+
+        public KwLogger ErrH { get; set; }
+
+        /// <summary>
+        /// 読み筋を格納する配列の容量。
+        /// </summary>
+        public const int SEARCHED_PV_LENGTH = 2048;
+
+        /// <summary>
+        /// 将棋エンジンの中の一大要素「思考エンジン」です。
+        /// 指す１手の答えを出すのが仕事です。
+        /// </summary>
+        public Shogisasi Shogisasi { get; set; }
+
+        /// <summary>
+        /// USI「setoption」コマンドのリストです。
+        /// </summary>
+        public EngineOptions EngineOptions { get; set; }
+
+
+        /// <summary>
+        /// 棋譜です。
+        /// </summary>
+        public Tree Kifu_AtLoop2 { get { return this.m_kifu_AtLoop2_; } }
+        public void SetKifu_AtLoop2(Tree kifu)
+        {
+            this.m_kifu_AtLoop2_ = kifu;
+        }
+        private Tree m_kifu_AtLoop2_;
+
+        public Earth Earth_AtLoop2 { get { return this.m_earth_AtLoop2_; } }
+        public void SetEarth_AtLoop2(Earth earth1)
+        {
+            this.m_earth_AtLoop2_ = earth1;
+        }
+        private Earth m_earth_AtLoop2_;
+
+
+        /// <summary>
+        /// 「go」の属性一覧です。
+        /// </summary>
+        public Dictionary<string, string> GoProperties_AtLoop2 { get; set; }
+
+
+        /// <summary>
+        /// 「go ponder」の属性一覧です。
+        /// </summary>
+        public bool GoPonderNow_AtLoop2 { get; set; }
+
+
+        /// <summary>
+        /// USIの２番目のループで保持される、「gameover」の一覧です。
+        /// </summary>
+        public Dictionary<string, string> GameoverProperties_AtLoop2 { get; set; }
+
+        #endregion
+
+
+        #region 送信
+        /// <summary>
+        /// 送信
+        /// </summary>
+        /// <param name="line">メッセージ</param>
+        public void Send(string line)
+        {
+            // 将棋サーバーに向かってメッセージを送り出します。
+            Util_Message.Upload(line);
+
+#if DEBUG
+            // 送信記録をつけます。
+            Util_Loggers.ProcessEngine_NETWORK.AppendLine(line);
+            Util_Loggers.ProcessEngine_NETWORK.Flush(LogTypes.ToServer);
+#endif
         }
         #endregion
 
@@ -727,7 +737,10 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 KifuParserA_Genjo genjo = new KifuParserA_GenjoImpl(line);
                 kifuParserA.Execute_All(
                     ref result,
+
+                    this.Earth_AtLoop2,
                     this.Kifu_AtLoop2,
+
                     genjo,
                     logger
                     );
@@ -736,7 +749,10 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                     // SFENの解析結果を渡すので、
                     // その解析結果をどう使うかは、委譲します。
                     Util_InClient.OnChangeSky_Im_Client(
+
+                        this.Earth_AtLoop2,
                         this.Kifu_AtLoop2,
+
                         genjo,
                         logger
                         );
@@ -1004,6 +1020,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                                         searchedPv,
                                         isHonshogi,
 
+                                        this.Earth_AtLoop2,
                                         this.Kifu_AtLoop2,
 
                                         this.ErrH)
@@ -1340,13 +1357,13 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             sb.Append("ログだせ～（＾▽＾）");
 
             this.Kifu_AtLoop2.ForeachZenpuku(
-                this.Kifu_AtLoop2.GetRoot(), (int temezumi, Sky sky, Node node, ref bool toBreak) =>
+                this.Kifu_AtLoop2.GetRoot(), (int temezumi, Move move, Sky sky, Node node, ref bool toBreak) =>
                 {
                     if (null != node)
                     {                        
-                        if (!Conv_Move.ToErrorCheck(node.Key))
+                        if (!Conv_Move.ToErrorCheck(move))
                         {
-                            sb.AppendLine(Conv_Move.ToSfen(node.Key));
+                            sb.AppendLine(Conv_Move.ToSfen(move));
                         }
                     }
                 });

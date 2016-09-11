@@ -55,7 +55,10 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
         /// <returns></returns>
         public string Execute(
             ref KifuParserA_Result result,
+
+            Earth earth1,
             Tree kifu1,
+
             out KifuParserA_State nextState,
             KifuParserA owner,
             KifuParserA_Genjo genjo,
@@ -119,7 +122,9 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                                 errH
                                 );
                             // 棋譜ツリーのカレントを変更します。
-                            Util_IttesasuRoutine.UpdateKifuTree(kifu1, ittesasuResult);
+                            result.Out_newNode_OrNull = new NodeImpl(ittesasuResult.SyuryoMove, ittesasuResult.SyuryoKyokumenW);
+                            Util_IttesasuRoutine.UpdateKifuTree(
+                                earth1, kifu1, result.Out_newNode_OrNull);
 
                             exceptionArea = 1080;
                             result.Out_newNode_OrNull = kifu1.CurNode;// ittesasuResult.Get_SyuryoNode_OrNull;

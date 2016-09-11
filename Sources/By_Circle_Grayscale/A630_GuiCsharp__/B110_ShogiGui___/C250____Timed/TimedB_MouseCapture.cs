@@ -411,7 +411,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                         //----------------------------------------
                                                         // 次ノード追加
                                                         //----------------------------------------
-                                                        mainGui.Link_Server.KifuTree.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.Value), "TimedB.Step(1)");
+                                                        mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.Value), "TimedB.Step(1)");
                                                         ((Node)mainGui.Link_Server.KifuTree.CurNode).PutTuginoitte_New(newNode);
                                                     }
 
@@ -552,7 +552,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                             //----------------------------------------
                                                             // 次ノード追加
                                                             //----------------------------------------
-                                                            mainGui.Link_Server.KifuTree.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.Value), "TimedB.Step(2)");
+                                                            mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.Value), "TimedB.Step(2)");
                                                             mainGui.Link_Server.KifuTree.CurNode.PutTuginoitte_New(newNode);
                                                         }
 

@@ -25,11 +25,6 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         {
             this.properties = new Dictionary<string, object>();
             this.SetCurNode(root);
-
-            //----------------------------------------
-            // 千日手カウンター
-            //----------------------------------------
-            this.sennititeCounter = new SennititeCounterImpl();
         }
 
 
@@ -158,7 +153,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// </summary>
         /// <param name="endNode">葉側のノード。</param>
         /// <param name="delegate_Foreach"></param>
-        public void ForeachHonpu(Node endNode, DELEGATE_Foreach delegate_Foreach)
+        public void ForeachHonpu1(Node endNode, DELEGATE_Foreach1 delegate_Foreach)
         {
             bool toBreak = false;
 
@@ -186,9 +181,49 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
             foreach (Node item in honpu)//正順になっています。
             {
-                Sky sky = item.Value;
+                delegate_Foreach(temezumi, item.Key, item.Value, item, ref toBreak);
+                if (toBreak)
+                {
+                    break;
+                }
 
-                delegate_Foreach(temezumi, sky, item, ref toBreak);
+                temezumi++;
+            }
+        }
+        /// <summary>
+        /// 本譜だけ。
+        /// </summary>
+        /// <param name="endNode">葉側のノード。</param>
+        /// <param name="delegate_Foreach"></param>
+        public void ForeachHonpu2(Node endNode, DELEGATE_Foreach2 delegate_Foreach)
+        {
+            bool toBreak = false;
+
+            // 本譜（ノードのリスト）
+            List<Node> honpu = new List<Node>();
+
+            //
+            // ツリー型なので、１本のリストに変換するために工夫します。
+            //
+            // カレントからルートまで遡り、それを逆順にすれば、本譜になります。
+            //
+
+            while (null != endNode)//ルートを含むところまで遡ります。
+            {
+                honpu.Add(endNode); // リスト作成
+
+                endNode = endNode.GetParentNode();
+            }
+            honpu.Reverse();
+
+            //
+            // 手済みを数えます。
+            //
+            int temezumi = 0;//初期局面が[0]
+
+            foreach (Node item in honpu)//正順になっています。
+            {
+                delegate_Foreach(temezumi, item.Key, ref toBreak);
                 if (toBreak)
                 {
                     break;
@@ -202,7 +237,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// </summary>
         /// <param name="endNode"></param>
         /// <param name="delegate_Foreach"></param>
-        public void ForeachZenpuku(Node startNode, DELEGATE_Foreach delegate_Foreach)
+        public void ForeachZenpuku(Node startNode, DELEGATE_Foreach1 delegate_Foreach)
         {
 
             List<Node> list8 = new List<Node>();
@@ -234,13 +269,13 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             //Sky position,
             Node node1,
             
-            DELEGATE_Foreach delegate_Foreach1, ref bool toFinish_ZenpukuTansaku
+            DELEGATE_Foreach1 delegate_Foreach1, ref bool toFinish_ZenpukuTansaku
             )
         {
             bool toBreak1 = false;
 
             // このノードを、まず報告。
-            delegate_Foreach1(temezumi1, node1.Value, node1, ref toBreak1);
+            delegate_Foreach1(temezumi1, node1.Key, node1.Value, node1, ref toBreak1);
             if (toBreak1)
             {
                 //この全幅探索を終わらせる指示が出ていた場合
@@ -297,11 +332,6 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
             // ルートの次の手を全クリアーします。
             this.CurNode.Clear_ChildNodes();
-
-            //----------------------------------------
-            // 千日手カウンター
-            //----------------------------------------
-            this.sennititeCounter.Clear();
         }
 
         #endregion
@@ -322,7 +352,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         {
             Node found = null;
 
-            this.ForeachHonpu(this.CurNode, (int temezumi2, Sky sky, Node node, ref bool toBreak) =>
+            this.ForeachHonpu1(this.CurNode, (int temezumi2, Move move, Sky sky, Node node, ref bool toBreak) =>
             {
                 if (sitei_temezumi == temezumi2) //新Verは 0 にも対応。
                 {
@@ -367,15 +397,6 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
 
 
-        /// <summary>
-        /// 千日手カウンター。
-        /// </summary>
-        /// <returns></returns>
-        public SennititeCounter GetSennititeCounter()
-        {
-            return this.sennititeCounter;
-        }
-        private SennititeCounter sennititeCounter;
 
 
 

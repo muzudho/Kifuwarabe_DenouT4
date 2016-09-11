@@ -35,7 +35,10 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
         public string Execute(
             ref KifuParserA_Result result,
+
+            Earth earth1,
             Tree kifu1,
+            
             out KifuParserA_State nextState,
             KifuParserA owner,
             KifuParserA_Genjo genjo,
@@ -63,6 +66,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     // 棋譜を空っぽにし、平手初期局面を与えます。
                     //----------------------------------------
                     {
+                        earth1.Clear();
                         kifu1.Clear();// 棋譜を空っぽにします。
 
                         kifu1.GetRoot().Value = Util_SkyCreator.New_Hirate();//SFENのstartpos解析時

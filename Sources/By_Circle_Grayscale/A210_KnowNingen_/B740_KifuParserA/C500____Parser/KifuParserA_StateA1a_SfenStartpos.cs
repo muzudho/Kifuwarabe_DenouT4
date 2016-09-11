@@ -33,7 +33,10 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
         public string Execute(
             ref KifuParserA_Result result,
-            Tree kifu1,
+
+            Earth earth1_notUse,
+            Tree kifu1_notUse,
+
             out KifuParserA_State nextState,
             KifuParserA owner,
             KifuParserA_Genjo genjo,

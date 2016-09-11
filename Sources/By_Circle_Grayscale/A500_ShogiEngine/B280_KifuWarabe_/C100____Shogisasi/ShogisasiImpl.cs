@@ -67,7 +67,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
         /// </summary>
         /// <param name="enableLog"></param>
         /// <param name="isHonshogi"></param>
-        /// <param name="kifu"></param>
+        /// <param name="kifu1"></param>
         /// <param name="logTag"></param>
         /// <returns></returns>
         public MoveEx WA_Bestmove(
@@ -76,7 +76,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
             string[] searchedPv,
             bool isHonshogi,
 
-            Tree kifu,
+            Earth earth1,
+            Tree kifu1,
 
             KwLogger errH
             )
@@ -90,7 +91,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
             KaisetuBoards logF_kiki = new KaisetuBoards();// デバッグ用だが、メソッドはこのオブジェクトを必要としてしまう。
 #endif
             EvaluationArgs args = new EvaluationArgsImpl(
-                kifu.GetSennititeCounter(),
+                earth1.GetSennititeCounter(),
                 this.FeatureVector,
                 this,
                 Util_KifuTreeLogWriter.REPORT_ENVIRONMENT
@@ -101,7 +102,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                 );
 
             float alphabeta_otherBranchDecidedValue;
-            switch (kifu.CurNode.Value.KaisiPside)
+            switch (kifu1.CurNode.Value.KaisiPside)
             {
                 case Playerside.P1:
                     // 2プレイヤーはまだ、小さな数を見つけていないという設定。
@@ -124,8 +125,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                     ref searchedNodes,
                     searchedPv,
 
-                    kifu.CurNode.Value.Temezumi,
-                    kifu.CurNode,
+                    kifu1.CurNode.Value.Temezumi,
+                    kifu1.CurNode,
                     
                     isHonshogi, Mode_Tansaku.Shogi_ENgine, alphabeta_otherBranchDecidedValue, args, errH);
             }
@@ -138,7 +139,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
             //
             Util_KifuTreeLogWriter.A_Write_KifuTreeLog(
                 logF_kiki,
-                kifu,
+                kifu1,
                 errH
                 );
             //Util_LogWriter500_HyokaMeisai.Log_Html5(
@@ -151,7 +152,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
 #endif
 
             // ヌルになることがある？
-            MoveEx bestNode = this.ChoiceBest(isHonshogi, kifu.CurNode, errH);
+            MoveEx bestNode = this.ChoiceBest(isHonshogi, kifu1.CurNode, errH);
 
 
             this.TimeManager.Stopwatch.Stop();

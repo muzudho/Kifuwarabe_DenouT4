@@ -136,7 +136,10 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     string restText = Util_Function_Csharp.ReadLine_FromTextbox();
                     Util_Functions_Server.Komaokuri_Srv(
                         ref restText,
+
+                        mainGui3.Link_Server.Earth,
                         mainGui3.Link_Server.KifuTree,
+
                         mainGui3.SkyWrapper_Gui,
                         errH
                         );
@@ -293,7 +296,13 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
                     MainGui_Csharp shogibanGui2 = (MainGui_Csharp)obj_shogiGui2;
 
-                    Util_KifuTree282.SetStartpos_KokokaraSaifu(shogibanGui2.Link_Server.KifuTree, shogibanGui2.Link_Server.KifuTree.CurNode.Value.KaisiPside, errH2);
+                    Util_KifuTree282.SetStartpos_KokokaraSaifu(
+
+                        shogibanGui2.Link_Server.Earth,
+                        shogibanGui2.Link_Server.KifuTree,
+                        
+                        shogibanGui2.Link_Server.KifuTree.CurNode.Value.KaisiPside, errH2
+                        );
                     shogibanGui2.RepaintRequest.SyuturyokuRequest = RepaintRequestGedanTxt.Kifu;
                 };
 
@@ -539,7 +548,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         //----------------------------------------
                         // 次ノード追加
                         //----------------------------------------
-                        mainGui.Link_Server.KifuTree.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.Value), "After_NaruNaranai");
+                        mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.Value), "After_NaruNaranai");
                         ((Node)mainGui.Link_Server.KifuTree.CurNode).PutTuginoitte_New(newNode);
                     }
 

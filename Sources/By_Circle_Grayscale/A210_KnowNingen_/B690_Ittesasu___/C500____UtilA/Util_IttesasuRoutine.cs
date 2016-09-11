@@ -235,15 +235,16 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <summary>
         /// 棋譜ツリーのカレントを変更します。
         /// </summary>
-        public static void UpdateKifuTree(Tree kifu1, IttesasuResult ittesasuResult)
+        public static void UpdateKifuTree(
+            Earth earth1,
+            Tree kifu1, Node newNode)
         {
-            Node newNode = new NodeImpl(ittesasuResult.SyuryoMove, ittesasuResult.SyuryoKyokumenW);
-            if (!kifu1.CurNode.HasTuginoitte(ittesasuResult.SyuryoMove))
+            if (!kifu1.CurNode.HasTuginoitte(newNode.Key))
             {
                 //----------------------------------------
                 // 次ノード追加（なければ）
                 //----------------------------------------
-                kifu1.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(ittesasuResult.SyuryoKyokumenW), "After3_ChangeCurrent(次の一手なし)");
+                earth1.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.Value), "After3_ChangeCurrent(次の一手なし)");
                 kifu1.CurNode.PutTuginoitte_New(newNode);//次ノートを追加します。
             }
             else
@@ -251,7 +252,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 //----------------------------------------
                 // 次ノード上書き（あれば）
                 //----------------------------------------
-                kifu1.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(ittesasuResult.SyuryoKyokumenW), "After3_ChangeCurrent（次の一手あり）");
+                earth1.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.Value), "After3_ChangeCurrent（次の一手あり）");
                 kifu1.CurNode.PutTuginoitte_Override(newNode);//次ノートを上書きします。
             }
 

@@ -109,7 +109,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
         /// </summary>
         /// <param name="nextNode_and_nextCurrent"></param>
         public static void AppendChild_And_ChangeCurrentToChild(
-            Tree kifuRef,
+            Earth earth1,
+            Tree kifu1,
             Node nextNode_and_nextCurrent,
             string hint,
             KwLogger errH
@@ -117,17 +118,17 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
         {
             Move move1 = nextNode_and_nextCurrent.Key;
 
-            if (!kifuRef.CurNode.HasTuginoitte(move1))
+            if (!kifu1.CurNode.HasTuginoitte(move1))
             {
                 //----------------------------------------
                 // 次ノート追加
                 //----------------------------------------
-                kifuRef.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(nextNode_and_nextCurrent.Value), hint+"/AppendChild_And_ChangeCurrentToChild");
-                kifuRef.CurNode.PutTuginoitte_New(nextNode_and_nextCurrent);
+                earth1.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(nextNode_and_nextCurrent.Value), hint+"/AppendChild_And_ChangeCurrentToChild");
+                kifu1.CurNode.PutTuginoitte_New(nextNode_and_nextCurrent);
             }
 
-            kifuRef.SetCurNode( nextNode_and_nextCurrent);//次ノードを、これからのカレントとします。
-            Debug.Assert(kifuRef.CurNode != null, "カレントノードがヌル。");
+            kifu1.SetCurNode( nextNode_and_nextCurrent);//次ノードを、これからのカレントとします。
+            Debug.Assert(kifu1.CurNode != null, "カレントノードがヌル。");
         }
 
         /// <summary>
@@ -135,14 +136,17 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
         /// [ここから採譜]機能
         /// ************************************************************************************************************************
         /// </summary>
-        public static void SetStartpos_KokokaraSaifu(Tree kifu, Playerside pside, KwLogger errH)
+        public static void SetStartpos_KokokaraSaifu(
+            Earth earth1,
+            Tree kifu1, Playerside pside, KwLogger errH)
         {
 
             //------------------------------------------------------------
             // 棋譜を空に
             //------------------------------------------------------------
-            kifu.Clear();
-            kifu.SetProperty(Word_KifuTree.PropName_Startpos, Conv_KifuNode.ToSfenstring(kifu.CurNode.Value, pside, errH));
+            earth1.Clear();
+            kifu1.Clear();
+            kifu1.SetProperty(Word_KifuTree.PropName_Startpos, Conv_KifuNode.ToSfenstring(kifu1.CurNode.Value, pside, errH));
         }
 
     }

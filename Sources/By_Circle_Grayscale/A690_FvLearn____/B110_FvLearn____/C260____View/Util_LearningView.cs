@@ -50,6 +50,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             //
             uc_Main.LstSasite.Items.Clear();
 
+            Earth earth1 = new EarthImpl();
             Tree kifu1 = new TreeImpl(
                 new NodeImpl(
                     Conv_Move.GetErrorMove(),
@@ -142,7 +143,11 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                         kifu1.CurNode.Value,
                         errH
                     );
-                    Util_IttesasuRoutine.UpdateKifuTree(kifu1, ittesasuResult);
+                    Util_IttesasuRoutine.UpdateKifuTree(
+                        earth1,
+                        kifu1,
+                        new NodeImpl(ittesasuResult.SyuryoMove, ittesasuResult.SyuryoKyokumenW)
+                        );
                     // これで、棋譜ツリーに、構造変更があったはず。
                     //↑↑一手指し
                 }
@@ -363,7 +368,12 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 learningData.Kifu.CurNode.Value,
                 errH
             );
-            Util_IttesasuRoutine.UpdateKifuTree(learningData.Kifu, ittesasuResult);
+            Util_IttesasuRoutine.UpdateKifuTree(
+                learningData.Earth,
+                learningData.Kifu,
+                
+                new NodeImpl(ittesasuResult.SyuryoMove, ittesasuResult.SyuryoKyokumenW)
+                );
             // これで、棋譜ツリーに、構造変更があったはず。
             //↑↑一手指し
 

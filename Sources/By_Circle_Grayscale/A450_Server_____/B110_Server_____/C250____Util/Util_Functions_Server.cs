@@ -85,7 +85,10 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
         /// </summary>
         public static bool ReadLine_TuginoItteSusumu_Srv(
             ref string inputLine,
+
+            Earth earth1,
             Tree kifu1,//SetCurNodeがある。[コマ送り][再生]などで使用。
+
             SkyWrapper_Gui model_Manual,
             out bool toBreak,
             string hint,
@@ -116,6 +119,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 #endif
                     inputLine = kifuParserA_Impl.Execute_Step(
                         ref result,
+                        earth1,
                         kifu1,
                         genjo,
                         errH
@@ -149,6 +153,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
                         inputLine = kifuParserA_Impl.Execute_Step(
                             ref result,
+                            earth1,
                             kifu1,
                             genjo,
                             errH
@@ -171,6 +176,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
                         inputLine = kifuParserA_Impl.Execute_Step(
                             ref result,
+                            earth1,
                             kifu1,
                             genjo,
                             errH
@@ -202,6 +208,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
                     inputLine = kifuParserA_Impl.Execute_Step(
                         ref result,
+                        earth1,
                         kifu1,
                         genjo,
                         errH
@@ -354,7 +361,10 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
         /// </summary>
         public static bool Komaokuri_Srv(
             ref string inputLine,
+
+            Earth earth1,
             Tree kifu1,
+
             SkyWrapper_Gui model_Manual,
             KwLogger errH,
             [CallerMemberName] string memberName = "",
@@ -371,6 +381,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             bool toBreak = false;
             Util_Functions_Server.ReadLine_TuginoItteSusumu_Srv(
                 ref inputLine,
+                earth1,
                 kifu1,//SetCurNodeがある。
                 model_Manual,
                 out toBreak,

@@ -58,6 +58,10 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
     /// </summary>
     public class LearningDataImpl : LearningData
     {
+        public LearningDataImpl()
+        {
+            this.Fv = new FeatureVectorImpl();
+        }
 
         /// <summary>
         /// 読み用。
@@ -82,6 +86,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
 
         public CsaKifu CsaKifu { get; set; }
 
+        public Earth Earth { get; set; }
         public Tree Kifu { get; set; }
 
         /// <summary>
@@ -89,10 +94,6 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
         /// </summary>
         public FeatureVector Fv { get; set; }
 
-        public LearningDataImpl()
-        {
-            this.Fv = new FeatureVectorImpl();
-        }
 
         /// <summary>
         /// 初期設定。
@@ -192,7 +193,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
             EvaluationArgs args;
             {
                 args = new EvaluationArgsImpl(
-                    this.Kifu.GetSennititeCounter(),
+                    this.Earth.GetSennititeCounter(),
                     this.featureVector_ForYomi,
                     this.shogisasi_ForYomi,
                     LearningDataImpl.REPORT_ENVIRONMENT

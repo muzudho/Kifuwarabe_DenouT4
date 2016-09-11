@@ -17,7 +17,10 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser
         /// <returns></returns>
         string Execute_Step(
             ref KifuParserA_Result result,
+
+            Earth earth1,
             Tree kifu1,
+
             KifuParserA_Genjo genjo,
             KwLogger errH
             ,
@@ -34,7 +37,10 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser
         /// <param name="larabeLogger"></param>
         void Execute_All(
             ref KifuParserA_Result result,
+
+            Earth earth1,
             Tree kifu1,
+
             KifuParserA_Genjo genjo,
             KwLogger errH
             ,

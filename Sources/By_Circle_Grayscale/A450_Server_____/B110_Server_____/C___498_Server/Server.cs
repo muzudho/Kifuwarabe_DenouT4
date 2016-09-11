@@ -25,6 +25,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C___498_Server
         void ClearInputString99();
 
 
+        Earth Earth { get; }
         Tree KifuTree { get; }
     }
 }

@@ -22,6 +22,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
     {
         CsaKifu CsaKifu { get; set; }
 
+        Earth Earth { get; set; }
         Tree Kifu { get; set; }
 
         /// <summary>

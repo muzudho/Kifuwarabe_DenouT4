@@ -97,9 +97,9 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
                 // カレントノードまでの符号を使って、フォルダーパスを作成。
                 //----------------------------------------
                 StringBuilder sb_folder = new StringBuilder();
-                kifu.ForeachHonpu(kifu.CurNode, (int temezumi2, Sky kWrap, Node node, ref bool toBreak) =>
+                kifu.ForeachHonpu2(kifu.CurNode, (int temezumi2, Move move, ref bool toBreak) =>
                 {
-                    sb_folder.Append(Conv_Move.ToSfen_ForFilename(node.Key) + "/");
+                    sb_folder.Append(Conv_Move.ToSfen_ForFilename(move) + "/");
                 });
                 //sb_folder.Append( Conv_SasiteStr_Sfen.ToSasiteStr_Sfen_ForFilename(kifu.CurNode.Key) + "/");
 

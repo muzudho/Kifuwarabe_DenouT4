@@ -38,7 +38,8 @@ namespace P930_SampleGame
             Shogisasi shogisasi = new ShogisasiImpl(kifuWarabe);
 
             // 棋譜
-            Tree kifu = new TreeImpl(
+            Earth earth1 = new EarthImpl();
+            Tree kifu1 = new TreeImpl(
                         new NodeImpl(
                             Conv_Move.GetErrorMove(),
                             new SkyImpl(Util_SkyCreator.New_Hirate())//日本の符号読取時
@@ -53,8 +54,9 @@ namespace P930_SampleGame
                 ref searchedNodes,
                 searchedPv,
                 true,
-                
-                kifu,
+
+                earth1,
+                kifu1,
                 
                 errH);
 

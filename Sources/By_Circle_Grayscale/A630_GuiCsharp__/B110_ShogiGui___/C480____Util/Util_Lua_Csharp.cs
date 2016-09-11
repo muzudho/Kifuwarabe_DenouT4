@@ -136,6 +136,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
         public static void ClearKifu(MainGui_Csharp mainGui, RepaintRequest repaintRequest)
         {
             KwLogger errH = Util_Loggers.ProcessNone_ERROR;
+
+            mainGui.Link_Server.Earth.Clear();
             mainGui.Link_Server.KifuTree.Clear();// 棋譜を空っぽにします。
 
             Sky newSky = new SkyImpl(mainGui.SkyWrapper_Gui.GuiSky);

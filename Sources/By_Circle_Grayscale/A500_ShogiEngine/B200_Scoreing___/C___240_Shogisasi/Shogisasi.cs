@@ -33,7 +33,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C___240_Shogisasi
         /// </summary>
         /// <param name="enableLog"></param>
         /// <param name="isHonshogi"></param>
-        /// <param name="kifu"></param>
+        /// <param name="kifu1"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
         MoveEx WA_Bestmove(
@@ -41,7 +41,10 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C___240_Shogisasi
             ref ulong searchedNodes,
             string[] searchedPv,
             bool isHonshogi,
-            Tree kifu,
+
+            Earth earth1,
+            Tree kifu1,
+
             KwLogger errH
             );
 

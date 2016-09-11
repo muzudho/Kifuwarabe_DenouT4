@@ -39,7 +39,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
         /// </summary>
         /// <param name="fugoList"></param>
         public static string ToJsaFugoListString(
-            Tree src_kifu,
+            Earth earth1,
+            Tree kifu1,
             string hint,
             KwLogger errH
             )
@@ -48,10 +49,11 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
             sb.Append("position ");
 
-            sb.Append(src_kifu.GetProperty(Word_KifuTree.PropName_Startpos));
+            sb.Append(kifu1.GetProperty(Word_KifuTree.PropName_Startpos));
             sb.Append(" moves ");
 
             // 採譜用に、新しい対局を用意します。
+            Earth saifuEarth1 = new EarthImpl();
             Tree saifuKifu;
             {
                 Move move = Conv_Move.GetErrorMove();
@@ -62,11 +64,12 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                             new SkyImpl(Util_SkyCreator.New_Hirate())//日本の符号読取時
                         )
                 );
+                earth1.Clear();
                 saifuKifu.Clear();// 棋譜を空っぽにします。
                 saifuKifu.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面 // FIXME:平手とは限らないのでは？
             }
 
-            src_kifu.ForeachHonpu(src_kifu.CurNode, (int temezumi, Sky kWrap, Node node, ref bool toBreak) =>
+            kifu1.ForeachHonpu2(kifu1.CurNode, (int temezumi, Move move, ref bool toBreak) =>
             {
                 if (0 == temezumi)
                 {
@@ -82,7 +85,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
                 // 採譜用新ノード
                 Node saifu_newChild = new NodeImpl(
-                    node.Key,
+                    move,
                     new SkyImpl(saifu_kWrap)
                 );
                 saifu_newChild.Value.SetKaisiPside(Conv_Playerside.Reverse(saifu_kWrap.KaisiPside));
@@ -90,7 +93,11 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
 
                 // 記録係り用棋譜（採譜）
-                Util_KifuTree282.AppendChild_And_ChangeCurrentToChild(saifuKifu, saifu_newChild, hint+"/ToJsaKifuText", errH);// 新しい次ノードを追加。次ノードを、これからカレントとする。
+                Util_KifuTree282.AppendChild_And_ChangeCurrentToChild(
+                    saifuEarth1,
+                    saifuKifu,
+                    saifu_newChild, hint+"/ToJsaKifuText", errH
+                    );// 新しい次ノードを追加。次ノードを、これからカレントとする。
 
                 // 後手の符号がまだ含まれていない。
                 string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
@@ -125,7 +132,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
             // 本譜
             int count = 0;
-            src_kifu.ForeachHonpu(src_kifu.CurNode, (int temezumi, Sky kWrap, Node node, ref bool toBreak) =>
+            src_kifu.ForeachHonpu2(src_kifu.CurNode, (int temezumi, Move move, ref bool toBreak) =>
             {
                 if (0 == temezumi)
                 {
@@ -133,7 +140,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                     goto gt_EndLoop;
                 }
 
-                sb.Append(Conv_Move.ToSfen(node.Key));
+                sb.Append(Conv_Move.ToSfen(move));
 
                 //// TODO:デバッグ用
                 //switch (sasite.TottaKoma)
