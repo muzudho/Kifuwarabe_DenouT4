@@ -16,7 +16,72 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
 {
     public abstract class Util_IttesasuSuperRoutine
     {
+        //*
+        /// <summary>
+        /// 指したあとの、次の局面を作るだけ☆
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="finger"></param>
+        /// <param name="dstMasu"></param>
+        /// <param name="pside_genTeban"></param>
+        /// <param name="errH"></param>
+        /// <returns></returns>
+        public static void DoMove_Super(
+            ref Sky position,//指定局面
+            Finger finger,//動かす駒
+            SyElement dstMasu,//移動先マス
+            bool toNaru,//成るなら真
+            KwLogger errH
+            )
+        {
+            Playerside srcPside = position.KaisiPside;
 
+            // 開始先後を逆転させます。
+            position.SetKaisiPside(Conv_Playerside.Reverse(srcPside));
+
+            position.SetTemezumi(position.Temezumi + 1);// 1手進めます。
+
+            // 移動先に相手の駒がないか、確認します。
+            Finger tottaKomaFig = Util_Sky_FingersQuery.InMasuNow_Old(position, dstMasu).ToFirst();
+
+            if (tottaKomaFig != Fingers.Error_1)
+            {
+                // なにか駒を取ったら
+
+                // 駒台の空いているマス１つ。
+                SyElement akiMasu;
+                if (srcPside == Playerside.P1)
+                {
+                    akiMasu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Okiba.Sente_Komadai, position);
+                }
+                else
+                {
+                    akiMasu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Okiba.Gote_Komadai, position);
+                }
+
+                position.AssertFinger(tottaKomaFig);
+                Busstop tottaKomaBus = position.BusstopIndexOf(tottaKomaFig);
+
+                // 駒台の空いているマスへ移動☆
+                position.PutOverwriteOrAdd_Busstop(tottaKomaFig, Conv_Busstop.ToBusstop(srcPside, akiMasu, Conv_Busstop.ToKomasyurui(tottaKomaBus)));
+            }
+
+            // 駒を１個動かします。
+            {
+                position.AssertFinger(finger);
+                Komasyurui14 komaSyurui = Conv_Busstop.ToKomasyurui(position.BusstopIndexOf(finger));
+
+                if (toNaru)
+                {
+                    komaSyurui = Util_Komasyurui14.ToNariCase(komaSyurui);
+                }
+
+                position.PutOverwriteOrAdd_Busstop(finger, Conv_Busstop.ToBusstop(srcPside, dstMasu, komaSyurui));
+            }
+        }
+        //*/
+
+        /*
         /// <summary>
         /// 指したあとの、次の局面を作るだけ☆
         /// </summary>
@@ -78,6 +143,6 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
 
             return newSky;
         }
-
+        //*/
     }
 }

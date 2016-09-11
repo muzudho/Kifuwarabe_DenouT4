@@ -41,9 +41,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         public static void CreateMovelist_BeforeLoop(
             Tansaku_Genjo genjo,
             
-            Move move_ForLog,//node_yomi.Key
-            Sky position1,//node_yomi.Value.Kyokumen
-                             //KifuNode node_yomi,//改造前
+            Move move_ForLog,
+            Sky pos1,//この局面から合法手を作成☆（＾～＾）
 
             out List<Move> out_movelist,
             ref int searchedMaxDepth,
@@ -53,11 +52,11 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         {
             out_movelist = Util_MovePicker.WAAAA_Create_ChildNodes(
                 genjo,
-                position1,
+                pos1,
                 move_ForLog,//ログ用
                 errH);
 
-            out_yomiDeep = position1.Temezumi - genjo.YomikaisiTemezumi + 1;
+            out_yomiDeep = pos1.Temezumi - genjo.YomikaisiTemezumi + 1;
             if (searchedMaxDepth < out_yomiDeep - 1)//これから探索する分をマイナス1しているんだぜ☆（＾～＾）
             {
                 searchedMaxDepth = out_yomiDeep - 1;

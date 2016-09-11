@@ -334,19 +334,17 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
                 // 指し手生成ルーチンで、棋譜ツリーを作ります。
                 //
                 bool isHonshogi = true;
-                MoveEx alphabeta_otherBranchDecidedValue = new MoveExImpl(Move.Empty);
-                alphabeta_otherBranchDecidedValue.SetScore(Util_Scoreing.GetWorstScore(this.Kifu.CurNode.GetValue().KaisiPside));
-
-
                 MoveEx bestNode = Tansaku_FukasaYusen_Routine.WAA_Yomu_Start(
                     ref searchedMaxDepth,
                     ref searchedNodes,
                     searchedPv,
 
                     this.Kifu.CurNode.GetValue().Temezumi,
+                    this.Kifu.CurNode.GetValue().KaisiPside,
                     this.Kifu.CurNode,
                     
-                    isHonshogi, Mode_Tansaku.Learning, alphabeta_otherBranchDecidedValue, args, errH);
+                    isHonshogi, Mode_Tansaku.Learning,
+                    args, errH);
             }
             catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "棋譜ツリーを作っていたときです。"); throw ex; }
 

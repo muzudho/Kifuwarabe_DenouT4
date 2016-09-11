@@ -189,7 +189,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
 
 
             // 入替え
-            hubNode.Children1.SetItem(newNextNodes, hubNode);
+            hubNode.Children1.SetItems(newNextNodes, hubNode);
         }
 
 

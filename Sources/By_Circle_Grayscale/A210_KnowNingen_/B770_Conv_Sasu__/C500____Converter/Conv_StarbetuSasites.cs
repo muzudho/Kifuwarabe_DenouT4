@@ -59,17 +59,20 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
                         SyElement dstMasu = Conv_Move.ToDstMasu(move);
 
                         // 指したあとの次の局面を作るだけ☆
+                        Sky pos1 = new SkyImpl(src_Sky);
+                        Util_IttesasuSuperRoutine.DoMove_Super(
+                            ref pos1,//指定局面
+                            figKoma,//動かす駒
+                            dstMasu,//移動先升
+                            false,//成りません。
+                            errH
+                        );
+
                         hubNode.Children1.AddItem(move,
                             new NodeImpl(
                                 move,
-                                new SkyImpl(
-                            Util_IttesasuSuperRoutine.DoMove_Super(
-                                src_Sky,//指定局面
-                                figKoma,//動かす駒
-                                dstMasu,//移動先升
-                                false,//成りません。
-                                errH
-                        ))),
+                                pos1
+                            ),
                             hubNode);
                     }
                 }

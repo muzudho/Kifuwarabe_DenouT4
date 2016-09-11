@@ -75,7 +75,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
             bool isHonshogi,
 
             Earth earth1,
-            Tree kifu1,
+            Tree kifu1,// ツリーを伸ばしているぜ☆（＾～＾）
 
             KwLogger errH
             )
@@ -101,8 +101,6 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
 #endif
                 );
 
-            MoveEx alphabeta_otherBranchDecidedValue = new MoveExImpl(Move.Empty);
-            alphabeta_otherBranchDecidedValue.SetScore(Util_Scoreing.GetWorstScore(kifu1.CurNode.GetValue().KaisiPside));
 
             try
             {
@@ -117,10 +115,11 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                     searchedPv,
 
                     kifu1.CurNode.GetValue().Temezumi,
-                    kifu1.CurNode,
-                    
+                    kifu1.CurNode.GetValue().KaisiPside,
+                    kifu1.CurNode,// ツリーを伸ばしているぜ☆（＾～＾）
+
                     isHonshogi, Mode_Tansaku.Shogi_ENgine,
-                    alphabeta_otherBranchDecidedValue, args, errH);
+                    args, errH);
             }
             catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "棋譜ツリーを作っていたときです。"); throw ex; }
 

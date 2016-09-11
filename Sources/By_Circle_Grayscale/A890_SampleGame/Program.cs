@@ -56,8 +56,8 @@ namespace P930_SampleGame
                 true,
 
                 earth1,
-                kifu1,
-                
+                kifu1,// ツリーを伸ばしているぜ☆（＾～＾）
+
                 errH);
 
             Move move = bestmoveNode.Move;

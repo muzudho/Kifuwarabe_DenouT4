@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B600_UtilSky____.C500____Util;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System.Collections.Generic;
 using System.Text;
@@ -77,9 +68,9 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             newNode.SetParentNode(parent);
         }
 
-        public void SetItem(Dictionary<Move, Node> newNextNodes, Node parent)
+        public void SetItems(Dictionary<Move, Node> newItems, Node parent)
         {
-            this.Items = newNextNodes;
+            this.Items = newItems;
             foreach (Node child in this.Items.Values)
             {
                 child.SetParentNode(parent);
