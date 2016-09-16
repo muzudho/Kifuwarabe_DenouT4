@@ -819,7 +819,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
 
             // 手番
             Playerside playersideB = Conv_Move.ToPlayerside(move);
-            sb.Append("playersideB="+ Conv_Playerside.ToKanji(playersideB) );
+            sb.Append("pside="+ Conv_Playerside.ToKanji(playersideB) );
 
             bool drop = Conv_Move.ToDrop(move);
 

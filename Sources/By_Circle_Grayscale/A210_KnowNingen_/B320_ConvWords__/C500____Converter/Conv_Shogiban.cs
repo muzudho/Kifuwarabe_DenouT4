@@ -9,6 +9,8 @@ using System.Text;
 using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 
 namespace Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter
 {
@@ -17,7 +19,19 @@ namespace Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter
     /// </summary>
     public abstract class Conv_Shogiban
     {
+        public static string ToLog_Type2(ShogibanImpl shogiban, Sky sky, Move move)
+        {
+            StringBuilder sb = new StringBuilder();
 
+            sb.AppendLine(Conv_Playerside.ToKanji(sky.KaisiPside));
+            sb.AppendLine(sky.Temezumi+"手目済");
+            sb.AppendLine(Conv_Move.ToLog(move));
+
+
+            sb.Append(Conv_Shogiban.ToLog(shogiban));
+
+            return sb.ToString();
+        }
         public static string ToLog(ShogibanImpl shogiban)
         {
             StringBuilder sb = new StringBuilder();

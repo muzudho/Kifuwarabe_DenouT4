@@ -15,6 +15,7 @@ using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA;
 using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 {
@@ -58,7 +59,11 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
             if (Fingers.Error_1 == ittemodosuResult.FigMovedKoma)
             {
-                errH.DonimoNaranAkirameta("戻せる駒が無かった☆");
+                errH.DonimoNaranAkirameta(
+                    "戻せる駒が無かった☆\n"+
+                    "kaisi_Temezumi=" + kaisi_Temezumi+"\n"+
+                    Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(kaisi_Sky), kaisi_Sky, moved)
+                    );
                 return;
             }
 

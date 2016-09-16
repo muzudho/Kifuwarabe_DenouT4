@@ -63,6 +63,7 @@ namespace Grayscale.A060_Application.B110_Log________.C___500_Struct
         /// </summary>
         /// <param name="okottaBasho"></param>
         void DonimoNaranAkirameta(string okottaBasho);
+        void ShowDialog(string okottaBasho);
 
 
         /// <summary>

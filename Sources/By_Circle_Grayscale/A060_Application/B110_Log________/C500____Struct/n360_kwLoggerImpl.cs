@@ -223,16 +223,23 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
         /// 例外が発生したが、対応できないのでログだけ出します。
         /// デバッグ時は、ダイアログボックスを出します。
         /// </summary>
-        /// <param name="okottaBasho"></param>
-        public void DonimoNaranAkirameta(string okottaBasho)
+        /// <param name="message1"></param>
+        public void DonimoNaranAkirameta(string message1)
         {
             //>>>>> エラーが起こりました。
-            string message = "起こった場所：" + okottaBasho;
-            Debug.Fail(message);
+            string message2 = "エラー：" + message1;
+            Debug.Fail(message2);
 
             // どうにもできないので  ログだけ取って、上に投げます。
-            this.AppendLine(message);
+            this.AppendLine(message2);
             this.Flush(LogTypes.Error);
+            // ログ出力に失敗することがありますが、無視します。
+        }
+        public void ShowDialog(string message)
+        {
+            this.AppendLine(message);
+            MessageBox.Show(message);
+            this.Flush(LogTypes.Plain);
             // ログ出力に失敗することがありますが、無視します。
         }
 

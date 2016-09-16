@@ -26,6 +26,9 @@ using System.Diagnostics;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
+using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
+using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
@@ -279,6 +282,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         genjo,
                         Util_Scoreing.GetWorstScore(pside),//最悪点からスタートだぜ☆（＾～＾）
 
+                        pos1.Temezumi,
                         moveEx.Move,
                         pos1,//この局面から合法手を作成☆（＾～＾）
                         kifuNode,// ツリーを伸ばしているぜ☆（＾～＾）
@@ -565,6 +569,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             Tansaku_Genjo genjo,
             float parentsiblingBestScore,
 
+            int kaisiTemezumi,
             Move mov1,//改造後
             Sky pos1,//この局面から、合法手を作成☆（＾～＾）
             Node nod1,// ツリーを伸ばしているぜ☆（＾～＾）
@@ -672,6 +677,11 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         //
                         exceptionArea = 4020;
 
+                        {
+                            errH.AppendLine("進める前");
+                            errH.Append(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(pos1)));
+                            errH.Flush(LogTypes.Plain);
+                        }
                         // 局面
                         pos2 = new SkyImpl(pos1);
                         Util_IttesasuSuperRoutine.DoMove_Super(
@@ -683,6 +693,11 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         );
                         //nod2.SetValue(pos2);
                         // （＾▽＾）局面データは持たせないぜ、容量の無駄だからな☆（＾▽＾）
+                        {
+                            errH.AppendLine("進めた後");
+                            errH.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(pos2), pos2, mov2));
+                            errH.Flush(LogTypes.Plain);
+                        }
 
 
                         exceptionArea = 44011;
@@ -705,6 +720,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                             genjo,
                             mov3.Score,
 
+                            pos2.Temezumi,
                             mov2,//改造後
                             pos2,//この局面から合法手を作成☆（＾～＾） nod2.Value はヌル☆（＾▽＾）
                             nod2,// ツリーを伸ばしているぜ☆（＾～＾）
@@ -712,6 +728,35 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                             movelist2.Count,
                             args,
                             errH);
+
+                        exceptionArea = 6000;
+
+                        {
+                            errH.AppendLine("戻す前");
+                            errH.Append(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(pos2)));
+                            errH.Flush(LogTypes.Plain);
+                        }
+                        //*
+                        if (0<kaisiTemezumi)//ルート局面除く
+                        {
+                            // １手戻したいぜ☆（＾～＾）
+
+                            IttemodosuResult ittemodosuResult;
+                            Util_IttemodosuRoutine.UndoMove(
+                                out ittemodosuResult,
+                                kaisiTemezumi,
+                                mov2,//mov1,//この関数が呼び出されたときの指し手☆（＾～＾）
+                                pos2,
+                                errH
+                                );
+                            pos2 = ittemodosuResult.SyuryoSky;
+                        }
+                        //*/
+                        {
+                            errH.AppendLine("戻した後");
+                            errH.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(pos2), pos2, mov1));
+                            errH.Flush(LogTypes.Plain);
+                        }
 
 
                         exceptionArea = 7000;
@@ -734,7 +779,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         Util_Scoreing.Update_BestScore_And_Check_AlphaCut(
                             yomiDeep2,// yomiDeep0,
 
-                            pos1.KaisiPside,
+                            pos2.KaisiPside, //pos1.KaisiPside,
 
                             parentsiblingBestScore,
                             mov4.Score,
