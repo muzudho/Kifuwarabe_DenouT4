@@ -342,7 +342,9 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
                     this.Kifu.CurNode.GetValue().Temezumi,
                     this.Kifu.CurNode.GetValue().KaisiPside,
                     this.Kifu.CurNode,
-                    
+                    this.Kifu.CurNode.GetValue(),
+
+
                     isHonshogi, Mode_Tansaku.Learning,
                     args, errH);
             }

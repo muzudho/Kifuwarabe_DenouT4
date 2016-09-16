@@ -49,6 +49,7 @@ namespace P930_SampleGame
             int searchedMaxDepth = 0;
             ulong searchedNodes = 0;
             string[] searchedPv = new string[KifuWarabeImpl.SEARCHED_PV_LENGTH];
+            Sky positionA = kifu1.GetSky();
             MoveEx bestmoveNode = shogisasi.WA_Bestmove(
                 ref searchedMaxDepth,
                 ref searchedNodes,
@@ -57,6 +58,7 @@ namespace P930_SampleGame
 
                 earth1,
                 kifu1,// ツリーを伸ばしているぜ☆（＾～＾）
+                positionA,
 
                 errH);
 

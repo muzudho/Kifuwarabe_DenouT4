@@ -127,10 +127,10 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 );
                 this.Earth_AtLoop2.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
 
-                this.Kifu_AtLoop2.CurNode.GetValue().AssertFinger((Finger)0);
+                this.PositionA.AssertFinger((Finger)0);
                 Debug.Assert(!Conv_MasuHandle.OnKomabukuro(
                     Conv_SyElement.ToMasuNumber(
-                        Conv_Busstop.ToMasu(this.Kifu_AtLoop2.CurNode.GetValue().BusstopIndexOf((Finger)0))
+                        Conv_Busstop.ToMasu(this.PositionA.BusstopIndexOf((Finger)0))
                         )
                     ), "駒が駒袋にあった。");
             }
@@ -223,10 +223,16 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
         /// 棋譜です。
         /// </summary>
         public Tree Kifu_AtLoop2 { get { return this.m_kifu_AtLoop2_; } }
+        public Sky PositionA { get {
+                return this.m_kifu_AtLoop2_.GetSky();
+                //return this.m_positionA_;
+            } }
         public void SetKifu_AtLoop2(Tree kifu)
         {
             this.m_kifu_AtLoop2_ = kifu;
+            //this.m_positionA_ = kifu.GetSky();
         }
+        //private Sky m_positionA_;
         private Tree m_kifu_AtLoop2_;
 
         public Earth Earth_AtLoop2 { get { return this.m_earth_AtLoop2_; } }
@@ -904,7 +910,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
                 // ┏━━━━プログラム━━━━┓
 
-                int latestTemezumi = this.Kifu_AtLoop2.CurNode.GetValue().Temezumi;//現・手目済
+                int latestTemezumi = this.PositionA.Temezumi;//現・手目済
 
                 //#if DEBUG
                 // MessageBox.Show("["+latestTemezumi+"]手目済　["+this.owner.PlayerInfo.Playerside+"]の手番");
@@ -1017,6 +1023,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
                                         this.Earth_AtLoop2,
                                         this.Kifu_AtLoop2,// ツリーを伸ばしているぜ☆（＾～＾）
+                                        this.PositionA,
 
                                         this.ErrH)
                                         );
@@ -1078,7 +1085,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                                 {
                                     //int hyojiScore = (int)(bestScore / 100.0d);//FIXME:適当に調整した。
                                     int hyojiScore = (int)bestScore;
-                                    if (this.Kifu_AtLoop2.CurNode.GetValue().KaisiPside == Playerside.P2)
+                                    if (this.PositionA.KaisiPside == Playerside.P2)
                                     {
                                         // 符号を逆転
                                         hyojiScore = -hyojiScore;

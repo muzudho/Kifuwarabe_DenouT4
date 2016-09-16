@@ -6,4 +6,3 @@ E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A860_Utifu
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A860_UtifuduTest\obj\Release\A860_UtifuduTest.csproj.GenerateResource.Cache
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A860_UtifuduTest\obj\Release\Grayscale.A860_UtifuduTest.exe
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A860_UtifuduTest\obj\Release\Grayscale.A860_UtifuduTest.pdb
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A860_UtifuduTest\obj\Release\A860_UtifuduTest.csprojResolveAssemblyReference.cache

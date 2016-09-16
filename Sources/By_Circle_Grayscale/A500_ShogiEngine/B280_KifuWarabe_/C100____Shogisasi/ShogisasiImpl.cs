@@ -18,6 +18,7 @@ using System;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
@@ -76,6 +77,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
 
             Earth earth1,
             Tree kifu1,// ツリーを伸ばしているぜ☆（＾～＾）
+            Sky positionA,
 
             KwLogger errH
             )
@@ -117,6 +119,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                     kifu1.CurNode.GetValue().Temezumi,
                     kifu1.CurNode.GetValue().KaisiPside,
                     kifu1.CurNode,// ツリーを伸ばしているぜ☆（＾～＾）
+                    positionA,
 
                     isHonshogi, Mode_Tansaku.Shogi_ENgine,
                     args, errH);
