@@ -1,9 +1,8 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A450_Server_____.B110_Server_____.C___125_Receiver;
 using Grayscale.A450_Server_____.B110_Server_____.C___496_EngineWrapper;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A450_Server_____.B110_Server_____.C___497_EngineClient
 {
@@ -35,8 +34,10 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C___497_EngineClient
         /// </summary>
         /// <param name="kifu"></param>
         /// <param name="errH"></param>
-        void OnChangedTurn(Earth earth,
-            Node curNode,//Tree kifu,
+        void OnChangedTurn(
+            Earth earth,
+            Node curNode,
+            Playerside kaisiPside,
             KwLogger errH);
 
         /// <summary>

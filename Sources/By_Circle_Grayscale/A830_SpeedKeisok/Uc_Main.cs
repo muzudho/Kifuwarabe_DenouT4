@@ -54,6 +54,10 @@ namespace Grayscale.P910_SpeedKeisok
 
         public Earth Earth { get; set; }
         public Tree Kifu { get; set; }
+        public Sky GetSky()
+        {
+            return this.Kifu.CurNode.GetValue();
+        }
 
 
         public Uc_Main()
@@ -67,7 +71,7 @@ namespace Grayscale.P910_SpeedKeisok
                 this.Earth = newEarth1;
                 this.Kifu = newKifu1_Hirate;
             }
-            this.Src_Sky = this.Kifu.CurNode.GetValue();
+            this.Src_Sky = this.GetSky();
             InitializeComponent();
         }
 

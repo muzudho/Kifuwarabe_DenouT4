@@ -24,6 +24,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
 
         Earth Earth { get; set; }
         Tree Kifu { get; set; }
+        Sky GetSky();
 
         /// <summary>
         /// フィーチャー・ベクター。

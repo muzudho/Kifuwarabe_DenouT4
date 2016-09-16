@@ -237,7 +237,10 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// </summary>
         public static void UpdateKifuTree(
             Earth earth1,
-            Tree kifu1, Node newNode)
+            Tree kifu1,
+            Node newNode,
+            Sky positionA
+            )
         {
             if (!kifu1.CurNode.Children1.ContainsKey(newNode.Key))
             {
@@ -245,7 +248,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 // 次ノード追加（なければ）
                 //----------------------------------------
                 earth1.GetSennititeCounter().CountUp_New(
-                    Conv_Sky.ToKyokumenHash(newNode.GetValue()), "After3_ChangeCurrent(次の一手なし)");
+                    Conv_Sky.ToKyokumenHash(positionA), "After3_ChangeCurrent(次の一手なし)");
                 kifu1.CurNode.Children1.PutTuginoitte_New(newNode, kifu1.CurNode);//次ノートを追加します。
             }
             else
@@ -254,7 +257,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 // 次ノード上書き（あれば）
                 //----------------------------------------
                 earth1.GetSennititeCounter().CountUp_New(
-                    Conv_Sky.ToKyokumenHash(newNode.GetValue()), "After3_ChangeCurrent（次の一手あり）");
+                    Conv_Sky.ToKyokumenHash(positionA), "After3_ChangeCurrent（次の一手あり）");
                 kifu1.CurNode.Children1.PutTuginoitte_Override(newNode, kifu1.CurNode);//次ノートを上書きします。
             }
 

@@ -69,7 +69,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C508____AutoSasiteRush
                         goto gt_EndTesu;
                     }
 
-                    if (uc_Main.LearningData.Kifu.CurNode.GetValue().Temezumi < tesu+1)
+                    if (uc_Main.LearningData.GetSky().Temezumi < tesu+1)
                     {
                         goto gt_EndLearn;
                     }
@@ -190,7 +190,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C508____AutoSasiteRush
                         goto gt_EndTesu;
                     }
 
-                    if (tesu <= uc_Main.LearningData.Kifu.CurNode.GetValue().Temezumi)
+                    if (tesu <= uc_Main.LearningData.GetSky().Temezumi)
                     {
                         // 自動ループしないなら、終了。
                         break;
@@ -205,7 +205,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C508____AutoSasiteRush
                 // 20手間隔で。
                 //
                 if (
-                    uc_Main.ChkAutosave.Checked && uc_Main.LearningData.Kifu.CurNode.GetValue().Temezumi % 20 == 0
+                    uc_Main.ChkAutosave.Checked && uc_Main.LearningData.GetSky().Temezumi % 20 == 0
                 )
                 {
                     Util_LearnFunctions.Do_Save(uc_Main, errH);

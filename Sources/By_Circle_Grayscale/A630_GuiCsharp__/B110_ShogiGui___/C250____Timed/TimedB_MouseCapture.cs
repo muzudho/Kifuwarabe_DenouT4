@@ -69,9 +69,10 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
 
             // 味方の駒
             Node siteiNode = shogiGui.Link_Server.KifuTree.CurNode;
+            Sky positionA = shogiGui.Link_Server.GetSky();
 
             //shogiGui.Model_PnlTaikyoku.Kifu.AssertPside(shogiGui.Model_PnlTaikyoku.Kifu.CurNode, "Check_MouseoverKomaKiki",errH);
-            SySet<SyElement> mikataZukei = Util_Sky_SyugoQuery.Masus_Now(siteiNode.GetValue(), shogiGui.Link_Server.KifuTree.CurNode.GetValue().KaisiPside);
+            SySet<SyElement> mikataZukei = Util_Sky_SyugoQuery.Masus_Now(positionA, shogiGui.Link_Server.GetSky().KaisiPside);
             //mikataZukei.DebugWrite("味方の駒");
 
             // 駒の利き上に駒がないか。
@@ -412,7 +413,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                         //----------------------------------------
                                                         // 次ノード追加
                                                         //----------------------------------------
-                                                        mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.GetValue()), "TimedB.Step(1)");
+                                                        mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(sky_newChild), "TimedB.Step(1)");
                                                         curNode1.Children1.PutTuginoitte_New(newNode, curNode1);
                                                     }
 
@@ -420,7 +421,9 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     Util_Functions_Server.SetCurNode_Srv(
                                                         mainGui.Link_Server.KifuTree,
                                                         mainGui.SkyWrapper_Gui,
-                                                        newNode, out jsaFugoStr, errH);
+                                                        newNode,
+                                                        sky_newChild,
+                                                        out jsaFugoStr, errH);
                                                     mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
 
@@ -540,12 +543,13 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                             );// 選択している駒の元の場所と、移動先
 
                                                         // 駒を置いたので、次のノードを準備しておく☆？
+                                                        Sky sky_newChild = new SkyImpl(src_GuiSky);
                                                         Node newNode =
                                                             new NodeImpl(
                                                                 move,
-                                                                new SkyImpl(src_GuiSky)
+                                                                sky_newChild
                                                             );
-                                                        newNode.GetValue().SetTemezumi( mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//1手進ませる。
+                                                        sky_newChild.SetTemezumi( mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//1手進ませる。
 
 
                                                         //マウスの左ボタンを放したときです。
@@ -553,7 +557,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                             //----------------------------------------
                                                             // 次ノード追加
                                                             //----------------------------------------
-                                                            mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.GetValue()), "TimedB.Step(2)");
+                                                            mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(sky_newChild), "TimedB.Step(2)");
                                                             mainGui.Link_Server.KifuTree.CurNode.Children1.PutTuginoitte_New(newNode, mainGui.Link_Server.KifuTree.CurNode);
                                                         }
 
@@ -561,7 +565,9 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                         Util_Functions_Server.SetCurNode_Srv(
                                                             mainGui.Link_Server.KifuTree,
                                                             mainGui.SkyWrapper_Gui,
-                                                            newNode, out jsaFugoStr, errH);
+                                                            newNode,
+                                                            sky_newChild,
+                                                            out jsaFugoStr, errH);
                                                         mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
 
@@ -715,7 +721,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma) && Util_Sky_BoolQuery.IsNareruKoma(Conv_Busstop.ToKomasyurui(koma))
                                                     &&
                                                     (
-                                                        Conv_Masu10.InBanjoAitejin(btnSasitaiMasu.Zahyo, mainGui.Link_Server.KifuTree.CurNode.GetValue().KaisiPside)
+                                                        Conv_Masu10.InBanjoAitejin(btnSasitaiMasu.Zahyo, mainGui.Link_Server.GetSky().KaisiPside)
                                                         ||
                                                         Util_Sky_BoolQuery.InBanjoAitejin(Conv_Busstop.ToMasu( koma),Conv_Busstop.ToPlayerside( koma))
                                                     )

@@ -1,6 +1,7 @@
 ﻿using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using System.Collections.Generic;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 #if DEBUG
 using System.Diagnostics;
@@ -146,7 +147,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             }
 
             // 次のノード
-            node1.Children1.Foreach_ChildNodes((Move key2, Node node2, ref bool toBreak2) =>
+            node1.Children1.Foreach_ChildNodes((Move key2, Node node2, Sky sky, ref bool toBreak2) =>
             {
                 bool toFinish_ZenpukuTansaku2 = false;
                 Util_Tree.Recursive_Node_NextNode(

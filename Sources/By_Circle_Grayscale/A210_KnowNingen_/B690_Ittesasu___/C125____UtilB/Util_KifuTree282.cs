@@ -64,7 +64,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //----------------------------------------
             // 選んだ変化と、選ばなかった変化の一覧
             //----------------------------------------
-            parentNode.Children1.Foreach_ChildNodes((Move move2, Node nextNode2, ref bool toBreak2) =>
+            parentNode.Children1.Foreach_ChildNodes((Move move2, Node nextNode2, Sky sky, ref bool toBreak2) =>
             {
                 if (move2 == move1)
                 {
@@ -112,6 +112,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             Earth earth1,
             Tree kifu1,
             Node nextNode_and_nextCurrent,
+            Sky positionA,
             string hint,
             KwLogger errH
             )
@@ -124,7 +125,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
                 // 次ノート追加
                 //----------------------------------------
                 earth1.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(
-                    nextNode_and_nextCurrent.GetValue()), hint+"/AppendChild_And_ChangeCurrentToChild");
+                    positionA), hint+"/AppendChild_And_ChangeCurrentToChild");
                 kifu1.CurNode.Children1.PutTuginoitte_New(nextNode_and_nextCurrent, kifu1.CurNode);
             }
 
@@ -147,7 +148,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //------------------------------------------------------------
             earth1.Clear();
             kifu1.Clear();
-            earth1.SetProperty(Word_KifuTree.PropName_Startpos, Conv_KifuNode.ToSfenstring(kifu1.CurNode.GetValue(), pside, errH));
+            earth1.SetProperty(Word_KifuTree.PropName_Startpos, Conv_KifuNode.ToSfenstring(kifu1.GetSky(), pside, errH));
         }
 
     }

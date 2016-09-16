@@ -50,6 +50,10 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C498____Server
             this.m_kifuTree_ = kifu1;
         }
         private Tree m_kifuTree_;
+        public Sky GetSky()
+        {
+            return this.KifuTree.CurNode.GetValue();
+        }
 
         public Earth Earth { get { return this.m_earth_; } }
         private Earth m_earth_;

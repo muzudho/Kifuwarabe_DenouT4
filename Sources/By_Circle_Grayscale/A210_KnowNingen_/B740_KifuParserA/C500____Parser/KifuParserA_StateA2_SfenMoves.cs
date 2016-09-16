@@ -1,20 +1,16 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B110_Log________.C500____Struct;
-using Grayscale.A120_KifuSfen___.B160_ConvSfen___.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
-using System;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C400____Conv;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
+using System;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 {
@@ -58,6 +54,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
             Earth earth1,
             Node curNode,
+            Sky positionA,
             Tree kifu1_notUse,
 
             out KifuParserA_State nextState,
@@ -82,7 +79,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                         out rest,
                         genjo.InputLine,
                         curNode.Key,
-                        curNode.GetValue(),
+                        positionA,
                         errH
                         );
                     genjo.InputLine = rest;
@@ -119,7 +116,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                             Util_IttesasuRoutine.DoMove(
                                 out ittesasuResult,
                                 nextMove,
-                                curNode.GetValue(),
+                                positionA,
                                 errH
                                 );
                             // 棋譜ツリーのカレントを変更します。

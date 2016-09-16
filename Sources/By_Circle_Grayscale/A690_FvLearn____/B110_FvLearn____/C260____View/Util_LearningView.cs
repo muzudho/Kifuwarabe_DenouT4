@@ -51,10 +51,11 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             uc_Main.LstSasite.Items.Clear();
 
             Earth earth1 = new EarthImpl();
+            Sky positionA = Util_SkyCreator.New_Hirate();//日本の符号読取時
             Tree kifu1 = new TreeImpl(
                 new NodeImpl(
                     Conv_Move.GetErrorMove(),
-                    Util_SkyCreator.New_Hirate()//日本の符号読取時
+                    positionA
                 )
             );
             //kifu1.AssertPside(kifu1.CurNode, "ShowSasiteList",errH);
@@ -63,7 +64,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             foreach (CsaKifuSasite csaSasite in sasiteList)
             {
                 // 開始局面
-                Sky kaisi_Sky = kifu1.CurNode.GetValue();
+                Sky kaisi_Sky = positionA;
 
                 //
                 // csaSasite を データ指し手 に変換するには？
@@ -140,13 +141,14 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     Util_IttesasuRoutine.DoMove(
                         out ittesasuResult,
                         nextMove,
-                        kifu1.CurNode.GetValue(),
+                        positionA,
                         errH
                     );
                     Util_IttesasuRoutine.UpdateKifuTree(
                         earth1,
                         kifu1,
-                        new NodeImpl(ittesasuResult.SyuryoMove, ittesasuResult.SyuryoKyokumenW)
+                        new NodeImpl(ittesasuResult.SyuryoMove, ittesasuResult.SyuryoKyokumenW),
+                        ittesasuResult.SyuryoKyokumenW
                         );
                     // これで、棋譜ツリーに、構造変更があったはず。
                     //↑↑一手指し
@@ -161,7 +163,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 else
                 {
                     // FIXME: 未テスト。
-                    move = Conv_Move.ToMove_ByCsa(csaSasite, kifu1.CurNode.GetParentNode().GetValue());
+                    move = Conv_Move.ToMove_ByCsa(csaSasite, kifu1.GetSky());
                 }
                 HonpuSasiteListItemImpl listItem = new HonpuSasiteListItemImpl(csaSasite, move);
                 uc_Main.LstSasite.Items.Add(listItem);
@@ -186,7 +188,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
         public static void Aa_ShowNode2(LearningData learningData, Uc_Main uc_Main, KwLogger errH)
         {
             // 手目済み
-            uc_Main.TxtTemezumi.Text = learningData.Kifu.CurNode.GetValue().Temezumi.ToString();
+            uc_Main.TxtTemezumi.Text = learningData.GetSky().Temezumi.ToString();
 
             // 総ノード数
             uc_Main.TxtAllNodesCount.Text = "--";// FIXME: 一旦削除
@@ -215,7 +217,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 //uc_Main.LstGohosyu.Items.Clear();
                 int itemNumber = 0;
                 learningData.Kifu.CurNode.Children1.Foreach_ChildNodes(
-                    (Move key, Node node, ref bool toBreak) =>
+                    (Move key, Node node, Sky sky, ref bool toBreak) =>
                 {
 #if DEBUG || LEARN
                     KyHyokaMeisai_Koumoku komawariMeisai;
@@ -223,7 +225,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
 #endif
 
                     learningData.DoScoreing_ForLearning(
-                        node.GetValue()
+                        sky
 #if DEBUG || LEARN
 ,
                         out komawariMeisai,
@@ -234,7 +236,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     GohosyuListItem item = new GohosyuListItem(
                         itemNumber,
                         key,
-                        Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(node, errH)
+                        Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(node, sky, errH)
 #if DEBUG || LEARN
 ,
                         komawariMeisai,
@@ -273,7 +275,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
  0;
 #endif
 
-                    switch (learningData.Kifu.CurNode.GetValue().KaisiPside)
+                    switch (learningData.GetSky().KaisiPside)
                     {
                         case Playerside.P1: result = bScore - aScore; break;
                         case Playerside.P2: result = aScore - bScore; break;
@@ -349,7 +351,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 {
                     nextMove = Conv_Move.GetErrorMove();
                     StringBuilder sb = new StringBuilder();
-                    sb.Append("指し手[" + Conv_Move.ToSfen(move) + "]はありませんでした。\n" + learningData.DumpToAllGohosyu(learningData.Kifu.CurNode.GetValue()));
+                    sb.Append("指し手[" + Conv_Move.ToSfen(move) + "]はありませんでした。\n" + learningData.DumpToAllGohosyu(learningData.GetSky()));
 
                     //Debug.Fail(sb.ToString());
                     errH.DonimoNaranAkirameta("Util_LearningView#Ittesasu_ByBtnClick：" + sb.ToString());
@@ -365,14 +367,15 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             Util_IttesasuRoutine.DoMove(
                 out ittesasuResult,
                 nextMove,
-                learningData.Kifu.CurNode.GetValue(),
+                learningData.GetSky(),
                 errH
             );
             Util_IttesasuRoutine.UpdateKifuTree(
                 learningData.Earth,
                 learningData.Kifu,
                 
-                new NodeImpl(ittesasuResult.SyuryoMove, ittesasuResult.SyuryoKyokumenW)
+                new NodeImpl(ittesasuResult.SyuryoMove, ittesasuResult.SyuryoKyokumenW),
+                ittesasuResult.SyuryoKyokumenW
                 );
             // これで、棋譜ツリーに、構造変更があったはず。
             //↑↑一手指し

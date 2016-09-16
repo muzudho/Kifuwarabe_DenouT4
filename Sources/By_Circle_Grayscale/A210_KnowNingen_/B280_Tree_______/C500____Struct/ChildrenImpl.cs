@@ -5,6 +5,7 @@ using Grayscale.A210_KnowNingen_.B600_UtilSky____.C500____Util;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System.Collections.Generic;
 using System.Text;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 {
@@ -21,7 +22,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// 次の局面への全ての候補手
         /// </summary>
         protected Dictionary<Move, Node> Items { get; set; }
-        public delegate void DELEGATE_NextNodes(Move key, Node node, ref bool toBreak);
+        public delegate void DELEGATE_NextNodes(Move key, Node node, Sky sky, ref bool toBreak);
 
         public bool HasChildNode(Move key)
         {
@@ -43,7 +44,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
             foreach (KeyValuePair<Move, Node> entry in this.Items)
             {
-                delegate_NextNodes(entry.Key, entry.Value, ref toBreak);
+                delegate_NextNodes(entry.Key, entry.Value, entry.Value.GetValue(), ref toBreak);
 
                 if (toBreak)
                 {
@@ -156,10 +157,10 @@ KwLogger errH)
         {
             StringBuilder sb = new StringBuilder();
 
-            this.Foreach_ChildNodes((Move move, Node node, ref bool toBreak) =>
+            this.Foreach_ChildNodes((Move move, Node node, Sky sky, ref bool toBreak) =>
             {
                 sb.AppendLine(Util_Sky307.Json_1Sky(
-                    node.GetValue(),
+                    sky,
                     memo + "：" + Conv_Move.ToSfen(move),
                     hint + "_SF解1",
                     temezumi_yomiGenTeban_forLog

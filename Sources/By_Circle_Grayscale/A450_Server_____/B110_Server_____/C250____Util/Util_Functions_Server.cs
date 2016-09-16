@@ -56,6 +56,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             Tree kifu1,// Taikyokuの内容をManualへ移す。
             SkyWrapper_Gui model_Manual,
             Node newNode,
+            Sky positionA,
             out string jsaFugoStr,
             KwLogger errH
             )
@@ -64,9 +65,9 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
             kifu1.SetCurNode(newNode);
 
-            model_Manual.SetGuiSky(newNode.GetValue());
+            model_Manual.SetGuiSky(positionA);
 
-            jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(newNode, errH);
+            jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(newNode, positionA, errH);
         }
 
         /// <summary>
@@ -217,7 +218,11 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     if (null != result.Out_newNode_OrNull)
                     {
                         string jsaFugoStr;
-                        Util_Functions_Server.SetCurNode_Srv(kifu1, model_Manual, result.Out_newNode_OrNull, out jsaFugoStr, errH);
+                        Util_Functions_Server.SetCurNode_Srv(
+                            kifu1, model_Manual,
+                            result.Out_newNode_OrNull,
+                            result.Out_newNode_OrNull.GetValue(),
+                            out jsaFugoStr, errH);
                     }
 
                     if (genjo.IsBreak())
@@ -250,7 +255,10 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     // 駒の配置
                     //------------------------------
                     string jsaFugoStr;
-                    Util_Functions_Server.SetCurNode_Srv(kifu1, model_Manual, parsedKyokumen.KifuNode, out jsaFugoStr, errH);// GUIに通知するだけ。
+                    Util_Functions_Server.SetCurNode_Srv(kifu1, model_Manual,
+                        parsedKyokumen.KifuNode,
+                        parsedKyokumen.KifuNode.GetValue(),
+                        out jsaFugoStr, errH);// GUIに通知するだけ。
 
                     ////------------------------------
                     //// 駒を、駒袋から駒台に移動させます。
@@ -318,7 +326,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             // 符号
             //------------------------------
             // [巻戻し]ボタン
-            jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(removeeLeaf,errH);
+            jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(removeeLeaf, removeeLeaf.GetValue(), errH);
 
 
 
@@ -331,7 +339,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                 out ittemodosuResult,
                 korekaranoTemezumi,
                 kifu1.CurNode.Key,
-                kifu1.CurNode.GetValue(),
+                kifu1.GetSky(),
                 errH
                 );
             Util_IttemodosuRoutine.UpdateKifuTree(

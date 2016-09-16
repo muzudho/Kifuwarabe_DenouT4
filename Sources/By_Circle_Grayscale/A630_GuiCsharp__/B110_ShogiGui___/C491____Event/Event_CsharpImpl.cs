@@ -3,11 +3,9 @@ using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
-
-using Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB;
 using Grayscale.A450_Server_____.B110_Server_____.C250____Util;
@@ -20,8 +18,7 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
 {
@@ -301,7 +298,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         shogibanGui2.Link_Server.Earth,
                         shogibanGui2.Link_Server.KifuTree,
                         
-                        shogibanGui2.Link_Server.KifuTree.CurNode.GetValue().KaisiPside, errH2
+                        shogibanGui2.Link_Server.GetSky().KaisiPside, errH2
                         );
                     shogibanGui2.RepaintRequest.SyuturyokuRequest = RepaintRequestGedanTxt.Kifu;
                 };
@@ -361,11 +358,12 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
 
                     if (Busstop.Empty != koma)
                     {
+                        Sky positionA = new SkyImpl(mainGui3.SkyWrapper_Gui.GuiSky);
                         Node modifyNode = new NodeImpl(
                             mainGui3.Link_Server.KifuTree.CurNode.Key,//現在の局面を流用
-                            new SkyImpl(mainGui3.SkyWrapper_Gui.GuiSky)
+                            positionA
                         );
-                        modifyNode.GetValue().AddObjects(
+                        positionA.AddObjects(
                                 new Finger[] { figKoma }, new Busstop[] {
                                     Conv_Busstop.ToBusstop(
                                         Conv_Playerside.Reverse(Conv_Busstop.ToPlayerside( koma)),//向きを逆さにします。
@@ -382,7 +380,9 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         Util_Functions_Server.SetCurNode_Srv(
                             mainGui3.Link_Server.KifuTree,
                             mainGui3.SkyWrapper_Gui,
-                            modifyNode, out jsaFugoStr, errH2);
+                            modifyNode,
+                            positionA,
+                            out jsaFugoStr, errH2);
                         mainGui3.RepaintRequest.SetFlag_RefreshRequest();
                     }
                 };
@@ -531,18 +531,20 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     );// 選択している駒の元の場所と、移動先
 
                 Node newNode;
+                Sky positionA;
                 {
                     //
                     // 成ったので、指し手データ差替え。
                     //
+                    positionA = new SkyImpl(mainGui.SkyWrapper_Gui.GuiSky);
                     newNode = new NodeImpl(
                         move,
-                        new SkyImpl(mainGui.SkyWrapper_Gui.GuiSky)
+                        positionA
                     );
                     // 先後を逆転させて、1手進めます。
                     //newNode.GetValue().IncreasePsideTemezumi();
-                    newNode.GetValue().SetKaisiPside(Conv_Playerside.Reverse(newNode.GetValue().KaisiPside));// 先後を反転させます。
-                    newNode.GetValue().SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//１手進める
+                    positionA.SetKaisiPside(Conv_Playerside.Reverse(positionA.KaisiPside));// 先後を反転させます。
+                    positionA.SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//１手進める
 
 
                     //「成る／成らない」ボタンを押したときです。
@@ -550,7 +552,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         //----------------------------------------
                         // 次ノード追加
                         //----------------------------------------
-                        mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(newNode.GetValue()), "After_NaruNaranai");
+                        mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(positionA), "After_NaruNaranai");
                         Node curNode1 = (Node)mainGui.Link_Server.KifuTree.CurNode;
                         curNode1.Children1.PutTuginoitte_New(newNode, curNode1);
                     }
@@ -562,7 +564,9 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     Util_Functions_Server.SetCurNode_Srv(
                         mainGui.Link_Server.KifuTree,
                         mainGui.SkyWrapper_Gui,
-                        newNode, out jsaFugoStr, errH);
+                        newNode,
+                        positionA,
+                        out jsaFugoStr, errH);
                     mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
                     //------------------------------

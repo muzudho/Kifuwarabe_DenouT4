@@ -29,7 +29,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
             List<Couple<Finger, SyElement>> kmList = new List<Couple<Finger, SyElement>>();
 
             // TODO:
-            hubNode.Children1.Foreach_ChildNodes((Move move, Node nextNode, ref bool toBreak) =>
+            hubNode.Children1.Foreach_ChildNodes((Move move, Node nextNode, Sky sky, ref bool toBreak) =>
             {
                 SyElement srcMasu = Conv_Move.ToSrcMasu(move);
                 SyElement dstMasu = Conv_Move.ToDstMasu(move);

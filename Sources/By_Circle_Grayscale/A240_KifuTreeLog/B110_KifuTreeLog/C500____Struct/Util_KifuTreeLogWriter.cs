@@ -168,7 +168,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
 
                 int logFileCounter_temp = logFileCounter;
                 // 先に奥の枝から。
-                node.Children1.Foreach_ChildNodes((Move move, Node nextNode, ref bool toBreak) =>
+                node.Children1.Foreach_ChildNodes((Move move, Node nextNode, Sky sky, ref bool toBreak) =>
                 {
                     float score = nextNode.MoveEx.Score;
 

@@ -156,7 +156,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             // Node<,>の形で。
             Dictionary<Move, Node> newNextNodes = new Dictionary<Move, Node>();
 
-            hubNode.Children1.Foreach_ChildNodes((Move move, Node node, ref bool toBreak) =>
+            hubNode.Children1.Foreach_ChildNodes((Move move, Node node, Sky sky, ref bool toBreak) =>
             {
                 //System.Diagnostics.Debug.Assert(node.Key != null);//指し手がヌルなはず無いはず。
 

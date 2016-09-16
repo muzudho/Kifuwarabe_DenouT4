@@ -373,7 +373,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     {
                         try
                         {
-                            rootNode.Children1.Foreach_ChildNodes((Move key, Node node, ref bool toBreak) =>
+                            rootNode.Children1.Foreach_ChildNodes((Move key, Node node, Sky sky, ref bool toBreak) =>
                             {
                                 rankedMoveExs.Add(node.MoveEx);
                             });

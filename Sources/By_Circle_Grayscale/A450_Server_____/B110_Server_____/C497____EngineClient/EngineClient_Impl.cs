@@ -2,7 +2,7 @@
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A060_Application.B210_Tushin_____.C500____Util;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA;
 using Grayscale.A450_Server_____.B110_Server_____.C___125_Receiver;
 using Grayscale.A450_Server_____.B110_Server_____.C___496_EngineWrapper;
@@ -10,8 +10,6 @@ using Grayscale.A450_Server_____.B110_Server_____.C___497_EngineClient;
 using Grayscale.A450_Server_____.B110_Server_____.C496____EngineWrapper;
 using System;
 using System.Diagnostics;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
 {
@@ -145,7 +143,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
         /// </summary>
         public void OnChangedTurn(
             Earth earth1,
-            Node curNode,//Tree kifu1,
+            Node curNode_Honpu,
+            Playerside kaisiPside,
             KwLogger errH)
         {
             if (!this.ShogiEngineProcessWrapper.IsLive_ShogiEngine())
@@ -154,8 +153,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
             }
 
             // FIXME:
-            Playerside pside = curNode.GetValue().KaisiPside;
-            switch (pside)
+            switch (kaisiPside)
             {
                 case Playerside.P2:
                     // 仮に、コンピューターが後手番とします。
@@ -166,7 +164,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
 
                     // 例：「position startpos moves 7g7f」
                     this.ShogiEngineProcessWrapper.Send_Position(
-                        Util_KirokuGakari.ToSfen_PositionCommand(earth1,curNode), errH);
+                        Util_KirokuGakari.ToSfen_PositionCommand(earth1,curNode_Honpu), errH);
 
                     this.ShogiEngineProcessWrapper.Send_Go(errH);
 

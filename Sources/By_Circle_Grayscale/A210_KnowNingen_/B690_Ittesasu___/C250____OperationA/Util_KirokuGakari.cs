@@ -81,28 +81,31 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                 //------------------------------
                 // 符号の追加（記録係）
                 //------------------------------
-                Sky saifu_Sky = saifuKifu2.CurNode.GetValue();
+                Sky saifu_PositionA = new SkyImpl(saifuKifu2.GetSky());
 
 
                 // 採譜用新ノード
                 Node saifu_newChild = new NodeImpl(
                     move,
-                    new SkyImpl(saifu_Sky)
+                    saifu_PositionA
                 );
-                saifu_newChild.GetValue().SetKaisiPside(Conv_Playerside.Reverse(saifu_Sky.KaisiPside));
-                saifu_newChild.GetValue().SetTemezumi(temezumi);
+                saifu_PositionA.SetKaisiPside(Conv_Playerside.Reverse(saifu_PositionA.KaisiPside));
+                saifu_PositionA.SetTemezumi(temezumi);
 
 
                 // 記録係り用棋譜（採譜）
                 Util_KifuTree282.AppendChild_And_ChangeCurrentToChild(
                     saifuEarth2,
                     saifuKifu2,
-                    saifu_newChild, hint+"/ToJsaKifuText", errH
+                    saifu_newChild,
+                    saifu_PositionA,
+                    hint +"/ToJsaKifuText", errH
                     );// 新しい次ノードを追加。次ノードを、これからカレントとする。
 
                 // 後手の符号がまだ含まれていない。
                 string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
                     saifu_newChild,
+                    saifu_PositionA,
                     errH);
                 sb.Append(jsaFugoStr);
 
@@ -125,7 +128,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
         /// <param name="fugoList"></param>
         public static string ToSfen_PositionCommand(
             Earth earth1,
-            Node curNode //Tree kifu1
+            Node curNode_Honpu
             )
         {
             StringBuilder sb = new StringBuilder();
@@ -136,7 +139,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
             // 本譜
             int count = 0;
-            Util_Tree.ForeachHonpu2(curNode, (int temezumi, Move move, ref bool toBreak) =>
+            Util_Tree.ForeachHonpu2(curNode_Honpu, (int temezumi, Move move, ref bool toBreak) =>
             {
                 if (0 == temezumi)
                 {

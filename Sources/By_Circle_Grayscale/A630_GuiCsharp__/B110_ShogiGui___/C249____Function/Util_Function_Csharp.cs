@@ -51,6 +51,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
                 mainGui.Link_Server.KifuTree,
                 mainGui.SkyWrapper_Gui,
                 newNode,
+                newNode.GetValue(),
                 out jsaFugoStr, errH);
             mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
@@ -117,7 +118,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
                 Node node6 = shogiGui.Link_Server.KifuTree.CurNode;
 
                 // [コマ送り][再生]ボタン
-                string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(node6,errH);
+                string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(node6, node6.GetValue(), errH);
 
                 shogiGui.Shape_PnlTaikyoku.SetFugo(jsaFugoStr);
             }

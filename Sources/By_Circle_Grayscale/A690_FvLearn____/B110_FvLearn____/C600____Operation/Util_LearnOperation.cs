@@ -143,7 +143,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             float chosei_bairitu;
             float.TryParse(uc_Main.TxtChoseiBairituB.Text, out chosei_bairitu);
 
-            if (Playerside.P2 == uc_Main.LearningData.Kifu.CurNode.GetValue().KaisiPside)
+            if (Playerside.P2 == uc_Main.LearningData.GetSky().KaisiPside)
             {
                 chosei_bairitu *= -1; //後手はマイナスの方が有利。
             }
@@ -170,7 +170,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             float.TryParse(uc_Main.TxtChoseiBairituB.Text, out badScore);
             badScore *= -1.0f;
 
-            if (Playerside.P2 == uc_Main.LearningData.Kifu.CurNode.GetValue().KaisiPside)
+            if (Playerside.P2 == uc_Main.LearningData.GetSky().KaisiPside)
             {
                 badScore *= -1; //後手はプラスの方が不利。
             }
@@ -195,7 +195,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             KyHyokaMeisai_Koumoku ppMeisai;
 #endif
             uc_Main.LearningData.DoScoreing_ForLearning(
-                uc_Main.LearningData.Kifu.CurNode.GetValue()
+                uc_Main.LearningData.GetSky()
 #if DEBUG || LEARN
                 ,
                 out komawariMeisai,

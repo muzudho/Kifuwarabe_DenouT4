@@ -21,7 +21,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             List<Node> list = new List<Node>();
 
             // TODO:
-            hubNode.Children1.Foreach_ChildNodes((Move key, Node node, ref bool toBreak) =>
+            hubNode.Children1.Foreach_ChildNodes((Move key, Node node, Sky sky, ref bool toBreak) =>
             {
                 list.Add((Node)node);
             });

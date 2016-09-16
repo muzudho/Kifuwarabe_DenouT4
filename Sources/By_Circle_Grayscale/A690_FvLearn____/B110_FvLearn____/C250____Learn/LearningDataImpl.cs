@@ -90,6 +90,10 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
 
         public Earth Earth { get; set; }
         public Tree Kifu { get; set; }
+        public Sky GetSky()
+        {
+            return this.Kifu.CurNode.GetValue();
+        }
 
         /// <summary>
         /// フィーチャー・ベクター。
@@ -305,7 +309,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
 
             // 学習フォーム
             Util_KyokumenPng_Writer.Write1(
-                Conv_KifuNode.ToRO_Kyokumen1(this.Kifu.CurNode.GetValue(), errH),
+                Conv_KifuNode.ToRO_Kyokumen1(this.GetSky(), errH),
                 srcMasu_orMinusOne,
                 dstMasu_orMinusOne,
                 foodKoma,
@@ -339,10 +343,10 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
                     ref searchedNodes,
                     searchedPv,
 
-                    this.Kifu.CurNode.GetValue().Temezumi,
-                    this.Kifu.CurNode.GetValue().KaisiPside,
+                    this.GetSky().Temezumi,
+                    this.GetSky().KaisiPside,
                     this.Kifu.CurNode,
-                    this.Kifu.CurNode.GetValue(),
+                    this.GetSky(),
 
 
                     isHonshogi, Mode_Tansaku.Learning,
