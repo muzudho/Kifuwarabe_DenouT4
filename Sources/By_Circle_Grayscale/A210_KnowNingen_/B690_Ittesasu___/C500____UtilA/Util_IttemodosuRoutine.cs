@@ -97,7 +97,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 );
             ittemodosuResult.FigFoodKoma = figFoodKoma; //取られていた駒更新
 
-            kaisi_Sky.SetTemezumi(kaisi_Temezumi - 1);
+            // １手戻す前に、先後を逆転させて、手目済みカウントを減らします。
+            kaisi_Sky.DecreasePsideTemezumi();
 
             //------------------------------------------------------------
             // 指されていた駒の移動

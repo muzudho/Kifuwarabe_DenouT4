@@ -539,6 +539,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         move,
                         new SkyImpl(mainGui.SkyWrapper_Gui.GuiSky)
                     );
+                    // 先後を逆転させて、1手進めます。
+                    //newNode.GetValue().IncreasePsideTemezumi();
                     newNode.GetValue().SetKaisiPside(Conv_Playerside.Reverse(newNode.GetValue().KaisiPside));// 先後を反転させます。
                     newNode.GetValue().SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//１手進める
 

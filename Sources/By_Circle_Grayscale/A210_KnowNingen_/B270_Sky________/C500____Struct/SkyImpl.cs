@@ -89,6 +89,16 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
             this.m_kaisiPside_ = Conv_Playerside.Reverse(this.KaisiPside);
         }
 
+        public void IncreasePsideTemezumi()
+        {
+            this.SetKaisiPside(Conv_Playerside.Reverse(this.KaisiPside));// 先後を逆転させます。
+            this.SetTemezumi(this.Temezumi + 1);// 1手進めます。
+        }
+        public void DecreasePsideTemezumi()
+        {
+            this.SetKaisiPside(Conv_Playerside.Reverse(this.KaisiPside));// 先後を逆転させます。
+            this.SetTemezumi(this.Temezumi - 1);// 1手戻します。
+        }
 
         #region プロパティー
 

@@ -227,7 +227,10 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     isHonshogi, mode_Tansaku, errH);
 
                 MoveEx moveEx = kifuNode.MoveEx;
+
                 Sky pos1 = kifuNode.GetValue();
+                // コピーを作成☆（＾▽＾）
+                //Sky pos1 = new SkyImpl( kifuNode.GetValue());
 
                 int wideCount2 = 0;
 
@@ -620,7 +623,6 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                 {
                     Move mov2 = iMov;
                     Node nod2 = new NodeImpl(mov2, null);
-                    Sky pos2 = null;
 
                     if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(
                         yomiDeep2,
@@ -677,32 +679,33 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         //
                         exceptionArea = 4020;
 
+                        bool log = false;
+                        if(log)
                         {
                             errH.AppendLine("進める前");
-                            errH.Append(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(pos1)));
+                            //errH.Append(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(pos1)));
+                            errH.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(pos1),pos1,mov2));
                             errH.Flush(LogTypes.Plain);
                         }
                         // 局面
-                        pos2 = new SkyImpl(pos1);
                         Util_IttesasuSuperRoutine.DoMove_Super(
-                                ref pos2,//指定局面
+                                ref pos1,//指定局面
                                 Util_Sky_FingersQuery.InMasuNow_Old(pos1, Conv_Move.ToSrcMasu(mov2)).ToFirst(),//指す駒
                                 Conv_Move.ToDstMasu(mov2),//移動先升
                                 Conv_Move.ToPromotion(mov2),//成るか。
                                 errH
                         );
-                        //nod2.SetValue(pos2);
+                        //nod2.SetValue(position);
                         // （＾▽＾）局面データは持たせないぜ、容量の無駄だからな☆（＾▽＾）
+                        if(log)
                         {
                             errH.AppendLine("進めた後");
-                            errH.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(pos2), pos2, mov2));
+                            errH.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(pos1), pos1, mov2));
                             errH.Flush(LogTypes.Plain);
                         }
 
 
                         exceptionArea = 44011;
-
-                        exceptionArea = 5000;
 
                         // 自分を親要素につなげたあとで、子を検索するぜ☆（＾～＾）
                         nod1.Children1.AddItem(
@@ -720,9 +723,9 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                             genjo,
                             mov3.Score,
 
-                            pos2.Temezumi,
+                            pos1.Temezumi,
                             mov2,//改造後
-                            pos2,//この局面から合法手を作成☆（＾～＾） nod2.Value はヌル☆（＾▽＾）
+                            pos1,//この局面から合法手を作成☆（＾～＾） nod2.Value はヌル☆（＾▽＾）
                             nod2,// ツリーを伸ばしているぜ☆（＾～＾）
 
                             movelist2.Count,
@@ -731,12 +734,13 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
 
                         exceptionArea = 6000;
 
+                        //*
+                        if(log)
                         {
                             errH.AppendLine("戻す前");
-                            errH.Append(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(pos2)));
+                            errH.Append(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(pos1)));
                             errH.Flush(LogTypes.Plain);
                         }
-                        //*
                         if (0<kaisiTemezumi)//ルート局面除く
                         {
                             // １手戻したいぜ☆（＾～＾）
@@ -746,17 +750,18 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                                 out ittemodosuResult,
                                 kaisiTemezumi,
                                 mov2,//mov1,//この関数が呼び出されたときの指し手☆（＾～＾）
-                                pos2,
+                                pos1,
                                 errH
                                 );
-                            pos2 = ittemodosuResult.SyuryoSky;
+                            pos1 = ittemodosuResult.SyuryoSky;
                         }
-                        //*/
+                        if(log)
                         {
                             errH.AppendLine("戻した後");
-                            errH.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(pos2), pos2, mov1));
+                            errH.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(pos1), pos1, mov1));
                             errH.Flush(LogTypes.Plain);
                         }
+                        //*/
 
 
                         exceptionArea = 7000;
@@ -779,7 +784,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         Util_Scoreing.Update_BestScore_And_Check_AlphaCut(
                             yomiDeep2,// yomiDeep0,
 
-                            pos2.KaisiPside, //pos1.KaisiPside,
+                            pos1.KaisiPside,
 
                             parentsiblingBestScore,
                             mov4.Score,

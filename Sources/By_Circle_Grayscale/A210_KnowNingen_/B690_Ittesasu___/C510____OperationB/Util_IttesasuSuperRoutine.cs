@@ -34,13 +34,6 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
             KwLogger errH
             )
         {
-            Playerside srcPside = position.KaisiPside;
-
-            // 開始先後を逆転させます。
-            position.SetKaisiPside(Conv_Playerside.Reverse(srcPside));
-
-            position.SetTemezumi(position.Temezumi + 1);// 1手進めます。
-
             // 移動先に相手の駒がないか、確認します。
             Finger tottaKomaFig = Util_Sky_FingersQuery.InMasuNow_Old(position, dstMasu).ToFirst();
 
@@ -50,7 +43,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
 
                 // 駒台の空いているマス１つ。
                 SyElement akiMasu;
-                if (srcPside == Playerside.P1)
+                if (position.KaisiPside == Playerside.P1)
                 {
                     akiMasu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Okiba.Sente_Komadai, position);
                 }
@@ -63,7 +56,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
                 Busstop tottaKomaBus = position.BusstopIndexOf(tottaKomaFig);
 
                 // 駒台の空いているマスへ移動☆
-                position.PutOverwriteOrAdd_Busstop(tottaKomaFig, Conv_Busstop.ToBusstop(srcPside, akiMasu, Conv_Busstop.ToKomasyurui(tottaKomaBus)));
+                position.PutOverwriteOrAdd_Busstop(tottaKomaFig, Conv_Busstop.ToBusstop(position.KaisiPside, akiMasu, Conv_Busstop.ToKomasyurui(tottaKomaBus)));
             }
 
             // 駒を１個動かします。
@@ -76,8 +69,11 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
                     komaSyurui = Util_Komasyurui14.ToNariCase(komaSyurui);
                 }
 
-                position.PutOverwriteOrAdd_Busstop(finger, Conv_Busstop.ToBusstop(srcPside, dstMasu, komaSyurui));
+                position.PutOverwriteOrAdd_Busstop(finger, Conv_Busstop.ToBusstop(position.KaisiPside, dstMasu, komaSyurui));
             }
+
+            // 動かしたあとに、先後を逆転させて、手目済カウントを増やします。
+            position.IncreasePsideTemezumi();
         }
         //*/
 
