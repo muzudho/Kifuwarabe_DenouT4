@@ -37,7 +37,10 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
             Util_IttesasuSuperRoutine.DoMove_Super(
                     ref positionA,
                     ref move,
-                    Util_Sky_FingersQuery.InMasuNow_Old(positionA, Conv_Move.ToSrcMasu(move)).ToFirst(),//指す駒
+
+                    // フィンガー
+                    Util_Sky_FingersQuery.InMasuNow_New(positionA,move).ToFirst(),// マス
+
                     Conv_Move.ToDstMasu(move),//移動先升
                     Conv_Move.ToPromotion(move),//成るか。
                     errH

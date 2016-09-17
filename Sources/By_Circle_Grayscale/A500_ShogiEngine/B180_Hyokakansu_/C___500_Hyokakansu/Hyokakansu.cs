@@ -25,9 +25,6 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C___500_Hyokakansu
         /// <returns></returns>
         void Evaluate(
             out float score,
-#if DEBUG || LEARN
-            out KyHyokaMeisai_Koumoku kyokumenScore,
-#endif
             Sky src_Sky,
             FeatureVector featureVector,
             KwLogger errH

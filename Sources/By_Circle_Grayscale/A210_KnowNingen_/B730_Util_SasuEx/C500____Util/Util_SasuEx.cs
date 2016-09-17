@@ -26,7 +26,7 @@ namespace Grayscale.A210_KnowNingen_.B730_Util_SasuEx.C500____Util
         /// 必要により、【成り】の指し手を追加するぜ☆
         /// </summary>
         public static List<Move> CreateNariSasite(
-            Sky src_Sky,
+            Sky positionA,
             List<Move> a_sasitebetuEntry,
             KwLogger errH
             )
@@ -43,7 +43,7 @@ namespace Grayscale.A210_KnowNingen_.B730_Util_SasuEx.C500____Util
                 foreach(Move move1 in a_sasitebetuEntry)
                 {
                     // ・移動元の駒
-                    SyElement srcMasu = Conv_Move.ToSrcMasu(move1);
+                    SyElement srcMasu = Conv_Move.ToSrcMasu(move1, positionA);
                     Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move1);
 
                     // ・移動先の駒
@@ -89,7 +89,7 @@ namespace Grayscale.A210_KnowNingen_.B730_Util_SasuEx.C500____Util
                 foreach (Move newMove in newSasiteList.Values)
                 {
                     // 指す前の駒
-                    SyElement srcMasu = Conv_Move.ToSrcMasu(newMove);
+                    SyElement srcMasu = Conv_Move.ToSrcMasu(newMove, positionA);
 
                     try
                     {

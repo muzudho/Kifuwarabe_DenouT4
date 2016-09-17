@@ -221,10 +221,6 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 learningData.Kifu.CurNode.Children1.Foreach_ChildNodes2(
                     (Move move, List<Move> honpuList, ref bool toBreak) =>
                 {
-#if DEBUG || LEARN
-                    KyHyokaMeisai_Koumoku komawariMeisai;
-                    KyHyokaMeisai_Koumoku ppMeisai;
-#endif
                     Util_IttesasuSuperRoutine.DoMove_Super(
                         ref positionA,//指定局面
                         ref move,
@@ -236,12 +232,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
 
                     learningData.DoScoreing_ForLearning(
                         positionA
-#if DEBUG || LEARN
-,
-                        out komawariMeisai,
-                        out ppMeisai
-#endif
-);
+                        );
 
                     GohosyuListItem item = new GohosyuListItem(
                         itemNumber,
@@ -250,12 +241,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                             move,
                             honpuList,
                             positionA, errH)
-#if DEBUG || LEARN
-,
-                        komawariMeisai,
-                        ppMeisai
-#endif
-);
+                            );
                     list.Add(item);
 
                     itemNumber++;
@@ -281,23 +267,9 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 {
                     int result;
 
-                    int aScore =
-#if DEBUG || LEARN
-                        (int)(
-                        a.KomawariMeisai.UtiwakeValue +
-                        a.PpMeisai.UtiwakeValue);
-#else
- 0;
-#endif
+                    int aScore = 0;
 
-                    int bScore =
-#if DEBUG || LEARN
- (int)(
-                        b.KomawariMeisai.UtiwakeValue +
-                        b.PpMeisai.UtiwakeValue);
-#else
- 0;
-#endif
+                    int bScore = 0;
 
                     switch (learningData.GetSky().KaisiPside)
                     {

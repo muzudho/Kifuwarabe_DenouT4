@@ -187,7 +187,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             // 同じ指し手があれば追加してはいけない？
 #if DEBUG
             System.Diagnostics.Debug.Assert(
-                !this.HasTuginoitte(newNode.Key),
+                !this.ContainsKey(newNode.Key),
                 "指し手[" + Conv_Move.ToSfen(newNode.Key) + "]は既に指されていました。"
                 );
 #endif

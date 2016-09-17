@@ -42,9 +42,6 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
         /// <returns></returns>
         abstract public void Evaluate(
             out float out_score,
-#if DEBUG
-            out KyHyokaMeisai_Koumoku out_meisaiKoumoku_orNull,
-#endif
 #if LEARN
             out KyHyokaMeisai_Koumoku out_meisaiKoumoku_orNull,
 #endif

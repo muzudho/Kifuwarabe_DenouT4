@@ -30,21 +30,12 @@ namespace Grayscale.P910_SpeedKeisok
         {
             public string Name { get; set; }
 
-#if DEBUG || LEARN
-            public string Utiwake { get; set; }
-#endif
             public TimeSpan Time { get; set; }
 
             public KeisokuResult(string name,
-#if DEBUG || LEARN
- string utiwake,
-#endif
                 TimeSpan time)
             {
                 this.Name = name;
-#if DEBUG || LEARN
-                this.Utiwake = utiwake;
-#endif
                 this.Time = time;
             }
         }
@@ -81,14 +72,8 @@ namespace Grayscale.P910_SpeedKeisok
             watch.Start();
 
             float score;
-#if DEBUG || LEARN
-            KyHyokaMeisai_Koumoku meisai;
-#endif
             handan1.Evaluate(
                 out score,
-#if DEBUG || LEARN
-                out meisai,
-#endif
                 this.Src_Sky,
                 this.FeatureVector,
                 Util_Loggers.ProcessSpeedTest_KEISOKU
@@ -98,9 +83,6 @@ namespace Grayscale.P910_SpeedKeisok
 
             KeisokuResult result = new KeisokuResult(
                 handan1.Name.ToString(),
-#if DEBUG || LEARN
-                meisai.Utiwake,
-#endif
                 watch.Elapsed);
             return result;
         }
@@ -127,11 +109,6 @@ namespace Grayscale.P910_SpeedKeisok
                 sb.Append("    ");
                 sb.AppendLine(result.Time.ToString());
                 sb.Append("    ");
-#if DEBUG
-                sb.AppendLine(result.Utiwake);
-#else
-                sb.AppendLine("Debugモードで実行してください。");
-#endif
 
                 total += result.Time;
             }

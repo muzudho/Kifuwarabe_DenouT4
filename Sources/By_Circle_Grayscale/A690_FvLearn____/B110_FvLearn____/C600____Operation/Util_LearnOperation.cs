@@ -213,32 +213,11 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
         /// <param name="uc_Main"></param>
         public static void Do_ShowNikomaHyokati(Uc_Main uc_Main)
         {
-#if DEBUG || LEARN
-            KyHyokaMeisai_Koumoku komawariMeisai;
-            KyHyokaMeisai_Koumoku ppMeisai;
-#endif
             uc_Main.LearningData.DoScoreing_ForLearning(
                 uc_Main.LearningData.GetSky()
-#if DEBUG || LEARN
-                ,
-                out komawariMeisai,
-                out ppMeisai
-#endif
-);
+                );
 
-            StringBuilder sb = new StringBuilder();
-#if DEBUG || LEARN
-            sb.Append("駒割=");
-            sb.Append(komawariMeisai.UtiwakeValue.ToString());
-            sb.Append(" Pp=");
-            sb.Append(ppMeisai.UtiwakeValue.ToString());
-            //sb.Append("　Pp内訳:");
-            //sb.Append(ppMeisai.Utiwake);
-#else
-            sb.Append("DEBUG または LEARNモードで実行してください。");
-#endif
-
-            uc_Main.TxtNikomaHyokati.Text = sb.ToString();
+            uc_Main.TxtNikomaHyokati.Text = "";
         }
 
         ///// <summary>

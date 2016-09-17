@@ -93,14 +93,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C470____StartZero
             // 平手初期局面の点数を調べます。
             //
             float score;
-#if DEBUG || LEARN
-            KyHyokaMeisai_Koumoku meisaiKoumoku_orNull;
-#endif
             kansu.Evaluate(
                 out score,
-#if DEBUG || LEARN
- out meisaiKoumoku_orNull,
-#endif
                 Util_StartZero.src_Sky_hirateSyokikyokumen,
                 fv,
                 errH
@@ -154,9 +148,6 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C470____StartZero
                 //
                 kansu.Evaluate(
                     out score,
-#if DEBUG || LEARN
- out meisaiKoumoku_orNull,
-#endif
                     Util_StartZero.src_Sky_hirateSyokikyokumen,
                     fv,
                     errH

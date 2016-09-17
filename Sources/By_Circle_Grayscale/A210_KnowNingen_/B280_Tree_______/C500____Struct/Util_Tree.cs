@@ -11,6 +11,18 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 {
     public abstract class Util_Tree
     {
+        public static List<Move> CreateChlidMoves(KifuNode hubNode)
+        {
+            List<Move> childMoves = new List<Move>();
+
+            ((KifuNodeImpl)hubNode).Children1.Foreach_ChildNodes5((Move move, ref bool toBreak) =>
+            {
+                childMoves.Add(move);
+            });
+
+            return childMoves;
+        }
+
         public static List<Move> CreateHonpu2List(KifuNode endNode)
         {
             // 本譜（ノードのリスト）

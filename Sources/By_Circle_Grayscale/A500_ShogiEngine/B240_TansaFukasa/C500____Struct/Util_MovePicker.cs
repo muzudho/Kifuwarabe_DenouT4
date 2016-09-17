@@ -80,7 +80,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         /// <returns>複数のノードを持つハブ・ノード</returns>
         private static List<Move> WAAAA_Create_ChildNodes(
             Tansaku_Genjo genjo,
-            Sky src_Sky,
+            Sky positionA,
             Move move_ForLog,
             KwLogger errH
             )
@@ -109,7 +109,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
 #if DEBUG
                 MmLogGenjoImpl mm_log_orNull = null;
                 KaisetuBoard logBrd_move1;
-                Tansaku_FukasaYusen_Routine.Log1(genjo, move_ForLog, src_Sky, out mm_log_orNull, out logBrd_move1, errH);
+                Tansaku_FukasaYusen_Routine.Log1(genjo, move_ForLog, positionA, out mm_log_orNull, out logBrd_move1, errH);
 #endif
 
                 //----------------------------------------
@@ -120,8 +120,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     1,
                     out komaBETUSusumeruMasus,
                     genjo.Args.IsHonshogi,//本将棋か
-                    src_Sky,//現在の局面  // FIXME:Lockすると、ここでヌルになる☆
-                    src_Sky.KaisiPside,//手番
+                    positionA,//現在の局面  // FIXME:Lockすると、ここでヌルになる☆
+                    positionA.KaisiPside,//手番
                     false//相手番か
 #if DEBUG
                     ,
@@ -156,7 +156,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     // 指定局面での全ての指し手。
                     //----------------------------------------
                     Maps_OneAndMulti<Finger, Move> komaBETUAllSasites = Conv_KomabetuSusumeruMasus.ToKomaBETUAllSasites(
-                        komaBETUSusumeruMasus, src_Sky);
+                        komaBETUSusumeruMasus, positionA);
 
                     //#if DEBUG
                     //                    System.Console.WriteLine("komaBETUAllSasitesの全要素＝" + Util_Maps_OneAndMultiEx<Finger, SySet<SyElement>>.CountAllElements(komaBETUAllSasites));
@@ -171,7 +171,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         genjo.YomikaisiTemezumi,
                         genjo.Args.IsHonshogi,
                         komaBETUAllSasites,//駒別の全ての指し手
-                        src_Sky,
+                        positionA,
 #if DEBUG
                         genjo.Args.LogF_moveKiki,//利き用
 #endif
@@ -186,7 +186,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     //成り以外の手
                     movelist = Conv_Movelist1.ToMovelist_NonPromotion(
                         starbetuSusumuMasus,
-                        src_Sky,
+                        positionA,
                         errH
                     );
 
@@ -196,7 +196,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     // 成りの指し手を作成します。（拡張）
                     //----------------------------------------
                     //成りの手
-                    List<Move> b_movelist = Util_SasuEx.CreateNariSasite(src_Sky,
+                    List<Move> b_movelist = Util_SasuEx.CreateNariSasite(positionA,
                         movelist,
                         errH);
 
@@ -226,7 +226,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     //
                     movelist = Conv_Movelist1.ToMovelist_NonPromotion(
                         komaBETUSusumeruMasus,
-                        src_Sky,
+                        positionA,
                         errH
                         );
 

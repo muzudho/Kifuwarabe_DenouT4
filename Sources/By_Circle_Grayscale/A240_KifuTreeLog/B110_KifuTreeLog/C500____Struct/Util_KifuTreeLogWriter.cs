@@ -22,6 +22,8 @@ using System.Diagnostics;
 using Grayscale.A210_KnowNingen_.B110_GraphicLog_.C500____Util;
 using Grayscale.A210_KnowNingen_.B810_LogGraphiEx.C500____Util;
 using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using System.Text;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 #endif
 
 namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
@@ -98,8 +100,9 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
                 //sb_folder.Append( Conv_SasiteStr_Sfen.ToSasiteStr_Sfen_ForFilename(kifu.CurNode.Key) + "/");
 
                 string sasiteText1 = Conv_Move.ToSfen(kifu.CurNode.Key);
-                Node kifuNode1 = kifu.CurNode;
+                KifuNode kifuNode1 = kifu.CurNode;
 
+                /*
                 // 評価明細のログ出力。
                 Util_KifuTreeLogWriter.AA_Write_ForeachLeafs_ForDebug(
                     ref logFileCounter,
@@ -110,6 +113,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
                     Util_KifuTreeLogWriter.REPORT_ENVIRONMENT,
                     errH
                     );
+                */
             }
             catch (Exception ex)
             {
@@ -152,7 +156,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
             ref int logFileCounter,
             string nodePath,
             MoveEx moveEx,
-            Sky sky,
+            Sky positionA,
             Tree kifu,
             string relFolder,
             KyokumenPngEnvironment reportEnvironment,
@@ -175,7 +179,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
                     int srcMasu_orMinusOne = -1;
                     int dstMasu_orMinusOne = -1;
 
-                    SyElement srcMasu = Conv_Move.ToSrcMasu(moveEx.Move);
+                    SyElement srcMasu = Conv_Move.ToSrcMasu(moveEx.Move, positionA);
                     SyElement dstMasu = Conv_Move.ToDstMasu(moveEx.Move);
                     bool errorCheck = Conv_Move.ToErrorCheck(moveEx.Move);
                     Komasyurui14 captured = Conv_Move.ToCaptured(moveEx.Move);
@@ -210,7 +214,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
 
                     // 評価明細に添付
                     Util_KyokumenPng_Writer.Write1(
-                        Conv_KifuNode.ToRO_Kyokumen1(sky, errH),
+                        Conv_KifuNode.ToRO_Kyokumen1(positionA, errH),
                         srcMasu_orMinusOne,
                         dstMasu_orMinusOne,
                         foodKoma,

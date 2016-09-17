@@ -53,26 +53,14 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C510____HyokakansuColl
             foreach (Hyokakansu hyokakansu in Util_HyokakansuCollection.Hyokakansu_Normal)
             {
                 float score;
-#if DEBUG || LEARN
-                KyHyokaMeisai_Koumoku meisai;
-#endif
                 hyokakansu.Evaluate(
                     out score,
-#if DEBUG || LEARN
-                    out meisai,
-#endif
                     position,
                     fv,
                     errH
                 );
 
                 moveEx.AddScore(score);
-#if DEBUG || LEARN
-                moveEx.KyHyokaSheet_Mutable.Add(
-                    hyokakansu.Name.ToString(),
-                    meisai
-                );
-#endif
             }
         }
     }

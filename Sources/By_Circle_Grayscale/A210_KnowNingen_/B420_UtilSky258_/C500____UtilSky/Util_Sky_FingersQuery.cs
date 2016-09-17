@@ -5,14 +5,13 @@ using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
-using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B310_Shogiban___.C500____Util;
 using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
 {
@@ -177,10 +176,11 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
         /// <returns>スプライト番号。なければエラー番号。</returns>
-        public static Fingers InMasuNow_New(Sky src_Sky, Move move)
+        public static Fingers InMasuNow_New(Sky positionA, Move move)
         {
+            //Komasyurui14 ks14_move = Conv_Move.ToSrcKomasyurui(move);
             bool drop = Conv_Move.ToDrop(move);
-            SyElement srcMasu = Conv_Move.ToSrcMasu(move);
+            SyElement srcMasu = Conv_Move.ToSrcMasu(move, positionA);
 
             // １個入る。
             Fingers found = new Fingers();
@@ -194,7 +194,8 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
                 {
                     foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
                     {
-                        Busstop koma = Util_Koma.FromFinger(src_Sky, finger);
+                        Busstop koma = Util_Koma.FromFinger(positionA, finger);
+                        //Komasyurui14 ks14_koma = Conv_Busstop.ToKomasyurui(koma);
 
                         if (Okiba.Sente_Komadai == Conv_SyElement.ToOkiba(Conv_Busstop.ToMasu( koma)))
                         {
@@ -206,7 +207,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
                 {
                     foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
                     {
-                        Busstop koma = Util_Koma.FromFinger(src_Sky, finger);
+                        Busstop koma = Util_Koma.FromFinger(positionA, finger);
 
                         if (Okiba.Gote_Komadai == Conv_SyElement.ToOkiba(Conv_Busstop.ToMasu( koma)))
                         {
@@ -221,7 +222,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
             {
                 foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
                 {
-                    Busstop koma = Util_Koma.FromFinger(src_Sky, finger);
+                    Busstop koma = Util_Koma.FromFinger(positionA, finger);
 
                     if (Masu_Honshogi.Basho_Equals(Conv_Busstop.ToMasu( koma), srcMasu))
                     {

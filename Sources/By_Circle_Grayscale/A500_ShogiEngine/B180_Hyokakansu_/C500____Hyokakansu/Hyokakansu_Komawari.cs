@@ -10,7 +10,6 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 #if DEBUG || LEARN
 using System.Text;
-using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C250____Struct;
 #endif
 
 namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
@@ -32,9 +31,6 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
         /// <returns></returns>
         public override void Evaluate(
             out float out_score,
-#if DEBUG || LEARN
-            out KyHyokaMeisai_Koumoku out_meisaiKoumoku_orNull,
-#endif
             Sky src_Sky,
             FeatureVector fv,
             KwLogger errH
@@ -91,9 +87,6 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
                 sb.Append("駒割");
                 utiwake = sb.ToString();
             }
-
-            // 明細項目
-            out_meisaiKoumoku_orNull = new KyHyokaMeisai_KoumokuImpl(utiwake, out_score);
 #endif
 
         }

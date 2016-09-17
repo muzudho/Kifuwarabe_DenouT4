@@ -6,4 +6,3 @@ E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P760_Sigmo
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P760_SigmoidTest\obj\Debug\Grayscale.A720_SigmoidTest.pdb
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A720_SigmoidTest\obj\Debug\Grayscale.A720_SigmoidTest.exe
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A720_SigmoidTest\obj\Debug\Grayscale.A720_SigmoidTest.pdb
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A720_SigmoidTest\obj\Debug\A720_SigmoidTest.csprojResolveAssemblyReference.cache

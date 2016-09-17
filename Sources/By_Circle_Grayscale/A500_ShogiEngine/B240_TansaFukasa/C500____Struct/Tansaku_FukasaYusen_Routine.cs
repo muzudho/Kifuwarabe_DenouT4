@@ -841,7 +841,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         }
         private static void Log2(
             Tansaku_Genjo genjo,
-            Node node_yomi,
+            KifuNode node_yomi,
             KaisetuBoard logBrd_move1,
             KwLogger errH
         )

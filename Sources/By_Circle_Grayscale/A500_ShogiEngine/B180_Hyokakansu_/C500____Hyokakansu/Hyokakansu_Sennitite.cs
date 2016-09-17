@@ -7,8 +7,6 @@ using System;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 #if DEBUG || LEARN
-using System.Text;
-using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C250____Struct;
 #endif
 
 namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
@@ -35,9 +33,6 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
         /// <returns></returns>
         public override void Evaluate(
             out float out_score,
-#if DEBUG || LEARN
-            out KyHyokaMeisai_Koumoku out_meisaiKoumoku_orNull,
-#endif
             Sky src_Sky,
             FeatureVector featureVector,
             KwLogger errH
@@ -51,23 +46,6 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
                 case Playerside.P2: out_score = float.MaxValue; break;
                 default: throw new Exception("千日手判定をしようとしましたが、先後の分からない局面データがありました。");
             }
-
-
-            //----------------------------------------
-            // 明細項目
-            //----------------------------------------
-#if DEBUG || LEARN
-            string utiwake = "";
-            // 明細
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.Append("千日手。 score=[" + out_score + "]");
-                utiwake = sb.ToString();
-            }
-            out_meisaiKoumoku_orNull = new KyHyokaMeisai_KoumokuImpl(utiwake, out_score);
-#endif
         }
-
-
     }
 }

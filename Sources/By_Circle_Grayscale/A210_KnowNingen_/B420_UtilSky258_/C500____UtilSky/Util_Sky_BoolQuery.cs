@@ -25,16 +25,16 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// </summary>
         /// <param name="masus"></param>
         /// <returns></returns>
-        public static bool ExistsIn(Move move, SySet<SyElement> masus, Sky src_Sky, KwLogger errH)
+        public static bool ExistsIn(Move move, SySet<SyElement> masus, Sky positionA, KwLogger errH)
         {
             bool matched = false;
 
-            SyElement srcMasu = Conv_Move.ToSrcMasu(move);
+            SyElement srcMasu = Conv_Move.ToSrcMasu(move, positionA);
             Playerside pside = Conv_Move.ToPlayerside(move);
 
             foreach (SyElement masu in masus.Elements)
             {
-                Finger finger = Util_Sky_FingerQuery.InMasuNow_FilteringBanjo(src_Sky, pside, masu, errH);
+                Finger finger = Util_Sky_FingerQuery.InMasuNow_FilteringBanjo(positionA, pside, masu, errH);
 
                 if (
                     finger != Fingers.Error_1  //2014-07-21 先後も見るように追記。

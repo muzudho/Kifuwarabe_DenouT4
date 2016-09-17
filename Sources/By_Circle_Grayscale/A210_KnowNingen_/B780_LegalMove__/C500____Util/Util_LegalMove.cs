@@ -25,6 +25,7 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
@@ -67,9 +68,6 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
                 positionA,
                 errH
                 );// ハブ・ノード自身はダミーノードなんだが、子ノードに、次のノードが入っている。
-#if DEBUG
-            Util_LegalMove.Log1(hubNode, src_Sky.Temezumi, hint, errH);
-#endif
 
             if (isHonshogi)
             {
@@ -90,7 +88,9 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
 
 
             // 「指し手一覧」を、「星別の全指し手」に分けます。
-            Maps_OneAndMulti<Finger, Move> starbetuAllSasites2 = Util_Sky258A.SplitSasite_ByStar(positionA, hubNode, errH);
+            Maps_OneAndMulti<Finger, Move> starbetuAllSasites2 = Util_Sky258A.SplitSasite_ByStar(positionA,
+                Util_Tree.CreateChlidMoves(hubNode),
+                errH);
 
             //
             // 「星別の指し手一覧」を、「星別の進むマス一覧」になるよう、データ構造を変換します。

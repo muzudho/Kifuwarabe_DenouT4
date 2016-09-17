@@ -62,42 +62,5 @@ namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter
 
             return result;
         }
-
-        //public static Okiba GetOkiba(SyElement masu)
-        //{
-        //    Okiba okiba;
-
-        //    int masuHandle = Conv_SyElement.AsMasuNumber(masu);
-
-        //    if (0 <= masuHandle && masuHandle <= 80)
-        //    {
-        //        // 将棋盤
-        //        okiba = Okiba.ShogiBan;
-        //    }
-        //    else if (81 <= masuHandle && masuHandle <= 120)
-        //    {
-        //        // 先手駒台
-        //        okiba = Okiba.Sente_Komadai;
-        //    }
-        //    else if (121 <= masuHandle && masuHandle <= 160)
-        //    {
-        //        // 後手駒台
-        //        okiba = Okiba.Gote_Komadai;
-        //    }
-        //    else if (161 <= masuHandle && masuHandle <= 200)
-        //    {
-        //        // 駒袋
-        //        okiba = Okiba.KomaBukuro;
-        //    }
-        //    else
-        //    {
-        //        // エラー
-        //        okiba = Okiba.Empty;
-        //    }
-
-        //    return okiba;
-        //}
-
-
     }
 }

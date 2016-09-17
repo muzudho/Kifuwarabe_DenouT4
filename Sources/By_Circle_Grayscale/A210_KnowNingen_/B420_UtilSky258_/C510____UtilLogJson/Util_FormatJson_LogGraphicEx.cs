@@ -78,12 +78,13 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
         /// ノードをJSON化します。
         /// </summary>
         /// <param name="enableLog"></param>
-        /// <param name="src_Sky_base"></param>
+        /// <param name="positionA_base"></param>
         /// <param name="thisNode"></param>
         /// <param name="comment"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static string JsonElements_Node(bool enableLog, Sky src_Sky_base, KifuNode thisNode, string comment, KwLogger errH)
+        public static string JsonElements_Node(
+            bool enableLog, Sky positionA_base, KifuNode thisNode, string comment, KwLogger errH)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -95,8 +96,8 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
             SyElement dstMasu = Conv_Move.ToDstMasu(thisNode.Key);
             Komasyurui14 ks14 = Conv_Move.ToDstKomasyurui(thisNode.Key);
 
-            Finger finger = Util_Sky_FingersQuery.InMasuNow_Old(src_Sky_base,
-                Conv_Move.ToSrcMasu(thisNode.Key)// srcKoma.Masu
+            Finger finger = Util_Sky_FingersQuery.InMasuNow_Old(positionA_base,
+                Conv_Move.ToSrcMasu(thisNode.Key, positionA_base)
                 ).ToFirst();
 
 
@@ -110,7 +111,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
             sb.AppendLine("                { act:\"drawMasu\" , masu:" + Conv_SyElement.ToMasuNumber(dstMasu) + " },");
 
 
-            string komaImg = Util_Converter_LogGraphicEx.Finger_ToString(src_Sky_base, finger, "");
+            string komaImg = Util_Converter_LogGraphicEx.Finger_ToString(positionA_base, finger, "");
             sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_SyElement.ToMasuNumber(dstMasu) + " },");//FIXME:おかしい？
 
             // コメント
@@ -127,12 +128,12 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
         /// ハブ･ノードの次ノード・リストをJSON化します。
         /// </summary>
         /// <param name="enableLog"></param>
-        /// <param name="src_Sky_base"></param>
+        /// <param name="positionA_base"></param>
         /// <param name="hubNode"></param>
         /// <param name="comment"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static string JsonKyokumens_NextNodes(bool enableLog, Sky src_Sky_base, KifuNode hubNode, string comment, KwLogger errH)
+        public static string JsonKyokumens_NextNodes(bool enableLog, Sky positionA_base, KifuNode hubNode, string comment, KwLogger errH)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -144,10 +145,10 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
             hubNode.Children1.Foreach_ChildNodes5((Move move, ref bool toBreak) =>
             {
 
-                SyElement srcMasu = Conv_Move.ToSrcMasu(move);
+                SyElement srcMasu = Conv_Move.ToSrcMasu(move, positionA_base);
                 SyElement dstMasu = Conv_Move.ToDstMasu(move);
 
-                Finger srcKoma2 = Util_Sky_FingersQuery.InMasuNow_Old(src_Sky_base, srcMasu).ToFirst();
+                Finger srcKoma2 = Util_Sky_FingersQuery.InMasuNow_Old(positionA_base, srcMasu).ToFirst();
 
                 Komasyurui14 dstKs14 = Conv_Move.ToDstKomasyurui(move);
 
@@ -160,7 +161,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
                 sb.AppendLine("                { act:\"drawMasu\" , masu:" + Conv_SyElement.ToMasuNumber(dstMasu) + " },");
 
 
-                string komaImg = Util_Converter_LogGraphicEx.Finger_ToString(src_Sky_base, srcKoma2, "");
+                string komaImg = Util_Converter_LogGraphicEx.Finger_ToString(positionA_base, srcKoma2, "");
                 sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_SyElement.ToMasuNumber(dstMasu) + " },");//FIXME:おかしい？
 
                 // コメント

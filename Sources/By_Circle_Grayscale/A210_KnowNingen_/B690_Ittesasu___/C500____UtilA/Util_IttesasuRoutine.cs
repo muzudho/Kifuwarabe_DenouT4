@@ -275,7 +275,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             out Finger figMovedKoma,
             Move move,
             Playerside kaisi_tebanside,
-            Sky kaisi_Sky,
+            Sky positionA,
             KwLogger errH,
             //string hint,
             [CallerMemberName] string memberName = "",
@@ -304,13 +304,13 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     //----------
                     exceptionArea = 99002000;
 
-                    SyElement srcMasu = Conv_Move.ToSrcMasu(move);
+                    SyElement srcMasu = Conv_Move.ToSrcMasu(move, positionA);
                     Komasyurui14 dstKs14 = Conv_Move.ToDstKomasyurui(move);
 
                     exceptionArea = 99002100;
                     // FIXME: 駒台の、どの駒を拾うか？
                     figMovedKoma = Util_Sky_FingerQuery.InOkibaSyuruiNow_IgnoreCase(
-                        kaisi_Sky,
+                        positionA,
                         Conv_SyElement.ToOkiba(srcMasu),
                         dstKs14,
                         errH
@@ -324,14 +324,14 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     // 将棋盤から
                     //----------
 
-                    SyElement srcMasu = Conv_Move.ToSrcMasu(move);
+                    SyElement srcMasu = Conv_Move.ToSrcMasu(move, positionA);
                     Debug.Assert( !Masu_Honshogi.IsErrorBasho(srcMasu), "srcKoma.Masuエラー。15");
                     SyElement dstMasu = Conv_Move.ToDstMasu(move);
                     Playerside pside = Conv_Move.ToPlayerside(move);
 
                     exceptionArea = 99003100;
                     figMovedKoma = Util_Sky_FingerQuery.InMasuNow_FilteringBanjo(
-                        kaisi_Sky,
+                        positionA,
                         pside,
                         srcMasu,// 将棋盤上と確定している☆（＾▽＾）
                         errH

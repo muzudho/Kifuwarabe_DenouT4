@@ -361,11 +361,6 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
         /// </summary>
         public void DoScoreing_ForLearning(
             Sky position
-#if DEBUG || LEARN
-            ,
-            out KyHyokaMeisai_Koumoku out_komawariMeisai,
-            out KyHyokaMeisai_Koumoku out_ppMeisai
-#endif
         )
         {
             //----------------------------------------
@@ -376,9 +371,6 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
                 float score;
                 handan.Evaluate(
                     out score,
-#if DEBUG || LEARN
-                    out out_komawariMeisai,
-#endif
                     position,
                     this.Fv, //参照してもらうだけ。
                     Util_Loggers.ProcessLearner_DEFAULT
@@ -392,9 +384,6 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
                 float score;
                 handan_pp.Evaluate(
                     out score,
-#if DEBUG || LEARN
-                    out out_ppMeisai,
-#endif
                     position,
                     this.Fv, //参照してもらうだけ。
                     Util_Loggers.ProcessLearner_DEFAULT

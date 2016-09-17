@@ -255,6 +255,76 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             // 打なら
             return Conv_Masu10.ToMasu_FromBangaiSujiDan(okiba, srcSuji, srcDan);
         }
+        /// <summary>
+        /// 置き場の情報を補完するように注意すること☆（＾～＾）
+        /// </summary>
+        /// <param name="move"></param>
+        /// <returns></returns>
+        public static SyElement ToSrcMasu(Move move, Sky positionA)
+        {
+            int v = (int)move;              // バリュー
+
+            // TODO: エラーチェック
+            if (Conv_Move.ToErrorCheck(move))
+            {
+                return Masu_Honshogi.Query_ErrorMasu();
+            }
+
+            Okiba okiba;
+
+            // 打かどうか。
+            if (Conv_Move.ToDrop(move))
+            {
+                // 打なら
+                if (Playerside.P1 == Conv_Move.ToPlayerside(move))
+                {
+                    okiba = Okiba.Sente_Komadai;
+                }
+                else if (Playerside.P2 == Conv_Move.ToPlayerside(move))
+                {
+                    okiba = Okiba.Gote_Komadai;
+                }
+                else
+                {
+                    //TODO: エラーチェック
+                    return Masu_Honshogi.Query_ErrorMasu();
+                }
+            }
+            else
+            {
+                okiba = Okiba.ShogiBan;
+            }
+
+            //────────────────────────────────────────
+            // 組み立てフェーズ
+            //────────────────────────────────────────
+
+            // 自
+            if (okiba == Okiba.ShogiBan)
+            {
+                // 自筋
+                int srcSuji;
+                {
+                    int m = (int)MoveMask.SrcSuji;  // マスク
+                    int s = (int)MoveShift.SrcSuji;   // シフト
+                    srcSuji = (v & m) >> s;
+                }
+
+                // 自段
+                int srcDan;
+                {
+                    int m = (int)MoveMask.SrcDan;
+                    int s = (int)MoveShift.SrcDan;
+                    srcDan = (v & m) >> s;
+                }
+
+                return Conv_Masu10.ToMasu_FromBanjoSujiDan(srcSuji, srcDan);
+            }
+
+            // 打なら
+            Komasyurui14 ks14 = Conv_Move.ToSrcKomasyurui(move);
+            return Conv_Masu10.ToMasu_FromBangaiKomasyurui(okiba, ks14, positionA);
+        }
 
 
         public static int ToDstDan(Move move)

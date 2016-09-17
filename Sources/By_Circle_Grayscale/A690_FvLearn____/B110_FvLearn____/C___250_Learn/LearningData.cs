@@ -75,11 +75,6 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
         /// </summary>
         void DoScoreing_ForLearning(
             Sky position
-#if DEBUG || LEARN
-,
-            out KyHyokaMeisai_Koumoku komawariMeisai,
-            out KyHyokaMeisai_Koumoku ppMeisai
-#endif
             );
 
         

@@ -5,18 +5,16 @@ using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C250____Word;
 using Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table;
-
 using Grayscale.A210_KnowNingen_.B390_KomahaiyaEx.C500____Util;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System;
 using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
+using System.Collections.Generic;
 
 namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
 {
@@ -180,30 +178,31 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="errH"></param>
         /// <returns>駒毎の、全指し手</returns>
         public static Maps_OneAndMulti<Finger, Move> SplitSasite_ByStar(
-            Sky src_Sky,
-            KifuNode hubNode, KwLogger errH)
+            Sky positionA,
+            List<Move> siblingMoves,
+            KwLogger errH
+            )
         {
             Maps_OneAndMulti<Finger, Move> enable_moveMap = new Maps_OneAndMulti<Finger, Move>();
 
-
-            hubNode.Children1.Foreach_ChildNodes5((Move move, ref bool toBreak) =>
+            foreach (Move move in siblingMoves)
             {
                 Finger figKoma = Util_Sky_FingersQuery.InMasuNow_New(
-                    src_Sky,
+                    positionA,
                     move
                     ).ToFirst();
-                if ((int)figKoma<0)
+                if ((int)figKoma < 0)
                 {
-                    throw new ApplicationException("駒のハンドルが負数でしたが、間違いです(B)。figKoma="+ (int)figKoma+
-                        " move="+Convert.ToString((int)move,2)+
-                        "\n Log="+Conv_Move.ToLog(move));
+                    throw new ApplicationException("駒のハンドルが負数でしたが、間違いです(B)。figKoma=" + (int)figKoma +
+                        " move=" + Convert.ToString((int)move,2)+
+                        "\n Log=" + Conv_Move.ToLog(move));
                 }
 
                 enable_moveMap.Put_NewOrOverwrite(
                     figKoma,
                     move
                     );
-            });
+            }
 
             return enable_moveMap;
         }

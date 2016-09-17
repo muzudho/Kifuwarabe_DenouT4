@@ -4,6 +4,26 @@ using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using System.Text;
+using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
+using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
+using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B310_Shogiban___.C500____Util;
+using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 /*
      /// <summary>
@@ -68,6 +88,19 @@ namespace Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv
         public const int ERROR_MASU_HANDLE = -1;
 
 
+        public static SyElement GetKomasyuruiMasu(Sky src_Sky, Komasyurui14 syurui)
+        {
+            Fingers figKomas = new Fingers();
+
+            foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)
+            {
+                src_Sky.AssertFinger(figKoma);
+                Busstop koma = src_Sky.BusstopIndexOf(figKoma);
+                return Conv_Busstop.ToMasu(koma);
+            }
+
+            return Masu_Honshogi.Query_Basho(Masu_Honshogi.nError);
+        }
 
         /// <summary>
         /// 
@@ -106,6 +139,28 @@ namespace Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv
 
             return masuHandle;
         }
+        public static int ToMasuHandle_FromBangaiKomasyurui(Okiba okiba, Komasyurui14 ks14, Sky positionA)
+        {
+            int masuHandle = ERROR_MASU_HANDLE;
+
+            switch (okiba)
+            {
+                case Okiba.Sente_Komadai:
+                case Okiba.Gote_Komadai:
+                case Okiba.KomaBukuro:
+                    if (ks14 != Komasyurui14.H00_Null___)
+                    {
+                        SyElement masu = Conv_Masu10.GetKomasyuruiMasu(positionA, ks14);
+                        masuHandle = Conv_SyElement.ToMasuNumber(masu);
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+
+            return masuHandle;
+        }
 
         /// <summary>
         /// 
@@ -130,6 +185,21 @@ namespace Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv
         public static SyElement ToMasu_FromBangaiSujiDan(Okiba okiba, int suji, int dan)
         {
             int masuHandle = Conv_Masu10.ToMasuHandle_FromBangaiSujiDan(okiba, suji, dan);
+
+            if (Conv_MasuHandle.Yuko(masuHandle))
+            {
+                // マス
+                return Masu_Honshogi.Masus_All[masuHandle];
+            }
+            else
+            {
+                // エラー
+                return Masu_Honshogi.Query_Basho(Masu_Honshogi.nError);//範囲外が指定されることもあります。
+            }
+        }
+        public static SyElement ToMasu_FromBangaiKomasyurui(Okiba okiba, Komasyurui14 ks14, Sky positionA)
+        {
+            int masuHandle = Conv_Masu10.ToMasuHandle_FromBangaiKomasyurui(okiba, ks14, positionA);
 
             if (Conv_MasuHandle.Yuko(masuHandle))
             {

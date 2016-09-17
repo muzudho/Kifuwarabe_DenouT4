@@ -16,6 +16,7 @@ using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA;
 using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
+using System;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 {
@@ -51,28 +52,36 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             }
 
             ittemodosuResult = new IttemodosuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
+            Finger figMovedKoma = Fingers.Error_1;
 
-            //
-            // 動かす駒を移動先へ。
-            //
-            Finger figMovedKoma;
-            Util_IttemodosuRoutine.Do25_UgokasuKoma(
-                out figMovedKoma,
-                moved,
-                positionA,
-                errH
-                );
-            ittemodosuResult.FigMovedKoma = figMovedKoma; //動かした駒更新
-
-
-            if (Fingers.Error_1 == ittemodosuResult.FigMovedKoma)
+            try
             {
-                errH.DonimoNaranAkirameta(
-                    "戻せる駒が無かった☆ hint:"+hint+"\n"+
-                    Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(positionA), positionA, moved)
+                //
+                // 動かす駒を移動先へ。
+                //
+                Util_IttemodosuRoutine.Do25_UgokasuKoma(
+                    out figMovedKoma,
+                    moved,
+                    positionA,
+                    errH
                     );
-                goto gt_EndMethod;
+                ittemodosuResult.FigMovedKoma = figMovedKoma; //動かした駒更新
+
+
+                if (Fingers.Error_1 == ittemodosuResult.FigMovedKoma)
+                {
+                    errH.DonimoNaranAkirameta(
+                        "戻せる駒が無かった☆ hint:" + hint + "\n" +
+                        Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(positionA), positionA, moved)
+                        );
+                    goto gt_EndMethod;
+                }
             }
+            catch (Exception ex)
+            {
+                errH.DonimoNaranAkirameta(ex, "駒を戻しているとき☆ hint="+ hint);
+            }
+
 
 
             //
@@ -208,10 +217,10 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         private static Busstop Do37_KomaOnDestinationMasu(
             Komasyurui14 syurui2,
             Move move,
-            Sky src_Sky
+            Sky positionA
             )
         {
-            SyElement srcMasu = Conv_Move.ToSrcMasu(move);
+            SyElement srcMasu = Conv_Move.ToSrcMasu(move, positionA);
             Playerside pside = Conv_Move.ToPlayerside(move);
 
             SyElement masu;
@@ -224,7 +233,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 //>>>>> １手前が駒台なら
 
                 // 駒台の空いている場所
-                masu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Conv_SyElement.ToOkiba(srcMasu), src_Sky);
+                masu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Conv_SyElement.ToOkiba(srcMasu), positionA);
                 // 必ず空いている場所があるものとします。
             }
             else

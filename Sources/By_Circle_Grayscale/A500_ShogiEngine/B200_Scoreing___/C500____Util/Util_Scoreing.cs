@@ -242,26 +242,14 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
                 Hyokakansu hyokakansu = Util_HyokakansuCollection.Hyokakansu_Sennichite;
 
                 float score;
-#if DEBUG || LEARN
-                KyHyokaMeisai_Koumoku meisai;
-#endif
                 hyokakansu.Evaluate(
                     out score,
-#if DEBUG || LEARN
-                    out meisai,
-#endif
                     position,//node_yomi_mutable_KAIZOMAE.Value.Kyokumen,
                     args.FeatureVector,
                     errH
                 );
 
                 moveEx.AddScore(score);
-#if DEBUG || LEARN
-                moveEx.KyHyokaSheet_Mutable.Add(
-                    hyokakansu.Name.ToString(),
-                    meisai
-                );
-#endif
             }
             else
             {

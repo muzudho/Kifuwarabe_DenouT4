@@ -32,35 +32,11 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
         public string JsaSasiteStr { get { return this.jsaSasiteStr; } }
         private string jsaSasiteStr;
 
-#if DEBUG || LEARN
-        /// <summary>
-        /// 評価明細の項目 Komawari
-        /// </summary>
-        public KyHyokaMeisai_Koumoku KomawariMeisai { get { return this.komawariMeisai; } }
-        private KyHyokaMeisai_Koumoku komawariMeisai;
-
-        /// <summary>
-        /// 評価明細の項目 PP
-        /// </summary>
-        public KyHyokaMeisai_Koumoku PpMeisai { get { return this.ppMeisai; } }
-        private KyHyokaMeisai_Koumoku ppMeisai;
-#endif
-
-        public GohosyuListItem(int count, Move move, string jsaSasiteStr
-#if DEBUG || LEARN
-,
-            KyHyokaMeisai_Koumoku komawariMeisai,
-            KyHyokaMeisai_Koumoku ppMeisai
-#endif
-)
+        public GohosyuListItem(int count, Move move, string jsaSasiteStr)
         {
             this.count = count;
             this.m_move_ = move;
             this.jsaSasiteStr = jsaSasiteStr;
-#if DEBUG || LEARN
-            this.komawariMeisai = komawariMeisai;
-            this.ppMeisai = ppMeisai;
-#endif
         }
 
         public override string ToString()
@@ -85,45 +61,6 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
             }
             sb.Append("　");
             sb.Append(String.Format("{0,-5}", this.Move));
-
-            //----------------------------------------
-            // 二駒関係の評価値
-            //----------------------------------------
-            sb.Append("　計=");
-            // 小数点を4桁とし、小数点を含んだ全体の桁数を 12桁とする。
-#if DEBUG || LEARN
-            sb.Append(
-                String.Format("{0,12:0.0000}",
-                this.komawariMeisai.UtiwakeValue+
-                this.PpMeisai.UtiwakeValue
-                ));
-#else
-            sb.AppendLine("DebugかLEARNモードで実行してください。");
-#endif
-
-            sb.Append("　　");
-            // 小数点を0桁とし、小数点を含んだ全体の桁数を 7桁とする。
-            sb.Append("　駒割=");
-#if DEBUG || LEARN
-            sb.Append(String.Format("{0,7}", this.komawariMeisai.UtiwakeValue));
-#else
-            sb.Append("DebugかLEARNモードで実行してください。");
-#endif
-            // 小数点を4桁とし、小数点を含んだ全体の桁数を 12桁とする。
-            sb.Append("　Pp=");
-#if DEBUG || LEARN
-            sb.Append(String.Format("{0,12:0.0000}", this.PpMeisai.UtiwakeValue));
-#else
-            sb.Append("DebugかLEARNモードで実行してください。");
-#endif
-
-#if DEBUG
-            //----------------------------------------
-            // 内訳（デバッグモードのみ）
-            //----------------------------------------
-            sb.Append("　　　　　PP内訳=");
-            sb.Append(this.PpMeisai.Utiwake);
-#endif
 
             return sb.ToString();
         }

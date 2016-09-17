@@ -65,7 +65,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
                     //if(Conv_Move.ToDrop(move))
                     {
                         // 将棋盤上の駒だけが、「成り」ができるぜ☆（＾～＾）
-                        SyElement srcMasu = Conv_Move.ToSrcMasu(move);
+                        SyElement srcMasu = Conv_Move.ToSrcMasu(move, positionA);
                         SyElement dstMasu = Conv_Move.ToDstMasu(move);
                         Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
                         Komasyurui14 dstKs = Conv_Move.ToDstKomasyurui(move);

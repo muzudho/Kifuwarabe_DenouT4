@@ -763,7 +763,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 #if DEBUG
                 this.Log2_Png_Tyokkin_AtLoop2(line,
                     result.Out_newNode_OrNull.MoveEx,
-                    result.Out_newNode_OrNull.GetValue(),
+                    result.Out_newNode_OrNull.GetNodeValue(),
                     logger);
 #endif
 
