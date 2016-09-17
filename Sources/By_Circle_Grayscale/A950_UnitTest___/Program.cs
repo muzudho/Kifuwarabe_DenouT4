@@ -76,7 +76,6 @@ namespace Grayscale.A950_UnitTest___
                 IttemodosuResult syuryoResult2;
                 Util_IttemodosuRoutine.UndoMove(
                     out syuryoResult2,
-                    position_Sky.Temezumi,
                     moved,
                     position_Sky,
                     logger

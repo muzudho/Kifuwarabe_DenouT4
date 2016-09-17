@@ -53,7 +53,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             Earth earth1 = new EarthImpl();
             Sky positionA = Util_SkyCreator.New_Hirate();//日本の符号読取時
             Tree kifu1 = new TreeImpl(
-                new NodeImpl(
+                new KifuNodeImpl(
                     Conv_Move.GetErrorMove(),
                     positionA
                 )
@@ -147,7 +147,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     Util_IttesasuRoutine.UpdateKifuTree(
                         earth1,
                         kifu1,
-                        new NodeImpl(ittesasuResult.SyuryoMove, ittesasuResult.SyuryoKyokumenW),
+                        new KifuNodeImpl(ittesasuResult.SyuryoMove, ittesasuResult.SyuryoKyokumenW),
                         ittesasuResult.SyuryoKyokumenW
                         );
                     // これで、棋譜ツリーに、構造変更があったはず。
@@ -216,8 +216,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 List<GohosyuListItem> list = new List<GohosyuListItem>();
                 //uc_Main.LstGohosyu.Items.Clear();
                 int itemNumber = 0;
-                learningData.Kifu.CurNode.Children1.Foreach_ChildNodes(
-                    (Move key, Node node, Sky sky, ref bool toBreak) =>
+                learningData.Kifu.CurNode.Children1.Foreach_ChildNodes2(
+                    (Move key, List<Move> honpuList, Sky sky, ref bool toBreak) =>
                 {
 #if DEBUG || LEARN
                     KyHyokaMeisai_Koumoku komawariMeisai;
@@ -236,7 +236,10 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     GohosyuListItem item = new GohosyuListItem(
                         itemNumber,
                         key,
-                        Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(node, sky, errH)
+                        Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
+                            key,
+                            honpuList,
+                            sky, errH)
 #if DEBUG || LEARN
 ,
                         komawariMeisai,
@@ -343,9 +346,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             {
                 if (learningData.Kifu.CurNode.Children1.HasChildNode(move))
                 {
-                    Node nextNode = learningData.Kifu.CurNode.Children1.GetChildNode(move);
-                    nextMove = nextNode.Key;//次の棋譜ノードのキーが、指し手（きふわらべ式）になっています。
-
+                    nextMove = move;//次の棋譜ノードのキーが、指し手（きふわらべ式）になっています。
                 }
                 else
                 {
@@ -374,7 +375,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 learningData.Earth,
                 learningData.Kifu,
                 
-                new NodeImpl(ittesasuResult.SyuryoMove, ittesasuResult.SyuryoKyokumenW),
+                new KifuNodeImpl(ittesasuResult.SyuryoMove, ittesasuResult.SyuryoKyokumenW),
                 ittesasuResult.SyuryoKyokumenW
                 );
             // これで、棋譜ツリーに、構造変更があったはず。

@@ -209,7 +209,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
 
             int temezumi,
             Playerside pside,
-            Node rootNode,// ツリーを伸ばしているぜ☆（＾～＾）
+            KifuNode rootNode,// ツリーを伸ばしているぜ☆（＾～＾）
             Sky positionA,
 
             bool isHonshogi,
@@ -338,11 +338,11 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             }
 
             // ヌルになることがある？
-            return Tansaku_FukasaYusen_Routine.ChoiceBest(isHonshogi, rootNode, rootNode.GetValue().KaisiPside, errH);
+            return Tansaku_FukasaYusen_Routine.ChoiceBest(isHonshogi, rootNode, positionA.KaisiPside, errH);
         }
         private static MoveEx ChoiceBest(
             bool isHonshogi,
-            Node rootNode,
+            KifuNode rootNode,
             Playerside kaisiPside,
             KwLogger errH
         )
@@ -373,9 +373,9 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     {
                         try
                         {
-                            rootNode.Children1.Foreach_ChildNodes((Move key, Node node, Sky sky, ref bool toBreak) =>
+                            rootNode.Children1.Foreach_ChildNodes4((MoveEx moveEx, Sky sky, ref bool toBreak) =>
                             {
-                                rankedMoveExs.Add(node.MoveEx);
+                                rankedMoveExs.Add(moveEx);
                             });
 
                             exception_area = 1000;
@@ -573,7 +573,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             int kaisiTemezumi,
             Move mov1,//改造後
             Sky positionA,//この局面から、合法手を作成☆（＾～＾）
-            Node nod1,// ツリーを伸ばしているぜ☆（＾～＾）
+            KifuNode nod1,// ツリーを伸ばしているぜ☆（＾～＾）
 
             int movelist_count,
             EvaluationArgs args,
@@ -620,7 +620,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                 foreach (Move iMov in movelist2)//次に読む手
                 {
                     Move mov2 = iMov;
-                    Node nod2 = new NodeImpl(mov2, null);
+                    KifuNode nod2 = new KifuNodeImpl(mov2, null);
 
                     if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(
                         yomiDeep2,
@@ -688,9 +688,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         // 局面
                         Util_IttesasuSuperRoutine.DoMove_Super(
                                 ref positionA,//指定局面
-                                Util_Sky_FingersQuery.InMasuNow_Old(positionA, Conv_Move.ToSrcMasu(mov2)).ToFirst(),//指す駒
-                                Conv_Move.ToDstMasu(mov2),//移動先升
-                                Conv_Move.ToPromotion(mov2),//成るか。
+                                mov2,
                                 errH
                         );
                         //nod2.SetValue(position);
@@ -746,7 +744,6 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                             IttemodosuResult ittemodosuResult;
                             Util_IttemodosuRoutine.UndoMove(
                                 out ittemodosuResult,
-                                kaisiTemezumi,
                                 mov2,//mov1,//この関数が呼び出されたときの指し手☆（＾～＾）
                                 positionA,
                                 errH

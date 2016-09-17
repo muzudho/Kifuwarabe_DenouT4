@@ -11,18 +11,32 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 {
     public abstract class Util_Tree
     {
-
-        /// <summary>
-        /// 本譜だけ。
-        /// </summary>
-        /// <param name="endNode">葉側のノード。</param>
-        /// <param name="delegate_Foreach"></param>
-        public static void ForeachHonpu1(Node endNode, DELEGATE_Foreach1 delegate_Foreach)
+        public static List<Move> CreateHonpu2List(KifuNode endNode)
         {
-            bool toBreak = false;
-
             // 本譜（ノードのリスト）
-            List<Node> honpu = new List<Node>();
+            List<Move> honpu = new List<Move>();
+
+            //
+            // ツリー型なので、１本のリストに変換するために工夫します。
+            //
+            // カレントからルートまで遡り、それを逆順にすれば、本譜になります。
+            //
+
+            while (null != endNode)//ルートを含むところまで遡ります。
+            {
+                honpu.Add(endNode.Key); // リスト作成
+
+                endNode = endNode.GetParentNode();
+            }
+            honpu.Reverse();
+
+            return honpu;
+        }
+
+        public static List<KifuNode> CreateHonpu1List(KifuNode endNode)
+        {
+            // 本譜（ノードのリスト）
+            List<KifuNode> honpu = new List<KifuNode>();
 
             //
             // ツリー型なので、１本のリストに変換するために工夫します。
@@ -38,14 +52,29 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             }
             honpu.Reverse();
 
+            return honpu;
+        }
+
+        /// <summary>
+        /// 本譜だけ。
+        /// </summary>
+        /// <param name="endNode">葉側のノード。</param>
+        /// <param name="delegate_Foreach"></param>
+        public static void ForeachHonpu1(KifuNode endNode, DELEGATE_Foreach1 delegate_Foreach)
+        {
+            bool toBreak = false;
+
+            // 本譜（ノードのリスト）
+            List<KifuNode> honpu = Util_Tree.CreateHonpu1List(endNode);
+
             //
             // 手済みを数えます。
             //
             int temezumi = 0;//初期局面が[0]
 
-            foreach (Node item in honpu)//正順になっています。
+            foreach (KifuNode item in honpu)//正順になっています。
             {
-                delegate_Foreach(temezumi, item.Key, item.GetValue(), item, ref toBreak);
+                delegate_Foreach(temezumi, item.Key, item.GetNodeValue(), item, ref toBreak);
                 if (toBreak)
                 {
                     break;
@@ -59,12 +88,12 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// </summary>
         /// <param name="endNode">葉側のノード。</param>
         /// <param name="delegate_Foreach"></param>
-        public static void ForeachHonpu2(Node endNode, DELEGATE_Foreach2 delegate_Foreach)
+        public static void ForeachHonpu2(KifuNode endNode, DELEGATE_Foreach2 delegate_Foreach)
         {
             bool toBreak = false;
 
             // 本譜（ノードのリスト）
-            List<Node> honpu = new List<Node>();
+            List<KifuNode> honpu = new List<KifuNode>();
 
             //
             // ツリー型なので、１本のリストに変換するために工夫します。
@@ -85,7 +114,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             //
             int temezumi = 0;//初期局面が[0]
 
-            foreach (Node item in honpu)//正順になっています。
+            foreach (KifuNode item in honpu)//正順になっています。
             {
                 delegate_Foreach(temezumi, item.Key, ref toBreak);
                 if (toBreak)
@@ -101,10 +130,10 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// </summary>
         /// <param name="endNode"></param>
         /// <param name="delegate_Foreach"></param>
-        public static void ForeachZenpuku(Node startNode, DELEGATE_Foreach1 delegate_Foreach)
+        public static void ForeachZenpuku(KifuNode startNode, DELEGATE_Foreach1 delegate_Foreach)
         {
 
-            List<Node> list8 = new List<Node>();
+            List<KifuNode> list8 = new List<KifuNode>();
 
             //
             // ツリー型なので、１本のリストに変換するために工夫します。
@@ -130,7 +159,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             int temezumi1,
 
             //Sky position,
-            Node node1,
+            KifuNode node1,
 
             DELEGATE_Foreach1 delegate_Foreach1, ref bool toFinish_ZenpukuTansaku
         )
@@ -138,7 +167,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             bool toBreak1 = false;
 
             // このノードを、まず報告。
-            delegate_Foreach1(temezumi1, node1.Key, node1.GetValue(), node1, ref toBreak1);
+            delegate_Foreach1(temezumi1, node1.Key, node1.GetNodeValue(), node1, ref toBreak1);
             if (toBreak1)
             {
                 //この全幅探索を終わらせる指示が出ていた場合
@@ -147,11 +176,11 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             }
 
             // 次のノード
-            node1.Children1.Foreach_ChildNodes((Move key2, Node node2, Sky sky, ref bool toBreak2) =>
+            node1.Children1.Foreach_ChildNodes1((Move key2, KifuNode kifuNode2, Sky sky, ref bool toBreak2) =>
             {
                 bool toFinish_ZenpukuTansaku2 = false;
                 Util_Tree.Recursive_Node_NextNode(
-                    temezumi1 + 1, node2, delegate_Foreach1, ref toFinish_ZenpukuTansaku2
+                    temezumi1 + 1, kifuNode2, delegate_Foreach1, ref toFinish_ZenpukuTansaku2
                     );
                 if (toFinish_ZenpukuTansaku2)//この全幅探索を終わらせる指示が出ていた場合
                 {

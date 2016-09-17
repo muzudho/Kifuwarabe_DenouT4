@@ -24,6 +24,9 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
+using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB;
+using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
+using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 
 #if DEBUG || LEARN
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C480____UtilFvEdit;
@@ -71,20 +74,38 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                     errH.AppendLine("----------------------------------------");
                     errH.Flush(LogTypes.Plain);
 #endif
-                    Node nextNode = uc_Main.LearningData.Kifu.CurNode.Children1.GetChildNode(move1);
+
+                    Sky positionA = uc_Main.LearningData.GetSky();
+
+                    Util_IttesasuSuperRoutine.DoMove_Super(
+                        ref positionA,//指定局面
+                        move1,
+                        errH
+                    );
 
                     // 盤上の駒、持駒を数えます。
-                    N54List nextNode_n54List = Util_54List.Calc_54List(nextNode.GetValue(), errH);
+                    N54List nextNode_n54List = Util_54List.Calc_54List(positionA, errH);
 
                     float real_tyoseiryo; //実際に調整した量。
                     Util_FvScoreing.UpdateKyokumenHyoka(
                         nextNode_n54List,
-                        nextNode.GetValue(),
+                        positionA,
                         uc_Main.LearningData.Fv,
                         tyoseiryo,
                         out real_tyoseiryo,
                         errH
                         );//相手が有利になる点
+
+                    IttemodosuResult ittemodosuResult;
+                    Util_IttemodosuRoutine.UndoMove(
+                        out ittemodosuResult,
+                        move1,
+                        positionA,
+                        errH
+                        );
+                    positionA = ittemodosuResult.SyuryoSky;
+
+
 #if DEBUG
                     errH.AppendLine("----------------------------------------");
                     errH.AppendLine("FV 総合点（読込後）6");

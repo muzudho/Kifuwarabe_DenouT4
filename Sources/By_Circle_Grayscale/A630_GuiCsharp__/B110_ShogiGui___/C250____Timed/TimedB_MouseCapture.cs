@@ -68,7 +68,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
             //kikiZukei.DebugWrite("駒の利きLv1");
 
             // 味方の駒
-            Node siteiNode = shogiGui.Link_Server.KifuTree.CurNode;
+            KifuNode siteiNode = shogiGui.Link_Server.KifuTree.CurNode;
             Sky positionA = shogiGui.Link_Server.GetSky();
 
             //shogiGui.Model_PnlTaikyoku.Kifu.AssertPside(shogiGui.Model_PnlTaikyoku.Kifu.CurNode, "Check_MouseoverKomaKiki",errH);
@@ -397,7 +397,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     Sky sky_newChild = new SkyImpl(src_GuiSky);
                                                     sky_newChild.SetKaisiPside(Conv_Playerside.Reverse(Playerside.P1));//FIXME:人間が先手でハードコーディング中
                                                     sky_newChild.SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//1手進ませる。
-                                                    Node newNode = new NodeImpl(
+                                                    KifuNode newNode = new KifuNodeImpl(
                                                         move,
                                                         sky_newChild
                                                     );
@@ -407,7 +407,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     //    "デバッグ");
 
                                                     //マウスの左ボタンを放したときです。
-                                                    Node curNode1 = (Node)mainGui.Link_Server.KifuTree.CurNode;
+                                                    KifuNode curNode1 = (KifuNode)mainGui.Link_Server.KifuTree.CurNode;
                                                     if (!curNode1.Children1.ContainsKey(newNode.Key))
                                                     {
                                                         //----------------------------------------
@@ -490,7 +490,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                 case MouseEventStateName.MouseLeftButtonUp:
                                     {
                                         #region マウス左ボタンアップ
-                                        Node siteiNode = mainGui.Link_Server.KifuTree.CurNode;
+                                        KifuNode siteiNode = mainGui.Link_Server.KifuTree.CurNode;
                                         Sky src_GuiSky = mainGui.SkyWrapper_Gui.GuiSky;
 
 
@@ -544,8 +544,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
 
                                                         // 駒を置いたので、次のノードを準備しておく☆？
                                                         Sky sky_newChild = new SkyImpl(src_GuiSky);
-                                                        Node newNode =
-                                                            new NodeImpl(
+                                                        KifuNode newNode =
+                                                            new KifuNodeImpl(
                                                                 move,
                                                                 sky_newChild
                                                             );

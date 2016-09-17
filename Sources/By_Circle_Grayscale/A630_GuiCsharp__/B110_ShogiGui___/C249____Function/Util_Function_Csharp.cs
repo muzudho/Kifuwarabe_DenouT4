@@ -20,6 +20,7 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C060____TextBoxListener;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C101____Conv;
 using System.Drawing;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
 {
@@ -38,7 +39,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
 
             mainGui.Link_Server.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
 
-            Node newNode = new NodeImpl(
+            KifuNode newNode = new KifuNodeImpl(
                                         Conv_Move.GetErrorMove(),//ルートなので
                                         Util_SkyCreator.New_Hirate()//[初期配置]ボタン押下時
                                         );
@@ -51,7 +52,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
                 mainGui.Link_Server.KifuTree,
                 mainGui.SkyWrapper_Gui,
                 newNode,
-                newNode.GetValue(),
+                newNode.GetNodeValue(),
                 out jsaFugoStr, errH);
             mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
@@ -115,10 +116,14 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             // 符号表示
             //------------------------------
             {
-                Node node6 = shogiGui.Link_Server.KifuTree.CurNode;
+                KifuNode node6 = shogiGui.Link_Server.KifuTree.CurNode;
+                Sky positionA = shogiGui.Link_Server.GetSky();
 
                 // [コマ送り][再生]ボタン
-                string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(node6, node6.GetValue(), errH);
+                string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
+                    node6.Key,
+                    Util_Tree.CreateHonpu2List(node6),
+                    positionA, errH);
 
                 shogiGui.Shape_PnlTaikyoku.SetFugo(jsaFugoStr);
             }

@@ -174,8 +174,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
             //
             // 合法手一覧
             //
-            uc_Main.LearningData.Kifu.CurNode.Children1.Foreach_ChildNodes(
-                (Move move, Node node, Sky sky, ref bool toBreak) =>
+            uc_Main.LearningData.Kifu.CurNode.Children1.Foreach_ChildNodes3(
+                (Move move, Sky sky, ref bool toBreak) =>
             {
                 // 本譜手はまだ計算しない。
                 if (move == move1)
@@ -211,7 +211,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
                 float real_tyoseiryo; //実際に調整した量。
                 Util_FvScoreing.UpdateKyokumenHyoka(
                     currentNode_n54List,
-                    uc_Main.LearningData.Kifu.CurNode.Children1.GetChildNode(move1).GetValue(),
+                    uc_Main.LearningData.Kifu.CurNode.Children1.GetChildNode(move1).GetNodeValue(),
                     uc_Main.LearningData.Fv,
                     tyoseiryo_good,
                     out real_tyoseiryo,

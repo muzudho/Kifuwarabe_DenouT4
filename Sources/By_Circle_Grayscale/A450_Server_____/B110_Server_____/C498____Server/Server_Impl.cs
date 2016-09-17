@@ -30,7 +30,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C498____Server
             //----------
             this.m_earth_ = new EarthImpl();
             this.m_kifuTree_ = new TreeImpl(
-                    new NodeImpl(
+                    new KifuNodeImpl(
                         Conv_Move.GetErrorMove(),
                         new SkyImpl(src_Sky)
                     )
@@ -52,7 +52,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C498____Server
         private Tree m_kifuTree_;
         public Sky GetSky()
         {
-            return this.KifuTree.CurNode.GetValue();
+            return this.KifuTree.CurNode.GetNodeValue();
         }
 
         public Earth Earth { get { return this.m_earth_; } }

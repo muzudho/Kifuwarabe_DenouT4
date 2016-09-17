@@ -15,6 +15,7 @@ using System.Text;
 using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
+using System.Collections.Generic;
 
 namespace Grayscale.A210_KnowNingen_.B550_JsaFugo____.C500____Util
 {
@@ -113,27 +114,30 @@ namespace Grayscale.A210_KnowNingen_.B550_JsaFugo____.C500____Util
         /// <returns></returns>
         public static string ToString_UseDou(
             JsaFugoImpl jsaFugo,
-            Node siteiNode
+            Move move,
+            List<Move> honpuList
             )
         {
             StringBuilder sb = new StringBuilder();
 
             
 
-            SyElement dstMasu = Conv_Move.ToDstMasu(siteiNode.Key);
-            Playerside pside = Conv_Move.ToPlayerside(siteiNode.Key);
+            SyElement dstMasu = Conv_Move.ToDstMasu(move);
+            Playerside pside = Conv_Move.ToPlayerside(move);
 
             sb.Append(Conv_Playerside.ToSankaku(pside));
 
             //------------------------------
             // “同”で表記できるところは、“同”で表記します。それ以外は“筋・段”で表記します。
             //------------------------------
-            if (!siteiNode.IsRoot())
+            int index = honpuList.Count - 1;
+            if (0<index-1)
             {
-                SyElement preDstMasu = Conv_Move.ToDstMasu(siteiNode.GetParentNode().Key);
+                index--;
+                SyElement preDstMasu = Conv_Move.ToDstMasu(honpuList[index]);
                 if (Masu_Honshogi.Query_ErrorMasu() != preDstMasu)
                 {
-                    if (Conv_SyElement.ToMasuNumber(preDstMasu) ==Conv_SyElement.ToMasuNumber(dstMasu))
+                    if (Conv_SyElement.ToMasuNumber(preDstMasu) == Conv_SyElement.ToMasuNumber(dstMasu))
                     {
                         // “同”
                         sb.Append("同");

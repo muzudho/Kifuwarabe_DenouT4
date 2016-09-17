@@ -28,7 +28,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500____Gui
             this.Link_Server.EngineClient.OnChangedTurn(
                 this.Link_Server.Earth,
                 this.Link_Server.KifuTree.CurNode,
-                this.Link_Server.KifuTree.CurNode.GetValue().KaisiPside,
+                this.Link_Server.GetSky().KaisiPside,
                 errH);
         }
 

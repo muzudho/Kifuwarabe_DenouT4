@@ -10,7 +10,7 @@ namespace Grayscale.A210_KnowNingen_.B610_NodeWriter_.C500____Writer
     public class NodeWriterImpl
     {
 
-        public Json_Val ToJsonVal(Sky sky1, NodeImpl node)
+        public Json_Val ToJsonVal(Sky sky1, KifuNodeImpl node)
         {
             Json_Obj obj = new Json_Obj();
 

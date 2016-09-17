@@ -40,7 +40,7 @@ namespace P930_SampleGame
             // 棋譜
             Earth earth1 = new EarthImpl();
             Tree kifu1 = new TreeImpl(
-                        new NodeImpl(
+                        new KifuNodeImpl(
                             Conv_Move.GetErrorMove(),
                             Util_SkyCreator.New_Hirate()//日本の符号読取時
                         )

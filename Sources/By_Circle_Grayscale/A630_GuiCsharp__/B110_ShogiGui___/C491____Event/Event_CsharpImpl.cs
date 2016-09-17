@@ -359,7 +359,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     if (Busstop.Empty != koma)
                     {
                         Sky positionA = new SkyImpl(mainGui3.SkyWrapper_Gui.GuiSky);
-                        Node modifyNode = new NodeImpl(
+                        KifuNode modifyNode = new KifuNodeImpl(
                             mainGui3.Link_Server.KifuTree.CurNode.Key,//現在の局面を流用
                             positionA
                         );
@@ -530,14 +530,14 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     false
                     );// 選択している駒の元の場所と、移動先
 
-                Node newNode;
+                KifuNode newNode;
                 Sky positionA;
                 {
                     //
                     // 成ったので、指し手データ差替え。
                     //
                     positionA = new SkyImpl(mainGui.SkyWrapper_Gui.GuiSky);
-                    newNode = new NodeImpl(
+                    newNode = new KifuNodeImpl(
                         move,
                         positionA
                     );
@@ -553,7 +553,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         // 次ノード追加
                         //----------------------------------------
                         mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(positionA), "After_NaruNaranai");
-                        Node curNode1 = (Node)mainGui.Link_Server.KifuTree.CurNode;
+                        KifuNode curNode1 = (KifuNode)mainGui.Link_Server.KifuTree.CurNode;
                         curNode1.Children1.PutTuginoitte_New(newNode, curNode1);
                     }
 

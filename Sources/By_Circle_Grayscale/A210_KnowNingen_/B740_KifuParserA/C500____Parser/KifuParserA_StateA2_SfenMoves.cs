@@ -53,7 +53,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             ref KifuParserA_Result result,
 
             Earth earth1,
-            Node curNode,
+            KifuNode curNode,
             Sky positionA,
             Tree kifu1_notUse,
 
@@ -120,7 +120,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                                 errH
                                 );
                             // 棋譜ツリーのカレントを変更します。
-                            result.Out_newNode_OrNull = new NodeImpl(ittesasuResult.SyuryoMove, ittesasuResult.SyuryoKyokumenW);
+                            result.Out_newNode_OrNull = new KifuNodeImpl(ittesasuResult.SyuryoMove, ittesasuResult.SyuryoKyokumenW);
 
                             exceptionArea = 1080;
                             //↑↑一手指し

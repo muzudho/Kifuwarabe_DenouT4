@@ -56,7 +56,7 @@ namespace Grayscale.P910_SpeedKeisok
         public Tree Kifu { get; set; }
         public Sky GetSky()
         {
-            return this.Kifu.CurNode.GetValue();
+            return this.Kifu.CurNode.GetNodeValue();
         }
 
 

@@ -54,7 +54,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //----------------------------------------
             // １手前の分岐点
             //----------------------------------------
-            Node parentNode = kifu_mutable.CurNode.GetParentNode();
+            KifuNode parentNode = kifu_mutable.CurNode.GetParentNode();
 
             //----------------------------------------
             // 選ばなかった変化を、ここに入れます。
@@ -64,7 +64,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //----------------------------------------
             // 選んだ変化と、選ばなかった変化の一覧
             //----------------------------------------
-            parentNode.Children1.Foreach_ChildNodes((Move move2, Node nextNode2, Sky sky, ref bool toBreak2) =>
+            parentNode.Children1.Foreach_ChildNodes3((Move move2, Sky sky, ref bool toBreak2) =>
             {
                 if (move2 == move1)
                 {
@@ -111,7 +111,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
         public static void AppendChild_And_ChangeCurrentToChild(
             Earth earth1,
             Tree kifu1,
-            Node nextNode_and_nextCurrent,
+            KifuNode nextNode_and_nextCurrent,
             Sky positionA,
             string hint,
             KwLogger errH

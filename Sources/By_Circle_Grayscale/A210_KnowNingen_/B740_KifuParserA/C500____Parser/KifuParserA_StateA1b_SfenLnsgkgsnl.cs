@@ -39,7 +39,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             ref KifuParserA_Result result,
 
             Earth earth1_notUse,
-            Node curNode_notUse,
+            KifuNode curNode_notUse,
             Sky positionA,
             Tree kifu1_notUse,
 

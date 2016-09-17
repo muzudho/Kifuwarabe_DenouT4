@@ -14,7 +14,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
     /// 局面を入れるのに利用します。
     /// 根ノードに平手局面、最初の子ノードに１手目の局面、を入れるような使い方を想定しています。
     /// </summary>
-    public interface Node
+    public interface KifuNode
     {
 
         /// <summary>
@@ -25,14 +25,14 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         /// <summary>
         /// このノードの値。
         /// </summary>
-        Sky GetValue();
+        Sky GetNodeValue();
         void SetValue(Sky sky);
 
         /// <summary>
         /// 親ノード。変更可能。
         /// </summary>
-        Node GetParentNode();
-        void SetParentNode(Node parent);
+        KifuNode GetParentNode();
+        void SetParentNode(KifuNode parent);
 
         /// <summary>
         /// ルート・ノードなら真。

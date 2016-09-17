@@ -12,7 +12,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
     /// <param name="temezumi">手目済</param>
     /// <param name="node">ノードのかたまりのまま。</param>
     /// <param name="toBreak"></param>
-    public delegate void DELEGATE_Foreach1(int temezumi, Move move, Sky sky, Node node, ref bool toBreak);
+    public delegate void DELEGATE_Foreach1(int temezumi, Move move, Sky sky, KifuNode node, ref bool toBreak);
     public delegate void DELEGATE_Foreach2(int temezumi, Move move, ref bool toBreak);
 
 
@@ -24,10 +24,10 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         /// ツリー構造になっている本譜の葉ノード。
         /// 根を「startpos」等の初期局面コマンドとし、次の節からは棋譜の符号「2g2f」等が連なっている。
         /// </summary>
-        Node CurNode { get; }
-        void SetCurNode(Node node);
+        KifuNode CurNode { get; }
+        void SetCurNode(KifuNode node);
 
-        Node NodeAt(int temezumi1);
+        KifuNode NodeAt(int temezumi1);
 
         
         /// <summary>
@@ -51,10 +51,10 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         /// 
         /// </summary>
         /// <returns>ルートしかないリストの場合、ヌルを返します。</returns>
-        Node PopCurrentNode();
+        KifuNode PopCurrentNode();
 
 
-        Node GetRoot();
+        KifuNode GetRoot();
 
         
 

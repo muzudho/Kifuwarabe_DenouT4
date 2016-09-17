@@ -40,7 +40,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
         /// <param name="fugoList"></param>
         public static string ToJsaFugoListString(
             Earth earth1,
-            Node curNode,//Tree kifu1,
+            KifuNode curNode,//Tree kifu1,
             string hint,
             KwLogger errH
             )
@@ -59,7 +59,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                 Move move = Conv_Move.GetErrorMove();
 
                 saifuKifu2 = new TreeImpl(
-                        new NodeImpl(
+                        new KifuNodeImpl(
                             move,
                             Util_SkyCreator.New_Hirate()//日本の符号読取時
                         )
@@ -85,7 +85,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
 
                 // 採譜用新ノード
-                Node saifu_newChild = new NodeImpl(
+                KifuNode saifu_newChild = new KifuNodeImpl(
                     move,
                     saifu_PositionA
                 );
@@ -104,7 +104,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
                 // 後手の符号がまだ含まれていない。
                 string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
-                    saifu_newChild,
+                    saifu_newChild.Key,
+                    Util_Tree.CreateHonpu2List(saifu_newChild),
                     saifu_PositionA,
                     errH);
                 sb.Append(jsaFugoStr);
@@ -128,7 +129,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
         /// <param name="fugoList"></param>
         public static string ToSfen_PositionCommand(
             Earth earth1,
-            Node curNode_Honpu
+            KifuNode curNode_Honpu
             )
         {
             StringBuilder sb = new StringBuilder();

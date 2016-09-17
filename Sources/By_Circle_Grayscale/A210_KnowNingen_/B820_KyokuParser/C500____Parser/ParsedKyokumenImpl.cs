@@ -23,7 +23,7 @@ namespace Grayscale.A210_KnowNingen_.B820_KyokuParser.C500____Parser
         /// <summary>
         /// 棋譜ノード。
         /// </summary>
-        public Node KifuNode { get; set; }
+        public KifuNode KifuNode { get; set; }
 
         /// <summary>
         /// 持ち駒リスト。

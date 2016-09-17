@@ -120,7 +120,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 // FIXME:平手とは限らないが、平手という前提で作っておく。
                 this.m_earth_AtLoop2_ = new EarthImpl();
                 this.m_kifu_AtLoop2_ = new TreeImpl(
-                        new NodeImpl(
+                        new KifuNodeImpl(
                             Conv_Move.GetErrorMove(),
                             Util_SkyCreator.New_Hirate()// きふわらべ起動時
                         )
@@ -916,7 +916,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 // MessageBox.Show("["+latestTemezumi+"]手目済　["+this.owner.PlayerInfo.Playerside+"]の手番");
                 //#endif
 
-                Sky src_Sky = this.Kifu_AtLoop2.NodeAt(latestTemezumi).GetValue();//現局面
+                Sky src_Sky = this.Kifu_AtLoop2.NodeAt(latestTemezumi).GetNodeValue();//現局面
 
                 //errH2.Logger.WriteLine_AddMemo("将棋サーバー「" + latestTemezumi + "手目、きふわらべ　さんの手番ですよ！」　" + line);
 
@@ -1359,7 +1359,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             sb.Append("ログだせ～（＾▽＾）");
 
             Util_Tree.ForeachZenpuku(
-                this.Kifu_AtLoop2.GetRoot(), (int temezumi, Move move, Sky sky, Node node, ref bool toBreak) =>
+                this.Kifu_AtLoop2.GetRoot(), (int temezumi, Move move, Sky sky, KifuNode node, ref bool toBreak) =>
                 {
                     if (null != node)
                     {                        

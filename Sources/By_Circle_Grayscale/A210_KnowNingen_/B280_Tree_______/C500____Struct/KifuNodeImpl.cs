@@ -15,9 +15,9 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
     /// <summary>
     /// ノードです。
     /// </summary>
-    public class NodeImpl : Node
+    public class KifuNodeImpl : KifuNode
     {
-        public NodeImpl(Move move, Sky sky)
+        public KifuNodeImpl(Move move, Sky sky)
         {
             this.MoveEx = new MoveExImpl(move);
 
@@ -35,7 +35,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// <summary>
         /// 配列型。[0]平手局面、[1]１手目の局面……。リンクリスト→ツリー構造の順に移行を進めたい。
         /// </summary>
-        public Sky GetValue()
+        public Sky GetNodeValue()
         {
             return this.m_value_;
         }
@@ -46,15 +46,15 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         private Sky m_value_;
 
 
-        public Node GetParentNode()
+        public KifuNode GetParentNode()
         {
             return this.parentNode;
         }
-        public void SetParentNode(Node parent)
+        public void SetParentNode(KifuNode parent)
         {
             this.parentNode = parent;
         }
-        private Node parentNode;
+        private KifuNode parentNode;
 
 
         /// <summary>

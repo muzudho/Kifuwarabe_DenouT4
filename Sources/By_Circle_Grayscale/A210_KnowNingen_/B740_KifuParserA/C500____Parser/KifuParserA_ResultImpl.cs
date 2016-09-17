@@ -5,7 +5,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 {
     public class KifuParserA_ResultImpl : KifuParserA_Result
     {
-        public Node Out_newNode_OrNull { get; set; }
+        public KifuNode Out_newNode_OrNull { get; set; }
 
 
     }

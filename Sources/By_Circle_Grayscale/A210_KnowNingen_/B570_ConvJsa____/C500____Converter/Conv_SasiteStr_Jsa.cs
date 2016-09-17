@@ -9,6 +9,7 @@ using Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
+using System.Collections.Generic;
 
 namespace Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500____Converter
 {
@@ -22,19 +23,20 @@ namespace Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500____Converter
         /// <param name="errH"></param>
         /// <returns></returns>
         public static string ToSasiteStr_Jsa(
-            Node node,
+            Move move,
+            List<Move> honpuList,
             Sky positionA,
             KwLogger errH
             )
         {
-            Komasyurui14 ks = Conv_Move.ToSrcKomasyurui(node.Key);
+            Komasyurui14 ks = Conv_Move.ToSrcKomasyurui(move);
 
             JsaFugoImpl jsaFugo = Array_JsaFugoCreator15.ItemMethods[(int)ks](
-                node.Key,
+                move,
                 positionA,
                 errH);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
 
-            return Util_Translator_JsaFugo.ToString_UseDou(jsaFugo, node);
+            return Util_Translator_JsaFugo.ToString_UseDou(jsaFugo, move, honpuList);
         }
 
     }

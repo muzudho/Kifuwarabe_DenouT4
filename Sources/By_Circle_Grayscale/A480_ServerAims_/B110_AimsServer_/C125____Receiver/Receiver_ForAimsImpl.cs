@@ -107,7 +107,7 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C125____Receiver
 
                                 // FIXME:平手とは限らないが、平手という前提で、毎回一から作りなおします。
                                 this.Owner_AimsServer.SetKifuTree(new TreeImpl(
-                                        new NodeImpl(
+                                        new KifuNodeImpl(
                                             Conv_Move.GetErrorMove(),
                                             Util_SkyCreator.New_Hirate()
                                         )

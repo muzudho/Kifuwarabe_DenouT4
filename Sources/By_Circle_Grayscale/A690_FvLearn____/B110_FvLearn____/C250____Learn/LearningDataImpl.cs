@@ -92,7 +92,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
         public Tree Kifu { get; set; }
         public Sky GetSky()
         {
-            return this.Kifu.CurNode.GetValue();
+            return this.Kifu.CurNode.GetNodeValue();
         }
 
         /// <summary>

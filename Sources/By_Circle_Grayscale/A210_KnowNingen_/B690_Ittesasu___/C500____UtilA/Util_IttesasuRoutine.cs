@@ -238,7 +238,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         public static void UpdateKifuTree(
             Earth earth1,
             Tree kifu1,
-            Node newNode,
+            KifuNode newNode,
             Sky positionA
             )
         {
@@ -261,7 +261,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 kifu1.CurNode.Children1.PutTuginoitte_Override(newNode, kifu1.CurNode);//次ノートを上書きします。
             }
 
-            Node temp = kifu1.CurNode;
+            KifuNode temp = kifu1.CurNode;
             kifu1.SetCurNode(newNode);//次ノードを、これからのカレントとします。
             newNode.SetParentNode(temp);
         }

@@ -59,7 +59,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             string hint,
             KwLogger errH)
         {
-            Node hubNode = Conv_StarbetuSasites.ToNextNodes_AsHubNode(
+            KifuNode hubNode = Conv_StarbetuSasites.ToNextNodes_AsHubNode(
                 genTeban_komabetuAllMoves1,
                 src_Sky,
                 errH
@@ -122,7 +122,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             return starbetuSusumuMasus;
         }
         private static void Log1(
-            Node hubNode,
+            KifuNode hubNode,
             int temezumi_yomiGenTeban,
             string hint,
             KwLogger errH
@@ -142,7 +142,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
         /// </summary>
         public static void LAA_RemoveNextNode_IfMate(
             int yomikaisiTemezumi,
-            Node hubNode,
+            KifuNode hubNode,
             int temezumi_yomiGenTeban_forLog,//読み進めている現在の手目
             Playerside pside_genTeban,
 
@@ -154,22 +154,22 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             )
         {
             // Node<,>の形で。
-            Dictionary<Move, Node> newNextNodes = new Dictionary<Move, Node>();
+            Dictionary<Move, KifuNode> newNextNodes = new Dictionary<Move, KifuNode>();
 
-            hubNode.Children1.Foreach_ChildNodes((Move move, Node node, Sky sky, ref bool toBreak) =>
+            hubNode.Children1.Foreach_ChildNodes1((Move move, KifuNode node, Sky sky, ref bool toBreak) =>
             {
                 //System.Diagnostics.Debug.Assert(node.Key != null);//指し手がヌルなはず無いはず。
 
                 // 王様が利きに飛び込んだか？
                 bool kingSuicide = Util_LegalMove.LAAA_KingSuicide(
                     yomikaisiTemezumi,
-                    node.GetValue(),
+                    sky,
                     temezumi_yomiGenTeban_forLog,
                     pside_genTeban,//現手番＝攻め手視点
 #if DEBUG
                     logF_kiki,
 #endif
-                    node.Key,
+                    move,
                     errH
                     );
 

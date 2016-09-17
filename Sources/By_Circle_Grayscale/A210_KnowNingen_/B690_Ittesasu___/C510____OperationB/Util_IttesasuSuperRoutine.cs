@@ -16,6 +16,21 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
 {
     public abstract class Util_IttesasuSuperRoutine
     {
+        public static void DoMove_Super(
+            ref Sky positionA,//指定局面
+            Move mov2,
+            KwLogger errH
+            )
+        {
+            Util_IttesasuSuperRoutine.DoMove_Super(
+                    ref positionA,
+                    Util_Sky_FingersQuery.InMasuNow_Old(positionA, Conv_Move.ToSrcMasu(mov2)).ToFirst(),//指す駒
+                    Conv_Move.ToDstMasu(mov2),//移動先升
+                    Conv_Move.ToPromotion(mov2),//成るか。
+                    errH
+                );
+        }
+
         //*
         /// <summary>
         /// 指したあとの、次の局面を作るだけ☆

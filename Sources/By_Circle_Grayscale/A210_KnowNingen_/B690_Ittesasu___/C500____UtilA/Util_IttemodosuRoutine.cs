@@ -36,7 +36,6 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <param name="errH"></param>
         public static void UndoMove(
             out IttemodosuResult ittemodosuResult,
-            int kaisi_Temezumi,
             Move moved,
             Sky kaisi_Sky,
             KwLogger errH
@@ -61,7 +60,6 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             {
                 errH.DonimoNaranAkirameta(
                     "戻せる駒が無かった☆\n"+
-                    "kaisi_Temezumi=" + kaisi_Temezumi+"\n"+
                     Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(kaisi_Sky), kaisi_Sky, moved)
                     );
                 return;
@@ -148,7 +146,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             Tree kifu_mutable
             )
         {
-            Node removedLeaf = kifu_mutable.PopCurrentNode();
+            KifuNode removedLeaf = kifu_mutable.PopCurrentNode();
         }
 
 

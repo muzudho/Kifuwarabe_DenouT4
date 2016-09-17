@@ -181,12 +181,12 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <returns>駒毎の、全指し手</returns>
         public static Maps_OneAndMulti<Finger, Move> SplitSasite_ByStar(
             Sky src_Sky,
-            Node hubNode, KwLogger errH)
+            KifuNode hubNode, KwLogger errH)
         {
             Maps_OneAndMulti<Finger, Move> enable_moveMap = new Maps_OneAndMulti<Finger, Move>();
 
 
-            hubNode.Children1.Foreach_ChildNodes((Move move, Node nextNode, Sky sky, ref bool toBreak) =>
+            hubNode.Children1.Foreach_ChildNodes3((Move move, Sky sky, ref bool toBreak) =>
             {
                 Finger figKoma = Util_Sky_FingersQuery.InMasuNow_New(
                     src_Sky,
@@ -195,7 +195,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
                 if ((int)figKoma<0)
                 {
                     throw new ApplicationException("駒のハンドルが負数でしたが、間違いです(B)。figKoma="+ (int)figKoma+
-                        " nextNode.Key="+Convert.ToString((int)move,2)+
+                        " move="+Convert.ToString((int)move,2)+
                         "\n Log="+Conv_Move.ToLog(move));
                 }
 

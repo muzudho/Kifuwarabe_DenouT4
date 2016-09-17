@@ -153,7 +153,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
         public static void AA_Write_ForeachLeafs_ForDebug(
             ref int logFileCounter,
             string nodePath,
-            Node node,
+            KifuNode node,
             Tree kifu,
             string relFolder,
             KyokumenPngEnvironment reportEnvironment,
@@ -168,7 +168,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
 
                 int logFileCounter_temp = logFileCounter;
                 // 先に奥の枝から。
-                node.Children1.Foreach_ChildNodes((Move move, Node nextNode, Sky sky, ref bool toBreak) =>
+                node.Children1.Foreach_ChildNodes1((Move move, KifuNode nextNode, Sky sky, ref bool toBreak) =>
                 {
                     float score = nextNode.MoveEx.Score;
 
@@ -192,7 +192,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
                 ref logFileCounter,
                 nodePath,
                 node.MoveEx,
-                node.GetValue(),
+                node.GetNodeValue(),
                 kifu,
                 relFolder,
                 reportEnvironment,

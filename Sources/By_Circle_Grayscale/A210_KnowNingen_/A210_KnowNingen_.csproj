@@ -123,7 +123,6 @@
     <Compile Include="B600_UtilSky____\C500____Util\Conv_Starlight.cs" />
     <Compile Include="B620_KyokumHyoka\C___250_Struct\HyokakansuName.cs" />
     <Compile Include="B670_ConvKyokume\C500____Converter\Conv_KifuNode.cs" />
-    <Compile Include="B670_ConvKyokume\C500____Converter\Conv_NextNodes.cs" />
     <Compile Include="B690_Ittesasu___\C500____UtilA\Conv_JsaFugoText.cs" />
     <Compile Include="B670_ConvKyokume\C500____Converter\Conv_SfenSasiteTokens.cs" />
     <Compile Include="B690_Ittesasu___\C500____UtilA\Util_IttemodosuRoutine.cs" />
@@ -152,9 +151,9 @@
     <Compile Include="B270_Sky________\C___500_Struct\Sky.cs" />
     <Compile Include="B270_Sky________\C500____Struct\Fingers.cs" />
     <Compile Include="B270_Sky________\C500____Struct\SkyImpl.cs" />
-    <Compile Include="B280_Tree_______\C___500_Struct\Node.cs" />
+    <Compile Include="B280_Tree_______\C___500_Struct\KifuNode.cs" />
     <Compile Include="B280_Tree_______\C___500_Struct\Tree.cs" />
-    <Compile Include="B280_Tree_______\C500____Struct\NodeImpl.cs" />
+    <Compile Include="B280_Tree_______\C500____Struct\KifuNodeImpl.cs" />
     <Compile Include="B280_Tree_______\C500____Struct\TreeImpl.cs" />
     <Compile Include="B190_Komasyurui_\C500____Util\Util_Komasyurui14.cs" />
     <Compile Include="B190_Komasyurui_\C250____Word\Komasyurui14.cs" />

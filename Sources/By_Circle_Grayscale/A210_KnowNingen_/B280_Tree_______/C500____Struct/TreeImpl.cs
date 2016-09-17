@@ -20,7 +20,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
     public class TreeImpl : Tree
     {
         public TreeImpl(
-            Node root
+            KifuNode root
         )
         {
             this.SetCurNode(root);
@@ -34,16 +34,16 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
         public Sky GetSky()
         {
-            return this.CurNode.GetValue();
+            return this.CurNode.GetNodeValue();
         }
 
         /// <summary>
         /// ツリー構造になっている本譜の葉ノード。
         /// 根を「startpos」等の初期局面コマンドとし、次の節からは棋譜の符号「2g2f」等が連なっている。
         /// </summary>
-        public Node CurNode { get { return this.m_curNode_; } }
-        public void SetCurNode(Node node) { this.m_curNode_ = node; }
-        private Node m_curNode_;
+        public KifuNode CurNode { get { return this.m_curNode_; } }
+        public void SetCurNode(KifuNode node) { this.m_curNode_ = node; }
+        private KifuNode m_curNode_;
 
         #endregion
 
@@ -73,9 +73,9 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// 
         /// </summary>
         /// <returns>ルートしかないリストの場合、ヌルを返します。</returns>
-        public Node PopCurrentNode()
+        public KifuNode PopCurrentNode()
         {
-            Node deleteeElement = null;
+            KifuNode deleteeElement = null;
 
             if (this.CurNode.IsRoot())
             {
@@ -140,16 +140,16 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
         #region ランダムアクセッサ
 
-        public Node GetRoot()
+        public KifuNode GetRoot()
         {
-            return (Node)this.NodeAt(0);
+            return (KifuNode)this.NodeAt(0);
         }
 
-        public Node NodeAt(int sitei_temezumi)
+        public KifuNode NodeAt(int sitei_temezumi)
         {
-            Node found = null;
+            KifuNode found = null;
 
-            Util_Tree.ForeachHonpu1(this.CurNode, (int temezumi2, Move move, Sky sky, Node node, ref bool toBreak) =>
+            Util_Tree.ForeachHonpu1(this.CurNode, (int temezumi2, Move move, Sky sky, KifuNode node, ref bool toBreak) =>
             {
                 if (sitei_temezumi == temezumi2) //新Verは 0 にも対応。
                 {

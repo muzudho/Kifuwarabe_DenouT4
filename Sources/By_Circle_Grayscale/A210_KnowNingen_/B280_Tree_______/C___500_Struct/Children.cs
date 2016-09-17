@@ -8,21 +8,24 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
     public interface Children
     {
         bool HasChildNode(Move key);
-        Node GetFirst();
+        KifuNode GetFirst();
         /// <summary>
         /// sfenがキーなのは暫定。
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        Node GetChildNode(Move key);
+        KifuNode GetChildNode(Move key);
 
         int Count { get; }
         void ClearAll();
         bool ContainsKey(Move key);
-        void AddItem(Move key, Node newNode, Node parent);
-        void SetItems(Dictionary<Move, Node> newNextNodes, Node parent);
+        void AddItem(Move key, KifuNode newNode, KifuNode parent);
+        void SetItems(Dictionary<Move, KifuNode> newNextNodes, KifuNode parent);
 
-        void Foreach_ChildNodes(ChildrenImpl.DELEGATE_NextNodes d);
+        void Foreach_ChildNodes1(ChildrenImpl.DELEGATE_ChildNodes1 d);
+        void Foreach_ChildNodes2(ChildrenImpl.DELEGATE_ChildNodes2 delegate_NextNodes);
+        void Foreach_ChildNodes3(ChildrenImpl.DELEGATE_ChildNodes3 delegate_NextNodes);
+        void Foreach_ChildNodes4(ChildrenImpl.DELEGATE_ChildNodes4 delegate_NextNodes);
 
         /// <summary>
         /// 子ノードの削除。
@@ -48,12 +51,12 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         /// 
         /// カレントノードは変更しません。
         /// </summary>
-        void PutTuginoitte_New(Node newNode, Node owner);
+        void PutTuginoitte_New(KifuNode newNode, KifuNode owner);
         /// <summary>
         /// 既存の子要素を上書きします。
         /// </summary>
         /// <param name="existsNode"></param>
-        void PutTuginoitte_Override(Node existsNode, Node owner);
+        void PutTuginoitte_Override(KifuNode existsNode, KifuNode owner);
 
         string Json_NextNodes_MultiSky(
     string memo,

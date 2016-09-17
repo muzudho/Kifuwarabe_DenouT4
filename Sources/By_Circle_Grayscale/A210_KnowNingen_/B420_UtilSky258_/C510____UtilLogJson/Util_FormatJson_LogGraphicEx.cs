@@ -83,7 +83,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
         /// <param name="comment"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static string JsonElements_Node(bool enableLog, Sky src_Sky_base, Node thisNode, string comment, KwLogger errH)
+        public static string JsonElements_Node(bool enableLog, Sky src_Sky_base, KifuNode thisNode, string comment, KwLogger errH)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -132,7 +132,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
         /// <param name="comment"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static string JsonKyokumens_NextNodes(bool enableLog, Sky src_Sky_base, Node hubNode, string comment, KwLogger errH)
+        public static string JsonKyokumens_NextNodes(bool enableLog, Sky src_Sky_base, KifuNode hubNode, string comment, KwLogger errH)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -141,7 +141,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
                 goto gt_EndMethod;
             }
 
-            hubNode.Children1.Foreach_ChildNodes((Move move, Node node, Sky sky, ref bool toBreak) =>
+            hubNode.Children1.Foreach_ChildNodes3((Move move, Sky sky, ref bool toBreak) =>
             {
 
                 SyElement srcMasu = Conv_Move.ToSrcMasu(move);

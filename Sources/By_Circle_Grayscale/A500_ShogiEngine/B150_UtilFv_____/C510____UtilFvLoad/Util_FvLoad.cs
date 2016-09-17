@@ -17,6 +17,7 @@ using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad
 {
@@ -45,19 +46,20 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad
 
             // 棋譜
             out_earth1 = new EarthImpl();
+            Sky positionA = Util_SkyCreator.New_Hirate();
             out_kifu1 = new TreeImpl(
-                    new NodeImpl(
+                    new KifuNodeImpl(
                         Conv_Move.GetErrorMove(),
-                        Util_SkyCreator.New_Hirate()
+                        positionA
                     )
             );
             out_earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手
 
 
-            out_kifu1.GetSky().AssertFinger((Finger)0);
+            positionA.AssertFinger((Finger)0);
             Debug.Assert(!Conv_MasuHandle.OnKomabukuro(
                 Conv_SyElement.ToMasuNumber(
-                    Conv_Busstop.ToMasu(out_kifu1.GetSky().BusstopIndexOf((Finger)0))
+                    Conv_Busstop.ToMasu(positionA.BusstopIndexOf((Finger)0))
                     )
                 ), "駒が駒袋にあった。");
         }
