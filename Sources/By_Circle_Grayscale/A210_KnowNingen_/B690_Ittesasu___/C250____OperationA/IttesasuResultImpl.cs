@@ -12,7 +12,6 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
         public Finger FigFoodKoma { get; set; }
 
-        public Move SyuryoMove { get; set; }
         public Sky SyuryoKyokumenW { get; set; }
 
         public Komasyurui14 FoodKomaSyurui{ get; set; }
@@ -21,14 +20,12 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
         public IttesasuResultImpl(
             Finger figMovedKoma,
             Finger figFoodKoma,
-            Move syuryoMove,
             Sky syuryoKyokumenW,
             Komasyurui14 foodKomaSyurui            
             )
         {
             this.FigMovedKoma = figMovedKoma;
             this.FigFoodKoma = figFoodKoma;
-            this.SyuryoMove = syuryoMove;
             this.SyuryoKyokumenW = syuryoKyokumenW;
             this.FoodKomaSyurui = foodKomaSyurui;
         }

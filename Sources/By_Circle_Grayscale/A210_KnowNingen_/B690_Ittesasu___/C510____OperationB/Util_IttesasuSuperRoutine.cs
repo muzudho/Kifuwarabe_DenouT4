@@ -11,6 +11,7 @@ using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
 {
@@ -18,17 +19,36 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
     {
         public static void DoMove_Super(
             ref Sky positionA,//指定局面
-            Move mov2,
+            ref Move move,//TODO:取った駒があると、上書きされる
+            string hint,
             KwLogger errH
             )
         {
+            bool log = true;
+
+            if (log)
+            {
+                errH.AppendLine("進める前 "+ hint);
+                //errH.Append(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(pos1)));
+                errH.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(positionA), positionA, move));
+                errH.Flush(LogTypes.Plain);
+            }
+
             Util_IttesasuSuperRoutine.DoMove_Super(
                     ref positionA,
-                    Util_Sky_FingersQuery.InMasuNow_Old(positionA, Conv_Move.ToSrcMasu(mov2)).ToFirst(),//指す駒
-                    Conv_Move.ToDstMasu(mov2),//移動先升
-                    Conv_Move.ToPromotion(mov2),//成るか。
+                    ref move,
+                    Util_Sky_FingersQuery.InMasuNow_Old(positionA, Conv_Move.ToSrcMasu(move)).ToFirst(),//指す駒
+                    Conv_Move.ToDstMasu(move),//移動先升
+                    Conv_Move.ToPromotion(move),//成るか。
                     errH
                 );
+
+            if (log)
+            {
+                errH.AppendLine("進めた後 "+ hint);
+                errH.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(positionA), positionA, move));
+                errH.Flush(LogTypes.Plain);
+            }
         }
 
         //*
@@ -43,6 +63,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
         /// <returns></returns>
         public static void DoMove_Super(
             ref Sky position,//指定局面
+            ref Move move,
             Finger finger,//動かす駒
             SyElement dstMasu,//移動先マス
             bool toNaru,//成るなら真
@@ -72,6 +93,15 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
 
                 // 駒台の空いているマスへ移動☆
                 position.PutOverwriteOrAdd_Busstop(tottaKomaFig, Conv_Busstop.ToBusstop(position.KaisiPside, akiMasu, Conv_Busstop.ToKomasyurui(tottaKomaBus)));
+
+                if (Conv_Busstop.ToKomasyurui(tottaKomaBus) != Komasyurui14.H00_Null___)
+                {
+                    // 元のキーの、取った駒の種類だけを差替えます。
+                    move = Conv_Move.SetCaptured(
+                        move,
+                        Conv_Busstop.ToKomasyurui(tottaKomaBus)
+                        );
+                }
             }
 
             // 駒を１個動かします。

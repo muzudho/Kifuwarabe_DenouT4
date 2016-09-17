@@ -21,7 +21,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
         /// <returns></returns>
         public static Maps_OneAndMulti<Finger, Move> ToKomaBETUAllSasites(
             List_OneAndMulti<Finger, SySet<SyElement>> komaBETUSusumeruMasus,
-            Sky src_Sky
+            Sky positionA
             )
         {
             Maps_OneAndMulti<Finger, Move> result_komabetuAllMoves = new Maps_OneAndMulti<Finger, Move>();
@@ -29,8 +29,8 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
             komaBETUSusumeruMasus.Foreach_Entry((Finger figKoma, SySet<SyElement> susumuMasuSet, ref bool toBreak) =>
             {
                 // 動かす星。
-                src_Sky.AssertFinger(figKoma);
-                Busstop srcStar = src_Sky.BusstopIndexOf(figKoma);
+                positionA.AssertFinger(figKoma);
+                Busstop srcStar = positionA.BusstopIndexOf(figKoma);
 
                 foreach (SyElement susumuMasu in susumuMasuSet.Elements)// 星が進める升。
                 {

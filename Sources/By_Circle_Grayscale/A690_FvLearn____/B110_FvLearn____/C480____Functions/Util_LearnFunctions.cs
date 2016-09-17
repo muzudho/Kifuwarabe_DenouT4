@@ -17,6 +17,9 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
+using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB;
+using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
+using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
 
 namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
 {
@@ -166,7 +169,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
             float tyoseiryo_good = 0.0f;//加点に使われる数字です。
 
             float badScore_temp = tyoseiryo_bad;
-            if (uc_Main.LearningData.GetSky().KaisiPside == Playerside.P2)
+            Sky positionA = uc_Main.LearningData.GetSky();
+            if (positionA.KaisiPside == Playerside.P2)
             {
                 tyoseiryo_bad *= -1.0f;//2Pは、負数の方が高得点です。
             }
@@ -175,7 +179,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
             // 合法手一覧
             //
             uc_Main.LearningData.Kifu.CurNode.Children1.Foreach_ChildNodes3(
-                (Move move, Sky sky, ref bool toBreak) =>
+                (Move move, ref bool toBreak) =>
             {
                 // 本譜手はまだ計算しない。
                 if (move == move1)
@@ -183,20 +187,41 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
                     goto gt_NextLoop1;
                 }
 
+                Util_IttesasuSuperRoutine.DoMove_Super(
+                    ref positionA,//指定局面
+                    ref move,
+                    "E100",
+                    errH
+                );
+
+
                 // 盤上の駒、持駒を数えます。
-                N54List childNode_n54List = Util_54List.Calc_54List(sky, errH);
+                N54List childNode_n54List = Util_54List.Calc_54List(positionA, errH);
 
                 float real_tyoseiryo; //実際に調整した量。
                 Util_FvScoreing.UpdateKyokumenHyoka(
                     childNode_n54List,
-                    sky,
+                    positionA,
                     uc_Main.LearningData.Fv,
                     tyoseiryo_bad,
                     out real_tyoseiryo,
                     errH
                     );//相手が有利になる点
                 tyoseiryo_good += -real_tyoseiryo;
-            gt_NextLoop1:
+
+
+                IttemodosuResult ittemodosuResult;
+                Util_IttemodosuRoutine.UndoMove(
+                    out ittemodosuResult,
+                    move,//mov1,//この関数が呼び出されたときの指し手☆（＾～＾）
+                    positionA,
+                    "E900",
+                    errH
+                    );
+                positionA = ittemodosuResult.SyuryoSky;
+
+
+                gt_NextLoop1:
                 ;
             });
 

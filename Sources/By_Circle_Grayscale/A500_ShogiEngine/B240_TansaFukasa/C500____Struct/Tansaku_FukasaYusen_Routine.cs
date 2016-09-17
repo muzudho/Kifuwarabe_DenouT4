@@ -373,7 +373,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     {
                         try
                         {
-                            rootNode.Children1.Foreach_ChildNodes4((MoveEx moveEx, Sky sky, ref bool toBreak) =>
+                            rootNode.Children1.Foreach_ChildNodes4((MoveEx moveEx, ref bool toBreak) =>
                             {
                                 rankedMoveExs.Add(moveEx);
                             });
@@ -677,28 +677,13 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         //
                         exceptionArea = 4020;
 
-                        bool log = false;
-                        if(log)
-                        {
-                            errH.AppendLine("進める前");
-                            //errH.Append(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(pos1)));
-                            errH.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(positionA),positionA,mov2));
-                            errH.Flush(LogTypes.Plain);
-                        }
                         // 局面
                         Util_IttesasuSuperRoutine.DoMove_Super(
                                 ref positionA,//指定局面
-                                mov2,
+                                ref mov2,
+                                "C100",
                                 errH
                         );
-                        //nod2.SetValue(position);
-                        // （＾▽＾）局面データは持たせないぜ、容量の無駄だからな☆（＾▽＾）
-                        if(log)
-                        {
-                            errH.AppendLine("進めた後");
-                            errH.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(positionA), positionA, mov2));
-                            errH.Flush(LogTypes.Plain);
-                        }
 
 
                         exceptionArea = 44011;
@@ -731,31 +716,17 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         exceptionArea = 6000;
 
                         //*
-                        if(log)
-                        {
-                            errH.AppendLine("戻す前");
-                            errH.Append(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(positionA)));
-                            errH.Flush(LogTypes.Plain);
-                        }
-                        if (0<kaisiTemezumi)//ルート局面除く
-                        {
-                            // １手戻したいぜ☆（＾～＾）
+                        // １手戻したいぜ☆（＾～＾）
 
-                            IttemodosuResult ittemodosuResult;
-                            Util_IttemodosuRoutine.UndoMove(
-                                out ittemodosuResult,
-                                mov2,//mov1,//この関数が呼び出されたときの指し手☆（＾～＾）
-                                positionA,
-                                errH
-                                );
-                            positionA = ittemodosuResult.SyuryoSky;
-                        }
-                        if(log)
-                        {
-                            errH.AppendLine("戻した後");
-                            errH.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(positionA), positionA, mov1));
-                            errH.Flush(LogTypes.Plain);
-                        }
+                        IttemodosuResult ittemodosuResult;
+                        Util_IttemodosuRoutine.UndoMove(
+                            out ittemodosuResult,
+                            mov2,//mov1,//この関数が呼び出されたときの指し手☆（＾～＾）
+                            positionA,
+                            "C900",
+                            errH
+                            );
+                        positionA = ittemodosuResult.SyuryoSky;
                         //*/
 
 

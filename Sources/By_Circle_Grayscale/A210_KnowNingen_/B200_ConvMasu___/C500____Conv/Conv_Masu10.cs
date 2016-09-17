@@ -90,9 +90,6 @@ namespace Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv
 
             switch (okiba)
             {
-                /*
-                case Okiba.ShogiBan:
-                */
                 case Okiba.Sente_Komadai:
                 case Okiba.Gote_Komadai:
                 case Okiba.KomaBukuro:
@@ -134,14 +131,16 @@ namespace Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv
         {
             int masuHandle = Conv_Masu10.ToMasuHandle_FromBangaiSujiDan(okiba, suji, dan);
 
-            SyElement masu = Masu_Honshogi.Query_Basho(Masu_Honshogi.nError);//範囲外が指定されることもあります。
-
             if (Conv_MasuHandle.Yuko(masuHandle))
             {
-                masu = Masu_Honshogi.Masus_All[masuHandle];
+                // マス
+                return Masu_Honshogi.Masus_All[masuHandle];
             }
-
-            return masu;
+            else
+            {
+                // エラー
+                return Masu_Honshogi.Query_Basho(Masu_Honshogi.nError);//範囲外が指定されることもあります。
+            }
         }
 
 

@@ -146,62 +146,6 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
         }
 
         /// <summary>
-        /// TODO: このログは廃止したい。
-        /// 
-        /// 棋譜ツリーの、ノードに格納されている、局面評価明細を、出力していきます。
-        /// </summary>
-        public static void AA_Write_ForeachLeafs_ForDebug(
-            ref int logFileCounter,
-            string nodePath,
-            KifuNode node,
-            Tree kifu,
-            string relFolder,
-            KyokumenPngEnvironment reportEnvironment,
-            KwLogger errH
-            )
-        {
-
-            // 次ノードの有無
-            if (0 < node.Children1.Count)
-            {
-                // 葉ノードではないなら
-
-                int logFileCounter_temp = logFileCounter;
-                // 先に奥の枝から。
-                node.Children1.Foreach_ChildNodes1((Move move, KifuNode nextNode, Sky sky, ref bool toBreak) =>
-                {
-                    float score = nextNode.MoveEx.Score;
-
-                    // 再帰
-                    Util_KifuTreeLogWriter.AA_Write_ForeachLeafs_ForDebug(
-                        ref logFileCounter_temp,
-                        nodePath + " " + Conv_Move.ToSfen_ForFilename(move),
-                        nextNode,
-                        kifu,
-                        relFolder + ((int)score).ToString() + "点_" + Conv_Move.ToSfen(move) + "/",
-                        reportEnvironment,
-                        errH
-                        );
-
-                });
-                logFileCounter = logFileCounter_temp;
-            }
-
-            // 盤１個分の png 画像ログ出力
-            Util_KifuTreeLogWriter.AAA_Write_Node(
-                ref logFileCounter,
-                nodePath,
-                node.MoveEx,
-                node.GetNodeValue(),
-                kifu,
-                relFolder,
-                reportEnvironment,
-                errH
-            );
-
-        }
-
-        /// <summary>
         /// 盤１個分のログ。
         /// </summary>
         private static void AAA_Write_Node(

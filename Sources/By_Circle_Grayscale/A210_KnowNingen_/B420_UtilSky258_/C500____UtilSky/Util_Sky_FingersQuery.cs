@@ -149,14 +149,14 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
         /// <returns>スプライト番号。なければエラー番号。</returns>
-        public static Fingers InMasuNow_Old(Sky src_Sky, SyElement masu)//, KwLogger errH
+        public static Fingers InMasuNow_Old(Sky positionA, SyElement masu)
         {
             // １個入る。
             Fingers found = new Fingers();
 
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
-                Busstop koma = Util_Koma.FromFinger(src_Sky, finger);
+                Busstop koma = Util_Koma.FromFinger(positionA, finger);
 
                 if (Masu_Honshogi.Basho_Equals(Conv_Busstop.ToMasu( koma), masu))
                 {

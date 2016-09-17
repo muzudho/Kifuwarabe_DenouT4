@@ -22,6 +22,9 @@ using System;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB;
+using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
+using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
@@ -50,7 +53,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             int yomikaisiTemezumi,
             bool isHonshogi,
             Maps_OneAndMulti<Finger, Move> genTeban_komabetuAllMoves1,// 指定局面で、どの駒が、どんな手を指すことができるか
-            Sky src_Sky,//指定局面。
+            Sky positionA,//指定局面。
 
 #if DEBUG
             KaisetuBoards logF_kiki,
@@ -61,7 +64,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
         {
             KifuNode hubNode = Conv_StarbetuSasites.ToNextNodes_AsHubNode(
                 genTeban_komabetuAllMoves1,
-                src_Sky,
+                positionA,
                 errH
                 );// ハブ・ノード自身はダミーノードなんだが、子ノードに、次のノードが入っている。
 #if DEBUG
@@ -75,8 +78,9 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
                 Util_LegalMove.LAA_RemoveNextNode_IfMate(
                     yomikaisiTemezumi,
                     hubNode,
-                    src_Sky.Temezumi,
-                    src_Sky.KaisiPside,
+                    positionA.Temezumi,
+                    positionA.KaisiPside,
+                    positionA,
 
 #if DEBUG
                     logF_kiki,
@@ -86,7 +90,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
 
 
             // 「指し手一覧」を、「星別の全指し手」に分けます。
-            Maps_OneAndMulti<Finger, Move> starbetuAllSasites2 = Util_Sky258A.SplitSasite_ByStar(src_Sky, hubNode, errH);
+            Maps_OneAndMulti<Finger, Move> starbetuAllSasites2 = Util_Sky258A.SplitSasite_ByStar(positionA, hubNode, errH);
 
             //
             // 「星別の指し手一覧」を、「星別の進むマス一覧」になるよう、データ構造を変換します。
@@ -116,25 +120,10 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             // FIXME: デバッグ用
             foreach (Finger key in starbetuSusumuMasus.ToKeyList())
             {
-                src_Sky.AssertFinger(key);
+                positionA.AssertFinger(key);
             }
 
             return starbetuSusumuMasus;
-        }
-        private static void Log1(
-            KifuNode hubNode,
-            int temezumi_yomiGenTeban,
-            string hint,
-            KwLogger errH
-            )
-        {
-            bool enableLog = false;//errH.Enable
-            Util_GraphicalLog.WriteHtml5(enableLog, "Util_LegalMove(王手回避漏れ02)王手を回避するかどうかに関わらず、ひとまず全ての次の手", "[" +
-                hubNode.Children1.Json_NextNodes_MultiSky(
-                    "(王手回避漏れ02." + temezumi_yomiGenTeban + "手目)",
-                    hint + "_Lv3_RMHO",
-                    temezumi_yomiGenTeban,
-                    errH) + "]");// ログ出力
         }
 
         /// <summary>
@@ -145,6 +134,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             KifuNode hubNode,
             int temezumi_yomiGenTeban_forLog,//読み進めている現在の手目
             Playerside pside_genTeban,
+            Sky positionA,
 
 #if DEBUG
             KaisetuBoards logF_kiki,
@@ -153,17 +143,22 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             KwLogger errH
             )
         {
-            // Node<,>の形で。
-            Dictionary<Move, KifuNode> newNextNodes = new Dictionary<Move, KifuNode>();
+            // 残す指し手☆
+            List<Move> restNodes = new List<Move>();
 
-            hubNode.Children1.Foreach_ChildNodes1((Move move, KifuNode node, Sky sky, ref bool toBreak) =>
+            hubNode.Children1.Foreach_ChildNodes3((Move move, ref bool toBreak) =>
             {
-                //System.Diagnostics.Debug.Assert(node.Key != null);//指し手がヌルなはず無いはず。
+                Util_IttesasuSuperRoutine.DoMove_Super(
+                        ref positionA,//指定局面
+                        ref move,
+                        "A100_IfMate",
+                        errH
+                );
 
                 // 王様が利きに飛び込んだか？
                 bool kingSuicide = Util_LegalMove.LAAA_KingSuicide(
                     yomikaisiTemezumi,
-                    sky,
+                    positionA,
                     temezumi_yomiGenTeban_forLog,
                     pside_genTeban,//現手番＝攻め手視点
 #if DEBUG
@@ -176,20 +171,23 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
                 if (!kingSuicide)
                 {
                     // 王様が利きに飛び込んでいない局面だけ、残します。
-                    if (newNextNodes.ContainsKey(move))
-                    {
-                        newNextNodes[move] = node;
-                    }
-                    else
-                    {
-                        newNextNodes.Add(move, node);
-                    }
+                    restNodes.Add(move);
                 }
+
+                IttemodosuResult ittemodosuResult;
+                Util_IttemodosuRoutine.UndoMove(
+                    out ittemodosuResult,
+                    move,//この関数が呼び出されたときの指し手☆（＾～＾）
+                    positionA,
+                    "A900_IfMate",
+                    errH
+                    );
+                positionA = ittemodosuResult.SyuryoSky;
             });
 
 
             // 入替え
-            hubNode.Children1.SetItems(newNextNodes, hubNode);
+            hubNode.Children1.SetItems_New(restNodes, hubNode);
         }
 
 

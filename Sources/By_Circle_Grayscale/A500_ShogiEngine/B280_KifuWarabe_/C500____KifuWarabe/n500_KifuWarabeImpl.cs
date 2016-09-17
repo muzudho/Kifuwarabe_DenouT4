@@ -79,7 +79,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             this.EngineOptions = new EngineOptionsImpl();
             this.EngineOptions.AddOption(EngineOptionNames.USI_PONDER, new EngineOption_BoolImpl());// ポンダーに対応している将棋サーバーなら真です。
             this.EngineOptions.AddOption(EngineOptionNames.NOOPABLE, new EngineOption_BoolImpl());// 独自実装のコマンドなので、ＯＦＦにしておきます。
-            this.EngineOptions.AddOption(EngineOptionNames.THINKING_MILLI_SECOND, new EngineOption_NumberImpl(8000));//4000
+            this.EngineOptions.AddOption(EngineOptionNames.THINKING_MILLI_SECOND, new EngineOption_NumberImpl(60000));//8000//4000
 
 
 
@@ -1356,20 +1356,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
         private PhaseResult_Usi_Loop2 OnLogdaseReceived_AtLoop2Body(string line)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("ログだせ～（＾▽＾）");
-
-            Util_Tree.ForeachZenpuku(
-                this.Kifu_AtLoop2.GetRoot(), (int temezumi, Move move, Sky sky, KifuNode node, ref bool toBreak) =>
-                {
-                    if (null != node)
-                    {                        
-                        if (!Conv_Move.ToErrorCheck(move))
-                        {
-                            sb.AppendLine(Conv_Move.ToSfen(move));
-                        }
-                    }
-                });
-
+            sb.Append("ログ出せ機能は廃止だぜ～☆（＾▽＾）");
             File.WriteAllText(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS, "_log_ログ出せ命令.txt"), sb.ToString());
 
             return PhaseResult_Usi_Loop2.None;

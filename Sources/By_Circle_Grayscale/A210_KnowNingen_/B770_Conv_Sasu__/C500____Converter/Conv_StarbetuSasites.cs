@@ -47,30 +47,32 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
             {
                 Finger figKoma = entry1.Key;// 動かす駒
 
-                foreach (Move move in entry1.Value)// 駒の動ける升
+                foreach (Move moveA in entry1.Value)// 駒の動ける升
                 {
-                    if (hubNode.Children1.ContainsKey(move))
+                    if (hubNode.Children1.ContainsKey(moveA))
                     {
                         // 既存の指し手なら無視
-                        System.Console.WriteLine("既存の指し手なので無視します1。sfenText=[" + Conv_Move.ToSfen(move) + "]");
+                        System.Console.WriteLine("既存の指し手なので無視します1。sfenText=[" + Conv_Move.ToSfen(moveA) + "]");
                     }
                     else
                     {
-                        SyElement dstMasu = Conv_Move.ToDstMasu(move);
+                        SyElement dstMasu = Conv_Move.ToDstMasu(moveA);
 
                         // 指したあとの次の局面を作るだけ☆
+                        Move moveB = moveA;
                         Sky pos1 = new SkyImpl(src_Sky);
                         Util_IttesasuSuperRoutine.DoMove_Super(
                             ref pos1,//指定局面
+                            ref moveB,
                             figKoma,//動かす駒
                             dstMasu,//移動先升
                             false,//成りません。
                             errH
                         );
 
-                        hubNode.Children1.AddItem(move,
+                        hubNode.Children1.AddItem(moveB,
                             new KifuNodeImpl(
-                                move,
+                                moveB,
                                 pos1
                             ),
                             hubNode);

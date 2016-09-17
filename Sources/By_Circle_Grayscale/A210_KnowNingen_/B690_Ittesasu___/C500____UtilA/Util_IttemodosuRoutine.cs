@@ -37,10 +37,19 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         public static void UndoMove(
             out IttemodosuResult ittemodosuResult,
             Move moved,
-            Sky kaisi_Sky,
+            Sky positionA,
+            string hint,
             KwLogger errH
             )
         {
+            bool log = true;
+            if (log)
+            {
+                errH.AppendLine("戻す前 "+ hint);
+                errH.Append(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(positionA)));
+                errH.Flush(LogTypes.Plain);
+            }
+
             ittemodosuResult = new IttemodosuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
 
             //
@@ -50,7 +59,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             Util_IttemodosuRoutine.Do25_UgokasuKoma(
                 out figMovedKoma,
                 moved,
-                kaisi_Sky,
+                positionA,
                 errH
                 );
             ittemodosuResult.FigMovedKoma = figMovedKoma; //動かした駒更新
@@ -59,10 +68,10 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             if (Fingers.Error_1 == ittemodosuResult.FigMovedKoma)
             {
                 errH.DonimoNaranAkirameta(
-                    "戻せる駒が無かった☆\n"+
-                    Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(kaisi_Sky), kaisi_Sky, moved)
+                    "戻せる駒が無かった☆ hint:"+hint+"\n"+
+                    Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(positionA), positionA, moved)
                     );
-                return;
+                goto gt_EndMethod;
             }
 
 
@@ -72,12 +81,9 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             Komasyurui14 syurui2 = Util_IttemodosuRoutine.Do30_MakimodosiNara_HinariNiModosu(moved);
 
 
-            Busstop dst;
-            {
-                dst = Util_IttemodosuRoutine.Do37_KomaOnDestinationMasu(syurui2,
+            Busstop dst = Util_IttemodosuRoutine.Do37_KomaOnDestinationMasu(syurui2,
                     moved,
-                    kaisi_Sky);
-            }
+                    positionA);
 
 
 
@@ -90,18 +96,18 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             Util_IttemodosuRoutine.Do62_TorareteitaKoma_ifExists(
                 out figFoodKoma,//変更される場合あり。
                 moved,
-                kaisi_Sky,//巻き戻しのとき
+                positionA,//巻き戻しのとき
                 errH
                 );
             ittemodosuResult.FigFoodKoma = figFoodKoma; //取られていた駒更新
 
             // １手戻す前に、先後を逆転させて、手目済みカウントを減らします。
-            kaisi_Sky.DecreasePsideTemezumi();
+            positionA.DecreasePsideTemezumi();
 
             //------------------------------------------------------------
             // 指されていた駒の移動
             //------------------------------------------------------------
-            kaisi_Sky.AddObjects(
+            positionA.AddObjects(
                 //
                 // 指されていた駒
                 //
@@ -120,7 +126,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 Playerside pside = Conv_Move.ToPlayerside(moved);
                 Komasyurui14 captured = Conv_Move.ToCaptured(moved);
 
-                kaisi_Sky.AddObjects(
+                positionA.AddObjects(
                     //
                     // 指されていた駒と、取られていた駒
                     //
@@ -139,7 +145,16 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
 
             // ノード
-            ittemodosuResult.SyuryoSky = kaisi_Sky;// この変数を返すのがポイント。棋譜とは別に、現局面。
+            ittemodosuResult.SyuryoSky = positionA;// この変数を返すのがポイント。棋譜とは別に、現局面。
+
+
+        gt_EndMethod:
+            if (log)
+            {
+                errH.AppendLine("戻した後 "+ hint);
+                errH.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(positionA), positionA, moved));
+                errH.Flush(LogTypes.Plain);
+            }
         }
 
         public static void UpdateKifuTree(

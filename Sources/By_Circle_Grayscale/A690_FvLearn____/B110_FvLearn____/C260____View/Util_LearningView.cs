@@ -25,6 +25,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
@@ -138,16 +139,16 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     //
                     //↓↓一手指し
                     IttesasuResult ittesasuResult;
-                    Util_IttesasuRoutine.DoMove(
+                    Util_IttesasuRoutine.DoMove_Normal(
                         out ittesasuResult,
-                        nextMove,
+                        ref nextMove,
                         positionA,
                         errH
                     );
                     Util_IttesasuRoutine.UpdateKifuTree(
                         earth1,
                         kifu1,
-                        new KifuNodeImpl(ittesasuResult.SyuryoMove, ittesasuResult.SyuryoKyokumenW),
+                        new KifuNodeImpl(nextMove, ittesasuResult.SyuryoKyokumenW),
                         ittesasuResult.SyuryoKyokumenW
                         );
                     // これで、棋譜ツリーに、構造変更があったはず。
@@ -216,16 +217,25 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 List<GohosyuListItem> list = new List<GohosyuListItem>();
                 //uc_Main.LstGohosyu.Items.Clear();
                 int itemNumber = 0;
+                Sky positionA = learningData.Kifu.CurNode.GetNodeValue();
                 learningData.Kifu.CurNode.Children1.Foreach_ChildNodes2(
-                    (Move key, List<Move> honpuList, Sky sky, ref bool toBreak) =>
+                    (Move move, List<Move> honpuList, ref bool toBreak) =>
                 {
 #if DEBUG || LEARN
                     KyHyokaMeisai_Koumoku komawariMeisai;
                     KyHyokaMeisai_Koumoku ppMeisai;
 #endif
+                    Util_IttesasuSuperRoutine.DoMove_Super(
+                        ref positionA,//指定局面
+                        ref move,
+                        "D100",
+                        errH
+                    );
+
+
 
                     learningData.DoScoreing_ForLearning(
-                        sky
+                        positionA
 #if DEBUG || LEARN
 ,
                         out komawariMeisai,
@@ -235,11 +245,11 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
 
                     GohosyuListItem item = new GohosyuListItem(
                         itemNumber,
-                        key,
+                        move,
                         Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
-                            key,
+                            move,
                             honpuList,
-                            sky, errH)
+                            positionA, errH)
 #if DEBUG || LEARN
 ,
                         komawariMeisai,
@@ -249,6 +259,17 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     list.Add(item);
 
                     itemNumber++;
+
+                    IttemodosuResult ittemodosuResult;
+                    Util_IttemodosuRoutine.UndoMove(
+                        out ittemodosuResult,
+                        move,
+                        positionA,
+                        "D900",
+                        errH
+                        );
+                    positionA = ittemodosuResult.SyuryoSky;
+
                 });
 
                 //----------------------------------------
@@ -365,9 +386,9 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             //----------------------------------------
             //↓↓一手指し
             IttesasuResult ittesasuResult;
-            Util_IttesasuRoutine.DoMove(
+            Util_IttesasuRoutine.DoMove_Normal(
                 out ittesasuResult,
-                nextMove,
+                ref nextMove,
                 learningData.GetSky(),
                 errH
             );
@@ -375,7 +396,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 learningData.Earth,
                 learningData.Kifu,
                 
-                new KifuNodeImpl(ittesasuResult.SyuryoMove, ittesasuResult.SyuryoKyokumenW),
+                new KifuNodeImpl(nextMove, ittesasuResult.SyuryoKyokumenW),
                 ittesasuResult.SyuryoKyokumenW
                 );
             // これで、棋譜ツリーに、構造変更があったはず。

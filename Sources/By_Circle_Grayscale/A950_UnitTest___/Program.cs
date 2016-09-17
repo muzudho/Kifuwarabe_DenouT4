@@ -50,8 +50,9 @@ namespace Grayscale.A950_UnitTest___
                 commandLine = rest;
 
                 IttesasuResult syuryoResult;
-                Util_IttesasuRoutine.DoMove(out syuryoResult, move, position_Sky, logger);
-                move = syuryoResult.SyuryoMove;// 駒を取った場合、moveは更新される。
+                Util_IttesasuRoutine.DoMove_Normal(out syuryoResult,
+                    ref move,// 駒を取った場合、moveは更新される。
+                    position_Sky, logger);
                 position_Sky = syuryoResult.SyuryoKyokumenW;
                 pv.Add(move);
 
@@ -78,6 +79,7 @@ namespace Grayscale.A950_UnitTest___
                     out syuryoResult2,
                     moved,
                     position_Sky,
+                    "G",
                     logger
                     );
                 position_Sky = syuryoResult2.SyuryoSky;

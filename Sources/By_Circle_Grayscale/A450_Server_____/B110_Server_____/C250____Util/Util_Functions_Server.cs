@@ -345,6 +345,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                 out ittemodosuResult,
                 kifu1.CurNode.Key,
                 kifu1.GetSky(),
+                "B",
                 errH
                 );
             Util_IttemodosuRoutine.UpdateKifuTree(

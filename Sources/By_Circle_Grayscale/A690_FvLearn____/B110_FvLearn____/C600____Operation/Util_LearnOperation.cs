@@ -79,7 +79,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
 
                     Util_IttesasuSuperRoutine.DoMove_Super(
                         ref positionA,//指定局面
-                        move1,
+                        ref move1,
+                        "F100",
                         errH
                     );
 
@@ -101,6 +102,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                         out ittemodosuResult,
                         move1,
                         positionA,
+                        "F900",
                         errH
                         );
                     positionA = ittemodosuResult.SyuryoSky;

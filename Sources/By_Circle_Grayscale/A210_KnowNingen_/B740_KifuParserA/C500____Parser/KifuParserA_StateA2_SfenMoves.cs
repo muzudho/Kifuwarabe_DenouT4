@@ -90,7 +90,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                         exceptionArea = 1000;
 
                         IttesasuResult ittesasuResult = new IttesasuResultImpl(
-                            Fingers.Error_1, Fingers.Error_1, Move.Empty, null, Komasyurui14.H00_Null___);
+                            Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
 
                         try
                         {
@@ -113,14 +113,14 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                             //
                             //↓↓将棋エンジンが一手指し（進める）
                             //
-                            Util_IttesasuRoutine.DoMove(
+                            Util_IttesasuRoutine.DoMove_Normal(
                                 out ittesasuResult,
-                                nextMove,
+                                ref nextMove,
                                 positionA,
                                 errH
                                 );
                             // 棋譜ツリーのカレントを変更します。
-                            result.Out_newNode_OrNull = new KifuNodeImpl(ittesasuResult.SyuryoMove, ittesasuResult.SyuryoKyokumenW);
+                            result.Out_newNode_OrNull = new KifuNodeImpl(nextMove, ittesasuResult.SyuryoKyokumenW);
 
                             exceptionArea = 1080;
                             //↑↑一手指し

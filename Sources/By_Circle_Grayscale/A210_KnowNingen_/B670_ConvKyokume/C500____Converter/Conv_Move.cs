@@ -206,6 +206,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             // 打かどうか。
             if (Conv_Move.ToDrop(move))
             {
+                // 打なら
                 if (Playerside.P1 == Conv_Move.ToPlayerside(move))
                 {
                     okiba = Okiba.Sente_Komadai;
@@ -250,8 +251,9 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             {
                 return Conv_Masu10.ToMasu_FromBanjoSujiDan(srcSuji, srcDan);
             }
-            return Conv_Masu10.ToMasu_FromBangaiSujiDan(okiba, srcSuji, srcDan);
 
+            // 打なら
+            return Conv_Masu10.ToMasu_FromBangaiSujiDan(okiba, srcSuji, srcDan);
         }
 
 

@@ -64,7 +64,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //----------------------------------------
             // 選んだ変化と、選ばなかった変化の一覧
             //----------------------------------------
-            parentNode.Children1.Foreach_ChildNodes3((Move move2, Sky sky, ref bool toBreak2) =>
+            parentNode.Children1.Foreach_ChildNodes5((Move move2, ref bool toBreak2) =>
             {
                 if (move2 == move1)
                 {

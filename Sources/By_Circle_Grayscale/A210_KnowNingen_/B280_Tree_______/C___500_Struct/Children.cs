@@ -20,12 +20,18 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         void ClearAll();
         bool ContainsKey(Move key);
         void AddItem(Move key, KifuNode newNode, KifuNode parent);
-        void SetItems(Dictionary<Move, KifuNode> newNextNodes, KifuNode parent);
+        void SetItems_Old(Dictionary<Move, KifuNode> newNextNodes, KifuNode parent);
+        /// <summary>
+        /// 棋譜ノードのValueは廃止方針☆
+        /// </summary>
+        /// <param name="moves"></param>
+        /// <param name="parent"></param>
+        void SetItems_New(List<Move> moves, KifuNode parent);
 
-        void Foreach_ChildNodes1(ChildrenImpl.DELEGATE_ChildNodes1 d);
         void Foreach_ChildNodes2(ChildrenImpl.DELEGATE_ChildNodes2 delegate_NextNodes);
         void Foreach_ChildNodes3(ChildrenImpl.DELEGATE_ChildNodes3 delegate_NextNodes);
         void Foreach_ChildNodes4(ChildrenImpl.DELEGATE_ChildNodes4 delegate_NextNodes);
+        void Foreach_ChildNodes5(ChildrenImpl.DELEGATE_ChildNodes5 delegate_NextNodes);
 
         /// <summary>
         /// 子ノードの削除。
@@ -58,12 +64,14 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         /// <param name="existsNode"></param>
         void PutTuginoitte_Override(KifuNode existsNode, KifuNode owner);
 
+        /*
         string Json_NextNodes_MultiSky(
-    string memo,
-    string hint,
-    int temezumi_yomiGenTeban_forLog,//読み進めている現在の手目済
-    KwLogger errH
-    );
+            string memo,
+            string hint,
+            int temezumi_yomiGenTeban_forLog,//読み進めている現在の手目済
+            KwLogger errH
+            );
+        */
 
     }
 }
