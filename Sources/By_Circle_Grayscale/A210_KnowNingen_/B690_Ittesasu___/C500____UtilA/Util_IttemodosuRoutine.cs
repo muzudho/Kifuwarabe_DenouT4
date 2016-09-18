@@ -44,16 +44,18 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             KwLogger logger
             )
         {
-            long exception_area = 10000;
+            long exception_area = 1000140;
             try
             {
                 bool log = true;
+                /*
                 if (log)
                 {
                     logger.AppendLine("戻す前 " + hint);
                     logger.Append(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(positionA,logger)));
                     logger.Flush(LogTypes.Plain);
                 }
+                */
 
                 ittemodosuResult = new IttemodosuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
                 Finger figMovedKoma = Fingers.Error_1;
@@ -231,7 +233,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 Conv_Move.ToDstMasu(move),//[巻戻し]のときは、先位置が　駒の居場所。
                 errH
                 );
-            Debug.Assert(figMovedKoma != Fingers.Error_1, "駒を動かせなかった？ Dst="+ Conv_MasuNum.ToLog_FromBanjoMasu(Conv_Move.ToDstMasu(move)));
+            Debug.Assert(figMovedKoma != Fingers.Error_1, "駒を動かせなかった？ Dst="+ Conv_Masu.ToLog_FromBanjo(Conv_Move.ToDstMasu(move)));
         }
 
         /// <summary>
@@ -254,14 +256,14 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             SyElement masu;
 
             if (
-                Okiba.Gote_Komadai == Conv_SyElement.ToOkiba(srcMasu)
-                || Okiba.Sente_Komadai == Conv_SyElement.ToOkiba(srcMasu)
+                Okiba.Gote_Komadai == Conv_Masu.ToOkiba(srcMasu)
+                || Okiba.Sente_Komadai == Conv_Masu.ToOkiba(srcMasu)
                 )
             {
                 //>>>>> １手前が駒台なら
 
                 // 駒台の空いている場所
-                masu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Conv_SyElement.ToOkiba(srcMasu), positionA);
+                masu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Conv_Masu.ToOkiba(srcMasu), positionA);
                 // 必ず空いている場所があるものとします。
             }
             else

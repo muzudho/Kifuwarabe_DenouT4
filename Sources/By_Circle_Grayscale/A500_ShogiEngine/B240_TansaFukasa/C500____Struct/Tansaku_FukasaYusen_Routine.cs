@@ -801,7 +801,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                             break;
                         }
 
-                        exceptionArea = 10000;
+                        exceptionArea = 1000110;
 
                     }
                     catch (Exception ex)
@@ -880,8 +880,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                 SyElement dstMasu = Conv_Move.ToDstMasu(logBrd_move1.Move);
 
                 // ログ試し
-                logBrd_move1.Arrow.Add(new Gkl_Arrow(Conv_SyElement.ToMasuNumber(srcMasu),
-                    Conv_SyElement.ToMasuNumber(dstMasu)));
+                logBrd_move1.Arrow.Add(new Gkl_Arrow(Conv_Masu.ToMasuNumber(srcMasu),
+                    Conv_Masu.ToMasuNumber(dstMasu)));
                 genjo.Args.LogF_moveKiki.boards.Add(logBrd_move1);
             }
             catch (Exception ex)

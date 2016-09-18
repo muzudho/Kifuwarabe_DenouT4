@@ -5,6 +5,8 @@ using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using System.Text;
+using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
 
 namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
 {
@@ -23,15 +25,15 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             int suji;
             int dan;
 
-            Okiba okiba2 = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(masu));
+            Okiba okiba2 = Conv_Masu.ToOkiba(Conv_Masu.ToMasuHandle(masu));
             if (okiba2 == Okiba.ShogiBan)
             {
-                if (!Conv_MasuNum.ToSuji_FromBanjoMasu(masu, out suji))
+                if (!Conv_Masu.ToSuji_FromBanjoMasu(masu, out suji))
                 {
                     errorCheck = 1;
                 }
 
-                if (!Conv_MasuNum.ToDan_FromBanjoMasu(masu, out dan))
+                if (!Conv_Masu.ToDan_FromBanjoMasu(masu, out dan))
                 {
                     errorCheck = 1;
                 }
@@ -39,12 +41,12 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             else
             {
                 // TODO: 盤外☆
-                if (!Conv_MasuNum.ToSuji_FromBangaiMasu(masu, out suji))
+                if (!Conv_Masu.ToSuji_FromBangaiMasu(masu, out suji))
                 {
                     errorCheck = 1;
                 }
 
-                if (!Conv_MasuNum.ToDan_FromBangaiMasu(masu, out dan))
+                if (!Conv_Masu.ToDan_FromBangaiMasu(masu, out dan))
                 {
                     errorCheck = 1;
                 }
@@ -52,7 +54,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
 
             int komasyurui2 = (int)komasyrui;
 
-            int komadai = Okiba.ShogiBan != Conv_SyElement.ToOkiba(masu) ? 1 : 0;
+            int komadai = Okiba.ShogiBan != Conv_Masu.ToOkiba(masu) ? 1 : 0;
 
             int playerside = Playerside.P1 == pside ? 0 : 1;
 
@@ -138,11 +140,16 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             // 自
             if (okiba==Okiba.ShogiBan)
             {
-                return Conv_Masu10.ToMasu_FromBanjoSujiDan(suji, dan);
+                return Conv_Masu.ToMasu_FromBanjoSujiDan(suji, dan);
             }
-            return Conv_Masu10.ToMasu_FromBangaiSujiDan(okiba, suji, dan);
+            return Conv_Masu.ToMasu_FromBangaiSujiDan(okiba, suji, dan);
         }
 
+        /// <summary>
+        /// 盤上 or 駒台
+        /// </summary>
+        /// <param name="busstop"></param>
+        /// <returns></returns>
         public static bool ToKomadai(Busstop busstop)
         {
             int v = (int)busstop;              // バリュー
@@ -224,5 +231,44 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             return 0 != (v & (int)BusstopMask.ErrorCheck);
         }
 
+        public static string ToLog(Busstop busstop)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            // エラーの有無
+            if (Conv_Busstop.ToErrorCheck(busstop))
+            {
+                sb.Append("error ");
+            }
+
+            // 持ち駒か
+            if (Conv_Busstop.ToKomadai(busstop))
+            {
+                sb.Append("komadai ");
+            }
+
+            // 駒種類
+            sb.Append(
+                Util_Komasyurui14.KanjiIchimoji[(int)Conv_Busstop.ToKomasyurui(busstop)]
+                );
+            sb.Append(" ");
+
+            // 升
+            sb.Append(
+                Conv_Masu.ToLog(Conv_Busstop.ToMasu(busstop))
+                );
+
+            // 置き場
+            sb.Append(
+                Conv_Okiba.ToLog(            Conv_Busstop.ToOkiba(busstop))
+                );
+
+            // 手番
+            sb.Append(
+                Conv_Playerside.ToLog_Kanji(Conv_Busstop.ToPlayerside(busstop))
+                );
+
+            return sb.ToString();
+        }
     }
 }

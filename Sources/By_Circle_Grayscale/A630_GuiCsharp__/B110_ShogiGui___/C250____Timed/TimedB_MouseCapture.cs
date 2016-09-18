@@ -706,7 +706,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
 
                                         // TODO:合法手かどうか判定したい。
 
-                                        if (Okiba.ShogiBan == Conv_SyElement.ToOkiba(btnSasitaiMasu.Zahyo))//>>>>> 将棋盤：升目   ＜移動先など＞
+                                        if (Okiba.ShogiBan == Conv_Masu.ToOkiba(btnSasitaiMasu.Zahyo))//>>>>> 将棋盤：升目   ＜移動先など＞
                                         {
 
                                             //------------------------------
@@ -721,9 +721,9 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma) && Util_Sky_BoolQuery.IsNareruKoma(Conv_Busstop.ToKomasyurui(koma))
                                                     &&
                                                     (
-                                                        Conv_Masu10.InBanjoAitejin(btnSasitaiMasu.Zahyo, mainGui.Link_Server.GetSky().KaisiPside)
+                                                        Conv_Masu.InBanjoAitejin(btnSasitaiMasu.Zahyo, mainGui.Link_Server.GetSky().KaisiPside)
                                                         ||
-                                                        Util_Sky_BoolQuery.InBanjoAitejin(Conv_Busstop.ToMasu( koma),Conv_Busstop.ToPlayerside( koma))
+                                                        Util_Sky_BoolQuery.InBanjoAitejin(Conv_Busstop.ToMasu( koma), Conv_Busstop.ToPlayerside( koma))
                                                     )
                                                 )
                                             {
@@ -767,7 +767,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                             mainGui.RepaintRequest.SetFlag_RefreshRequest();
                                         }
                                         else if ((Okiba.Sente_Komadai | Okiba.Gote_Komadai).HasFlag(
-                                            Conv_SyElement.ToOkiba(btnSasitaiMasu.Zahyo)))//>>>>> 駒置き：升目
+                                            Conv_Masu.ToOkiba(btnSasitaiMasu.Zahyo)))//>>>>> 駒置き：升目
                                         {
                                             //System.C onsole.WriteLine("駒台上");
 
@@ -779,7 +779,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                 new Finger[] { btnTumandeiruKoma.Koma },
                                                 new Busstop[] {
                                                     Conv_Busstop.ToBusstop(
-                                                        Conv_Okiba.ToPside(Conv_SyElement.ToOkiba(btnSasitaiMasu.Zahyo)),// 先手の駒置きに駒を置けば、先手の向きに揃えます。
+                                                        Conv_Okiba.ToPside(Conv_Masu.ToOkiba(btnSasitaiMasu.Zahyo)),// 先手の駒置きに駒を置けば、先手の向きに揃えます。
                                                         btnSasitaiMasu.Zahyo,
                                                         Util_Komasyurui14.NarazuCaseHandle(Conv_Busstop.ToKomasyurui( koma))
                                                     )

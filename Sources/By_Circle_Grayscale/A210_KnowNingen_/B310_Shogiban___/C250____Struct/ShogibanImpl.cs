@@ -18,34 +18,83 @@ namespace Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct
         {
             this.KaisiPside = Playerside.Empty;
             this.BanjoKomas = new Dictionary<int, Busstop>();
+            this.ErrorMessage = new Dictionary<int, string>();
             this.m_motiSu_ = new int[(int)Pieces.Num];
             this.m_komabukuroSu_ = new int[(int)PieceTypes.Num];
         }
 
+
+        /// <summary>
+        /// 盤上の駒。
+        /// </summary>
+        public Dictionary<int, Busstop> BanjoKomas;
+        public Dictionary<int, string> ErrorMessage { get; set; }
+
+        /// <summary>
+        /// 持ち駒の枚数☆（＾▽＾）
+        /// </summary>
+        public int[] MotiSu { get { return m_motiSu_; } }
+        private int[] m_motiSu_;
+
+        /// <summary>
+        /// 駒袋の中の枚数☆（＾▽＾）
+        /// </summary>
+        public int[] KomabukuroSu { get { return this.m_komabukuroSu_; } }
+        private int[] m_komabukuroSu_;
+
+        /// <summary>
+        /// 先後。
+        /// </summary>
+        public Playerside KaisiPside { get; set; }
+
+
         public void AddKoma(SyElement masu, Busstop koma, KwLogger errH)
         {
-            Debug.Assert(!this.ContainsBanjoKoma(Conv_SyElement.ToMasuNumber(masu)), "既に駒がある枡に、駒を置こうとしています。[" + Conv_SyElement.ToMasuNumber(masu) + "]");
+            Debug.Assert(!this.ContainsBanjoKoma(Conv_Masu.ToMasuHandle(masu)), "既に駒がある枡に、駒を置こうとしています。[" + Conv_Masu.ToMasuHandle(masu) + "]");
 
             try
             {
-                // まだ古い仕様なので、とりあえず追加
-                this.BanjoKomas.Add(Conv_SyElement.ToMasuNumber(masu), koma);
+                int masuHandle = Conv_Masu.ToMasuHandle(masu);
+                if (this.BanjoKomas.ContainsKey(masuHandle))
+                {
+                    // FIXME: エラー☆（＾▽＾）
+                    string message = "[重複]masu=" + Conv_Masu.ToLog(masu)+ " busstop="+ Conv_Busstop.ToLog(koma);
+                    if (this.ErrorMessage.ContainsKey(masuHandle))
+                    {
+                        this.ErrorMessage.Add(masuHandle,
+                            this.ErrorMessage[masuHandle] + " " +
+                            message);
+                    }
+                    else
+                    {
+                        this.ErrorMessage.Add(masuHandle, message);
+                    }
+                }
+                else
+                {
+                    // まだ古い仕様なので、とりあえず駒台と区別せず盤上に追加
+                    this.BanjoKomas.Add(masuHandle, koma);
+                }
             }
             catch (Exception ex)
             {
-                errH.DonimoNaranAkirameta(ex,"将棋盤ログを作っているとき☆（＾▽＾）");
+                errH.DonimoNaranAkirameta(ex,
+                    "将棋盤ログを作っているとき☆（＾▽＾）\n"+
+                    " masu="+Conv_Masu.ToLog(masu) +"\n"+
+                    " busstop=" + Conv_Busstop.ToLog(koma)
+                    );
                 throw ex;
             }
 
 
-            if (Conv_MasuHandle.OnShogiban(Conv_SyElement.ToMasuNumber(masu)))
+            if (Conv_Masu.OnShogiban(Conv_Masu.ToMasuHandle(masu)))
             {
                 // 盤上
-                // TODO:ほんとはここで追加したい this.BanjoKomas.Add(Conv_SyElement.ToMasuNumber(masu), koma);
+                // TODO:ほんとはここで追加したい this.BanjoKomas.Add(Conv_Masu.ToMasuNumber(masu), koma);
 
                 // 特にカウントはなし
             }
-            else if (Conv_MasuHandle.OnSenteKomadai(Conv_SyElement.ToMasuNumber(masu)))
+            else if (Conv_Masu.OnSenteKomadai(Conv_Masu.ToMasuHandle(masu)))
             {
                 // 先手駒台
                 switch (Conv_Busstop.ToKomasyurui(koma))
@@ -76,7 +125,7 @@ namespace Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct
                         break;
                 }
             }
-            else if (Conv_MasuHandle.OnGoteKomadai(Conv_SyElement.ToMasuNumber(masu)))
+            else if (Conv_Masu.OnGoteKomadai(Conv_Masu.ToMasuHandle(masu)))
             {
                 // 後手駒台
                 switch (Conv_Busstop.ToKomasyurui(koma))
@@ -149,28 +198,14 @@ namespace Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct
         {
             return this.BanjoKomas[masuNumber];
         }
-
-        /// <summary>
-        /// 盤上の駒。
-        /// </summary>
-        public Dictionary<int, Busstop> BanjoKomas;
-
-        /// <summary>
-        /// 持ち駒の枚数☆（＾▽＾）
-        /// </summary>
-        public int[] MotiSu { get { return m_motiSu_; } }
-        private int[] m_motiSu_;
-
-        /// <summary>
-        /// 駒袋の中の枚数☆（＾▽＾）
-        /// </summary>
-        public int[] KomabukuroSu { get { return this.m_komabukuroSu_; } }
-        private int[] m_komabukuroSu_;
-
-        /// <summary>
-        /// 先後。
-        /// </summary>
-        public Playerside KaisiPside { get; set; }
+        public string GetErrorMessage(int masuNumber)
+        {
+            if (this.ErrorMessage.ContainsKey(masuNumber))
+            {
+                return this.ErrorMessage[masuNumber];
+            }
+            return "";
+        }
 
     }
 }

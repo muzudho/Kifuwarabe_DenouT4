@@ -42,7 +42,7 @@ namespace Grayscale.A500_ShogiEngine.B160_ConvFv_____.C500____Converter
                 masu = Conv_Busstop.ToMasu( komaK1);
             }
 
-            if (Okiba.ShogiBan != Conv_SyElement.ToOkiba(masu))
+            if (Okiba.ShogiBan != Conv_Masu.ToOkiba(masu))
             {
                 // 盤上でなければ。
                 result = -1;
@@ -50,9 +50,9 @@ namespace Grayscale.A500_ShogiEngine.B160_ConvFv_____.C500____Converter
             }
 
             int kSuji;
-            Conv_MasuNum.ToSuji_FromBanjoMasu(masu, out kSuji);
+            Conv_Masu.ToSuji_FromBanjoMasu(masu, out kSuji);
             int kDan;
-            Conv_MasuNum.ToDan_FromBanjoMasu(masu, out kDan);
+            Conv_Masu.ToDan_FromBanjoMasu(masu, out kDan);
 
 
             int p1;
@@ -79,7 +79,7 @@ namespace Grayscale.A500_ShogiEngine.B160_ConvFv_____.C500____Converter
         {
             p_index = 0;//ここに累計していく。
 
-            if (Okiba.ShogiBan!=Conv_SyElement.ToOkiba(masu))
+            if (Okiba.ShogiBan!=Conv_Masu.ToOkiba(masu))
             {
                 // 盤上でなければ。
                 p_index = -1;
@@ -112,7 +112,7 @@ namespace Grayscale.A500_ShogiEngine.B160_ConvFv_____.C500____Converter
                 default: p_index = -1; goto gt_EndMethod;
             }
 
-            p_index += Conv_SyElement.ToMasuNumber(masu);
+            p_index += Conv_Masu.ToMasuHandle(masu);
 
         gt_EndMethod:
             ;

@@ -17,7 +17,7 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C490____UtilSokutei
         /// <returns></returns>
         public static int GetBanjoKyori(SyElement mokuhyo, SyElement genzai)
         {
-            int masuNumber = Conv_SyElement.ToMasuNumber(mokuhyo);
+            int masuNumber = Conv_Masu.ToMasuHandle(mokuhyo);
             return Util_KomanoKyori.GetBanjoKyori(masuNumber, genzai);
         }
 
@@ -32,16 +32,16 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C490____UtilSokutei
             //
 
             int mokuhyoDan;
-            Conv_MasuNum.ToDan_FromBanjoMasu(masuNumber, out mokuhyoDan);
+            Conv_Masu.ToDan_FromBanjoMasu(masuNumber, out mokuhyoDan);
 
             int mokuhyoSuji;
-            Conv_MasuNum.ToSuji_FromBanjoMasu(masuNumber, out mokuhyoSuji);
+            Conv_Masu.ToSuji_FromBanjoMasu(masuNumber, out mokuhyoSuji);
 
             int genzaiDan;
-            Conv_MasuNum.ToDan_FromBanjoMasu(genzai, out genzaiDan);
+            Conv_Masu.ToDan_FromBanjoMasu(genzai, out genzaiDan);
 
             int genzaiSuji;
-            Conv_MasuNum.ToSuji_FromBanjoMasu(genzai, out genzaiSuji);
+            Conv_Masu.ToSuji_FromBanjoMasu(genzai, out genzaiSuji);
 
             int kyori = Math.Abs(mokuhyoDan - genzaiDan) + Math.Abs(mokuhyoSuji - genzaiSuji);
 

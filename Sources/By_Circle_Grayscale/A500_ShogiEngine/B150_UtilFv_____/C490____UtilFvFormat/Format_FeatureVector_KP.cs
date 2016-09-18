@@ -7,6 +7,7 @@ using Grayscale.A500_ShogiEngine.B140_Conv_FvKoumoku.C500____Converter;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 
 namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat
 {
@@ -262,7 +263,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat
                         //----------------------------------------
                         for (int pSuji = 9; pSuji > 0; pSuji--)
                         {
-                            int pMasu = Conv_Masu10.ToMasuHandle_FromBanjoSujiDan( pSuji, pDan);
+                            int pMasu = Conv_Masu.ToMasuHandle_FromBanjoSujiDan( pSuji, pDan);
 
                             if (Const_FeatureVectorFormat.PARAMETER_INDEX_OUTPUT)
                             {

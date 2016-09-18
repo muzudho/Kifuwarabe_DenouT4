@@ -86,7 +86,7 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C499____UtilFv
             int koumokuP;
 
             // 駒Ｐのマス番号
-            int p_masuHandle = Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( p_koma));
+            int p_masuHandle = Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu( p_koma));
 
             int index_playerside = Util_FvParamIndex.paramIndex_Playerside[(int)Conv_Busstop.ToPlayerside(p_koma)];
             int index_komasyurui = Util_FvParamIndex.paramIndex_KomaSyrui_Banjo[(int)Conv_Busstop.ToKomasyurui(p_koma)];

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
+using System;
 
 namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
 {
@@ -36,7 +37,8 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
                 }
                 else
                 {
-                    result = Error_1;// FIXME: 1回でも[初期配置]ボタンを押していないと、配列サイズが 0 です。
+                    throw new Exception("Fingersに要素がない状態で["+i+"]にアクセスしたぜ☆（＾～＾）");
+                    //result = Error_1;// FIXME: 1回でも[初期配置]ボタンを押していないと、配列サイズが 0 です。
                 }
 
                 return result;

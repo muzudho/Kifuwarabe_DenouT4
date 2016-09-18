@@ -1,11 +1,25 @@
 ﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using System.Text;
 
 namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter
 {
     public abstract class Conv_Okiba
     {
+        public static string ToLog(Okiba okiba)
+        {
+            switch (okiba)
+            {
+                case Okiba.Empty: return "未指定";
+                case Okiba.Gote_Komadai: return "後手駒台";
+                case Okiba.KomaBukuro: return "駒袋";
+                case Okiba.Sente_Komadai: return "先手駒台";
+                case Okiba.ShogiBan: return "将棋盤";
+                default: return "エラー";
+            }
+        }
+
         public static Playerside ToPside(Okiba okiba)
         {
             Playerside pside;

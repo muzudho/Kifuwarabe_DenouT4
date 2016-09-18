@@ -49,14 +49,14 @@ namespace Grayscale.A210_KnowNingen_.B550_JsaFugo____.C500____Util
             //------------------------------
             // “同”に変換せず、“筋・段”をそのまま出します。
             //------------------------------
-            Okiba okiba2 = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(dstMasu));
+            Okiba okiba2 = Conv_Masu.ToOkiba(Conv_Masu.ToMasuHandle(dstMasu));
             if (okiba2 == Okiba.ShogiBan)
             {
                 // 将棋盤☆
                 int suji;
                 int dan;
-                Conv_MasuNum.ToSuji_FromBanjoMasu(dstMasu, out suji);
-                Conv_MasuNum.ToDan_FromBanjoMasu(dstMasu, out dan);
+                Conv_Masu.ToSuji_FromBanjoMasu(dstMasu, out suji);
+                Conv_Masu.ToDan_FromBanjoMasu(dstMasu, out dan);
 
                 sb.Append(Conv_Int.ToArabiaSuji(suji));
                 sb.Append(Conv_Int.ToKanSuji(dan));
@@ -65,7 +65,7 @@ namespace Grayscale.A210_KnowNingen_.B550_JsaFugo____.C500____Util
             {
                 // 盤外に指すことはないぜ☆（＾～＾）エラーの代わりに適当に文字を出そうぜ☆（＾▽＾）
                 Pieces pieces;
-                Conv_MasuNum.ToPiece_FromBangaiMasu(dstMasu, out pieces);
+                Conv_Masu.ToPiece_FromBangaiMasu(dstMasu, out pieces);
 
                 // FIXME: ほんとはこんなの表記しないぜ☆（＾～＾）
                 sb.Append(Util_Komasyurui14.NimojiPieces[(int)pieces]);
@@ -137,7 +137,7 @@ namespace Grayscale.A210_KnowNingen_.B550_JsaFugo____.C500____Util
                 SyElement preDstMasu = Conv_Move.ToDstMasu(honpuList[index]);
                 if (Masu_Honshogi.Query_ErrorMasu() != preDstMasu)
                 {
-                    if (Conv_SyElement.ToMasuNumber(preDstMasu) == Conv_SyElement.ToMasuNumber(dstMasu))
+                    if (Conv_Masu.ToMasuHandle(preDstMasu) == Conv_Masu.ToMasuHandle(dstMasu))
                     {
                         // “同”
                         sb.Append("同");
@@ -151,11 +151,11 @@ namespace Grayscale.A210_KnowNingen_.B550_JsaFugo____.C500____Util
                 int suji;
                 int dan;
 
-                Okiba okiba2 = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(dstMasu));
+                Okiba okiba2 = Conv_Masu.ToOkiba(Conv_Masu.ToMasuHandle(dstMasu));
                 if (okiba2 == Okiba.ShogiBan)
                 {
-                    Conv_MasuNum.ToSuji_FromBanjoMasu(dstMasu, out suji);
-                    Conv_MasuNum.ToDan_FromBanjoMasu(dstMasu, out dan);
+                    Conv_Masu.ToSuji_FromBanjoMasu(dstMasu, out suji);
+                    Conv_Masu.ToDan_FromBanjoMasu(dstMasu, out dan);
 
                     sb.Append(Conv_Int.ToArabiaSuji(suji));
                     sb.Append(Conv_Int.ToKanSuji(dan));
@@ -164,7 +164,7 @@ namespace Grayscale.A210_KnowNingen_.B550_JsaFugo____.C500____Util
                 {
                     // 盤外に指すことはないぜ☆（＾～＾）エラーの代わりに適当に文字を出そうぜ☆（＾▽＾）
                     Pieces pieces;
-                    Conv_MasuNum.ToPiece_FromBangaiMasu(dstMasu, out pieces);
+                    Conv_Masu.ToPiece_FromBangaiMasu(dstMasu, out pieces);
 
                     // FIXME: ほんとはこんなの表記しないぜ☆（＾～＾）
                     sb.Append(Util_Komasyurui14.NimojiPieces[(int)pieces]);

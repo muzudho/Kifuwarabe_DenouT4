@@ -144,20 +144,20 @@ namespace Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct
 
             if (0 <= hMasu && hMasu < ConstShogi.BAN_SIZE)
             {
-                SyElement masu = Conv_MasuHandle.ToMasu(hMasu);
+                SyElement masu = A210_KnowNingen_.B180_ConvPside__.C500____Converter.Conv_Masu.ToMasu(hMasu);
 
                 int suji;
                 int dan;
-                Okiba okiba = Conv_SyElement.ToOkiba(masu);
+                Okiba okiba = Conv_Masu.ToOkiba(masu);
                 if (okiba == Okiba.ShogiBan)
                 {
-                    Conv_MasuNum.ToSuji_FromBanjoMasu(masu, out suji);
-                    Conv_MasuNum.ToDan_FromBanjoMasu(masu, out dan);
+                    Conv_Masu.ToSuji_FromBanjoMasu(masu, out suji);
+                    Conv_Masu.ToDan_FromBanjoMasu(masu, out dan);
                 }
                 else
                 {
-                    Conv_MasuNum.ToSuji_FromBangaiMasu(masu, out suji);
-                    Conv_MasuNum.ToDan_FromBangaiMasu(masu, out dan);
+                    Conv_Masu.ToSuji_FromBangaiMasu(masu, out suji);
+                    Conv_Masu.ToDan_FromBangaiMasu(masu, out dan);
                 }
 
 

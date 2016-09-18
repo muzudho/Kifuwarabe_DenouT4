@@ -83,7 +83,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             }
             else
             {
-                dstMasu = Conv_Masu10.ToMasu_FromBanjoSujiDan(
+                dstMasu = Conv_Masu.ToMasu_FromBanjoSujiDan(
                     Conv_Suji.ToInt(strSuji),
                     Conv_Suji.ToInt(strDan)
                     );
@@ -960,7 +960,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 src_Sky.AssertFinger(foundKoma);
                 Busstop koma = src_Sky.BusstopIndexOf(foundKoma);
 
-                srcMasuHandle1 = Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( koma));
+                srcMasuHandle1 = Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu( koma));
             }
             else
             {
@@ -1001,7 +1001,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 src_Sky.AssertFinger(hitKoma);
                 Busstop koma = src_Sky.BusstopIndexOf(hitKoma);
 
-                srcMasuHandle1 = Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( koma));
+                srcMasuHandle1 = Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu( koma));
             }
 
 
@@ -1022,7 +1022,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
             // １手を、データにします。
             move = Conv_Move.ToMove(
-                Conv_MasuHandle.ToMasu(srcMasuHandle1),
+                B180_ConvPside__.C500____Converter.Conv_Masu.ToMasu(srcMasuHandle1),
                 dstMasu,//符号は将棋盤の升目です。
                 srcSyurui,//dstSyurui
                 Komasyurui14.H00_Null___, // 符号からは、取った駒の種類は分からないんだぜ☆　だがバグではない☆　あとで調べる☆

@@ -189,8 +189,8 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
 
                     if (!errorCheck)
                     {
-                        srcMasu_orMinusOne = Conv_SyElement.ToMasuNumber(srcMasu);
-                        dstMasu_orMinusOne = Conv_SyElement.ToMasuNumber(dstMasu);
+                        srcMasu_orMinusOne = Conv_Masu.ToMasuHandle(srcMasu);
+                        dstMasu_orMinusOne = Conv_Masu.ToMasuHandle(dstMasu);
                     }
 
                     KyokumenPngArgs_FoodOrDropKoma foodKoma;

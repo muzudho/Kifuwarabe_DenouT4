@@ -66,7 +66,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         }
         public static bool InBanjoAitejin(SyElement dstMasu, Playerside pside)
         {
-            return Conv_Masu10.InBanjoAitejin(dstMasu, pside);
+            return Conv_Masu.InBanjoAitejin(dstMasu, pside);
         }
 
         /// <summary>
@@ -149,7 +149,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
             SyElement dstMasu = Conv_Move.ToDstMasu(move);
 
             result = (Okiba.Sente_Komadai | Okiba.Gote_Komadai).HasFlag(
-                Conv_SyElement.ToOkiba(dstMasu)//FIXME: 駒台の筋段は設定できないのでは？
+                Conv_Masu.ToOkiba(dstMasu)//FIXME: 駒台の筋段は設定できないのでは？
                 );
 
             return result;
@@ -216,8 +216,8 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
             try
             {
                 SyElement srcMasu = Conv_Move.ToSrcMasu(move);
-                result = Okiba.ShogiBan != Conv_SyElement.ToOkiba(srcMasu)//駒台（駒袋）から打ったとき。
-                    && Okiba.Empty != Conv_SyElement.ToOkiba(srcMasu);//初期配置から移動しても、打にはしません。
+                result = Okiba.ShogiBan != Conv_Masu.ToOkiba(srcMasu)//駒台（駒袋）から打ったとき。
+                    && Okiba.Empty != Conv_Masu.ToOkiba(srcMasu);//初期配置から移動しても、打にはしません。
             }
             catch (Exception ex)
             {
@@ -238,11 +238,11 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
             Okiba okiba;
 
             // src
-            okiba = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(srcMasu));
+            okiba = Conv_Masu.ToOkiba(Conv_Masu.ToMasuHandle(srcMasu));
             if (okiba == Okiba.ShogiBan)
             {
                 int srcDan;
-                if (!Conv_MasuNum.ToDan_FromBanjoMasu(srcMasu, out srcDan))
+                if (!Conv_Masu.ToDan_FromBanjoMasu(srcMasu, out srcDan))
                 {
                     enable = false;
                 }
@@ -250,18 +250,18 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
             else
             {
                 int srcDan;
-                if (!Conv_MasuNum.ToDan_FromBangaiMasu(srcMasu, out srcDan))
+                if (!Conv_Masu.ToDan_FromBangaiMasu(srcMasu, out srcDan))
                 {
                     enable = false;
                 }
             }
 
             // dst
-            okiba = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(dstMasu));
+            okiba = Conv_Masu.ToOkiba(Conv_Masu.ToMasuHandle(dstMasu));
             if (okiba == Okiba.ShogiBan)
             {
                 int dan;
-                if (!Conv_MasuNum.ToDan_FromBanjoMasu(dstMasu, out dan))
+                if (!Conv_Masu.ToDan_FromBanjoMasu(dstMasu, out dan))
                 {
                     enable = false;
                 }
@@ -269,7 +269,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
             else
             {
                 int dan;
-                if (!Conv_MasuNum.ToDan_FromBangaiMasu(dstMasu, out dan))
+                if (!Conv_Masu.ToDan_FromBangaiMasu(dstMasu, out dan))
                 {
                     enable = false;
                 }
@@ -317,7 +317,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
             SyElement srcMasu = Conv_Move.ToSrcMasu(move);
             SyElement dstMasu = Conv_Move.ToDstMasu(move);
 
-            return Conv_SyElement.ToMasuNumber(dstMasu) != Conv_SyElement.ToMasuNumber(srcMasu);
+            return Conv_Masu.ToMasuHandle(dstMasu) != Conv_Masu.ToMasuHandle(srcMasu);
         }
 
     }

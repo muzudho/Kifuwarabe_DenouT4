@@ -138,7 +138,7 @@ namespace Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct
                 foreach (KeyValuePair<int, Komahaiyaku185> entry2 in entry1.Value)
                 {
                     sb.Append(
-                        Conv_Masu10.ToBanjoArabiaAndKanji_FromMasu(Masu_Honshogi.Query_Basho(entry2.Key))
+                        Conv_Masu.ToBanjoArabiaAndKanji_FromMasu(Masu_Honshogi.Query_Basho(entry2.Key))
                         );
                     sb.Append(".");
                     sb.Append(entry2.Value);
@@ -195,16 +195,16 @@ namespace Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct
                     for (int suji = 9; suji >= 1; suji--)
                     {
 
-                        SyElement masu = Conv_Masu10.ToMasu_FromBanjoSujiDan( suji, dan);
+                        SyElement masu = Conv_Masu.ToMasu_FromBanjoSujiDan( suji, dan);
 
                         sb.Append("<td>");
 
-                        if (entry1.Value.ContainsKey(Conv_SyElement.ToMasuNumber(masu)))
+                        if (entry1.Value.ContainsKey(Conv_Masu.ToMasuHandle(masu)))
                         {
                             // 強制転成が起こるマスなら、画像を出します。
 
 
-                            Komahaiyaku185 kh184 = entry1.Value[Conv_SyElement.ToMasuNumber(masu)];
+                            Komahaiyaku185 kh184 = entry1.Value[Conv_Masu.ToMasuHandle(masu)];
                             int haiyakuHandle = (int)kh184;
 
 

@@ -60,7 +60,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
 
 
                 string komaImg = Util_Converter_LogGraphicEx.Finger_ToString(src_Sky_base, key, "");
-                sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( koma)) + " },");//FIXME:おかしい？
+                sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu( koma)) + " },");//FIXME:おかしい？
 
                 // コメント
                 sb.AppendLine("                { act:\"drawText\", text:\"" + comment + "\"  , x:0, y:20 },");
@@ -108,11 +108,11 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
             sb.AppendLine("                { act:\"colorMasu\", style:\"rgba(100,240,100,0.5)\" },");
 
             // マス
-            sb.AppendLine("                { act:\"drawMasu\" , masu:" + Conv_SyElement.ToMasuNumber(dstMasu) + " },");
+            sb.AppendLine("                { act:\"drawMasu\" , masu:" + Conv_Masu.ToMasuHandle(dstMasu) + " },");
 
 
             string komaImg = Util_Converter_LogGraphicEx.Finger_ToString(positionA_base, finger, "");
-            sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_SyElement.ToMasuNumber(dstMasu) + " },");//FIXME:おかしい？
+            sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_Masu.ToMasuHandle(dstMasu) + " },");//FIXME:おかしい？
 
             // コメント
             sb.AppendLine("                { act:\"drawText\", text:\"" + comment + "\"  , x:0, y:20 },");
@@ -158,11 +158,11 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
                 sb.AppendLine("                { act:\"colorMasu\", style:\"rgba(100,240,100,0.5)\" },");
 
                 // マス
-                sb.AppendLine("                { act:\"drawMasu\" , masu:" + Conv_SyElement.ToMasuNumber(dstMasu) + " },");
+                sb.AppendLine("                { act:\"drawMasu\" , masu:" + Conv_Masu.ToMasuHandle(dstMasu) + " },");
 
 
                 string komaImg = Util_Converter_LogGraphicEx.Finger_ToString(positionA_base, srcKoma2, "");
-                sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_SyElement.ToMasuNumber(dstMasu) + " },");//FIXME:おかしい？
+                sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_Masu.ToMasuHandle(dstMasu) + " },");//FIXME:おかしい？
 
                 // コメント
                 sb.AppendLine("                { act:\"drawText\", text:\"" + comment + "\"  , x:0, y:20 },");
@@ -199,7 +199,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
 
 
                 string komaImg = Util_Converter_LogGraphicEx.Finger_ToString(src_Sky, hKoma, "");
-                sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( koma)) + " },");//FIXME:おかしい？
+                sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu( koma)) + " },");//FIXME:おかしい？
             }
 
 

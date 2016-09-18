@@ -54,7 +54,7 @@ namespace Grayscale.A210_KnowNingen_.B470_ConvKiki___.C500____Converter
                 src_Sky.AssertFinger(figKoma);
                 Busstop koma = src_Sky.BusstopIndexOf(figKoma);
 
-                result.HMasu_PlayersideList[Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( koma))] = Conv_Busstop.ToPlayerside( koma);
+                result.HMasu_PlayersideList[Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu( koma))] = Conv_Busstop.ToPlayerside( koma);
             }
 
             //
@@ -88,19 +88,19 @@ namespace Grayscale.A210_KnowNingen_.B470_ConvKiki___.C500____Converter
                     foreach (SyElement masu in kikiMasuList)
                     {
                         // その枡に利いている駒のハンドルを追加
-                        if (result.HMasu_PlayersideList[Conv_SyElement.ToMasuNumber(masu)] == Playerside.Empty)
+                        if (result.HMasu_PlayersideList[Conv_Masu.ToMasuHandle(masu)] == Playerside.Empty)
                         {
                             // 駒のないマスは無視。
                         }
                         else if (Playerside.P1 == Conv_Busstop.ToPlayerside( koma))
                         {
                             // 利きのあるマスにある駒と、この駒のプレイヤーサイドが同じ。
-                            result.Kikisu_AtMasu_1P[Conv_SyElement.ToMasuNumber(masu)] += 1;
+                            result.Kikisu_AtMasu_1P[Conv_Masu.ToMasuHandle(masu)] += 1;
                         }
                         else
                         {
                             // 反対の場合。
-                            result.Kikisu_AtMasu_2P[Conv_SyElement.ToMasuNumber(masu)] += 1;
+                            result.Kikisu_AtMasu_2P[Conv_Masu.ToMasuHandle(masu)] += 1;
                         }
                     }
                 });

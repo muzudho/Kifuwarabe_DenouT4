@@ -104,12 +104,12 @@ namespace Grayscale.A210_KnowNingen_.B440_Utifudume__.C500____Util
                     errH_orNull
                 );
 
-                int gyokutouMasuNumber = Conv_SyElement.ToMasuNumber(masu_gyokutou);
+                int gyokutouMasuNumber = Conv_Masu.ToMasuHandle(masu_gyokutou);
                 kikiMap.Foreach_Values((SySet<SyElement> values, ref bool toBreak) =>
                 {
                     foreach (SyElement element in values.Elements)
                     {
-                        int masuNumber = Conv_SyElement.ToMasuNumber(element);
+                        int masuNumber = Conv_Masu.ToMasuHandle(element);
                         if (masuNumber == gyokutouMasuNumber)
                         {
                             isKiki_mikata = true;
@@ -142,12 +142,12 @@ namespace Grayscale.A210_KnowNingen_.B440_Utifudume__.C500____Util
                 );
                 aitegyokuKiki = kikiMap.ElementAt(figKing_aite);
 
-                int gyokutouMasuNumber = Conv_SyElement.ToMasuNumber(masu_gyokutou);
+                int gyokutouMasuNumber = Conv_Masu.ToMasuHandle(masu_gyokutou);
                 kikiMap.Foreach_Entry((Finger figKoma, SySet<SyElement> values, ref bool toBreak) =>
                 {
                     foreach (SyElement element in values.Elements)
                     {
-                        int masuNumber = Conv_SyElement.ToMasuNumber(element);
+                        int masuNumber = Conv_Masu.ToMasuHandle(element);
                         if (masuNumber == gyokutouMasuNumber)
                         {
                             src_Sky.AssertFinger(figKoma);
@@ -180,7 +180,7 @@ namespace Grayscale.A210_KnowNingen_.B440_Utifudume__.C500____Util
             foreach (SyElement element in aitegyokuKiki.Elements)
             {
                 // 攻撃側の利きが利いていない、空きマスがあるかどうか。
-                int movableMasuNumber_king = Conv_SyElement.ToMasuNumber(element);
+                int movableMasuNumber_king = Conv_Masu.ToMasuHandle(element);
 
                 if (nigerarenaiMap[movableMasuNumber_king] == 0)
                 {

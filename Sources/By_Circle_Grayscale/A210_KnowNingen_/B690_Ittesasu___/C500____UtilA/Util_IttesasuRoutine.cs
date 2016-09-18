@@ -311,7 +311,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     // FIXME: 駒台の、どの駒を拾うか？
                     figMovedKoma = Util_Sky_FingerQuery.InOkibaSyuruiNow_IgnoreCase(
                         positionA,
-                        Conv_SyElement.ToOkiba(srcMasu),
+                        Conv_Masu.ToOkiba(srcMasu),
                         dstKs14,
                         errH
                         );
@@ -483,7 +483,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             SyElement akiMasu = Masu_Honshogi.Query_Basho(Masu_Honshogi.nError);
 
             // 先手駒台または後手駒台の、各マスの駒がある場所を調べます。
-            bool[] exists = new bool[Conv_Masu10.KOMADAI_KOMABUKURO_SPACE_LENGTH];//駒台スペースは40マスです。
+            bool[] exists = new bool[Conv_Masu.KOMADAI_KOMABUKURO_SPACE_LENGTH];//駒台スペースは40マスです。
 
 
             src_Sky.Foreach_Busstops((Finger finger, Busstop koma, ref bool toBreak) =>
@@ -491,18 +491,18 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 if (Conv_Busstop.ToOkiba(koma) == okiba)
                 {
                     exists[
-                        Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( koma)) - Conv_SyElement.ToMasuNumber(Conv_Okiba.GetFirstMasuFromOkiba(okiba))
+                        Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu( koma)) - Conv_Masu.ToMasuHandle(Conv_Okiba.GetFirstMasuFromOkiba(okiba))
                         ] = true;
                 }
             });
 
 
             //駒台スペースは40マスです。
-            for (int i = 0; i < Conv_Masu10.KOMADAI_KOMABUKURO_SPACE_LENGTH;i++ )
+            for (int i = 0; i < Conv_Masu.KOMADAI_KOMABUKURO_SPACE_LENGTH; i++ )
             {
                 if (!exists[i])
                 {
-                    akiMasu = Masu_Honshogi.Masus_All[i + Conv_SyElement.ToMasuNumber(Conv_Okiba.GetFirstMasuFromOkiba(okiba))];
+                    akiMasu = Masu_Honshogi.Masus_All[i + Conv_Masu.ToMasuHandle(Conv_Okiba.GetFirstMasuFromOkiba(okiba))];
                     goto gt_EndMethod;
                 }
             }

@@ -57,8 +57,8 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad
 
 
             positionA.AssertFinger((Finger)0);
-            Debug.Assert(!Conv_MasuHandle.OnKomabukuro(
-                Conv_SyElement.ToMasuNumber(
+            Debug.Assert(!Conv_Masu.OnKomabukuro(
+                Conv_Masu.ToMasuHandle(
                     Conv_Busstop.ToMasu(positionA.BusstopIndexOf((Finger)0))
                     )
                 ), "駒が駒袋にあった。");

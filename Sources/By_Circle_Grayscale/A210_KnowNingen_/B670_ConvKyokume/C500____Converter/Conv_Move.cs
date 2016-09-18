@@ -75,7 +75,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                         int s = (int)MoveShift.SrcSuji;
                         srcSuji = (v & m) >> s;
                     }
-                    if (Conv_Masu10.YukoSuji(srcSuji))
+                    if (Conv_Masu.YukoSuji(srcSuji))
                     {
                         strSrcSuji = srcSuji.ToString();
                     }
@@ -95,7 +95,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                         int s = (int)MoveShift.SrcDan;
                         srcDan2 = (v & m) >> s;
                     }
-                    if (Conv_Masu10.YukoDan(srcDan2))
+                    if (Conv_Masu.YukoDan(srcDan2))
                     {
                         strSrcDan2 = Conv_Int.ToAlphabet(srcDan2);
                     }
@@ -116,7 +116,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                     int s = (int)MoveShift.DstSuji;
                     suji2 = (v & m) >> s;
                 }
-                if (Conv_Masu10.YukoSuji(suji2))
+                if (Conv_Masu.YukoSuji(suji2))
                 {
                     strSuji = suji2.ToString();
                 }
@@ -137,7 +137,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                     int s = (int)MoveShift.DstDan;
                     dan2 = (v & m) >> s;
                 }
-                if (Conv_Masu10.YukoDan(dan2))
+                if (Conv_Masu.YukoDan(dan2))
                 {
                     strDan = Conv_Int.ToAlphabet(dan2);
                 }
@@ -249,11 +249,11 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             // 自
             if (okiba == Okiba.ShogiBan)
             {
-                return Conv_Masu10.ToMasu_FromBanjoSujiDan(srcSuji, srcDan);
+                return Conv_Masu.ToMasu_FromBanjoSujiDan(srcSuji, srcDan);
             }
 
             // 打なら
-            return Conv_Masu10.ToMasu_FromBangaiSujiDan(okiba, srcSuji, srcDan);
+            return Conv_Masu.ToMasu_FromBangaiSujiDan(okiba, srcSuji, srcDan);
         }
         /// <summary>
         /// 置き場の情報を補完するように注意すること☆（＾～＾）
@@ -318,12 +318,12 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                     srcDan = (v & m) >> s;
                 }
 
-                return Conv_Masu10.ToMasu_FromBanjoSujiDan(srcSuji, srcDan);
+                return Conv_Masu.ToMasu_FromBanjoSujiDan(srcSuji, srcDan);
             }
 
             // 打なら
             Komasyurui14 ks14 = Conv_Move.ToSrcKomasyurui(move);
-            return Conv_Masu10.ToMasu_FromBangaiKomasyurui(okiba, ks14, positionA);
+            return Conv_Masu.ToMasu_FromBangaiKomasyurui(okiba, ks14, positionA);
         }
 
 
@@ -340,7 +340,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             }
             if (0 != errorCheck)
             {
-                return Conv_Masu10.ERROR_DAN;
+                return Conv_Masu.ERROR_DAN;
             }
 
             // 至段
@@ -386,7 +386,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             int dstDan = Conv_Move.ToDstDan(move);
 
             // 至
-            return Conv_Masu10.ToMasu_FromBanjoSujiDan( dstSuji, dstDan);
+            return Conv_Masu.ToMasu_FromBanjoSujiDan( dstSuji, dstDan);
         }
 
         public static bool ToPromotion(Move move)
@@ -649,8 +649,8 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             bool drop;
             try
             {
-                drop = Okiba.ShogiBan != Conv_SyElement.ToOkiba(srcMasu)//駒台（駒袋）から打ったとき。
-                    && Okiba.Empty != Conv_SyElement.ToOkiba(srcMasu);//初期配置から移動しても、打にはしません。
+                drop = Okiba.ShogiBan != Conv_Masu.ToOkiba(srcMasu)//駒台（駒袋）から打ったとき。
+                    && Okiba.Empty != Conv_Masu.ToOkiba(srcMasu);//初期配置から移動しても、打にはしません。
             }
             catch (Exception ex)
             {
@@ -684,30 +684,30 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
         {
             int srcSuji;
             int srcDan;
-            Okiba srcOkiba = Conv_SyElement.ToOkiba(srcMasu);
+            Okiba srcOkiba = Conv_Masu.ToOkiba(srcMasu);
             if (srcOkiba == Okiba.ShogiBan)
             {
-                Conv_MasuNum.ToSuji_FromBanjoMasu(srcMasu, out srcSuji);
-                Conv_MasuNum.ToDan_FromBanjoMasu(srcMasu, out srcDan);
+                Conv_Masu.ToSuji_FromBanjoMasu(srcMasu, out srcSuji);
+                Conv_Masu.ToDan_FromBanjoMasu(srcMasu, out srcDan);
             }
             else
             {
-                Conv_MasuNum.ToSuji_FromBangaiMasu(srcMasu, out srcSuji);
-                Conv_MasuNum.ToDan_FromBangaiMasu(srcMasu, out srcDan);
+                Conv_Masu.ToSuji_FromBangaiMasu(srcMasu, out srcSuji);
+                Conv_Masu.ToDan_FromBangaiMasu(srcMasu, out srcDan);
             }
 
             int dstSuji;
             int dstDan;
-            Okiba dstOkiba = Conv_SyElement.ToOkiba(dstMasu);
+            Okiba dstOkiba = Conv_Masu.ToOkiba(dstMasu);
             if (dstOkiba == Okiba.ShogiBan)
             {
-                Conv_MasuNum.ToSuji_FromBanjoMasu(dstMasu, out dstSuji);
-                Conv_MasuNum.ToDan_FromBanjoMasu(dstMasu, out dstDan);
+                Conv_Masu.ToSuji_FromBanjoMasu(dstMasu, out dstSuji);
+                Conv_Masu.ToDan_FromBanjoMasu(dstMasu, out dstDan);
             }
             else
             {
-                Conv_MasuNum.ToSuji_FromBangaiMasu(dstMasu, out dstSuji);
-                Conv_MasuNum.ToDan_FromBangaiMasu(dstMasu, out dstDan);
+                Conv_Masu.ToSuji_FromBangaiMasu(dstMasu, out dstSuji);
+                Conv_Masu.ToDan_FromBangaiMasu(dstMasu, out dstDan);
             }
 
             // バリュー
@@ -767,7 +767,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 int.TryParse(csa.DestinationMasu[0].ToString(), out dstSuji);
                 int dstDan;
                 int.TryParse(csa.DestinationMasu[1].ToString(), out dstDan);
-                dstMasu = Conv_Masu10.ToMasu_FromBanjoSujiDan( dstSuji, dstDan);
+                dstMasu = Conv_Masu.ToMasu_FromBanjoSujiDan( dstSuji, dstDan);
             }
 
             SyElement srcMasu;
@@ -777,7 +777,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 int.TryParse(csa.SourceMasu[0].ToString(), out srcSuji);
                 int srcDan;
                 int.TryParse(csa.SourceMasu[1].ToString(), out srcDan);
-                srcMasu = Conv_Masu10.ToMasu_FromBanjoSujiDan( srcSuji, srcDan);
+                srcMasu = Conv_Masu.ToMasu_FromBanjoSujiDan( srcSuji, srcDan);
             }
 
             bool drop;
@@ -891,7 +891,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
 
             // 手番
             Playerside playersideB = Conv_Move.ToPlayerside(move);
-            sb.Append("pside="+ Conv_Playerside.ToKanji(playersideB) );
+            sb.Append("pside="+ Conv_Playerside.ToLog_Kanji(playersideB) );
 
             bool drop = Conv_Move.ToDrop(move);
 
@@ -914,15 +914,15 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             else
             {
                 srcMasuB = Conv_Move.ToSrcMasu(move);
-                //srcMasuB = Conv_MasuHandle.ToMasu((int)Conv_Move.ToSrcMasu(move));
+                //srcMasuB = Conv_Masu.ToMasu((int)Conv_Move.ToSrcMasu(move));
                 sb.Append(" src=");
-                sb.Append(Conv_Masu10.ToBanjoArabiaAndKanji_FromMasu(srcMasuB));
+                sb.Append(Conv_Masu.ToBanjoArabiaAndKanji_FromMasu(srcMasuB));
             }
 
             // 至
             SyElement dstMasuB = Conv_Move.ToDstMasu(move);
             sb.Append(" dst=");
-            sb.Append(Conv_Masu10.ToBanjoArabiaAndKanji_FromMasu(dstMasuB));
+            sb.Append(Conv_Masu.ToBanjoArabiaAndKanji_FromMasu(dstMasuB));
 
             // 移動した駒の種類
             Komasyurui14 srcKomasyuruiB = Conv_Move.ToSrcKomasyurui(move);

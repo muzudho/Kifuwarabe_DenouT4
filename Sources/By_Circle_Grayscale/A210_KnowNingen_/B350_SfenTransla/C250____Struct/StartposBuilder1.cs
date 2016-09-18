@@ -50,11 +50,11 @@ namespace Grayscale.A210_KnowNingen_.B350_SfenTransla.C250____Struct
         /// <param name="koma"></param>
         public void AddKoma(int masuNumber, Busstop koma)
         {
-            if (Conv_MasuHandle.OnShogiban(masuNumber))
+            if (Conv_Masu.OnShogiban(masuNumber))
             {
                 this.ban81.Add(masuNumber, koma);
             }
-            else if (Conv_MasuHandle.OnSenteKomadai(masuNumber))
+            else if (Conv_Masu.OnSenteKomadai(masuNumber))
             {
                 if (this.motiBlack.ContainsKey(Conv_Busstop.ToKomasyurui( koma)))
                 {
@@ -65,7 +65,7 @@ namespace Grayscale.A210_KnowNingen_.B350_SfenTransla.C250____Struct
                     this.motiBlack.Add(Conv_Busstop.ToKomasyurui( koma), 0);
                 }
             }
-            else if (Conv_MasuHandle.OnGoteKomadai(masuNumber))
+            else if (Conv_Masu.OnGoteKomadai(masuNumber))
             {
                 if (this.motiWhite.ContainsKey(Conv_Busstop.ToKomasyurui( koma)))
                 {

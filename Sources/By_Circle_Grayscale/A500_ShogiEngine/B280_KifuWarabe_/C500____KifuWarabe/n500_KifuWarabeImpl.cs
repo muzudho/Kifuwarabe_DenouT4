@@ -79,7 +79,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             this.EngineOptions = new EngineOptionsImpl();
             this.EngineOptions.AddOption(EngineOptionNames.USI_PONDER, new EngineOption_BoolImpl());// ポンダーに対応している将棋サーバーなら真です。
             this.EngineOptions.AddOption(EngineOptionNames.NOOPABLE, new EngineOption_BoolImpl());// 独自実装のコマンドなので、ＯＦＦにしておきます。
-            this.EngineOptions.AddOption(EngineOptionNames.THINKING_MILLI_SECOND, new EngineOption_NumberImpl(60000));//8000//4000
+            this.EngineOptions.AddOption(EngineOptionNames.THINKING_MILLI_SECOND, new EngineOption_NumberImpl(60000));//60000//8000//4000
 
 
 
@@ -128,8 +128,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 this.Earth_AtLoop2.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
 
                 this.PositionA.AssertFinger((Finger)0);
-                Debug.Assert(!Conv_MasuHandle.OnKomabukuro(
-                    Conv_SyElement.ToMasuNumber(
+                Debug.Assert(!Conv_Masu.OnKomabukuro(
+                    Conv_Masu.ToMasuHandle(
                         Conv_Busstop.ToMasu(this.PositionA.BusstopIndexOf((Finger)0))
                         )
                     ), "駒が駒袋にあった。");
@@ -936,8 +936,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                     src_Sky.AssertFinger(Finger_Honshogi.GoteOh);
                     Busstop king2p = src_Sky.BusstopIndexOf(Finger_Honshogi.GoteOh);
                     //OwataMinister.WARABE_ENGINE.Logger.WriteLine_AddMemo("将棋サーバー「ではここで、王さまがどこにいるか確認してみましょう」");
-                    //OwataMinister.WARABE_ENGINE.Logger.WriteLine_AddMemo("▲王の置き場＝" + Conv_SyElement.Masu_ToOkiba(koma1.Masu));
-                    //OwataMinister.WARABE_ENGINE.Logger.WriteLine_AddMemo("△王の置き場＝" + Conv_SyElement.Masu_ToOkiba(koma2.Masu));
+                    //OwataMinister.WARABE_ENGINE.Logger.WriteLine_AddMemo("▲王の置き場＝" + Conv_Masu.Masu_ToOkiba(koma1.Masu));
+                    //OwataMinister.WARABE_ENGINE.Logger.WriteLine_AddMemo("△王の置き場＝" + Conv_Masu.Masu_ToOkiba(koma2.Masu));
 
                     if (Conv_Busstop.ToOkiba(king1p) != Okiba.ShogiBan)
                     {
@@ -1469,8 +1469,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 SyElement srcMasu = Conv_Move.ToSrcMasu(moveEx.Move);
                 SyElement dstMasu = Conv_Move.ToDstMasu(moveEx.Move);
                 Komasyurui14 captured = Conv_Move.ToCaptured(moveEx.Move);
-                int srcMasuNum = Conv_SyElement.ToMasuNumber(srcMasu);
-                int dstMasuNum = Conv_SyElement.ToMasuNumber(dstMasu);
+                int srcMasuNum = Conv_Masu.ToMasuNumber(srcMasu);
+                int dstMasuNum = Conv_Masu.ToMasuNumber(dstMasu);
 
                 KyokumenPngArgs_FoodOrDropKoma foodKoma;
                 if (Komasyurui14.H00_Null___ != captured)

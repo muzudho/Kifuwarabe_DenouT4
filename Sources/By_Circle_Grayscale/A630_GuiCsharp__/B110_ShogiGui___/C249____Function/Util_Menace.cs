@@ -60,7 +60,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
                             // その枡に利いている駒のハンドルを追加
                             if (!Masu_Honshogi.IsErrorBasho(masu))
                             {
-                                mainGui.Shape_PnlTaikyoku.Shogiban.HMasu_KikiKomaList[Conv_SyElement.ToMasuNumber(masu)].Add((int)figKoma);
+                                mainGui.Shape_PnlTaikyoku.Shogiban.HMasu_KikiKomaList[Conv_Masu.ToMasuHandle(masu)].Add((int)figKoma);
                             }
                         }
                     }

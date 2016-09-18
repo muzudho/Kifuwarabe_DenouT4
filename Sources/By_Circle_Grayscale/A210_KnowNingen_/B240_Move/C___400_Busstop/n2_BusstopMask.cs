@@ -20,7 +20,7 @@
         Komasyurui = 0x0f << BusstopShift.Komasyurui,
 
         /// <summary>
-        /// 駒台
+        /// 盤上 or 駒台
         /// </summary>
         Komadai = 0x01 << BusstopShift.Komadai,
 

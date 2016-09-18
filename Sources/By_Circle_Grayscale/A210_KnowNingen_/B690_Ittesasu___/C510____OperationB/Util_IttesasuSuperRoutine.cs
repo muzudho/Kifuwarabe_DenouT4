@@ -12,18 +12,20 @@ using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
+using System;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
 {
     public abstract class Util_IttesasuSuperRoutine
     {
-        public static void DoMove_Super(
+        public static bool DoMove_Super(
             ref Sky positionA,//指定局面
             ref Move move,//TODO:取った駒があると、上書きされる
             string hint,
             KwLogger logger
             )
         {
+            bool successful = true;
             bool log = true;
 
             if (log)
@@ -34,24 +36,42 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
                 logger.Flush(LogTypes.Plain);
             }
 
-            Util_IttesasuSuperRoutine.DoMove_Super(
-                    ref positionA,
-                    ref move,
+            Fingers fingers = Util_Sky_FingersQuery.InMasuNow_New(positionA, move);
 
-                    // フィンガー
-                    Util_Sky_FingersQuery.InMasuNow_New(positionA,move).ToFirst(),// マス
-
-                    Conv_Move.ToDstMasu(move),//移動先升
-                    Conv_Move.ToPromotion(move),//成るか。
-                    logger
-                );
-
-            if (log)
+            if (fingers.Count < 1)
             {
-                logger.AppendLine("進めた後 "+ hint);
-                logger.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(positionA,logger), positionA, move));
-                logger.Flush(LogTypes.Plain);
+                string message = "Util_IttesasuSuperRoutine#DoMove_Super:指し手に該当する駒が無かったぜ☆（＾～＾） hint=" +
+                    hint +
+                    " move=" + Conv_Move.ToLog(move);
+
+                //logger.AppendLine(message));
+                //logger.Flush(LogTypes.Error);
+                //successful = false;
+                throw new Exception(message);
             }
+            else
+            {
+                Util_IttesasuSuperRoutine.DoMove_Super(
+                        ref positionA,
+                        ref move,
+
+                        // フィンガー
+                        fingers.ToFirst(),// マス
+
+                        Conv_Move.ToDstMasu(move),//移動先升
+                        Conv_Move.ToPromotion(move),//成るか。
+                        logger
+                    );
+
+                if (log)
+                {
+                    logger.AppendLine("進めた後 " + hint);
+                    logger.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(positionA, logger), positionA, move));
+                    logger.Flush(LogTypes.Plain);
+                }
+            }
+
+            return successful;
         }
 
         //*

@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
@@ -82,7 +83,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             Tansaku_Genjo genjo,
             Sky positionA,
             Move move_ForLog,
-            KwLogger errH
+            KwLogger logger
             )
         {
             int exceptionArea = 0;
@@ -100,7 +101,6 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                 //----------------------------------------
                 // ①現手番の駒の移動可能場所_被王手含む
                 //----------------------------------------
-                exceptionArea = 10000;
 
                 //----------------------------------------
                 // 盤１個分のログの準備
@@ -128,6 +128,17 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     mm_log_orNull
 #endif
                 );
+                bool test = true;
+                if (test)
+                {
+                    foreach (Couple<Finger, SySet<SyElement>> couple in komaBETUSusumeruMasus.Items)
+                    {
+                        if (couple.A == Fingers.Error_1)
+                        {
+                            logger.DonimoNaranAkirameta("カップルリストに駒番号が入っていないデータが含まれているぜ☆（＾～＾）");
+                        }
+                    }
+                }
 
                 //#if DEBUG
                 //                System.Console.WriteLine("komaBETUSusumeruMasusの全要素＝" + Util_List_OneAndMultiEx<Finger, SySet<SyElement>>.CountAllElements(komaBETUSusumeruMasus));
@@ -157,6 +168,15 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     //----------------------------------------
                     Maps_OneAndMulti<Finger, Move> komaBETUAllSasites = Conv_KomabetuSusumeruMasus.ToKomaBETUAllSasites(
                         komaBETUSusumeruMasus, positionA);
+                    if(test){                        
+                        foreach (Finger fig in komaBETUAllSasites.Items.Keys)
+                        {
+                            if (fig == Fingers.Error_1)
+                            {
+                                logger.DonimoNaranAkirameta("駒番号が入っていないデータが含まれているぜ☆（＾～＾）");
+                            }
+                        }
+                    }
 
                     //#if DEBUG
                     //                    System.Console.WriteLine("komaBETUAllSasitesの全要素＝" + Util_Maps_OneAndMultiEx<Finger, SySet<SyElement>>.CountAllElements(komaBETUAllSasites));
@@ -176,7 +196,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         genjo.Args.LogF_moveKiki,//利き用
 #endif
                         "読みNextルーチン",
-                        errH);
+                        logger);
 
                     exceptionArea = 40000;
 
@@ -187,7 +207,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     movelist = Conv_Movelist1.ToMovelist_NonPromotion(
                         starbetuSusumuMasus,
                         positionA,
-                        errH
+                        logger
                     );
 
                     exceptionArea = 42000;
@@ -198,7 +218,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     //成りの手
                     List<Move> b_movelist = Util_SasuEx.CreateNariSasite(positionA,
                         movelist,
-                        errH);
+                        logger);
 
                     exceptionArea = 44000;
 
@@ -227,7 +247,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     movelist = Conv_Movelist1.ToMovelist_NonPromotion(
                         komaBETUSusumeruMasus,
                         positionA,
-                        errH
+                        logger
                         );
 
                     //#if DEBUG
@@ -241,7 +261,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             }
             catch (Exception ex)
             {
-                errH.DonimoNaranAkirameta(ex, "探索深さルーチンでエラー☆ exceptionArea=" + exceptionArea);
+                logger.DonimoNaranAkirameta(ex, "探索深さルーチンでエラー☆ exceptionArea=" + exceptionArea);
                 throw ex;
             }
 

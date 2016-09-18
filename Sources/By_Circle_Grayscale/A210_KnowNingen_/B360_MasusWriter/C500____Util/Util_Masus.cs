@@ -32,13 +32,13 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util
                 // まず自分の要素
                 foreach (SyElement hMasu1 in ((SySet_Default<SyElement>)masus).Elements_)
                 {
-                    Okiba okiba = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(hMasu1));
+                    Okiba okiba = Conv_Masu.ToOkiba(Conv_Masu.ToMasuHandle(hMasu1));
                     if (okiba == Okiba.ShogiBan)
                     {
                         int suji;
                         int dan;
-                        Conv_MasuNum.ToSuji_FromBanjoMasu(hMasu1, out suji);
-                        Conv_MasuNum.ToDan_FromBanjoMasu(hMasu1, out dan);
+                        Conv_Masu.ToSuji_FromBanjoMasu(hMasu1, out suji);
+                        Conv_Masu.ToDan_FromBanjoMasu(hMasu1, out dan);
 
                         sb.Append("["
                             + suji.ToString()
@@ -49,7 +49,7 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util
                     {
                         // TODO: まだ使えない☆（＾～＾）
                         Pieces piece;
-                        Conv_MasuNum.ToPiece_FromBangaiMasu(hMasu1, out piece);
+                        Conv_Masu.ToPiece_FromBangaiMasu(hMasu1, out piece);
 
                         sb.Append("["
                             +
@@ -72,11 +72,11 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util
                     int suji;
                     int dan;
 
-                    Okiba okiba = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(hMasu1));
+                    Okiba okiba = Conv_Masu.ToOkiba(Conv_Masu.ToMasuHandle(hMasu1));
                     if (okiba == Okiba.ShogiBan)
                     {
-                        Conv_MasuNum.ToSuji_FromBanjoMasu(hMasu1, out suji);
-                        Conv_MasuNum.ToDan_FromBanjoMasu(hMasu1, out dan);
+                        Conv_Masu.ToSuji_FromBanjoMasu(hMasu1, out suji);
+                        Conv_Masu.ToDan_FromBanjoMasu(hMasu1, out dan);
 
                         sb.Append("["
                             + suji.ToString()
@@ -87,7 +87,7 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util
                     {
                         // TODO: まだ使えない☆（＾～＾）
                         Pieces piece;
-                        Conv_MasuNum.ToPiece_FromBangaiMasu(hMasu1, out piece);
+                        Conv_Masu.ToPiece_FromBangaiMasu(hMasu1, out piece);
 
                         sb.Append("["
                             +
@@ -111,11 +111,11 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util
                     int suji;
                     int dan;
 
-                    Okiba okiba = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(hMasu1));
+                    Okiba okiba = Conv_Masu.ToOkiba(Conv_Masu.ToMasuHandle(hMasu1));
                     if (okiba == Okiba.ShogiBan)
                     {
-                        Conv_MasuNum.ToSuji_FromBanjoMasu(hMasu1, out suji);
-                        Conv_MasuNum.ToDan_FromBanjoMasu(hMasu1, out dan);
+                        Conv_Masu.ToSuji_FromBanjoMasu(hMasu1, out suji);
+                        Conv_Masu.ToDan_FromBanjoMasu(hMasu1, out dan);
 
                         sb.Append(
                             suji.ToString()
@@ -126,7 +126,7 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util
                     {
                         // TODO: まだ使えない☆（＾～＾）
                         Pieces piece;
-                        Conv_MasuNum.ToPiece_FromBangaiMasu(hMasu1, out piece);
+                        Conv_Masu.ToPiece_FromBangaiMasu(hMasu1, out piece);
 
                         sb.Append(
                             Util_Komasyurui14.NimojiPieces[(int)piece]
@@ -206,11 +206,11 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util
                     int suji;
                     int dan;
 
-                    Okiba okiba = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(hMasu1));
+                    Okiba okiba = Conv_Masu.ToOkiba(Conv_Masu.ToMasuHandle(hMasu1));
                     if (okiba == Okiba.ShogiBan)
                     {
-                        Conv_MasuNum.ToSuji_FromBanjoMasu(hMasu1, out suji);
-                        Conv_MasuNum.ToDan_FromBanjoMasu(hMasu1, out dan);
+                        Conv_Masu.ToSuji_FromBanjoMasu(hMasu1, out suji);
+                        Conv_Masu.ToDan_FromBanjoMasu(hMasu1, out dan);
 
                         sb.Append("["
                             + suji.ToString()
@@ -221,7 +221,7 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util
                     {
                         // TODO: まだ使えない☆（＾～＾）
                         Pieces piece;
-                        Conv_MasuNum.ToPiece_FromBangaiMasu(hMasu1, out piece);
+                        Conv_Masu.ToPiece_FromBangaiMasu(hMasu1, out piece);
 
                         sb.Append("["
                             +
@@ -245,11 +245,11 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util
                     int suji;
                     int dan;
 
-                    Okiba okiba = Conv_SyElement.ToOkiba(Conv_SyElement.ToMasuNumber(hMasu1));
+                    Okiba okiba = Conv_Masu.ToOkiba(Conv_Masu.ToMasuHandle(hMasu1));
                     if (okiba == Okiba.ShogiBan)
                     {
-                        Conv_MasuNum.ToSuji_FromBanjoMasu(hMasu1, out suji);
-                        Conv_MasuNum.ToDan_FromBanjoMasu(hMasu1, out dan);
+                        Conv_Masu.ToSuji_FromBanjoMasu(hMasu1, out suji);
+                        Conv_Masu.ToDan_FromBanjoMasu(hMasu1, out dan);
 
                         sb.Append(
                             suji.ToString()
@@ -260,7 +260,7 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C500____Util
                     {
                         // TODO: まだ使えない☆（＾～＾）
                         Pieces piece;
-                        Conv_MasuNum.ToPiece_FromBangaiMasu(hMasu1, out piece);
+                        Conv_Masu.ToPiece_FromBangaiMasu(hMasu1, out piece);
 
                         sb.Append(
                             Util_Komasyurui14.NimojiPieces[(int)piece]

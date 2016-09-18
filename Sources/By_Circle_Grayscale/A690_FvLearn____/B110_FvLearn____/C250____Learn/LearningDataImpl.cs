@@ -282,8 +282,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
 
             if (!errorCheck)
             {
-                srcMasu_orMinusOne = Conv_SyElement.ToMasuNumber(srcMasu);
-                dstMasu_orMinusOne = Conv_SyElement.ToMasuNumber(dstMasu);
+                srcMasu_orMinusOne = Conv_Masu.ToMasuHandle(srcMasu);
+                dstMasu_orMinusOne = Conv_Masu.ToMasuHandle(dstMasu);
             }
 
             KyokumenPngArgs_FoodOrDropKoma foodKoma;

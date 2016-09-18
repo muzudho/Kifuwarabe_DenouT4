@@ -5,6 +5,7 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___492_Widgets;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape;
 using System.Drawing;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C492____Widgets
 {
@@ -113,14 +114,14 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C492____Widgets
 
             if (this.Okiba == Okiba.ShogiBan)
             {
-                srcMasu = Conv_Masu10.ToMasu_FromBanjoSujiDan(
+                srcMasu = Conv_Masu.ToMasu_FromBanjoSujiDan(
                             this.Suji,
                             this.Dan
                 );
             }
             else
             {
-                srcMasu = Conv_Masu10.ToMasu_FromBangaiSujiDan(
+                srcMasu = Conv_Masu.ToMasu_FromBangaiSujiDan(
                             this.Okiba,
                             this.Suji,
                             this.Dan

@@ -61,8 +61,7 @@
   <ItemGroup>
     <Compile Include="B170_WordShogi__\C260____Operator\Util_SyElement_BinaryOperator.cs" />
     <Compile Include="B170_WordShogi__\C___250_Masu\New_Basho.cs" />
-    <Compile Include="B180_ConvPside__\C500____Converter\Conv_MasuHandle.cs" />
-    <Compile Include="B180_ConvPside__\C500____Converter\Conv_SyElement.cs" />
+    <Compile Include="B180_ConvPside__\C500____Converter\Conv_Masu.cs" />
     <Compile Include="B240_Move\C___400_Busstop\n1_BusstopShift.cs" />
     <Compile Include="B240_Move\C___400_Busstop\n2_BusstopMask.cs" />
     <Compile Include="B240_Move\C___400_Busstop\n3_Busstop.cs" />
@@ -159,8 +158,6 @@
     <Compile Include="B190_Komasyurui_\C250____Word\Komasyurui14.cs" />
     <Compile Include="B170_WordShogi__\C250____Masu\BashoImpl.cs" />
     <Compile Include="B170_WordShogi__\C250____Masu\Masu_Honshogi.cs" />
-    <Compile Include="B200_ConvMasu___\C500____Conv\Conv_Masu10.cs" />
-    <Compile Include="B200_ConvMasu___\C500____Conv\Conv_MasuNum.cs" />
     <Compile Include="B200_ConvMasu___\C500____Conv\Conv_Muki.cs" />
     <Compile Include="B290_Komahaiyaku\C500____Util\Util_Komahaiyaku184.cs" />
     <Compile Include="B290_Komahaiyaku\C250____Word\Komahaiyaku185.cs" />

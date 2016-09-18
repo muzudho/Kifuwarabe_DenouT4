@@ -144,7 +144,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
             // 升番号
             //----------
             if(false){
-                string text = Conv_SyElement.ToMasuNumber(this.Zahyo).ToString();
+                string text = Conv_Masu.ToMasuHandle(this.Zahyo).ToString();
 
                 float fontHeight = 13.0f;
                 Font font = new Font("ＭＳ ゴシック", fontHeight, FontStyle.Regular);

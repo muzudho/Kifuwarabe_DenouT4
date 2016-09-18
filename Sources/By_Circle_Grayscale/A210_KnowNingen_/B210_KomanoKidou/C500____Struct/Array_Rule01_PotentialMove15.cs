@@ -58,7 +58,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
             //----------------------------------------
             SySet_Default<SyElement> dst = new SySet_Default<SyElement>("歩の移動先");
 
-            if (Okiba.ShogiBan == Conv_SyElement.ToOkiba(masu_ji))
+            if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu_ji))
             {
                 //----------------------------------------
                 // 将棋盤上の歩の移動先
@@ -66,7 +66,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 dst.AddSupersets(KomanoKidou.DstIppo_上(pside, masu_ji));
             }
             else if( (Okiba.Sente_Komadai|Okiba.Gote_Komadai).HasFlag(
-                Conv_SyElement.ToOkiba(masu_ji)))
+                Conv_Masu.ToOkiba(masu_ji)))
             {
                 //----------------------------------------
                 // 駒台上の歩の移動先
@@ -85,12 +85,12 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
         {
             SySet_Default<SyElement> dst = new SySet_Default<SyElement>("香の移動先");
 
-            if (Okiba.ShogiBan == Conv_SyElement.ToOkiba(masu_ji))
+            if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu_ji))
             {
                 dst.AddSupersets(KomanoKidou.DstKantu_上(pside, masu_ji));
             }
             else if ((Okiba.Sente_Komadai | Okiba.Gote_Komadai).HasFlag(
-                Conv_SyElement.ToOkiba(masu_ji)))
+                Conv_Masu.ToOkiba(masu_ji)))
             {
                 dst.AddSupersets(KomanoKidou.Dst_歩打面(pside));//香も同じ
             }
@@ -107,13 +107,13 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
         {
             SySet_Default<SyElement> dst = new SySet_Default<SyElement>("桂の移動先");
 
-            if (Okiba.ShogiBan == Conv_SyElement.ToOkiba(masu_ji))
+            if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu_ji))
             {
                 dst.AddSupersets(KomanoKidou.DstKeimatobi_駆(pside, masu_ji));
                 dst.AddSupersets(KomanoKidou.DstKeimatobi_跳(pside, masu_ji));
             }
             else if ((Okiba.Sente_Komadai | Okiba.Gote_Komadai).HasFlag(
-                Conv_SyElement.ToOkiba(masu_ji)))
+                Conv_Masu.ToOkiba(masu_ji)))
             {
                 dst.AddSupersets(KomanoKidou.Dst_桂打面(pside));
             }
@@ -130,7 +130,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
         {
             SySet_Default<SyElement> dst = new SySet_Default<SyElement>("銀の移動先");
 
-            if (Okiba.ShogiBan == Conv_SyElement.ToOkiba(masu_ji))
+            if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu_ji))
             {
                 dst.AddSupersets(KomanoKidou.DstIppo_上(pside, masu_ji));
                 dst.AddSupersets(KomanoKidou.DstIppo_昇(pside, masu_ji));
@@ -139,7 +139,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 dst.AddSupersets(KomanoKidou.DstIppo_浮(pside, masu_ji));
             }
             else if ((Okiba.Sente_Komadai | Okiba.Gote_Komadai).HasFlag(
-                Conv_SyElement.ToOkiba(masu_ji)))
+                Conv_Masu.ToOkiba(masu_ji)))
             {
                 dst.AddSupersets(KomanoKidou.Dst_全打面(pside));
             }
@@ -155,12 +155,12 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
         {
             SySet<SyElement> dst = new SySet_Default<SyElement>("金の移動先");
 
-            if (Okiba.ShogiBan == Conv_SyElement.ToOkiba(masu_ji))
+            if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu_ji))
             {
                 dst = Array_Rule01_PotentialMove15.CreateKin_static(pside, masu_ji);
             }
             else if ((Okiba.Sente_Komadai | Okiba.Gote_Komadai).HasFlag(
-                Conv_SyElement.ToOkiba(masu_ji)))
+                Conv_Masu.ToOkiba(masu_ji)))
             {
                 dst.AddSupersets(KomanoKidou.Dst_全打面(pside));
             }
@@ -172,7 +172,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
         {
             SySet_Default<SyElement> dst = new SySet_Default<SyElement>("カナゴマの移動先");
 
-            if (Okiba.ShogiBan == Conv_SyElement.ToOkiba(masu_ji))
+            if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu_ji))
             {
                 dst.AddSupersets(KomanoKidou.DstIppo_上(pside, masu_ji));
                 dst.AddSupersets(KomanoKidou.DstIppo_昇(pside, masu_ji));
@@ -194,7 +194,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
         {
             SySet_Default<SyElement> dst = new SySet_Default<SyElement>("王の移動先");
 
-            if (Okiba.ShogiBan == Conv_SyElement.ToOkiba(masu_ji))
+            if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu_ji))
             {
                 dst.AddSupersets(KomanoKidou.DstIppo_上(pside, masu_ji));
                 dst.AddSupersets(KomanoKidou.DstIppo_昇(pside, masu_ji));
@@ -206,7 +206,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 dst.AddSupersets(KomanoKidou.DstIppo_浮(pside, masu_ji));
             }
             else if ((Okiba.Sente_Komadai | Okiba.Gote_Komadai).HasFlag(
-                Conv_SyElement.ToOkiba(masu_ji)))
+                Conv_Masu.ToOkiba(masu_ji)))
             {
                 dst.AddSupersets(KomanoKidou.Dst_全打面(pside));
             }
@@ -223,7 +223,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
         {
             SySet_Default<SyElement> dst = new SySet_Default<SyElement>("飛車の移動先");
 
-            if (Okiba.ShogiBan == Conv_SyElement.ToOkiba(masu_ji))
+            if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu_ji))
             {
                 dst.AddSupersets(KomanoKidou.DstKantu_上(pside, masu_ji));
                 dst.AddSupersets(KomanoKidou.DstKantu_射(pside, masu_ji));
@@ -231,7 +231,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 dst.AddSupersets(KomanoKidou.DstKantu_滑(pside, masu_ji));
             }
             else if ((Okiba.Sente_Komadai | Okiba.Gote_Komadai).HasFlag(
-                Conv_SyElement.ToOkiba(masu_ji)))
+                Conv_Masu.ToOkiba(masu_ji)))
             {
                 dst.AddSupersets(KomanoKidou.Dst_全打面(pside));
             }
@@ -248,7 +248,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
         {
             SySet_Default<SyElement> dst = new SySet_Default<SyElement>("角の移動先");
 
-            if (Okiba.ShogiBan == Conv_SyElement.ToOkiba(masu_ji))
+            if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu_ji))
             {
                 dst.AddSupersets(KomanoKidou.DstKantu_昇(pside, masu_ji));
                 dst.AddSupersets(KomanoKidou.DstKantu_沈(pside, masu_ji));
@@ -256,7 +256,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 dst.AddSupersets(KomanoKidou.DstKantu_浮(pside, masu_ji));
             }
             else if ((Okiba.Sente_Komadai | Okiba.Gote_Komadai).HasFlag(
-                Conv_SyElement.ToOkiba(masu_ji)))
+                Conv_Masu.ToOkiba(masu_ji)))
             {
                 dst.AddSupersets(KomanoKidou.Dst_全打面(pside));
             }
@@ -274,7 +274,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
         {
             SySet_Default<SyElement> dst = new SySet_Default<SyElement>("竜の移動先");
 
-            if (Okiba.ShogiBan == Conv_SyElement.ToOkiba(masu_ji))
+            if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu_ji))
             {
                 dst.AddSupersets(KomanoKidou.DstKantu_上(pside, masu_ji));
                 dst.AddSupersets(KomanoKidou.DstIppo_昇(pside, masu_ji));
@@ -286,7 +286,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 dst.AddSupersets(KomanoKidou.DstIppo_浮(pside, masu_ji));
             }
             else if ((Okiba.Sente_Komadai | Okiba.Gote_Komadai).HasFlag(
-                Conv_SyElement.ToOkiba(masu_ji)))
+                Conv_Masu.ToOkiba(masu_ji)))
             {
                 dst.AddSupersets(KomanoKidou.Dst_全打面(pside));
             }
@@ -304,7 +304,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
         {
             SySet_Default<SyElement> dst = new SySet_Default<SyElement>("馬の移動先");
 
-            if (Okiba.ShogiBan == Conv_SyElement.ToOkiba(masu_ji))
+            if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu_ji))
             {
                 dst.AddSupersets(KomanoKidou.DstIppo_上(pside, masu_ji));
                 dst.AddSupersets(KomanoKidou.DstKantu_昇(pside, masu_ji));
@@ -316,7 +316,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 dst.AddSupersets(KomanoKidou.DstKantu_浮(pside, masu_ji));
             }
             else if ((Okiba.Sente_Komadai | Okiba.Gote_Komadai).HasFlag(
-                Conv_SyElement.ToOkiba(masu_ji)))
+                Conv_Masu.ToOkiba(masu_ji)))
             {
                 dst.AddSupersets(KomanoKidou.Dst_全打面(pside));
             }

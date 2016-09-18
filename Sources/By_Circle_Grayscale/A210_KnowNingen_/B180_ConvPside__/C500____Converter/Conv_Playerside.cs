@@ -36,7 +36,7 @@ namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter
         /// </summary>
         /// <param name="pside"></param>
         /// <returns></returns>
-        public static string ToKanji(Playerside pside)
+        public static string ToLog_Kanji(Playerside pside)
         {
             string psideStr;
 

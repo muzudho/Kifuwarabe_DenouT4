@@ -53,14 +53,14 @@ namespace Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table
         {
             Komahaiyaku185 result;
 
-            int masuHandle = Conv_SyElement.ToMasuNumber(Conv_Masu10.BothSenteView(masu_shogiban, pside));
+            int masuHandle = Conv_Masu.ToMasuHandle(Conv_Masu.BothSenteView(masu_shogiban, pside));
 
-            if (Conv_MasuHandle.OnShogiban(masuHandle))
+            if (B180_ConvPside__.C500____Converter.Conv_Masu.OnShogiban(masuHandle))
             {
 
                 result = Data_KomahaiyakuTransition.Map[syurui][(int)masuHandle];
             }
-            else if (Conv_MasuHandle.OnKomadai(masuHandle))
+            else if (B180_ConvPside__.C500____Converter.Conv_Masu.OnKomadai(masuHandle))
             {
                 switch(syurui)
                 {
@@ -81,7 +81,7 @@ namespace Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table
                     default: result = Komahaiyaku185.n000_未設定; break;
                 }
             }
-            else if (Conv_MasuHandle.OnKomabukuro(masuHandle))
+            else if (B180_ConvPside__.C500____Converter.Conv_Masu.OnKomabukuro(masuHandle))
             {
                 switch (syurui)
                 {
@@ -298,12 +298,12 @@ namespace Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table
                     for (int suji = 9; suji >= 1; suji--)
                     {
 
-                        SyElement masu = Conv_Masu10.ToMasu_FromBanjoSujiDan( suji, dan);
+                        SyElement masu = Conv_Masu.ToMasu_FromBanjoSujiDan( suji, dan);
 
                         sb.Append("<td>");
 
 
-                        Komahaiyaku185 kh184 = entry1.Value[Conv_SyElement.ToMasuNumber(masu)];
+                        Komahaiyaku185 kh184 = entry1.Value[Conv_Masu.ToMasuHandle(masu)];
                         int haiyakuHandle = (int)kh184;
 
 

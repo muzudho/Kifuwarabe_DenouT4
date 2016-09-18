@@ -65,7 +65,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
         {
             Maps_OneAndOne<Finger, SySet<SyElement>> starbetuSusumuMasus = new Maps_OneAndOne<Finger, SySet<SyElement>>();// 「どの星を、どこに進める」の一覧
 
-            long exception_area = 10000;
+            long exception_area = 1000130;
             try
             {
                 KifuNode hubNode = Conv_StarbetuSasites.ToNextNodes_AsHubNode(
@@ -177,15 +177,20 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
 
             hubNode.Children1.Foreach_ChildNodes3((Move move, ref bool toBreak) =>
             {
-                long exception_area = 10000;
+                long exception_area = 1000120;
                 try
                 {
-                    Util_IttesasuSuperRoutine.DoMove_Super(
+                    bool successful = Util_IttesasuSuperRoutine.DoMove_Super(
                             ref positionA,//指定局面
                             ref move,
                             "A100_IfMate",
                             errH
                     );
+                    if (!successful)
+                    {
+                        // 将棋盤と指し手の不一致があるとき
+                        goto gt_EndLoop;
+                    }
 
                     exception_area = 30000;
 
@@ -229,6 +234,9 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
                         "\nmove=" + Conv_Move.ToLog(move));
                     throw ex;
                 }
+
+            gt_EndLoop:
+                ;
             });
 
             // 入替え
@@ -285,7 +293,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
                 src_Sky.AssertFinger(Finger_Honshogi.GoteOh);
                 Busstop koma = src_Sky.BusstopIndexOf(Finger_Honshogi.GoteOh);
 
-                    genTeban_kingMasuNumber = Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( koma));
+                    genTeban_kingMasuNumber = Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu( koma));
             }
             else
             {
@@ -293,7 +301,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
                 src_Sky.AssertFinger(Finger_Honshogi.SenteOh);
                 Busstop koma = src_Sky.BusstopIndexOf(Finger_Honshogi.SenteOh);
 
-                    genTeban_kingMasuNumber = Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu(koma));
+                    genTeban_kingMasuNumber = Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu(koma));
             }
 
 
@@ -409,7 +417,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
 
                         Gkl_KomaMasu km = new Gkl_KomaMasu(
                             Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanSeme, Conv_Busstop.ToKomasyurui(koma), ""),
-                            Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu( koma))
+                            Conv_Masu.ToMasuNumber(Conv_Busstop.ToMasu( koma))
                             );
                         boardLog_clone.KomaMasu1.Add(km);
                 }
@@ -420,7 +428,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
 
                         logBrd_kiki.KomaMasu2.Add(new Gkl_KomaMasu(
                             Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanKurau, Conv_Busstop.ToKomasyurui(koma), ""),
-                            Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu(koma))
+                            Conv_Masu.ToMasuNumber(Conv_Busstop.ToMasu(koma))
                             ));
                 }
                 logBrd_kiki = boardLog_clone;

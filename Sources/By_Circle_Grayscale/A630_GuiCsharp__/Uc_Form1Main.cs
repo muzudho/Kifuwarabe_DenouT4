@@ -549,16 +549,16 @@ namespace Grayscale.P699_Form_______
                     {
                         int suji2;
                         int dan2;
-                        Okiba okiba = Conv_SyElement.ToOkiba(Conv_Busstop.ToMasu(koma2));
+                        Okiba okiba = Conv_Masu.ToOkiba(Conv_Busstop.ToMasu(koma2));
                         if (okiba == Okiba.ShogiBan)
                         {
-                            Conv_MasuNum.ToSuji_FromBanjoMasu(Conv_Busstop.ToMasu(koma2), out suji2);
-                            Conv_MasuNum.ToDan_FromBanjoMasu(Conv_Busstop.ToMasu(koma2), out dan2);
+                            Conv_Masu.ToSuji_FromBanjoMasu(Conv_Busstop.ToMasu(koma2), out suji2);
+                            Conv_Masu.ToDan_FromBanjoMasu(Conv_Busstop.ToMasu(koma2), out dan2);
                         }
                         else
                         {
-                            Conv_MasuNum.ToSuji_FromBangaiMasu(Conv_Busstop.ToMasu(koma2), out suji2);
-                            Conv_MasuNum.ToDan_FromBangaiMasu(Conv_Busstop.ToMasu(koma2), out dan2);
+                            Conv_Masu.ToSuji_FromBangaiMasu(Conv_Busstop.ToMasu(koma2), out suji2);
+                            Conv_Masu.ToDan_FromBangaiMasu(Conv_Busstop.ToMasu(koma2), out dan2);
                         }
 
 

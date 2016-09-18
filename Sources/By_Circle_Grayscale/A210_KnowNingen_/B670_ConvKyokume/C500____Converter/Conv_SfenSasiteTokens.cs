@@ -60,7 +60,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             Playerside pside1 = src_Sky.KaisiPside;
 
 #if DEBUG
-            Debug.Assert(!Conv_MasuHandle.OnKomabukuro(Conv_SyElement.ToMasuNumber(Conv_Busstop.ToMasu(src_Sky.BusstopIndexOf((Finger)0)))), "[" + src_Sky.Temezumi + "]手目、駒が駒袋にあった。");
+            Debug.Assert(!Conv_Masu.OnKomabukuro(Conv_Masu.ToMasuNumber(Conv_Busstop.ToMasu(src_Sky.BusstopIndexOf((Finger)0)))), "[" + src_Sky.Temezumi + "]手目、駒が駒袋にあった。");
 #endif
 
             try
@@ -136,7 +136,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 else
                 {
                     //>>>>> 打ではないとき
-                    SyElement masu1 = Conv_Masu10.ToMasu_FromBanjoSujiDan( srcSuji, srcDan);
+                    SyElement masu1 = Conv_Masu.ToMasu_FromBanjoSujiDan( srcSuji, srcDan);
                     Fingers komas1 = Util_Sky_FingersQuery.InMasuNow_Old(//これが空っぽになるときがある。
                         src_Sky, masu1
                         );
@@ -247,7 +247,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                     srcSyurui = dstSyurui; //駒は「元・種類」を記憶していませんので、「現・種類」を指定します。
 
                     srcOkiba = Okiba.ShogiBan;
-                    srcMasu = Conv_Masu10.ToMasu_FromBanjoSujiDan(srcSuji, srcDan);
+                    srcMasu = Conv_Masu.ToMasu_FromBanjoSujiDan(srcSuji, srcDan);
                 }
 
 
@@ -269,7 +269,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 // 棋譜
                 move = Conv_Move.ToMove(
                     srcMasu,//FIXME:升ハンドルにしたい
-                    Conv_Masu10.ToMasu_FromBanjoSujiDan( suji, dan),//符号は将棋盤の升目です。 FIXME:升ハンドルにしたい
+                    Conv_Masu.ToMasu_FromBanjoSujiDan( suji, dan),//符号は将棋盤の升目です。 FIXME:升ハンドルにしたい
                     srcSyurui,//dstSyurui
                     Komasyurui14.H00_Null___,//符号からは、取った駒は分からない
                     promotion,

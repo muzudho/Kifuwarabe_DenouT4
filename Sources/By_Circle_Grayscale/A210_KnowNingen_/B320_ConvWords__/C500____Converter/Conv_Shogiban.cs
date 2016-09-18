@@ -23,7 +23,7 @@ namespace Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine(Conv_Playerside.ToKanji(sky.KaisiPside));
+            sb.AppendLine(Conv_Playerside.ToLog_Kanji(sky.KaisiPside));
             sb.AppendLine(sky.Temezumi+"手目済");
             sb.AppendLine(Conv_Move.ToLog(move));
 
@@ -57,10 +57,11 @@ namespace Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter
                 sb.Append("│");
                 for (int suji = 9; 0 < suji; suji--)
                 {
-                    int masuNumber = Conv_Masu10.ToMasuHandle_FromBanjoSujiDan(suji, dan);
+                    int masuNumber = Conv_Masu.ToMasuHandle_FromBanjoSujiDan(suji, dan);
                     if(shogiban.ContainsBanjoKoma(masuNumber))
                     {
                         Busstop koma = shogiban.GetBanjoKomaFromMasu(masuNumber);
+                        string errorMessage = shogiban.GetErrorMessage(masuNumber);
                         Komasyurui14 ks = Conv_Busstop.ToKomasyurui(koma);
                         Playerside pside = Conv_Busstop.ToPlayerside(koma);
 
@@ -71,6 +72,11 @@ namespace Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter
                         else
                         {
                             sb.Append(Util_Komasyurui14.NimojiGote[(int)ks]);
+                        }
+
+                        if (""!= errorMessage)
+                        {
+                            sb.Append(errorMessage);
                         }
                     }
                     else

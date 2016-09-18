@@ -32,7 +32,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
         public static KifuNode ToNextNodes_AsHubNode(
             Maps_OneAndMulti<Finger,Move> komabetuAllMoves,
             Sky src_Sky,
-            KwLogger errH
+            KwLogger logger
             )
         {
             KifuNode hubNode = new KifuNodeImpl(
@@ -46,6 +46,12 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
             foreach (KeyValuePair<Finger, List<Move>> entry1 in komabetuAllMoves.Items)
             {
                 Finger figKoma = entry1.Key;// 動かす駒
+
+                if (figKoma==Fingers.Error_1)
+                {
+                    logger.DonimoNaranAkirameta("駒番号が記載されていない駒があるぜ☆（＾～＾）");
+                    continue;
+                }
 
                 foreach (Move moveA in entry1.Value)// 駒の動ける升
                 {
@@ -67,7 +73,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
                             figKoma,//動かす駒
                             dstMasu,//移動先升
                             false,//成りません。
-                            errH
+                            logger
                         );
 
                         hubNode.Children1.AddItem(moveB,

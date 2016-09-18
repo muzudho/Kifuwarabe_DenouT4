@@ -3,7 +3,7 @@
     public abstract class EngineOptionNames
     {
         /// <summary>
-        /// 思考時間制限（ミリ秒）
+        /// 思考時間制限（ミリ秒）thinkingtime
         /// </summary>
         public const string THINKING_MILLI_SECOND = "thinkingMilliSecond";
 

@@ -237,16 +237,16 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             int suji;
             int dan;
 
-            Okiba okiba = Conv_SyElement.ToOkiba(Conv_Busstop.ToMasu(koma));
+            Okiba okiba = Conv_Masu.ToOkiba(Conv_Busstop.ToMasu(koma));
             if (okiba == Okiba.ShogiBan)
             {
-                Conv_MasuNum.ToSuji_FromBanjoMasu(Conv_Busstop.ToMasu(koma), out suji);
-                Conv_MasuNum.ToDan_FromBanjoMasu(Conv_Busstop.ToMasu(koma), out dan);
+                Conv_Masu.ToSuji_FromBanjoMasu(Conv_Busstop.ToMasu(koma), out suji);
+                Conv_Masu.ToDan_FromBanjoMasu(Conv_Busstop.ToMasu(koma), out dan);
             }
             else
             {
-                Conv_MasuNum.ToSuji_FromBangaiMasu(Conv_Busstop.ToMasu(koma), out suji);
-                Conv_MasuNum.ToDan_FromBangaiMasu(Conv_Busstop.ToMasu(koma), out dan);
+                Conv_Masu.ToSuji_FromBangaiMasu(Conv_Busstop.ToMasu(koma), out suji);
+                Conv_Masu.ToDan_FromBangaiMasu(Conv_Busstop.ToMasu(koma), out dan);
             }
 
 
