@@ -47,23 +47,21 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             long exception_area = 1000140;
             try
             {
-                bool log = true;
-                /*
+                bool log = false;
                 if (log)
                 {
                     logger.AppendLine("戻す前 " + hint);
                     logger.Append(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(positionA,logger)));
                     logger.Flush(LogTypes.Plain);
                 }
-                */
 
                 ittemodosuResult = new IttemodosuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
-                Finger figMovedKoma = Fingers.Error_1;
+                Finger figMovedKoma;
 
                 //
                 // 動かす駒を移動先へ。
                 //
-                Util_IttemodosuRoutine.Do25_UgokasuKoma(
+                Util_IttemodosuRoutine.Undo25_UgokasuKoma(
                     out figMovedKoma,
                     moved,
                     positionA,
@@ -73,7 +71,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
                 exception_area = 20000;
 
-                if (Fingers.Error_1 == ittemodosuResult.FigMovedKoma)
+                if (Fingers.Error_1 == figMovedKoma)
                 {
                     logger.DonimoNaranAkirameta(
                         "戻せる駒が無かった☆ hint:" + hint + "\n" +
@@ -89,7 +87,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
                 exception_area = 30000;
 
-                Busstop dst = Util_IttemodosuRoutine.Do37_KomaOnDestinationMasu(syurui2,
+                // 戻し先か。
+                Busstop dst = Util_IttemodosuRoutine.Undo37_KomaOnModosisakiMasu(syurui2,
                         moved,
                         positionA);
 
@@ -119,7 +118,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 //------------------------------------------------------------
                 positionA.AddObjects(
                     //
-                    // 指されていた駒
+                    // 動かした駒と、戻し先
                     //
                     new Finger[] { figMovedKoma }, new Busstop[] { dst });
 
@@ -211,9 +210,9 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <param name="sasite">棋譜に記録するために「指す前／指した後」を含めた手。</param>
         /// <param name="obsoluted_kifu_mutable"></param>
         /// <param name="isMakimodosi"></param>
-        private static void Do25_UgokasuKoma(
+        private static void Undo25_UgokasuKoma(
             out Finger figMovedKoma,
-            Move move,
+            Move moved,
             Sky kaisi_Sky,
             KwLogger errH
             )
@@ -229,11 +228,11 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             // 動かす駒
             figMovedKoma = Util_Sky_FingerQuery.InMasuNow_FilteringBanjo(
                 kaisi_Sky,
-                Conv_Move.ToPlayerside(move),
-                Conv_Move.ToDstMasu(move),//[巻戻し]のときは、先位置が　駒の居場所。
+                Conv_Move.ToPlayerside(moved),
+                Conv_Move.ToDstMasu(moved),//[巻戻し]のときは、先位置が　駒の居場所。
                 errH
                 );
-            Debug.Assert(figMovedKoma != Fingers.Error_1, "駒を動かせなかった？ Dst="+ Conv_Masu.ToLog_FromBanjo(Conv_Move.ToDstMasu(move)));
+            Debug.Assert(figMovedKoma != Fingers.Error_1, "駒を動かせなかった？ Dst="+ Conv_Masu.ToLog_FromBanjo(Conv_Move.ToDstMasu(moved)));
         }
 
         /// <summary>
@@ -244,39 +243,55 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <param name="kifu"></param>
         /// <param name="isMakimodosi"></param>
         /// <returns></returns>
-        private static Busstop Do37_KomaOnDestinationMasu(
+        private static Busstop Undo37_KomaOnModosisakiMasu(
             Komasyurui14 syurui2,
-            Move move,
+            Move moved,
             Sky positionA
             )
         {
-            SyElement srcMasu = Conv_Move.ToSrcMasu(move, positionA);
-            Playerside pside = Conv_Move.ToPlayerside(move);
+            Playerside pside = Conv_Move.ToPlayerside(moved);
 
             SyElement masu;
-
-            if (
-                Okiba.Gote_Komadai == Conv_Masu.ToOkiba(srcMasu)
-                || Okiba.Sente_Komadai == Conv_Masu.ToOkiba(srcMasu)
-                )
+            if (Conv_Move.ToDrop(moved))
             {
-                //>>>>> １手前が駒台なら
+                // 打なら
 
                 // 駒台の空いている場所
-                masu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Conv_Masu.ToOkiba(srcMasu), positionA);
+                
+                masu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Conv_Playerside.ToKomadai(pside), positionA);
                 // 必ず空いている場所があるものとします。
             }
             else
             {
-                //>>>>> １手前が将棋盤上なら
+                // 打以外なら
+                // 戻し先
+                SyElement srcMasu = Conv_Move.ToSrcMasu(moved, positionA);
 
-                // その位置
-                masu = srcMasu;//戻し先
+                if (
+                    Okiba.Gote_Komadai == Conv_Masu.ToOkiba(srcMasu)
+                    || Okiba.Sente_Komadai == Conv_Masu.ToOkiba(srcMasu)
+                    )
+                {
+                    //（古い仕様） １手前が駒台なら
+
+                    // 駒台の空いている場所
+                    masu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Conv_Masu.ToOkiba(srcMasu), positionA);
+                    // 必ず空いている場所があるものとします。
+                }
+                else
+                {
+                    //>>>>> １手前が将棋盤上なら
+
+                    // その位置
+                    masu = srcMasu;//戻し先
+                }
             }
 
 
 
-            return Conv_Busstop.ToBusstop(pside,
+
+            return Conv_Busstop.ToBusstop(
+                pside,
                 masu,//戻し先
                 syurui2);
         }

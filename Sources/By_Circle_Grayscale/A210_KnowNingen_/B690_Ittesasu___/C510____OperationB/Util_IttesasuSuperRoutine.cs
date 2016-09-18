@@ -26,7 +26,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
             )
         {
             bool successful = true;
-            bool log = true;
+            bool log = false;
 
             if (log)
             {
