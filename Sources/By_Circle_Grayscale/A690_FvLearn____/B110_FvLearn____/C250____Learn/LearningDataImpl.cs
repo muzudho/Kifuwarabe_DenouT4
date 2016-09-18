@@ -352,8 +352,10 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
                     isHonshogi, Mode_Tansaku.Learning,
                     args, errH);
             }
-            catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "棋譜ツリーを作っていたときです。"); throw ex; }
-
+            catch (Exception ex) {
+                errH.DonimoNaranAkirameta(ex, "棋譜ツリーを作っていたときです。");
+                throw ex;
+            }
         }
 
         /// <summary>

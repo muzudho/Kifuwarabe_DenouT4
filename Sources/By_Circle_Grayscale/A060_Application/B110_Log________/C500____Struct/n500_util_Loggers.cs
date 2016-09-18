@@ -120,7 +120,10 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
                     }
                 }
             }
-            catch (Exception ex) { Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "ﾛｸﾞﾌｧｲﾙ削除中☆"); throw ex; }
+            catch (Exception ex) {
+                Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "ﾛｸﾞﾌｧｲﾙ削除中☆");
+                throw ex;
+            }
         }
 
 

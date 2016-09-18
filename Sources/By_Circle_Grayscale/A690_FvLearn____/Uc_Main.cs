@@ -321,6 +321,7 @@ namespace Grayscale.A690_FvLearn____
                 catch(Exception ex)
                 {
                     errH.DonimoNaranAkirameta("Uc_Main#SeikoIdo: "+ex.GetType().Name+"："+ ex.Message);
+                    throw ex;
                 }
             }
         }
@@ -350,6 +351,7 @@ namespace Grayscale.A690_FvLearn____
                 catch (Exception ex)
                 {
                     errH.DonimoNaranAkirameta("Uc_Main#SippaiIdo: " + ex.GetType().Name + "：" + ex.Message);
+                    throw ex;
                 }
             }
         }

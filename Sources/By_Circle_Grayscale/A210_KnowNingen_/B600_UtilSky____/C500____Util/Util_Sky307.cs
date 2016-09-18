@@ -14,22 +14,26 @@ using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B600_UtilSky____.C500____Util
 {
     public abstract class Util_Sky307
     {
 
-        public static SfenstringImpl ExportSfen(Sky src_Sky)
+        public static SfenstringImpl ExportSfen(Sky src_Sky,KwLogger errH)
         {
             Debug.Assert(src_Sky.Count == 40, "sky.Starlights.Count=[" + src_Sky.Count + "]");//将棋の駒の数
 
-            return new SfenstringImpl("sfen " + Util_StartposExporter.ToSfenstring(Conv_Sky.ToShogiban(src_Sky), false));
+            return new SfenstringImpl("sfen " + Util_StartposExporter.ToSfenstring(
+                Conv_Sky.ToShogiban(src_Sky, errH), false));
         }
 
-        public static SfenstringImpl ExportSfen_ForDebug(Sky src_Sky, bool psideIsBlack)
+        public static SfenstringImpl ExportSfen_ForDebug(
+            Sky src_Sky, bool psideIsBlack, KwLogger logger)
         {
-            return new SfenstringImpl("sfen " + Util_StartposExporter.ToSfenstring(Conv_Sky.ToShogiban(src_Sky), true));
+            return new SfenstringImpl("sfen " + Util_StartposExporter.ToSfenstring(
+                Conv_Sky.ToShogiban(src_Sky, logger), true));
         }
 
         /// <summary>

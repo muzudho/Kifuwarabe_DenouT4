@@ -124,7 +124,10 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                     isHonshogi, Mode_Tansaku.Shogi_ENgine,
                     args, errH);
             }
-            catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "棋譜ツリーを作っていたときです。"); throw ex; }
+            catch (Exception ex) {
+                errH.DonimoNaranAkirameta(ex, "棋譜ツリーを作っていたときです。");
+                throw ex;
+            }
 
 
 #if DEBUG

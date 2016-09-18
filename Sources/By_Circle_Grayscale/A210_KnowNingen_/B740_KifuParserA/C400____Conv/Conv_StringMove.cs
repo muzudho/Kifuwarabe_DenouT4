@@ -104,7 +104,10 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C400____Conv
 
                     }
                 }
-                catch (Exception ex) { Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "moves解析中☆"); throw ex; }
+                catch (Exception ex) {
+                    Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "moves解析中☆");
+                    throw ex;
+                }
             }
 
         gt_EndMethod:

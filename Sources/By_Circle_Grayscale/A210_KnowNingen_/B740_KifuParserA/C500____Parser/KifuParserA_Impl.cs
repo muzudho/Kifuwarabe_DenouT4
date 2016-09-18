@@ -75,7 +75,10 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 this.State = nextState;
 
             }
-            catch (Exception ex) { Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "棋譜解析中☆"); throw ex; }
+            catch (Exception ex) {
+                Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "棋譜解析中☆");
+                throw ex;
+            }
 
             return genjo.InputLine;
         }
@@ -158,7 +161,10 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
 
             }
-            catch (Exception ex) { Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "棋譜解析中☆"); throw ex; }
+            catch (Exception ex) {
+                Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "棋譜解析中☆");
+                throw ex;
+            }
         }
 
     }

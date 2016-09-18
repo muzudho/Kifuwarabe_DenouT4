@@ -21,17 +21,17 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
             ref Sky positionA,//指定局面
             ref Move move,//TODO:取った駒があると、上書きされる
             string hint,
-            KwLogger errH
+            KwLogger logger
             )
         {
             bool log = true;
 
             if (log)
             {
-                errH.AppendLine("進める前 "+ hint);
+                logger.AppendLine("進める前 "+ hint);
                 //errH.Append(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(pos1)));
-                errH.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(positionA), positionA, move));
-                errH.Flush(LogTypes.Plain);
+                logger.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(positionA,logger), positionA, move));
+                logger.Flush(LogTypes.Plain);
             }
 
             Util_IttesasuSuperRoutine.DoMove_Super(
@@ -43,14 +43,14 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
 
                     Conv_Move.ToDstMasu(move),//移動先升
                     Conv_Move.ToPromotion(move),//成るか。
-                    errH
+                    logger
                 );
 
             if (log)
             {
-                errH.AppendLine("進めた後 "+ hint);
-                errH.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(positionA), positionA, move));
-                errH.Flush(LogTypes.Plain);
+                logger.AppendLine("進めた後 "+ hint);
+                logger.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(positionA,logger), positionA, move));
+                logger.Flush(LogTypes.Plain);
             }
         }
 

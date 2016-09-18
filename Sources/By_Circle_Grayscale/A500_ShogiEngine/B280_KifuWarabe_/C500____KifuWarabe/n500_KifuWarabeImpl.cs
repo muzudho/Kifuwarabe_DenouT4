@@ -781,6 +781,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             {
                 // エラー：どうにもできないので  ログだけ取って無視します。
                 Util_Loggers.ProcessEngine_DEFAULT.DonimoNaranAkirameta("Program「position」：" + ex.GetType().Name + "：" + ex.Message);
+                throw ex;
             }
 
             return PhaseResult_Usi_Loop2.None;
@@ -832,6 +833,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
                 // どうにもできないので  ログだけ取って無視します。
                 Util_Loggers.ProcessEngine_DEFAULT.DonimoNaranAkirameta("Program「go ponder」：" + ex.GetType().Name + "：" + ex.Message);
+                throw ex;
             }
 
             return PhaseResult_Usi_Loop2.None;
@@ -1175,8 +1177,9 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
                             // どうにもできないので  ログだけ取って無視します。
                             Util_Loggers.ProcessEngine_DEFAULT.DonimoNaranAkirameta("Program「go」：" + ex.GetType().Name + " " + ex.Message + "：goを受け取ったときです。：");
+                            throw ex;//追加
                         }
-                        break;
+                        //break;
                 }
             }
 
@@ -1284,6 +1287,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
                 // どうにもできないので  ログだけ取って無視します。
                 Util_Loggers.ProcessEngine_DEFAULT.DonimoNaranAkirameta("Program「stop」：" + ex.GetType().Name + " " + ex.Message);
+                throw ex;//追加
             }
 
             return PhaseResult_Usi_Loop2.None;
@@ -1623,7 +1627,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 {
                     case 1000:
                         Util_Loggers.ProcessEngine_DEFAULT.DonimoNaranAkirameta("フィーチャーベクターCSVを読み込んでいるとき。" + ex.GetType().Name + "：" + ex.Message);
-                        break;
+                        throw ex;
+                        //break;
                 }
                 throw ex;
             }

@@ -145,7 +145,10 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
                     logF_kiki.boards.Clear();
                 }
             }
-            catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "局面評価明細を出力しようとしたときです。"); throw ex; }
+            catch (Exception ex) {
+                errH.DonimoNaranAkirameta(ex, "局面評価明細を出力しようとしたときです。");
+                throw ex;
+            }
 #endif
         }
 
@@ -229,7 +232,8 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
             }
             catch (System.Exception ex)
             {
-                errH.DonimoNaranAkirameta(ex, "盤１個分のログを出力しようとしていたときです。\n fileName=[" + fileName + "]\n relFolder=[" + relFolder + "]"); throw ex;
+                errH.DonimoNaranAkirameta(ex, "盤１個分のログを出力しようとしていたときです。\n fileName=[" + fileName + "]\n relFolder=[" + relFolder + "]");
+                throw ex;
             }
         }
     }

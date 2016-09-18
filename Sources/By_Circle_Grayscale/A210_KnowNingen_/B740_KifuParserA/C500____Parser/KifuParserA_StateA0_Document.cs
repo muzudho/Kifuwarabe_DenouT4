@@ -97,7 +97,10 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 }
 
             }
-            catch (Exception ex) { Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "棋譜ドキュメント解析中☆"); throw ex; }
+            catch (Exception ex) {
+                Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "棋譜ドキュメント解析中☆");
+                throw ex;
+            }
 
 
             return genjo.InputLine;

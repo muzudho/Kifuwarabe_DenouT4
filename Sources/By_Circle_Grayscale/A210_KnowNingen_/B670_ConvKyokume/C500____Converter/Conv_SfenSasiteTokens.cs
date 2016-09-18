@@ -51,7 +51,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             out Move move,
             Sky src_Sky,//KifuTree kifu,//Node<Move, Sky> siteiNode = kifu.CurNode;Sky src_Sky = siteiNode.Value.Kyokumen;
             string hint,
-            KwLogger errH
+            KwLogger logger
             )
         {
             move = Move.Empty;
@@ -121,12 +121,13 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                     koma = Util_Sky_FingerQuery.InOkibaSyuruiNow_IgnoreCase(
                         src_Sky,// siteiNode.Value.Kyokumen,
                         Conv_Playerside.ToKomadai(pside1),//FIXME:
-                        uttaSyurui, errH);
+                        uttaSyurui, logger);
                     if (Fingers.Error_1 == koma)
                     {
                         string message = "TuginoItte_Sfen#GetData_FromTextSub：駒台から種類[" + uttaSyurui + "]の駒を掴もうとしましたが、エラーでした。";
                         Exception ex = new Exception(message);
-                        Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "moves解析中☆"); throw ex;
+                        Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "moves解析中☆");
+                        throw ex;
                     }
 
 
@@ -184,7 +185,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
 
                         // どんな局面なのか？
                         {
-                            sb.AppendLine("局面=sfen " + Util_StartposExporter.ToSfenstring(Conv_Sky.ToShogiban(src_Sky), true));
+                            sb.AppendLine("局面=sfen " + Util_StartposExporter.ToSfenstring(Conv_Sky.ToShogiban(src_Sky,logger), true));
                         }
 
                         sb.Append(Util_Sky307.Json_1Sky(src_Sky, "エラー駒になったとき",
@@ -192,7 +193,8 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                             src_Sky.Temezumi));
 
                         Exception ex = new Exception(sb.ToString());
-                        Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "SFEN解析中の失敗"); throw ex;
+                        Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "SFEN解析中の失敗");
+                        throw ex;
                     }
                 }
 
@@ -226,7 +228,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
 
                     Finger srcKoma = Util_Sky_FingerQuery.InOkibaSyuruiNow_IgnoreCase(
                         src_Sky,// siteiNode.Value.Kyokumen,
-                        srcOkiba, srcSyurui, errH);
+                        srcOkiba, srcSyurui, logger);
 
                     src_Sky.AssertFinger(srcKoma);
                     Busstop dstKoma = src_Sky.BusstopIndexOf(srcKoma);
@@ -276,7 +278,10 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                     false
                 );
             }
-            catch (Exception ex) { Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "moves解析中☆　str1=「" + str1 + "」　str2=「" + str2 + "」　str3=「" + str3 + "」　str4=「" + str4 + "」　strNari=「" + strNari + "」　"); throw ex; }
+            catch (Exception ex) {
+                Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "moves解析中☆　str1=「" + str1 + "」　str2=「" + str2 + "」　str3=「" + str3 + "」　str4=「" + str4 + "」　strNari=「" + strNari + "」　");
+                throw ex;
+            }
         }
     }
 }

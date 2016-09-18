@@ -8916,4 +8916,13 @@ pside=先手 打 dst=２四 srcKs=歩 dstKs=歩 captured=×
 
 
 Error:戻した後 A900_IfMate
-ArgumentException 同一のキーを含む項目が既に追加されています。：探索深さルーチンでエラー☆ exceptionArea=300012
+ArgumentException 同一のキーを含む項目が既に追加されています。：王手回避漏れを除外しているときだぜ☆（＾▽＾） exception_area=20000
+Error:戻す前 C900
+ArgumentException 同一のキーを含む項目が既に追加されています。：棋譜ツリーで例外です(A)。exceptionArea=6000 entry.Key=7b8b 指し手候補=7b8b,
+7b6b,4b5b,4b6b,4b3b,4a5b,4a5a,4a3b,6a6b,6a5a,6a5b,3a3b,7a8b,7a6b,1a1b,9a9b,
+1c1d,3c3d,4c4d,5c5d,6c6d,7c7d,8c8d,9c9d,
+Error:ArgumentException 同一のキーを含む項目が既に追加されています。：棋譜ツリーで例外です(B)。exceptionArea=6000
+Error:ArgumentException 同一のキーを含む項目が既に追加されています。：棋譜ツリーの読みの中盤５０です。：
+Error:ArgumentException 同一のキーを含む項目が既に追加されています。：棋譜ツリーを作っていたときです。
+Error:ArgumentException 同一のキーを含む項目が既に追加されています。：マルチＰＶから、ベスト指し手をチョイスしようとしたときの１０です。
+Error:エラー：Program「大外枠でキャッチ」：ArgumentException 同一のキーを含む項目が既に追加されています。

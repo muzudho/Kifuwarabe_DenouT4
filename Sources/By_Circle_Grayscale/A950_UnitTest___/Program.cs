@@ -29,7 +29,7 @@ namespace Grayscale.A950_UnitTest___
             Sky position_Sky = Util_SkyCreator.New_Hirate();
 
             // 盤面をログ出力したいぜ☆
-            logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(position_Sky)));
+            logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(position_Sky,logger)));
             logger.Flush(LogTypes.Plain);
             MachineImpl.GetInstance().ReadKey();
 
@@ -58,7 +58,7 @@ namespace Grayscale.A950_UnitTest___
 
                 // 盤面をログ出力したいぜ☆
                 logger.AppendLine("sfen=[" + Conv_Move.ToSfen(move) + "] captured=["+Conv_Komasyurui.ToStr_Ichimoji(Conv_Move.ToCaptured(move))+"]");
-                logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(position_Sky)));
+                logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(position_Sky,logger)));
                 logger.Flush(LogTypes.Plain);
                 MachineImpl.GetInstance().ReadKey();
             }
@@ -87,7 +87,7 @@ namespace Grayscale.A950_UnitTest___
 
                 // 盤面をログ出力したいぜ☆
                 logger.AppendLine("back sfen=[" + Conv_Move.ToSfen(moved) + "] captured=[" + Conv_Komasyurui.ToStr_Ichimoji(Conv_Move.ToCaptured(moved)) + "]");
-                logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(position_Sky)));
+                logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(position_Sky,logger)));
                 logger.Flush(LogTypes.Plain);
                 MachineImpl.GetInstance().ReadKey();
             }

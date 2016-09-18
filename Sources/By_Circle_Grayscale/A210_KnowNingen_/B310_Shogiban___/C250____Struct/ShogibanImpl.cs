@@ -7,8 +7,8 @@ using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
-
+using System;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct
 {
@@ -22,17 +22,26 @@ namespace Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct
             this.m_komabukuroSu_ = new int[(int)PieceTypes.Num];
         }
 
-        public void AddKoma(SyElement masu, Busstop koma)
+        public void AddKoma(SyElement masu, Busstop koma, KwLogger errH)
         {
-
             Debug.Assert(!this.ContainsBanjoKoma(Conv_SyElement.ToMasuNumber(masu)), "既に駒がある枡に、駒を置こうとしています。[" + Conv_SyElement.ToMasuNumber(masu) + "]");
 
-            this.BanjoKomas.Add(Conv_SyElement.ToMasuNumber(masu), koma);
+            try
+            {
+                // まだ古い仕様なので、とりあえず追加
+                this.BanjoKomas.Add(Conv_SyElement.ToMasuNumber(masu), koma);
+            }
+            catch (Exception ex)
+            {
+                errH.DonimoNaranAkirameta(ex,"将棋盤ログを作っているとき☆（＾▽＾）");
+                throw ex;
+            }
 
 
             if (Conv_MasuHandle.OnShogiban(Conv_SyElement.ToMasuNumber(masu)))
             {
                 // 盤上
+                // TODO:ほんとはここで追加したい this.BanjoKomas.Add(Conv_SyElement.ToMasuNumber(masu), koma);
 
                 // 特にカウントはなし
             }

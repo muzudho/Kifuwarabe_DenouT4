@@ -330,7 +330,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
 #if DEBUG
                     case 20:
                         {
-                            errH.DonimoNaranAkirameta(ex, "棋譜ツリーの読みの後半９０です。"); throw ex;
+                            errH.DonimoNaranAkirameta(ex, "棋譜ツリーの読みの後半９０です。");
+                            throw ex;
                         }
 #endif
                     default: throw ex;
@@ -400,7 +401,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         }
                         catch (Exception ex)
                         {
-                            errH.DonimoNaranAkirameta(ex, "ベストムーブ／ハイスコア抽出中 exception_area=[" + exception_area + "]"); throw ex;
+                            errH.DonimoNaranAkirameta(ex, "ベストムーブ／ハイスコア抽出中 exception_area=[" + exception_area + "]");
+                            throw ex;
                         }
                     }
 
@@ -443,13 +445,17 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                 }
                 catch (Exception ex)
                 {
-                    errH.DonimoNaranAkirameta(ex, "ベストムーブ／ハイスコア抽出中 exception_area=[" + exception_area + "]"); throw ex;
+                    errH.DonimoNaranAkirameta(ex, "ベストムーブ／ハイスコア抽出中 exception_area=[" + exception_area + "]");
+                    throw ex;
                 }
 
                 gt_EndSort:
                 ;
             }
-            catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "ベストムーブ後半２０：ハイスコア抽出"); throw ex; }
+            catch (Exception ex) {
+                errH.DonimoNaranAkirameta(ex, "ベストムーブ後半２０：ハイスコア抽出");
+                throw ex;
+            }
 
 
             // 評価値の同点があれば、同点決勝をして　1手に決めます。
@@ -467,7 +473,10 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     }
                 }
             }
-            catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "ベストムーブ後半３０：同点決勝"); throw ex; }
+            catch (Exception ex) {
+                errH.DonimoNaranAkirameta(ex, "ベストムーブ後半３０：同点決勝");
+                throw ex;
+            }
 
             return bestmoveEx;
         }
@@ -678,6 +687,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         exceptionArea = 4020;
 
                         // 局面
+                        Move mov2_old = mov2;
                         Util_IttesasuSuperRoutine.DoMove_Super(
                                 ref positionA,//指定局面
                                 ref mov2,
@@ -688,12 +698,25 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
 
                         exceptionArea = 44011;
 
-                        // 自分を親要素につなげたあとで、子を検索するぜ☆（＾～＾）
-                        nod1.Children1.AddItem(
-                            mov2,
-                            nod2,
-                            nod1 // ツリーを伸ばしているぜ☆（＾～＾）
-                        );
+                        try
+                        {
+                            // 自分を親要素につなげたあとで、子を検索するぜ☆（＾～＾）
+                            nod1.Children1.AddItem(
+                                mov2,
+                                nod2,
+                                nod1 // ツリーを伸ばしているぜ☆（＾～＾）
+                            );
+                        }
+                        catch (Exception ex)
+                        {
+                            errH.DonimoNaranAkirameta(ex, "指し手をツリーに追加したとき。\n"+
+                                "mov2_old=" + Conv_Move.ToLog(mov2_old)+
+                                "mov2    =" + Conv_Move.ToLog(mov2)
+                                );
+                            throw ex;//追加
+                        }
+
+                        exceptionArea = 44012;
 
                         // これを呼び出す回数を減らすのが、アルファ法。
                         // 枝か、葉か、確定させにいきます。
@@ -800,14 +823,16 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         errH.DonimoNaranAkirameta(ex, "棋譜ツリーで例外です(A)。exceptionArea=" + exceptionArea
                             + " entry.Key=" + Conv_Move.ToSfen(mov2)
                             //+ " node_yomi.CountAllNodes=" + node_yomi_KAIZOMAE.CountAllNodes()
-                            + " 指し手候補="+sb.ToString()); throw ex;
+                            + " 指し手候補="+sb.ToString());
+                        throw ex;
 
                     }
                 }
             }
             catch (Exception ex)
             {
-                errH.DonimoNaranAkirameta(ex, "棋譜ツリーで例外です(B)。exceptionArea=" + exceptionArea); throw ex;
+                errH.DonimoNaranAkirameta(ex, "棋譜ツリーで例外です(B)。exceptionArea=" + exceptionArea);
+                throw ex;
             }
 
             return mov3;
@@ -836,7 +861,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             }
             catch (Exception ex)
             {
-                errH.DonimoNaranAkirameta(ex, "棋譜ツリーの読みループの作成次ノードの前半２０です。"); throw ex;
+                errH.DonimoNaranAkirameta(ex, "棋譜ツリーの読みループの作成次ノードの前半２０です。");
+                throw ex;
             }
         }
         private static void Log2(
@@ -860,7 +886,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             }
             catch (Exception ex)
             {
-                errH.DonimoNaranAkirameta(ex, "棋譜ツリーの読みループの作成次ノードの前半４０です。"); throw ex;
+                errH.DonimoNaranAkirameta(ex, "棋譜ツリーの読みループの作成次ノードの前半４０です。");
+                throw ex;
             }
         }
 #endif

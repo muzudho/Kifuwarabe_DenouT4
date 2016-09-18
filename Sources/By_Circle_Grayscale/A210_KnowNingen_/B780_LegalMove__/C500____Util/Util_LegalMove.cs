@@ -63,64 +63,93 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             string hint,
             KwLogger errH)
         {
-            KifuNode hubNode = Conv_StarbetuSasites.ToNextNodes_AsHubNode(
-                genTeban_komabetuAllMoves1,
-                positionA,
-                errH
-                );// ハブ・ノード自身はダミーノードなんだが、子ノードに、次のノードが入っている。
+            Maps_OneAndOne<Finger, SySet<SyElement>> starbetuSusumuMasus = new Maps_OneAndOne<Finger, SySet<SyElement>>();// 「どの星を、どこに進める」の一覧
 
-            if (isHonshogi)
+            long exception_area = 10000;
+            try
             {
-                // 王手が掛かっている局面を除きます。
-
-                Util_LegalMove.LAA_RemoveNextNode_IfMate(
-                    yomikaisiTemezumi,
-                    hubNode,
-                    positionA.Temezumi,
-                    positionA.KaisiPside,
+                KifuNode hubNode = Conv_StarbetuSasites.ToNextNodes_AsHubNode(
+                    genTeban_komabetuAllMoves1,
                     positionA,
+                    errH
+                    );// ハブ・ノード自身はダミーノードなんだが、子ノードに、次のノードが入っている。
 
+                exception_area = 20000;
+
+                if (isHonshogi)
+                {
+                    // 王手が掛かっている局面を除きます。
+
+                    Util_LegalMove.LAA_RemoveNextNode_IfMate(
+                        yomikaisiTemezumi,
+                        hubNode,
+                        positionA.Temezumi,
+                        positionA.KaisiPside,
+                        positionA,
 #if DEBUG
                     logF_kiki,
 #endif
                     errH);
-            }
-
-
-            // 「指し手一覧」を、「星別の全指し手」に分けます。
-            Maps_OneAndMulti<Finger, Move> starbetuAllSasites2 = Util_Sky258A.SplitSasite_ByStar(positionA,
-                Util_Tree.CreateChlidMoves(hubNode),
-                errH);
-
-            //
-            // 「星別の指し手一覧」を、「星別の進むマス一覧」になるよう、データ構造を変換します。
-            //
-            Maps_OneAndOne<Finger, SySet<SyElement>> starbetuSusumuMasus = new Maps_OneAndOne<Finger, SySet<SyElement>>();// 「どの星を、どこに進める」の一覧
-            foreach (KeyValuePair<Finger, List<Move>> entry in starbetuAllSasites2.Items)
-            {
-                Finger finger = entry.Key;
-                List<Move> moveList = entry.Value;
-
-                // ポテンシャル・ムーブを調べます。
-                SySet<SyElement> masus_PotentialMove = new SySet_Default<SyElement>("ポテンシャルムーブ");
-                foreach (Move move in moveList)
-                {
-                    SyElement dstMasu = Conv_Move.ToDstMasu(move);
-
-                    masus_PotentialMove.AddElement(dstMasu);
                 }
 
-                if (!masus_PotentialMove.IsEmptySet())
-                {
-                    // 空でないなら
-                    Util_Sky258A.AddOverwrite(starbetuSusumuMasus, finger, masus_PotentialMove);
-                }
-            }
+                exception_area = 30000;
 
-            // FIXME: デバッグ用
-            foreach (Finger key in starbetuSusumuMasus.ToKeyList())
+                // 「指し手一覧」を、「星別の全指し手」に分けます。
+                Maps_OneAndMulti<Finger, Move> starbetuAllSasites2 = Util_Sky258A.SplitSasite_ByStar(positionA,
+                    Util_Tree.CreateChlidMoves(hubNode),
+                    errH);
+
+                exception_area = 40000;
+
+                //
+                // 「星別の指し手一覧」を、「星別の進むマス一覧」になるよう、データ構造を変換します。
+                //
+                foreach (KeyValuePair<Finger, List<Move>> entry in starbetuAllSasites2.Items)
+                {
+                    Finger finger = entry.Key;
+                    List<Move> moveList = entry.Value;
+
+                    exception_area = 500011;
+
+                    // ポテンシャル・ムーブを調べます。
+                    SySet<SyElement> masus_PotentialMove = new SySet_Default<SyElement>("ポテンシャルムーブ");
+                    try
+                    {
+                        foreach (Move move in moveList)
+                        {
+                            SyElement dstMasu = Conv_Move.ToDstMasu(move);
+                            masus_PotentialMove.AddElement(dstMasu);
+                        }
+                    }
+                    catch (Exception ex2)
+                    {
+                        errH.DonimoNaranAkirameta(ex2,"ポテンシャルムーブを調べているときだぜ☆（＾▽＾）");
+                        throw ex2;
+                    }
+
+
+                    exception_area = 60000;
+
+                    if (!masus_PotentialMove.IsEmptySet())
+                    {
+                        // 空でないなら
+                        Util_Sky258A.AddOverwrite(starbetuSusumuMasus, finger, masus_PotentialMove);
+                    }
+                }
+
+                exception_area = 70000;
+
+                // FIXME: デバッグ用
+                foreach (Finger key in starbetuSusumuMasus.ToKeyList())
+                {
+                    positionA.AssertFinger(key);
+                }
+
+            }
+            catch (Exception ex)
             {
-                positionA.AssertFinger(key);
+                errH.DonimoNaranAkirameta(ex, "王手回避漏れを除外しているときだぜ☆（＾▽＾） exception_area="+ exception_area);
+                throw ex;
             }
 
             return starbetuSusumuMasus;
@@ -148,43 +177,59 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
 
             hubNode.Children1.Foreach_ChildNodes3((Move move, ref bool toBreak) =>
             {
-                Util_IttesasuSuperRoutine.DoMove_Super(
-                        ref positionA,//指定局面
-                        ref move,
-                        "A100_IfMate",
-                        errH
-                );
+                long exception_area = 10000;
+                try
+                {
+                    Util_IttesasuSuperRoutine.DoMove_Super(
+                            ref positionA,//指定局面
+                            ref move,
+                            "A100_IfMate",
+                            errH
+                    );
 
-                // 王様が利きに飛び込んだか？
-                bool kingSuicide = Util_LegalMove.LAAA_KingSuicide(
-                    yomikaisiTemezumi,
-                    positionA,
-                    temezumi_yomiGenTeban_forLog,
-                    pside_genTeban,//現手番＝攻め手視点
+                    exception_area = 30000;
+
+                    // 王様が利きに飛び込んだか？
+                    bool kingSuicide = Util_LegalMove.LAAA_KingSuicide(
+                        yomikaisiTemezumi,
+                        positionA,
+                        temezumi_yomiGenTeban_forLog,
+                        pside_genTeban,//現手番＝攻め手視点
 #if DEBUG
                     logF_kiki,
 #endif
                     move,
-                    errH
-                    );
+                        errH
+                        );
 
-                if (!kingSuicide)
-                {
-                    // 王様が利きに飛び込んでいない局面だけ、残します。
-                    restNodes.Add(move);
+                    exception_area = 40000;
+
+                    if (!kingSuicide)
+                    {
+                        // 王様が利きに飛び込んでいない局面だけ、残します。
+                        restNodes.Add(move);
+                    }
+
+                    exception_area = 5000110;
+
+                    IttemodosuResult ittemodosuResult;
+                    Util_IttemodosuRoutine.UndoMove(
+                        out ittemodosuResult,
+                        move,//この関数が呼び出されたときの指し手☆（＾～＾）
+                        positionA,
+                        "A900_IfMate",
+                        errH
+                        );
+                    positionA = ittemodosuResult.SyuryoSky;
                 }
-
-                IttemodosuResult ittemodosuResult;
-                Util_IttemodosuRoutine.UndoMove(
-                    out ittemodosuResult,
-                    move,//この関数が呼び出されたときの指し手☆（＾～＾）
-                    positionA,
-                    "A900_IfMate",
-                    errH
-                    );
-                positionA = ittemodosuResult.SyuryoSky;
+                catch (Exception ex)
+                {
+                    errH.DonimoNaranAkirameta(ex,
+                        "ノードを削除しているときだぜ☆（＾▽＾） exception_area=" + exception_area +
+                        "\nmove=" + Conv_Move.ToLog(move));
+                    throw ex;
+                }
             });
-
 
             // 入替え
             hubNode.Children1.SetItems_New(restNodes, hubNode);
@@ -425,7 +470,10 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
                     sMs_effect.AddRange_New( kmEffect_seme_BANJO);
 
                 }
-                catch (Exception ex) { errH.DonimoNaranAkirameta(ex, "ランダムチョイス(50)"); throw ex; }
+                catch (Exception ex) {
+                    errH.DonimoNaranAkirameta(ex, "ランダムチョイス(50)");
+                    throw ex;
+                }
 
             }
 

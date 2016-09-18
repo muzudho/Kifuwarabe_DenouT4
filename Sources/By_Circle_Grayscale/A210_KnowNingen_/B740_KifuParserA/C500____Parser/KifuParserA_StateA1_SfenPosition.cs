@@ -88,7 +88,10 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     nextState = KifuParserA_StateA1b_SfenLnsgkgsnl.GetInstance();
                 }
             }
-            catch (Exception ex) { Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "positionの解析中。"); throw ex; }
+            catch (Exception ex) {
+                Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "positionの解析中。");
+                throw ex;
+            }
 
             return genjo.InputLine;
         }
