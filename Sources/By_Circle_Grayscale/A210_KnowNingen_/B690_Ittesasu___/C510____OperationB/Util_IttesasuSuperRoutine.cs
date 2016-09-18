@@ -26,15 +26,15 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
             )
         {
             bool successful = true;
-            bool log = false;
-
+            bool log = true;
+            //*
             if (log)
             {
                 logger.AppendLine("進める前 "+ hint);
-                //errH.Append(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(pos1)));
                 logger.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(positionA,logger), positionA, move));
                 logger.Flush(LogTypes.Plain);
             }
+            //*/
 
             Fingers fingers = Util_Sky_FingersQuery.InMasuNow_New(positionA, move);
 

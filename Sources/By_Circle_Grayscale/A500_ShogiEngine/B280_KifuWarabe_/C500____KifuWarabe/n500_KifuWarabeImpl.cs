@@ -41,6 +41,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
 
 #if DEBUG
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
@@ -70,7 +71,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             // 製品名
             this.seihinName = ((System.Reflection.AssemblyProductAttribute)Attribute.GetCustomAttribute(System.Reflection.Assembly.GetExecutingAssembly(), typeof(System.Reflection.AssemblyProductAttribute))).Product;
 
-            this.ErrH = Util_Loggers.ProcessEngine_DEFAULT;
+            this.Logger = Util_Loggers.ProcessEngine_DEFAULT;
 
             //-------------+----------------------------------------------------------------------------------------------------------
             // データ設計  |
@@ -200,7 +201,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
         public string SeihinName { get { return this.seihinName; } }
         private string seihinName;
 
-        public KwLogger ErrH { get; set; }
+        public KwLogger Logger { get; set; }
 
         /// <summary>
         /// 読み筋を格納する配列の容量。
@@ -615,8 +616,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             if (null != line)
             {
                 // 通信ログは必ず取ります。
-                this.ErrH.AppendLine(line);
-                this.ErrH.Flush(LogTypes.ToClient);
+                this.Logger.AppendLine(line);
+                this.Logger.Flush(LogTypes.ToClient);
 
 #if NOOPABLE
                 if (this.owner.Option_enable_serverNoopable)
@@ -918,7 +919,15 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 // MessageBox.Show("["+latestTemezumi+"]手目済　["+this.owner.PlayerInfo.Playerside+"]の手番");
                 //#endif
 
-                Sky src_Sky = this.Kifu_AtLoop2.NodeAt(latestTemezumi).GetNodeValue();//現局面
+                Sky positionA = this.Kifu_AtLoop2.NodeAt(latestTemezumi).GetNodeValue();//現局面
+
+                bool test = true;
+                if (test)
+                {
+                    this.Logger.AppendLine("サーバーから受信した局面☆（＾▽＾）");
+                    this.Logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(positionA, Logger)));
+                    this.Logger.Flush(LogTypes.Plain);
+                }
 
                 //errH2.Logger.WriteLine_AddMemo("将棋サーバー「" + latestTemezumi + "手目、きふわらべ　さんの手番ですよ！」　" + line);
 
@@ -930,11 +939,11 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 {
                     result_kingState = Result_KingState.Empty;
 
-                    src_Sky.AssertFinger(Finger_Honshogi.SenteOh);
-                    Busstop king1p = src_Sky.BusstopIndexOf(Finger_Honshogi.SenteOh);
+                    positionA.AssertFinger(Finger_Honshogi.SenteOh);
+                    Busstop king1p = positionA.BusstopIndexOf(Finger_Honshogi.SenteOh);
 
-                    src_Sky.AssertFinger(Finger_Honshogi.GoteOh);
-                    Busstop king2p = src_Sky.BusstopIndexOf(Finger_Honshogi.GoteOh);
+                    positionA.AssertFinger(Finger_Honshogi.GoteOh);
+                    Busstop king2p = positionA.BusstopIndexOf(Finger_Honshogi.GoteOh);
                     //OwataMinister.WARABE_ENGINE.Logger.WriteLine_AddMemo("将棋サーバー「ではここで、王さまがどこにいるか確認してみましょう」");
                     //OwataMinister.WARABE_ENGINE.Logger.WriteLine_AddMemo("▲王の置き場＝" + Conv_Masu.Masu_ToOkiba(koma1.Masu));
                     //OwataMinister.WARABE_ENGINE.Logger.WriteLine_AddMemo("△王の置き場＝" + Conv_Masu.Masu_ToOkiba(koma2.Masu));
@@ -1027,7 +1036,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                                         this.Kifu_AtLoop2,// ツリーを伸ばしているぜ☆（＾～＾）
                                         this.PositionA,
 
-                                        this.ErrH)
+                                        this.Logger)
                                         );
                                 }
 
@@ -1138,7 +1147,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                             //------------------------------------------------------------
                             // 以前の手カッター
                             //------------------------------------------------------------
-                            Util_KifuTree282.IzennoHenkaCutter(this.Kifu_AtLoop2, this.ErrH);
+                            Util_KifuTree282.IzennoHenkaCutter(this.Kifu_AtLoop2, this.Logger);
                         }
                         break;
                 }
@@ -1540,7 +1549,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 //------------------------------------------------------------------------------------------------------------------------
                 {
                     this.Shogisasi = new ShogisasiImpl(this);
-                    Util_FvLoad.OpenFv(this.Shogisasi.FeatureVector, Const_Filepath.m_EXE_TO_CONFIG + "fv/fv_00_Komawari.csv", this.ErrH);
+                    Util_FvLoad.OpenFv(this.Shogisasi.FeatureVector, Const_Filepath.m_EXE_TO_CONFIG + "fv/fv_00_Komawari.csv", this.Logger);
                 }
 
 

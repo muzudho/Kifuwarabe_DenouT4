@@ -32,7 +32,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C___005_Usi_Loop
         /// </summary>
         EngineOptions EngineOptions { get; set; }
 
-        KwLogger ErrH { get; set; }
+        KwLogger Logger { get; set; }
         
         /// <summary>
         /// 将棋エンジンの中の一大要素「思考エンジン」です。
