@@ -145,19 +145,6 @@ namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter
 
 
 
-        public static SyElement GetKomasyuruiMasu(Sky src_Sky, Komasyurui14 syurui)
-        {
-            Fingers figKomas = new Fingers();
-
-            foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)
-            {
-                src_Sky.AssertFinger(figKoma);
-                Busstop koma = src_Sky.BusstopIndexOf(figKoma);
-                return Conv_Busstop.ToMasu(koma);
-            }
-
-            return Masu_Honshogi.Query_Basho(Masu_Honshogi.nError);
-        }
 
         /// <summary>
         /// 
@@ -196,10 +183,25 @@ namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter
 
             return masuHandle;
         }
-        public static int ToMasuHandle_FromBangaiKomasyurui(Okiba okiba, Komasyurui14 ks14, Sky positionA)
+        public static int ToMasuHandle_FromKomadaiKomasyurui_First(Playerside pside, Komasyurui14 ks14, Sky positionA)
         {
-            int masuHandle = ERROR_MASU_HANDLE;
+            Fingers figKomas = new Fingers();
 
+            foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)
+            {
+                positionA.AssertFinger(figKoma);
+                Busstop koma = positionA.BusstopIndexOf(figKoma);
+
+                if (Conv_Busstop.ToKomadai(koma) && pside == Conv_Busstop.ToPlayerside(koma))
+                {
+                    SyElement masu = Conv_Busstop.ToMasu(koma);
+                    return Conv_Masu.ToMasuHandle(masu);
+                }
+            }
+
+            return Masu_Honshogi.nError;
+
+            /*
             switch (okiba)
             {
                 case Okiba.Sente_Komadai:
@@ -207,16 +209,15 @@ namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter
                 case Okiba.KomaBukuro:
                     if (ks14 != Komasyurui14.H00_Null___)
                     {
-                        SyElement masu = Conv_Masu.GetKomasyuruiMasu(positionA, ks14);
-                        masuHandle = Conv_Masu.ToMasuHandle(masu);
+                        SyElement masu = Conv_Masu.ToMasu_FromDokodemoKomasyurui(ks14, positionA);
+                        return Conv_Masu.ToMasuHandle(masu);
                     }
                     break;
-
                 default:
                     break;
             }
-
-            return masuHandle;
+            return ERROR_MASU_HANDLE;
+            */
         }
 
         /// <summary>
@@ -254,9 +255,22 @@ namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter
                 return Masu_Honshogi.Query_Basho(Masu_Honshogi.nError);//範囲外が指定されることもあります。
             }
         }
-        public static SyElement ToMasu_FromBangaiKomasyurui(Okiba okiba, Komasyurui14 ks14, Sky positionA)
+        public static SyElement ToMasu_FromDokodemoKomasyurui(Komasyurui14 syurui, Sky positionA)
         {
-            int masuHandle = Conv_Masu.ToMasuHandle_FromBangaiKomasyurui(okiba, ks14, positionA);
+            Fingers figKomas = new Fingers();
+
+            foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)
+            {
+                positionA.AssertFinger(figKoma);
+                Busstop koma = positionA.BusstopIndexOf(figKoma);
+                return Conv_Busstop.ToMasu(koma);
+            }
+
+            return Masu_Honshogi.Query_Basho(Masu_Honshogi.nError);
+        }
+        public static SyElement ToMasu_FromKomadaiKomasyurui(Playerside pside, Komasyurui14 ks14, Sky positionA)
+        {
+            int masuHandle = Conv_Masu.ToMasuHandle_FromKomadaiKomasyurui_First(pside, ks14, positionA);
 
             if (Conv_Masu.Yuko(masuHandle))
             {
@@ -568,7 +582,7 @@ namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter
             {
                 /*
                 case Okiba.ShogiBan:
-                    result = (masuNumber - Conv_Masu.ToMasuNumber(Conv_Okiba.GetFirstMasuFromOkiba(Okiba.ShogiBan))) % 9 + 1;
+                    result = (masuNumber - Conv_Masu.ToMasuHandle(Conv_Okiba.GetFirstMasuFromOkiba(Okiba.ShogiBan))) % 9 + 1;
                     break;
                 */
                 case Okiba.Sente_Komadai:
@@ -603,18 +617,12 @@ namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter
 
         public static int ToMasuHandle(SyElement syElm)
         {
-            int result;
-
             if (syElm is New_Basho)
             {
-                result = ((New_Basho)syElm).MasuNumber;
-            }
-            else
-            {
-                result = Masu_Honshogi.nError;
+                return ((New_Basho)syElm).MasuNumber;
             }
 
-            return result;
+            return Masu_Honshogi.nError;
         }
 
         public static Okiba ToOkiba(SyElement masu)

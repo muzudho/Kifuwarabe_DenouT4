@@ -90,7 +90,7 @@ namespace Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct
             if (Conv_Masu.OnShogiban(Conv_Masu.ToMasuHandle(masu)))
             {
                 // 盤上
-                // TODO:ほんとはここで追加したい this.BanjoKomas.Add(Conv_Masu.ToMasuNumber(masu), koma);
+                // TODO:ほんとはここで追加したい this.BanjoKomas.Add(Conv_Masu.ToMasuHandle(masu), koma);
 
                 // 特にカウントはなし
             }

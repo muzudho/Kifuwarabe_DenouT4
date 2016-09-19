@@ -417,7 +417,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
 
                         Gkl_KomaMasu km = new Gkl_KomaMasu(
                             Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanSeme, Conv_Busstop.ToKomasyurui(koma), ""),
-                            Conv_Masu.ToMasuNumber(Conv_Busstop.ToMasu( koma))
+                            Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu( koma))
                             );
                         boardLog_clone.KomaMasu1.Add(km);
                 }
@@ -428,7 +428,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
 
                         logBrd_kiki.KomaMasu2.Add(new Gkl_KomaMasu(
                             Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanKurau, Conv_Busstop.ToKomasyurui(koma), ""),
-                            Conv_Masu.ToMasuNumber(Conv_Busstop.ToMasu(koma))
+                            Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu(koma))
                             ));
                 }
                 logBrd_kiki = boardLog_clone;

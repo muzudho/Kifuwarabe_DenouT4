@@ -259,7 +259,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
 
                 int suji2;
 
-                Okiba okiba2 = Conv_Masu.ToOkiba(Conv_Masu.ToMasuNumber(Conv_Busstop.ToMasu(koma2)));
+                Okiba okiba2 = Conv_Masu.ToOkiba(Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu(koma2)));
                 if (okiba2 == Okiba.ShogiBan)
                 {
                     Util_MasuNum.TryBanjoMasuToSuji(Conv_Busstop.ToMasu(koma2), out suji2);

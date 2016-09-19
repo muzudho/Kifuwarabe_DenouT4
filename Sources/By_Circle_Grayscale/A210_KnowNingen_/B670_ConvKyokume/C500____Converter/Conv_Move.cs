@@ -270,37 +270,22 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 return Masu_Honshogi.Query_ErrorMasu();
             }
 
-            Okiba okiba;
 
             // 打かどうか。
             if (Conv_Move.ToDrop(move))
             {
                 // 打なら
-                if (Playerside.P1 == Conv_Move.ToPlayerside(move))
-                {
-                    okiba = Okiba.Sente_Komadai;
-                }
-                else if (Playerside.P2 == Conv_Move.ToPlayerside(move))
-                {
-                    okiba = Okiba.Gote_Komadai;
-                }
-                else
+                Playerside pside = Conv_Move.ToPlayerside(move);
+                if (Playerside.Empty == pside)
                 {
                     //TODO: エラーチェック
                     return Masu_Honshogi.Query_ErrorMasu();
                 }
+
+                Komasyurui14 ks14 = Conv_Move.ToSrcKomasyurui(move);
+                return Conv_Masu.ToMasu_FromKomadaiKomasyurui(pside, ks14, positionA);
             }
             else
-            {
-                okiba = Okiba.ShogiBan;
-            }
-
-            //────────────────────────────────────────
-            // 組み立てフェーズ
-            //────────────────────────────────────────
-
-            // 自
-            if (okiba == Okiba.ShogiBan)
             {
                 // 自筋
                 int srcSuji;
@@ -320,10 +305,6 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
 
                 return Conv_Masu.ToMasu_FromBanjoSujiDan(srcSuji, srcDan);
             }
-
-            // 打なら
-            Komasyurui14 ks14 = Conv_Move.ToSrcKomasyurui(move);
-            return Conv_Masu.ToMasu_FromBangaiKomasyurui(okiba, ks14, positionA);
         }
 
 

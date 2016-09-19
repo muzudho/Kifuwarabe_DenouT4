@@ -38,6 +38,24 @@ namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter
 
             return pside;
         }
+        public static Okiba FromPside(Playerside pside)
+        {
+            Okiba okiba;
+            switch (pside)
+            {
+                case Playerside.P2:
+                    okiba = Okiba.Gote_Komadai;
+                    break;
+                case Playerside.P1:
+                    okiba = Okiba.Sente_Komadai;
+                    break;
+                default:
+                    okiba = Okiba.Empty;
+                    break;
+            }
+
+            return okiba;
+        }
 
         public static SyElement GetFirstMasuFromOkiba(Okiba okiba)
         {

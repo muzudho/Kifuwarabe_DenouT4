@@ -47,7 +47,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             long exception_area = 1000140;
             try
             {
-                bool log = true;
+                bool log = false;
                 if (log)
                 {
                     logger.AppendLine("戻す前 " + hint);

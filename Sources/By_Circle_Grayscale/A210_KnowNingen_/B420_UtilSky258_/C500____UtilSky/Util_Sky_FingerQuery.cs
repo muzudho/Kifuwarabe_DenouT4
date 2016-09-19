@@ -74,7 +74,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="komasyurui"></param>
         /// <param name="uc_Main"></param>
         /// <returns>無ければ -1</returns>
-        public static Finger InOkibaSyuruiNow_IgnoreCase(Sky src_Sky, Okiba okiba, Komasyurui14 komasyurui, KwLogger errH)
+        public static Finger InOkibaSyuruiNow_IgnoreCase(Sky positionA, Okiba okiba, Komasyurui14 komasyurui, KwLogger errH)
         {
             Finger found = Fingers.Error_1;
 
@@ -82,8 +82,8 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
 
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
-                src_Sky.AssertFinger(finger);
-                Busstop koma = src_Sky.BusstopIndexOf(finger);
+                positionA.AssertFinger(finger);
+                Busstop koma = positionA.BusstopIndexOf(finger);
 
                 if (Conv_Busstop.ToOkiba(koma) == okiba
                     && Util_Komasyurui14.Matches(Util_Komasyurui14.NarazuCaseHandle(Conv_Busstop.ToKomasyurui(koma)), syuruiNarazuCase))

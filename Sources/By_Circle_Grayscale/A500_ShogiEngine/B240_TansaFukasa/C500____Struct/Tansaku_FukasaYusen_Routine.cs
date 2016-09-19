@@ -880,8 +880,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                 SyElement dstMasu = Conv_Move.ToDstMasu(logBrd_move1.Move);
 
                 // ログ試し
-                logBrd_move1.Arrow.Add(new Gkl_Arrow(Conv_Masu.ToMasuNumber(srcMasu),
-                    Conv_Masu.ToMasuNumber(dstMasu)));
+                logBrd_move1.Arrow.Add(new Gkl_Arrow(Conv_Masu.ToMasuHandle(srcMasu),
+                    Conv_Masu.ToMasuHandle(dstMasu)));
                 genjo.Args.LogF_moveKiki.boards.Add(logBrd_move1);
             }
             catch (Exception ex)

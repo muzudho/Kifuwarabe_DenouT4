@@ -39,25 +39,16 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         public static void DoMove_Normal(
             out IttesasuResult syuryoResult,
             ref Move move1,//このメソッド実行後、取った駒を上書きされることがあるぜ☆（＾▽＾）
-            Sky kaisiSky,// 一手指し、開始局面。
+            Sky positionA,// 一手指し、開始局面。
             KwLogger errH,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
             )
         {
-            // 退避☆
-            Playerside kaisiTebanside = kaisiSky.KaisiPside;//一手指し、開始局面、手番。
-            int syuryoTemezumi = kaisiSky.Temezumi + 1;//1手進める //これから作る局面の、手目済み。
-
-
-
             int exceptionArea = 0;
 
 
-            // 編集対象ノード（巻き戻し時と、進む時で異なる）
-            //Move editNodeRef_Move;
-            Sky editNodeRef_KyokumenW;
             try
             {
                 //------------------------------
@@ -67,20 +58,6 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 syuryoResult = new IttesasuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
 
                 exceptionArea = 1040;
-                //------------------------------
-                // 符号(局面)の追加
-                //------------------------------
-                {
-                    //進むときは、必ずノードの追加と、カレントの移動がある。
-
-                    //現局面ノードのクローンを作成します。
-                    //editNodeRef_Move = kaisiMove;
-                    editNodeRef_KyokumenW = new SkyImpl(kaisiSky);
-                    editNodeRef_KyokumenW.SetKaisiPside(
-                        Conv_Playerside.Reverse(editNodeRef_KyokumenW.KaisiPside));
-                    editNodeRef_KyokumenW.SetTemezumi(syuryoTemezumi);
-                }
-
 
                 exceptionArea = 1050;
                 //------------------------------
@@ -91,8 +68,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 Util_IttesasuRoutine.Do24_UgokasuKoma_IdoSakiHe(
                     out figMovedKoma,
                     move1,
-                    kaisiTebanside,
-                    kaisiSky,
+                    positionA,
                     errH
                     //hint
                     );
@@ -108,7 +84,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     afterStar = Util_IttesasuRoutine.Do36_KomaOnDestinationMasu(
                         dstKs,
                         move1,
-                        editNodeRef_KyokumenW
+                        positionA
                         );
                 }
 
@@ -127,7 +103,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 {
                     Util_IttesasuRoutine.Do61_KomaToru(
                         afterStar,
-                        editNodeRef_KyokumenW,
+                        positionA,
                         out figFoodKoma,
                         out food_koma,
                         out food_pside,
@@ -158,8 +134,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     //------------------------------
                     // 局面データの書き換え
                     //------------------------------
-                    editNodeRef_KyokumenW.SetTemezumi(syuryoTemezumi);
-                    editNodeRef_KyokumenW.AddObjects(
+                    positionA.AddObjects(
                         //
                         // 指した駒と、取った駒
                         //
@@ -182,8 +157,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     //------------------------------------------------------------
 
                     //駒を取って変化しているかもしれない？
-                    editNodeRef_KyokumenW.SetTemezumi(syuryoTemezumi);// これから作る局面の、手目済み。
-                    editNodeRef_KyokumenW.AddObjects(
+                    positionA.AddObjects(
                         //
                         // 指した駒
                         //
@@ -217,9 +191,18 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     );
             }
 
+
+            //------------------------------
+            // 駒を進めてから、先後と手目済を進めること。
+            //------------------------------
+            {
+                positionA.SetKaisiPside(Conv_Playerside.Reverse(positionA.KaisiPside));
+                positionA.SetTemezumi(positionA.Temezumi + 1);
+            }
+
             //
             // ノード
-            syuryoResult.SyuryoKyokumenW = editNodeRef_KyokumenW;
+            syuryoResult.SyuryoKyokumenW = positionA;
             // この変数を返すのがポイント。棋譜とは別に、現局面。
         }
 
@@ -268,9 +251,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         private static void Do24_UgokasuKoma_IdoSakiHe(
             out Finger figMovedKoma,
             Move move,
-            Playerside kaisi_tebanside,
             Sky positionA,
-            KwLogger errH,
+            KwLogger logger,
             //string hint,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -298,18 +280,14 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     //----------
                     exceptionArea = 99002000;
 
-                    SyElement srcMasu = Conv_Move.ToSrcMasu(move, positionA);
-                    Komasyurui14 dstKs14 = Conv_Move.ToDstKomasyurui(move);
-
-                    exceptionArea = 99002100;
-                    // FIXME: 駒台の、どの駒を拾うか？
-                    figMovedKoma = Util_Sky_FingerQuery.InOkibaSyuruiNow_IgnoreCase(
-                        positionA,
-                        Conv_Masu.ToOkiba(srcMasu),
-                        dstKs14,
-                        errH
-                        );
-                    Debug.Assert(figMovedKoma != Fingers.Error_1, "駒を動かせなかった？14");
+                    Fingers fingers = Util_Sky_FingersQuery.InMasuNow_New(positionA, move);
+                    if (fingers.Count < 1)
+                    {
+                        string message = "Util_IttesasuRoutine#Do24:指し手に該当する駒が無かったぜ☆（＾～＾）"+
+                            " move=" + Conv_Move.ToLog(move);
+                        throw new Exception(message);
+                    }
+                    figMovedKoma = fingers.ToFirst();
                 }
                 else
                 {
@@ -328,7 +306,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                         positionA,
                         pside,
                         srcMasu,// 将棋盤上と確定している☆（＾▽＾）
-                        errH
+                        logger
                         );
                     Debug.Assert(figMovedKoma != Fingers.Error_1, "駒を動かせなかった？13");
                 }
@@ -338,7 +316,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 //>>>>> エラーが起こりました。
 
                 // どうにもできないので  ログだけ取って無視します。
-                errH.DonimoNaranAkirameta(ex, "Util_IttesasuRoutine#Sasu24_UgokasuKoma_IdoSakiHe： exceptionArea=" + exceptionArea+"\n"
+                logger.DonimoNaranAkirameta(ex, "Util_IttesasuRoutine#Sasu24_UgokasuKoma_IdoSakiHe： exceptionArea=" + exceptionArea+"\n"
                     //+"hint=["+hint+"]"
                     );
                 throw ex;

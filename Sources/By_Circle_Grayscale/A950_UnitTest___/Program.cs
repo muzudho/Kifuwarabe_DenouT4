@@ -26,72 +26,113 @@ namespace Grayscale.A950_UnitTest___
 
 
 
-            Sky position_Sky = Util_SkyCreator.New_Hirate();
+            Sky positionA = Util_SkyCreator.New_Hirate();
 
             // 盤面をログ出力したいぜ☆
-            logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(position_Sky,logger)));
+            logger.AppendLine("初期局面");
+            logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(positionA, logger)));
             logger.Flush(LogTypes.Plain);
             MachineImpl.GetInstance().ReadKey();
 
 
+            //────────────────────────────────────────
+            // 指し手☆
+            //────────────────────────────────────────
+            string commandLine = "7g7f 8b4b 8h3c+ 2b3c 9i9h 5a6b 7i8h 3c8h 2h8h 6b5a B*4e";
+            // ▲７六歩
+            // "7g7f 3c3d 8h2b+ 3a2b B*8h";
+
+            //────────────────────────────────────────
+            // 分解しながら、局面を進めるぜ☆（＾▽＾）
+            //────────────────────────────────────────
+            logger.AppendLine("commandLine=" + commandLine);
+            logger.Flush(LogTypes.Plain);
+
             List<Move> pv = new List<Move>();
             pv.Add(Move.Empty);// 「同」（※同歩など）を調べるために１つ前を見にくるので、空を入れておく。
-
-            //────────────────────────────────────────
-            // 一手指す☆
-            //────────────────────────────────────────
-            // ▲７六歩
-            string commandLine = "7g7f 3c3d 8h2b+ 3a2b B*8h";
-
-            for (int iPly=1; iPly<6; iPly++)
             {
-                string rest;
-                Move move = Conv_StringMove.ToMove(out rest, commandLine, pv[pv.Count - 1], position_Sky, logger);
-                commandLine = rest;
+                commandLine = commandLine.Trim();
+                while ("" != commandLine)
+                {
+                    string rest;
+                    Move moveA = Conv_StringMove.ToMove(out rest, commandLine, pv[pv.Count - 1], positionA, logger);
+                    commandLine = rest.Trim();
 
-                IttesasuResult syuryoResult;
-                Util_IttesasuRoutine.DoMove_Normal(out syuryoResult,
-                    ref move,// 駒を取った場合、moveは更新される。
-                    position_Sky, logger);
-                position_Sky = syuryoResult.SyuryoKyokumenW;
-                pv.Add(move);
+                    {
+                        IttesasuResult syuryoResult;
+                        Move moveB = moveA;
+                        Util_IttesasuRoutine.DoMove_Normal(out syuryoResult,
+                            ref moveB,// 駒を取った場合、moveは更新される。
+                            positionA, logger);
+                        positionA = syuryoResult.SyuryoKyokumenW;
 
-                // 盤面をログ出力したいぜ☆
-                logger.AppendLine("sfen=[" + Conv_Move.ToSfen(move) + "] captured=["+Conv_Komasyurui.ToStr_Ichimoji(Conv_Move.ToCaptured(move))+"]");
-                logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(position_Sky,logger)));
-                logger.Flush(LogTypes.Plain);
-                MachineImpl.GetInstance().ReadKey();
+                        // 盤面をログ出力したいぜ☆
+                        logger.AppendLine("sfen=[" + Conv_Move.ToSfen(moveB) + "] captured=[" + Conv_Komasyurui.ToStr_Ichimoji(Conv_Move.ToCaptured(moveB)) + "]");
+                        logger.AppendLine(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(positionA, logger),positionA,moveB));
+                        logger.Flush(LogTypes.Plain);
+
+                        while (true)
+                        {
+                            logger.AppendLine("[n]next [d]debug");
+                            logger.Flush(LogTypes.Plain);
+                            char key = MachineImpl.GetInstance().ReadKey();
+                            switch (key)
+                            {
+                                case 'n': goto gt_Next;
+                                case 'd': goto gt_Next;//ここにブレークポイントを仕掛けること。
+                                default: break;
+                            }
+                        }
+                        gt_Next:
+                            ;
+                    }
+                    pv.Add(moveA);
+
+                    logger.AppendLine("commandLine=" + commandLine);
+                    logger.Flush(LogTypes.Plain);
+                }
             }
 
-
-
-
             //────────────────────────────────────────
-            // 一手戻す☆
+            // 逆回転☆（＾▽＾）
             //────────────────────────────────────────
-            for (int iPly = 5; 0<iPly; iPly--)
+            pv.Reverse();
+            foreach (Move move1 in pv)
             {
-                Move moved = pv[pv.Count - 1];
-                pv.RemoveAt(pv.Count - 1);
+                if (Move.Empty != move1)
+                {
+                    IttemodosuResult syuryoResult2;
+                    Util_IttemodosuRoutine.UndoMove(
+                        out syuryoResult2,
+                        move1,
+                        positionA,
+                        "G900",
+                        logger
+                        );
+                    positionA = syuryoResult2.SyuryoSky;
+                    Debug.Assert(null != positionA, "局面がヌル");
 
-                IttemodosuResult syuryoResult2;
-                Util_IttemodosuRoutine.UndoMove(
-                    out syuryoResult2,
-                    moved,
-                    position_Sky,
-                    "G",
-                    logger
-                    );
-                position_Sky = syuryoResult2.SyuryoSky;
-                Debug.Assert(null!= position_Sky, "局面がヌル");
+                    // 盤面をログ出力したいぜ☆
+                    logger.AppendLine("back sfen=[" + Conv_Move.ToSfen(move1) + "] captured=[" + Conv_Komasyurui.ToStr_Ichimoji(Conv_Move.ToCaptured(move1)) + "]");
+                    logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(positionA, logger)));
+                    logger.Flush(LogTypes.Plain);
 
-                // 盤面をログ出力したいぜ☆
-                logger.AppendLine("back sfen=[" + Conv_Move.ToSfen(moved) + "] captured=[" + Conv_Komasyurui.ToStr_Ichimoji(Conv_Move.ToCaptured(moved)) + "]");
-                logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(position_Sky,logger)));
-                logger.Flush(LogTypes.Plain);
-                MachineImpl.GetInstance().ReadKey();
+                    while (true)
+                    {
+                        logger.AppendLine("[b]back [d]debug");
+                        logger.Flush(LogTypes.Plain);
+                        char key = MachineImpl.GetInstance().ReadKey();
+                        switch (key)
+                        {
+                            case 'b': goto gt_Next;
+                            case 'd': goto gt_Next;//ここにブレークポイントを仕掛けること。
+                            default: break;
+                        }
+                    }
+                    gt_Next:
+                    ;
+                }
             }
-
         }
     }
 }

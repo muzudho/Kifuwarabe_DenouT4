@@ -1478,8 +1478,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 SyElement srcMasu = Conv_Move.ToSrcMasu(moveEx.Move);
                 SyElement dstMasu = Conv_Move.ToDstMasu(moveEx.Move);
                 Komasyurui14 captured = Conv_Move.ToCaptured(moveEx.Move);
-                int srcMasuNum = Conv_Masu.ToMasuNumber(srcMasu);
-                int dstMasuNum = Conv_Masu.ToMasuNumber(dstMasu);
+                int srcMasuNum = Conv_Masu.ToMasuHandle(srcMasu);
+                int dstMasuNum = Conv_Masu.ToMasuHandle(dstMasu);
 
                 KyokumenPngArgs_FoodOrDropKoma foodKoma;
                 if (Komasyurui14.H00_Null___ != captured)

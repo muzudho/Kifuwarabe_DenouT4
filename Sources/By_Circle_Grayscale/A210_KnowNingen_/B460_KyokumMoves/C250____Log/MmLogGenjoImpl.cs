@@ -99,7 +99,7 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C250____Log
 
                 Gkl_KomaMasu km = new Gkl_KomaMasu(
                     Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanSeme, Conv_Busstop.ToKomasyurui(koma), ""),
-                    Conv_Masu.ToMasuNumber(Conv_Busstop.ToMasu( koma))
+                    Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu( koma))
                     );
                 boardLog_clone.KomaMasu1.Add(km);
             }
@@ -110,7 +110,7 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C250____Log
 
                 this.BrdMove.KomaMasu2.Add(new Gkl_KomaMasu(
                     Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanKurau, Conv_Busstop.ToKomasyurui(koma), ""),
-                    Conv_Masu.ToMasuNumber(Conv_Busstop.ToMasu(koma))
+                    Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu(koma))
                     ));
             }
 
@@ -120,7 +120,7 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C250____Log
 
                 Gkl_KomaMasu km = new Gkl_KomaMasu(
                     Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanSeme, Conv_Busstop.ToKomasyurui(koma), ""),
-                    Conv_Masu.ToMasuNumber(Conv_Busstop.ToMasu(koma))
+                    Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu(koma))
                     );
                 this.BrdMove.KomaMasu3.Add(km);
             }
@@ -131,7 +131,7 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C250____Log
 
                 this.BrdMove.KomaMasu4.Add(new Gkl_KomaMasu(
                     Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanKurau, Conv_Busstop.ToKomasyurui(koma), ""),
-                    Conv_Masu.ToMasuNumber(Conv_Busstop.ToMasu(koma))
+                    Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu(koma))
                     ));
             }
             this.BrdMove = boardLog_clone;

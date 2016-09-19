@@ -109,7 +109,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
 #if DEBUG
                 MmLogGenjoImpl mm_log_orNull = null;
                 KaisetuBoard logBrd_move1;
-                Tansaku_FukasaYusen_Routine.Log1(genjo, move_ForLog, positionA, out mm_log_orNull, out logBrd_move1, errH);
+                Tansaku_FukasaYusen_Routine.Log1(genjo, move_ForLog, positionA, out mm_log_orNull, out logBrd_move1, logger);
 #endif
 
                 //----------------------------------------
