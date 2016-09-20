@@ -56,11 +56,12 @@ namespace Grayscale.A950_UnitTest___
                 {
                     string rest;
                     Move moveA = Conv_StringMove.ToMove(out rest, commandLine, pv[pv.Count - 1], positionA, logger);
+                    Move moveB;
                     commandLine = rest.Trim();
 
                     {
                         IttesasuResult syuryoResult;
-                        Move moveB = moveA;
+                        moveB = moveA;
                         Util_IttesasuRoutine.DoMove_Normal(out syuryoResult,
                             ref moveB,// 駒を取った場合、moveは更新される。
                             positionA, logger);
@@ -86,11 +87,24 @@ namespace Grayscale.A950_UnitTest___
                         gt_Next:
                             ;
                     }
-                    pv.Add(moveA);
+                    pv.Add(moveB);
 
                     logger.AppendLine("commandLine=" + commandLine);
                     logger.Flush(LogTypes.Plain);
                 }
+            }
+
+            //────────────────────────────────────────
+            // 指し手を全て出力するぜ☆（＾～＾）
+            //────────────────────────────────────────
+            {
+                int i = 0;
+                foreach (Move move in pv)
+                {
+                    logger.AppendLine("["+i+"]" + Conv_Move.ToLog(move));
+                    i++;
+                }
+                logger.Flush(LogTypes.Plain);
             }
 
             //────────────────────────────────────────

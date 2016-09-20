@@ -109,14 +109,14 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="masu">筋、段</param>
         /// <param name="uc_Main">メインパネル</param>
         /// <returns>駒。無ければヌル。</returns>
-        public static Finger InMasuNow_FilteringBanjo(Sky src_Sky, Playerside pside, SyElement masu, KwLogger errH)
+        public static Finger InMasuNow_FilteringBanjo(Sky positionA, Playerside pside, SyElement masu, KwLogger logger)
         {
             Finger foundKoma = Fingers.Error_1;
 
             foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
             {
-                src_Sky.AssertFinger(finger);
-                Busstop koma = src_Sky.BusstopIndexOf(finger);
+                positionA.AssertFinger(finger);
+                Busstop koma = positionA.BusstopIndexOf(finger);
 
                 // 先後は見ますが、将棋盤限定です。
                 if (Conv_Busstop.ToOkiba(koma) == Okiba.ShogiBan)

@@ -213,7 +213,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         private static void Undo25_UgokasuKoma(
             out Finger figMovedKoma,
             Move moved,
-            Sky kaisi_Sky,
+            Sky positionA,
             KwLogger errH
             )
         {
@@ -227,7 +227,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
             // 動かす駒
             figMovedKoma = Util_Sky_FingerQuery.InMasuNow_FilteringBanjo(
-                kaisi_Sky,
+                positionA,
                 Conv_Move.ToPlayerside(moved),
                 Conv_Move.ToDstMasu(moved),//[巻戻し]のときは、先位置が　駒の居場所。
                 errH
