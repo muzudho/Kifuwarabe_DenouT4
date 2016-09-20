@@ -40,7 +40,7 @@ namespace Grayscale.P910_SpeedKeisok
             }
         }
 
-        public Sky Src_Sky { get; set; }
+        //public Sky Src_Sky { get; set; }
         public FeatureVector FeatureVector { get; set; }
 
         public Earth Earth { get; set; }
@@ -62,7 +62,7 @@ namespace Grayscale.P910_SpeedKeisok
                 this.Earth = newEarth1;
                 this.Kifu = newKifu1_Hirate;
             }
-            this.Src_Sky = this.GetSky();
+            //this.Src_Sky = this.GetSky();
             InitializeComponent();
         }
 
@@ -74,7 +74,7 @@ namespace Grayscale.P910_SpeedKeisok
             float score;
             handan1.Evaluate(
                 out score,
-                this.Src_Sky,
+                this.GetSky(),//.Src_Sky,
                 this.FeatureVector,
                 Util_Loggers.ProcessSpeedTest_KEISOKU
                 );

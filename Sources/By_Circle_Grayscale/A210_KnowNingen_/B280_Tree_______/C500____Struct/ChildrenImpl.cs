@@ -135,7 +135,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             this.Items.Clear();
             foreach (Move move in moves)
             {
-                KifuNode newNode = new KifuNodeImpl(move, null);
+                KifuNode newNode = new MoveNodeImpl(move);
                 newNode.SetParentNode(parent);
                 this.Items.Add(move,newNode);
             }

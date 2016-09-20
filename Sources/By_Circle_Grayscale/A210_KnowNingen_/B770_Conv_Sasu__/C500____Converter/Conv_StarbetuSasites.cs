@@ -35,9 +35,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
             KwLogger logger
             )
         {
-            KifuNode hubNode = new KifuNodeImpl(
-                Conv_Move.GetErrorMove(),
-                null);//蝶番
+            KifuNode hubNode = new MoveNodeImpl(Conv_Move.GetErrorMove());//蝶番
 
 #if DEBUG
             string dump = komabetuAllMoves.Dump();

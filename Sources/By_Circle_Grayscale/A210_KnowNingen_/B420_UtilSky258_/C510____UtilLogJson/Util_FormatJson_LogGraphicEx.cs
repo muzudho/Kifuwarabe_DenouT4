@@ -79,12 +79,12 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
         /// </summary>
         /// <param name="enableLog"></param>
         /// <param name="positionA_base"></param>
-        /// <param name="thisNode"></param>
+        /// <param name="moveNode"></param>
         /// <param name="comment"></param>
-        /// <param name="errH"></param>
+        /// <param name="logger"></param>
         /// <returns></returns>
         public static string JsonElements_Node(
-            bool enableLog, Sky positionA_base, KifuNode thisNode, string comment, KwLogger errH)
+            bool enableLog, Sky positionA_base, MoveNode moveNode, string comment, KwLogger logger)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -93,11 +93,11 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
                 goto gt_EndMethod;
             }
 
-            SyElement dstMasu = Conv_Move.ToDstMasu(thisNode.Key);
-            Komasyurui14 ks14 = Conv_Move.ToDstKomasyurui(thisNode.Key);
+            SyElement dstMasu = Conv_Move.ToDstMasu(moveNode.Key);
+            Komasyurui14 ks14 = Conv_Move.ToDstKomasyurui(moveNode.Key);
 
             Finger finger = Util_Sky_FingersQuery.InMasuNow_Old(positionA_base,
-                Conv_Move.ToSrcMasu(thisNode.Key, positionA_base)
+                Conv_Move.ToSrcMasu(moveNode.Key, positionA_base)
                 ).ToFirst();
 
 
@@ -129,11 +129,11 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
         /// </summary>
         /// <param name="enableLog"></param>
         /// <param name="positionA_base"></param>
-        /// <param name="hubNode"></param>
+        /// <param name="hubMoveNode"></param>
         /// <param name="comment"></param>
-        /// <param name="errH"></param>
+        /// <param name="logger"></param>
         /// <returns></returns>
-        public static string JsonKyokumens_NextNodes(bool enableLog, Sky positionA_base, KifuNode hubNode, string comment, KwLogger errH)
+        public static string JsonKyokumens_NextNodes(bool enableLog, Sky positionA_base, MoveNode hubMoveNode, string comment, KwLogger logger)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -142,7 +142,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
                 goto gt_EndMethod;
             }
 
-            hubNode.Children1.Foreach_ChildNodes5((Move move, ref bool toBreak) =>
+            hubMoveNode.Children1.Foreach_ChildNodes5((Move move, ref bool toBreak) =>
             {
 
                 SyElement srcMasu = Conv_Move.ToSrcMasu(move, positionA_base);

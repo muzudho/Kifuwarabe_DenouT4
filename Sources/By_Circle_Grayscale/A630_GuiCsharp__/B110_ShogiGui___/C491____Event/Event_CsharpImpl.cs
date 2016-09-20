@@ -553,7 +553,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         // 次ノード追加
                         //----------------------------------------
                         mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(positionA), "After_NaruNaranai");
-                        KifuNode curNode1 = (KifuNode)mainGui.Link_Server.KifuTree.CurNode;
+                        KifuNode curNode1 = mainGui.Link_Server.KifuTree.CurNode;
                         curNode1.Children1.PutTuginoitte_New(newNode, curNode1);
                     }
 

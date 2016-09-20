@@ -629,7 +629,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                 foreach (Move iMov in movelist2)//次に読む手
                 {
                     Move mov2 = iMov;
-                    KifuNode nod2 = new KifuNodeImpl(mov2, null);
+                    KifuNode nod2 = new MoveNodeImpl(mov2);
 
                     if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(
                         yomiDeep2,

@@ -53,7 +53,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             ref KifuParserA_Result result,
 
             Earth earth1,
-            KifuNode curNode,
+            MoveNode curMoveNode,
             Sky positionA,
             Tree kifu1_notUse,
 
@@ -78,7 +78,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     Move nextMove = Conv_StringMove.ToMove(
                         out rest,
                         genjo.InputLine,
-                        curNode.Key,
+                        curMoveNode.Key,
                         positionA,
                         errH
                         );

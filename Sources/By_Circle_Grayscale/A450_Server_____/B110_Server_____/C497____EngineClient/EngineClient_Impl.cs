@@ -143,7 +143,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
         /// </summary>
         public void OnChangedTurn(
             Earth earth1,
-            KifuNode curNode_Honpu,
+            MoveNode curNode_Honpu,
             Playerside kaisiPside,
             KwLogger errH)
         {

@@ -40,7 +40,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
         /// <param name="fugoList"></param>
         public static string ToJsaFugoListString(
             Earth earth1,
-            KifuNode curNode,//Tree kifu1,
+            MoveNode curNode,
             string hint,
             KwLogger errH
             )
@@ -129,7 +129,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
         /// <param name="fugoList"></param>
         public static string ToSfen_PositionCommand(
             Earth earth1,
-            KifuNode curNode_Honpu
+            MoveNode curNode_Honpu
             )
         {
             StringBuilder sb = new StringBuilder();

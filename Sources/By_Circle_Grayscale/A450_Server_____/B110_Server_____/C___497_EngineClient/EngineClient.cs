@@ -36,7 +36,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C___497_EngineClient
         /// <param name="errH"></param>
         void OnChangedTurn(
             Earth earth,
-            KifuNode curNode,
+            MoveNode curNode,
             Playerside kaisiPside,
             KwLogger errH);
 

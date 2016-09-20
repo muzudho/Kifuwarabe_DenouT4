@@ -54,7 +54,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //----------------------------------------
             // １手前の分岐点
             //----------------------------------------
-            KifuNode parentNode = kifu_mutable.CurNode.GetParentNode();
+            MoveNode parentMoveNode = kifu_mutable.CurNode.GetParentNode();
 
             //----------------------------------------
             // 選ばなかった変化を、ここに入れます。
@@ -64,7 +64,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //----------------------------------------
             // 選んだ変化と、選ばなかった変化の一覧
             //----------------------------------------
-            parentNode.Children1.Foreach_ChildNodes5((Move move2, ref bool toBreak2) =>
+            parentMoveNode.Children1.Foreach_ChildNodes5((Move move2, ref bool toBreak2) =>
             {
                 if (move2 == move1)
                 {
@@ -95,7 +95,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             result_removedCount = removeeList.Count;
             foreach (Move key in removeeList)
             {
-                parentNode.Children1.RemoveItem(key);
+                parentMoveNode.Children1.RemoveItem(key);
             }
 
         gt_EndMethod:

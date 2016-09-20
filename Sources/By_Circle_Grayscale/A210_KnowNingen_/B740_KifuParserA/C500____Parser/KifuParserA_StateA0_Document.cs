@@ -42,7 +42,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             ref KifuParserA_Result result,
 
             Earth earth1_notUse,
-            KifuNode curNode_forDebug,
+            MoveNode curNode_notUse,
             Sky positionA,
             Tree kifu1_notUse,
 
@@ -89,7 +89,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 else
                 {
 #if DEBUG
-                    Playerside pside = curNode_forDebug.GetNodeValue().KaisiPside;
+                    Playerside pside = positionA.KaisiPside;
                     errH.AppendLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... positionじゃなかったぜ☆　日本式か☆？　SFENでmovesを読んだあとのプログラムに合流させるぜ☆　：　先後＝[" + pside + "]");
                     errH.Flush(LogTypes.Plain);
 #endif

@@ -116,7 +116,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             // 符号表示
             //------------------------------
             {
-                KifuNode node6 = shogiGui.Link_Server.KifuTree.CurNode;
+                MoveNode node6 = shogiGui.Link_Server.KifuTree.CurNode;
                 Sky positionA = shogiGui.Link_Server.GetSky();
 
                 // [コマ送り][再生]ボタン

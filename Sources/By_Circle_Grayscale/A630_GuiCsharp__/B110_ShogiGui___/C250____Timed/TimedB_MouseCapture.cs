@@ -68,7 +68,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
             //kikiZukei.DebugWrite("駒の利きLv1");
 
             // 味方の駒
-            KifuNode siteiNode = shogiGui.Link_Server.KifuTree.CurNode;
+            //KifuNode siteiNode = shogiGui.Link_Server.KifuTree.CurNode;
             Sky positionA = shogiGui.Link_Server.GetSky();
 
             //shogiGui.Model_PnlTaikyoku.Kifu.AssertPside(shogiGui.Model_PnlTaikyoku.Kifu.CurNode, "Check_MouseoverKomaKiki",errH);
@@ -407,7 +407,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     //    "デバッグ");
 
                                                     //マウスの左ボタンを放したときです。
-                                                    KifuNode curNode1 = (KifuNode)mainGui.Link_Server.KifuTree.CurNode;
+                                                    KifuNode curNode1 = mainGui.Link_Server.KifuTree.CurNode;
                                                     if (!curNode1.Children1.ContainsKey(newNode.Key))
                                                     {
                                                         //----------------------------------------
@@ -490,7 +490,6 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                 case MouseEventStateName.MouseLeftButtonUp:
                                     {
                                         #region マウス左ボタンアップ
-                                        KifuNode siteiNode = mainGui.Link_Server.KifuTree.CurNode;
                                         Sky src_GuiSky = mainGui.SkyWrapper_Gui.GuiSky;
 
 
