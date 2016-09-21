@@ -8,13 +8,6 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
     public interface Children
     {
         bool HasChildNode(Move key);
-        KifuNode GetFirst();
-        /// <summary>
-        /// sfenがキーなのは暫定。
-        /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
-        KifuNode GetChildNode(Move key);
 
         int Count { get; }
         void ClearAll();
@@ -63,15 +56,5 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         /// </summary>
         /// <param name="existsNode"></param>
         void PutTuginoitte_Override(KifuNode existsNode, KifuNode owner);
-
-        /*
-        string Json_NextNodes_MultiSky(
-            string memo,
-            string hint,
-            int temezumi_yomiGenTeban_forLog,//読み進めている現在の手目済
-            KwLogger errH
-            );
-        */
-
     }
 }

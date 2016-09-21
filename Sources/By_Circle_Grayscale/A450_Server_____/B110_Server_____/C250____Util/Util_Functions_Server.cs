@@ -65,7 +65,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
             jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
                 newNode.Key,
-                Util_Tree.CreateHonpu2List(newNode),
+                Util_Tree.CreatePv2List(newNode),
                 positionA, errH);
         }
 
@@ -327,7 +327,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             // [巻戻し]ボタン
             jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
                 removeeLeaf.Key,
-                Util_Tree.CreateHonpu2List(removeeLeaf),
+                Util_Tree.CreatePv2List(removeeLeaf),
                 removeeLeaf.GetNodeValue(), errH);
 
 

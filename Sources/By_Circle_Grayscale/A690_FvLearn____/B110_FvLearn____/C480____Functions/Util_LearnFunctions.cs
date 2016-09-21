@@ -158,7 +158,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
         /// <summary>
         /// 本譜の手をランクアップ。
         /// </summary>
-        public static void Do_RankUpHonpu(ref bool ref_isRequestShowGohosyu, Uc_Main uc_Main, Move move1, float tyoseiryo)
+        public static void Do_RankUpHonpu(
+            ref bool ref_isRequestShowGohosyu, Uc_Main uc_Main, Move move1, float tyoseiryo)
         {
             KwLogger errH = Util_Loggers.ProcessLearner_DEFAULT;
 
@@ -230,18 +231,38 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
             //
             if (uc_Main.LearningData.Kifu.CurNode.Children1.HasChildNode(move1))
             {
+                // 進める
+                Move moveB = move1;
+                bool successful = Util_IttesasuSuperRoutine.DoMove_Super(
+                    ref positionA,//指定局面
+                    ref moveB,
+                    "H100_LearnFunc",
+                    errH
+                );
+
                 // 盤上の駒、持駒を数えます。
-                N54List currentNode_n54List = Util_54List.Calc_54List(uc_Main.LearningData.GetSky(), errH);
+                N54List currentNode_n54List = Util_54List.Calc_54List(positionA, errH);
 
                 float real_tyoseiryo; //実際に調整した量。
                 Util_FvScoreing.UpdateKyokumenHyoka(
                     currentNode_n54List,
-                    uc_Main.LearningData.Kifu.CurNode.Children1.GetChildNode(move1).GetNodeValue(),
+                    positionA,
                     uc_Main.LearningData.Fv,
                     tyoseiryo_good,
                     out real_tyoseiryo,
                     errH
                     );//自分が有利になる点
+
+
+                IttemodosuResult ittemodosuResult;
+                Util_IttemodosuRoutine.UndoMove(
+                    out ittemodosuResult,
+                    moveB,//この関数が呼び出されたときの指し手☆（＾～＾）
+                    positionA,
+                    "H900_LearnFunc",
+                    errH
+                    );
+                positionA = ittemodosuResult.SyuryoSky;
             }
             else
             {
@@ -250,11 +271,6 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
                     uc_Main.LearningData.DumpToAllGohosyu(
                         uc_Main.LearningData.GetSky()));
             }
-
-            ////----------------------------------------
-            //// 合法手一覧を作成したい。
-            ////----------------------------------------
-            //uc_Main.LearningData.Aa_Yomi(uc_Main.LearningData.Kifu.CurNode.Key, errH);
 
             // 局面の合法手表示の更新を要求します。
             ref_isRequestShowGohosyu = true;

@@ -23,7 +23,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             return childMoves;
         }
 
-        public static List<Move> CreateHonpu2List(MoveNode endNode)
+        public static List<Move> CreatePv2List(MoveNode endNode)
         {
             // 本譜（ノードのリスト）
             List<Move> honpu = new List<Move>();

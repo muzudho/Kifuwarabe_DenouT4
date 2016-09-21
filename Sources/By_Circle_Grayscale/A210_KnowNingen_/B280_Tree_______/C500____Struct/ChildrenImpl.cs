@@ -33,24 +33,15 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             return this.Items.ContainsKey(key);
         }
 
-        public KifuNode GetFirst()
-        {
-            return this.Items[0];
-        }
-        public KifuNode GetChildNode(Move key)
-        {
-            return this.Items[key];
-        }
-
         public void Foreach_ChildNodes2(ChildrenImpl.DELEGATE_ChildNodes2 delegate_NextNodes)
         {
             bool toBreak = false;
 
             foreach (KeyValuePair<Move, KifuNode> entry in this.Items)
             {
-                List<Move> honpuList = Util_Tree.CreateHonpu2List(entry.Value);
+                List<Move> pvList = Util_Tree.CreatePv2List(entry.Value);
 
-                delegate_NextNodes(entry.Key, honpuList, ref toBreak);
+                delegate_NextNodes(entry.Key, pvList, ref toBreak);
 
                 if (toBreak)
                 {
@@ -211,28 +202,5 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             this.Items[existsNode.Key] = existsNode;
             existsNode.SetParentNode(owner);
         }
-        /*
-        public string Json_NextNodes_MultiSky(
-            string memo,
-            string hint,
-            int temezumi_yomiGenTeban_forLog,//読み進めている現在の手目済
-            KwLogger errH)
-        {
-            StringBuilder sb = new StringBuilder();
-
-            this.Foreach_ChildNodes3((Move move, Sky sky, ref bool toBreak) =>
-            {
-                sb.AppendLine(Util_Sky307.Json_1Sky(
-                    sky,
-                    memo + "：" + Conv_Move.ToSfen(move),
-                    hint + "_SF解1",
-                    temezumi_yomiGenTeban_forLog
-                    ));// 局面をテキストで作成
-            });
-
-            return sb.ToString();
-        }
-        */
-
     }
 }
