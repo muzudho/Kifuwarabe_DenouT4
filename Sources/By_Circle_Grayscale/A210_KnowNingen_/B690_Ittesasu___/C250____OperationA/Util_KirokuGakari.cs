@@ -101,7 +101,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                     saifu_PositionA,
                     hint +"/ToJsaKifuText", errH
                     );// 新しい次ノードを追加。次ノードを、これからカレントとする。
-                curNode1 = saifuKifu2.SetCurNode(saifu_newChild);//次ノードを、これからのカレントとします。
+                curNode1 = saifuKifu2.SetCurNode(saifu_newChild, saifu_PositionA);//次ノードを、これからのカレントとします。
 
                 // 後手の符号がまだ含まれていない。
                 string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
@@ -130,7 +130,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
         /// <param name="fugoList"></param>
         public static string ToSfen_PositionCommand(
             Earth earth1,
-            MoveNode curNode_Honpu
+            MoveNode endNode1
             )
         {
             StringBuilder sb = new StringBuilder();
@@ -141,7 +141,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
             // 本譜
             int count = 0;
-            Util_Tree.ForeachHonpu2(curNode_Honpu, (int temezumi, Move move, ref bool toBreak) =>
+            Util_Tree.ForeachHonpu2(endNode1, (int temezumi, Move move, ref bool toBreak) =>
             {
                 if (0 == temezumi)
                 {
@@ -150,22 +150,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                 }
 
                 sb.Append(Conv_Move.ToSfen(move));
-
-                //// TODO:デバッグ用
-                //switch (sasite.TottaKoma)
-                //{
-                //    case KomaSyurui.UNKNOWN:
-                //    case KomaSyurui.TOTTA_KOMA_NASI:
-                //        break;
-                //    default:
-                //        sb.Append("(");
-                //        sb.Append(Converter.SyuruiToSfen(sasite.Pside,sasite.TottaKoma));
-                //        sb.Append(")");
-                //        break;
-                //}
-
                 sb.Append(" ");
-
 
             gt_EndLoop:
                 count++;

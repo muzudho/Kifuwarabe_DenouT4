@@ -49,7 +49,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             // ここで棋譜の変更をします。
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
             string jsaFugoStr;
-            mainGui.Link_Server.KifuTree.SetCurNode(newNode);
+            mainGui.Link_Server.KifuTree.SetCurNode(newNode,positionA);
             Util_Functions_Server.AfterSetCurNode_Srv(
                 mainGui.SkyWrapper_Gui,
                 newNode,
@@ -69,7 +69,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
         /// ************************************************************************************************************************
         /// </summary>
         public static bool Makimodosi_Gui(
-            MainGui_Csharp shogiGui,
+            KifuNode curNode1,//mainGui.Link_Server.KifuTree.CurNode
+            MainGui_Csharp mainGui,
             Finger movedKoma,
             Finger foodKoma,
             string fugoJStr,
@@ -79,17 +80,19 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             //------------------------------
             // チェンジターン
             //------------------------------
-            shogiGui.ChangedTurn(errH);//[巻戻し]ボタンを押したあと
+            mainGui.ChangedTurn(
+                curNode1,
+                errH);//[巻戻し]ボタンを押したあと
 
 
             //------------------------------
             // 符号表示
             //------------------------------
-            shogiGui.Shape_PnlTaikyoku.SetFugo(fugoJStr);
+            mainGui.Shape_PnlTaikyoku.SetFugo(fugoJStr);
 
 
-            Shape_BtnKoma btn_movedKoma = Conv_Koma_InGui.FingerToKomaBtn(movedKoma, shogiGui);
-            Shape_BtnKoma btn_foodKoma = Conv_Koma_InGui.FingerToKomaBtn(foodKoma, shogiGui);//取られた駒
+            Shape_BtnKoma btn_movedKoma = Conv_Koma_InGui.FingerToKomaBtn(movedKoma, mainGui);
+            Shape_BtnKoma btn_foodKoma = Conv_Koma_InGui.FingerToKomaBtn(foodKoma, mainGui);//取られた駒
             //------------------------------------------------------------
             // 駒・再描画
             //------------------------------------------------------------
@@ -99,15 +102,15 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
                 null != btn_foodKoma//取ったときに下にあった駒（巻戻しのときは、これは無し）
                 )
             {
-                shogiGui.RepaintRequest.SetFlag_RecalculateRequested();// 駒の再描画要求
+                mainGui.RepaintRequest.SetFlag_RecalculateRequested();// 駒の再描画要求
             }
 
             // 巻き戻したので、符号が入ります。
             {
-                shogiGui.RepaintRequest.NyuryokuText = fugoJStr + " " + backedInputText;// 入力欄
-                shogiGui.RepaintRequest.SyuturyokuRequest = RepaintRequestGedanTxt.Kifu;
+                mainGui.RepaintRequest.NyuryokuText = fugoJStr + " " + backedInputText;// 入力欄
+                mainGui.RepaintRequest.SyuturyokuRequest = RepaintRequestGedanTxt.Kifu;
             }
-            shogiGui.RepaintRequest.SetFlag_RefreshRequest();
+            mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
             return true;
         }

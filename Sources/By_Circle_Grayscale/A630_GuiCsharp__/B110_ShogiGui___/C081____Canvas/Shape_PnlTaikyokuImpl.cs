@@ -383,7 +383,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C081____Canvas
 
 
             base.Paint(sender, e,
-                shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue(),
+                shogiGui.Link_Server.KifuTree.CurNode2ok.GetNodeValue(),
                 shogiGui, windowName, errH);
 
         gt_EndMethod:

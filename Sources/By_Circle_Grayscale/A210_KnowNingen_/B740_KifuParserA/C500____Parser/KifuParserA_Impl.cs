@@ -1,6 +1,8 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 using System;
@@ -56,15 +58,27 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 #endif
 
                 KifuParserA_State nextState;
-                KifuNode curNode1 = kifu1_mutable.CurNode;
+                KifuNode curNode1 = kifu1_mutable.CurNode1;
+
+                bool toKifuClear;
                 genjo.InputLine = this.State.Execute(
+                    out toKifuClear,
                     ref result,
                     earth1,
-                    curNode1,
-                    curNode1.GetNodeValue(),
-                    kifu1_mutable,
-                    out nextState, this,
+                    curNode1.Key,
+                    kifu1_mutable.PositionA,// curNode1.GetNodeValue(),
+                    out nextState,
+                    this,
                     genjo, errH);
+                if (toKifuClear)
+                {
+                    earth1.Clear();
+                    kifu1_mutable.Clear();// 棋譜を空っぽにします。
+
+                    kifu1_mutable.GetRoot().SetNodeValue(Util_SkyCreator.New_Hirate());//SFENのstartpos解析時
+                    earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
+                }
+
                 if (null!=result.Out_newNode_OrNull)
                 {
                     curNode1 = Util_IttesasuRoutine.BeforeUpdateKifuTree(
@@ -74,7 +88,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                         result.NewSky
                         );
                     kifu1_mutable.SetCurNode(
-                        curNode1
+                        curNode1,
+                        result.NewSky
                         );//次ノードを、これからのカレントとします。
                     // ■■■■■■■■■■カレント・チェンジ■■■■■■■■■■
                     result.SetNode(curNode1,
@@ -120,6 +135,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
                 KifuParserA_State nextState = this.State;
 
+                KifuNode curNode1 = kifu1_mutable.CurNode1;
                 while (!genjo.IsBreak())//breakするまでくり返し。
                 {
                     if ("" == genjo.InputLine)
@@ -132,31 +148,51 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                         goto gt_NextLoop1;
                     }
 
-
+                    bool toKifuClear;
                     genjo.InputLine = this.State.Execute(
+                        out toKifuClear,
                         ref result,
                         earth1,
-                        kifu1_mutable.CurNode,
-                        kifu1_mutable.CurNode.GetNodeValue(),
-                        kifu1_mutable,
-                        out nextState, this,
+                        curNode1.Key,
+                        kifu1_mutable.PositionA,// curNode1.GetNodeValue(), //
+                        out nextState,
+                        this,
                         genjo, errH);
+                    if (toKifuClear)
+                    {
+                        earth1.Clear();
+                        kifu1_mutable.Clear();// 棋譜を空っぽにします。
+
+                        Sky positionInit = Util_SkyCreator.New_Hirate();
+                        kifu1_mutable.GetRoot().SetNodeValue(positionInit);//SFENのstartpos解析時
+                        earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
+
+                        curNode1 = kifu1_mutable.SetCurNode(
+                            kifu1_mutable.GetRoot(),
+                            positionInit
+                            );
+                    }
+
+
                     if (null != result.Out_newNode_OrNull)
                     {
                         KifuNode newNodeB = Util_IttesasuRoutine.BeforeUpdateKifuTree(
                             earth1,
-                            kifu1_mutable.CurNode,
+                            curNode1,
                             result.Out_newNode_OrNull.Key,
                             result.NewSky
                             );
-                        kifu1_mutable.SetCurNode(
-                            newNodeB
+                        curNode1 = kifu1_mutable.SetCurNode(
+                            newNodeB,
+                            result.NewSky
                             );//次ノードを、これからのカレントとします。
                         // ■■■■■■■■■■カレント・チェンジ■■■■■■■■■■
                         result.SetNode(newNodeB,
                             result.NewSky
                             );
                     }
+
+
                     this.State = nextState;
 
                 gt_NextLoop1:

@@ -243,7 +243,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
                         );
 
                 string jsaFugoStr;
-                mainGui.Link_Server.KifuTree.SetCurNode(newNode);
+                mainGui.Link_Server.KifuTree.SetCurNode(newNode, newSky);
                 Util_Functions_Server.AfterSetCurNode_Srv(
                     mainGui.SkyWrapper_Gui,
                     newNode,

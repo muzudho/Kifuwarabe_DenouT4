@@ -4,6 +4,7 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI;
 using Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C492____Widget;
 using System.Text;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 
 namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500____Gui
 {
@@ -23,12 +24,14 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500____Gui
         /// 手番が替わったときの挙動を、ここに書きます。
         /// ************************************************************************************************************************
         /// </summary>
-        public override void ChangedTurn( KwLogger errH)
+        public override void ChangedTurn(
+            KifuNode endNode, //this.Link_Server.KifuTree.CurNode,
+            KwLogger errH)
         {
             this.Link_Server.EngineClient.OnChangedTurn(
                 this.Link_Server.Earth,
-                this.Link_Server.KifuTree.CurNode,
-                this.Link_Server.KifuTree.CurNode.GetNodeValue().KaisiPside,
+                endNode,//エンドノード
+                endNode.GetNodeValue().KaisiPside,
                 errH);
         }
 
@@ -67,7 +70,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500____Gui
             this.Link_Server.EngineClient.ShogiEngineProcessWrapper.Send_Position(
                 Util_KirokuGakari.ToSfen_PositionCommand(
                     this.Link_Server.Earth,
-                    this.Link_Server.KifuTree.CurNode
+                    this.Link_Server.KifuTree.CurNode1//エンドノード
                     ), errH);
             this.Link_Server.EngineClient.ShogiEngineProcessWrapper.Send_Go(errH);
         }

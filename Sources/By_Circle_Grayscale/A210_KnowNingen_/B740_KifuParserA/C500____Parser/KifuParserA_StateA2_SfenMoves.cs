@@ -11,6 +11,7 @@ using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C400____Conv;
 using System;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 {
@@ -50,12 +51,12 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
         /// <param name="errH"></param>
         /// <returns></returns>
         public string Execute(
+            out bool toKifuClear,
             ref KifuParserA_Result result,
 
             Earth earth1,
-            MoveNode curMoveNode,
+            Move move1,
             Sky positionA,
-            Tree kifu1_notUse,
 
             out KifuParserA_State nextState,
             KifuParserA owner,
@@ -63,6 +64,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             KwLogger errH
             )
         {
+            toKifuClear = false;
             int exceptionArea = 0;
 
             //bool isHonshogi = true;//FIXME:暫定
@@ -78,7 +80,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     Move nextMove = Conv_StringMove.ToMove(
                         out rest,
                         genjo.InputLine,
-                        curMoveNode.Key,
+                        move1,
                         positionA,
                         errH
                         );

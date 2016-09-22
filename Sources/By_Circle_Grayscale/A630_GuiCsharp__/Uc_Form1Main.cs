@@ -215,7 +215,7 @@ namespace Grayscale.P699_Form_______
             //------------------------------
             this.MainGui.Shape_PnlTaikyoku.Paint(
                 sender, e,
-                this.MainGui.Link_Server.KifuTree.CurNode.GetNodeValue(),
+                this.MainGui.Link_Server.KifuTree.CurNode2ok.GetNodeValue(),
                 this.MainGui, Shape_CanvasImpl.WINDOW_NAME_SHOGIBAN, Util_Loggers.ProcessGui_PAINT);
 
         gt_EndMethod:
@@ -423,14 +423,14 @@ namespace Grayscale.P699_Form_______
                             case SyuturyokuKirikae.Japanese:
                                 form2.WriteLine_Syuturyoku(Util_KirokuGakari.ToJsaFugoListString(
                                     this.MainGui.Link_Server.Earth,
-                                    this.MainGui.Link_Server.KifuTree.CurNode,
+                                    this.MainGui.Link_Server.KifuTree.CurNode2ok,
                                     "Ui_PnlMain.Response", errH));
                                 break;
                             case SyuturyokuKirikae.Sfen:
                                 form2.WriteLine_Syuturyoku(
                                     Util_KirokuGakari.ToSfen_PositionCommand(
                                         this.MainGui.Link_Server.Earth,
-                                        this.MainGui.Link_Server.KifuTree.CurNode
+                                        this.MainGui.Link_Server.KifuTree.CurNode2ok//エンドノード
                                         ));
                                 break;
                             case SyuturyokuKirikae.Html:

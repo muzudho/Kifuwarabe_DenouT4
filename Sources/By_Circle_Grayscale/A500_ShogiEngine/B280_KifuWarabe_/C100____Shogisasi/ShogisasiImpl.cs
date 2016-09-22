@@ -116,7 +116,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                     ref searchedNodes,
                     searchedPv,
 
-                    kifu1.CurNode,// ツリーを伸ばしているぜ☆（＾～＾）
+                    kifu1.CurNode1,// ツリーを伸ばしているぜ☆（＾～＾）
                     positionA,
 
                     isHonshogi, Mode_Tansaku.Shogi_ENgine,

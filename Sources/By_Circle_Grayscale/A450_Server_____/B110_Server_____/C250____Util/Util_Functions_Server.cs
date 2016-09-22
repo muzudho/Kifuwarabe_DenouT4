@@ -225,7 +225,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     {
                         string jsaFugoStr;
 
-                        kifu1.SetCurNode(result.Out_newNode_OrNull);
+                        kifu1.SetCurNode(result.Out_newNode_OrNull, result.NewSky);
                         Util_Functions_Server.AfterSetCurNode_Srv(
                             model_Manual,
                             result.Out_newNode_OrNull,
@@ -269,7 +269,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                         parsedKyokumen.NewMove,
                         parsedKyokumen.NewSky
                     );
-                    curNode1 = kifu1.SetCurNode(curNode1);
+                    curNode1 = kifu1.SetCurNode(curNode1, parsedKyokumen.NewSky);
                     Util_Functions_Server.AfterSetCurNode_Srv(
                         model_Manual,
                         curNode1,

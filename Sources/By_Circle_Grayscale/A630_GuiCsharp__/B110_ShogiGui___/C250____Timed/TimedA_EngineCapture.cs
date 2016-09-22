@@ -73,8 +73,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                         );// 棋譜の[コマ送り]を実行します。
                     Util_Function_Csharp.Komaokuri_Gui(
                         restText,
-                        this.mainGui.Link_Server.KifuTree.CurNode,
-                        this.mainGui.Link_Server.KifuTree.CurNode.GetNodeValue(),
+                        this.mainGui.Link_Server.KifuTree.CurNode2ok,
+                        this.mainGui.Link_Server.KifuTree.CurNode2ok.GetNodeValue(),
                         this.mainGui, errH);//追加
                     // ↑チェンジターン済み
                     Util_Menace.Menace((MainGui_Csharp)this.mainGui, errH);// メナス

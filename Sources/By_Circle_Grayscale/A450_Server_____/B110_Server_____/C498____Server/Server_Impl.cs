@@ -52,7 +52,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C498____Server
         private Tree m_kifuTree_;
         public Sky GetSky()
         {
-            return this.KifuTree.CurNode.GetNodeValue();
+            return this.KifuTree.CurNode1.GetNodeValue();
         }
 
         public Earth Earth { get { return this.m_earth_; } }

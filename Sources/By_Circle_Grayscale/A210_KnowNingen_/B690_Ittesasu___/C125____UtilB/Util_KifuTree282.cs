@@ -140,6 +140,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
         /// </summary>
         public static void SetStartpos_KokokaraSaifu(
             Earth earth1,
+            Sky positionA,//kifu1.GetRoot().GetNodeValue()
             Tree kifu1,
             Playerside pside, KwLogger errH)
         {
@@ -151,7 +152,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             kifu1.Clear();
             earth1.SetProperty(
                 Word_KifuTree.PropName_Startpos,
-                Conv_KifuNode.ToSfenstring(kifu1.GetRoot().GetNodeValue(), pside, errH));
+                Conv_KifuNode.ToSfenstring(positionA, pside, errH));
         }
 
     }

@@ -36,11 +36,17 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// ツリー構造になっている本譜の葉ノード。
         /// 根を「startpos」等の初期局面コマンドとし、次の節からは棋譜の符号「2g2f」等が連なっている。
         /// </summary>
-        public KifuNode CurNode { get { return this.m_curNode_; } }
-        public KifuNode SetCurNode(KifuNode node) {
+        public KifuNode CurNode1 { get { return this.m_curNode_; } }
+        public KifuNode CurNode2ok { get { return this.m_curNode_; } }
+        public KifuNode SetCurNode(KifuNode node,Sky sky) {
             this.m_curNode_ = node;
+            this.m_sky_ = sky;
             return this.m_curNode_;
         }
+        public Sky PositionA {
+            get { return this.m_sky_; }
+        }
+        private Sky m_sky_;
         private KifuNode m_curNode_;
 
         #endregion
@@ -56,7 +62,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
         public void Move_Previous()
         {
-            this.m_curNode_ = this.CurNode.GetParentNode();
+            this.m_curNode_ = this.CurNode2ok.GetParentNode();
         }
 
         #endregion
@@ -75,7 +81,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         {
             KifuNode deleteeElement = null;
 
-            if (this.CurNode.IsRoot())
+            if (this.CurNode2ok.IsRoot())
             {
                 // やってはいけない操作は、例外を返すようにします。
                 string message = "ルート局面を削除しようとしました。";
@@ -85,7 +91,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             //>>>>> ラスト要素がルートでなかったら
 
             // 一手前の要素（必ずあるはずです）
-            deleteeElement = this.CurNode;
+            deleteeElement = this.CurNode2ok;
             // 残されたリストの最後の要素の、次リンクを切ります。
             deleteeElement.GetParentNode().Children1.ClearAll();
 
@@ -120,13 +126,13 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         public virtual void Clear()
         {
             // ルートまで遡ります。
-            while (!this.CurNode.IsRoot())
+            while (!this.CurNode2ok.IsRoot())
             {
                 this.Move_Previous();
             }
 
             // ルートの次の手を全クリアーします。
-            this.CurNode.Children1.ClearAll();
+            this.CurNode2ok.Children1.ClearAll();
         }
 
         #endregion
@@ -147,7 +153,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         {
             KifuNode found = null;
 
-            Util_Tree.ForeachHonpu1(this.CurNode, (int temezumi2, Move move, KifuNode node, ref bool toBreak) =>
+            Util_Tree.ForeachHonpu1(this.CurNode2ok, (int temezumi2, Move move, KifuNode node, ref bool toBreak) =>
             {
                 if (sitei_temezumi == temezumi2) //新Verは 0 にも対応。
                 {
@@ -168,23 +174,5 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         }
 
         #endregion
-
-
-        /*
-        /// <summary>
-        /// これから追加する予定のノードの先後を診断します。
-        /// </summary>
-        /// <param name="node"></param>
-        public void AssertChildPside(Playerside parentPside, Playerside childPside)
-        {
-#if DEBUG
-            Debug.Assert(
-                (parentPside==Playerside.P1 && childPside==Playerside.P2)
-                ||
-                (parentPside==Playerside.P2 && childPside==Playerside.P1)
-                , "親子の先後に、異順序がありました。現手番[" + parentPside + "]　<> 次手番[" + childPside + "]");
-#endif
-        }
-        */
     }
 }

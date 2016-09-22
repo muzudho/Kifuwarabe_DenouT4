@@ -143,7 +143,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
         /// </summary>
         public void OnChangedTurn(
             Earth earth1,
-            MoveNode curNode_Honpu,
+            MoveNode endNode1,
             Playerside kaisiPside,
             KwLogger errH)
         {
@@ -164,7 +164,10 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
 
                     // 例：「position startpos moves 7g7f」
                     this.ShogiEngineProcessWrapper.Send_Position(
-                        Util_KirokuGakari.ToSfen_PositionCommand(earth1,curNode_Honpu), errH);
+                        Util_KirokuGakari.ToSfen_PositionCommand(
+                            earth1,
+                            endNode1//エンドノード
+                            ), errH);
 
                     this.ShogiEngineProcessWrapper.Send_Go(errH);
 

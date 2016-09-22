@@ -117,21 +117,20 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             #endregion
 
             // 棋譜
+            KifuNode curNode1 = new KifuNodeImpl(
+                            Conv_Move.GetErrorMove(),
+                            Util_SkyCreator.New_Hirate()// きふわらべ起動時
+                        );
             {
                 // FIXME:平手とは限らないが、平手という前提で作っておく。
                 this.m_earth_AtLoop2_ = new EarthImpl();
-                this.m_kifu_AtLoop2_ = new TreeImpl(
-                        new KifuNodeImpl(
-                            Conv_Move.GetErrorMove(),
-                            Util_SkyCreator.New_Hirate()// きふわらべ起動時
-                        )
-                );
+                this.m_kifu_AtLoop2_ = new TreeImpl(curNode1);
                 this.Earth_AtLoop2.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
 
-                this.PositionA.AssertFinger((Finger)0);
+                curNode1.GetNodeValue().AssertFinger((Finger)0);
                 Debug.Assert(!Conv_Masu.OnKomabukuro(
                     Conv_Masu.ToMasuHandle(
-                        Conv_Busstop.ToMasu(this.PositionA.BusstopIndexOf((Finger)0))
+                        Conv_Busstop.ToMasu(curNode1.GetNodeValue().BusstopIndexOf((Finger)0))
                         )
                     ), "駒が駒袋にあった。");
             }
@@ -224,10 +223,12 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
         /// 棋譜です。
         /// </summary>
         public Tree Kifu_AtLoop2 { get { return this.m_kifu_AtLoop2_; } }
+        /*
         public Sky PositionA { get {
-                return this.m_kifu_AtLoop2_.CurNode.GetNodeValue();
+                return this.Kifu_AtLoop2.CurNode1.GetNodeValue();
                 //return this.m_positionA_;
             } }
+        */
         public void SetKifu_AtLoop2(Tree kifu)
         {
             this.m_kifu_AtLoop2_ = kifu;
@@ -913,13 +914,14 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
                 // ┏━━━━プログラム━━━━┓
 
-                int latestTemezumi = this.PositionA.Temezumi;//現・手目済
+                KifuNode curNode1 = this.Kifu_AtLoop2.CurNode1;
+                int latestTemezumi = curNode1.GetNodeValue().Temezumi;//現・手目済
 
                 //#if DEBUG
                 // MessageBox.Show("["+latestTemezumi+"]手目済　["+this.owner.PlayerInfo.Playerside+"]の手番");
                 //#endif
 
-                Sky positionA = this.PositionA;
+                Sky positionA = curNode1.GetNodeValue();
 
                 bool test = true;
                 if (test)
@@ -1034,7 +1036,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
                                         this.Earth_AtLoop2,
                                         this.Kifu_AtLoop2,// ツリーを伸ばしているぜ☆（＾～＾）
-                                        this.PositionA,
+                                        this.Kifu_AtLoop2.CurNode1.GetNodeValue(),
 
                                         this.Logger)
                                         );
@@ -1094,9 +1096,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                                 // スコア 試し
                                 //----------------------------------------
                                 {
-                                    //int hyojiScore = (int)(bestScore / 100.0d);//FIXME:適当に調整した。
                                     int hyojiScore = (int)bestScore;
-                                    if (this.PositionA.KaisiPside == Playerside.P2)
+                                    if (this.Kifu_AtLoop2.CurNode1.GetNodeValue().KaisiPside == Playerside.P2)
                                     {
                                         // 符号を逆転
                                         hyojiScore = -hyojiScore;
@@ -1148,7 +1149,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                             // 以前の手カッター
                             //------------------------------------------------------------
                             Util_KifuTree282.IzennoHenkaCutter(
-                                this.Kifu_AtLoop2.CurNode, this.Logger);
+                                this.Kifu_AtLoop2.CurNode1, this.Logger);
                         }
                         break;
                 }

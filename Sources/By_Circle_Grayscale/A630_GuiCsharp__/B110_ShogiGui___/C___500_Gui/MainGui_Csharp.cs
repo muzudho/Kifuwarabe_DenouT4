@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui
 {
@@ -35,7 +36,9 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui
         /// 手番が替わったときの挙動を、ここに書きます。
         /// ************************************************************************************************************************
         /// </summary>
-        void ChangedTurn(KwLogger errH);
+        void ChangedTurn(
+            KifuNode endNode,
+            KwLogger errH);
 
         /// <summary>
         /// 将棋エンジンに、終了するように促します。

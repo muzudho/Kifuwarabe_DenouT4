@@ -6,6 +6,7 @@ using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 using System;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 {
@@ -35,12 +36,12 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
 
         public string Execute(
+            out bool toKifuClear,
             ref KifuParserA_Result result,
 
             Earth earth1,
-            MoveNode curNode_notUse,
+            Move move1_notUse,
             Sky positionA,
-            Tree kifu1_clear,
             
             out KifuParserA_State nextState,
             KifuParserA owner,
@@ -48,6 +49,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             KwLogger errH
             )
         {
+            toKifuClear = false;
             nextState = this;
 
             try
@@ -68,13 +70,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     //----------------------------------------
                     // 棋譜を空っぽにし、平手初期局面を与えます。
                     //----------------------------------------
-                    {
-                        earth1.Clear();
-                        kifu1_clear.Clear();// 棋譜を空っぽにします。
-
-                        kifu1_clear.GetRoot().SetNodeValue( Util_SkyCreator.New_Hirate());//SFENのstartpos解析時
-                        earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
-                    }
+                    toKifuClear = true;
 
                     nextState = KifuParserA_StateA1a_SfenStartpos.GetInstance();
                 }

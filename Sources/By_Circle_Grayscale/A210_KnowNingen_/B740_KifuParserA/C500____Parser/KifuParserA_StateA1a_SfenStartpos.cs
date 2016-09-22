@@ -4,6 +4,7 @@ using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 using System;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 {
@@ -33,12 +34,12 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
 
         public string Execute(
+            out bool toKifuClear,
             ref KifuParserA_Result result,
 
             Earth earth1_notUse,
-            MoveNode curNode_notUse,
+            Move move1_notUse,
             Sky positionA,
-            Tree kifu1_notUse,
 
             out KifuParserA_State nextState,
             KifuParserA owner,
@@ -46,6 +47,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             KwLogger errH
             )
         {
+            toKifuClear = false;
             nextState = this;
 
             try

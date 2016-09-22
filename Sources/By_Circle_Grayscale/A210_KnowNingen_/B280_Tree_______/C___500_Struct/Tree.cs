@@ -22,8 +22,10 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         /// ツリー構造になっている本譜の葉ノード。
         /// 根を「startpos」等の初期局面コマンドとし、次の節からは棋譜の符号「2g2f」等が連なっている。
         /// </summary>
-        KifuNode CurNode { get; }
-        KifuNode SetCurNode(KifuNode node);
+        KifuNode CurNode1 { get; }
+        KifuNode CurNode2ok { get; }
+        KifuNode SetCurNode(KifuNode node,Sky sky);
+        Sky PositionA { get; }
 
         KifuNode NodeAt(int temezumi1);
 
