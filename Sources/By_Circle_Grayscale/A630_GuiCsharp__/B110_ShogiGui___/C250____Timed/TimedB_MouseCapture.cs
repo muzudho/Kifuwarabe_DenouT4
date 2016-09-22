@@ -69,10 +69,11 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
 
             // 味方の駒
             //KifuNode siteiNode = shogiGui.Link_Server.KifuTree.CurNode;
-            Sky positionA = shogiGui.Link_Server.GetSky();
+            Sky positionA = shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue();
 
             //shogiGui.Model_PnlTaikyoku.Kifu.AssertPside(shogiGui.Model_PnlTaikyoku.Kifu.CurNode, "Check_MouseoverKomaKiki",errH);
-            SySet<SyElement> mikataZukei = Util_Sky_SyugoQuery.Masus_Now(positionA, shogiGui.Link_Server.GetSky().KaisiPside);
+            SySet<SyElement> mikataZukei = Util_Sky_SyugoQuery.Masus_Now(
+                positionA, shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue().KaisiPside);
             //mikataZukei.DebugWrite("味方の駒");
 
             // 駒の利き上に駒がないか。
@@ -418,8 +419,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     }
 
                                                     string jsaFugoStr;
-                                                    Util_Functions_Server.SetCurNode_Srv(
-                                                        mainGui.Link_Server.KifuTree,
+                                                    mainGui.Link_Server.KifuTree.SetCurNode(newNode);
+                                                    Util_Functions_Server.AfterSetCurNode_Srv(
                                                         mainGui.SkyWrapper_Gui,
                                                         newNode,
                                                         newNode.Key,
@@ -562,8 +563,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                         }
 
                                                         string jsaFugoStr;
-                                                        Util_Functions_Server.SetCurNode_Srv(
-                                                            mainGui.Link_Server.KifuTree,
+                                                        mainGui.Link_Server.KifuTree.SetCurNode(newNode);
+                                                        Util_Functions_Server.AfterSetCurNode_Srv(
                                                             mainGui.SkyWrapper_Gui,
                                                             newNode,
                                                             newNode.Key,
@@ -722,7 +723,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma) && Util_Sky_BoolQuery.IsNareruKoma(Conv_Busstop.ToKomasyurui(koma))
                                                     &&
                                                     (
-                                                        Conv_Masu.InBanjoAitejin(btnSasitaiMasu.Zahyo, mainGui.Link_Server.GetSky().KaisiPside)
+                                                        Conv_Masu.InBanjoAitejin(btnSasitaiMasu.Zahyo,
+                                                            mainGui.Link_Server.KifuTree.CurNode.GetNodeValue().KaisiPside)
                                                         ||
                                                         Util_Sky_BoolQuery.InBanjoAitejin(Conv_Busstop.ToMasu( koma), Conv_Busstop.ToPlayerside( koma))
                                                     )

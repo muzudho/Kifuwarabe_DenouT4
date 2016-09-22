@@ -15,7 +15,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser
         /// <param name="kifu"></param>
         /// <param name="larabeLogger"></param>
         /// <returns></returns>
-        string Execute_Step(
+        string Execute_Step_CurrentMutable(
             ref KifuParserA_Result result,
 
             Earth earth1,
@@ -35,7 +35,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser
         /// <param name="inputLine"></param>
         /// <param name="kifu"></param>
         /// <param name="larabeLogger"></param>
-        void Execute_All(
+        void Execute_All_CurrentMutable(
             ref KifuParserA_Result result,
 
             Earth earth1,

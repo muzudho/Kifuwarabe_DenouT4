@@ -120,7 +120,11 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                                 errH
                                 );
                             // 棋譜ツリーのカレントを変更します。
-                            result.Out_newNode_OrNull = new KifuNodeImpl(nextMove, ittesasuResult.SyuryoKyokumenW);
+                            result.SetNode( new KifuNodeImpl(
+                                nextMove, ittesasuResult.SyuryoKyokumenW
+                                ),
+                                ittesasuResult.SyuryoKyokumenW
+                                );
 
                             exceptionArea = 1080;
                             //↑↑一手指し

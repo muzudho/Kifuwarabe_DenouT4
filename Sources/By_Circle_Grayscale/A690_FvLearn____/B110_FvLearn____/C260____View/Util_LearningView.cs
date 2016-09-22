@@ -132,6 +132,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     );
                 }
 
+                KifuNode curNodeB;
                 {
                     //----------------------------------------
                     // 一手指したい。
@@ -145,26 +146,29 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                         positionA,
                         errH
                     );
-                    Util_IttesasuRoutine.UpdateKifuTree(
+                    curNodeB = Util_IttesasuRoutine.BeforeUpdateKifuTree(
                         earth1,
-                        kifu1,
+                        kifu1.CurNode,
                         nextMove,
                         ittesasuResult.SyuryoKyokumenW
                         );
+                    kifu1.SetCurNode(
+                        curNodeB
+                        );//次ノードを、これからのカレントとします。
                     // これで、棋譜ツリーに、構造変更があったはず。
                     //↑↑一手指し
                 }
 
 
                 Move move;
-                if (kifu1.CurNode.IsRoot())
+                if (curNodeB.IsRoot())
                 {
                     move = Move.Empty;
                 }
                 else
                 {
                     // FIXME: 未テスト。
-                    move = Conv_Move.ToMove_ByCsa(csaSasite, kifu1.GetSky());
+                    move = Conv_Move.ToMove_ByCsa(csaSasite, curNodeB.GetNodeValue());
                 }
                 HonpuSasiteListItemImpl listItem = new HonpuSasiteListItemImpl(csaSasite, move);
                 uc_Main.LstSasite.Items.Add(listItem);
@@ -186,16 +190,19 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
         /// ノード情報の表示
         /// </summary>
         /// <param name="uc_Main"></param>
-        public static void Aa_ShowNode2(LearningData learningData, Uc_Main uc_Main, KwLogger errH)
+        public static void Aa_ShowNode2(
+            LearningData learningData,
+            Sky positionA,
+            Uc_Main uc_Main, KwLogger errH)
         {
             // 手目済み
-            uc_Main.TxtTemezumi.Text = learningData.GetSky().Temezumi.ToString();
+            uc_Main.TxtTemezumi.Text = positionA.Temezumi.ToString();
 
             // 総ノード数
             uc_Main.TxtAllNodesCount.Text = "--";// FIXME: 一旦削除
 
             // 合法手の数
-            uc_Main.TxtGohosyuTe.Text = learningData.Kifu.CurNode.Children1.Count.ToString();
+            uc_Main.TxtGohosyuTe.Text = learningData.GetCurChildren().Count.ToString();
         }
 
         /// <summary>
@@ -217,8 +224,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 List<GohosyuListItem> list = new List<GohosyuListItem>();
                 //uc_Main.LstGohosyu.Items.Clear();
                 int itemNumber = 0;
-                Sky positionA = learningData.Kifu.GetSky();
-                learningData.Kifu.CurNode.Children1.Foreach_ChildNodes2(
+                Sky positionA = learningData.PositionA;
+                learningData.GetCurChildren().Foreach_ChildNodes2(
                     (Move move, List<Move> honpuList, ref bool toBreak) =>
                 {
                     Util_IttesasuSuperRoutine.DoMove_Super(
@@ -271,7 +278,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
 
                     int bScore = 0;
 
-                    switch (learningData.GetSky().KaisiPside)
+                    switch (learningData.PositionA.KaisiPside)
                     {
                         case Playerside.P1: result = bScore - aScore; break;
                         case Playerside.P2: result = aScore - bScore; break;
@@ -337,7 +344,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             //
             Move nextMove;
             {
-                if (learningData.Kifu.CurNode.Children1.HasChildNode(move))
+                if (learningData.GetCurChildren().HasChildNode(move))
                 {
                     nextMove = move;//次の棋譜ノードのキーが、指し手（きふわらべ式）になっています。
                 }
@@ -345,7 +352,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 {
                     nextMove = Conv_Move.GetErrorMove();
                     StringBuilder sb = new StringBuilder();
-                    sb.Append("指し手[" + Conv_Move.ToSfen(move) + "]はありませんでした。\n" + learningData.DumpToAllGohosyu(learningData.GetSky()));
+                    sb.Append("指し手[" + Conv_Move.ToSfen(move) + "]はありませんでした。\n" + learningData.DumpToAllGohosyu(learningData.PositionA));
 
                     //Debug.Fail(sb.ToString());
                     errH.DonimoNaranAkirameta("Util_LearningView#Ittesasu_ByBtnClick：" + sb.ToString());
@@ -361,23 +368,27 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             Util_IttesasuRoutine.DoMove_Normal(
                 out ittesasuResult,
                 ref nextMove,
-                learningData.GetSky(),
+                learningData.PositionA,
                 errH
             );
-            Util_IttesasuRoutine.UpdateKifuTree(
+            KifuNode curNodeB = Util_IttesasuRoutine.BeforeUpdateKifuTree(
                 learningData.Earth,
-                learningData.Kifu,
+                learningData.KifuA.CurNode,
                 nextMove,
                 ittesasuResult.SyuryoKyokumenW
                 );
+            learningData.KifuA.SetCurNode(
+                curNodeB
+                );//次ノードを、これからのカレントとします。
             // これで、棋譜ツリーに、構造変更があったはず。
             //↑↑一手指し
 
             //----------------------------------------
             // カレント・ノードより古い、以前読んだ手を削除したい。
             //----------------------------------------
-            System.Console.WriteLine("カレント・ノード＝" + Conv_Move.ToSfen( learningData.Kifu.CurNode.Key));
-            int result_removedCount = Util_KifuTree282.IzennoHenkaCutter(learningData.Kifu, errH);
+            System.Console.WriteLine("カレント・ノード＝" + Conv_Move.ToSfen( learningData.GetMove()));
+            int result_removedCount = Util_KifuTree282.IzennoHenkaCutter(
+                learningData.KifuA.CurNode, errH);
             System.Console.WriteLine("削除した要素数＝" + result_removedCount);
 
             ////----------------------------------------
@@ -389,10 +400,15 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             learningData.Aa_Yomi(
                 ref searchedMaxDepth,
                 ref searchedNodes,
+                learningData.KifuA,
+                learningData.PositionA,
                 searchedPv,
                 errH);
             // ノード情報の表示
-            Util_LearningView.Aa_ShowNode2(uc_Main.LearningData, uc_Main, errH);
+            Util_LearningView.Aa_ShowNode2(
+                uc_Main.LearningData,
+                uc_Main.LearningData.PositionA,
+                uc_Main, errH);
 
             // 合法手表示の更新を要求します。 
             isRequestShowGohosyu = true;

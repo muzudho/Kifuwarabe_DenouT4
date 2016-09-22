@@ -44,11 +44,8 @@ namespace Grayscale.P910_SpeedKeisok
         public FeatureVector FeatureVector { get; set; }
 
         public Earth Earth { get; set; }
+        public Sky PositionA { get; set; }
         public Tree Kifu { get; set; }
-        public Sky GetSky()
-        {
-            return this.Kifu.CurNode.GetNodeValue();
-        }
 
 
         public Uc_Main()
@@ -57,16 +54,19 @@ namespace Grayscale.P910_SpeedKeisok
             {
                 Earth newEarth1;
                 Tree newKifu1_Hirate;
-                Util_FvLoad.CreateKifuTree(out newEarth1, out newKifu1_Hirate);
+                KifuNode curNode1;
+                Sky positionA;
+                Util_FvLoad.CreateKifuTree(
+                    out newEarth1, out positionA, out curNode1, out newKifu1_Hirate);
 
                 this.Earth = newEarth1;
+                this.PositionA = positionA;
                 this.Kifu = newKifu1_Hirate;
             }
-            //this.Src_Sky = this.GetSky();
             InitializeComponent();
         }
 
-        private KeisokuResult Keisoku(Hyokakansu handan1)
+        private KeisokuResult Keisoku(Hyokakansu handan1, Sky positionA)
         {
             Stopwatch watch = new Stopwatch();
             watch.Start();
@@ -74,7 +74,7 @@ namespace Grayscale.P910_SpeedKeisok
             float score;
             handan1.Evaluate(
                 out score,
-                this.GetSky(),//.Src_Sky,
+                positionA,
                 this.FeatureVector,
                 Util_Loggers.ProcessSpeedTest_KEISOKU
                 );
@@ -96,8 +96,9 @@ namespace Grayscale.P910_SpeedKeisok
         {
 
             List<KeisokuResult> list = new List<KeisokuResult>();
-            list.Add(this.Keisoku(new Hyokakansu_Komawari()));
-            list.Add(this.Keisoku(new Hyokakansu_NikomaKankeiPp()));
+            Sky positionA = this.Kifu.CurNode.GetNodeValue();
+            list.Add(this.Keisoku(new Hyokakansu_Komawari(),positionA));
+            list.Add(this.Keisoku(new Hyokakansu_NikomaKankeiPp(), positionA));
 
             TimeSpan total = new TimeSpan();
 

@@ -1,12 +1,10 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C___250_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
-using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
+using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
+using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
@@ -23,8 +21,10 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
         CsaKifu CsaKifu { get; set; }
 
         Earth Earth { get; set; }
-        Tree Kifu { get; set; }
-        Sky GetSky();
+        Tree KifuA { get; set; }
+        Sky PositionA { get; set; }
+        Move GetMove();
+        Children GetCurChildren();
 
         /// <summary>
         /// フィーチャー・ベクター。
@@ -44,13 +44,20 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
         /// <summary>
         /// 局面PNG画像を更新。
         /// </summary>
-        void ChangeKyokumenPng(Uc_Main uc_Main);
+        void ChangeKyokumenPng(
+            Uc_Main uc_Main,
+            Move move,
+            Sky positionA
+            );
 
 
         /// <summary>
         /// 局面PNG画像書き出し。
         /// </summary>
-        void WritePng(KwLogger errH);
+        void WritePng(
+            Move move,
+            Sky positionA,
+            KwLogger errH);
 
 
         /// <summary>
@@ -60,8 +67,11 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
         void Aaa_CreateNextNodes_Gohosyu(
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
+            KifuNode curNode1,
+            Sky positionA,
             string[] searchedPv,
-            EvaluationArgs args, KwLogger errH);
+            EvaluationArgs args,
+            KwLogger errH);
 
         /// <summary>
         /// 全合法手をダンプ。デバッグ用途。
@@ -84,6 +94,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
         void Aa_Yomi(
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
+            Tree kifu1,
+            Sky positionA,
             string[] searchedPv,
             KwLogger errH);
 

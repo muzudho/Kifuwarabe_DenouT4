@@ -33,10 +33,10 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
         /// <param name="kifu"></param>
         /// <param name="larabeLogger"></param>
         /// <returns></returns>
-        public string Execute_Step(
+        public string Execute_Step_CurrentMutable(
             ref KifuParserA_Result result,
             Earth earth1,
-            Tree kifu1,
+            Tree kifu1_mutable,
             KifuParserA_Genjo genjo,
             KwLogger errH
             ,
@@ -56,20 +56,29 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 #endif
 
                 KifuParserA_State nextState;
+                KifuNode curNode1 = kifu1_mutable.CurNode;
                 genjo.InputLine = this.State.Execute(
                     ref result,
                     earth1,
-                    kifu1.CurNode,
-                    kifu1.GetSky(),
-                    kifu1,
+                    curNode1,
+                    curNode1.GetNodeValue(),
+                    kifu1_mutable,
                     out nextState, this,
                     genjo, errH);
                 if (null!=result.Out_newNode_OrNull)
                 {
-                    result.Out_newNode_OrNull = Util_IttesasuRoutine.UpdateKifuTree(
-                        earth1, kifu1,
+                    curNode1 = Util_IttesasuRoutine.BeforeUpdateKifuTree(
+                        earth1,
+                        curNode1,
                         result.Out_newNode_OrNull.Key,
-                        result.Out_newNode_OrNull.GetNodeValue()
+                        result.NewSky
+                        );
+                    kifu1_mutable.SetCurNode(
+                        curNode1
+                        );//次ノードを、これからのカレントとします。
+                    // ■■■■■■■■■■カレント・チェンジ■■■■■■■■■■
+                    result.SetNode(curNode1,
+                        result.NewSky
                         );
                 }
                 this.State = nextState;
@@ -89,10 +98,10 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
         /// <param name="inputLine"></param>
         /// <param name="kifu"></param>
         /// <param name="larabeLogger"></param>
-        public void Execute_All(
+        public void Execute_All_CurrentMutable(
             ref KifuParserA_Result result,
             Earth earth1,
-            Tree kifu1,
+            Tree kifu1_mutable,
             KifuParserA_Genjo genjo,
             KwLogger errH
             ,
@@ -127,17 +136,25 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     genjo.InputLine = this.State.Execute(
                         ref result,
                         earth1,
-                        kifu1.CurNode,
-                        kifu1.GetSky(),
-                        kifu1,
+                        kifu1_mutable.CurNode,
+                        kifu1_mutable.CurNode.GetNodeValue(),
+                        kifu1_mutable,
                         out nextState, this,
                         genjo, errH);
                     if (null != result.Out_newNode_OrNull)
                     {
-                        result.Out_newNode_OrNull = Util_IttesasuRoutine.UpdateKifuTree(
-                            earth1, kifu1,
+                        KifuNode newNodeB = Util_IttesasuRoutine.BeforeUpdateKifuTree(
+                            earth1,
+                            kifu1_mutable.CurNode,
                             result.Out_newNode_OrNull.Key,
-                            result.Out_newNode_OrNull.GetNodeValue()
+                            result.NewSky
+                            );
+                        kifu1_mutable.SetCurNode(
+                            newNodeB
+                            );//次ノードを、これからのカレントとします。
+                        // ■■■■■■■■■■カレント・チェンジ■■■■■■■■■■
+                        result.SetNode(newNodeB,
+                            result.NewSky
                             );
                     }
                     this.State = nextState;

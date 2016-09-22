@@ -39,6 +39,8 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad
         /// </summary>
         public static void CreateKifuTree(
             out Earth out_earth1,
+            out Sky out_positionA,
+            out KifuNode out_curNode1,
             out Tree out_kifu1
             )
         {
@@ -46,20 +48,19 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad
 
             // 棋譜
             out_earth1 = new EarthImpl();
-            Sky positionA = Util_SkyCreator.New_Hirate();
-            out_kifu1 = new TreeImpl(
-                    new KifuNodeImpl(
+            out_positionA = Util_SkyCreator.New_Hirate();
+            out_curNode1 = new KifuNodeImpl(
                         Conv_Move.GetErrorMove(),
-                        positionA
-                    )
-            );
+                        out_positionA
+                    );
+            out_kifu1 = new TreeImpl(out_curNode1);
             out_earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手
 
 
-            positionA.AssertFinger((Finger)0);
+            out_positionA.AssertFinger((Finger)0);
             Debug.Assert(!Conv_Masu.OnKomabukuro(
                 Conv_Masu.ToMasuHandle(
-                    Conv_Busstop.ToMasu(positionA.BusstopIndexOf((Finger)0))
+                    Conv_Busstop.ToMasu(out_positionA.BusstopIndexOf((Finger)0))
                     )
                 ), "駒が駒袋にあった。");
         }

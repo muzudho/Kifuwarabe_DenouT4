@@ -170,7 +170,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
             float tyoseiryo_good = 0.0f;//加点に使われる数字です。
 
             float badScore_temp = tyoseiryo_bad;
-            Sky positionA = uc_Main.LearningData.GetSky();
+            Sky positionA = uc_Main.LearningData.PositionA;
             if (positionA.KaisiPside == Playerside.P2)
             {
                 tyoseiryo_bad *= -1.0f;//2Pは、負数の方が高得点です。
@@ -179,7 +179,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
             //
             // 合法手一覧
             //
-            uc_Main.LearningData.Kifu.CurNode.Children1.Foreach_ChildNodes3(
+            uc_Main.LearningData.GetCurChildren().Foreach_ChildNodes3(
                 (Move move, ref bool toBreak) =>
             {
                 // 本譜手はまだ計算しない。
@@ -229,7 +229,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
             //
             // 本譜手
             //
-            if (uc_Main.LearningData.Kifu.CurNode.Children1.HasChildNode(move1))
+            if (uc_Main.LearningData.GetCurChildren().HasChildNode(move1))
             {
                 // 進める
                 Move moveB = move1;
@@ -269,7 +269,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
                 Debug.Fail("指し手[" + move1 +
                     "]に対応する次ノードは作成されていませんでした。\n" +
                     uc_Main.LearningData.DumpToAllGohosyu(
-                        uc_Main.LearningData.GetSky()));
+                        uc_Main.LearningData.PositionA));
             }
 
             // 局面の合法手表示の更新を要求します。

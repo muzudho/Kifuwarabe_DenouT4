@@ -65,7 +65,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                 errH.Flush(LogTypes.Plain);
 #endif
 
-                if (uc_Main.LearningData.Kifu.CurNode.Children1.HasChildNode(move1))
+                if (uc_Main.LearningData.GetCurChildren().HasChildNode(move1))
                 {
 #if DEBUG
                     errH.AppendLine("----------------------------------------");
@@ -75,7 +75,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                     errH.Flush(LogTypes.Plain);
 #endif
 
-                    Sky positionA = uc_Main.LearningData.GetSky();
+                    Sky positionA = uc_Main.LearningData.PositionA;
 
                     Util_IttesasuSuperRoutine.DoMove_Super(
                         ref positionA,//指定局面
@@ -121,7 +121,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             //----------------------------------------
             // 点数を付け直すために、ノードを一旦、全削除
             //----------------------------------------
-            uc_Main.LearningData.Kifu.CurNode.Children1.ClearAll();
+            uc_Main.LearningData.GetCurChildren().ClearAll();
 
             //----------------------------------------
             // ネクスト・ノードを再作成
@@ -133,6 +133,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             uc_Main.LearningData.Aa_Yomi(
                 ref searchedMaxDepth,
                 ref searchedNodes,
+                uc_Main.LearningData.KifuA,
+                uc_Main.LearningData.PositionA,
                 searchedPv,
                 Util_Loggers.ProcessLearner_DEFAULT);
         }
@@ -166,7 +168,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             float chosei_bairitu;
             float.TryParse(uc_Main.TxtChoseiBairituB.Text, out chosei_bairitu);
 
-            if (Playerside.P2 == uc_Main.LearningData.GetSky().KaisiPside)
+            if (Playerside.P2 == uc_Main.LearningData.PositionA.KaisiPside)
             {
                 chosei_bairitu *= -1; //後手はマイナスの方が有利。
             }
@@ -193,7 +195,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             float.TryParse(uc_Main.TxtChoseiBairituB.Text, out badScore);
             badScore *= -1.0f;
 
-            if (Playerside.P2 == uc_Main.LearningData.GetSky().KaisiPside)
+            if (Playerside.P2 == uc_Main.LearningData.PositionA.KaisiPside)
             {
                 badScore *= -1; //後手はプラスの方が不利。
             }
@@ -214,23 +216,11 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
         public static void Do_ShowNikomaHyokati(Uc_Main uc_Main)
         {
             uc_Main.LearningData.DoScoreing_ForLearning(
-                uc_Main.LearningData.GetSky()
+                uc_Main.LearningData.PositionA
                 );
 
             uc_Main.TxtNikomaHyokati.Text = "";
         }
-
-        ///// <summary>
-        ///// FVを0～999(*bairitu)に矯正。
-        ///// </summary>
-        //public static void Do_FvRange999(ref bool isRequest_ShowGohosyu, Uc_Main uc_Main, KwLogger errH)
-        //{
-        //    Util_LearnFunctions.FvParamRange_PP(uc_Main.LearningData.Fv, errH);
-
-        //    // 局面の合法手表示の更新を要求します。
-        //    isRequest_ShowGohosyu = true;
-        //}
-
 
         public static void Do_OpenFvCsv(Uc_Main uc_Main, KwLogger errH)
         {
@@ -320,10 +310,15 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             uc_Main.LearningData.Aa_Yomi(
                 ref searchedMaxDepth,
                 ref searchedNodes,
+                uc_Main.LearningData.KifuA,
+                uc_Main.LearningData.PositionA,
                 searchedPv,
                 errH);
             // ノード情報の表示
-            Util_LearningView.Aa_ShowNode2(uc_Main.LearningData, uc_Main, Util_Loggers.ProcessLearner_DEFAULT);
+            Util_LearningView.Aa_ShowNode2(
+                uc_Main.LearningData,
+                uc_Main.LearningData.PositionA,
+                uc_Main, Util_Loggers.ProcessLearner_DEFAULT);
 
         //gt_EndMethod:
         //    ;
@@ -335,18 +330,23 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
         public static void Setup_KifuTree(
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
-            Uc_Main uc_Main, KwLogger errH)
+            Uc_Main uc_Main,
+            KwLogger errH)
         {
+            Sky positionA;
+            KifuNode curNode1;
+            Tree newKifu1_Hirate;
             {
                 Earth newEarth1;
-                Tree newKifu1_Hirate;
                 Util_FvLoad.CreateKifuTree(
                     out newEarth1,
+                    out positionA,
+                    out curNode1,
                     out newKifu1_Hirate
                     );
 
                 uc_Main.LearningData.Earth = newEarth1;
-                uc_Main.LearningData.Kifu = newKifu1_Hirate;
+                uc_Main.LearningData.KifuA = newKifu1_Hirate;
             }
 
             EvaluationArgs args;
@@ -373,6 +373,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             uc_Main.LearningData.Aaa_CreateNextNodes_Gohosyu(
                 ref searchedMaxDepth,
                 ref searchedNodes,
+                curNode1,
+                positionA,
                 searchedPv,
                 args, errH);
 

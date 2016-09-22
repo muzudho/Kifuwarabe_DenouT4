@@ -213,7 +213,10 @@ namespace Grayscale.P699_Form_______
             //------------------------------
             // 画面の描画です。
             //------------------------------
-            this.MainGui.Shape_PnlTaikyoku.Paint(sender, e, this.MainGui, Shape_CanvasImpl.WINDOW_NAME_SHOGIBAN, Util_Loggers.ProcessGui_PAINT);
+            this.MainGui.Shape_PnlTaikyoku.Paint(
+                sender, e,
+                this.MainGui.Link_Server.KifuTree.CurNode.GetNodeValue(),
+                this.MainGui, Shape_CanvasImpl.WINDOW_NAME_SHOGIBAN, Util_Loggers.ProcessGui_PAINT);
 
         gt_EndMethod:
             ;

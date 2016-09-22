@@ -54,16 +54,16 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
             // 採譜用に、新しい対局を用意します。
             Earth saifuEarth2 = new EarthImpl();
+            KifuNode curNode1;
             Tree saifuKifu2;
             {
                 Move move = Conv_Move.GetErrorMove();
 
-                saifuKifu2 = new TreeImpl(
-                        new KifuNodeImpl(
+                curNode1 = new KifuNodeImpl(
                             move,
                             Util_SkyCreator.New_Hirate()//日本の符号読取時
-                        )
-                );
+                        );
+                saifuKifu2 = new TreeImpl(curNode1);
                 earth1.Clear();
                 saifuKifu2.Clear();// 棋譜を空っぽにします。
                 saifuEarth2.SetProperty(
@@ -81,7 +81,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                 //------------------------------
                 // 符号の追加（記録係）
                 //------------------------------
-                Sky saifu_PositionA = new SkyImpl(saifuKifu2.GetSky());
+                Sky saifu_PositionA = new SkyImpl(curNode1.GetNodeValue());
 
 
                 // 採譜用新ノード
@@ -94,13 +94,14 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
 
                 // 記録係り用棋譜（採譜）
-                Util_KifuTree282.AppendChild_And_ChangeCurrentToChild(
+                Util_KifuTree282.AppendChild(
                     saifuEarth2,
-                    saifuKifu2,
+                    curNode1,
                     saifu_newChild,
                     saifu_PositionA,
                     hint +"/ToJsaKifuText", errH
                     );// 新しい次ノードを追加。次ノードを、これからカレントとする。
+                curNode1 = saifuKifu2.SetCurNode(saifu_newChild);//次ノードを、これからのカレントとします。
 
                 // 後手の符号がまだ含まれていない。
                 string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(

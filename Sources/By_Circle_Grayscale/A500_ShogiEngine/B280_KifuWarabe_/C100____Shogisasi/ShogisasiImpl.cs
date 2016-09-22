@@ -116,8 +116,6 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                     ref searchedNodes,
                     searchedPv,
 
-                    positionA.Temezumi,
-                    positionA.KaisiPside,
                     kifu1.CurNode,// ツリーを伸ばしているぜ☆（＾～＾）
                     positionA,
 

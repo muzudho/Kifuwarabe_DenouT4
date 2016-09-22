@@ -27,7 +27,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
         /// 本譜を残して、カレントノードより以前の変化は　ツリーから削除します。
         /// </summary>
         public static int IzennoHenkaCutter(
-            Tree kifu_mutable,
+            KifuNode curNode1,
             KwLogger errH
             )
         {
@@ -37,7 +37,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             // 本譜以外の変化を削除します。
             //----------------------------------------
 
-            if (kifu_mutable.CurNode.IsRoot())
+            if (curNode1.IsRoot())
             {
                 //----------------------------------------
                 // ルートノードでは何もできません。
@@ -48,13 +48,13 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //----------------------------------------
             // 本譜の手
             //----------------------------------------
-            Move move1 = kifu_mutable.CurNode.Key;
+            Move move1 = curNode1.Key;
 
 
             //----------------------------------------
             // １手前の分岐点
             //----------------------------------------
-            MoveNode parentMoveNode = kifu_mutable.CurNode.GetParentNode();
+            MoveNode parentMoveNode = curNode1.GetParentNode();
 
             //----------------------------------------
             // 選ばなかった変化を、ここに入れます。
@@ -107,30 +107,30 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
         /// 新しいノードを、次ノードとして追加します。
         /// そして、追加した新しいノードを、カレント・ノードとします。
         /// </summary>
-        /// <param name="nextNode_and_nextCurrent"></param>
-        public static void AppendChild_And_ChangeCurrentToChild(
+        /// <param name="nextNode"></param>
+        public static void AppendChild(
             Earth earth1,
-            Tree kifu1,
-            KifuNode nextNode_and_nextCurrent,
+            KifuNode curNode1,
+            KifuNode nextNode,
             Sky positionA,
             string hint,
             KwLogger errH
             )
         {
-            Move move1 = nextNode_and_nextCurrent.Key;
+            Move move1 = nextNode.Key;
 
-            if (!kifu1.CurNode.Children1.ContainsKey(move1))
+            if (!curNode1.Children1.ContainsKey(move1))
             {
                 //----------------------------------------
                 // 次ノート追加
                 //----------------------------------------
-                earth1.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(
-                    positionA), hint+"/AppendChild_And_ChangeCurrentToChild");
-                kifu1.CurNode.Children1.PutTuginoitte_New(nextNode_and_nextCurrent, kifu1.CurNode);
+                earth1.GetSennititeCounter().CountUp_New(
+                    Conv_Sky.ToKyokumenHash(positionA),
+                    hint+"/AppendChild_And_ChangeCurrentToChild");
+                curNode1.Children1.PutTuginoitte_New(nextNode, curNode1);
             }
 
-            kifu1.SetCurNode( nextNode_and_nextCurrent);//次ノードを、これからのカレントとします。
-            Debug.Assert(kifu1.CurNode != null, "カレントノードがヌル。");
+            Debug.Assert(nextNode != null, "カレントノードがヌル。");
         }
 
         /// <summary>
@@ -140,7 +140,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
         /// </summary>
         public static void SetStartpos_KokokaraSaifu(
             Earth earth1,
-            Tree kifu1, Playerside pside, KwLogger errH)
+            Tree kifu1,
+            Playerside pside, KwLogger errH)
         {
 
             //------------------------------------------------------------
@@ -148,7 +149,9 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //------------------------------------------------------------
             earth1.Clear();
             kifu1.Clear();
-            earth1.SetProperty(Word_KifuTree.PropName_Startpos, Conv_KifuNode.ToSfenstring(kifu1.GetSky(), pside, errH));
+            earth1.SetProperty(
+                Word_KifuTree.PropName_Startpos,
+                Conv_KifuNode.ToSfenstring(kifu1.GetRoot().GetNodeValue(), pside, errH));
         }
 
     }

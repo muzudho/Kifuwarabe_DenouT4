@@ -18,14 +18,12 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
 
     public interface Tree
     {
-        Sky GetSky();
-
         /// <summary>
         /// ツリー構造になっている本譜の葉ノード。
         /// 根を「startpos」等の初期局面コマンドとし、次の節からは棋譜の符号「2g2f」等が連なっている。
         /// </summary>
         KifuNode CurNode { get; }
-        void SetCurNode(KifuNode node);
+        KifuNode SetCurNode(KifuNode node);
 
         KifuNode NodeAt(int temezumi1);
 

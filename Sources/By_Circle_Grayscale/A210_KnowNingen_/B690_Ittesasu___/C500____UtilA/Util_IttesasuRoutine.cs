@@ -210,25 +210,25 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <summary>
         /// 棋譜ツリーのカレントを変更します。
         /// </summary>
-        public static KifuNode UpdateKifuTree(
+        public static KifuNode BeforeUpdateKifuTree(
             Earth earth1,
-            Tree kifu1,
+            KifuNode curNodeA,
             Move move,
             Sky positionA
             )
         {
             KifuNode newNodeB = new KifuNodeImpl(move, positionA);
 
-            if (!kifu1.CurNode.Children1.ContainsKey(move))
+            if (!curNodeA.Children1.ContainsKey(move))
             {
                 //----------------------------------------
                 // 次ノード追加（なければ）
                 //----------------------------------------
                 earth1.GetSennititeCounter().CountUp_New(
                     Conv_Sky.ToKyokumenHash(positionA), "After3_ChangeCurrent(次の一手なし)");
-                kifu1.CurNode.Children1.PutTuginoitte_New(
+                curNodeA.Children1.PutTuginoitte_New(
                     newNodeB,
-                    kifu1.CurNode
+                    curNodeA
                     );//次ノートを追加します。
             }
             else
@@ -238,16 +238,12 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 //----------------------------------------
                 earth1.GetSennititeCounter().CountUp_New(
                     Conv_Sky.ToKyokumenHash(positionA), "After3_ChangeCurrent（次の一手あり）");
-                kifu1.CurNode.Children1.PutTuginoitte_Override(newNodeB, kifu1.CurNode);//次ノートを上書きします。
+                curNodeA.Children1.PutTuginoitte_Override(newNodeB, curNodeA);//次ノートを上書きします。
             }
 
-            KifuNode temp = kifu1.CurNode;
-            kifu1.SetCurNode(
-                newNodeB
-                );//次ノードを、これからのカレントとします。
-            kifu1.CurNode.SetParentNode(temp);
-
-            return kifu1.CurNode;
+            KifuNode temp = curNodeA;
+            newNodeB.SetParentNode(temp);
+            return newNodeB;//カレント・ノード
         }
 
 

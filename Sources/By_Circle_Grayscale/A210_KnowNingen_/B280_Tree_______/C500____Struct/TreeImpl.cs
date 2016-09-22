@@ -23,7 +23,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             KifuNode root
         )
         {
-            this.SetCurNode(root);
+            this.m_curNode_ = root;
         }
 
 
@@ -32,17 +32,15 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
         #region プロパティ類
 
-        public Sky GetSky()
-        {
-            return this.CurNode.GetNodeValue();
-        }
-
         /// <summary>
         /// ツリー構造になっている本譜の葉ノード。
         /// 根を「startpos」等の初期局面コマンドとし、次の節からは棋譜の符号「2g2f」等が連なっている。
         /// </summary>
         public KifuNode CurNode { get { return this.m_curNode_; } }
-        public void SetCurNode(KifuNode node) { this.m_curNode_ = node; }
+        public KifuNode SetCurNode(KifuNode node) {
+            this.m_curNode_ = node;
+            return this.m_curNode_;
+        }
         private KifuNode m_curNode_;
 
         #endregion
@@ -58,7 +56,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
         public void Move_Previous()
         {
-            this.SetCurNode( this.CurNode.GetParentNode());
+            this.m_curNode_ = this.CurNode.GetParentNode();
         }
 
         #endregion

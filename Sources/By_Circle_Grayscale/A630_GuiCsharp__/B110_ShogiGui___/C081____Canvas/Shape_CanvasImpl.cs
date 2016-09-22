@@ -4,6 +4,7 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___492_Widgets;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape;
 using System.Windows.Forms;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C081____Canvas
 {
@@ -34,6 +35,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C081____Canvas
         public virtual void Paint(
             object sender,
             PaintEventArgs e,
+            Sky sky,//shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue()
             MainGui_Csharp shogibanGui,
             string windowName,
             KwLogger errH

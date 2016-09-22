@@ -140,7 +140,10 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         mainGui3.SkyWrapper_Gui,
                         errH
                         );
-                    Util_Function_Csharp.Komaokuri_Gui(restText, mainGui3, errH);
+                    Util_Function_Csharp.Komaokuri_Gui(restText,
+                        mainGui3.Link_Server.KifuTree.CurNode,
+                        mainGui3.Link_Server.KifuTree.CurNode.GetNodeValue(),
+                        mainGui3, errH);
                     Util_Menace.Menace(mainGui3, errH);// メナス
                 };
 
@@ -161,7 +164,12 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     Finger foodKoma;//取られた駒
                     string fugoJStr;
 
-                    if (!Util_Functions_Server.Makimodosi_Srv(out movedKoma, out foodKoma, out fugoJStr, shogibanGui2.Link_Server.KifuTree, errH))
+                    if (!Util_Functions_Server.Makimodosi_Srv(
+                        out movedKoma, out foodKoma,
+                        out fugoJStr,
+                        shogibanGui2.Link_Server.KifuTree.CurNode,
+                        shogibanGui2.Link_Server.KifuTree,
+                        errH))
                     {
                         goto gt_EndBlock;
                     }
@@ -298,7 +306,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         shogibanGui2.Link_Server.Earth,
                         shogibanGui2.Link_Server.KifuTree,
                         
-                        shogibanGui2.Link_Server.GetSky().KaisiPside, errH2
+                        shogibanGui2.Link_Server.KifuTree.CurNode.GetNodeValue().KaisiPside, errH2
                         );
                     shogibanGui2.RepaintRequest.SyuturyokuRequest = RepaintRequestGedanTxt.Kifu;
                 };
@@ -316,7 +324,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
                     MainGui_Csharp shogibanGui2 = (MainGui_Csharp)obj_shogiGui2;
 
-                    Util_Function_Csharp.Perform_SyokiHaichi(shogibanGui2, errH2);
+                    Util_Function_Csharp.Perform_SyokiHaichi_CurrentMutable(shogibanGui2, errH2);
                 };
 
                 //
@@ -377,8 +385,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         // ここで局面データを変更します。
                         // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
                         string jsaFugoStr;
-                        Util_Functions_Server.SetCurNode_Srv(
-                            mainGui3.Link_Server.KifuTree,
+                        mainGui3.Link_Server.KifuTree.SetCurNode(modifyNode);
+                        Util_Functions_Server.AfterSetCurNode_Srv(
                             mainGui3.SkyWrapper_Gui,
                             modifyNode,
                             modifyNode.Key,
@@ -562,8 +570,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     // ここで棋譜の変更をします。
                     // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
                     string jsaFugoStr;
-                    Util_Functions_Server.SetCurNode_Srv(
-                        mainGui.Link_Server.KifuTree,
+                    mainGui.Link_Server.KifuTree.SetCurNode(newNode);
+                    Util_Functions_Server.AfterSetCurNode_Srv(
                         mainGui.SkyWrapper_Gui,
                         newNode,
                         newNode.Key,

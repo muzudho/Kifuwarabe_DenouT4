@@ -225,7 +225,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
         /// </summary>
         public Tree Kifu_AtLoop2 { get { return this.m_kifu_AtLoop2_; } }
         public Sky PositionA { get {
-                return this.m_kifu_AtLoop2_.GetSky();
+                return this.m_kifu_AtLoop2_.CurNode.GetNodeValue();
                 //return this.m_positionA_;
             } }
         public void SetKifu_AtLoop2(Tree kifu)
@@ -737,7 +737,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 KifuParserA_Result result = new KifuParserA_ResultImpl();
                 KifuParserA_Impl kifuParserA = new KifuParserA_Impl();
                 KifuParserA_Genjo genjo = new KifuParserA_GenjoImpl(line);
-                kifuParserA.Execute_All(
+                kifuParserA.Execute_All_CurrentMutable(
                     ref result,
 
                     this.Earth_AtLoop2,
@@ -1147,7 +1147,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                             //------------------------------------------------------------
                             // 以前の手カッター
                             //------------------------------------------------------------
-                            Util_KifuTree282.IzennoHenkaCutter(this.Kifu_AtLoop2, this.Logger);
+                            Util_KifuTree282.IzennoHenkaCutter(
+                                this.Kifu_AtLoop2.CurNode, this.Logger);
                         }
                         break;
                 }

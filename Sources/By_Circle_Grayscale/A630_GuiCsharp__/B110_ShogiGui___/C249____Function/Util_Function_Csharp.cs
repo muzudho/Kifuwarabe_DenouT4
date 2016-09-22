@@ -29,7 +29,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
         /// <summary>
         /// [初期配置]ボタン
         /// </summary>
-        public static void Perform_SyokiHaichi(
+        public static void Perform_SyokiHaichi_CurrentMutable(
             MainGui_Csharp mainGui,
             KwLogger errH
             )
@@ -49,8 +49,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             // ここで棋譜の変更をします。
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
             string jsaFugoStr;
-            Util_Functions_Server.SetCurNode_Srv(
-                mainGui.Link_Server.KifuTree,
+            mainGui.Link_Server.KifuTree.SetCurNode(newNode);
+            Util_Functions_Server.AfterSetCurNode_Srv(
                 mainGui.SkyWrapper_Gui,
                 newNode,
                 newNode.Key,
@@ -112,15 +112,18 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             return true;
         }
 
-        public static bool Komaokuri_Gui(string restText, MainGui_Csharp shogiGui, KwLogger errH)
+        public static bool Komaokuri_Gui(
+            string restText,
+            MoveNode node6,// = shogiGui.Link_Server.KifuTree.CurNode;
+            Sky positionA,// = shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue();
+            MainGui_Csharp shogiGui,
+            KwLogger errH
+            )
         {
             //------------------------------
             // 符号表示
             //------------------------------
             {
-                MoveNode node6 = shogiGui.Link_Server.KifuTree.CurNode;
-                Sky positionA = shogiGui.Link_Server.GetSky();
-
                 // [コマ送り][再生]ボタン
                 string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
                     node6.Key,

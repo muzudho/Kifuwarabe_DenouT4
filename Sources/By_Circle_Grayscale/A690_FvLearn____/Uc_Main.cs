@@ -162,7 +162,11 @@ namespace Grayscale.A690_FvLearn____
 
             if (isRequest_ChangeKyokumenPng)
             {
-                this.LearningData.ChangeKyokumenPng(this);
+                this.LearningData.ChangeKyokumenPng(
+                    this,
+                    this.LearningData.GetMove(),
+                    this.LearningData.PositionA
+                    );
                 isRequest_ChangeKyokumenPng = false;
             }
         }
@@ -234,7 +238,11 @@ namespace Grayscale.A690_FvLearn____
 
             if (isRequest_ChangeKyokumenPng)
             {
-                this.LearningData.ChangeKyokumenPng(this);
+                this.LearningData.ChangeKyokumenPng(
+                    this,
+                    this.LearningData.GetMove(),
+                    this.LearningData.PositionA
+                );
                 isRequest_ChangeKyokumenPng = false;
             }
         }
@@ -291,7 +299,11 @@ namespace Grayscale.A690_FvLearn____
 
             if (isRequest_ChangeKyokumenPng)
             {
-                this.LearningData.ChangeKyokumenPng(this);
+                this.LearningData.ChangeKyokumenPng(
+                    this,
+                    this.LearningData.GetMove(),
+                    this.LearningData.PositionA
+                    );
                 isRequest_ChangeKyokumenPng = false;
             }
         }
@@ -413,7 +425,11 @@ namespace Grayscale.A690_FvLearn____
 
             if (isRequest_ChangeKyokumenPng)
             {
-                this.LearningData.ChangeKyokumenPng(this);
+                this.LearningData.ChangeKyokumenPng(
+                    this,
+                    this.LearningData.GetMove(),
+                    this.LearningData.PositionA
+                    );
                 isRequest_ChangeKyokumenPng = false;
             }
         }
@@ -444,7 +460,11 @@ namespace Grayscale.A690_FvLearn____
 
             if (isRequest_ChangeKyokumenPng)
             {
-                this.LearningData.ChangeKyokumenPng(this);
+                this.LearningData.ChangeKyokumenPng(
+                    this,
+                    this.LearningData.GetMove(),
+                    this.LearningData.PositionA
+                    );
                 isRequest_ChangeKyokumenPng = false;
             }
 
@@ -541,7 +561,11 @@ namespace Grayscale.A690_FvLearn____
 
             if (isRequest_ChangeKyokumenPng)
             {
-                this.LearningData.ChangeKyokumenPng(this);
+                this.LearningData.ChangeKyokumenPng(
+                    this,
+                    this.LearningData.GetMove(),
+                    this.LearningData.PositionA
+                );
                 isRequest_ChangeKyokumenPng = false;
             }
         }

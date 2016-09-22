@@ -453,7 +453,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
             // FIXME: [初期配置]を１回やっておかないと、[コマ送り]ボタン等で不具合が出てしまう。
             //
             {
-                Util_Function_Csharp.Perform_SyokiHaichi(
+                Util_Function_Csharp.Perform_SyokiHaichi_CurrentMutable(
                     ((Form1_Shogiable)this.OwnerForm).Uc_Form1Main.MainGui,
                     errH
                 );

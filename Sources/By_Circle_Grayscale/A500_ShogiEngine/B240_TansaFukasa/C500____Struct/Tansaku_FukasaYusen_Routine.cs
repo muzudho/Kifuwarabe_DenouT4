@@ -207,8 +207,6 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             ref ulong searchedNodes,
             string[] searchedPv,
 
-            int temezumi,
-            Playerside pside,
             KifuNode rootNode,// ツリーを伸ばしているぜ☆（＾～＾）
             Sky positionA,
 
@@ -218,6 +216,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             KwLogger errH
             )
         {
+            int temezumi = positionA.Temezumi;
+            Playerside pside = positionA.KaisiPside;
             int exceptionArea = 0;
 
             try

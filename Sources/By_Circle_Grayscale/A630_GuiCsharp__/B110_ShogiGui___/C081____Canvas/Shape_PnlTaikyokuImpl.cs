@@ -10,6 +10,8 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C081____Canvas
 {
@@ -335,6 +337,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C081____Canvas
         /// <param name="e"></param>
         public override void Paint(
             object sender, PaintEventArgs e,
+            Sky sky,//shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue()
             MainGui_Csharp shogiGui,
             string windowName,
             KwLogger errH
@@ -375,12 +378,13 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C081____Canvas
             //----------
             // 先後表示
             //----------
-            Playerside pside = shogiGui.Link_Server.GetSky().KaisiPside;
-            this.lblPside.Text = Conv_Playerside.ToLog_Kanji(pside);
+            this.lblPside.Text = Conv_Playerside.ToLog_Kanji(sky.KaisiPside);
             this.lblPside.Paint(e.Graphics);
 
 
-            base.Paint(sender, e, shogiGui, windowName, errH);
+            base.Paint(sender, e,
+                shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue(),
+                shogiGui, windowName, errH);
 
         gt_EndMethod:
             ;

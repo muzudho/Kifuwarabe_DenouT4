@@ -39,17 +39,17 @@ namespace P930_SampleGame
 
             // 棋譜
             Earth earth1 = new EarthImpl();
+            Sky positionA = Util_SkyCreator.New_Hirate();//日本の符号読取時;
             Tree kifu1 = new TreeImpl(
                         new KifuNodeImpl(
                             Conv_Move.GetErrorMove(),
-                            Util_SkyCreator.New_Hirate()//日本の符号読取時
+                            positionA
                         )
                 );
 
             int searchedMaxDepth = 0;
             ulong searchedNodes = 0;
             string[] searchedPv = new string[KifuWarabeImpl.SEARCHED_PV_LENGTH];
-            Sky positionA = kifu1.GetSky();
             MoveEx bestmoveNode = shogisasi.WA_Bestmove(
                 ref searchedMaxDepth,
                 ref searchedNodes,

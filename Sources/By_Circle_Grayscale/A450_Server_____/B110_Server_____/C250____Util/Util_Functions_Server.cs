@@ -48,8 +48,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
         /// </summary>
         /// <param name="kifu"></param>
         /// <param name="newNode"></param>
-        public static void SetCurNode_Srv(
-            Tree kifu1,// Taikyokuの内容をManualへ移す。
+        public static void AfterSetCurNode_Srv(
+            //Tree kifu1,//kifu1.SetCurNode(newNodeB);
             SkyWrapper_Gui model_Manual,
             KifuNode newNodeA,
             Move move,
@@ -65,8 +65,6 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             newNodeB.MoveEx = newNodeA.MoveEx;
             newNodeB.SetParentNode(newNodeA.GetParentNode());
              */
-
-            kifu1.SetCurNode(newNodeB);
 
             model_Manual.SetGuiSky(positionA);
 
@@ -92,7 +90,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
         /// それにより、処理の流れが異なります。
         /// 
         /// </summary>
-        public static bool ReadLine_TuginoItteSusumu_Srv(
+        public static bool ReadLine_TuginoItteSusumu_Srv_CurrentMutable(
             ref string inputLine,
 
             Earth earth1,
@@ -126,7 +124,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     errH.AppendLine("ｻｲｼｮﾊｺｺ☆　：　" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
                     errH.Flush(LogTypes.Plain);
 #endif
-                    inputLine = kifuParserA_Impl.Execute_Step(
+                    inputLine = kifuParserA_Impl.Execute_Step_CurrentMutable(
                         ref result,
                         earth1,
                         kifu1,
@@ -160,7 +158,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                         errH.Flush(LogTypes.Plain);
 #endif
 
-                        inputLine = kifuParserA_Impl.Execute_Step(
+                        inputLine = kifuParserA_Impl.Execute_Step_CurrentMutable(
                             ref result,
                             earth1,
                             kifu1,
@@ -183,7 +181,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                         errH.Flush(LogTypes.Plain);
 #endif
 
-                        inputLine = kifuParserA_Impl.Execute_Step(
+                        inputLine = kifuParserA_Impl.Execute_Step_CurrentMutable(
                             ref result,
                             earth1,
                             kifu1,
@@ -215,7 +213,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     errH.Flush(LogTypes.Plain);
 #endif
 
-                    inputLine = kifuParserA_Impl.Execute_Step(
+                    inputLine = kifuParserA_Impl.Execute_Step_CurrentMutable(
                         ref result,
                         earth1,
                         kifu1,
@@ -226,11 +224,13 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     if (null != result.Out_newNode_OrNull)
                     {
                         string jsaFugoStr;
-                        Util_Functions_Server.SetCurNode_Srv(
-                            kifu1, model_Manual,
+
+                        kifu1.SetCurNode(result.Out_newNode_OrNull);
+                        Util_Functions_Server.AfterSetCurNode_Srv(
+                            model_Manual,
                             result.Out_newNode_OrNull,
                             result.Out_newNode_OrNull.Key,
-                            result.Out_newNode_OrNull.GetNodeValue(),
+                            result.NewSky,
                             out jsaFugoStr, errH);
                     }
 
@@ -264,11 +264,15 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     // 駒の配置
                     //------------------------------
                     string jsaFugoStr;
-                    Util_Functions_Server.SetCurNode_Srv(kifu1, model_Manual,
-                        new KifuNodeImpl(
-                            parsedKyokumen.NewMove,
-                            parsedKyokumen.NewSky
-                        ),
+
+                    KifuNode curNode1 = new KifuNodeImpl(
+                        parsedKyokumen.NewMove,
+                        parsedKyokumen.NewSky
+                    );
+                    curNode1 = kifu1.SetCurNode(curNode1);
+                    Util_Functions_Server.AfterSetCurNode_Srv(
+                        model_Manual,
+                        curNode1,
                         parsedKyokumen.NewMove,
                         parsedKyokumen.NewSky,
                         out jsaFugoStr, errH);// GUIに通知するだけ。
@@ -303,7 +307,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             out Finger movedKoma,
             out Finger foodKoma,
             out string jsaFugoStr,
-            Tree kifu1,
+            KifuNode curNode1,//削るノード
+            Tree kifu1_mutable,
             KwLogger errH
             )
         {
@@ -312,11 +317,10 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             //------------------------------
             // 棋譜から１手削ります
             //------------------------------
-            KifuNode removeeLeaf = kifu1.CurNode;
-            Sky positionA = kifu1.GetSky();
+            Sky positionA = curNode1.GetNodeValue();
             int korekaranoTemezumi = positionA.Temezumi - 1;//１手前へ。
 
-            if (removeeLeaf.IsRoot())
+            if (curNode1.IsRoot())
             {
                 // ルート
                 jsaFugoStr = "×";
@@ -331,8 +335,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             //------------------------------
             // [巻戻し]ボタン
             jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
-                removeeLeaf.Key,
-                Util_Tree.CreatePv2List(removeeLeaf),
+                curNode1.Key,
+                Util_Tree.CreatePv2List(curNode1),
                 positionA,
                 errH);
 
@@ -345,13 +349,13 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             IttemodosuResult ittemodosuResult;
             Util_IttemodosuRoutine.UndoMove(
                 out ittemodosuResult,
-                kifu1.CurNode.Key,
+                curNode1.Key,
                 positionA,
                 "B",
                 errH
                 );
             Util_IttemodosuRoutine.UpdateKifuTree(
-                kifu1
+                kifu1_mutable
                 );
             movedKoma = ittemodosuResult.FigMovedKoma;
             foodKoma = ittemodosuResult.FigFoodKoma;
@@ -395,7 +399,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             }
 
             bool toBreak = false;
-            Util_Functions_Server.ReadLine_TuginoItteSusumu_Srv(
+            Util_Functions_Server.ReadLine_TuginoItteSusumu_Srv_CurrentMutable(
                 ref inputLine,
                 earth1,
                 kifu1,//SetCurNodeがある。

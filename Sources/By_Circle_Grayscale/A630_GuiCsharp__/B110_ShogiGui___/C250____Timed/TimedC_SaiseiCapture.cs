@@ -69,7 +69,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                             else
                             {
                                 // [コマ送り]に成功している間、コマ送りし続けます。
-                                Util_Functions_Server.ReadLine_TuginoItteSusumu_Srv(
+                                Util_Functions_Server.ReadLine_TuginoItteSusumu_Srv_CurrentMutable(
                                     ref restText,
 
                                     this.mainGui.Link_Server.Earth,
@@ -92,7 +92,11 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                 //------------------------------
                                 // 再描画
                                 //------------------------------
-                                Util_Function_Csharp.Komaokuri_Gui(restText, mainGui, eventState.Flg_logTag);//追加
+                                Util_Function_Csharp.Komaokuri_Gui(
+                                    restText,
+                                    mainGui.Link_Server.KifuTree.CurNode,
+                                    mainGui.Link_Server.KifuTree.CurNode.GetNodeValue(),
+                                    mainGui, eventState.Flg_logTag);//追加
 
                                 //------------------------------
                                 // メナス
