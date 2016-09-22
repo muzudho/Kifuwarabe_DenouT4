@@ -29,11 +29,13 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C498____Server
             // モデル
             //----------
             this.m_earth_ = new EarthImpl();
+            Sky positionInit = new SkyImpl(src_Sky);
             this.m_kifuTree_ = new TreeImpl(
-                    new KifuNodeImpl(
-                        Conv_Move.GetErrorMove(),
-                        new SkyImpl(src_Sky)
-                    )
+                new KifuNodeImpl(
+                    Conv_Move.GetErrorMove(),
+                    positionInit
+                ),
+                positionInit
             );
             this.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "9/9/9/9/9/9/9/9/9");
 
@@ -50,10 +52,6 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C498____Server
             this.m_kifuTree_ = kifu1;
         }
         private Tree m_kifuTree_;
-        public Sky GetSky()
-        {
-            return this.KifuTree.CurNode1.GetNodeValue();
-        }
 
         public Earth Earth { get { return this.m_earth_; } }
         private Earth m_earth_;

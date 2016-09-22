@@ -20,10 +20,11 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
     public class TreeImpl : Tree
     {
         public TreeImpl(
-            KifuNode root
+            KifuNode root, Sky sky
         )
         {
-            this.m_curNode_ = root;
+            this.SetCurNode(root, sky);
+            //this.m_curNode_ = root;
         }
 
 

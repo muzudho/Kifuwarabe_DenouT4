@@ -57,7 +57,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 new KifuNodeImpl(
                     Conv_Move.GetErrorMove(),
                     positionA
-                )
+                ),
+                positionA
             );
             //kifu1.AssertPside(kifu1.CurNode, "ShowSasiteList",errH);
 
@@ -169,20 +170,11 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 else
                 {
                     // FIXME: 未テスト。
-                    move = Conv_Move.ToMove_ByCsa(csaSasite, curNodeB.GetNodeValue());
+                    move = Conv_Move.ToMove_ByCsa(csaSasite, kifu1.PositionA);// curNodeB.GetNodeValue()
                 }
                 HonpuSasiteListItemImpl listItem = new HonpuSasiteListItemImpl(csaSasite, move);
                 uc_Main.LstSasite.Items.Add(listItem);
             }
-
-            //----------------------------------------
-            // ソート
-            //----------------------------------------
-            //List<SasiteListItemImpl> list = new List<SasiteListItemImpl>();
-            //list.Sort((SasiteListItemImpl a, SasiteListItemImpl b) =>
-            //{
-            //    return a - b;
-            //});
         }
 
 

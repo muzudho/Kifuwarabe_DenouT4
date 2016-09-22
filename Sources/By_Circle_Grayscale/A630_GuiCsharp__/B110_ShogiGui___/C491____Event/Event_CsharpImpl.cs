@@ -142,7 +142,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         );
                     Util_Function_Csharp.Komaokuri_Gui(restText,
                         mainGui3.Link_Server.KifuTree.CurNode2ok,
-                        mainGui3.Link_Server.KifuTree.CurNode2ok.GetNodeValue(),
+                        mainGui3.Link_Server.KifuTree.PositionA,//.CurNode2ok.GetNodeValue()
                         mainGui3, errH);
                     Util_Menace.Menace(mainGui3, errH);// メナス
                 };
@@ -311,7 +311,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         shogibanGui2.Link_Server.KifuTree.GetRoot().GetNodeValue(),
                         shogibanGui2.Link_Server.KifuTree,
                         
-                        shogibanGui2.Link_Server.KifuTree.CurNode2ok.GetNodeValue().KaisiPside, errH2
+                        shogibanGui2.Link_Server.KifuTree.PositionA.KaisiPside,//.CurNode2ok.GetNodeValue()
+                        errH2
                         );
                     shogibanGui2.RepaintRequest.SyuturyokuRequest = RepaintRequestGedanTxt.Kifu;
                 };

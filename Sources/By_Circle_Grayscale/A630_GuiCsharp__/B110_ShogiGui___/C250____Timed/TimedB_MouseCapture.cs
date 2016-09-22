@@ -68,12 +68,11 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
             //kikiZukei.DebugWrite("駒の利きLv1");
 
             // 味方の駒
-            //KifuNode siteiNode = shogiGui.Link_Server.KifuTree.CurNode;
-            Sky positionA = shogiGui.Link_Server.KifuTree.CurNode2ok.GetNodeValue();
+            Sky positionA = shogiGui.Link_Server.KifuTree.PositionA;//CurNode2ok.GetNodeValue()
 
             //shogiGui.Model_PnlTaikyoku.Kifu.AssertPside(shogiGui.Model_PnlTaikyoku.Kifu.CurNode, "Check_MouseoverKomaKiki",errH);
             SySet<SyElement> mikataZukei = Util_Sky_SyugoQuery.Masus_Now(
-                positionA, shogiGui.Link_Server.KifuTree.CurNode2ok.GetNodeValue().KaisiPside);
+                positionA, positionA.KaisiPside);//.CurNode2ok.GetNodeValue()
             //mikataZukei.DebugWrite("味方の駒");
 
             // 駒の利き上に駒がないか。
@@ -728,7 +727,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     &&
                                                     (
                                                         Conv_Masu.InBanjoAitejin(btnSasitaiMasu.Zahyo,
-                                                            mainGui.Link_Server.KifuTree.CurNode2ok.GetNodeValue().KaisiPside)
+                                                            mainGui.Link_Server.KifuTree.PositionA.KaisiPside)//.CurNode2ok.GetNodeValue()
                                                         ||
                                                         Util_Sky_BoolQuery.InBanjoAitejin(Conv_Busstop.ToMasu( koma), Conv_Busstop.ToPlayerside( koma))
                                                     )

@@ -40,7 +40,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
         /// <param name="fugoList"></param>
         public static string ToJsaFugoListString(
             Earth earth1,
-            MoveNode curNode,
+            MoveNode curNode_notUse,
             string hint,
             KwLogger errH
             )
@@ -59,18 +59,19 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
             {
                 Move move = Conv_Move.GetErrorMove();
 
+                Sky positionInit = Util_SkyCreator.New_Hirate();//日本の符号読取時
                 curNode1 = new KifuNodeImpl(
                             move,
-                            Util_SkyCreator.New_Hirate()//日本の符号読取時
+                            positionInit
                         );
-                saifuKifu2 = new TreeImpl(curNode1);
+                saifuKifu2 = new TreeImpl(curNode1, positionInit);
                 earth1.Clear();
                 saifuKifu2.Clear();// 棋譜を空っぽにします。
                 saifuEarth2.SetProperty(
                     Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面 // FIXME:平手とは限らないのでは？
             }
 
-            Util_Tree.ForeachHonpu2(curNode, (int temezumi, Move move, ref bool toBreak) =>
+            Util_Tree.ForeachHonpu2(curNode_notUse, (int temezumi, Move move, ref bool toBreak) =>
             {
                 if (0 == temezumi)
                 {
@@ -81,7 +82,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                 //------------------------------
                 // 符号の追加（記録係）
                 //------------------------------
-                Sky saifu_PositionA = new SkyImpl(curNode1.GetNodeValue());
+                Sky saifu_PositionA = new SkyImpl(saifuKifu2.PositionA);//curNode1.GetNodeValue()
 
 
                 // 採譜用新ノード

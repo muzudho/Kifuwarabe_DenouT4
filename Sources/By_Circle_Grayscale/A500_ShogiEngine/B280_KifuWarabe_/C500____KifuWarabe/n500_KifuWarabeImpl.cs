@@ -117,20 +117,21 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             #endregion
 
             // 棋譜
+            Sky positionInit = Util_SkyCreator.New_Hirate();// きふわらべ起動時
             KifuNode curNode1 = new KifuNodeImpl(
                             Conv_Move.GetErrorMove(),
-                            Util_SkyCreator.New_Hirate()// きふわらべ起動時
+                            positionInit
                         );
             {
                 // FIXME:平手とは限らないが、平手という前提で作っておく。
                 this.m_earth_AtLoop2_ = new EarthImpl();
-                this.m_kifu_AtLoop2_ = new TreeImpl(curNode1);
+                this.m_kifu_AtLoop2_ = new TreeImpl(curNode1, positionInit);
                 this.Earth_AtLoop2.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
 
-                curNode1.GetNodeValue().AssertFinger((Finger)0);
+                this.m_kifu_AtLoop2_.PositionA.AssertFinger((Finger)0);// curNode1.GetNodeValue()
                 Debug.Assert(!Conv_Masu.OnKomabukuro(
                     Conv_Masu.ToMasuHandle(
-                        Conv_Busstop.ToMasu(curNode1.GetNodeValue().BusstopIndexOf((Finger)0))
+                        Conv_Busstop.ToMasu(this.m_kifu_AtLoop2_.PositionA.BusstopIndexOf((Finger)0))// curNode1.GetNodeValue()
                         )
                     ), "駒が駒袋にあった。");
             }
@@ -915,13 +916,13 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 // ┏━━━━プログラム━━━━┓
 
                 KifuNode curNode1 = this.Kifu_AtLoop2.CurNode1;
-                int latestTemezumi = curNode1.GetNodeValue().Temezumi;//現・手目済
+                Sky positionA = this.Kifu_AtLoop2.PositionA;
+                int latestTemezumi = positionA.Temezumi;//現・手目済// curNode1.GetNodeValue()
 
                 //#if DEBUG
                 // MessageBox.Show("["+latestTemezumi+"]手目済　["+this.owner.PlayerInfo.Playerside+"]の手番");
                 //#endif
 
-                Sky positionA = curNode1.GetNodeValue();
 
                 bool test = true;
                 if (test)
@@ -1036,10 +1037,11 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
                                         this.Earth_AtLoop2,
                                         this.Kifu_AtLoop2,// ツリーを伸ばしているぜ☆（＾～＾）
-                                        this.Kifu_AtLoop2.CurNode1.GetNodeValue(),
+                                        this.Kifu_AtLoop2.PositionA,//.CurNode1.GetNodeValue(),
 
                                         this.Logger)
                                         );
+                                    this.Kifu_AtLoop2.SetCurNode(this.Kifu_AtLoop2.CurNode2ok, this.Kifu_AtLoop2.PositionA);
                                 }
 
 
@@ -1097,7 +1099,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                                 //----------------------------------------
                                 {
                                     int hyojiScore = (int)bestScore;
-                                    if (this.Kifu_AtLoop2.CurNode1.GetNodeValue().KaisiPside == Playerside.P2)
+                                    if (this.Kifu_AtLoop2.PositionA.KaisiPside == Playerside.P2)//.CurNode1.GetNodeValue()
                                     {
                                         // 符号を逆転
                                         hyojiScore = -hyojiScore;

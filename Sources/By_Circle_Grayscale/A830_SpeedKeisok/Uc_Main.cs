@@ -96,7 +96,7 @@ namespace Grayscale.P910_SpeedKeisok
         {
 
             List<KeisokuResult> list = new List<KeisokuResult>();
-            Sky positionA = this.Kifu.CurNode2ok.GetNodeValue();
+            Sky positionA = this.Kifu.PositionA;//.CurNode2ok.GetNodeValue()
             list.Add(this.Keisoku(new Hyokakansu_Komawari(),positionA));
             list.Add(this.Keisoku(new Hyokakansu_NikomaKankeiPp(), positionA));
 

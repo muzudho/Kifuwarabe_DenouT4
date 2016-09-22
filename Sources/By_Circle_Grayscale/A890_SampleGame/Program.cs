@@ -41,11 +41,12 @@ namespace P930_SampleGame
             Earth earth1 = new EarthImpl();
             Sky positionA = Util_SkyCreator.New_Hirate();//日本の符号読取時;
             Tree kifu1 = new TreeImpl(
-                        new KifuNodeImpl(
-                            Conv_Move.GetErrorMove(),
-                            positionA
-                        )
-                );
+                new KifuNodeImpl(
+                    Conv_Move.GetErrorMove(),
+                    positionA
+                ),
+                positionA
+            );
 
             int searchedMaxDepth = 0;
             ulong searchedNodes = 0;

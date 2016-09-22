@@ -53,7 +53,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad
                         Conv_Move.GetErrorMove(),
                         out_positionA
                     );
-            out_kifu1 = new TreeImpl(out_curNode1);
+            out_kifu1 = new TreeImpl(out_curNode1, out_positionA);
             out_earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手
 
 

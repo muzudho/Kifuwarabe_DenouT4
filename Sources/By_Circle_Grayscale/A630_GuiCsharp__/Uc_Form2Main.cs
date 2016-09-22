@@ -91,7 +91,7 @@ namespace Grayscale.P699_Form_______
             //------------------------------
             shogibanGui.ConsoleWindowGui.Shape_Canvas.Paint(
                 sender, e,
-                shogibanGui.Link_Server.KifuTree.CurNode2ok.GetNodeValue(),
+                shogibanGui.Link_Server.KifuTree.PositionA,//.CurNode2ok.GetNodeValue()
                 shogibanGui, Shape_CanvasImpl.WINDOW_NAME_CONSOLE, Util_Loggers.ProcessGui_PAINT);
 
         gt_EndMethod:

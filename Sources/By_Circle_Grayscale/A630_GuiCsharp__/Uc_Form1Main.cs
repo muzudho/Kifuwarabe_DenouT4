@@ -215,7 +215,7 @@ namespace Grayscale.P699_Form_______
             //------------------------------
             this.MainGui.Shape_PnlTaikyoku.Paint(
                 sender, e,
-                this.MainGui.Link_Server.KifuTree.CurNode2ok.GetNodeValue(),
+                this.MainGui.Link_Server.KifuTree.PositionA,//.CurNode2ok.GetNodeValue()
                 this.MainGui, Shape_CanvasImpl.WINDOW_NAME_SHOGIBAN, Util_Loggers.ProcessGui_PAINT);
 
         gt_EndMethod:

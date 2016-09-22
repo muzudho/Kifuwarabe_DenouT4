@@ -317,7 +317,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             //------------------------------
             // 棋譜から１手削ります
             //------------------------------
-            Sky positionA = curNode1.GetNodeValue();
+            Sky positionA = kifu1_mutable.PositionA;// curNode1.GetNodeValue();
             int korekaranoTemezumi = positionA.Temezumi - 1;//１手前へ。
 
             if (curNode1.IsRoot())
@@ -357,6 +357,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             Util_IttemodosuRoutine.UpdateKifuTree(
                 kifu1_mutable
                 );
+            kifu1_mutable.SetCurNode(kifu1_mutable.CurNode1, ittemodosuResult.SyuryoSky);
             movedKoma = ittemodosuResult.FigMovedKoma;
             foodKoma = ittemodosuResult.FigFoodKoma;
 
