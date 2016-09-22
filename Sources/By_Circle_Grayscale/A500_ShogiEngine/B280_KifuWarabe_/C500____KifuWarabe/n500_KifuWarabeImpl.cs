@@ -919,7 +919,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 // MessageBox.Show("["+latestTemezumi+"]手目済　["+this.owner.PlayerInfo.Playerside+"]の手番");
                 //#endif
 
-                Sky positionA = this.Kifu_AtLoop2.NodeAt(latestTemezumi).GetNodeValue();//現局面
+                Sky positionA = this.PositionA;
 
                 bool test = true;
                 if (test)

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B820_KyokuParser.C500____Parser
 {
@@ -23,7 +24,9 @@ namespace Grayscale.A210_KnowNingen_.B820_KyokuParser.C500____Parser
         /// <summary>
         /// 棋譜ノード。
         /// </summary>
-        public KifuNode KifuNode { get; set; }
+        //public KifuNode KifuNode { get; set; }
+        public Move NewMove { get; set; }
+        public Sky NewSky { get; set; }
 
         /// <summary>
         /// 持ち駒リスト。

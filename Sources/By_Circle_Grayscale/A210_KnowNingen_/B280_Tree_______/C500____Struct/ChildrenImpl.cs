@@ -14,7 +14,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
     {
         public ChildrenImpl()
         {
-            this.Items = new Dictionary<Move, KifuNode>();
+            this.Items = new Dictionary<Move, MoveNode>();
         }
 
 
@@ -22,7 +22,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// <summary>
         /// 次の局面への全ての候補手
         /// </summary>
-        protected Dictionary<Move, KifuNode> Items { get; set; }
+        protected Dictionary<Move, MoveNode> Items { get; set; }
         public delegate void DELEGATE_ChildNodes2(Move key, List<Move> honpuList, ref bool toBreak);
         public delegate void DELEGATE_ChildNodes3(Move key, ref bool toBreak);
         public delegate void DELEGATE_ChildNodes4(MoveEx key, ref bool toBreak);
@@ -37,7 +37,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         {
             bool toBreak = false;
 
-            foreach (KeyValuePair<Move, KifuNode> entry in this.Items)
+            foreach (KeyValuePair<Move, MoveNode> entry in this.Items)
             {
                 List<Move> pvList = Util_Tree.CreatePv2List(entry.Value);
 
@@ -53,7 +53,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         {
             bool toBreak = false;
 
-            foreach (KeyValuePair<Move, KifuNode> entry in this.Items)
+            foreach (KeyValuePair<Move, MoveNode> entry in this.Items)
             {
                 delegate_NextNodes(entry.Key, ref toBreak);
 
@@ -67,7 +67,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         {
             bool toBreak = false;
 
-            foreach (KeyValuePair<Move, KifuNode> entry in this.Items)
+            foreach (KeyValuePair<Move, MoveNode> entry in this.Items)
             {
                 delegate_NextNodes(entry.Value.MoveEx, ref toBreak);
 
@@ -81,7 +81,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         {
             bool toBreak = false;
 
-            foreach (KeyValuePair<Move, KifuNode> entry in this.Items)
+            foreach (KeyValuePair<Move, MoveNode> entry in this.Items)
             {
                 delegate_NextNodes(entry.Key, ref toBreak);
 
@@ -102,13 +102,13 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             return this.Items.ContainsKey(key);
         }
 
-        public void AddItem(Move key, KifuNode newNode, KifuNode parent)
+        public void AddItem(Move key, MoveNode newNode, KifuNode parent)
         {
             this.Items.Add(key, newNode);
             newNode.SetParentNode(parent);
         }
 
-        public void SetItems_Old(Dictionary<Move, KifuNode> newItems, KifuNode parent)
+        public void SetItems_Old(Dictionary<Move, MoveNode> newItems, KifuNode parent)
         {
             this.Items = newItems;
             foreach (KifuNode child in this.Items.Values)

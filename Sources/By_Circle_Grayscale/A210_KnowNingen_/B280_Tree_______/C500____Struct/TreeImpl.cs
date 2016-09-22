@@ -142,14 +142,14 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
         public KifuNode GetRoot()
         {
-            return (KifuNode)this.NodeAt(0);
+            return this.NodeAt(0);
         }
 
         public KifuNode NodeAt(int sitei_temezumi)
         {
             KifuNode found = null;
 
-            Util_Tree.ForeachHonpu1(this.CurNode, (int temezumi2, Move move, Sky sky, KifuNode node, ref bool toBreak) =>
+            Util_Tree.ForeachHonpu1(this.CurNode, (int temezumi2, Move move, KifuNode node, ref bool toBreak) =>
             {
                 if (sitei_temezumi == temezumi2) //新Verは 0 にも対応。
                 {

@@ -12,8 +12,8 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         int Count { get; }
         void ClearAll();
         bool ContainsKey(Move key);
-        void AddItem(Move key, KifuNode newNode, KifuNode parent);
-        void SetItems_Old(Dictionary<Move, KifuNode> newNextNodes, KifuNode parent);
+        void AddItem(Move key, MoveNode newNode, KifuNode parent);
+        void SetItems_Old(Dictionary<Move, MoveNode> newNextNodes, KifuNode parent);
         /// <summary>
         /// 棋譜ノードのValueは廃止方針☆
         /// </summary>

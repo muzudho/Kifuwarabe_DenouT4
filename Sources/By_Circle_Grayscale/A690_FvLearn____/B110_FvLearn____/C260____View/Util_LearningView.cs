@@ -148,7 +148,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     Util_IttesasuRoutine.UpdateKifuTree(
                         earth1,
                         kifu1,
-                        new KifuNodeImpl(nextMove, ittesasuResult.SyuryoKyokumenW),
+                        nextMove,
                         ittesasuResult.SyuryoKyokumenW
                         );
                     // これで、棋譜ツリーに、構造変更があったはず。
@@ -217,7 +217,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 List<GohosyuListItem> list = new List<GohosyuListItem>();
                 //uc_Main.LstGohosyu.Items.Clear();
                 int itemNumber = 0;
-                Sky positionA = learningData.Kifu.CurNode.GetNodeValue();
+                Sky positionA = learningData.Kifu.GetSky();
                 learningData.Kifu.CurNode.Children1.Foreach_ChildNodes2(
                     (Move move, List<Move> honpuList, ref bool toBreak) =>
                 {
@@ -367,8 +367,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             Util_IttesasuRoutine.UpdateKifuTree(
                 learningData.Earth,
                 learningData.Kifu,
-                
-                new KifuNodeImpl(nextMove, ittesasuResult.SyuryoKyokumenW),
+                nextMove,
                 ittesasuResult.SyuryoKyokumenW
                 );
             // これで、棋譜ツリーに、構造変更があったはず。

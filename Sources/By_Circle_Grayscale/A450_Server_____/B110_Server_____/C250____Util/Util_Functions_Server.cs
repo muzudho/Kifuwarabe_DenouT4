@@ -51,22 +51,31 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
         public static void SetCurNode_Srv(
             Tree kifu1,// Taikyokuの内容をManualへ移す。
             SkyWrapper_Gui model_Manual,
-            KifuNode newNode,
+            KifuNode newNodeA,
+            Move move,
             Sky positionA,
             out string jsaFugoStr,
             KwLogger errH
             )
         {
-            Debug.Assert(null != newNode, "新規ノードがヌル。");
+            KifuNode newNodeB = newNodeA;
+            /*
+            KifuNode newNodeB = new KifuNodeImpl(move, positionA);
+            newNodeB.Children1 = newNodeA.Children1;
+            newNodeB.MoveEx = newNodeA.MoveEx;
+            newNodeB.SetParentNode(newNodeA.GetParentNode());
+             */
 
-            kifu1.SetCurNode(newNode);
+            kifu1.SetCurNode(newNodeB);
 
             model_Manual.SetGuiSky(positionA);
 
             jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
-                newNode.Key,
-                Util_Tree.CreatePv2List(newNode),
-                positionA, errH);
+                move,
+                Util_Tree.CreatePv2List(newNodeB),
+                positionA,
+                errH
+                );
         }
 
         /// <summary>
@@ -220,6 +229,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                         Util_Functions_Server.SetCurNode_Srv(
                             kifu1, model_Manual,
                             result.Out_newNode_OrNull,
+                            result.Out_newNode_OrNull.Key,
                             result.Out_newNode_OrNull.GetNodeValue(),
                             out jsaFugoStr, errH);
                     }
@@ -255,19 +265,13 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     //------------------------------
                     string jsaFugoStr;
                     Util_Functions_Server.SetCurNode_Srv(kifu1, model_Manual,
-                        parsedKyokumen.KifuNode,
-                        parsedKyokumen.KifuNode.GetNodeValue(),
+                        new KifuNodeImpl(
+                            parsedKyokumen.NewMove,
+                            parsedKyokumen.NewSky
+                        ),
+                        parsedKyokumen.NewMove,
+                        parsedKyokumen.NewSky,
                         out jsaFugoStr, errH);// GUIに通知するだけ。
-
-                    ////------------------------------
-                    //// 駒を、駒袋から駒台に移動させます。
-                    ////------------------------------
-                    //model_Operating.Manual.SetGuiSky(
-                    //    SkyConst.NewInstance(
-                    //        parsedKyokumen.buffer_Sky,
-                    //        -1//そのまま
-                    //    )
-                    //);
                 }
 
 
@@ -309,7 +313,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             // 棋譜から１手削ります
             //------------------------------
             KifuNode removeeLeaf = kifu1.CurNode;
-            int korekaranoTemezumi = removeeLeaf.GetNodeValue().Temezumi - 1;//１手前へ。
+            Sky positionA = kifu1.GetSky();
+            int korekaranoTemezumi = positionA.Temezumi - 1;//１手前へ。
 
             if (removeeLeaf.IsRoot())
             {
@@ -328,7 +333,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
                 removeeLeaf.Key,
                 Util_Tree.CreatePv2List(removeeLeaf),
-                removeeLeaf.GetNodeValue(), errH);
+                positionA,
+                errH);
 
 
 
@@ -340,7 +346,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             Util_IttemodosuRoutine.UndoMove(
                 out ittemodosuResult,
                 kifu1.CurNode.Key,
-                kifu1.GetSky(),
+                positionA,
                 "B",
                 errH
                 );

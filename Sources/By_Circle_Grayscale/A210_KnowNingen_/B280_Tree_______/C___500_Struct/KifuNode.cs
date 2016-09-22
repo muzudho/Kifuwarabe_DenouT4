@@ -15,6 +15,6 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         /// このノードの値。
         /// </summary>
         Sky GetNodeValue();
-        void SetValue(Sky sky);
+        void SetNodeValue(Sky sky);
     }
 }

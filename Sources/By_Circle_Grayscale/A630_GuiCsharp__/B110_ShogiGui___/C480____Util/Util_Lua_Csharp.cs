@@ -247,6 +247,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
                     mainGui.Link_Server.KifuTree,
                     mainGui.SkyWrapper_Gui,
                     newNode,
+                    newNode.Key,
                     newSky,
                     out jsaFugoStr, errH);
                 repaintRequest.SetFlag_RefreshRequest();

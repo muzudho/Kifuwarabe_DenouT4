@@ -72,7 +72,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                         earth1.Clear();
                         kifu1.Clear();// 棋譜を空っぽにします。
 
-                        kifu1.GetRoot().SetValue( Util_SkyCreator.New_Hirate());//SFENのstartpos解析時
+                        kifu1.GetRoot().SetNodeValue( Util_SkyCreator.New_Hirate());//SFENのstartpos解析時
                         earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
                     }
 

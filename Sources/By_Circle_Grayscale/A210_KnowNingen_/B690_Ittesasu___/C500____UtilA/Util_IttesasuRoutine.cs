@@ -19,6 +19,7 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 {
@@ -209,21 +210,26 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <summary>
         /// 棋譜ツリーのカレントを変更します。
         /// </summary>
-        public static void UpdateKifuTree(
+        public static KifuNode UpdateKifuTree(
             Earth earth1,
             Tree kifu1,
-            KifuNode newNode,
+            Move move,
             Sky positionA
             )
         {
-            if (!kifu1.CurNode.Children1.ContainsKey(newNode.Key))
+            KifuNode newNodeB = new KifuNodeImpl(move, positionA);
+
+            if (!kifu1.CurNode.Children1.ContainsKey(move))
             {
                 //----------------------------------------
                 // 次ノード追加（なければ）
                 //----------------------------------------
                 earth1.GetSennititeCounter().CountUp_New(
                     Conv_Sky.ToKyokumenHash(positionA), "After3_ChangeCurrent(次の一手なし)");
-                kifu1.CurNode.Children1.PutTuginoitte_New(newNode, kifu1.CurNode);//次ノートを追加します。
+                kifu1.CurNode.Children1.PutTuginoitte_New(
+                    newNodeB,
+                    kifu1.CurNode
+                    );//次ノートを追加します。
             }
             else
             {
@@ -232,12 +238,16 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 //----------------------------------------
                 earth1.GetSennititeCounter().CountUp_New(
                     Conv_Sky.ToKyokumenHash(positionA), "After3_ChangeCurrent（次の一手あり）");
-                kifu1.CurNode.Children1.PutTuginoitte_Override(newNode, kifu1.CurNode);//次ノートを上書きします。
+                kifu1.CurNode.Children1.PutTuginoitte_Override(newNodeB, kifu1.CurNode);//次ノートを上書きします。
             }
 
             KifuNode temp = kifu1.CurNode;
-            kifu1.SetCurNode(newNode);//次ノードを、これからのカレントとします。
-            newNode.SetParentNode(temp);
+            kifu1.SetCurNode(
+                newNodeB
+                );//次ノードを、これからのカレントとします。
+            kifu1.CurNode.SetParentNode(temp);
+
+            return kifu1.CurNode;
         }
 
 

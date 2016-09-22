@@ -12,7 +12,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
     /// <param name="temezumi">手目済</param>
     /// <param name="node">ノードのかたまりのまま。</param>
     /// <param name="toBreak"></param>
-    public delegate void DELEGATE_Foreach1(int temezumi, Move move, Sky sky, KifuNode node, ref bool toBreak);
+    public delegate void DELEGATE_Foreach1(int temezumi, Move move, KifuNode node, ref bool toBreak);
     public delegate void DELEGATE_Foreach2(int temezumi, Move move, ref bool toBreak);
 
 

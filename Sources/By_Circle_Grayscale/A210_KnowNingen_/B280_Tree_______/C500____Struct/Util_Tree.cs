@@ -45,10 +45,10 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             return honpu;
         }
 
-        public static List<KifuNode> CreateHonpu1List(KifuNode endNode)
+        public static List<MoveNode> CreateHonpu1List(MoveNode endNode)
         {
             // 本譜（ノードのリスト）
-            List<KifuNode> honpu = new List<KifuNode>();
+            List<MoveNode> honpu = new List<MoveNode>();
 
             //
             // ツリー型なので、１本のリストに変換するために工夫します。
@@ -77,7 +77,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             bool toBreak = false;
 
             // 本譜（ノードのリスト）
-            List<KifuNode> honpu = Util_Tree.CreateHonpu1List(endNode);
+            List<MoveNode> honpu = Util_Tree.CreateHonpu1List(endNode);
 
             //
             // 手済みを数えます。
@@ -86,7 +86,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
             foreach (KifuNode item in honpu)//正順になっています。
             {
-                delegate_Foreach(temezumi, item.Key, item.GetNodeValue(), item, ref toBreak);
+                delegate_Foreach(temezumi, item.Key, item, ref toBreak);
                 if (toBreak)
                 {
                     break;

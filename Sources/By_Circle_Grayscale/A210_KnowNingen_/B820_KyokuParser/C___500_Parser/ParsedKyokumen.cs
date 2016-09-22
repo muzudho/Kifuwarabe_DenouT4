@@ -2,6 +2,7 @@
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using System.Collections.Generic;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B820_KyokuParser.C___500_Parser
 {
@@ -15,7 +16,9 @@ namespace Grayscale.A210_KnowNingen_.B820_KyokuParser.C___500_Parser
         /// <summary>
         /// 棋譜ノード。
         /// </summary>
-        KifuNode KifuNode { get; set; }
+        //KifuNode KifuNode { get; set; }
+        Move NewMove { get; set; }
+        Sky NewSky { get; set; }
 
         /// <summary>
         /// 持ち駒リスト。
@@ -23,6 +26,5 @@ namespace Grayscale.A210_KnowNingen_.B820_KyokuParser.C___500_Parser
         List<MotiItem> MotiList { get; set; }
 
         Sky Sky { get; set; }
-
     }
 }

@@ -23,7 +23,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
             this.SetParentNode(null);
             this.m_key_ = move;
-            this.SetValue( sky);
+            this.SetNodeValue( sky);
 
             this.Children1 = new ChildrenImpl();
         }
@@ -39,7 +39,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         {
             return this.m_value_;
         }
-        public void SetValue(Sky sky)
+        public void SetNodeValue(Sky sky)
         {
             this.m_value_ = sky;
         }

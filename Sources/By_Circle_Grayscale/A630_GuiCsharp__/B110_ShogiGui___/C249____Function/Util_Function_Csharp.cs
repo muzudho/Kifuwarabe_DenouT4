@@ -39,9 +39,10 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
 
             mainGui.Link_Server.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
 
+            Sky positionA = Util_SkyCreator.New_Hirate();//[初期配置]ボタン押下時
             KifuNode newNode = new KifuNodeImpl(
                                         Conv_Move.GetErrorMove(),//ルートなので
-                                        Util_SkyCreator.New_Hirate()//[初期配置]ボタン押下時
+                                        positionA
                                         );
 
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
@@ -52,7 +53,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
                 mainGui.Link_Server.KifuTree,
                 mainGui.SkyWrapper_Gui,
                 newNode,
-                newNode.GetNodeValue(),
+                newNode.Key,
+                positionA,
                 out jsaFugoStr, errH);
             mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
