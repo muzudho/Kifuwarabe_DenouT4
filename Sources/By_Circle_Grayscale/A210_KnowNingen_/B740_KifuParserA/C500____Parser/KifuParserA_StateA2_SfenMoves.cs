@@ -51,7 +51,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
         /// <param name="errH"></param>
         /// <returns></returns>
         public string Execute(
-            out bool toKifuClear,
+            out MoveNodeType out_moveNodeType,
             ref KifuParserA_Result result,
 
             Earth earth1,
@@ -64,7 +64,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             KwLogger errH
             )
         {
-            toKifuClear = false;
+            out_moveNodeType = MoveNodeType.None;
             int exceptionArea = 0;
 
             //bool isHonshogi = true;//FIXME:暫定
@@ -122,9 +122,10 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                                 errH
                                 );
                             // 棋譜ツリーのカレントを変更します。
-                            result.SetNode( new KifuNodeImpl(nextMove),
+                            result.SetNode( new MoveNodeImpl(nextMove),
                                 ittesasuResult.SyuryoKyokumenW
                                 );
+                            out_moveNodeType = MoveNodeType.Do;
 
                             exceptionArea = 1080;
                             //↑↑一手指し

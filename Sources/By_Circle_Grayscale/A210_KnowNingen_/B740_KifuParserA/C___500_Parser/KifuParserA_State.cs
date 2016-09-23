@@ -9,7 +9,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser
     {
 
         string Execute(
-            out bool toKifuClear,
+            out MoveNodeType moveNodeType,
             ref KifuParserA_Result result,
 
             Earth earth1,

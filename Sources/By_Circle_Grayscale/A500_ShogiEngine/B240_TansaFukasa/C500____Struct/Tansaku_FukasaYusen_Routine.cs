@@ -207,7 +207,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             ref ulong searchedNodes,
             string[] searchedPv,
 
-            KifuNode rootNode,// ツリーを伸ばしているぜ☆（＾～＾）
+            MoveNode rootNode,// ツリーを伸ばしているぜ☆（＾～＾）
             Sky positionA,
 
             bool isHonshogi,
@@ -343,7 +343,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         }
         private static MoveEx ChoiceBest(
             bool isHonshogi,
-            KifuNode rootNode,
+            MoveNode rootNode,
             Playerside kaisiPside,
             KwLogger errH
         )
@@ -582,7 +582,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             int kaisiTemezumi,
             Move mov1,//改造後
             Sky positionA,//この局面から、合法手を作成☆（＾～＾）
-            KifuNode nod1,// ツリーを伸ばしているぜ☆（＾～＾）
+            MoveNode nod1,// ツリーを伸ばしているぜ☆（＾～＾）
 
             int movelist_count,
             EvaluationArgs args,
@@ -629,7 +629,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                 foreach (Move iMov in movelist2)//次に読む手
                 {
                     Move mov2 = iMov;
-                    KifuNode nod2 = new MoveNodeImpl(mov2);
+                    MoveNode nod2 = new MoveNodeImpl(mov2);
 
                     if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(
                         yomiDeep2,

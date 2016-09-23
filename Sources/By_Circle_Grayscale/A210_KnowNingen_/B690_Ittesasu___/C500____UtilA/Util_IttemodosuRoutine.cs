@@ -199,7 +199,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             Tree kifu_mutable
             )
         {
-            KifuNode removedLeaf = kifu_mutable.PopCurrentNode();
+            MoveNode removedLeaf = kifu_mutable.PopCurrentNode();
         }
 
 

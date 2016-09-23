@@ -102,16 +102,16 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             return this.Items.ContainsKey(key);
         }
 
-        public void AddItem(Move key, MoveNode newNode, KifuNode parent)
+        public void AddItem(Move key, MoveNode newNode, MoveNode parent)
         {
             this.Items.Add(key, newNode);
             newNode.SetParentNode(parent);
         }
 
-        public void SetItems_Old(Dictionary<Move, MoveNode> newItems, KifuNode parent)
+        public void SetItems_Old(Dictionary<Move, MoveNode> newItems, MoveNode parent)
         {
             this.Items = newItems;
-            foreach (KifuNode child in this.Items.Values)
+            foreach (MoveNode child in this.Items.Values)
             {
                 child.SetParentNode(parent);
             }
@@ -121,12 +121,12 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// </summary>
         /// <param name="moves"></param>
         /// <param name="parent"></param>
-        public void SetItems_New(List<Move> moves, KifuNode parent)
+        public void SetItems_New(List<Move> moves, MoveNode parent)
         {
             this.Items.Clear();
             foreach (Move move in moves)
             {
-                KifuNode newNode = new MoveNodeImpl(move);
+                MoveNode newNode = new MoveNodeImpl(move);
                 newNode.SetParentNode(parent);
                 this.Items.Add(move,newNode);
             }
@@ -171,8 +171,8 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// カレントノードは変更しません。
         /// </summary>
         public void PutTuginoitte_New(
-            KifuNode newNode,
-            KifuNode owner
+            MoveNode newNode,
+            MoveNode owner
             )
         {
             // 同じ指し手があれば追加してはいけない？
@@ -194,8 +194,8 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// </summary>
         /// <param name="existsNode"></param>
         public void PutTuginoitte_Override(
-            KifuNode existsNode,
-            KifuNode owner
+            MoveNode existsNode,
+            MoveNode owner
             )
         {
             // SFENをキーに、次ノードを増やします。

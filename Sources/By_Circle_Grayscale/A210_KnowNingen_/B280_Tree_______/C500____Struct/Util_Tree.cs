@@ -11,7 +11,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 {
     public abstract class Util_Tree
     {
-        public static List<Move> CreateChlidMoves(KifuNode hubNode)
+        public static List<Move> CreateChlidMoves(MoveNode hubNode)
         {
             List<Move> childMoves = new List<Move>();
 
@@ -72,7 +72,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// </summary>
         /// <param name="endNode">葉側のノード。</param>
         /// <param name="delegate_Foreach"></param>
-        public static void ForeachHonpu1(KifuNode endNode, DELEGATE_Foreach1 delegate_Foreach)
+        public static void ForeachHonpu1(MoveNode endNode, DELEGATE_Foreach1 delegate_Foreach)
         {
             bool toBreak = false;
 
@@ -84,7 +84,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             //
             int temezumi = 0;//初期局面が[0]
 
-            foreach (KifuNode item in honpu)//正順になっています。
+            foreach (MoveNode item in honpu)//正順になっています。
             {
                 delegate_Foreach(temezumi, item.Key, item, ref toBreak);
                 if (toBreak)

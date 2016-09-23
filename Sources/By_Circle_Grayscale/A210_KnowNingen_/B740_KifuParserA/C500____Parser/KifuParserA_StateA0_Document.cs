@@ -40,7 +40,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
 
         public string Execute(
-            out bool toKifuClear,
+            out MoveNodeType out_moveNodeType,
             ref KifuParserA_Result result,
 
             Earth earth1_notUse,
@@ -53,7 +53,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             KwLogger errH
             )
         {
-            toKifuClear = false;
+            out_moveNodeType = MoveNodeType.None;
             nextState = this;
 
             try

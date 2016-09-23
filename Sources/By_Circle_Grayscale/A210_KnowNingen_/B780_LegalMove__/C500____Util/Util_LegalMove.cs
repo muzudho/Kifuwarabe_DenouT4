@@ -68,7 +68,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             long exception_area = 1000130;
             try
             {
-                KifuNode hubNode = Conv_StarbetuSasites.ToNextNodes_AsHubNode(
+                MoveNode hubNode = Conv_StarbetuSasites.ToNextNodes_AsHubNode(
                     genTeban_komabetuAllMoves1,
                     positionA,
                     errH
@@ -160,7 +160,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
         /// </summary>
         public static void LAA_RemoveNextNode_IfMate(
             int yomikaisiTemezumi,
-            KifuNode hubNode,
+            MoveNode hubNode,
             int temezumi_yomiGenTeban_forLog,//読み進めている現在の手目
             Playerside pside_genTeban,
             Sky positionA,

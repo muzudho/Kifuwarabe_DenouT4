@@ -29,13 +29,13 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
         /// <param name="kifu"></param>
         /// <param name="pside_genTeban"></param>
         /// <returns>次の局面一覧を持った、入れ物ノード（ハブ・ノード）</returns>
-        public static KifuNode ToNextNodes_AsHubNode(
+        public static MoveNode ToNextNodes_AsHubNode(
             Maps_OneAndMulti<Finger,Move> komabetuAllMoves,
             Sky src_Sky,
             KwLogger logger
             )
         {
-            KifuNode hubNode = new MoveNodeImpl(Conv_Move.GetErrorMove());//蝶番
+            MoveNode hubNode = new MoveNodeImpl(Conv_Move.GetErrorMove());//蝶番
 
 #if DEBUG
             string dump = komabetuAllMoves.Dump();
@@ -75,7 +75,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
                         );
 
                         hubNode.Children1.AddItem(moveB,
-                            new KifuNodeImpl(moveB),
+                            new MoveNodeImpl(moveB),
                             hubNode);
                     }
                 }

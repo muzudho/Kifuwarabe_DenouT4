@@ -27,7 +27,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
         /// 本譜を残して、カレントノードより以前の変化は　ツリーから削除します。
         /// </summary>
         public static int IzennoHenkaCutter(
-            KifuNode curNode1,
+            MoveNode curNode1,
             KwLogger errH
             )
         {
@@ -50,12 +50,6 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //----------------------------------------
             Move move1 = curNode1.Key;
 
-
-            //----------------------------------------
-            // １手前の分岐点
-            //----------------------------------------
-            MoveNode parentMoveNode = curNode1.GetParentNode();
-
             //----------------------------------------
             // 選ばなかった変化を、ここに入れます。
             //----------------------------------------
@@ -64,7 +58,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //----------------------------------------
             // 選んだ変化と、選ばなかった変化の一覧
             //----------------------------------------
-            parentMoveNode.Children1.Foreach_ChildNodes5((Move move2, ref bool toBreak2) =>
+            curNode1.GetParentNode().Children1.Foreach_ChildNodes5((Move move2, ref bool toBreak2) =>
             {
                 if (move2 == move1)
                 {
@@ -95,7 +89,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             result_removedCount = removeeList.Count;
             foreach (Move key in removeeList)
             {
-                parentMoveNode.Children1.RemoveItem(key);
+                curNode1.GetParentNode().Children1.RemoveItem(key);
             }
 
         gt_EndMethod:
@@ -110,8 +104,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
         /// <param name="nextNode"></param>
         public static void AppendChild(
             Earth earth1,
-            KifuNode curNode1,
-            KifuNode nextNode,
+            MoveNode curNode1,
+            MoveNode nextNode,
             Sky positionA,
             string hint,
             KwLogger errH
@@ -138,7 +132,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
         /// [ここから採譜]機能
         /// ************************************************************************************************************************
         /// </summary>
-        public static void SetStartpos_KokokaraSaifu(
+        public static void Clear_SetStartpos_KokokaraSaifu(
             Earth earth1,
             Sky positionA,//kifu1.GetRoot().GetNodeValue()
             Tree kifu1,
@@ -149,7 +143,9 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             // 棋譜を空に
             //------------------------------------------------------------
             earth1.Clear();
-            kifu1.Clear();
+
+            kifu1.OnClearMove(positionA);
+
             earth1.SetProperty(
                 Word_KifuTree.PropName_Startpos,
                 Conv_KifuNode.ToSfenstring(positionA, pside, errH));

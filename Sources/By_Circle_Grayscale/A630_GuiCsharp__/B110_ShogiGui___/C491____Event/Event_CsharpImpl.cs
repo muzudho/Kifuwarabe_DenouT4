@@ -141,7 +141,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         errH
                         );
                     Util_Function_Csharp.Komaokuri_Gui(restText,
-                        mainGui3.Link_Server.KifuTree.CurNode2ok,
+                        mainGui3.Link_Server.KifuTree.CurNode3okok,
                         mainGui3.Link_Server.KifuTree.PositionA,//.CurNode2ok.GetNodeValue()
                         mainGui3, errH);
                     Util_Menace.Menace(mainGui3, errH);// メナス
@@ -167,7 +167,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     if (!Util_Functions_Server.Makimodosi_Srv(
                         out movedKoma, out foodKoma,
                         out fugoJStr,
-                        mainGui2.Link_Server.KifuTree.CurNode2ok,
+                        mainGui2.Link_Server.KifuTree.CurNode3okok,
                         mainGui2.Link_Server.KifuTree,
                         errH))
                     {
@@ -175,7 +175,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     }
 
                     Util_Function_Csharp.Makimodosi_Gui(
-                        mainGui2.Link_Server.KifuTree.CurNode2ok,
+                        mainGui2.Link_Server.KifuTree.CurNode3okok,
                         mainGui2.Link_Server.KifuTree.PositionA.KaisiPside,
                         mainGui2,
                         movedKoma, foodKoma, fugoJStr, Util_Function_Csharp.ReadLine_FromTextbox(), errH);
@@ -306,7 +306,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     MainGui_Csharp shogibanGui2 = (MainGui_Csharp)obj_shogiGui2;
 
                     
-                    Util_KifuTree282.SetStartpos_KokokaraSaifu(
+                    Util_KifuTree282.Clear_SetStartpos_KokokaraSaifu(
 
                         shogibanGui2.Link_Server.Earth,
                         shogibanGui2.Link_Server.KifuTree.PositionA,//.GetRoot().GetNodeValue(),
@@ -374,7 +374,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     if (Busstop.Empty != koma)
                     {
                         Sky positionA = new SkyImpl(mainGui3.SkyWrapper_Gui.GuiSky);
-                        KifuNode modifyNode = new KifuNodeImpl(mainGui3.Link_Server.KifuTree.CurNode2ok.Key);
+                        MoveNode modifyNode = new MoveNodeImpl(mainGui3.Link_Server.KifuTree.CurNode3okok.Key);
                         positionA.AddObjects(
                                 new Finger[] { figKoma }, new Busstop[] {
                                     Conv_Busstop.ToBusstop(
@@ -520,7 +520,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                 Util_Function_Csharp.Komamove1a_51Gui(torareruKomaAri, koma_Food_after, mainGui);
             }
 
-            KifuNode curNode1;
+            MoveNode curNode1;
             {
                 //----------
                 // 移動済表示
@@ -544,7 +544,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     false
                     );// 選択している駒の元の場所と、移動先
 
-                KifuNode newNode;
+                MoveNode newNode;
                 Sky positionA;
                 {
                     //
@@ -556,7 +556,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     positionA.SetKaisiPside(Conv_Playerside.Reverse(positionA.KaisiPside));// 先後を反転させます。
                     positionA.SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//１手進める
 
-                    newNode = new KifuNodeImpl(move);
+                    newNode = new MoveNodeImpl(move);
 
 
                     //「成る／成らない」ボタンを押したときです。
@@ -565,7 +565,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         // 次ノード追加
                         //----------------------------------------
                         mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(positionA), "After_NaruNaranai");
-                        curNode1 = mainGui.Link_Server.KifuTree.CurNode2ok;
+                        curNode1 = mainGui.Link_Server.KifuTree.CurNode3okok;
                         curNode1.Children1.PutTuginoitte_New(newNode, curNode1);
                     }
 

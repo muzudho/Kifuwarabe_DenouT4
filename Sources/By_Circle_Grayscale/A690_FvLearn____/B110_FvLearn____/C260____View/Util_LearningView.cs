@@ -54,7 +54,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             Earth earth1 = new EarthImpl();
             Sky positionA = Util_SkyCreator.New_Hirate();//日本の符号読取時
             Tree kifu1 = new TreeImpl(
-                new KifuNodeImpl(Conv_Move.GetErrorMove()),
+                new MoveNodeImpl(Conv_Move.GetErrorMove()),
                 positionA
             );
             //kifu1.AssertPside(kifu1.CurNode, "ShowSasiteList",errH);
@@ -130,7 +130,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     );
                 }
 
-                KifuNode curNodeB;
+                MoveNode curNodeB;
                 {
                     //----------------------------------------
                     // 一手指したい。
@@ -146,7 +146,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     );
                     curNodeB = Util_IttesasuRoutine.BeforeUpdateKifuTree(
                         earth1,
-                        kifu1.CurNode2ok,
+                        kifu1.CurNode3okok,
                         nextMove,
                         ittesasuResult.SyuryoKyokumenW
                         );
@@ -361,9 +361,9 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 learningData.PositionA,
                 errH
             );
-            KifuNode curNodeB = Util_IttesasuRoutine.BeforeUpdateKifuTree(
+            MoveNode curNodeB = Util_IttesasuRoutine.BeforeUpdateKifuTree(
                 learningData.Earth,
-                learningData.KifuA.CurNode2ok,
+                learningData.KifuA.CurNode3okok,
                 nextMove,
                 ittesasuResult.SyuryoKyokumenW
                 );
@@ -379,7 +379,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             //----------------------------------------
             System.Console.WriteLine("カレント・ノード＝" + Conv_Move.ToSfen( learningData.GetMove()));
             int result_removedCount = Util_KifuTree282.IzennoHenkaCutter(
-                learningData.KifuA.CurNode2ok, errH);
+                learningData.KifuA.CurNode3okok, errH);
             System.Console.WriteLine("削除した要素数＝" + result_removedCount);
 
             ////----------------------------------------

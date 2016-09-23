@@ -88,11 +88,11 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
         public Sky PositionA { get; set; }// FIXME: できればカレントノードの局面。
         public Move GetMove()
         {
-            return this.KifuA.CurNode2ok.Key;
+            return this.KifuA.CurNode3okok.Key;
         }
         public Children GetCurChildren()
         {
-            return this.KifuA.CurNode2ok.Children1;
+            return this.KifuA.CurNode3okok.Children1;
         }
 
         /// <summary>
@@ -222,7 +222,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
             this.Aaa_CreateNextNodes_Gohosyu(
                 ref searchedMaxDepth,
                 ref searchedNodes,
-                kifu1.CurNode2ok,
+                kifu1.CurNode3okok,
                 positionA,
                 searchedPv,
                 args, errH);
@@ -344,7 +344,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
         public void Aaa_CreateNextNodes_Gohosyu(
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
-            KifuNode curNode1,
+            MoveNode curNode1,
             Sky positionA,
             string[] searchedPv,
             EvaluationArgs args,

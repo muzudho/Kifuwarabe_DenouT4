@@ -138,7 +138,9 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
             KwLogger errH = Util_Loggers.ProcessNone_ERROR;
 
             mainGui.Link_Server.Earth.Clear();
-            mainGui.Link_Server.KifuTree.Clear();// 棋譜を空っぽにします。
+
+            mainGui.Link_Server.KifuTree.OnClearMove(null);// 棋譜を空っぽにします。
+            // FIXME:
 
             Sky newSky = new SkyImpl(mainGui.SkyWrapper_Gui.GuiSky);
 
@@ -237,7 +239,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
 
             {
                 newSky.SetTemezumi(0);//空っぽに戻すので、 0手済みに変更。
-                KifuNode newNode = new KifuNodeImpl(Conv_Move.GetErrorMove());
+                MoveNode newNode = new MoveNodeImpl(Conv_Move.GetErrorMove());
 
                 string jsaFugoStr;
                 mainGui.Link_Server.KifuTree.SetCurNode(newNode, newSky);

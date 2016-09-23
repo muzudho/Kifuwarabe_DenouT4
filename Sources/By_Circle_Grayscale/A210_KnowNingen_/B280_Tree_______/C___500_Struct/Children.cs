@@ -12,14 +12,14 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         int Count { get; }
         void ClearAll();
         bool ContainsKey(Move key);
-        void AddItem(Move key, MoveNode newNode, KifuNode parent);
-        void SetItems_Old(Dictionary<Move, MoveNode> newNextNodes, KifuNode parent);
+        void AddItem(Move key, MoveNode newNode, MoveNode parent);
+        void SetItems_Old(Dictionary<Move, MoveNode> newNextNodes, MoveNode parent);
         /// <summary>
         /// 棋譜ノードのValueは廃止方針☆
         /// </summary>
         /// <param name="moves"></param>
         /// <param name="parent"></param>
-        void SetItems_New(List<Move> moves, KifuNode parent);
+        void SetItems_New(List<Move> moves, MoveNode parent);
 
         void Foreach_ChildNodes2(ChildrenImpl.DELEGATE_ChildNodes2 delegate_NextNodes);
         void Foreach_ChildNodes3(ChildrenImpl.DELEGATE_ChildNodes3 delegate_NextNodes);
@@ -50,11 +50,11 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         /// 
         /// カレントノードは変更しません。
         /// </summary>
-        void PutTuginoitte_New(KifuNode newNode, KifuNode owner);
+        void PutTuginoitte_New(MoveNode newNode, MoveNode owner);
         /// <summary>
         /// 既存の子要素を上書きします。
         /// </summary>
         /// <param name="existsNode"></param>
-        void PutTuginoitte_Override(KifuNode existsNode, KifuNode owner);
+        void PutTuginoitte_Override(MoveNode existsNode, MoveNode owner);
     }
 }

@@ -210,14 +210,14 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <summary>
         /// 棋譜ツリーのカレントを変更します。
         /// </summary>
-        public static KifuNode BeforeUpdateKifuTree(
+        public static MoveNode BeforeUpdateKifuTree(
             Earth earth1,
-            KifuNode curNodeA,
+            MoveNode curNodeA,
             Move move,
             Sky positionA
             )
         {
-            KifuNode newNodeB = new KifuNodeImpl(move);
+            MoveNode newNodeB = new MoveNodeImpl(move);
 
             if (!curNodeA.Children1.ContainsKey(move))
             {
@@ -241,7 +241,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 curNodeA.Children1.PutTuginoitte_Override(newNodeB, curNodeA);//次ノートを上書きします。
             }
 
-            KifuNode temp = curNodeA;
+            MoveNode temp = curNodeA;
             newNodeB.SetParentNode(temp);
             return newNodeB;//カレント・ノード
         }

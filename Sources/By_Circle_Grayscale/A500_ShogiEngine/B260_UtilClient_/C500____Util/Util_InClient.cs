@@ -63,7 +63,8 @@ namespace Grayscale.A500_ShogiEngine.B260_UtilClient_.C500____Util
             //----------------------------------------
             {
                 earth1.Clear();
-                kifu1.Clear();// 棋譜を空っぽにします。
+
+                kifu1.OnClearMove(null);// 棋譜を空っぽにします。
 
                 // 文字列から、指定局面を作成します。
                 earth1.SetProperty(Word_KifuTree.PropName_Startpos, old_inputLine);//指定の初期局面

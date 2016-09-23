@@ -51,14 +51,14 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
         public static void AfterSetCurNode_Srv(
             //Tree kifu1,//kifu1.SetCurNode(newNodeB);
             SkyWrapper_Gui model_Manual,
-            KifuNode newNodeA,
+            MoveNode newNodeA,
             Move move,
             Sky positionA,
             out string jsaFugoStr,
             KwLogger errH
             )
         {
-            KifuNode newNodeB = newNodeA;
+            MoveNode newNodeB = newNodeA;
             /*
             KifuNode newNodeB = new KifuNodeImpl(move, positionA);
             newNodeB.Children1 = newNodeA.Children1;
@@ -265,7 +265,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     //------------------------------
                     string jsaFugoStr;
 
-                    KifuNode curNode1 = new KifuNodeImpl(parsedKyokumen.NewMove);
+                    MoveNode curNode1 = new MoveNodeImpl(parsedKyokumen.NewMove);
                     curNode1 = kifu1.SetCurNode(curNode1, parsedKyokumen.NewSky);
                     Util_Functions_Server.AfterSetCurNode_Srv(
                         model_Manual,
@@ -304,7 +304,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             out Finger movedKoma,
             out Finger foodKoma,
             out string jsaFugoStr,
-            KifuNode curNode1,//削るノード
+            MoveNode curNode1,//削るノード
             Tree kifu1_mutable,
             KwLogger errH
             )
@@ -354,7 +354,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             Util_IttemodosuRoutine.UpdateKifuTree(
                 kifu1_mutable
                 );
-            kifu1_mutable.SetCurNode(kifu1_mutable.CurNode1, ittemodosuResult.SyuryoSky);
+            kifu1_mutable.SetCurNode(kifu1_mutable.CurNode3okok, ittemodosuResult.SyuryoSky);
             movedKoma = ittemodosuResult.FigMovedKoma;
             foodKoma = ittemodosuResult.FigFoodKoma;
 

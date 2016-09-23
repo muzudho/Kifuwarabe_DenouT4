@@ -54,16 +54,18 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
             // 採譜用に、新しい対局を用意します。
             Earth saifuEarth2 = new EarthImpl();
-            KifuNode curNode1;
+            MoveNode curNode1;
             Tree saifuKifu2;
             {
                 Move move = Conv_Move.GetErrorMove();
 
                 Sky positionInit = Util_SkyCreator.New_Hirate();//日本の符号読取時
-                curNode1 = new KifuNodeImpl(move);
+                curNode1 = new MoveNodeImpl(move);
                 saifuKifu2 = new TreeImpl(curNode1, positionInit);
                 earth1.Clear();
-                saifuKifu2.Clear();// 棋譜を空っぽにします。
+
+                curNode1 = saifuKifu2.OnClearMove(positionInit);// 棋譜を空っぽにします。
+
                 saifuEarth2.SetProperty(
                     Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面 // FIXME:平手とは限らないのでは？
             }
@@ -83,7 +85,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
 
                 // 採譜用新ノード
-                KifuNode saifu_newChild = new KifuNodeImpl(move);
+                MoveNode saifu_newChild = new MoveNodeImpl(move);
                 saifu_PositionA.SetKaisiPside(Conv_Playerside.Reverse(saifu_PositionA.KaisiPside));
                 saifu_PositionA.SetTemezumi(temezumi);
 
@@ -96,7 +98,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                     saifu_PositionA,
                     hint +"/ToJsaKifuText", errH
                     );// 新しい次ノードを追加。次ノードを、これからカレントとする。
-                curNode1 = saifuKifu2.SetCurNode(saifu_newChild, saifu_PositionA);//次ノードを、これからのカレントとします。
+                curNode1 = saifuKifu2.OnDoMove(saifu_newChild, saifu_PositionA);//次ノードを、これからのカレントとします。
 
                 // 後手の符号がまだ含まれていない。
                 string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(

@@ -118,7 +118,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
             // 棋譜
             Sky positionInit = Util_SkyCreator.New_Hirate();// きふわらべ起動時
-            KifuNode curNode1 = new KifuNodeImpl(Conv_Move.GetErrorMove());
+            MoveNode curNode1 = new MoveNodeImpl(Conv_Move.GetErrorMove());
             {
                 // FIXME:平手とは限らないが、平手という前提で作っておく。
                 this.m_earth_AtLoop2_ = new EarthImpl();
@@ -912,7 +912,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
                 // ┏━━━━プログラム━━━━┓
 
-                KifuNode curNode1 = this.Kifu_AtLoop2.CurNode1;
+                MoveNode curNode1 = this.Kifu_AtLoop2.CurNode3okok;
                 Sky positionA = this.Kifu_AtLoop2.PositionA;
                 int latestTemezumi = positionA.Temezumi;//現・手目済// curNode1.GetNodeValue()
 
@@ -1038,7 +1038,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
                                         this.Logger)
                                         );
-                                    this.Kifu_AtLoop2.SetCurNode(this.Kifu_AtLoop2.CurNode2ok, this.Kifu_AtLoop2.PositionA);
+                                    this.Kifu_AtLoop2.SetCurNode(this.Kifu_AtLoop2.CurNode3okok, this.Kifu_AtLoop2.PositionA);
                                 }
 
 
@@ -1148,7 +1148,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                             // 以前の手カッター
                             //------------------------------------------------------------
                             Util_KifuTree282.IzennoHenkaCutter(
-                                this.Kifu_AtLoop2.CurNode1, this.Logger);
+                                this.Kifu_AtLoop2.CurNode3okok, this.Logger);
                         }
                         break;
                 }

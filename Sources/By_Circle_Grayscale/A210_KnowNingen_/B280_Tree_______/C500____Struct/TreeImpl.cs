@@ -20,7 +20,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
     public class TreeImpl : Tree
     {
         public TreeImpl(
-            KifuNode root, Sky sky
+            MoveNode root, Sky sky
         )
         {
             this.SetCurNode(root, sky);
@@ -37,9 +37,39 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// ツリー構造になっている本譜の葉ノード。
         /// 根を「startpos」等の初期局面コマンドとし、次の節からは棋譜の符号「2g2f」等が連なっている。
         /// </summary>
-        public KifuNode CurNode1 { get { return this.m_curNode_; } }
-        public KifuNode CurNode2ok { get { return this.m_curNode_; } }
-        public KifuNode SetCurNode(KifuNode node,Sky sky) {
+        public MoveNode CurNode3okok { get { return this.m_curNode_; } }
+        public MoveNode SetCurNode(MoveNode node,Sky sky) {
+            this.m_curNode_ = node;
+            this.m_sky_ = sky;
+            return this.m_curNode_;
+        }
+        /// <summary>
+        /// 棋譜を空っぽにします。
+        /// 
+        /// ルートは残します。
+        /// </summary>
+        public MoveNode OnClearMove(Sky sky)
+        {
+            // ルートまで遡ります。
+            while (!this.CurNode3okok.IsRoot())
+            {
+                this.Move_Previous();
+            }
+
+            // ルートの次の手を全クリアーします。
+            this.CurNode3okok.Children1.ClearAll();
+
+            this.m_sky_ = sky;
+            return this.m_curNode_;
+        }
+        public MoveNode OnDoMove(MoveNode node, Sky sky)
+        {
+            this.m_curNode_ = node;
+            this.m_sky_ = sky;
+            return this.m_curNode_;
+        }
+        public MoveNode OnUndoMove(MoveNode node, Sky sky)
+        {
             this.m_curNode_ = node;
             this.m_sky_ = sky;
             return this.m_curNode_;
@@ -48,7 +78,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             get { return this.m_sky_; }
         }
         private Sky m_sky_;
-        private KifuNode m_curNode_;
+        private MoveNode m_curNode_;
 
         #endregion
 
@@ -63,7 +93,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
         public void Move_Previous()
         {
-            this.m_curNode_ = this.CurNode2ok.GetParentNode();
+            this.m_curNode_ = this.CurNode3okok.GetParentNode();
         }
 
         #endregion
@@ -78,11 +108,11 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// 
         /// </summary>
         /// <returns>ルートしかないリストの場合、ヌルを返します。</returns>
-        public KifuNode PopCurrentNode()
+        public MoveNode PopCurrentNode()
         {
-            KifuNode deleteeElement = null;
+            MoveNode deleteeElement = null;
 
-            if (this.CurNode2ok.IsRoot())
+            if (this.CurNode3okok.IsRoot())
             {
                 // やってはいけない操作は、例外を返すようにします。
                 string message = "ルート局面を削除しようとしました。";
@@ -92,7 +122,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             //>>>>> ラスト要素がルートでなかったら
 
             // 一手前の要素（必ずあるはずです）
-            deleteeElement = this.CurNode2ok;
+            deleteeElement = this.CurNode3okok;
             // 残されたリストの最後の要素の、次リンクを切ります。
             deleteeElement.GetParentNode().Children1.ClearAll();
 
@@ -114,47 +144,20 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
 
 
-        #region クリアー系
-
-        /// <summary>
-        /// ************************************************************************************************************************
-        /// 棋譜を空っぽにします。
-        /// ************************************************************************************************************************
-        /// 
-        /// ルートは残します。
-        /// 
-        /// </summary>
-        public virtual void Clear()
-        {
-            // ルートまで遡ります。
-            while (!this.CurNode2ok.IsRoot())
-            {
-                this.Move_Previous();
-            }
-
-            // ルートの次の手を全クリアーします。
-            this.CurNode2ok.Children1.ClearAll();
-        }
-
-        #endregion
-
-
-
-
 
 
         #region ランダムアクセッサ
 
-        public KifuNode GetRoot()
+        public MoveNode GetRoot()
         {
             return this.NodeAt(0);
         }
 
-        public KifuNode NodeAt(int sitei_temezumi)
+        public MoveNode NodeAt(int sitei_temezumi)
         {
-            KifuNode found = null;
+            MoveNode found = null;
 
-            Util_Tree.ForeachHonpu1(this.CurNode2ok, (int temezumi2, Move move, KifuNode node, ref bool toBreak) =>
+            Util_Tree.ForeachHonpu1(this.CurNode3okok, (int temezumi2, Move move, MoveNode node, ref bool toBreak) =>
             {
                 if (sitei_temezumi == temezumi2) //新Verは 0 にも対応。
                 {

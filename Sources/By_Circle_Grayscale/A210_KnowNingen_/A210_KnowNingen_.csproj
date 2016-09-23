@@ -72,6 +72,7 @@
     <Compile Include="B280_Tree_______\C___500_Struct\Children.cs" />
     <Compile Include="B280_Tree_______\C___500_Struct\Earth.cs" />
     <Compile Include="B280_Tree_______\C___500_Struct\MoveNode.cs" />
+    <Compile Include="B280_Tree_______\C___500_Struct\MoveNodeType.cs" />
     <Compile Include="B310_Shogiban___\C250____Struct\ShogibanImpl.cs" />
     <Compile Include="B420_UtilSky258_\C500____UtilSky\Util_Sky_BoolQuery.cs" />
     <Compile Include="B430_Play_______\C250____Calc\Query_SkyFingers.cs" />
@@ -152,9 +153,7 @@
     <Compile Include="B270_Sky________\C___500_Struct\Sky.cs" />
     <Compile Include="B270_Sky________\C500____Struct\Fingers.cs" />
     <Compile Include="B270_Sky________\C500____Struct\SkyImpl.cs" />
-    <Compile Include="B280_Tree_______\C___500_Struct\KifuNode.cs" />
     <Compile Include="B280_Tree_______\C___500_Struct\Tree.cs" />
-    <Compile Include="B280_Tree_______\C500____Struct\KifuNodeImpl.cs" />
     <Compile Include="B280_Tree_______\C500____Struct\TreeImpl.cs" />
     <Compile Include="B190_Komasyurui_\C500____Util\Util_Komasyurui14.cs" />
     <Compile Include="B190_Komasyurui_\C250____Word\Komasyurui14.cs" />

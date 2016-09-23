@@ -36,7 +36,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
 
         public string Execute(
-            out bool toKifuClear,
+            out MoveNodeType out_moveNodeType,
             ref KifuParserA_Result result,
 
             Earth earth1,
@@ -49,7 +49,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             KwLogger errH
             )
         {
-            toKifuClear = false;
+            out_moveNodeType = MoveNodeType.None;
             nextState = this;
 
             try
@@ -70,7 +70,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     //----------------------------------------
                     // 棋譜を空っぽにし、平手初期局面を与えます。
                     //----------------------------------------
-                    toKifuClear = true;
+                    out_moveNodeType = MoveNodeType.Clear;
 
                     nextState = KifuParserA_StateA1a_SfenStartpos.GetInstance();
                 }

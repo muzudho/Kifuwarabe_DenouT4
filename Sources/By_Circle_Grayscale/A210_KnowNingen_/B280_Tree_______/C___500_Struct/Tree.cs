@@ -12,7 +12,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
     /// <param name="temezumi">手目済</param>
     /// <param name="node">ノードのかたまりのまま。</param>
     /// <param name="toBreak"></param>
-    public delegate void DELEGATE_Foreach1(int temezumi, Move move, KifuNode node, ref bool toBreak);
+    public delegate void DELEGATE_Foreach1(int temezumi, Move move, MoveNode node, ref bool toBreak);
     public delegate void DELEGATE_Foreach2(int temezumi, Move move, ref bool toBreak);
 
 
@@ -22,26 +22,24 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         /// ツリー構造になっている本譜の葉ノード。
         /// 根を「startpos」等の初期局面コマンドとし、次の節からは棋譜の符号「2g2f」等が連なっている。
         /// </summary>
-        KifuNode CurNode1 { get; }
-        KifuNode CurNode2ok { get; }
-        KifuNode SetCurNode(KifuNode node,Sky sky);
-        Sky PositionA { get; }
-
-        KifuNode NodeAt(int temezumi1);
-
-        
+        MoveNode CurNode3okok { get; }
+        MoveNode SetCurNode(MoveNode node,Sky sky);
         /// <summary>
-        /// ************************************************************************************************************************
         /// 棋譜を空っぽにします。
-        /// ************************************************************************************************************************
         /// 
         /// ルートは残します。
-        /// 
         /// </summary>
-        void Clear();
+        MoveNode OnClearMove(Sky sky);
+        MoveNode OnDoMove(MoveNode node, Sky sky);
+        MoveNode OnUndoMove(MoveNode node, Sky sky);
+        Sky PositionA { get; }
 
+        MoveNode NodeAt(int temezumi1);
 
         
+
+
+
         /// <summary>
         /// ************************************************************************************************************************
         /// 現在の要素を切り取って返します。なければヌル。
@@ -51,10 +49,10 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         /// 
         /// </summary>
         /// <returns>ルートしかないリストの場合、ヌルを返します。</returns>
-        KifuNode PopCurrentNode();
+        MoveNode PopCurrentNode();
 
 
-        KifuNode GetRoot();
+        MoveNode GetRoot();
 
         
 

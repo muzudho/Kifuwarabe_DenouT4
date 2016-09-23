@@ -109,7 +109,7 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C125____Receiver
                                 // FIXME:平手とは限らないが、平手という前提で、毎回一から作りなおします。
                                 Sky positionInit = Util_SkyCreator.New_Hirate();
                                 this.Owner_AimsServer.SetKifuTree(new TreeImpl(
-                                    new KifuNodeImpl(Conv_Move.GetErrorMove()),
+                                    new MoveNodeImpl(Conv_Move.GetErrorMove()),
                                     positionInit
                                 ));
                                 this.Owner_AimsServer.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");
@@ -130,7 +130,7 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C125____Receiver
                                 ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Position(
                                     Util_KirokuGakari.ToSfen_PositionCommand(
                                         this.Owner_AimsServer.Earth,
-                                        this.Owner_AimsServer.KifuTree.CurNode1//エンドノード
+                                        this.Owner_AimsServer.KifuTree.CurNode3okok//エンドノード
                                         ), errH
                                 );
 
@@ -138,7 +138,7 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C125____Receiver
                                 // 例：「position startpos moves 7g7f」
                                 Console.Out.WriteLine( Util_KirokuGakari.ToSfen_PositionCommand(
                                     this.Owner_AimsServer.Earth,
-                                    this.Owner_AimsServer.KifuTree.CurNode1//エンドノード
+                                    this.Owner_AimsServer.KifuTree.CurNode3okok//エンドノード
                                     ));
 
                                 Console.Out.WriteLine("go");

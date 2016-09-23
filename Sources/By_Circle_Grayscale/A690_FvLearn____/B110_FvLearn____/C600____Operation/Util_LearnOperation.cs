@@ -334,7 +334,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             KwLogger errH)
         {
             Sky positionA;
-            KifuNode curNode1;
+            MoveNode curNode1;
             Tree newKifu1_Hirate;
             {
                 Earth newEarth1;

@@ -34,19 +34,20 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             KwLogger errH
             )
         {
+            MoveNode newNode = new MoveNodeImpl(Conv_Move.GetErrorMove());
+
+            Sky positionA = Util_SkyCreator.New_Hirate();//[初期配置]ボタン押下時
             mainGui.Link_Server.Earth.Clear();
-            mainGui.Link_Server.KifuTree.Clear();// 棋譜を空っぽにします。
+
+            mainGui.Link_Server.KifuTree.OnClearMove(positionA);// 棋譜を空っぽにします。
 
             mainGui.Link_Server.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
 
-            Sky positionA = Util_SkyCreator.New_Hirate();//[初期配置]ボタン押下時
-            KifuNode newNode = new KifuNodeImpl(Conv_Move.GetErrorMove());
 
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
             // ここで棋譜の変更をします。
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
             string jsaFugoStr;
-            mainGui.Link_Server.KifuTree.SetCurNode(newNode,positionA);
             Util_Functions_Server.AfterSetCurNode_Srv(
                 mainGui.SkyWrapper_Gui,
                 newNode,
@@ -66,7 +67,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
         /// ************************************************************************************************************************
         /// </summary>
         public static bool Makimodosi_Gui(
-            KifuNode curNode1,//mainGui.Link_Server.KifuTree.CurNode
+            MoveNode curNode1,//mainGui.Link_Server.KifuTree.CurNode
             Playerside pside,
             MainGui_Csharp mainGui,
             Finger movedKoma,
