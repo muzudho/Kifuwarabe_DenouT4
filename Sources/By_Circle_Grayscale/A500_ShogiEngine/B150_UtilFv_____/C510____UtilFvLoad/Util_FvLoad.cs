@@ -49,10 +49,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad
             // 棋譜
             out_earth1 = new EarthImpl();
             out_positionA = Util_SkyCreator.New_Hirate();
-            out_curNode1 = new KifuNodeImpl(
-                        Conv_Move.GetErrorMove(),
-                        out_positionA
-                    );
+            out_curNode1 = new KifuNodeImpl(Conv_Move.GetErrorMove());
             out_kifu1 = new TreeImpl(out_curNode1, out_positionA);
             out_earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手
 

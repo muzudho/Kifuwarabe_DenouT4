@@ -176,6 +176,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
 
                     Util_Function_Csharp.Makimodosi_Gui(
                         mainGui2.Link_Server.KifuTree.CurNode2ok,
+                        mainGui2.Link_Server.KifuTree.PositionA.KaisiPside,
                         mainGui2,
                         movedKoma, foodKoma, fugoJStr, Util_Function_Csharp.ReadLine_FromTextbox(), errH);
                     Util_Menace.Menace(mainGui2, errH);//メナス
@@ -308,7 +309,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     Util_KifuTree282.SetStartpos_KokokaraSaifu(
 
                         shogibanGui2.Link_Server.Earth,
-                        shogibanGui2.Link_Server.KifuTree.GetRoot().GetNodeValue(),
+                        shogibanGui2.Link_Server.KifuTree.PositionA,//.GetRoot().GetNodeValue(),
                         shogibanGui2.Link_Server.KifuTree,
                         
                         shogibanGui2.Link_Server.KifuTree.PositionA.KaisiPside,//.CurNode2ok.GetNodeValue()
@@ -373,10 +374,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     if (Busstop.Empty != koma)
                     {
                         Sky positionA = new SkyImpl(mainGui3.SkyWrapper_Gui.GuiSky);
-                        KifuNode modifyNode = new KifuNodeImpl(
-                            mainGui3.Link_Server.KifuTree.CurNode2ok.Key,//現在の局面を流用
-                            positionA
-                        );
+                        KifuNode modifyNode = new KifuNodeImpl(mainGui3.Link_Server.KifuTree.CurNode2ok.Key);
                         positionA.AddObjects(
                                 new Finger[] { figKoma }, new Busstop[] {
                                     Conv_Busstop.ToBusstop(
@@ -558,10 +556,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     positionA.SetKaisiPside(Conv_Playerside.Reverse(positionA.KaisiPside));// 先後を反転させます。
                     positionA.SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//１手進める
 
-                    newNode = new KifuNodeImpl(
-                        move,
-                        positionA
-                    );
+                    newNode = new KifuNodeImpl(move);
 
 
                     //「成る／成らない」ボタンを押したときです。
@@ -605,6 +600,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     //System.C onsole.WriteLine("マウス左ボタンを押したのでチェンジターンします。");
                     mainGui.ChangedTurn(
                         curNode1,
+                        mainGui.Link_Server.KifuTree.PositionA.KaisiPside,
                         errH);
                 }
             }
@@ -622,6 +618,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
 
             mainGui.ChangedTurn(
                 curNode1,
+                mainGui.Link_Server.KifuTree.PositionA.KaisiPside,
                 errH);//マウス左ボタンを押したのでチェンジターンします。
 
             mainGui.Shape_PnlTaikyoku.Request_NaruDialogToShow(false);
@@ -629,9 +626,5 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
             mainGui.GetWidget("BtnNaranai").Visible = false;
             mainGui.SetScene(SceneName.SceneB_1TumamitaiKoma);
         }
-
-
     }
-
-
 }

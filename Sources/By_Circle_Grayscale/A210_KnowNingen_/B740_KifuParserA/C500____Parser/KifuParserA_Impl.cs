@@ -75,7 +75,6 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     earth1.Clear();
                     kifu1_mutable.Clear();// 棋譜を空っぽにします。
 
-                    kifu1_mutable.GetRoot().SetNodeValue(Util_SkyCreator.New_Hirate());//SFENのstartpos解析時
                     earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
                 }
 
@@ -164,7 +163,6 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                         kifu1_mutable.Clear();// 棋譜を空っぽにします。
 
                         Sky positionInit = Util_SkyCreator.New_Hirate();
-                        kifu1_mutable.GetRoot().SetNodeValue(positionInit);//SFENのstartpos解析時
                         earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
 
                         curNode1 = kifu1_mutable.SetCurNode(

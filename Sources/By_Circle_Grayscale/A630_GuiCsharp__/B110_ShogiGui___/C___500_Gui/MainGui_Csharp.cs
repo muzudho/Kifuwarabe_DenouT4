@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui
 {
@@ -38,6 +39,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui
         /// </summary>
         void ChangedTurn(
             KifuNode endNode,
+            Playerside pside,
             KwLogger errH);
 
         /// <summary>

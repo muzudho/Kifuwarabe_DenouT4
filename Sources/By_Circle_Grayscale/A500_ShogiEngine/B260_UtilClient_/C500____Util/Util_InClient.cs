@@ -66,10 +66,6 @@ namespace Grayscale.A500_ShogiEngine.B260_UtilClient_.C500____Util
                 kifu1.Clear();// 棋譜を空っぽにします。
 
                 // 文字列から、指定局面を作成します。
-                Playerside pside = Playerside.P1;
-                kifu1.GetRoot().SetNodeValue(
-                    Conv_Sfenstring307.ToSkyConst(new SfenstringImpl(old_inputLine), pside)
-                    );//SFENのstartpos解析時
                 earth1.SetProperty(Word_KifuTree.PropName_Startpos, old_inputLine);//指定の初期局面
             }
 

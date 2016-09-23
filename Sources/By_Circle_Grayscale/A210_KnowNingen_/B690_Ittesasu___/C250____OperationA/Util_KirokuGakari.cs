@@ -60,10 +60,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                 Move move = Conv_Move.GetErrorMove();
 
                 Sky positionInit = Util_SkyCreator.New_Hirate();//日本の符号読取時
-                curNode1 = new KifuNodeImpl(
-                            move,
-                            positionInit
-                        );
+                curNode1 = new KifuNodeImpl(move);
                 saifuKifu2 = new TreeImpl(curNode1, positionInit);
                 earth1.Clear();
                 saifuKifu2.Clear();// 棋譜を空っぽにします。
@@ -86,10 +83,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
 
                 // 採譜用新ノード
-                KifuNode saifu_newChild = new KifuNodeImpl(
-                    move,
-                    saifu_PositionA
-                );
+                KifuNode saifu_newChild = new KifuNodeImpl(move);
                 saifu_PositionA.SetKaisiPside(Conv_Playerside.Reverse(saifu_PositionA.KaisiPside));
                 saifu_PositionA.SetTemezumi(temezumi);
 

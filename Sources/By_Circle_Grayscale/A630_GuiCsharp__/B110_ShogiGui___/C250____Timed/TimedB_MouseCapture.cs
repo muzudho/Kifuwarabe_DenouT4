@@ -397,10 +397,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     Sky sky_newChild = new SkyImpl(src_GuiSky);
                                                     sky_newChild.SetKaisiPside(Conv_Playerside.Reverse(Playerside.P1));//FIXME:人間が先手でハードコーディング中
                                                     sky_newChild.SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//1手進ませる。
-                                                    KifuNode newNode = new KifuNodeImpl(
-                                                        move,
-                                                        sky_newChild
-                                                    );
+                                                    KifuNode newNode = new KifuNodeImpl(move);
                                                     //MessageBox.Show(
                                                     //    "追加前\n"+
                                                     //    "newNode=KaisiPside=" + newNode.Value.ToKyokumenConst.KaisiPside,
@@ -418,11 +415,11 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     }
 
                                                     string jsaFugoStr;
-                                                    mainGui.Link_Server.KifuTree.SetCurNode(newNode, sky_newChild);
+                                                    curNode1 = mainGui.Link_Server.KifuTree.SetCurNode(newNode, sky_newChild);
                                                     Util_Functions_Server.AfterSetCurNode_Srv(
                                                         mainGui.SkyWrapper_Gui,
-                                                        newNode,
-                                                        newNode.Key,
+                                                        curNode1,
+                                                        curNode1.Key,
                                                         sky_newChild,
                                                         out jsaFugoStr, errH);
                                                     mainGui.RepaintRequest.SetFlag_RefreshRequest();
@@ -442,7 +439,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     if (!mainGui.Shape_PnlTaikyoku.Requested_NaruDialogToShow)
                                                     {
                                                         mainGui.ChangedTurn(
-                                                            mainGui.Link_Server.KifuTree.CurNode2ok,
+                                                            curNode1,//mainGui.Link_Server.KifuTree.CurNode2ok,
+                                                            mainGui.Link_Server.KifuTree.PositionA.KaisiPside,//.CurNode2ok.GetNodeValue().KaisiPside,
                                                             eventState.Flg_logTag);//マウス左ボタンを放したのでチェンジターンします。
                                                     }
 
@@ -546,11 +544,9 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
 
                                                         // 駒を置いたので、次のノードを準備しておく☆？
                                                         Sky sky_newChild = new SkyImpl(src_GuiSky);
+                                                        KifuNode curNode = mainGui.Link_Server.KifuTree.CurNode2ok;
                                                         KifuNode newNode =
-                                                            new KifuNodeImpl(
-                                                                move,
-                                                                sky_newChild
-                                                            );
+                                                            new KifuNodeImpl(move);
                                                         sky_newChild.SetTemezumi( mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//1手進ませる。
 
 
@@ -560,15 +556,15 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                             // 次ノード追加
                                                             //----------------------------------------
                                                             mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(sky_newChild), "TimedB.Step(2)");
-                                                            mainGui.Link_Server.KifuTree.CurNode2ok.Children1.PutTuginoitte_New(newNode, mainGui.Link_Server.KifuTree.CurNode2ok);
+                                                            curNode.Children1.PutTuginoitte_New(newNode, mainGui.Link_Server.KifuTree.CurNode2ok);
                                                         }
 
                                                         string jsaFugoStr;
-                                                        mainGui.Link_Server.KifuTree.SetCurNode(newNode, sky_newChild);
+                                                        curNode = mainGui.Link_Server.KifuTree.SetCurNode(newNode, sky_newChild);
                                                         Util_Functions_Server.AfterSetCurNode_Srv(
                                                             mainGui.SkyWrapper_Gui,
-                                                            newNode,
-                                                            newNode.Key,
+                                                            curNode,
+                                                            curNode.Key,
                                                             sky_newChild,
                                                             out jsaFugoStr, errH);
                                                         mainGui.RepaintRequest.SetFlag_RefreshRequest();
@@ -593,7 +589,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                         {
                                                             //System.C onsole.WriteLine("マウス左ボタンを放したのでチェンジターンします。");
                                                             mainGui.ChangedTurn(
-                                                                mainGui.Link_Server.KifuTree.CurNode2ok,
+                                                                curNode,//mainGui.Link_Server.KifuTree.CurNode2ok,
+                                                                mainGui.Link_Server.KifuTree.PositionA.KaisiPside,//.CurNode2ok.GetNodeValue().KaisiPside,
                                                                 eventState.Flg_logTag);//マウス左ボタンを放したのでチェンジターンします。
                                                         }
 

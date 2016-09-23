@@ -237,10 +237,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
 
             {
                 newSky.SetTemezumi(0);//空っぽに戻すので、 0手済みに変更。
-                KifuNode newNode = new KifuNodeImpl(
-                            Conv_Move.GetErrorMove(),//ルートなので
-                            newSky
-                        );
+                KifuNode newNode = new KifuNodeImpl(Conv_Move.GetErrorMove());
 
                 string jsaFugoStr;
                 mainGui.Link_Server.KifuTree.SetCurNode(newNode, newSky);

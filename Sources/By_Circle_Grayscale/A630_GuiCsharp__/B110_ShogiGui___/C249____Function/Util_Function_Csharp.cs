@@ -40,10 +40,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             mainGui.Link_Server.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
 
             Sky positionA = Util_SkyCreator.New_Hirate();//[初期配置]ボタン押下時
-            KifuNode newNode = new KifuNodeImpl(
-                                        Conv_Move.GetErrorMove(),//ルートなので
-                                        positionA
-                                        );
+            KifuNode newNode = new KifuNodeImpl(Conv_Move.GetErrorMove());
 
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
             // ここで棋譜の変更をします。
@@ -70,6 +67,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
         /// </summary>
         public static bool Makimodosi_Gui(
             KifuNode curNode1,//mainGui.Link_Server.KifuTree.CurNode
+            Playerside pside,
             MainGui_Csharp mainGui,
             Finger movedKoma,
             Finger foodKoma,
@@ -82,6 +80,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             //------------------------------
             mainGui.ChangedTurn(
                 curNode1,
+                pside,// curNode1.GetNodeValue().KaisiPside,
                 errH);//[巻戻し]ボタンを押したあと
 
 

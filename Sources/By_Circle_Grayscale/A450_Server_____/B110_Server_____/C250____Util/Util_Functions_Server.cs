@@ -265,10 +265,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     //------------------------------
                     string jsaFugoStr;
 
-                    KifuNode curNode1 = new KifuNodeImpl(
-                        parsedKyokumen.NewMove,
-                        parsedKyokumen.NewSky
-                    );
+                    KifuNode curNode1 = new KifuNodeImpl(parsedKyokumen.NewMove);
                     curNode1 = kifu1.SetCurNode(curNode1, parsedKyokumen.NewSky);
                     Util_Functions_Server.AfterSetCurNode_Srv(
                         model_Manual,

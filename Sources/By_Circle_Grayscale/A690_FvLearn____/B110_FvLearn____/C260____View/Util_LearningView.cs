@@ -54,10 +54,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             Earth earth1 = new EarthImpl();
             Sky positionA = Util_SkyCreator.New_Hirate();//日本の符号読取時
             Tree kifu1 = new TreeImpl(
-                new KifuNodeImpl(
-                    Conv_Move.GetErrorMove(),
-                    positionA
-                ),
+                new KifuNodeImpl(Conv_Move.GetErrorMove()),
                 positionA
             );
             //kifu1.AssertPside(kifu1.CurNode, "ShowSasiteList",errH);

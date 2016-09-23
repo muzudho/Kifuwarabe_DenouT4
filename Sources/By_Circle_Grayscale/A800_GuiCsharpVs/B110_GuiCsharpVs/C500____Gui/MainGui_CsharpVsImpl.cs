@@ -5,6 +5,7 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI;
 using Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C492____Widget;
 using System.Text;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500____Gui
 {
@@ -26,12 +27,13 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500____Gui
         /// </summary>
         public override void ChangedTurn(
             KifuNode endNode, //this.Link_Server.KifuTree.CurNode,
+            Playerside pside,//endNode.GetNodeValue().KaisiPside,
             KwLogger errH)
         {
             this.Link_Server.EngineClient.OnChangedTurn(
                 this.Link_Server.Earth,
                 endNode,//エンドノード
-                endNode.GetNodeValue().KaisiPside,
+                pside,
                 errH);
         }
 

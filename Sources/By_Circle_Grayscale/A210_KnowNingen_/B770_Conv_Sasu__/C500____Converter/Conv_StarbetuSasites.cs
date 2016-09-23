@@ -75,10 +75,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
                         );
 
                         hubNode.Children1.AddItem(moveB,
-                            new KifuNodeImpl(
-                                moveB,
-                                pos1
-                            ),
+                            new KifuNodeImpl(moveB),
                             hubNode);
                     }
                 }

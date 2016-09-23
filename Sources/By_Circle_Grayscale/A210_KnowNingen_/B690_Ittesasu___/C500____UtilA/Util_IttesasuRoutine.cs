@@ -217,7 +217,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             Sky positionA
             )
         {
-            KifuNode newNodeB = new KifuNodeImpl(move, positionA);
+            KifuNode newNodeB = new KifuNodeImpl(move);
 
             if (!curNodeA.Children1.ContainsKey(move))
             {

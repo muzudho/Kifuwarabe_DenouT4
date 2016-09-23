@@ -118,10 +118,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
             // 棋譜
             Sky positionInit = Util_SkyCreator.New_Hirate();// きふわらべ起動時
-            KifuNode curNode1 = new KifuNodeImpl(
-                            Conv_Move.GetErrorMove(),
-                            positionInit
-                        );
+            KifuNode curNode1 = new KifuNodeImpl(Conv_Move.GetErrorMove());
             {
                 // FIXME:平手とは限らないが、平手という前提で作っておく。
                 this.m_earth_AtLoop2_ = new EarthImpl();
