@@ -1038,7 +1038,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
                                         this.Logger)
                                         );
-                                    this.Kifu_AtLoop2.SetCurNode(this.Kifu_AtLoop2.CurNode3okok, this.Kifu_AtLoop2.PositionA);
+                                    this.Kifu_AtLoop2.OnDoMove(this.Kifu_AtLoop2.CurNode3okok, this.Kifu_AtLoop2.PositionA);
                                 }
 
 

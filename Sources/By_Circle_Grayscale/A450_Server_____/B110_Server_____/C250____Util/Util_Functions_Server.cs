@@ -225,7 +225,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     {
                         string jsaFugoStr;
 
-                        kifu1.SetCurNode(result.Out_newNode_OrNull, result.NewSky);
+                        kifu1.OnDoMove(result.Out_newNode_OrNull, result.NewSky);
                         Util_Functions_Server.AfterSetCurNode_Srv(
                             model_Manual,
                             result.Out_newNode_OrNull,
@@ -266,7 +266,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     string jsaFugoStr;
 
                     MoveNode curNode1 = new MoveNodeImpl(parsedKyokumen.NewMove);
-                    curNode1 = kifu1.SetCurNode(curNode1, parsedKyokumen.NewSky);
+                    curNode1 = kifu1.OnClearMove(parsedKyokumen.NewSky);
                     Util_Functions_Server.AfterSetCurNode_Srv(
                         model_Manual,
                         curNode1,
@@ -351,10 +351,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                 "B",
                 errH
                 );
-            Util_IttemodosuRoutine.UpdateKifuTree(
-                kifu1_mutable
-                );
-            kifu1_mutable.SetCurNode(kifu1_mutable.CurNode3okok, ittemodosuResult.SyuryoSky);
+            kifu1_mutable.OnUndoMove(kifu1_mutable.CurNode3okok, ittemodosuResult.SyuryoSky);
             movedKoma = ittemodosuResult.FigMovedKoma;
             foodKoma = ittemodosuResult.FigFoodKoma;
 

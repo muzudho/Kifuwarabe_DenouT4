@@ -389,7 +389,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         // ここで局面データを変更します。
                         // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
                         string jsaFugoStr;
-                        mainGui3.Link_Server.KifuTree.SetCurNode(modifyNode, positionA);
+                        mainGui3.Link_Server.KifuTree.OnEditMove(modifyNode, positionA);
                         Util_Functions_Server.AfterSetCurNode_Srv(
                             mainGui3.SkyWrapper_Gui,
                             modifyNode,
@@ -573,7 +573,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     // ここで棋譜の変更をします。
                     // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
                     string jsaFugoStr;
-                    curNode1 = mainGui.Link_Server.KifuTree.SetCurNode(newNode, positionA);
+                    curNode1 = mainGui.Link_Server.KifuTree.OnEditMove(newNode, positionA);
                     Util_Functions_Server.AfterSetCurNode_Srv(
                         mainGui.SkyWrapper_Gui,
                         curNode1,

@@ -195,14 +195,6 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             }
         }
 
-        public static void UpdateKifuTree(
-            Tree kifu_mutable
-            )
-        {
-            MoveNode removedLeaf = kifu_mutable.PopCurrentNode();
-        }
-
-
         /// <summary>
         /// 動かす駒を移動先へ。
         /// </summary>

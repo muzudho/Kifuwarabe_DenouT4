@@ -7,4 +7,3 @@ E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A750_LuaTe
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A750_LuaTest____\obj\Release\A750_LuaTest____.csproj.GenerateResource.Cache
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A750_LuaTest____\obj\Release\Grayscale.A750_LuaTest____.exe
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A750_LuaTest____\obj\Release\Grayscale.A750_LuaTest____.pdb
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A750_LuaTest____\obj\Release\A750_LuaTest____.csprojResolveAssemblyReference.cache

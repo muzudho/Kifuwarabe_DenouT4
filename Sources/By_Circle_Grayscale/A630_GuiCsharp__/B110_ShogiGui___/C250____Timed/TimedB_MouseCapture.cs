@@ -415,7 +415,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     }
 
                                                     string jsaFugoStr;
-                                                    curNode1 = mainGui.Link_Server.KifuTree.SetCurNode(newNode, sky_newChild);
+                                                    curNode1 = mainGui.Link_Server.KifuTree.OnDoMove(newNode, sky_newChild);
                                                     Util_Functions_Server.AfterSetCurNode_Srv(
                                                         mainGui.SkyWrapper_Gui,
                                                         curNode1,
@@ -560,7 +560,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                         }
 
                                                         string jsaFugoStr;
-                                                        curNode = mainGui.Link_Server.KifuTree.SetCurNode(newNode, sky_newChild);
+                                                        curNode = mainGui.Link_Server.KifuTree.OnDoMove(newNode, sky_newChild);
                                                         Util_Functions_Server.AfterSetCurNode_Srv(
                                                             mainGui.SkyWrapper_Gui,
                                                             curNode,

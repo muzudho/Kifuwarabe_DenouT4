@@ -23,7 +23,6 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         /// 根を「startpos」等の初期局面コマンドとし、次の節からは棋譜の符号「2g2f」等が連なっている。
         /// </summary>
         MoveNode CurNode3okok { get; }
-        MoveNode SetCurNode(MoveNode node,Sky sky);
         /// <summary>
         /// 棋譜を空っぽにします。
         /// 
@@ -32,40 +31,12 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         MoveNode OnClearMove(Sky sky);
         MoveNode OnDoMove(MoveNode node, Sky sky);
         MoveNode OnUndoMove(MoveNode node, Sky sky);
+        /// <summary>
+        /// 局面編集中
+        /// </summary>
+        /// <param name="sky"></param>
+        /// <returns></returns>
+        MoveNode OnEditMove(MoveNode node, Sky sky);
         Sky PositionA { get; }
-
-        MoveNode NodeAt(int temezumi1);
-
-        
-
-
-
-        /// <summary>
-        /// ************************************************************************************************************************
-        /// 現在の要素を切り取って返します。なければヌル。
-        /// ************************************************************************************************************************
-        /// 
-        /// カレントは、１手前に戻ります。
-        /// 
-        /// </summary>
-        /// <returns>ルートしかないリストの場合、ヌルを返します。</returns>
-        MoveNode PopCurrentNode();
-
-
-        MoveNode GetRoot();
-
-        
-
-
-        
-
-        /*
-        /// <summary>
-        /// これから追加する予定のノードの先後を診断します。
-        /// </summary>
-        /// <param name="node"></param>
-        void AssertChildPside(Playerside parentPside, Playerside childPside);
-        */
-
     }
 }

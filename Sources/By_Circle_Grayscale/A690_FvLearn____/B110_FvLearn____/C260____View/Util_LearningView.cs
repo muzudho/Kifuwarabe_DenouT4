@@ -150,7 +150,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                         nextMove,
                         ittesasuResult.SyuryoKyokumenW
                         );
-                    kifu1.SetCurNode(
+                    kifu1.OnDoMove(
                         curNodeB,
                         ittesasuResult.SyuryoKyokumenW
                         );//次ノードを、これからのカレントとします。
@@ -367,7 +367,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 nextMove,
                 ittesasuResult.SyuryoKyokumenW
                 );
-            learningData.KifuA.SetCurNode(
+            learningData.KifuA.OnDoMove(
                 curNodeB,
                 ittesasuResult.SyuryoKyokumenW
                 );//次ノードを、これからのカレントとします。

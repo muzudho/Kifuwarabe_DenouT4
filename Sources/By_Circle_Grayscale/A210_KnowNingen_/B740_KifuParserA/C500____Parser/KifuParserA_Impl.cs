@@ -87,7 +87,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                         result.Out_newNode_OrNull.Key,
                         result.NewSky
                         );
-                    kifu1_mutable.SetCurNode(
+                    kifu1_mutable.OnDoMove(
                         curNode1,
                         result.NewSky
                         );
@@ -177,7 +177,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                             result.Out_newNode_OrNull.Key,
                             result.NewSky
                             );
-                        curNode1 = kifu1_mutable.SetCurNode(
+                        curNode1 = kifu1_mutable.OnDoMove(
                             newNodeB,
                             result.NewSky
                             );//次ノードを、これからのカレントとします。
