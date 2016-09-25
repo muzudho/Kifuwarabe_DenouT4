@@ -1,6 +1,7 @@
 ﻿using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using System;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 
 #if DEBUG
 using System.Diagnostics;
@@ -30,8 +31,17 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// 根を「startpos」等の初期局面コマンドとし、次の節からは棋譜の符号「2g2f」等が連なっている。
         /// </summary>
         public MoveNode CurNode3okok { get { return this.m_curNode_; } }
+        public MoveNode ParentNode1 { get { return this.m_curNode_.GetParentNode(); } }
         public Children CurChildren { get { return this.CurNode3okok.Children1; } }
-        public Children ParentChildren { get { return this.CurNode3okok.GetParentNode().Children1; } }
+        public void ClearChildren()
+        {
+            this.CurChildren.ClearAll();
+        }
+        public void AddCurChild(Move move, MoveNode newNode, MoveNode parent)
+        {
+            this.CurChildren.AddItem(move, newNode, parent);
+        }
+        //public Children ParentChildren { get { return this.CurNode3okok.GetParentNode().Children1; } }
         /// <summary>
         /// 棋譜を空っぽにします。
         /// 
@@ -42,11 +52,11 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             // ルートまで遡ります。
             while (!this.CurNode3okok.IsRoot())
             {
-                this.m_curNode_ = this.CurNode3okok.GetParentNode();
+                this.m_curNode_ = this.ParentNode1;
             }
 
             // ルートの次の手を全クリアーします。
-            this.CurChildren.ClearAll();
+            this.ClearChildren();
 
             this.m_sky_ = sky;
             return this.m_curNode_;
@@ -74,10 +84,10 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
                 // 一手前の要素（必ずあるはずです）
                 // 残されたリストの最後の要素の、次リンクを切ります。
-                this.ParentChildren.ClearAll();
+                //this.ParentChildren.ClearAll();
 
                 // カレントを、１つ前の要素に替えます。
-                this.m_curNode_ = this.CurNode3okok.GetParentNode();
+                this.m_curNode_ = this.ParentNode1;
             }
 
 

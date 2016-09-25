@@ -702,9 +702,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         try
                         {
                             // 自分を親要素につなげたあとで、子を検索するぜ☆（＾～＾）
-                            kifu1.CurChildren
-                            //nod1.Children1
-                                .AddItem(
+                            kifu1.AddCurChild(
                                 mov2,
                                 nod2,
                                 nod1 // ツリーを伸ばしているぜ☆（＾～＾）

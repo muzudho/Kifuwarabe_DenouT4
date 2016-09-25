@@ -62,13 +62,6 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         private Move m_key_;
 
 
-
-        public List<Move> ToMovelist()
-        {
-            return this.Children1.ToMovelist();
-        }
-
-
         public Children Children1 { get; set; }
     }
 }

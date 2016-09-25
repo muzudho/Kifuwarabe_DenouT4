@@ -227,9 +227,10 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 //----------------------------------------
                 earth1.GetSennititeCounter().CountUp_New(
                     Conv_Sky.ToKyokumenHash(positionA), "After3_ChangeCurrent(次の一手なし)");
-                kifu1.CurChildren.AddItem(newNodeB.Key, newNodeB,
+                kifu1.AddCurChild(
+                    newNodeB.Key,
+                    newNodeB,
                     kifu1.CurNode3okok
-                    //curNodeA
                     );//次ノートを追加します。
             }
             else

@@ -24,7 +24,10 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         /// </summary>
         MoveNode CurNode3okok { get; }
         Children CurChildren { get; }
-        Children ParentChildren { get; }
+        MoveNode ParentNode1 { get; }
+        //Children ParentChildren { get; }
+        void ClearChildren();
+        void AddCurChild(Move move, MoveNode newNode, MoveNode parent);
         /// <summary>
         /// 棋譜を空っぽにします。
         /// 

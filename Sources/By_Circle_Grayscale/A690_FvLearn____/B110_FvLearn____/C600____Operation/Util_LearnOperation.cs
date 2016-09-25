@@ -121,7 +121,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             //----------------------------------------
             // 点数を付け直すために、ノードを一旦、全削除
             //----------------------------------------
-            uc_Main.LearningData.GetCurChildren().ClearAll();
+            uc_Main.LearningData.KifuA.ClearChildren();
 
             //----------------------------------------
             // ネクスト・ノードを再作成

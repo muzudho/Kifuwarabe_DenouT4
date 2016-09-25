@@ -366,6 +366,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             // これで、棋譜ツリーに、構造変更があったはず。
             //↑↑一手指し
 
+            /*
             //----------------------------------------
             // カレント・ノードより古い、以前読んだ手を削除したい。
             //----------------------------------------
@@ -373,6 +374,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             int result_removedCount = Util_KifuTree282.IzennoHenkaCutter(
                 learningData.KifuA, errH);
             System.Console.WriteLine("削除した要素数＝" + result_removedCount);
+            */
 
             ////----------------------------------------
             //// 合法手一覧を作成したい。

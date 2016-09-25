@@ -32,7 +32,6 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         MoveEx MoveEx { get; set; }
 
 
-        List<Move> ToMovelist();
         Children Children1 { get; set; }
     }
 }

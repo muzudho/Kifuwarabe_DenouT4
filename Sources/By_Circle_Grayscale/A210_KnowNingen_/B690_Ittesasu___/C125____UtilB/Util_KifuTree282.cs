@@ -15,7 +15,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
     /// </summary>
     public abstract class Util_KifuTree282
     {
-
+        /*
         /// <summary>
         /// 『以前の変化カッター』
         /// 
@@ -90,6 +90,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
         gt_EndMethod:
             return result_removedCount;
         }
+        */
 
         /// <summary>
         /// ************************************************************************************************************************

@@ -96,7 +96,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                         earth1.GetSennititeCounter().CountUp_New(
                             Conv_Sky.ToKyokumenHash(saifu_PositionA),
                             hint + "/AppendChild_And_ChangeCurrentToChild");
-                        saifuKifu2.CurChildren.AddItem(saifu_newChild.Key, saifu_newChild, saifuKifu2.CurNode3okok);
+                        saifuKifu2.AddCurChild(
+                            saifu_newChild.Key, saifu_newChild, saifuKifu2.CurNode3okok);
                     }
                 }
                 saifuKifu2.OnDoMove(saifu_newChild, saifu_PositionA);//次ノードを、これからのカレントとします。
