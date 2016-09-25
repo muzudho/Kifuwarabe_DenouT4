@@ -1,16 +1,11 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System.Collections.Generic;
-using System.Diagnostics;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
 {
@@ -27,7 +22,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
         /// 本譜を残して、カレントノードより以前の変化は　ツリーから削除します。
         /// </summary>
         public static int IzennoHenkaCutter(
-            MoveNode curNode1,
+            Tree kifu1,
             KwLogger errH
             )
         {
@@ -37,7 +32,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             // 本譜以外の変化を削除します。
             //----------------------------------------
 
-            if (curNode1.IsRoot())
+            if (kifu1.CurNode3okok.IsRoot())
             {
                 //----------------------------------------
                 // ルートノードでは何もできません。
@@ -48,7 +43,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //----------------------------------------
             // 本譜の手
             //----------------------------------------
-            Move move1 = curNode1.Key;
+            Move move1 = kifu1.CurNode3okok.Key;
 
             //----------------------------------------
             // 選ばなかった変化を、ここに入れます。
@@ -58,7 +53,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //----------------------------------------
             // 選んだ変化と、選ばなかった変化の一覧
             //----------------------------------------
-            curNode1.GetParentNode().Children1.Foreach_ChildNodes5((Move move2, ref bool toBreak2) =>
+            kifu1.CurNode3okok.GetParentNode().Children1.Foreach_ChildNodes5((Move move2, ref bool toBreak2) =>
             {
                 if (move2 == move1)
                 {
@@ -89,42 +84,11 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             result_removedCount = removeeList.Count;
             foreach (Move key in removeeList)
             {
-                curNode1.GetParentNode().Children1.RemoveItem(key);
+                kifu1.CurNode3okok.GetParentNode().Children1.RemoveItem(key);
             }
 
         gt_EndMethod:
             return result_removedCount;
-        }
-
-
-        /// <summary>
-        /// 新しいノードを、次ノードとして追加します。
-        /// そして、追加した新しいノードを、カレント・ノードとします。
-        /// </summary>
-        /// <param name="nextNode"></param>
-        public static void AppendChild(
-            Earth earth1,
-            MoveNode curNode1,
-            MoveNode nextNode,
-            Sky positionA,
-            string hint,
-            KwLogger errH
-            )
-        {
-            Move move1 = nextNode.Key;
-
-            if (!curNode1.Children1.ContainsKey(move1))
-            {
-                //----------------------------------------
-                // 次ノート追加
-                //----------------------------------------
-                earth1.GetSennititeCounter().CountUp_New(
-                    Conv_Sky.ToKyokumenHash(positionA),
-                    hint+"/AppendChild_And_ChangeCurrentToChild");
-                curNode1.Children1.PutTuginoitte_New(nextNode, curNode1);
-            }
-
-            Debug.Assert(nextNode != null, "カレントノードがヌル。");
         }
 
         /// <summary>

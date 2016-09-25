@@ -1,5 +1,6 @@
 ﻿using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
+using System.Collections.Generic;
 
 namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
 {
@@ -30,6 +31,8 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
 
         MoveEx MoveEx { get; set; }
 
+
+        List<Move> ToMovelist();
         Children Children1 { get; set; }
     }
 }

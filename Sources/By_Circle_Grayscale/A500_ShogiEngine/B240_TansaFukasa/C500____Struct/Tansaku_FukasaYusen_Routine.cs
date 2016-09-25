@@ -207,7 +207,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             ref ulong searchedNodes,
             string[] searchedPv,
 
-            MoveNode rootNode,// ツリーを伸ばしているぜ☆（＾～＾）
+            Tree kifu1,// ツリーを伸ばしているぜ☆（＾～＾）
             Sky positionA,
 
             bool isHonshogi,
@@ -227,7 +227,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     temezumi,
                     isHonshogi, mode_Tansaku, errH);
 
-                MoveEx moveEx = rootNode.MoveEx;
+                MoveEx moveEx = kifu1.CurNode3okok.MoveEx;
 
                 int wideCount2 = 0;
 
@@ -285,7 +285,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         positionA.Temezumi,
                         moveEx.Move,
                         positionA,//この局面から合法手を作成☆（＾～＾）
-                        rootNode,// ツリーを伸ばしているぜ☆（＾～＾）
+                        kifu1.CurNode3okok,// ツリーを伸ばしているぜ☆（＾～＾）
+                        kifu1,
 
                         movelist.Count,
                         args,
@@ -339,11 +340,12 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             }
 
             // ヌルになることがある？
-            return Tansaku_FukasaYusen_Routine.ChoiceBest(isHonshogi, rootNode, positionA.KaisiPside, errH);
+            return Tansaku_FukasaYusen_Routine.ChoiceBest(
+                isHonshogi, kifu1, positionA.KaisiPside, errH);
         }
         private static MoveEx ChoiceBest(
             bool isHonshogi,
-            MoveNode rootNode,
+            Tree kifu1,
             Playerside kaisiPside,
             KwLogger errH
         )
@@ -361,7 +363,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     //
                     // ノードが２つもないようなら、スキップします。
                     //
-                    if (rootNode.Children1.Count < 2)
+                    if (kifu1.CurChildren.Count < 2)
                     {
                         goto gt_EndSort;
                     }
@@ -374,7 +376,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     {
                         try
                         {
-                            rootNode.Children1.Foreach_ChildNodes4((MoveEx moveEx, ref bool toBreak) =>
+                            kifu1.CurChildren.Foreach_ChildNodes4((MoveEx moveEx, ref bool toBreak) =>
                             {
                                 rankedMoveExs.Add(moveEx);
                             });
@@ -583,6 +585,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             Move mov1,//改造後
             Sky positionA,//この局面から、合法手を作成☆（＾～＾）
             MoveNode nod1,// ツリーを伸ばしているぜ☆（＾～＾）
+            Tree kifu1,
 
             int movelist_count,
             EvaluationArgs args,
@@ -687,14 +690,12 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         exceptionArea = 4020;
 
                         // 局面
-                        Move mov2_old = mov2;
-                        Util_IttesasuSuperRoutine.DoMove_Super(
+                        Util_IttesasuSuperRoutine.DoMove_Super1(
                                 ref positionA,//指定局面
                                 ref mov2,
                                 "C100",
                                 errH
                         );
-
 
                         exceptionArea = 44011;
 
@@ -710,16 +711,18 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         catch (Exception ex)
                         {
                             errH.DonimoNaranAkirameta(ex, "指し手をツリーに追加したとき。\n"+
-                                "mov2_old=" + Conv_Move.ToLog(mov2_old)+
                                 "mov2    =" + Conv_Move.ToLog(mov2)
                                 );
                             throw ex;//追加
                         }
 
+                        kifu1.OnDoMove(nod1, positionA);
+
                         exceptionArea = 44012;
 
                         // これを呼び出す回数を減らすのが、アルファ法。
                         // 枝か、葉か、確定させにいきます。
+                        // （＾▽＾）再帰☆
                         MoveEx mov4 = Tansaku_FukasaYusen_Routine.WAAA_Yomu_Loop(
                             ref searchedMaxDepth,
                             ref searchedNodes,
@@ -731,6 +734,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                             mov2,//改造後
                             positionA,//この局面から合法手を作成☆（＾～＾） nod2.Value はヌル☆（＾▽＾）
                             nod2,// ツリーを伸ばしているぜ☆（＾～＾）
+                            kifu1,
 
                             movelist2.Count,
                             args,
@@ -751,6 +755,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                             );
                         positionA = ittemodosuResult.SyuryoSky;
                         //*/
+                        kifu1.OnUndoMove(kifu1.CurNode3okok, ittemodosuResult.SyuryoSky);
 
 
                         exceptionArea = 7000;

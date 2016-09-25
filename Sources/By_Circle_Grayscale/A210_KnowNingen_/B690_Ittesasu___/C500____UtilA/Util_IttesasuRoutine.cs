@@ -212,23 +212,24 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// </summary>
         public static MoveNode BeforeUpdateKifuTree(
             Earth earth1,
-            MoveNode curNodeA,
+            Tree kifu1,
+            //MoveNode curNodeA,
             Move move,
             Sky positionA
             )
         {
             MoveNode newNodeB = new MoveNodeImpl(move);
 
-            if (!curNodeA.Children1.ContainsKey(move))
+            if (!kifu1.CurChildren.ContainsKey(move))
             {
                 //----------------------------------------
                 // 次ノード追加（なければ）
                 //----------------------------------------
                 earth1.GetSennititeCounter().CountUp_New(
                     Conv_Sky.ToKyokumenHash(positionA), "After3_ChangeCurrent(次の一手なし)");
-                curNodeA.Children1.PutTuginoitte_New(
-                    newNodeB,
-                    curNodeA
+                kifu1.CurChildren.AddItem(newNodeB.Key, newNodeB,
+                    kifu1.CurNode3okok
+                    //curNodeA
                     );//次ノートを追加します。
             }
             else
@@ -238,12 +239,16 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 //----------------------------------------
                 earth1.GetSennititeCounter().CountUp_New(
                     Conv_Sky.ToKyokumenHash(positionA), "After3_ChangeCurrent（次の一手あり）");
-                curNodeA.Children1.PutTuginoitte_Override(newNodeB, curNodeA);//次ノートを上書きします。
+                kifu1.CurChildren.ChangeItem(newNodeB,
+                    kifu1.CurNode3okok
+                    //curNodeA
+                    );//次ノートを上書きします。
             }
 
-            MoveNode temp = curNodeA;
-            newNodeB.SetParentNode(temp);
-            return newNodeB;//カレント・ノード
+            return kifu1.OnDoMove(
+                newNodeB,
+                positionA
+            );//次ノードを、これからのカレントとします。
         }
 
 
@@ -259,7 +264,6 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             Move move,
             Sky positionA,
             KwLogger logger,
-            //string hint,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0

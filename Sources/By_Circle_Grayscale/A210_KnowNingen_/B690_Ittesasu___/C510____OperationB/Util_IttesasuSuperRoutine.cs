@@ -18,7 +18,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
 {
     public abstract class Util_IttesasuSuperRoutine
     {
-        public static bool DoMove_Super(
+        public static bool DoMove_Super1(
             ref Sky positionA,//指定局面
             ref Move move,//TODO:取った駒があると、上書きされる
             string hint,
@@ -44,14 +44,11 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
                     hint +
                     " move=" + Conv_Move.ToLog(move);
 
-                //logger.AppendLine(message));
-                //logger.Flush(LogTypes.Error);
-                //successful = false;
                 throw new Exception(message);
             }
             else
             {
-                Util_IttesasuSuperRoutine.DoMove_Super(
+                Util_IttesasuSuperRoutine.DoMove_Super2(
                         ref positionA,
                         ref move,
 
@@ -84,7 +81,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
         /// <param name="pside_genTeban"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static void DoMove_Super(
+        public static void DoMove_Super2(
             ref Sky position,//指定局面
             ref Move move,
             Finger finger,//動かす駒
@@ -142,70 +139,6 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
 
             // 動かしたあとに、先後を逆転させて、手目済カウントを増やします。
             position.IncreasePsideTemezumi();
-        }
-        //*/
-
-        /*
-        /// <summary>
-        /// 指したあとの、次の局面を作るだけ☆
-        /// </summary>
-        /// <param name="src_Sky"></param>
-        /// <param name="finger"></param>
-        /// <param name="dstMasu"></param>
-        /// <param name="pside_genTeban"></param>
-        /// <param name="errH"></param>
-        /// <returns></returns>
-        public static Sky DoMove_Super(
-            Sky src_Sky,//指定局面
-            Finger finger,//動かす駒
-            SyElement dstMasu,//移動先マス
-            bool toNaru,//成るなら真
-            KwLogger errH
-            )
-        {
-            Sky newSky = new SkyImpl(src_Sky); // 現局面を元に、新規局面を書き換えます。
-            newSky.SetKaisiPside(Conv_Playerside.Reverse(src_Sky.KaisiPside));// 開始先後を逆転させます。
-            newSky.SetTemezumi(newSky.Temezumi+1);// 1手進めます。
-
-            // 移動先に相手の駒がないか、確認します。
-            Finger tottaKoma = Util_Sky_FingersQuery.InMasuNow_Old(newSky, dstMasu).ToFirst();
-
-            if (tottaKoma != Fingers.Error_1)
-            {
-                // なにか駒を取ったら
-
-                // 駒台の空いているマス１つ。
-                SyElement akiMasu;
-                if (src_Sky.KaisiPside == Playerside.P1)
-                {
-                    akiMasu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Okiba.Sente_Komadai, newSky);
-                }
-                else
-                {
-                    akiMasu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Okiba.Gote_Komadai, newSky);
-                }
-
-                newSky.AssertFinger(tottaKoma);
-                Busstop koma = newSky.BusstopIndexOf(tottaKoma);
-
-                // 駒台の空いているマスへ移動☆
-                newSky.PutOverwriteOrAdd_Busstop(tottaKoma, Conv_Busstop.ToBusstop(src_Sky.KaisiPside, akiMasu, Conv_Busstop.ToKomasyurui( koma)));
-            }
-
-            // 駒を１個動かします。
-            {
-                newSky.AssertFinger(finger);
-                Komasyurui14 komaSyurui = Conv_Busstop.ToKomasyurui(newSky.BusstopIndexOf(finger));
-
-                if (toNaru)
-                {
-                    komaSyurui = Util_Komasyurui14.ToNariCase(komaSyurui);
-                }
-
-                newSky.PutOverwriteOrAdd_Busstop(finger, Conv_Busstop.ToBusstop(src_Sky.KaisiPside, dstMasu, komaSyurui));
-            }
-
-            return newSky;
         }
         //*/
     }

@@ -60,20 +60,8 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
                     }
                     else
                     {
-                        SyElement dstMasu = Conv_Move.ToDstMasu(moveA);
 
-                        // 指したあとの次の局面を作るだけ☆
                         Move moveB = moveA;
-                        Sky pos1 = new SkyImpl(src_Sky);
-                        Util_IttesasuSuperRoutine.DoMove_Super(
-                            ref pos1,//指定局面
-                            ref moveB,
-                            figKoma,//動かす駒
-                            dstMasu,//移動先升
-                            false,//成りません。
-                            logger
-                        );
-
                         hubNode.Children1.AddItem(moveB,
                             new MoveNodeImpl(moveB),
                             hubNode);

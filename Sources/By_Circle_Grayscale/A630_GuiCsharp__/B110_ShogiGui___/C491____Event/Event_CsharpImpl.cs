@@ -520,7 +520,6 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                 Util_Function_Csharp.Komamove1a_51Gui(torareruKomaAri, koma_Food_after, mainGui);
             }
 
-            MoveNode curNode1;
             {
                 //----------
                 // 移動済表示
@@ -565,19 +564,18 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         // 次ノード追加
                         //----------------------------------------
                         mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(positionA), "After_NaruNaranai");
-                        curNode1 = mainGui.Link_Server.KifuTree.CurNode3okok;
-                        curNode1.Children1.PutTuginoitte_New(newNode, curNode1);
+                        mainGui.Link_Server.KifuTree.CurChildren.AddItem(newNode.Key, newNode, mainGui.Link_Server.KifuTree.CurNode3okok);
                     }
 
                     // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
                     // ここで棋譜の変更をします。
                     // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
                     string jsaFugoStr;
-                    curNode1 = mainGui.Link_Server.KifuTree.OnEditMove(newNode, positionA);
+                    mainGui.Link_Server.KifuTree.OnEditMove(newNode, positionA);
                     Util_Functions_Server.AfterSetCurNode_Srv(
                         mainGui.SkyWrapper_Gui,
-                        curNode1,
-                        curNode1.Key,
+                        mainGui.Link_Server.KifuTree.CurNode3okok,
+                        mainGui.Link_Server.KifuTree.CurNode3okok.Key,
                         positionA,
                         out jsaFugoStr, errH);
                     mainGui.RepaintRequest.SetFlag_RefreshRequest();
@@ -599,7 +597,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                 {
                     //System.C onsole.WriteLine("マウス左ボタンを押したのでチェンジターンします。");
                     mainGui.ChangedTurn(
-                        curNode1,
+                        mainGui.Link_Server.KifuTree.CurNode3okok,
                         mainGui.Link_Server.KifuTree.PositionA.KaisiPside,
                         errH);
                 }
@@ -617,7 +615,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
             mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
             mainGui.ChangedTurn(
-                curNode1,
+                mainGui.Link_Server.KifuTree.CurNode3okok,
                 mainGui.Link_Server.KifuTree.PositionA.KaisiPside,
                 errH);//マウス左ボタンを押したのでチェンジターンします。
 

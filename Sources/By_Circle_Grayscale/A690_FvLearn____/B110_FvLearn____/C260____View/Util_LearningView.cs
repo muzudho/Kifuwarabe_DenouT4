@@ -146,14 +146,10 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     );
                     curNodeB = Util_IttesasuRoutine.BeforeUpdateKifuTree(
                         earth1,
-                        kifu1.CurNode3okok,
+                        kifu1,
                         nextMove,
                         ittesasuResult.SyuryoKyokumenW
                         );
-                    kifu1.OnDoMove(
-                        curNodeB,
-                        ittesasuResult.SyuryoKyokumenW
-                        );//次ノードを、これからのカレントとします。
                     // これで、棋譜ツリーに、構造変更があったはず。
                     //↑↑一手指し
                 }
@@ -218,7 +214,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 learningData.GetCurChildren().Foreach_ChildNodes2(
                     (Move move, List<Move> honpuList, ref bool toBreak) =>
                 {
-                    Util_IttesasuSuperRoutine.DoMove_Super(
+                    Util_IttesasuSuperRoutine.DoMove_Super1(
                         ref positionA,//指定局面
                         ref move,
                         "D100",
@@ -363,14 +359,10 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             );
             MoveNode curNodeB = Util_IttesasuRoutine.BeforeUpdateKifuTree(
                 learningData.Earth,
-                learningData.KifuA.CurNode3okok,
+                learningData.KifuA,
                 nextMove,
                 ittesasuResult.SyuryoKyokumenW
                 );
-            learningData.KifuA.OnDoMove(
-                curNodeB,
-                ittesasuResult.SyuryoKyokumenW
-                );//次ノードを、これからのカレントとします。
             // これで、棋譜ツリーに、構造変更があったはず。
             //↑↑一手指し
 
@@ -379,7 +371,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             //----------------------------------------
             System.Console.WriteLine("カレント・ノード＝" + Conv_Move.ToSfen( learningData.GetMove()));
             int result_removedCount = Util_KifuTree282.IzennoHenkaCutter(
-                learningData.KifuA.CurNode3okok, errH);
+                learningData.KifuA, errH);
             System.Console.WriteLine("削除した要素数＝" + result_removedCount);
 
             ////----------------------------------------

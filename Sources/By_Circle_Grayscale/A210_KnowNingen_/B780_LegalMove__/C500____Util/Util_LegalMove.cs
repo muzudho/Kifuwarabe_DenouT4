@@ -96,7 +96,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
 
                 // 「指し手一覧」を、「星別の全指し手」に分けます。
                 Maps_OneAndMulti<Finger, Move> starbetuAllSasites2 = Util_Sky258A.SplitSasite_ByStar(positionA,
-                    Util_Tree.CreateChlidMoves(hubNode),
+                    hubNode.ToMovelist(),
                     errH);
 
                 exception_area = 40000;
@@ -180,7 +180,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
                 long exception_area = 1000120;
                 try
                 {
-                    bool successful = Util_IttesasuSuperRoutine.DoMove_Super(
+                    bool successful = Util_IttesasuSuperRoutine.DoMove_Super1(
                             ref positionA,//指定局面
                             ref move,
                             "A100_IfMate",
@@ -240,7 +240,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             });
 
             // 入替え
-            hubNode.Children1.SetItems_New(restNodes, hubNode);
+            hubNode.Children1 = new ChildrenImpl(restNodes, hubNode);
         }
 
 

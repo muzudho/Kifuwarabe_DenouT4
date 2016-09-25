@@ -77,7 +77,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
 
                     Sky positionA = uc_Main.LearningData.PositionA;
 
-                    Util_IttesasuSuperRoutine.DoMove_Super(
+                    Util_IttesasuSuperRoutine.DoMove_Super1(
                         ref positionA,//指定局面
                         ref move1,
                         "F100",
@@ -373,7 +373,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             uc_Main.LearningData.Aaa_CreateNextNodes_Gohosyu(
                 ref searchedMaxDepth,
                 ref searchedNodes,
-                curNode1,
+                newKifu1_Hirate,
                 positionA,
                 searchedPv,
                 args, errH);

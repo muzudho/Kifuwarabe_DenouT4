@@ -13,13 +13,11 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         void ClearAll();
         bool ContainsKey(Move key);
         void AddItem(Move key, MoveNode newNode, MoveNode parent);
-        void SetItems_Old(Dictionary<Move, MoveNode> newNextNodes, MoveNode parent);
         /// <summary>
-        /// 棋譜ノードのValueは廃止方針☆
+        /// 既存の子要素を上書きします。
         /// </summary>
-        /// <param name="moves"></param>
-        /// <param name="parent"></param>
-        void SetItems_New(List<Move> moves, MoveNode parent);
+        /// <param name="existsNode"></param>
+        void ChangeItem(MoveNode existsNode, MoveNode owner);
 
         void Foreach_ChildNodes2(ChildrenImpl.DELEGATE_ChildNodes2 delegate_NextNodes);
         void Foreach_ChildNodes3(ChildrenImpl.DELEGATE_ChildNodes3 delegate_NextNodes);
@@ -37,24 +35,5 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
 
         bool IsLeaf { get; }
 
-        /// <summary>
-        /// ************************************************************************************************************************
-        /// 棋譜に　次の一手　を追加します。
-        /// ************************************************************************************************************************
-        /// 
-        /// KifuIO を通して使ってください。
-        /// 
-        /// ①コマ送り用。
-        /// ②「成り」フラグの更新用。
-        /// ③マウス操作用
-        /// 
-        /// カレントノードは変更しません。
-        /// </summary>
-        void PutTuginoitte_New(MoveNode newNode, MoveNode owner);
-        /// <summary>
-        /// 既存の子要素を上書きします。
-        /// </summary>
-        /// <param name="existsNode"></param>
-        void PutTuginoitte_Override(MoveNode existsNode, MoveNode owner);
     }
 }

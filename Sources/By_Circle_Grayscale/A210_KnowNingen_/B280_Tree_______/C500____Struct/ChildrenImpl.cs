@@ -16,6 +16,20 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         {
             this.Items = new Dictionary<Move, MoveNode>();
         }
+        /// <summary>
+        /// 棋譜ノードのValueは廃止方針☆
+        /// </summary>
+        /// <param name="moves"></param>
+        /// <param name="parent"></param>
+        public ChildrenImpl(List<Move> moves, MoveNode parent)
+        {
+            this.Items = new Dictionary<Move, MoveNode>();
+            foreach (Move move in moves)
+            {
+                MoveNode newNode = new MoveNodeImpl(move);
+                this.AddItem(move, newNode, parent);
+            }
+        }
 
 
 
@@ -102,34 +116,24 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             return this.Items.ContainsKey(key);
         }
 
-        public void AddItem(Move key, MoveNode newNode, MoveNode parent)
+        public void AddItem(Move move, MoveNode newNode, MoveNode parent)
         {
-            this.Items.Add(key, newNode);
+            this.Items.Add(move, newNode);
             newNode.SetParentNode(parent);
         }
-
-        public void SetItems_Old(Dictionary<Move, MoveNode> newItems, MoveNode parent)
-        {
-            this.Items = newItems;
-            foreach (MoveNode child in this.Items.Values)
-            {
-                child.SetParentNode(parent);
-            }
-        }
         /// <summary>
-        /// 棋譜ノードのValueは廃止方針☆
+        /// 既存の子要素を上書きします。
         /// </summary>
-        /// <param name="moves"></param>
-        /// <param name="parent"></param>
-        public void SetItems_New(List<Move> moves, MoveNode parent)
+        /// <param name="existsNode"></param>
+        public void ChangeItem(
+            MoveNode existsNode,
+            MoveNode parent
+            )
         {
-            this.Items.Clear();
-            foreach (Move move in moves)
-            {
-                MoveNode newNode = new MoveNodeImpl(move);
-                newNode.SetParentNode(parent);
-                this.Items.Add(move,newNode);
-            }
+            // SFENをキーに、次ノードを増やします。
+            this.Items[existsNode.Key].SetParentNode(null);
+            this.Items[existsNode.Key] = existsNode;
+            existsNode.SetParentNode(parent);
         }
 
         public int Count
@@ -157,50 +161,5 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
         public bool IsLeaf { get { return 0 == this.Count; } }
 
-        /// <summary>
-        /// ************************************************************************************************************************
-        /// 棋譜に　次の一手　を追加します。
-        /// ************************************************************************************************************************
-        /// 
-        /// KifuIO を通して使ってください。
-        /// 
-        /// ①コマ送り用。
-        /// ②「成り」フラグの更新用。
-        /// ③マウス操作用
-        /// 
-        /// カレントノードは変更しません。
-        /// </summary>
-        public void PutTuginoitte_New(
-            MoveNode newNode,
-            MoveNode owner
-            )
-        {
-            // 同じ指し手があれば追加してはいけない？
-#if DEBUG
-            System.Diagnostics.Debug.Assert(
-                !this.ContainsKey(newNode.Key),
-                "指し手[" + Conv_Move.ToSfen(newNode.Key) + "]は既に指されていました。"
-                );
-#endif
-            // SFENをキーに、次ノードを増やします。
-
-            this.AddItem(newNode.Key, newNode, owner);
-            //手番はここでは変更できない。
-
-            newNode.SetParentNode(owner);
-        }
-        /// <summary>
-        /// 既存の子要素を上書きします。
-        /// </summary>
-        /// <param name="existsNode"></param>
-        public void PutTuginoitte_Override(
-            MoveNode existsNode,
-            MoveNode owner
-            )
-        {
-            // SFENをキーに、次ノードを増やします。
-            this.Items[existsNode.Key] = existsNode;
-            existsNode.SetParentNode(owner);
-        }
     }
 }

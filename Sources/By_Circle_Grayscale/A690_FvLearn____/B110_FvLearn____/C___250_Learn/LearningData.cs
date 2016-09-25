@@ -67,7 +67,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
         void Aaa_CreateNextNodes_Gohosyu(
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
-            MoveNode curNode1,
+            Tree kifu1,
             Sky positionA,
             string[] searchedPv,
             EvaluationArgs args,

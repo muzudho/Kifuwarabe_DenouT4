@@ -123,57 +123,6 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
             return sb.ToString();
         }
 
-
-        /// <summary>
-        /// ハブ･ノードの次ノード・リストをJSON化します。
-        /// </summary>
-        /// <param name="enableLog"></param>
-        /// <param name="positionA_base"></param>
-        /// <param name="hubMoveNode"></param>
-        /// <param name="comment"></param>
-        /// <param name="logger"></param>
-        /// <returns></returns>
-        public static string JsonKyokumens_NextNodes(bool enableLog, Sky positionA_base, MoveNode hubMoveNode, string comment, KwLogger logger)
-        {
-            StringBuilder sb = new StringBuilder();
-
-            if (!enableLog)
-            {
-                goto gt_EndMethod;
-            }
-
-            hubMoveNode.Children1.Foreach_ChildNodes5((Move move, ref bool toBreak) =>
-            {
-
-                SyElement srcMasu = Conv_Move.ToSrcMasu(move, positionA_base);
-                SyElement dstMasu = Conv_Move.ToDstMasu(move);
-
-                Finger srcKoma2 = Util_Sky_FingersQuery.InMasuNow_Old(positionA_base, srcMasu).ToFirst();
-
-                Komasyurui14 dstKs14 = Conv_Move.ToDstKomasyurui(move);
-
-                sb.AppendLine("            [");
-
-                // マスの色
-                sb.AppendLine("                { act:\"colorMasu\", style:\"rgba(100,240,100,0.5)\" },");
-
-                // マス
-                sb.AppendLine("                { act:\"drawMasu\" , masu:" + Conv_Masu.ToMasuHandle(dstMasu) + " },");
-
-
-                string komaImg = Util_Converter_LogGraphicEx.Finger_ToString(positionA_base, srcKoma2, "");
-                sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_Masu.ToMasuHandle(dstMasu) + " },");//FIXME:おかしい？
-
-                // コメント
-                sb.AppendLine("                { act:\"drawText\", text:\"" + comment + "\"  , x:0, y:20 },");
-
-                sb.AppendLine("            ],");
-            });
-
-        gt_EndMethod:
-            return sb.ToString();
-        }
-
         /// <summary>
         /// 用途例：持ち駒を確認するために使います。
         /// </summary>

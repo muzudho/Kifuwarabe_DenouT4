@@ -23,6 +23,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         /// 根を「startpos」等の初期局面コマンドとし、次の節からは棋譜の符号「2g2f」等が連なっている。
         /// </summary>
         MoveNode CurNode3okok { get; }
+        Children CurChildren { get; }
         /// <summary>
         /// 棋譜を空っぽにします。
         /// 

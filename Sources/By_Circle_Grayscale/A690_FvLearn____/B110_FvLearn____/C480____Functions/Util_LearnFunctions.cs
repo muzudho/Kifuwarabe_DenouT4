@@ -188,7 +188,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
                     goto gt_NextLoop1;
                 }
 
-                Util_IttesasuSuperRoutine.DoMove_Super(
+                Util_IttesasuSuperRoutine.DoMove_Super1(
                     ref positionA,//指定局面
                     ref move,
                     "E100",
@@ -233,7 +233,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
             {
                 // 進める
                 Move moveB = move1;
-                bool successful = Util_IttesasuSuperRoutine.DoMove_Super(
+                bool successful = Util_IttesasuSuperRoutine.DoMove_Super1(
                     ref positionA,//指定局面
                     ref moveB,
                     "H100_LearnFunc",

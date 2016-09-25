@@ -92,7 +92,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
         }
         public Children GetCurChildren()
         {
-            return this.KifuA.CurNode3okok.Children1;
+            return this.KifuA.CurChildren;
         }
 
         /// <summary>
@@ -222,7 +222,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
             this.Aaa_CreateNextNodes_Gohosyu(
                 ref searchedMaxDepth,
                 ref searchedNodes,
-                kifu1.CurNode3okok,
+                kifu1,
                 positionA,
                 searchedPv,
                 args, errH);
@@ -344,7 +344,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
         public void Aaa_CreateNextNodes_Gohosyu(
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
-            MoveNode curNode1,
+            Tree kifu1,
             Sky positionA,
             string[] searchedPv,
             EvaluationArgs args,
@@ -361,7 +361,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
                     ref searchedNodes,
                     searchedPv,
 
-                    curNode1,
+                    kifu1,
                     positionA,
 
 

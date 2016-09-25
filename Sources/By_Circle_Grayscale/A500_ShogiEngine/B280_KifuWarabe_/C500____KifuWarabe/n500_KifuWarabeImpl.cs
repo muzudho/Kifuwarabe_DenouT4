@@ -1148,7 +1148,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                             // 以前の手カッター
                             //------------------------------------------------------------
                             Util_KifuTree282.IzennoHenkaCutter(
-                                this.Kifu_AtLoop2.CurNode3okok, this.Logger);
+                                this.Kifu_AtLoop2, this.Logger);
                         }
                         break;
                 }

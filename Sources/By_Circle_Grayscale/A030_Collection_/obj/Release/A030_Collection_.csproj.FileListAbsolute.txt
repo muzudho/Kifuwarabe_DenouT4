@@ -3,3 +3,4 @@ E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A030_Collection_\Gra
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A030_Collection_\Grayscale.A030_Collection_.pdb
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A030_Collection_\obj\Release\Grayscale.A030_Collection_.exe
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A030_Collection_\obj\Release\Grayscale.A030_Collection_.pdb
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A030_Collection_\obj\Release\A030_Collection_.csprojResolveAssemblyReference.cache

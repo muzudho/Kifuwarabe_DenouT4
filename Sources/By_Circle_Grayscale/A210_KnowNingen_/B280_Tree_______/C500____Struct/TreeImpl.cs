@@ -1,11 +1,6 @@
-﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+﻿using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B630_Sennitite__.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B630_Sennitite__.C500____Struct;
 using System;
-using System.Collections.Generic;
 
 #if DEBUG
 using System.Diagnostics;
@@ -35,6 +30,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// 根を「startpos」等の初期局面コマンドとし、次の節からは棋譜の符号「2g2f」等が連なっている。
         /// </summary>
         public MoveNode CurNode3okok { get { return this.m_curNode_; } }
+        public Children CurChildren { get { return this.CurNode3okok.Children1; } }
         /// <summary>
         /// 棋譜を空っぽにします。
         /// 
@@ -49,7 +45,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             }
 
             // ルートの次の手を全クリアーします。
-            this.CurNode3okok.Children1.ClearAll();
+            this.CurChildren.ClearAll();
 
             this.m_sky_ = sky;
             return this.m_curNode_;

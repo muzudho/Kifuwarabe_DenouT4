@@ -83,12 +83,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 {
                     curNode1 = Util_IttesasuRoutine.BeforeUpdateKifuTree(
                         earth1,
-                        curNode1,
+                        kifu1_mutable,
                         result.Out_newNode_OrNull.Key,
-                        result.NewSky
-                        );
-                    kifu1_mutable.OnDoMove(
-                        curNode1,
                         result.NewSky
                         );
                     // ■■■■■■■■■■カレント・チェンジ■■■■■■■■■■
@@ -173,14 +169,10 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     {
                         MoveNode newNodeB = Util_IttesasuRoutine.BeforeUpdateKifuTree(
                             earth1,
-                            curNode1,
+                            kifu1_mutable,
                             result.Out_newNode_OrNull.Key,
                             result.NewSky
                             );
-                        curNode1 = kifu1_mutable.OnDoMove(
-                            newNodeB,
-                            result.NewSky
-                            );//次ノードを、これからのカレントとします。
                         // ■■■■■■■■■■カレント・チェンジ■■■■■■■■■■
                         result.SetNode(newNodeB,
                             result.NewSky
