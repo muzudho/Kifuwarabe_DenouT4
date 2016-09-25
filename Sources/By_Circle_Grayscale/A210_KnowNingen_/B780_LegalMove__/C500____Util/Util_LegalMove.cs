@@ -68,7 +68,9 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             long exception_area = 1000130;
             try
             {
-                MoveNode hubNode = Conv_StarbetuSasites.ToNextNodes_AsHubNode(
+                List<Move> inputMovelist;
+                Conv_StarbetuSasites.ToNextNodes_AsHubNode(
+                    out inputMovelist,
                     genTeban_komabetuAllMoves1,
                     positionA,
                     errH
@@ -76,13 +78,14 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
 
                 exception_area = 20000;
 
+                List<Move> restMovelist;
                 if (isHonshogi)
                 {
                     // 王手が掛かっている局面を除きます。
 
-                    Util_LegalMove.LAA_RemoveNextNode_IfMate(
+                    restMovelist = Util_LegalMove.LAA_RemoveNextNode_IfMate(
                         yomikaisiTemezumi,
-                        hubNode,
+                        inputMovelist,
                         positionA.Temezumi,
                         positionA.KaisiPside,
                         positionA,
@@ -91,12 +94,16 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
 #endif
                     errH);
                 }
+                else
+                {
+                    restMovelist = new List<Move>();
+                }
 
                 exception_area = 30000;
 
                 // 「指し手一覧」を、「星別の全指し手」に分けます。
                 Maps_OneAndMulti<Finger, Move> starbetuAllSasites2 = Util_Sky258A.SplitSasite_ByStar(positionA,
-                    hubNode.ToMovelist(),
+                    restMovelist,//hubNode1.ToMovelist(),
                     errH);
 
                 exception_area = 40000;
@@ -158,9 +165,9 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
         /// <summary>
         /// ハブノードの次手番の局面のうち、王手がかかった局面は取り除きます。
         /// </summary>
-        public static void LAA_RemoveNextNode_IfMate(
+        public static List<Move> LAA_RemoveNextNode_IfMate(
             int yomikaisiTemezumi,
-            MoveNode hubNode,
+            List<Move> inputMovelist,
             int temezumi_yomiGenTeban_forLog,//読み進めている現在の手目
             Playerside pside_genTeban,
             Sky positionA,
@@ -173,16 +180,17 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             )
         {
             // 残す指し手☆
-            List<Move> restNodes = new List<Move>();
+            List<Move> restMovelist = new List<Move>();
 
-            hubNode.Children1.Foreach_ChildNodes3((Move move, ref bool toBreak) =>
+            foreach (Move moveA in inputMovelist)
             {
+                Move moveB = moveA;
                 long exception_area = 1000120;
                 try
                 {
                     bool successful = Util_IttesasuSuperRoutine.DoMove_Super1(
                             ref positionA,//指定局面
-                            ref move,
+                            ref moveB,
                             "A100_IfMate",
                             errH
                     );
@@ -203,7 +211,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
 #if DEBUG
                     logF_kiki,
 #endif
-                    move,
+                        moveB,
                         errH
                         );
 
@@ -212,7 +220,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
                     if (!kingSuicide)
                     {
                         // 王様が利きに飛び込んでいない局面だけ、残します。
-                        restNodes.Add(move);
+                        restMovelist.Add(moveB);
                     }
 
                     exception_area = 5000110;
@@ -220,7 +228,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
                     IttemodosuResult ittemodosuResult;
                     Util_IttemodosuRoutine.UndoMove(
                         out ittemodosuResult,
-                        move,//この関数が呼び出されたときの指し手☆（＾～＾）
+                        moveB,//この関数が呼び出されたときの指し手☆（＾～＾）
                         positionA,
                         "A900_IfMate",
                         errH
@@ -231,16 +239,15 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
                 {
                     errH.DonimoNaranAkirameta(ex,
                         "ノードを削除しているときだぜ☆（＾▽＾） exception_area=" + exception_area +
-                        "\nmove=" + Conv_Move.ToLog(move));
+                        "\nmove=" + Conv_Move.ToLog(moveB));
                     throw ex;
                 }
 
-            gt_EndLoop:
+                gt_EndLoop:
                 ;
-            });
+            }
 
-            // 入替え
-            hubNode.Children1 = new ChildrenImpl(restNodes, hubNode);
+            return restMovelist;
         }
 
 

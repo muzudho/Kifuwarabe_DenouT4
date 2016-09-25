@@ -161,5 +161,22 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
         public bool IsLeaf { get { return 0 == this.Count; } }
 
+
+
+
+
+
+        public List<Move> ToMovelist()
+        {
+            List<Move> movelist = new List<Move>();
+
+            this.Foreach_ChildNodes5((Move move, ref bool toBreak) =>
+            {
+                movelist.Add(move);
+            });
+
+            return movelist;
+        }
+
     }
 }

@@ -53,7 +53,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //----------------------------------------
             // 選んだ変化と、選ばなかった変化の一覧
             //----------------------------------------
-            kifu1.CurNode3okok.GetParentNode().Children1.Foreach_ChildNodes5((Move move2, ref bool toBreak2) =>
+            kifu1.ParentChildren.Foreach_ChildNodes5((Move move2, ref bool toBreak2) =>
             {
                 if (move2 == move1)
                 {
@@ -84,7 +84,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             result_removedCount = removeeList.Count;
             foreach (Move key in removeeList)
             {
-                kifu1.CurNode3okok.GetParentNode().Children1.RemoveItem(key);
+                kifu1.ParentChildren.RemoveItem(key);
             }
 
         gt_EndMethod:

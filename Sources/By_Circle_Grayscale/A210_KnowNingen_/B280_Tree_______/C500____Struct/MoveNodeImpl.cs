@@ -65,14 +65,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
         public List<Move> ToMovelist()
         {
-            List<Move> childMoves = new List<Move>();
-
-            this.Children1.Foreach_ChildNodes5((Move move, ref bool toBreak) =>
-            {
-                childMoves.Add(move);
-            });
-
-            return childMoves;
+            return this.Children1.ToMovelist();
         }
 
 

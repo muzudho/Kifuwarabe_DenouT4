@@ -29,13 +29,14 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
         /// <param name="kifu"></param>
         /// <param name="pside_genTeban"></param>
         /// <returns>次の局面一覧を持った、入れ物ノード（ハブ・ノード）</returns>
-        public static MoveNode ToNextNodes_AsHubNode(
+        public static void ToNextNodes_AsHubNode(
+            out List<Move> out_inputMovelist,
             Maps_OneAndMulti<Finger,Move> komabetuAllMoves,
             Sky src_Sky,
             KwLogger logger
             )
         {
-            MoveNode hubNode = new MoveNodeImpl(Conv_Move.GetErrorMove());//蝶番
+            out_inputMovelist = new List<Move>();
 
 #if DEBUG
             string dump = komabetuAllMoves.Dump();
@@ -53,23 +54,17 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
 
                 foreach (Move moveA in entry1.Value)// 駒の動ける升
                 {
-                    if (hubNode.Children1.ContainsKey(moveA))
+                    if (out_inputMovelist.Contains(moveA))
                     {
                         // 既存の指し手なら無視
                         System.Console.WriteLine("既存の指し手なので無視します1。sfenText=[" + Conv_Move.ToSfen(moveA) + "]");
                     }
                     else
                     {
-
-                        Move moveB = moveA;
-                        hubNode.Children1.AddItem(moveB,
-                            new MoveNodeImpl(moveB),
-                            hubNode);
+                        out_inputMovelist.Add(moveA);
                     }
                 }
             }
-
-            return hubNode;
         }
 
     }

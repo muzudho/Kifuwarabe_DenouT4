@@ -31,6 +31,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// </summary>
         public MoveNode CurNode3okok { get { return this.m_curNode_; } }
         public Children CurChildren { get { return this.CurNode3okok.Children1; } }
+        public Children ParentChildren { get { return this.CurNode3okok.GetParentNode().Children1; } }
         /// <summary>
         /// 棋譜を空っぽにします。
         /// 
@@ -72,9 +73,8 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
                 //>>>>> ラスト要素がルートでなかったら
 
                 // 一手前の要素（必ずあるはずです）
-                MoveNode deleteeElement = this.CurNode3okok;
                 // 残されたリストの最後の要素の、次リンクを切ります。
-                deleteeElement.GetParentNode().Children1.ClearAll();
+                this.ParentChildren.ClearAll();
 
                 // カレントを、１つ前の要素に替えます。
                 this.m_curNode_ = this.CurNode3okok.GetParentNode();
