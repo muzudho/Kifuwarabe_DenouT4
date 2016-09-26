@@ -1,12 +1,7 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+﻿using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B600_UtilSky____.C500____Util;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using System.Collections.Generic;
-using System.Text;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
+using System.Collections.Generic;
 
 namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 {
@@ -38,73 +33,13 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// </summary>
         protected Dictionary<Move, MoveNode> Items { get; set; }
         public delegate void DELEGATE_ChildNodes2(Move key, List<Move> honpuList, ref bool toBreak);
-        public delegate void DELEGATE_ChildNodes3(Move key, ref bool toBreak);
         public delegate void DELEGATE_ChildNodes4(MoveEx key, ref bool toBreak);
-        public delegate void DELEGATE_ChildNodes5(Move key, ref bool toBreak);
 
         public bool HasChildNode(Move key)
         {
             return this.Items.ContainsKey(key);
         }
 
-        public void Foreach_ChildNodes2(ChildrenImpl.DELEGATE_ChildNodes2 delegate_NextNodes)
-        {
-            bool toBreak = false;
-
-            foreach (KeyValuePair<Move, MoveNode> entry in this.Items)
-            {
-                List<Move> pvList = Util_Tree.CreatePv2List(entry.Value);
-
-                delegate_NextNodes(entry.Key, pvList, ref toBreak);
-
-                if (toBreak)
-                {
-                    break;
-                }
-            }
-        }
-        public void Foreach_ChildNodes3(ChildrenImpl.DELEGATE_ChildNodes3 delegate_NextNodes)
-        {
-            bool toBreak = false;
-
-            foreach (KeyValuePair<Move, MoveNode> entry in this.Items)
-            {
-                delegate_NextNodes(entry.Key, ref toBreak);
-
-                if (toBreak)
-                {
-                    break;
-                }
-            }
-        }
-        public void Foreach_ChildNodes4(ChildrenImpl.DELEGATE_ChildNodes4 delegate_NextNodes)
-        {
-            bool toBreak = false;
-
-            foreach (KeyValuePair<Move, MoveNode> entry in this.Items)
-            {
-                delegate_NextNodes(entry.Value.MoveEx, ref toBreak);
-
-                if (toBreak)
-                {
-                    break;
-                }
-            }
-        }
-        public void Foreach_ChildNodes5(ChildrenImpl.DELEGATE_ChildNodes5 delegate_NextNodes)
-        {
-            bool toBreak = false;
-
-            foreach (KeyValuePair<Move, MoveNode> entry in this.Items)
-            {
-                delegate_NextNodes(entry.Key, ref toBreak);
-
-                if (toBreak)
-                {
-                    break;
-                }
-            }
-        }
 
         public void ClearAll()
         {
@@ -155,5 +90,30 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
 
         public bool IsLeaf { get { return 0 == this.Count; } }
+
+
+        public List<Move> ToMovelist()
+        {
+            List<Move> movelist = new List<Move>();
+
+            foreach (KeyValuePair<Move, MoveNode> entry in this.Items)
+            {
+                movelist.Add(entry.Key);
+            }
+
+            return movelist;
+        }
+        public List<MoveEx> ToMoveExList()
+        {
+            List<MoveEx> moveExList = new List<MoveEx>();
+
+            foreach (KeyValuePair<Move, MoveNode> entry in this.Items)
+            {
+                moveExList.Add(entry.Value.MoveEx);
+            }
+
+            return moveExList;
+        }
+
     }
 }

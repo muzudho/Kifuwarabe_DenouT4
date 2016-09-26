@@ -211,12 +211,15 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 //uc_Main.LstGohosyu.Items.Clear();
                 int itemNumber = 0;
                 Sky positionA = learningData.PositionA;
-                learningData.GetCurChildren().Foreach_ChildNodes2(
-                    (Move move, List<Move> honpuList, ref bool toBreak) =>
+                List<Move> pvList = learningData.KifuA.CurNode3okok.ToPvList();
+                foreach (Move moveA in learningData.GetCurChildren().ToMovelist())
                 {
+                    Move moveB = moveA;
+                    pvList.Add(moveB);
+
                     Util_IttesasuSuperRoutine.DoMove_Super1(
                         ref positionA,//指定局面
-                        ref move,
+                        ref moveB,
                         "D100",
                         errH
                     );
@@ -229,10 +232,10 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
 
                     GohosyuListItem item = new GohosyuListItem(
                         itemNumber,
-                        move,
+                        moveB,
                         Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
-                            move,
-                            honpuList,
+                            moveB,
+                            pvList,
                             positionA, errH)
                             );
                     list.Add(item);
@@ -242,14 +245,16 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     IttemodosuResult ittemodosuResult;
                     Util_IttemodosuRoutine.UndoMove(
                         out ittemodosuResult,
-                        move,
+                        moveB,
                         positionA,
                         "D900",
                         errH
                         );
                     positionA = ittemodosuResult.SyuryoSky;
 
-                });
+
+                    pvList.RemoveAt(pvList.Count - 1);
+                }
 
                 //----------------------------------------
                 // ソート

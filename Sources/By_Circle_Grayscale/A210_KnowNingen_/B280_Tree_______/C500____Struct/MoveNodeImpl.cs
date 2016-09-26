@@ -63,5 +63,30 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
 
         public Children Children1 { get; set; }
+
+
+
+        public List<Move> ToPvList()
+        {
+            // 本譜（ノードのリスト）
+            List<Move> pvList = new List<Move>();
+
+            //
+            // ツリー型なので、１本のリストに変換するために工夫します。
+            //
+            // カレントからルートまで遡り、それを逆順にすれば、本譜になります。
+            //
+
+            MoveNode cursor = this;
+            while (null != cursor)//ルートを含むところまで遡ります。
+            {
+                pvList.Add(cursor.Key); // リスト作成
+
+                cursor = cursor.GetParentNode();
+            }
+            pvList.Reverse();
+
+            return pvList;
+        }
     }
 }

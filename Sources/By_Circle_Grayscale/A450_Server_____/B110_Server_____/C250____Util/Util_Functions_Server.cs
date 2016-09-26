@@ -70,7 +70,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
             jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
                 move,
-                Util_Tree.CreatePv2List(newNodeB),
+                newNodeB.ToPvList(),
                 positionA,
                 errH
                 );
@@ -333,7 +333,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             // [巻戻し]ボタン
             jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
                 curNode1.Key,
-                Util_Tree.CreatePv2List(curNode1),
+                curNode1.ToPvList(),
                 positionA,
                 errH);
 

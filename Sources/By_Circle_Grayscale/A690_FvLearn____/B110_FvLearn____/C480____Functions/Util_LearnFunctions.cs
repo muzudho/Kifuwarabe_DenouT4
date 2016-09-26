@@ -179,18 +179,18 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
             //
             // 合法手一覧
             //
-            uc_Main.LearningData.GetCurChildren().Foreach_ChildNodes3(
-                (Move move, ref bool toBreak) =>
+            foreach(Move moveA in uc_Main.LearningData.GetCurChildren().ToMovelist())
             {
+                Move moveB = moveA;
                 // 本譜手はまだ計算しない。
-                if (move == move1)
+                if (moveB == move1)
                 {
                     goto gt_NextLoop1;
                 }
 
                 Util_IttesasuSuperRoutine.DoMove_Super1(
                     ref positionA,//指定局面
-                    ref move,
+                    ref moveB,
                     "E100",
                     errH
                 );
@@ -214,7 +214,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
                 IttemodosuResult ittemodosuResult;
                 Util_IttemodosuRoutine.UndoMove(
                     out ittemodosuResult,
-                    move,//mov1,//この関数が呼び出されたときの指し手☆（＾～＾）
+                    moveB,//この関数が呼び出されたときの指し手☆（＾～＾）
                     positionA,
                     "E900",
                     errH
@@ -224,7 +224,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
 
                 gt_NextLoop1:
                 ;
-            });
+            }
 
             //
             // 本譜手
@@ -232,10 +232,10 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
             if (uc_Main.LearningData.GetCurChildren().HasChildNode(move1))
             {
                 // 進める
-                Move moveB = move1;
+                Move moveD = move1;
                 bool successful = Util_IttesasuSuperRoutine.DoMove_Super1(
                     ref positionA,//指定局面
-                    ref moveB,
+                    ref moveD,
                     "H100_LearnFunc",
                     errH
                 );
@@ -257,7 +257,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
                 IttemodosuResult ittemodosuResult;
                 Util_IttemodosuRoutine.UndoMove(
                     out ittemodosuResult,
-                    moveB,//この関数が呼び出されたときの指し手☆（＾～＾）
+                    moveD,//この関数が呼び出されたときの指し手☆（＾～＾）
                     positionA,
                     "H900_LearnFunc",
                     errH

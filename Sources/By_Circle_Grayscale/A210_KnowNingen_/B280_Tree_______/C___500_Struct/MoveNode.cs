@@ -33,5 +33,8 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
 
 
         Children Children1 { get; set; }
+
+
+        List<Move> ToPvList();
     }
 }

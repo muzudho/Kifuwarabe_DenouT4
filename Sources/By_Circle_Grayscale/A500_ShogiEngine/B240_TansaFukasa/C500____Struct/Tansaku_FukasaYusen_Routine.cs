@@ -372,19 +372,14 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     exception_area = 1000;
 
                     // ソートしたいので、リスト構造に移し変えます。
-                    List<MoveEx> rankedMoveExs = new List<MoveEx>();
+                    List<MoveEx> moveExList_ranked = kifu1.CurChildren.ToMoveExList();
                     {
                         try
                         {
-                            kifu1.CurChildren.Foreach_ChildNodes4((MoveEx moveEx, ref bool toBreak) =>
-                            {
-                                rankedMoveExs.Add(moveEx);
-                            });
-
                             exception_area = 1000;
 
                             // ソートします。
-                            rankedMoveExs.Sort((a, b) =>
+                            moveExList_ranked.Sort((a, b) =>
                             {
                                 float bScore;
                                 float aScore;
@@ -415,12 +410,12 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     if (kaisiPside == Playerside.P2)
                     {
                         // 1番高いスコアを調べます。
-                        goodestScore = rankedMoveExs[0].Score;
-                        for (int iNode = 0; iNode < rankedMoveExs.Count; iNode++)
+                        goodestScore = moveExList_ranked[0].Score;
+                        for (int iNode = 0; iNode < moveExList_ranked.Count; iNode++)
                         {
-                            if (goodestScore == rankedMoveExs[iNode].Score)
+                            if (goodestScore == moveExList_ranked[iNode].Score)
                             {
-                                bestmoveExs.Add(rankedMoveExs[iNode]);
+                                bestmoveExs.Add(moveExList_ranked[iNode]);
                             }
                             else
                             {
@@ -431,12 +426,12 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     else
                     {
                         // 2Pは、マイナスの方が良い。
-                        goodestScore = rankedMoveExs[rankedMoveExs.Count - 1].Score;
-                        for (int iNode = rankedMoveExs.Count - 1; -1 < iNode; iNode--)
+                        goodestScore = moveExList_ranked[moveExList_ranked.Count - 1].Score;
+                        for (int iNode = moveExList_ranked.Count - 1; -1 < iNode; iNode--)
                         {
-                            if (goodestScore == rankedMoveExs[iNode].Score)
+                            if (goodestScore == moveExList_ranked[iNode].Score)
                             {
-                                bestmoveExs.Add(rankedMoveExs[iNode]);
+                                bestmoveExs.Add(moveExList_ranked[iNode]);
                             }
                             else
                             {

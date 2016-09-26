@@ -11,28 +11,6 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 {
     public abstract class Util_Tree
     {
-        public static List<Move> CreatePv2List(MoveNode endNode)
-        {
-            // 本譜（ノードのリスト）
-            List<Move> honpu = new List<Move>();
-
-            //
-            // ツリー型なので、１本のリストに変換するために工夫します。
-            //
-            // カレントからルートまで遡り、それを逆順にすれば、本譜になります。
-            //
-
-            while (null != endNode)//ルートを含むところまで遡ります。
-            {
-                honpu.Add(endNode.Key); // リスト作成
-
-                endNode = endNode.GetParentNode();
-            }
-            honpu.Reverse();
-
-            return honpu;
-        }
-
         public static List<MoveNode> CreateHonpu1List(MoveNode endNode)
         {
             // 本譜（ノードのリスト）
