@@ -26,11 +26,6 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         bool RemoveItem(Move key);
 
 
-
-
-        bool IsLeaf { get; }
-
-
         List<Move> ToMovelist();
         List<MoveEx> ToMoveExList();
     }

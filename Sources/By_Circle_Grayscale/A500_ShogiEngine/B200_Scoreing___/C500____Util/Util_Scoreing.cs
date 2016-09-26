@@ -156,16 +156,17 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
         /// </summary>
         /// <param name="node_yomi"></param>
         /// <param name="parentsiblingBestmove"></param>
-        /// <param name="mov4Score"></param>
-        /// <param name="mov3"></param>
+        /// <param name="mov4"></param>
+        /// <param name="result_moveEx_best"></param>
         /// <param name="alpha_cut"></param>
         public static void Update_BestScore_And_Check_AlphaCut(
+            ref MoveEx result_moveEx_best,//自分
+
             int yomiDeep,//1start
             Playerside pside,// このノードが、どちらの手番か。
 
             float parentsiblingBestScore,//親の兄弟
-            float mov4Score,//子
-            ref MoveEx mov3,//自分
+            MoveEx mov4,//子
 
             out bool alpha_cut
             )
@@ -175,14 +176,15 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
             {
                 case Playerside.P1:
                     // 1プレイヤーは、大きな数を見つけたい。
-                    if (mov3.Score < mov4Score)
+                    if (result_moveEx_best.Score < mov4.Score)
                     {
-                        mov3.SetScore(mov4Score);
+                        result_moveEx_best.SetScore(mov4.Score);
+                        result_moveEx_best.Move = mov4.Move;
                     }
                     //----------------------------------------
                     // アルファー・カット
                     //----------------------------------------
-                    if (1<yomiDeep && parentsiblingBestScore < mov3.Score)
+                    if (1<yomiDeep && parentsiblingBestScore < result_moveEx_best.Score)
                     {
                         // 親の兄が既に見つけている数字より　大きな数字を見つけた場合
                         alpha_cut = true;//探索を打ち切り
@@ -190,14 +192,15 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
                     break;
                 case Playerside.P2:
                     // 2プレイヤーは、小さな数を見つけたい。
-                    if (mov4Score < mov3.Score)
+                    if (mov4.Score < result_moveEx_best.Score)
                     {
-                        mov3.SetScore(mov4Score);
+                        result_moveEx_best.SetScore(mov4.Score);
+                        result_moveEx_best.Move = mov4.Move;
                     }
                     //----------------------------------------
                     // アルファー・カット
                     //----------------------------------------
-                    if (1 < yomiDeep && mov3.Score < parentsiblingBestScore)
+                    if (1 < yomiDeep && result_moveEx_best.Score < parentsiblingBestScore)
                     {
                         // 親の兄が既に見つけている数字より　小さな数字を見つけた場合
                         alpha_cut = true;//探索を打ち切り

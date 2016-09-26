@@ -29,6 +29,7 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
 using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
+using System.Windows.Forms;
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
@@ -220,6 +221,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             Playerside pside = positionA.KaisiPside;
             int exceptionArea = 0;
 
+            List<MoveEx> moveExList_ranked;
+
             try
             {
                 exceptionArea = 10;
@@ -236,7 +239,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                 //
                 List<Move> movelist;
                 int yomiDeep;
-                MoveEx a_bestmoveChildren;
+                MoveEx a_bestmoveEx_Children;
                 Util_MovePicker.CreateMovelist_BeforeLoop(
                     genjo,
 
@@ -248,8 +251,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     out yomiDeep,
                     errH
                     );
-                a_bestmoveChildren = new MoveExImpl(Move.Empty);
-                a_bestmoveChildren.SetScore(Util_Scoreing.GetWorstScore(positionA.KaisiPside));// プレイヤー1ならmax値、プレイヤー2ならmin値。
+                a_bestmoveEx_Children = new MoveExImpl(Move.Empty);
+                a_bestmoveEx_Children.SetScore(Util_Scoreing.GetWorstScore(positionA.KaisiPside));// プレイヤー1ならmax値、プレイヤー2ならmin値。
 
                 if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(yomiDeep, wideCount2, movelist.Count, genjo, args.Shogisasi.TimeManager))
                 {
@@ -270,12 +273,12 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         errH
                         );
 
-                    a_bestmoveChildren = Util_Scoreing.GetHighScore(moveEx, a_bestmoveChildren, positionA.KaisiPside);
+                    a_bestmoveEx_Children = Util_Scoreing.GetHighScore(moveEx, a_bestmoveEx_Children, positionA.KaisiPside);
                 }
                 else
                 {
                     // ここが再帰のスタート地点☆（＾▽＾）
-                    a_bestmoveChildren = Tansaku_FukasaYusen_Routine.WAAA_Yomu_Loop(
+                    a_bestmoveEx_Children = Tansaku_FukasaYusen_Routine.WAAA_Yomu_Loop(
                         ref searchedMaxDepth,
                         ref searchedNodes,
                         searchedPv,
@@ -294,7 +297,6 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         );
                 }
 
-
 #if DEBUG
                 exceptionArea = 20;
                 if (0 < genjo.Args.LogF_moveKiki.boards.Count)//ﾛｸﾞが残っているなら
@@ -312,6 +314,20 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     genjo.Args.LogF_moveKiki.boards.Clear();
                 }
 #endif
+
+                return a_bestmoveEx_Children;
+                /*
+                moveExList_ranked = kifu1.CurChildren.ToMoveExList();
+                //if (1 < moveExList_ranked.Count)
+                //{
+                //MessageBox.Show("指し手候補の数＝[" + moveExList_ranked.Count + "]");
+                //}
+                return Tansaku_FukasaYusen_Routine.ChoiceBest(
+                    moveExList_ranked,
+                    positionA,
+                    errH
+                    );
+                //*/
             }
             catch (Exception ex)
             {
@@ -338,144 +354,147 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     default: throw ex;
                 }
             }
-
-            // ヌルになることがある？
-            return Tansaku_FukasaYusen_Routine.ChoiceBest(
-                isHonshogi, kifu1, positionA.KaisiPside, errH);
         }
+
         private static MoveEx ChoiceBest(
-            bool isHonshogi,
-            Tree kifu1,
-            Playerside kaisiPside,
+            List<MoveEx> moveExList_ranked,
+            Sky positionA,
             KwLogger errH
-        )
+            )
         {
-            // 同着もいる☆
-            List<MoveEx> bestmoveExs = new List<MoveEx>();
-
-            // 評価値の高いノードだけを残します。（同点が残る）
-            try
+            // ヌルになることがある？
+            // ChoiceBest
             {
-                int exception_area = 0;
+                Playerside kaisiPside = positionA.KaisiPside;
 
+                List<MoveEx> bestmoveExs = new List<MoveEx>();
+                // 同着もいる☆
+
+                // 評価値の高いノードだけを残します。（同点が残る）
                 try
                 {
-                    //
-                    // ノードが２つもないようなら、スキップします。
-                    //
-                    if (kifu1.CurChildren.Count < 2)
+                    int exception_area = 0;
+
+                    try
                     {
-                        goto gt_EndSort;
-                    }
-
-
-                    exception_area = 1000;
-
-                    // ソートしたいので、リスト構造に移し変えます。
-                    List<MoveEx> moveExList_ranked = kifu1.CurChildren.ToMoveExList();
-                    {
-                        try
+                        //
+                        // ノードが２つもないようなら、スキップします。
+                        //
+                        if (moveExList_ranked.Count < 2)
                         {
-                            exception_area = 1000;
+                            goto gt_EndSort;
+                        }
 
-                            // ソートします。
-                            moveExList_ranked.Sort((a, b) =>
+
+                        exception_area = 1000;
+
+                        // ソートしたいので、リスト構造に移し変えます。
+                        {
+                            try
                             {
-                                float bScore;
-                                float aScore;
+                                exception_area = 1000;
 
-                                // 比較できないものは 0 にしておく必要があります。
-                                if (!(a is MoveEx) || !(b is MoveEx))
+                                // ソートします。
+                                moveExList_ranked.Sort((a, b) =>
                                 {
-                                    return 0;
+                                    float bScore;
+                                    float aScore;
+
+                                    // 比較できないものは 0 にしておく必要があります。
+                                    if (!(a is MoveEx) || !(b is MoveEx))
+                                    {
+                                        return 0;
+                                    }
+
+                                    bScore = ((MoveEx)b).Score;
+                                    aScore = ((MoveEx)a).Score;
+
+                                    return (int)aScore.CompareTo(bScore);//点数が大きいほうが前に行きます。
+                                });
+                            }
+                            catch (Exception ex)
+                            {
+                                errH.DonimoNaranAkirameta(ex, "ベストムーブ／ハイスコア抽出中 exception_area=[" + exception_area + "]");
+                                throw ex;
+                            }
+                        }
+
+                        exception_area = 1500;
+
+                        // 先手は先頭、後手は最後尾の要素が、一番高いスコア（同着あり）
+                        float goodestScore;
+                        if (kaisiPside == Playerside.P2)
+                        {
+                            // 1番高いスコアを調べます。
+                            goodestScore = moveExList_ranked[0].Score;
+                            for (int iNode = 0; iNode < moveExList_ranked.Count; iNode++)
+                            {
+                                if (goodestScore == moveExList_ranked[iNode].Score)
+                                {
+                                    bestmoveExs.Add(moveExList_ranked[iNode]);
                                 }
-
-                                bScore = ((MoveEx)b).Score;
-                                aScore = ((MoveEx)a).Score;
-
-                                return (int)aScore.CompareTo(bScore);//点数が大きいほうが前に行きます。
-                            });
-                        }
-                        catch (Exception ex)
-                        {
-                            errH.DonimoNaranAkirameta(ex, "ベストムーブ／ハイスコア抽出中 exception_area=[" + exception_area + "]");
-                            throw ex;
-                        }
-                    }
-
-                    exception_area = 1500;
-
-                    // 先手は先頭、後手は最後尾の要素が、一番高いスコア（同着あり）
-                    float goodestScore;
-                    if (kaisiPside == Playerside.P2)
-                    {
-                        // 1番高いスコアを調べます。
-                        goodestScore = moveExList_ranked[0].Score;
-                        for (int iNode = 0; iNode < moveExList_ranked.Count; iNode++)
-                        {
-                            if (goodestScore == moveExList_ranked[iNode].Score)
-                            {
-                                bestmoveExs.Add(moveExList_ranked[iNode]);
+                                else
+                                {
+                                    break;
+                                }
                             }
-                            else
+                        }
+                        else
+                        {
+                            // 2Pは、マイナスの方が良い。
+                            goodestScore = moveExList_ranked[moveExList_ranked.Count - 1].Score;
+                            for (int iNode = moveExList_ranked.Count - 1; -1 < iNode; iNode--)
                             {
-                                break;
+                                if (goodestScore == moveExList_ranked[iNode].Score)
+                                {
+                                    bestmoveExs.Add(moveExList_ranked[iNode]);
+                                }
+                                else
+                                {
+                                    break;
+                                }
                             }
                         }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        // 2Pは、マイナスの方が良い。
-                        goodestScore = moveExList_ranked[moveExList_ranked.Count - 1].Score;
-                        for (int iNode = moveExList_ranked.Count - 1; -1 < iNode; iNode--)
+                        errH.DonimoNaranAkirameta(ex, "ベストムーブ／ハイスコア抽出中 exception_area=[" + exception_area + "]");
+                        throw ex;
+                    }
+
+                    gt_EndSort:
+                    ;
+                }
+                catch (Exception ex)
+                {
+                    errH.DonimoNaranAkirameta(ex, "ベストムーブ後半２０：ハイスコア抽出");
+                    throw ex;
+                }
+
+
+                // 評価値の同点があれば、同点決勝をして　1手に決めます。
+                MoveEx bestmoveEx = null;// 投了のとき
+                try
+                {
+                    {
+                        // 次のノードをシャッフル済みリストにします。
+                        LarabeShuffle<MoveEx>.Shuffle_FisherYates(ref bestmoveExs);
+
+                        // シャッフルした最初のノードを選びます。
+                        if (0 < bestmoveExs.Count)
                         {
-                            if (goodestScore == moveExList_ranked[iNode].Score)
-                            {
-                                bestmoveExs.Add(moveExList_ranked[iNode]);
-                            }
-                            else
-                            {
-                                break;
-                            }
+                            bestmoveEx = bestmoveExs[0];
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    errH.DonimoNaranAkirameta(ex, "ベストムーブ／ハイスコア抽出中 exception_area=[" + exception_area + "]");
+                    errH.DonimoNaranAkirameta(ex, "ベストムーブ後半３０：同点決勝");
                     throw ex;
                 }
 
-                gt_EndSort:
-                ;
+                return bestmoveEx;
             }
-            catch (Exception ex) {
-                errH.DonimoNaranAkirameta(ex, "ベストムーブ後半２０：ハイスコア抽出");
-                throw ex;
-            }
-
-
-            // 評価値の同点があれば、同点決勝をして　1手に決めます。
-            MoveEx bestmoveEx = null;// 投了のとき
-            try
-            {
-                {
-                    // 次のノードをシャッフル済みリストにします。
-                    LarabeShuffle<MoveEx>.Shuffle_FisherYates(ref bestmoveExs);
-
-                    // シャッフルした最初のノードを選びます。
-                    if (0 < bestmoveExs.Count)
-                    {
-                        bestmoveEx = bestmoveExs[0];
-                    }
-                }
-            }
-            catch (Exception ex) {
-                errH.DonimoNaranAkirameta(ex, "ベストムーブ後半３０：同点決勝");
-                throw ex;
-            }
-
-            return bestmoveEx;
         }
 
         /// <summary>
@@ -588,7 +607,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             )
         {
             int exceptionArea = 0;
-            MoveEx mov3;
+            MoveEx result_mov3;
 
             try
             {
@@ -618,8 +637,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     );
 
                 // 空っぽにして用意しておくぜ☆
-                mov3 = new MoveExImpl(Move.Empty);
-                mov3.SetScore(Util_Scoreing.GetWorstScore(positionA.KaisiPside));// プレイヤー1ならmax値、プレイヤー2ならmin値。
+                result_mov3 = new MoveExImpl(Move.Empty);
+                result_mov3.SetScore(Util_Scoreing.GetWorstScore(positionA.KaisiPside));// プレイヤー1ならmax値、プレイヤー2ならmin値。
 
                 exceptionArea = 2000;
 
@@ -652,9 +671,9 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                             args,
                             errH
                             );
-                        mov3 = Util_Scoreing.GetHighScore(
+                        result_mov3 = Util_Scoreing.GetHighScore(
                             nod1.MoveEx,
-                            mov3,
+                            result_mov3,
                             positionA.KaisiPside
                             );
 
@@ -723,7 +742,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                             ref searchedNodes,
                             searchedPv,
                             genjo,
-                            mov3.Score,
+                            result_mov3.Score,
 
                             positionA.Temezumi,
                             mov2,//改造後
@@ -771,13 +790,14 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         // 子の点数を、自分に反映させるぜ☆
                         bool alpha_cut;
                         Util_Scoreing.Update_BestScore_And_Check_AlphaCut(
+                            ref result_mov3,// これを更新する
+
                             yomiDeep2,// yomiDeep0,
 
                             positionA.KaisiPside,
 
                             parentsiblingBestScore,
-                            mov4.Score,
-                            ref mov3,// これを更新する
+                            mov4,
 
                             out alpha_cut
                             );
@@ -835,7 +855,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                 throw ex;
             }
 
-            return mov3;
+            return result_mov3;
         }
 #if DEBUG
         public static void Log1(
