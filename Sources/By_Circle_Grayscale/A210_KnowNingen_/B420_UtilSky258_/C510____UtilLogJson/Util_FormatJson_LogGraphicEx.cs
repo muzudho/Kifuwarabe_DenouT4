@@ -73,56 +73,6 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
             return sb.ToString();
         }
 
-
-        /// <summary>
-        /// ノードをJSON化します。
-        /// </summary>
-        /// <param name="enableLog"></param>
-        /// <param name="positionA_base"></param>
-        /// <param name="moveNode"></param>
-        /// <param name="comment"></param>
-        /// <param name="logger"></param>
-        /// <returns></returns>
-        public static string JsonElements_Node(
-            bool enableLog, Sky positionA_base, MoveNode moveNode, string comment, KwLogger logger)
-        {
-            StringBuilder sb = new StringBuilder();
-
-            if (!enableLog)
-            {
-                goto gt_EndMethod;
-            }
-
-            SyElement dstMasu = Conv_Move.ToDstMasu(moveNode.Key);
-            Komasyurui14 ks14 = Conv_Move.ToDstKomasyurui(moveNode.Key);
-
-            Finger finger = Util_Sky_FingersQuery.InMasuNow_Old(positionA_base,
-                Conv_Move.ToSrcMasu(moveNode.Key, positionA_base)
-                ).ToFirst();
-
-
-
-            //sb.AppendLine("            [");
-
-            // マスの色
-            sb.AppendLine("                { act:\"colorMasu\", style:\"rgba(100,240,100,0.5)\" },");
-
-            // マス
-            sb.AppendLine("                { act:\"drawMasu\" , masu:" + Conv_Masu.ToMasuHandle(dstMasu) + " },");
-
-
-            string komaImg = Util_Converter_LogGraphicEx.Finger_ToString(positionA_base, finger, "");
-            sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_Masu.ToMasuHandle(dstMasu) + " },");//FIXME:おかしい？
-
-            // コメント
-            sb.AppendLine("                { act:\"drawText\", text:\"" + comment + "\"  , x:0, y:20 },");
-
-            //sb.AppendLine("            ],");
-
-        gt_EndMethod:
-            return sb.ToString();
-        }
-
         /// <summary>
         /// 用途例：持ち駒を確認するために使います。
         /// </summary>

@@ -12,6 +12,7 @@ using Grayscale.A210_KnowNingen_.B310_Shogiban___.C500____Util;
 using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
+using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 
 namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
 {
@@ -176,63 +177,55 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
         /// <returns>スプライト番号。なければエラー番号。</returns>
-        public static Fingers InMasuNow_New(Sky positionA, Move move)
+        public static Fingers InMasuNow_New(Sky positionA, Move move, KwLogger logger)
         {
             //Komasyurui14 ks14_move = Conv_Move.ToSrcKomasyurui(move);
             bool drop = Conv_Move.ToDrop(move);
-            SyElement srcMasu = Conv_Move.ToSrcMasu(move, positionA);
 
             // １個入る。
-            Fingers found = new Fingers();
+            Fingers foundList = new Fingers();
 
             if (drop)
             {
+                //────────────────────────────────────────
                 // 「打」は、駒台をサーチ☆
+                //────────────────────────────────────────
                 Playerside pside = Conv_Move.ToPlayerside(move);
+                Okiba okiba = Conv_Okiba.FromPside(pside);
+                //Komasyurui14 ks14 = Conv_Move.ToDstKomasyurui(move);
+                Komasyurui14 ks14 = Conv_Move.ToSrcKomasyurui(move);
 
-                if (Playerside.P1 == pside)//先手
+                Finger found2 = Util_Sky_FingerQuery.InOkibaSyuruiNow_IgnoreCase(
+                    positionA,
+                    okiba,
+                    ks14,
+                    logger
+                    );
+                if (found2 != Fingers.Error_1)
                 {
-                    foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
-                    {
-                        Busstop koma = Util_Koma.FromFinger(positionA, finger);
-                        //Komasyurui14 ks14_koma = Conv_Busstop.ToKomasyurui(koma);
-
-                        if (Okiba.Sente_Komadai == Conv_Masu.ToOkiba(Conv_Busstop.ToMasu( koma)))
-                        {
-                            found.Add(finger);
-                        }
-                    }
-                }
-                else// 後手
-                {
-                    foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
-                    {
-                        Busstop koma = Util_Koma.FromFinger(positionA, finger);
-
-                        if (Okiba.Gote_Komadai == Conv_Masu.ToOkiba(Conv_Busstop.ToMasu( koma)))
-                        {
-                            found.Add(finger);
-                        }
-                    }
-
+                    foundList.Add(found2);
                 }
             }
-            // 「打」でなければ。
             else
             {
+                //────────────────────────────────────────
+                // 「打」でなければ。
+                //────────────────────────────────────────
+                SyElement srcMasu = Conv_Move.ToSrcMasu(move, positionA);
+
                 foreach (Finger finger in Finger_Honshogi.Items_KomaOnly)
                 {
                     Busstop koma = Util_Koma.FromFinger(positionA, finger);
 
                     if (Masu_Honshogi.Basho_Equals(Conv_Busstop.ToMasu( koma), srcMasu))
                     {
-                        found.Add(finger);
+                        foundList.Add(finger);
                     }
                 }
             }
 
 
-            return found;
+            return foundList;
         }
 
         /*

@@ -81,12 +81,13 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
                 if (null!=result.Out_newNode_OrNull)
                 {
-                    curNode1 = Util_IttesasuRoutine.BeforeUpdateKifuTree(
+                    Util_IttesasuRoutine.BeforeUpdateKifuTree(
                         earth1,
                         kifu1_mutable,
                         result.Out_newNode_OrNull.Key,
                         result.NewSky
                         );
+                    curNode1 = kifu1_mutable.CurNode3okok;
                     // ■■■■■■■■■■カレント・チェンジ■■■■■■■■■■
                     result.SetNode(curNode1,
                         result.NewSky
@@ -167,12 +168,13 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
                     if (null != result.Out_newNode_OrNull)
                     {
-                        MoveNode newNodeB = Util_IttesasuRoutine.BeforeUpdateKifuTree(
+                        Util_IttesasuRoutine.BeforeUpdateKifuTree(
                             earth1,
                             kifu1_mutable,
                             result.Out_newNode_OrNull.Key,
                             result.NewSky
                             );
+                        MoveNode newNodeB = kifu1_mutable.CurNode3okok;
                         // ■■■■■■■■■■カレント・チェンジ■■■■■■■■■■
                         result.SetNode(newNodeB,
                             result.NewSky

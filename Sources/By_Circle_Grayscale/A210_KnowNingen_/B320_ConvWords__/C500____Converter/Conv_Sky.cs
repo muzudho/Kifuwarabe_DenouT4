@@ -13,7 +13,7 @@ namespace Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter
 {
     public abstract class Conv_Sky
     {
-        public static ShogibanImpl ToShogiban(Sky src_Sky,KwLogger errH)
+        public static ShogibanImpl ToShogiban(Sky src_Sky,KwLogger logger)
         {
             ShogibanImpl shogiban = new ShogibanImpl();
 
@@ -33,7 +33,7 @@ namespace Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter
                 shogiban.AddKoma(
                     masu,
                     busstop,
-                    errH
+                    logger
                 );
             }
 

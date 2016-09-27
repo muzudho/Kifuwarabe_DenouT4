@@ -36,7 +36,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
             }
             //*/
 
-            Fingers fingers = Util_Sky_FingersQuery.InMasuNow_New(positionA, move);
+            // 動かす駒
+            Fingers fingers = Util_Sky_FingersQuery.InMasuNow_New(positionA, move, logger);
 
             if (fingers.Count < 1)
             {
@@ -76,7 +77,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
         /// 指したあとの、次の局面を作るだけ☆
         /// </summary>
         /// <param name="position"></param>
-        /// <param name="finger"></param>
+        /// <param name="figKoma"></param>
         /// <param name="dstMasu"></param>
         /// <param name="pside_genTeban"></param>
         /// <param name="errH"></param>
@@ -84,7 +85,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
         public static void DoMove_Super2(
             ref Sky position,//指定局面
             ref Move move,
-            Finger finger,//動かす駒
+            Finger figKoma,//動かす駒
             SyElement dstMasu,//移動先マス
             bool toNaru,//成るなら真
             KwLogger errH
@@ -126,15 +127,15 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
 
             // 駒を１個動かします。
             {
-                position.AssertFinger(finger);
-                Komasyurui14 komaSyurui = Conv_Busstop.ToKomasyurui(position.BusstopIndexOf(finger));
+                position.AssertFinger(figKoma);
+                Komasyurui14 komaSyurui = Conv_Busstop.ToKomasyurui(position.BusstopIndexOf(figKoma));
 
                 if (toNaru)
                 {
                     komaSyurui = Util_Komasyurui14.ToNariCase(komaSyurui);
                 }
 
-                position.PutOverwriteOrAdd_Busstop(finger, Conv_Busstop.ToBusstop(position.KaisiPside, dstMasu, komaSyurui));
+                position.PutOverwriteOrAdd_Busstop(figKoma, Conv_Busstop.ToBusstop(position.KaisiPside, dstMasu, komaSyurui));
             }
 
             // 動かしたあとに、先後を逆転させて、手目済カウントを増やします。

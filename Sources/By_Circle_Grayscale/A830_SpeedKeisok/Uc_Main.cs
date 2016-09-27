@@ -54,10 +54,9 @@ namespace Grayscale.P910_SpeedKeisok
             {
                 Earth newEarth1;
                 Tree newKifu1_Hirate;
-                MoveNode curNode1;
                 Sky positionA;
                 Util_FvLoad.CreateKifuTree(
-                    out newEarth1, out positionA, out curNode1, out newKifu1_Hirate);
+                    out newEarth1, out positionA, out newKifu1_Hirate);
 
                 this.Earth = newEarth1;
                 this.PositionA = positionA;

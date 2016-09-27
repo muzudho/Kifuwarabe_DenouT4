@@ -175,12 +175,12 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
         /// TODO: これ、SkyConstに移動できないか☆？
         /// </summary>
         /// <param name="hubNode">指し手一覧</param>
-        /// <param name="errH"></param>
+        /// <param name="logger"></param>
         /// <returns>駒毎の、全指し手</returns>
         public static Maps_OneAndMulti<Finger, Move> SplitSasite_ByStar(
             Sky positionA,
             List<Move> siblingMoves,
-            KwLogger errH
+            KwLogger logger
             )
         {
             Maps_OneAndMulti<Finger, Move> enable_moveMap = new Maps_OneAndMulti<Finger, Move>();
@@ -189,7 +189,8 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
             {
                 Finger figKoma = Util_Sky_FingersQuery.InMasuNow_New(
                     positionA,
-                    move
+                    move,
+                    logger
                     ).ToFirst();
                 if ((int)figKoma < 0)
                 {

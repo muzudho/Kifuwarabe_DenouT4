@@ -5,6 +5,7 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
+using System.Collections.Generic;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
@@ -24,7 +25,9 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
         Tree KifuA { get; set; }
         Sky PositionA { get; set; }
         Move GetMove();
-        Children GetCurChildren();
+        List<Move> ToCurChildrenMovelist();
+        bool HasCurChildNode(Move move);
+        int GetCurChildrenLength();
 
         /// <summary>
         /// フィーチャー・ベクター。

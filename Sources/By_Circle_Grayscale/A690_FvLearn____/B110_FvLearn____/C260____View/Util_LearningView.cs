@@ -144,12 +144,13 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                         positionA,
                         errH
                     );
-                    curNodeB = Util_IttesasuRoutine.BeforeUpdateKifuTree(
+                    Util_IttesasuRoutine.BeforeUpdateKifuTree(
                         earth1,
                         kifu1,
                         nextMove,
                         ittesasuResult.SyuryoKyokumenW
                         );
+                    curNodeB = kifu1.CurNode3okok;
                     // これで、棋譜ツリーに、構造変更があったはず。
                     //↑↑一手指し
                 }
@@ -163,7 +164,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 else
                 {
                     // FIXME: 未テスト。
-                    move = Conv_Move.ToMove_ByCsa(csaSasite, kifu1.PositionA);// curNodeB.GetNodeValue()
+                    move = Conv_Move.ToMove_ByCsa(csaSasite, kifu1.PositionA);
                 }
                 HonpuSasiteListItemImpl listItem = new HonpuSasiteListItemImpl(csaSasite, move);
                 uc_Main.LstSasite.Items.Add(listItem);
@@ -188,7 +189,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             uc_Main.TxtAllNodesCount.Text = "--";// FIXME: 一旦削除
 
             // 合法手の数
-            uc_Main.TxtGohosyuTe.Text = learningData.GetCurChildren().Count.ToString();
+            uc_Main.TxtGohosyuTe.Text = learningData.GetCurChildrenLength().ToString();
         }
 
         /// <summary>
@@ -212,7 +213,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 int itemNumber = 0;
                 Sky positionA = learningData.PositionA;
                 List<Move> pvList = learningData.KifuA.CurNode3okok.ToPvList();
-                foreach (Move moveA in learningData.GetCurChildren().ToMovelist())
+                foreach (Move moveA in learningData.ToCurChildrenMovelist())
                 {
                     Move moveB = moveA;
                     pvList.Add(moveB);
@@ -335,7 +336,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             //
             Move nextMove;
             {
-                if (learningData.GetCurChildren().HasChildNode(move))
+                if (learningData.HasCurChildNode(move))
                 {
                     nextMove = move;//次の棋譜ノードのキーが、指し手（きふわらべ式）になっています。
                 }
@@ -362,7 +363,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 learningData.PositionA,
                 errH
             );
-            MoveNode curNodeB = Util_IttesasuRoutine.BeforeUpdateKifuTree(
+            Util_IttesasuRoutine.BeforeUpdateKifuTree(
                 learningData.Earth,
                 learningData.KifuA,
                 nextMove,

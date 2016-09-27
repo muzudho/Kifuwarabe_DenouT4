@@ -65,7 +65,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                 errH.Flush(LogTypes.Plain);
 #endif
 
-                if (uc_Main.LearningData.GetCurChildren().HasChildNode(move1))
+                if (uc_Main.LearningData.HasCurChildNode(move1))
                 {
 #if DEBUG
                     errH.AppendLine("----------------------------------------");
@@ -334,14 +334,12 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             KwLogger errH)
         {
             Sky positionA;
-            MoveNode curNode1;
             Tree newKifu1_Hirate;
             {
                 Earth newEarth1;
                 Util_FvLoad.CreateKifuTree(
                     out newEarth1,
                     out positionA,
-                    out curNode1,
                     out newKifu1_Hirate
                     );
 

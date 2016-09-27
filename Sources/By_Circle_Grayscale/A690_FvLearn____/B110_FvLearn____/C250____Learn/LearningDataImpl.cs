@@ -36,6 +36,7 @@ using System;
 using System.IO;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using System.Collections.Generic;
 
 #if DEBUG
 using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
@@ -90,9 +91,21 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
         {
             return this.KifuA.CurNode3okok.Key;
         }
-        public Children GetCurChildren()
+        private Children GetCurChildren()
         {
             return this.KifuA.CurChildren;
+        }
+        public int GetCurChildrenLength()
+        {
+            return this.KifuA.CurChildren.Count;
+        }
+        public List<Move> ToCurChildrenMovelist()
+        {
+            return this.KifuA.CurChildren.ToMovelist();
+        }
+        public bool HasCurChildNode(Move move)
+        {
+            return this.KifuA.CurChildren.HasChildNode(move);
         }
 
         /// <summary>

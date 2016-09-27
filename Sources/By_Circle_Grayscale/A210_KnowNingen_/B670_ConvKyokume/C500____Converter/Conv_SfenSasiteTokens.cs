@@ -49,7 +49,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             string str4, //abcdefghi
             string strNari, //+
             out Move move,
-            Sky src_Sky,//KifuTree kifu,//Node<Move, Sky> siteiNode = kifu.CurNode;Sky src_Sky = siteiNode.Value.Kyokumen;
+            Sky positionA,
             string hint,
             KwLogger logger
             )
@@ -57,7 +57,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             move = Move.Empty;
             
             //kifu.AssertPside(kifu.CurNode, "str1=" + str1, errH);
-            Playerside pside1 = src_Sky.KaisiPside;
+            Playerside pside1 = positionA.KaisiPside;
 
 #if DEBUG
             Debug.Assert(!Conv_Masu.OnKomabukuro(Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu(src_Sky.BusstopIndexOf((Finger)0)))), "[" + src_Sky.Temezumi + "]手目、駒が駒袋にあった。");
@@ -119,12 +119,14 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
 
                     // 駒台から、打った種類の駒を取得
                     koma = Util_Sky_FingerQuery.InOkibaSyuruiNow_IgnoreCase(
-                        src_Sky,// siteiNode.Value.Kyokumen,
+                        positionA,
                         Conv_Playerside.ToKomadai(pside1),//FIXME:
-                        uttaSyurui, logger);
+                        uttaSyurui,
+                        logger);
                     if (Fingers.Error_1 == koma)
                     {
-                        string message = "TuginoItte_Sfen#GetData_FromTextSub：駒台から種類[" + uttaSyurui + "]の駒を掴もうとしましたが、エラーでした。";
+                        string message = "TuginoItte_Sfen#GetData_FromTextSub：["+Conv_Playerside.ToLog_Kanji(pside1)+"]駒台から種類[" + uttaSyurui + "]の駒を掴もうとしましたが、エラーでした。\n"+
+                            Conv_Shogiban.ToLog( Conv_Sky.ToShogiban(positionA,logger));
                         Exception ex = new Exception(message);
                         Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "moves解析中☆");
                         throw ex;
@@ -138,7 +140,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                     //>>>>> 打ではないとき
                     SyElement masu1 = Conv_Masu.ToMasu_FromBanjoSujiDan( srcSuji, srcDan);
                     Fingers komas1 = Util_Sky_FingersQuery.InMasuNow_Old(//これが空っぽになるときがある。
-                        src_Sky, masu1
+                        positionA, masu1
                         );
                     koma = komas1.ToFirst();
 
@@ -181,16 +183,16 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                         sb.AppendLine("str4=[" + str4 + "]");
                         sb.AppendLine("strNari=[" + strNari + "]");
 
-                        sb.AppendLine("src_Sky.Temezumi=[" + src_Sky.Temezumi + "]");
+                        sb.AppendLine("src_Sky.Temezumi=[" + positionA.Temezumi + "]");
 
                         // どんな局面なのか？
                         {
-                            sb.AppendLine("局面=sfen " + Util_StartposExporter.ToSfenstring(Conv_Sky.ToShogiban(src_Sky,logger), true));
+                            sb.AppendLine("局面=sfen " + Util_StartposExporter.ToSfenstring(Conv_Sky.ToShogiban(positionA,logger), true));
                         }
 
-                        sb.Append(Util_Sky307.Json_1Sky(src_Sky, "エラー駒になったとき",
+                        sb.Append(Util_Sky307.Json_1Sky(positionA, "エラー駒になったとき",
                             hint + "_SF解3",
-                            src_Sky.Temezumi));
+                            positionA.Temezumi));
 
                         Exception ex = new Exception(sb.ToString());
                         Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "SFEN解析中の失敗");
@@ -227,11 +229,11 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
 
 
                     Finger srcKoma = Util_Sky_FingerQuery.InOkibaSyuruiNow_IgnoreCase(
-                        src_Sky,// siteiNode.Value.Kyokumen,
+                        positionA,// siteiNode.Value.Kyokumen,
                         srcOkiba, srcSyurui, logger);
 
-                    src_Sky.AssertFinger(srcKoma);
-                    Busstop dstKoma = src_Sky.BusstopIndexOf(srcKoma);
+                    positionA.AssertFinger(srcKoma);
+                    Busstop dstKoma = positionA.BusstopIndexOf(srcKoma);
 
                     srcMasu = Conv_Busstop.ToMasu( dstKoma);
                 }
@@ -239,8 +241,8 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 {
                     //>>>>> 盤上の駒を指した場合
 
-                    src_Sky.AssertFinger(koma);
-                    Busstop dstKoma = src_Sky.BusstopIndexOf(koma);
+                    positionA.AssertFinger(koma);
+                    Busstop dstKoma = positionA.BusstopIndexOf(koma);
 
 
                     dstSyurui = Conv_Busstop.ToKomasyurui(dstKoma);

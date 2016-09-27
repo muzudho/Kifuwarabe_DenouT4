@@ -210,10 +210,9 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         /// <summary>
         /// 棋譜ツリーのカレントを変更します。
         /// </summary>
-        public static MoveNode BeforeUpdateKifuTree(
+        public static void BeforeUpdateKifuTree(
             Earth earth1,
             Tree kifu1,
-            //MoveNode curNodeA,
             Move move,
             Sky positionA
             )
@@ -246,7 +245,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     );//次ノートを上書きします。
             }
 
-            return kifu1.OnDoMove(
+            kifu1.OnDoMove(
                 newNodeB,
                 positionA
             );//次ノードを、これからのカレントとします。
@@ -291,7 +290,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     //----------
                     exceptionArea = 99002000;
 
-                    Fingers fingers = Util_Sky_FingersQuery.InMasuNow_New(positionA, move);
+                    Fingers fingers = Util_Sky_FingersQuery.InMasuNow_New(positionA, move, logger);
                     if (fingers.Count < 1)
                     {
                         string message = "Util_IttesasuRoutine#Do24:指し手に該当する駒が無かったぜ☆（＾～＾）"+

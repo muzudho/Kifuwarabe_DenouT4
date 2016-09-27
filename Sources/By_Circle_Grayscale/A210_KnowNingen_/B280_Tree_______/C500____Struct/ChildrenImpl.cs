@@ -97,16 +97,5 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
             return movelist;
         }
-        public List<MoveEx> ToMoveExList()
-        {
-            List<MoveEx> moveExList = new List<MoveEx>();
-
-            foreach (KeyValuePair<Move, MoveNode> entry in this.m_items_)
-            {
-                moveExList.Add(entry.Value.MoveEx);
-            }
-
-            return moveExList;
-        }
     }
 }
