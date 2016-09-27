@@ -9,7 +9,8 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
     {
         public ChildrenImpl()
         {
-            this.m_items_ = new Dictionary<Move, MoveNode>();
+            this.m_move_ = Move.Empty;
+            this.m_moveNode_ = null;
         }
         /// <summary>
         /// 棋譜ノードのValueは廃止方針☆
@@ -18,11 +19,11 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// <param name="parent"></param>
         public ChildrenImpl(List<Move> moves, MoveNode parent)
         {
-            this.m_items_ = new Dictionary<Move, MoveNode>();
             foreach (Move move in moves)
             {
                 MoveNode newNode = new MoveNodeImpl(move);
                 this.AddItem(move, newNode, parent);
+                break;
             }
         }
 
@@ -32,7 +33,11 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         {
             get
             {
-                return this.m_items_.Count;
+                if (this.m_move_==Move.Empty)
+                {
+                    return 0;
+                }
+                return 1;
             }
         }
 
@@ -41,23 +46,26 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// <summary>
         /// 次の局面への全ての候補手
         /// </summary>
-        private Dictionary<Move, MoveNode> m_items_;
+        private Move m_move_;
+        private MoveNode m_moveNode_;
 
         public bool HasChildNode(Move key)
         {
-            return this.m_items_.ContainsKey(key);
-        }
-        public void ClearAll()
-        {
-            this.m_items_.Clear();
+            return this.m_move_ == key && key != Move.Empty;
         }
         public bool ContainsKey(Move key)
         {
-            return this.m_items_.ContainsKey(key);
+            return this.HasChildNode(key);
+        }
+        public void ClearAll()
+        {
+            this.m_move_ = Move.Empty;
+            this.m_moveNode_ = null;
         }
         public void AddItem(Move move, MoveNode newNode, MoveNode parent)
         {
-            this.m_items_.Add(move, newNode);
+            this.m_move_ = move;
+            this.m_moveNode_ = newNode;
             newNode.SetParentNode(parent);
         }
         /// <summary>
@@ -69,9 +77,8 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             MoveNode parent
             )
         {
-            // SFENをキーに、次ノードを増やします。
-            this.m_items_[existsNode.Key].SetParentNode(null);
-            this.m_items_[existsNode.Key] = existsNode;
+            this.m_move_ = existsNode.Key;
+            this.m_moveNode_ = existsNode;
             existsNode.SetParentNode(parent);
         }
         /// <summary>
@@ -80,7 +87,13 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// <param name="key"></param>
         public bool RemoveItem(Move key)
         {
-            return this.m_items_.Remove(key);
+            if (this.m_move_==key)
+            {
+                this.m_move_ = Move.Empty;
+                this.m_moveNode_ = null;
+                return true;
+            }
+            return false;
         }
 
 
@@ -90,9 +103,9 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         {
             List<Move> movelist = new List<Move>();
 
-            foreach (KeyValuePair<Move, MoveNode> entry in this.m_items_)
+            if(this.m_move_ != Move.Empty)
             {
-                movelist.Add(entry.Key);
+                movelist.Add(this.m_move_);
             }
 
             return movelist;

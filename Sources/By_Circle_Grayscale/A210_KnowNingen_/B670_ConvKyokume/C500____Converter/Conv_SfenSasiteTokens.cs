@@ -125,8 +125,15 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                         logger);
                     if (Fingers.Error_1 == koma)
                     {
-                        string message = "TuginoItte_Sfen#GetData_FromTextSub：["+Conv_Playerside.ToLog_Kanji(pside1)+"]駒台から種類[" + uttaSyurui + "]の駒を掴もうとしましたが、エラーでした。\n"+
-                            Conv_Shogiban.ToLog( Conv_Sky.ToShogiban(positionA,logger));
+                        string message = "Conv_SfenSasiteTokens#ToMove：["+Conv_Playerside.ToLog_Kanji(pside1)+"]駒台から種類[" + uttaSyurui + "]の駒を掴もうとしましたが、エラーでした。\n"+
+                            Conv_Shogiban.ToLog( Conv_Sky.ToShogiban(positionA,logger))+"\n"+
+                            "hint=["+hint+"]\n"+
+                            "str1=["+ str1+"]\n"+
+                            "str2=[" + str2 + "]\n" +
+                            "str3=[" + str3 + "]\n" +
+                            "str4=[" + str4 + "]\n" +
+                            "strNari=[" + strNari + "]\n" +
+                            "";
                         Exception ex = new Exception(message);
                         Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "moves解析中☆");
                         throw ex;

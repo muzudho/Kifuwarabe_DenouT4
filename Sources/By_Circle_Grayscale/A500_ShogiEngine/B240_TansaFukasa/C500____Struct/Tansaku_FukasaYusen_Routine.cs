@@ -619,6 +619,15 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         kifu1.OnUndoMove(kifu1.CurNode3okok, ittemodosuResult.SyuryoSky);
 
 
+
+
+                        // FIXME:
+                        kifu1.ClearChildren();
+
+
+
+
+
                         exceptionArea = 7000;
 
                         //----------------------------------------
