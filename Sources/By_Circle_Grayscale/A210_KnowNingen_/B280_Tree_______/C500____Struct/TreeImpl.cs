@@ -30,16 +30,16 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// ツリー構造になっている本譜の葉ノード。
         /// 根を「startpos」等の初期局面コマンドとし、次の節からは棋譜の符号「2g2f」等が連なっている。
         /// </summary>
-        public MoveNode CurNode3okok { get { return this.m_curNode_; } }
+        public MoveNode CurNode { get { return this.m_curNode_; } }
         public MoveNode ParentNode1 { get { return this.m_curNode_.GetParentNode(); } }
-        public Children CurChildren { get { return this.CurNode3okok.Children1; } }
+        //public Children CurChildren { get { return this.CurNode3okok.Children1; } }
         public void ClearChildren()
         {
-            this.CurChildren.ClearAll();
+            this.CurNode.Child_Clear();
         }
         public void AddCurChild(Move move, MoveNode newNode, MoveNode parent)
         {
-            this.CurChildren.AddItem(move, newNode, parent);
+            this.CurNode.Child_SetItem(move, newNode, parent);
         }
         //public Children ParentChildren { get { return this.CurNode3okok.GetParentNode().Children1; } }
         /// <summary>
@@ -50,7 +50,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         public MoveNode OnClearMove(Sky sky)
         {
             // ルートまで遡ります。
-            while (!this.CurNode3okok.IsRoot())
+            while (!this.CurNode.IsRoot())
             {
                 this.m_curNode_ = this.ParentNode1;
             }
@@ -73,7 +73,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             // 現在の要素を切り取って返します。なければヌル。
             // カレントは、１手前に戻ります。
             {
-                if (this.CurNode3okok.IsRoot())
+                if (this.CurNode.IsRoot())
                 {
                     // やってはいけない操作は、例外を返すようにします。
                     string message = "ルート局面を削除しようとしました。";

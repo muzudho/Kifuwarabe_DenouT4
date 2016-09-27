@@ -65,11 +65,9 @@
     <Compile Include="B240_Move\C___400_Busstop\n1_BusstopShift.cs" />
     <Compile Include="B240_Move\C___400_Busstop\n2_BusstopMask.cs" />
     <Compile Include="B240_Move\C___400_Busstop\n3_Busstop.cs" />
-    <Compile Include="B280_Tree_______\C500____Struct\ChildrenImpl.cs" />
     <Compile Include="B280_Tree_______\C500____Struct\EarthImpl.cs" />
     <Compile Include="B280_Tree_______\C500____Struct\MoveNodeImpl.cs" />
     <Compile Include="B280_Tree_______\C500____Struct\Util_Tree.cs" />
-    <Compile Include="B280_Tree_______\C___500_Struct\Children.cs" />
     <Compile Include="B280_Tree_______\C___500_Struct\Earth.cs" />
     <Compile Include="B280_Tree_______\C___500_Struct\MoveNode.cs" />
     <Compile Include="B280_Tree_______\C___500_Struct\MoveNodeType.cs" />

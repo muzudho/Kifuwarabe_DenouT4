@@ -763,7 +763,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 #if DEBUG
                 this.Log2_Png_Tyokkin_AtLoop2(line,
                     result.Out_newNode_OrNull.MoveEx,
-                    result.Out_newNode_OrNull.GetNodeValue(),
+                    this.Kifu_AtLoop2.PositionA,
                     logger);
 #endif
 
@@ -912,7 +912,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
                 // ┏━━━━プログラム━━━━┓
 
-                MoveNode curNode1 = this.Kifu_AtLoop2.CurNode3okok;
+                MoveNode curNode1 = this.Kifu_AtLoop2.CurNode;
                 Sky positionA = this.Kifu_AtLoop2.PositionA;
                 int latestTemezumi = positionA.Temezumi;//現・手目済// curNode1.GetNodeValue()
 
@@ -1038,7 +1038,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
                                         this.Logger)
                                         );
-                                    this.Kifu_AtLoop2.OnDoMove(this.Kifu_AtLoop2.CurNode3okok, this.Kifu_AtLoop2.PositionA);
+                                    this.Kifu_AtLoop2.OnDoMove(this.Kifu_AtLoop2.CurNode, this.Kifu_AtLoop2.PositionA);
                                 }
 
 

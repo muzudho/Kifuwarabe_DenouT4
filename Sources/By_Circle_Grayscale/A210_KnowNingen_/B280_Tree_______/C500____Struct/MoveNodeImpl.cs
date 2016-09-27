@@ -19,7 +19,22 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             this.SetParentNode(null);
             this.m_key_ = move;
 
-            this.Children1 = new ChildrenImpl();
+            this.m_move_ = Move.Empty;
+            this.m_moveNode_ = null;
+        }
+        public MoveNodeImpl(Move move, List<Move> moves, MoveNode parent)
+        {
+            this.MoveEx = new MoveExImpl(move);
+
+            this.SetParentNode(null);
+            this.m_key_ = move;
+
+            foreach (Move move2 in moves)
+            {
+                MoveNode newNode = new MoveNodeImpl(move2);
+                this.Child_SetItem(move2, newNode, parent);
+                break;
+            }
         }
 
 
@@ -62,7 +77,6 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         private Move m_key_;
 
 
-        public Children Children1 { get; set; }
 
 
 
@@ -87,6 +101,49 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             pvList.Reverse();
 
             return pvList;
+        }
+
+
+
+
+
+        public bool Child_HasItem
+        {
+            get
+            {
+                if (this.m_move_ == Move.Empty)
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
+
+        /// <summary>
+        /// 次の局面への全ての候補手
+        /// </summary>
+        private Move m_move_;
+        private MoveNode m_moveNode_;
+
+        public bool Child_ContainsKey(Move key)
+        {
+            return this.m_move_ == key && key != Move.Empty;
+        }
+        public void Child_Clear()
+        {
+            this.m_move_ = Move.Empty;
+            this.m_moveNode_ = null;
+        }
+        public void Child_SetItem(Move move, MoveNode newNode, MoveNode parent)
+        {
+            this.m_move_ = move;
+            this.m_moveNode_ = newNode;
+            newNode.SetParentNode(parent);
+        }
+
+        public Move Child_GetItem()
+        {
+            return this.m_move_;
         }
     }
 }

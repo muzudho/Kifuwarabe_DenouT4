@@ -72,7 +72,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500____Gui
             this.Link_Server.EngineClient.ShogiEngineProcessWrapper.Send_Position(
                 Util_KirokuGakari.ToSfen_PositionCommand(
                     this.Link_Server.Earth,
-                    this.Link_Server.KifuTree.CurNode3okok//エンドノード
+                    this.Link_Server.KifuTree.CurNode//エンドノード
                     ), errH);
             this.Link_Server.EngineClient.ShogiEngineProcessWrapper.Send_Go(errH);
         }

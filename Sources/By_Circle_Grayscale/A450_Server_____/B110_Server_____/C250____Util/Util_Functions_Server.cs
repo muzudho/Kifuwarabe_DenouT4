@@ -351,7 +351,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                 "B",
                 errH
                 );
-            kifu1_mutable.OnUndoMove(kifu1_mutable.CurNode3okok, ittemodosuResult.SyuryoSky);
+            kifu1_mutable.OnUndoMove(kifu1_mutable.CurNode, ittemodosuResult.SyuryoSky);
             movedKoma = ittemodosuResult.FigMovedKoma;
             foodKoma = ittemodosuResult.FigFoodKoma;
 

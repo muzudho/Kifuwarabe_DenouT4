@@ -60,7 +60,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             Playerside pside1 = positionA.KaisiPside;
 
 #if DEBUG
-            Debug.Assert(!Conv_Masu.OnKomabukuro(Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu(src_Sky.BusstopIndexOf((Finger)0)))), "[" + src_Sky.Temezumi + "]手目、駒が駒袋にあった。");
+            Debug.Assert(!Conv_Masu.OnKomabukuro(Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu(positionA.BusstopIndexOf((Finger)0)))), "[" + positionA.Temezumi + "]手目、駒が駒袋にあった。");
 #endif
 
             try

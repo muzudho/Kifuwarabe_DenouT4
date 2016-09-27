@@ -25,9 +25,9 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
         Tree KifuA { get; set; }
         Sky PositionA { get; set; }
         Move GetMove();
-        List<Move> ToCurChildrenMovelist();
-        bool HasCurChildNode(Move move);
-        int GetCurChildrenLength();
+        Move ToCurChildrenItem();
+        bool ContainsKeyCurChildNode(Move move);
+        bool HasItemCurChildren();
 
         /// <summary>
         /// フィーチャー・ベクター。

@@ -65,7 +65,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                 errH.Flush(LogTypes.Plain);
 #endif
 
-                if (uc_Main.LearningData.HasCurChildNode(move1))
+                if (uc_Main.LearningData.ContainsKeyCurChildNode(move1))
                 {
 #if DEBUG
                     errH.AppendLine("----------------------------------------");

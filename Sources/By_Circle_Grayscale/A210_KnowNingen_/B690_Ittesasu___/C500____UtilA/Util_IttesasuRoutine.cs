@@ -219,7 +219,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         {
             MoveNode newNodeB = new MoveNodeImpl(move);
 
-            if (!kifu1.CurChildren.ContainsKey(move))
+            if (!kifu1.CurNode.Child_ContainsKey(move))
             {
                 //----------------------------------------
                 // 次ノード追加（なければ）
@@ -229,7 +229,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 kifu1.AddCurChild(
                     newNodeB.Key,
                     newNodeB,
-                    kifu1.CurNode3okok
+                    kifu1.CurNode
                     );//次ノートを追加します。
             }
             else
@@ -239,8 +239,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 //----------------------------------------
                 earth1.GetSennititeCounter().CountUp_New(
                     Conv_Sky.ToKyokumenHash(positionA), "After3_ChangeCurrent（次の一手あり）");
-                kifu1.CurChildren.ChangeItem(newNodeB,
-                    kifu1.CurNode3okok
+                kifu1.CurNode.Child_SetItem(newNodeB.Key, newNodeB,
+                    kifu1.CurNode
                     //curNodeA
                     );//次ノートを上書きします。
             }

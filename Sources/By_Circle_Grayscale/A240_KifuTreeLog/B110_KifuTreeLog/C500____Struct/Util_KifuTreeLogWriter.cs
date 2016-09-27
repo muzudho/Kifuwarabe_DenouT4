@@ -100,7 +100,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
                 //sb_folder.Append( Conv_SasiteStr_Sfen.ToSasiteStr_Sfen_ForFilename(kifu.CurNode.Key) + "/");
 
                 string sasiteText1 = Conv_Move.ToSfen(kifu.CurNode.Key);
-                KifuNode kifuNode1 = kifu.CurNode;
+                MoveNode kifuNode1 = kifu.CurNode;
 
                 /*
                 // 評価明細のログ出力。

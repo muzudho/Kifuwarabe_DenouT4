@@ -88,7 +88,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                 // 記録係り用棋譜（採譜）
                 // 新しい次ノードを追加。次ノードを、これからカレントとする。
                 {
-                    if (!saifuKifu2.CurChildren.ContainsKey(saifu_newChild.Key))
+                    if (!saifuKifu2.CurNode.Child_ContainsKey(saifu_newChild.Key))
                     {
                         //----------------------------------------
                         // 次ノート追加
@@ -97,7 +97,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                             Conv_Sky.ToKyokumenHash(saifu_PositionA),
                             hint + "/AppendChild_And_ChangeCurrentToChild");
                         saifuKifu2.AddCurChild(
-                            saifu_newChild.Key, saifu_newChild, saifuKifu2.CurNode3okok);
+                            saifu_newChild.Key, saifu_newChild, saifuKifu2.CurNode);
                     }
                 }
                 saifuKifu2.OnDoMove(saifu_newChild, saifu_PositionA);//次ノードを、これからのカレントとします。

@@ -32,7 +32,17 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         MoveEx MoveEx { get; set; }
 
 
-        Children Children1 { get; set; }
+        bool Child_HasItem { get; }
+        void Child_Clear();
+        bool Child_ContainsKey(Move key);
+        void Child_SetItem(Move key, MoveNode newNode, MoveNode parent);
+
+        /// <summary>
+        /// 学習で使ってるだけ。
+        /// </summary>
+        /// <returns></returns>
+        Move Child_GetItem();
+
 
 
         List<Move> ToPvList();

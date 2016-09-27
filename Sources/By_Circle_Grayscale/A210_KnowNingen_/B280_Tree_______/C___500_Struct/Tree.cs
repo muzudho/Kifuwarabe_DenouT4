@@ -22,8 +22,8 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         /// ツリー構造になっている本譜の葉ノード。
         /// 根を「startpos」等の初期局面コマンドとし、次の節からは棋譜の符号「2g2f」等が連なっている。
         /// </summary>
-        MoveNode CurNode3okok { get; }
-        Children CurChildren { get; }
+        MoveNode CurNode { get; }
+        //Children CurChildren { get; }
         MoveNode ParentNode1 { get; }
         //Children ParentChildren { get; }
         void ClearChildren();

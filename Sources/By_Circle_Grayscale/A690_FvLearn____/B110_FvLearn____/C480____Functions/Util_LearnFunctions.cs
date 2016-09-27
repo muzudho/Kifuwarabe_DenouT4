@@ -179,9 +179,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
             //
             // 合法手一覧
             //
-            foreach(Move moveA in uc_Main.LearningData.ToCurChildrenMovelist())
             {
-                Move moveB = moveA;
+                Move moveB = uc_Main.LearningData.ToCurChildrenItem();
                 // 本譜手はまだ計算しない。
                 if (moveB == move1)
                 {
@@ -229,7 +228,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
             //
             // 本譜手
             //
-            if (uc_Main.LearningData.HasCurChildNode(move1))
+            if (uc_Main.LearningData.ContainsKeyCurChildNode(move1))
             {
                 // 進める
                 Move moveD = move1;

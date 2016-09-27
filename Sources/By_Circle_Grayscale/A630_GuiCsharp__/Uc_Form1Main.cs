@@ -424,14 +424,14 @@ namespace Grayscale.P699_Form_______
                             case SyuturyokuKirikae.Japanese:
                                 form2.WriteLine_Syuturyoku(Util_KirokuGakari.ToJsaFugoListString(
                                     this.MainGui.Link_Server.Earth,
-                                    this.MainGui.Link_Server.KifuTree.CurNode3okok,
+                                    this.MainGui.Link_Server.KifuTree.CurNode,
                                     "Ui_PnlMain.Response", errH));
                                 break;
                             case SyuturyokuKirikae.Sfen:
                                 form2.WriteLine_Syuturyoku(
                                     Util_KirokuGakari.ToSfen_PositionCommand(
                                         this.MainGui.Link_Server.Earth,
-                                        this.MainGui.Link_Server.KifuTree.CurNode3okok//エンドノード
+                                        this.MainGui.Link_Server.KifuTree.CurNode//エンドノード
                                         ));
                                 break;
                             case SyuturyokuKirikae.Html:

@@ -58,7 +58,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 #endif
 
                 KifuParserA_State nextState;
-                MoveNode curNode1 = kifu1_mutable.CurNode3okok;
+                MoveNode curNode1 = kifu1_mutable.CurNode;
 
                 MoveNodeType moveNodeType;
                 genjo.InputLine = this.State.Execute(
@@ -87,7 +87,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                         result.Out_newNode_OrNull.Key,
                         result.NewSky
                         );
-                    curNode1 = kifu1_mutable.CurNode3okok;
+                    curNode1 = kifu1_mutable.CurNode;
                     // ■■■■■■■■■■カレント・チェンジ■■■■■■■■■■
                     result.SetNode(curNode1,
                         result.NewSky
@@ -132,7 +132,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
                 KifuParserA_State nextState = this.State;
 
-                MoveNode curNode1 = kifu1_mutable.CurNode3okok;
+                MoveNode curNode1 = kifu1_mutable.CurNode;
                 while (!genjo.IsBreak())//breakするまでくり返し。
                 {
                     if ("" == genjo.InputLine)
@@ -174,7 +174,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                             result.Out_newNode_OrNull.Key,
                             result.NewSky
                             );
-                        MoveNode newNodeB = kifu1_mutable.CurNode3okok;
+                        MoveNode newNodeB = kifu1_mutable.CurNode;
                         // ■■■■■■■■■■カレント・チェンジ■■■■■■■■■■
                         result.SetNode(newNodeB,
                             result.NewSky

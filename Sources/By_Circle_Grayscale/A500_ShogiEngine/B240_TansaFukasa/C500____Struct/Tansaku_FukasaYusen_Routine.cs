@@ -230,7 +230,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     temezumi,
                     isHonshogi, mode_Tansaku, errH);
 
-                MoveEx moveEx = kifu1.CurNode3okok.MoveEx;
+                MoveEx moveEx = kifu1.CurNode.MoveEx;
 
                 int wideCount2 = 0;
 
@@ -288,7 +288,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         positionA.Temezumi,
                         moveEx.Move,
                         positionA,//この局面から合法手を作成☆（＾～＾）
-                        kifu1.CurNode3okok,// ツリーを伸ばしているぜ☆（＾～＾）
+                        kifu1.CurNode,// ツリーを伸ばしているぜ☆（＾～＾）
                         kifu1,
 
                         movelist.Count,
@@ -616,7 +616,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                             );
                         positionA = ittemodosuResult.SyuryoSky;
                         //*/
-                        kifu1.OnUndoMove(kifu1.CurNode3okok, ittemodosuResult.SyuryoSky);
+                        kifu1.OnUndoMove(kifu1.CurNode, ittemodosuResult.SyuryoSky);
 
 
 
@@ -743,7 +743,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         }
         private static void Log2(
             Tansaku_Genjo genjo,
-            KifuNode node_yomi,
+            MoveNode node_yomi,
             KaisetuBoard logBrd_move1,
             KwLogger errH
         )
