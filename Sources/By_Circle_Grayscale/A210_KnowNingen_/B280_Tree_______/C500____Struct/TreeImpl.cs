@@ -15,6 +15,11 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
     /// </summary>
     public class TreeImpl : Tree
     {
+        public TreeImpl(Sky sky)
+        {
+            this.m_curNode_ = new MoveNodeImpl();
+            this.m_sky_ = sky;
+        }
         public TreeImpl(
             MoveNode root, Sky sky
         )
@@ -36,9 +41,9 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         {
             this.CurNode.Child_Clear();
         }
-        public void AddCurChild(Move move, MoveNode newNode, MoveNode parent)
+        public void AddCurChild(Move move, MoveNode newNode)
         {
-            this.CurNode.Child_SetItem(move, newNode, parent);
+            this.CurNode.Child_SetItem(move, newNode);
         }
         /// <summary>
         /// 棋譜を空っぽにします。

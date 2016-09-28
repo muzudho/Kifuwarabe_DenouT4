@@ -108,10 +108,7 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C125____Receiver
 
                                 // FIXME:平手とは限らないが、平手という前提で、毎回一から作りなおします。
                                 Sky positionInit = Util_SkyCreator.New_Hirate();
-                                this.Owner_AimsServer.SetKifuTree(new TreeImpl(
-                                    new MoveNodeImpl(Conv_Move.GetErrorMove()),
-                                    positionInit
-                                ));
+                                this.Owner_AimsServer.SetKifuTree(new TreeImpl(positionInit));
                                 this.Owner_AimsServer.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");
 
 

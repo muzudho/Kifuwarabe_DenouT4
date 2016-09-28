@@ -15,13 +15,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         /// このノードのキー。インスタンスを作った後では変更できません。
         /// </summary>
         Move Key { get; }
-
-        /// <summary>
-        /// 親ノード。変更可能。
-        /// </summary>
-        MoveNode GetParentNode();
-        void SetParentNode(MoveNode parent);
-
+        float Score { get; set; }
         /// <summary>
         /// ルート・ノードなら真。
         /// </summary>
@@ -29,21 +23,27 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
         bool IsRoot();
 
 
-        MoveEx MoveEx { get; set; }
 
 
+        /// <summary>
+        /// 親ノード。変更可能。
+        /// </summary>
+        MoveNode GetParentNode();
+        void SetParentNode(MoveNode parent);
+
+
+
+        
         bool Child_HasItem { get; }
         void Child_Clear();
         bool Child_ContainsKey(Move key);
-        void Child_SetItem(Move key, MoveNode newNode, MoveNode parent);
+        void Child_SetItem(Move key, MoveNode newNode);
 
         /// <summary>
         /// 学習で使ってるだけ。
         /// </summary>
         /// <returns></returns>
         Move Child_GetItem();
-
-
 
         List<Move> ToPvList();
     }

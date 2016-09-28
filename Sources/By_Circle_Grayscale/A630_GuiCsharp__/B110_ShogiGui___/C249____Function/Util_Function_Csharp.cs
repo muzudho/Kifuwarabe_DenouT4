@@ -34,7 +34,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             KwLogger errH
             )
         {
-            MoveNode newNode = new MoveNodeImpl(Conv_Move.GetErrorMove());
+            MoveNode newNode = new MoveNodeImpl();
 
             Sky positionA = Util_SkyCreator.New_Hirate();//[初期配置]ボタン押下時
             mainGui.Link_Server.Earth.Clear();

@@ -3,6 +3,7 @@ using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using System.Collections.Generic;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 
 namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 {
@@ -12,35 +13,28 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
     /// </summary>
     public class MoveNodeImpl : MoveNode
     {
+        public MoveNodeImpl()
+        {
+            this.Score = 0.0f;
+
+            this.SetParentNode(null);
+            this.m_key_ = Conv_Move.GetErrorMove();
+
+            this.m_move_ = Move.Empty;
+            this.m_childNode_ = null;
+        }
         public MoveNodeImpl(Move move)
         {
-            this.MoveEx = new MoveExImpl(move);
+            this.Score = 0.0f;
 
             this.SetParentNode(null);
             this.m_key_ = move;
 
             this.m_move_ = Move.Empty;
-            this.m_moveNode_ = null;
-        }
-        public MoveNodeImpl(Move move, List<Move> moves, MoveNode parent)
-        {
-            this.MoveEx = new MoveExImpl(move);
-
-            this.SetParentNode(null);
-            this.m_key_ = move;
-
-            foreach (Move move2 in moves)
-            {
-                MoveNode newNode = new MoveNodeImpl(move2);
-                this.Child_SetItem(move2, newNode, parent);
-                break;
-            }
+            this.m_childNode_ = null;
         }
 
 
-
-
-        public MoveEx MoveEx { get; set; }
 
 
 
@@ -75,6 +69,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             }
         }
         private Move m_key_;
+        public float Score { get; set; }
 
 
 
@@ -123,7 +118,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// 次の局面への全ての候補手
         /// </summary>
         private Move m_move_;
-        private MoveNode m_moveNode_;
+        private MoveNode m_childNode_;
 
         public bool Child_ContainsKey(Move key)
         {
@@ -132,13 +127,13 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         public void Child_Clear()
         {
             this.m_move_ = Move.Empty;
-            this.m_moveNode_ = null;
+            this.m_childNode_ = null;
         }
-        public void Child_SetItem(Move move, MoveNode newNode, MoveNode parent)
+        public void Child_SetItem(Move move, MoveNode newNode)
         {
             this.m_move_ = move;
-            this.m_moveNode_ = newNode;
-            newNode.SetParentNode(parent);
+            this.m_childNode_ = newNode;
+            newNode.SetParentNode(this);
         }
 
         public Move Child_GetItem()

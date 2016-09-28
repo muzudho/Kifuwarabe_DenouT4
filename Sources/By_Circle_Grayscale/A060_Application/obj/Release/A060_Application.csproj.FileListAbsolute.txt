@@ -4,3 +4,6 @@ E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\P060_Application\Gra
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A060_Application\obj\Release\A060_Application.csprojResolveAssemblyReference.cache
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A060_Application\obj\Release\Grayscale.P060_Application.exe
 E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A060_Application\obj\Release\Grayscale.P060_Application.pdb
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A060_Application\Grayscale.P060_Application.exe.config
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A060_Application\Grayscale.P060_Application.exe
+E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A060_Application\Grayscale.P060_Application.pdb

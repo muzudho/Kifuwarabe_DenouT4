@@ -239,7 +239,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
 
             {
                 newSky.SetTemezumi(0);//空っぽに戻すので、 0手済みに変更。
-                MoveNode newNode = new MoveNodeImpl(Conv_Move.GetErrorMove());
+                MoveNode newNode = new MoveNodeImpl();
 
                 string jsaFugoStr;
                 mainGui.Link_Server.KifuTree.OnClearMove(newSky);

@@ -228,8 +228,11 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     temezumi,
                     isHonshogi, mode_Tansaku, errH);
 
-                MoveEx moveEx = new MoveExImpl(Move.Empty,0.0f);// kifu1.CurNode.MoveEx;
-                Move moveA = moveEx.Move;
+                MoveEx a_bestmoveEx_Children = new MoveExImpl(
+                    Move.Empty,
+                    Util_Scoreing.GetWorstScore(positionA.KaisiPside)// プレイヤー1ならmax値、プレイヤー2ならmin値。
+                    );// kifu1.CurNode.MoveEx;
+                Move moveA = a_bestmoveEx_Children.Move;
 
                 int wideCount2 = 0;
 
@@ -249,8 +252,6 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     out yomiDeep,
                     errH
                     );
-                MoveEx a_bestmoveEx_Children = new MoveExImpl(Move.Empty);
-                a_bestmoveEx_Children.SetScore(Util_Scoreing.GetWorstScore(positionA.KaisiPside));// プレイヤー1ならmax値、プレイヤー2ならmin値。
 
                 if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(yomiDeep, wideCount2, movelist.Count, genjo, args.Shogisasi.TimeManager))
                 {
@@ -510,7 +511,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         //----------------------------------------
                         // もう深くよまないなら
                         //----------------------------------------
-                        float score = Tansaku_FukasaYusen_Routine.Do_Leaf(
+                        float this_score = Tansaku_FukasaYusen_Routine.Do_Leaf(
                             genjo,
 
                             positionA,//改造前
@@ -518,13 +519,17 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                             args,
                             errH
                             );
+
+                        result_mov3 = new MoveExImpl(nod1.Key, this_score);
+                        /*
                         result_mov3 = Util_Scoreing.GetHighScore(
-                            nod1.MoveEx.Move,
-                            score,
+                            nod1.Key,
+                            this_score,
                             result_mov3,
                             positionA.KaisiPside
                             );
 
+                        */
                         wideCount1++;
                         break;
                     }
@@ -564,11 +569,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         try
                         {
                             // 自分を親要素につなげたあとで、子を検索するぜ☆（＾～＾）
-                            kifu1.AddCurChild(
-                                mov2,
-                                nod2,
-                                nod1 // ツリーを伸ばしているぜ☆（＾～＾）
-                            );
+                            kifu1.AddCurChild(mov2,nod2);// ツリーを伸ばしているぜ☆（＾～＾）//,nod1
                         }
                         catch (Exception ex)
                         {
@@ -582,7 +583,6 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
 
 
 
-                        //kifu1.OnDoMove(nod1, positionA);
                         kifu1.OnDoMove(nod2, positionA);
 
 

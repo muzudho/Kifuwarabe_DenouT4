@@ -118,17 +118,16 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
             // 棋譜
             Sky positionInit = Util_SkyCreator.New_Hirate();// きふわらべ起動時
-            MoveNode curNode1 = new MoveNodeImpl(Conv_Move.GetErrorMove());
             {
                 // FIXME:平手とは限らないが、平手という前提で作っておく。
                 this.m_earth_AtLoop2_ = new EarthImpl();
-                this.m_kifu_AtLoop2_ = new TreeImpl(curNode1, positionInit);
+                this.m_kifu_AtLoop2_ = new TreeImpl(positionInit);
                 this.Earth_AtLoop2.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
 
-                this.m_kifu_AtLoop2_.PositionA.AssertFinger((Finger)0);// curNode1.GetNodeValue()
+                this.m_kifu_AtLoop2_.PositionA.AssertFinger((Finger)0);
                 Debug.Assert(!Conv_Masu.OnKomabukuro(
                     Conv_Masu.ToMasuHandle(
-                        Conv_Busstop.ToMasu(this.m_kifu_AtLoop2_.PositionA.BusstopIndexOf((Finger)0))// curNode1.GetNodeValue()
+                        Conv_Busstop.ToMasu(this.m_kifu_AtLoop2_.PositionA.BusstopIndexOf((Finger)0))
                         )
                     ), "駒が駒袋にあった。");
             }

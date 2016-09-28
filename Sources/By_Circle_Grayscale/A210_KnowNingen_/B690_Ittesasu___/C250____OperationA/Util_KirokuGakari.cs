@@ -53,10 +53,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
             Earth saifuEarth2 = new EarthImpl();
             Tree saifuKifu2;
             {
-                Move move = Conv_Move.GetErrorMove();
-
                 Sky positionInit = Util_SkyCreator.New_Hirate();//日本の符号読取時
-                saifuKifu2 = new TreeImpl(new MoveNodeImpl(move), positionInit);
+                saifuKifu2 = new TreeImpl(positionInit);
                 earth1.Clear();
 
                 saifuKifu2.OnClearMove(positionInit);// 棋譜を空っぽにします。
@@ -96,8 +94,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                         earth1.GetSennititeCounter().CountUp_New(
                             Conv_Sky.ToKyokumenHash(saifu_PositionA),
                             hint + "/AppendChild_And_ChangeCurrentToChild");
-                        saifuKifu2.AddCurChild(
-                            saifu_newChild.Key, saifu_newChild, saifuKifu2.CurNode);
+                        saifuKifu2.AddCurChild(saifu_newChild.Key, saifu_newChild);//, saifuKifu2.CurNode
                     }
                 }
                 saifuKifu2.OnDoMove(saifu_newChild, saifu_PositionA);//次ノードを、これからのカレントとします。

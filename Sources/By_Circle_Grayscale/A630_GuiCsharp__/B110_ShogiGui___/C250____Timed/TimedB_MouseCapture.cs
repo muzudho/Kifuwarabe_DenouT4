@@ -410,7 +410,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                         // 次ノード追加
                                                         //----------------------------------------
                                                         mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(sky_newChild), "TimedB.Step(1)");
-                                                        mainGui.Link_Server.KifuTree.AddCurChild(newNode.Key, newNode, mainGui.Link_Server.KifuTree.CurNode);
+                                                        mainGui.Link_Server.KifuTree.AddCurChild(newNode.Key, newNode);//, mainGui.Link_Server.KifuTree.CurNode
                                                     }
 
                                                     string jsaFugoStr;
@@ -554,7 +554,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                             // 次ノード追加
                                                             //----------------------------------------
                                                             mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(sky_newChild), "TimedB.Step(2)");
-                                                            mainGui.Link_Server.KifuTree.AddCurChild(newNode.Key, newNode, mainGui.Link_Server.KifuTree.CurNode);
+                                                            mainGui.Link_Server.KifuTree.AddCurChild(newNode.Key, newNode);//, mainGui.Link_Server.KifuTree.CurNode
                                                         }
 
                                                         string jsaFugoStr;
