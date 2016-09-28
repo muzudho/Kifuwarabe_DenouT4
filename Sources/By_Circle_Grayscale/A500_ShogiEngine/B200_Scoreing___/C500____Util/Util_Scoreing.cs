@@ -8,6 +8,8 @@ using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C___500_Hyokakansu;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C510____HyokakansuColl;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
 using System;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
@@ -50,7 +52,8 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
         }
 
         public static MoveEx GetHighScore(
-            MoveEx moveEx1,
+            Move moveA,
+            float scoreA,
             MoveEx moveEx2,
             Playerside pside// このノードが、どちらの手番か。
         )
@@ -59,17 +62,17 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
             {
                 case Playerside.P1:
                     // 大きい方を取るぜ☆
-                    if (moveEx1.Score < moveEx2.Score)
+                    if (scoreA < moveEx2.Score)
                     {
                         return moveEx2;
                     }
-                    else if (moveEx2.Score < moveEx1.Score)
+                    else if (moveEx2.Score < scoreA)
                     {
-                        return moveEx1;
+                        return new MoveExImpl(moveA, scoreA);
                     }
                     else if (0 < KwRandom.Random.Next(2))
                     {
-                        return moveEx1;
+                        return new MoveExImpl(moveA, scoreA);
                     }
                     else
                     {
@@ -78,17 +81,17 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
 
                 case Playerside.P2:
                     // 小さい方を取るぜ☆
-                    if (moveEx1.Score < moveEx2.Score)
+                    if (scoreA < moveEx2.Score)
                     {
-                        return moveEx1;
+                        return new MoveExImpl(moveA, scoreA);
                     }
-                    else if (moveEx2.Score < moveEx1.Score)
+                    else if (moveEx2.Score < scoreA)
                     {
                         return moveEx2;
                     }
                     else if (0 < KwRandom.Random.Next(2))
                     {
-                        return moveEx1;
+                        return new MoveExImpl(moveA, scoreA);
                     }
                     else
                     {
@@ -159,8 +162,8 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
         /// <param name="mov4"></param>
         /// <param name="result_moveEx_best"></param>
         /// <param name="alpha_cut"></param>
-        public static void Update_BestScore_And_Check_AlphaCut(
-            ref MoveEx result_moveEx_best,//自分
+        public static MoveEx Update_BestScore_And_Check_AlphaCut(
+            MoveEx result_moveEx_best,//自分
 
             int yomiDeep,//1start
             Playerside pside,// このノードが、どちらの手番か。
@@ -208,20 +211,22 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
                     break;
                 default: throw new Exception("子要素探索中、プレイヤーサイドのエラー");
             }
+
+            return result_moveEx_best;
         }
 
         /// <summary>
         /// 局面に、評価値を付けます。
         /// </summary>
-        public static void DoScoreing_Kyokumen(
-
-            MoveEx moveEx,
+        public static float DoScoreing_Kyokumen(
             Sky position,
 
             EvaluationArgs args,
             KwLogger errH
             )
         {
+            float score = 0.0f;
+
             //----------------------------------------
             // 千日手判定
             //----------------------------------------
@@ -244,25 +249,22 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
                 // 千日手用の評価をします。
                 Hyokakansu hyokakansu = Util_HyokakansuCollection.Hyokakansu_Sennichite;
 
-                float score;
-                hyokakansu.Evaluate(
-                    out score,
+                score += hyokakansu.Evaluate(
                     position,//node_yomi_mutable_KAIZOMAE.Value.Kyokumen,
                     args.FeatureVector,
                     errH
                 );
-
-                moveEx.AddScore(score);
             }
             else
             {
-                Util_HyokakansuCollection.EvaluateAll_Normal(
-                    moveEx,
+                score += Util_HyokakansuCollection.EvaluateAll_Normal(
                     position,
                     args.FeatureVector,
                     errH
                     );
             }
+
+            return score;
         }
     }
 }

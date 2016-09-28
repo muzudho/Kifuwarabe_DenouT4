@@ -23,8 +23,7 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C___500_Hyokakansu
         /// </summary>
         /// <param name="keisanArgs"></param>
         /// <returns></returns>
-        void Evaluate(
-            out float score,
+        float Evaluate(
             Sky src_Sky,
             FeatureVector featureVector,
             KwLogger errH

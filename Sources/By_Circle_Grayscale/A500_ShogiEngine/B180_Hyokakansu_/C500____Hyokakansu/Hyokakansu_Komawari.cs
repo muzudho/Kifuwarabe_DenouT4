@@ -29,8 +29,7 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
         /// </summary>
         /// <param name="args"></param>
         /// <returns></returns>
-        public override void Evaluate(
-            out float out_score,
+        public override float Evaluate(
             Sky src_Sky,
             FeatureVector fv,
             KwLogger errH
@@ -70,12 +69,6 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
                 }
             });
 
-            //
-            // ２プレイヤーは　負の数になっている（負の数が多いほど有利）ので、
-            // 足すだけでいい。
-            //
-            out_score = score_p1 + score_p2;
-
             //----------------------------------------
             // 明細項目
             //----------------------------------------
@@ -89,9 +82,11 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
             }
 #endif
 
+            //
+            // ２プレイヤーは　負の数になっている（負の数が多いほど有利）ので、
+            // 足すだけでいい。
+            //
+            return score_p1 + score_p2;
         }
-
     }
-
-
 }

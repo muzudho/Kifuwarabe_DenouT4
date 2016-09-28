@@ -31,19 +31,16 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
         /// <param name="input_node"></param>
         /// <param name="playerInfo"></param>
         /// <returns></returns>
-        public override void Evaluate(
-            out float out_score,
+        public override float Evaluate(
             Sky src_Sky,
             FeatureVector featureVector,
             KwLogger errH
             )
         {
-            out_score = 0.0f;//互角
-
             switch (src_Sky.KaisiPside)
             {
-                case Playerside.P1: out_score = float.MinValue; break;
-                case Playerside.P2: out_score = float.MaxValue; break;
+                case Playerside.P1: return float.MinValue;
+                case Playerside.P2: return float.MaxValue;
                 default: throw new Exception("千日手判定をしようとしましたが、先後の分からない局面データがありました。");
             }
         }

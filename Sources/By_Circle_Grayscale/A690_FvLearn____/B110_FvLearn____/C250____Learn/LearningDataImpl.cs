@@ -401,9 +401,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
             //----------------------------------------
             {
                 Hyokakansu_Komawari handan = new Hyokakansu_Komawari();
-                float score;
-                handan.Evaluate(
-                    out score,
+                float score_notUse = handan.Evaluate(
                     position,
                     this.Fv, //参照してもらうだけ。
                     Util_Loggers.ProcessLearner_DEFAULT
@@ -414,9 +412,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
             //----------------------------------------
             {
                 Hyokakansu_NikomaKankeiPp handan_pp = new Hyokakansu_NikomaKankeiPp();
-                float score;
-                handan_pp.Evaluate(
-                    out score,
+                float score_notUse = handan_pp.Evaluate(
                     position,
                     this.Fv, //参照してもらうだけ。
                     Util_Loggers.ProcessLearner_DEFAULT

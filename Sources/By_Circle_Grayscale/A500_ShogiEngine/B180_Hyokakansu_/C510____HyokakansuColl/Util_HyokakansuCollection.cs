@@ -42,26 +42,25 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C510____HyokakansuColl
         /// <param name="node_mutable_KAIZOMAE">この評価シートに明細項目を追加します。</param>
         /// <param name="fv"></param>
         /// <param name="errH"></param>
-        public static void EvaluateAll_Normal(
-            MoveEx moveEx,
+        public static float EvaluateAll_Normal(
             Sky position,
             FeatureVector fv,
             KwLogger errH
             )
         {
+            float score = 0.0f;
+
             // 妄想と、指定のノードを比較し、点数付けします。
             foreach (Hyokakansu hyokakansu in Util_HyokakansuCollection.Hyokakansu_Normal)
             {
-                float score;
-                hyokakansu.Evaluate(
-                    out score,
+                score += hyokakansu.Evaluate(
                     position,
                     fv,
                     errH
                 );
-
-                moveEx.AddScore(score);
             }
+
+            return score;
         }
     }
 }

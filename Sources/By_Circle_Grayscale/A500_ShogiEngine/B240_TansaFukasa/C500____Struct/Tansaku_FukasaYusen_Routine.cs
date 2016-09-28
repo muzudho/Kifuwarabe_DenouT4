@@ -221,8 +221,6 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             Playerside pside = positionA.KaisiPside;
             int exceptionArea = 0;
 
-            List<MoveEx> moveExList_ranked;
-
             try
             {
                 exceptionArea = 10;
@@ -230,7 +228,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     temezumi,
                     isHonshogi, mode_Tansaku, errH);
 
-                MoveEx moveEx = kifu1.CurNode.MoveEx;
+                MoveEx moveEx = new MoveExImpl(Move.Empty,0.0f);// kifu1.CurNode.MoveEx;
+                Move moveA = moveEx.Move;
 
                 int wideCount2 = 0;
 
@@ -239,11 +238,10 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                 //
                 List<Move> movelist;
                 int yomiDeep;
-                MoveEx a_bestmoveEx_Children;
                 Util_MovePicker.CreateMovelist_BeforeLoop(
                     genjo,
 
-                    moveEx.Move,
+                    moveA,
                     positionA,
 
                     out movelist,
@@ -251,7 +249,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     out yomiDeep,
                     errH
                     );
-                a_bestmoveEx_Children = new MoveExImpl(Move.Empty);
+                MoveEx a_bestmoveEx_Children = new MoveExImpl(Move.Empty);
                 a_bestmoveEx_Children.SetScore(Util_Scoreing.GetWorstScore(positionA.KaisiPside));// プレイヤー1ならmax値、プレイヤー2ならmin値。
 
                 if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(yomiDeep, wideCount2, movelist.Count, genjo, args.Shogisasi.TimeManager))
@@ -263,17 +261,19 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     //----------------------------------------
 
                     // 局面に評価を付けます。
-                    Tansaku_FukasaYusen_Routine.Do_Leaf(
+                    float score = Tansaku_FukasaYusen_Routine.Do_Leaf(
                         genjo,
 
-                        moveEx,
                         positionA,
 
                         args,
                         errH
                         );
 
-                    a_bestmoveEx_Children = Util_Scoreing.GetHighScore(moveEx, a_bestmoveEx_Children, positionA.KaisiPside);
+                    a_bestmoveEx_Children = Util_Scoreing.GetHighScore(
+                        moveA,
+                        score,
+                        a_bestmoveEx_Children, positionA.KaisiPside);
                 }
                 else
                 {
@@ -286,7 +286,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         Util_Scoreing.GetWorstScore(pside),//最悪点からスタートだぜ☆（＾～＾）
 
                         positionA.Temezumi,
-                        moveEx.Move,
+                        moveA,
                         positionA,//この局面から合法手を作成☆（＾～＾）
                         kifu1.CurNode,// ツリーを伸ばしているぜ☆（＾～＾）
                         kifu1,
@@ -374,20 +374,19 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         /// <summary>
         /// もう深く読まない場合の処理。
         /// </summary>
-        private static void Do_Leaf(
+        private static float Do_Leaf(
             Tansaku_Genjo genjo,
 
-            MoveEx moveEx,
             Sky position,
 
             EvaluationArgs args,
             KwLogger errH
             )
         {
-            // 局面に評価値を付けます。
-            Util_Scoreing.DoScoreing_Kyokumen(
+            float score = 0.0f;
 
-                moveEx,//mutable: スコアを覚えるのに使っている。
+            // 局面に評価値を付けます。
+            score += Util_Scoreing.DoScoreing_Kyokumen(
                 position,
 
                 args,
@@ -425,6 +424,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             //                        errH
             //                    );
             //#endif
+
+            return score;
         }
 
         /// <summary>
@@ -509,17 +510,17 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         //----------------------------------------
                         // もう深くよまないなら
                         //----------------------------------------
-                        Tansaku_FukasaYusen_Routine.Do_Leaf(
+                        float score = Tansaku_FukasaYusen_Routine.Do_Leaf(
                             genjo,
 
-                            nod1.MoveEx,//改造後: スコアを覚えるのに使っている。
                             positionA,//改造前
 
                             args,
                             errH
                             );
                         result_mov3 = Util_Scoreing.GetHighScore(
-                            nod1.MoveEx,
+                            nod1.MoveEx.Move,
+                            score,
                             result_mov3,
                             positionA.KaisiPside
                             );
@@ -577,7 +578,16 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                             throw ex;//追加
                         }
 
-                        kifu1.OnDoMove(nod1, positionA);
+
+
+
+
+                        //kifu1.OnDoMove(nod1, positionA);
+                        kifu1.OnDoMove(nod2, positionA);
+
+
+
+
 
                         exceptionArea = 44012;
 
@@ -593,8 +603,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
 
                             positionA.Temezumi,
                             mov2,//改造後
-                            positionA,//この局面から合法手を作成☆（＾～＾） nod2.Value はヌル☆（＾▽＾）
-                            nod2,// ツリーを伸ばしているぜ☆（＾～＾）
+                            positionA,//この局面から合法手を作成☆（＾～＾）
+                            kifu1.CurNode,// nod2,// ツリーを伸ばしているぜ☆（＾～＾）
                             kifu1,
 
                             movelist2.Count,
@@ -645,8 +655,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         //
                         // 子の点数を、自分に反映させるぜ☆
                         bool alpha_cut;
-                        Util_Scoreing.Update_BestScore_And_Check_AlphaCut(
-                            ref result_mov3,// これを更新する
+                        result_mov3 = Util_Scoreing.Update_BestScore_And_Check_AlphaCut(
+                            result_mov3,// これを更新する
 
                             yomiDeep2,// yomiDeep0,
 

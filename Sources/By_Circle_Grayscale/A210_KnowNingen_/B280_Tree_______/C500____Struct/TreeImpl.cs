@@ -32,7 +32,6 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// </summary>
         public MoveNode CurNode { get { return this.m_curNode_; } }
         public MoveNode ParentNode1 { get { return this.m_curNode_.GetParentNode(); } }
-        //public Children CurChildren { get { return this.CurNode3okok.Children1; } }
         public void ClearChildren()
         {
             this.CurNode.Child_Clear();
@@ -41,7 +40,6 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         {
             this.CurNode.Child_SetItem(move, newNode, parent);
         }
-        //public Children ParentChildren { get { return this.CurNode3okok.GetParentNode().Children1; } }
         /// <summary>
         /// 棋譜を空っぽにします。
         /// 

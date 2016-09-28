@@ -70,9 +70,7 @@ namespace Grayscale.P910_SpeedKeisok
             Stopwatch watch = new Stopwatch();
             watch.Start();
 
-            float score;
-            handan1.Evaluate(
-                out score,
+            float score_notUse = handan1.Evaluate(
                 positionA,
                 this.FeatureVector,
                 Util_Loggers.ProcessSpeedTest_KEISOKU

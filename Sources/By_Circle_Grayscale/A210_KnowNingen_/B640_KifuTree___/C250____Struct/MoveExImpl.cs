@@ -9,6 +9,11 @@ namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct
         {
             this.Move = move;
         }
+        public MoveExImpl(Move move,float score)
+        {
+            this.Move = move;
+            this.m_score_ = score;
+        }
 
 
 

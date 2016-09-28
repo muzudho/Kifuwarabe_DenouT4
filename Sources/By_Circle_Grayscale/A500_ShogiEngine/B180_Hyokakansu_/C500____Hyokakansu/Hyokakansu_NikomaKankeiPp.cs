@@ -45,14 +45,13 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
         /// </summary>
         /// <param name="input_node"></param>
         /// <returns></returns>
-        public override void Evaluate(
-            out float out_score,
+        public override float Evaluate(
             Sky src_Sky,
             FeatureVector fv,
             KwLogger errH
             )
         {
-            out_score = 0.0f;            // -999～999(*bairitu) が 40×40個ほど足し合わせた数になるはず。
+            float out_score = 0.0f;            // -999～999(*bairitu) が 40×40個ほど足し合わせた数になるはず。
 
 
 #if DEBUG
@@ -136,6 +135,8 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
                     }
                 }
             }
+
+            return out_score;
         }
     }
 }
