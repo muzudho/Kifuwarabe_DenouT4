@@ -26,13 +26,16 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500____Gui
         /// ************************************************************************************************************************
         /// </summary>
         public override void ChangedTurn(
-            MoveNode endNode, //this.Link_Server.KifuTree.CurNode,
+
+            //MoveNode endNode,
+            Tree kifu1,
+
             Playerside pside,//endNode.GetNodeValue().KaisiPside,
             KwLogger errH)
         {
             this.Link_Server.EngineClient.OnChangedTurn(
                 this.Link_Server.Earth,
-                endNode,//エンドノード
+                kifu1,// endNode,//エンドノード
                 pside,
                 errH);
         }
@@ -72,7 +75,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500____Gui
             this.Link_Server.EngineClient.ShogiEngineProcessWrapper.Send_Position(
                 Util_KirokuGakari.ToSfen_PositionCommand(
                     this.Link_Server.Earth,
-                    this.Link_Server.KifuTree.CurrentNode//エンドノード
+                    this.Link_Server.KifuTree//.CurrentNode//エンドノード
                     ), errH);
             this.Link_Server.EngineClient.ShogiEngineProcessWrapper.Send_Go(errH);
         }

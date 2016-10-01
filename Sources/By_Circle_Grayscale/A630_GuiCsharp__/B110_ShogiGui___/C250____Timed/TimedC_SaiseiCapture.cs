@@ -96,7 +96,9 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                     restText,
                                     mainGui.Link_Server.KifuTree.CurrentNode,
                                     mainGui.Link_Server.KifuTree.PositionA,//.CurNode2ok.GetNodeValue()
-                                    mainGui, eventState.Flg_logTag);//追加
+                                    mainGui,
+                                    mainGui.Link_Server.KifuTree,
+                                    eventState.Flg_logTag);//追加
 
                                 //------------------------------
                                 // メナス

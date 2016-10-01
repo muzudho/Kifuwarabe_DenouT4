@@ -110,7 +110,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //------------------------------------------------------------
             earth1.Clear();
 
-            kifu1.SetCurrentNode( TreeImpl.ClearCurrentMove(kifu1.CurrentNode, kifu1, positionA, logger));
+            kifu1.SetCurrentNode( TreeImpl.ClearAllCurrentMove(kifu1.CurrentNode, kifu1, positionA, logger));
             //kifu1.OnClearCurrentMove(positionA);
 
             earth1.SetProperty(

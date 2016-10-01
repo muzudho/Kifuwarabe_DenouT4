@@ -139,7 +139,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
 
             mainGui.Link_Server.Earth.Clear();
 
-            mainGui.Link_Server.KifuTree.SetCurrentNode(TreeImpl.ClearCurrentMove(mainGui.Link_Server.KifuTree.CurrentNode, mainGui.Link_Server.KifuTree, null,logger));
+            mainGui.Link_Server.KifuTree.SetCurrentNode(TreeImpl.ClearAllCurrentMove(mainGui.Link_Server.KifuTree.CurrentNode, mainGui.Link_Server.KifuTree, null,logger));
             //mainGui.Link_Server.KifuTree.OnClearCurrentMove(null);// 棋譜を空っぽにします。
             // FIXME:
 
@@ -244,7 +244,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
 
                 string jsaFugoStr;
 
-                mainGui.Link_Server.KifuTree.SetCurrentNode(TreeImpl.ClearCurrentMove(mainGui.Link_Server.KifuTree.CurrentNode, mainGui.Link_Server.KifuTree, newSky,logger));
+                mainGui.Link_Server.KifuTree.SetCurrentNode(TreeImpl.ClearAllCurrentMove(mainGui.Link_Server.KifuTree.CurrentNode, mainGui.Link_Server.KifuTree, newSky,logger));
                 //mainGui.Link_Server.KifuTree.OnClearCurrentMove(newSky);
 
 
@@ -253,7 +253,9 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
                     newNode,
                     newNode.Key,
                     newSky,
-                    out jsaFugoStr, logger);
+                    out jsaFugoStr,
+                    mainGui.Link_Server.KifuTree,
+                    logger);
                 repaintRequest.SetFlag_RefreshRequest();
 
                 mainGui.Link_Server.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "9/9/9/9/9/9/9/9/9 b K1R1B1G2S2N2L2P9 k1r1b1g2s2n2l2p9 1");

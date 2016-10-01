@@ -39,7 +39,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             Sky positionA = Util_SkyCreator.New_Hirate();//[初期配置]ボタン押下時
             mainGui.Link_Server.Earth.Clear();
 
-            mainGui.Link_Server.KifuTree.SetCurrentNode(TreeImpl.ClearCurrentMove(mainGui.Link_Server.KifuTree.CurrentNode, mainGui.Link_Server.KifuTree, positionA,logger));
+            mainGui.Link_Server.KifuTree.SetCurrentNode(TreeImpl.ClearAllCurrentMove(mainGui.Link_Server.KifuTree.CurrentNode, mainGui.Link_Server.KifuTree, positionA,logger));
             //mainGui.Link_Server.KifuTree.OnClearCurrentMove(positionA);// 棋譜を空っぽにします。
 
             mainGui.Link_Server.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
@@ -54,7 +54,9 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
                 newNode,
                 newNode.Key,
                 positionA,
-                out jsaFugoStr, logger);
+                out jsaFugoStr,
+                mainGui.Link_Server.KifuTree,
+                logger);
             mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
             mainGui.RepaintRequest.SetFlag_RecalculateRequested();// 駒の再描画要求
@@ -68,7 +70,10 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
         /// ************************************************************************************************************************
         /// </summary>
         public static bool Makimodosi_Gui(
-            MoveNode curNode1,//mainGui.Link_Server.KifuTree.CurNode
+
+            //MoveNode curNode1,
+            Tree kifu1,
+
             Playerside pside,
             MainGui_Csharp mainGui,
             Finger movedKoma,
@@ -81,7 +86,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             // チェンジターン
             //------------------------------
             mainGui.ChangedTurn(
-                curNode1,
+                kifu1,// curNode1,
                 pside,// curNode1.GetNodeValue().KaisiPside,
                 errH);//[巻戻し]ボタンを押したあと
 
@@ -121,7 +126,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             MoveNode node6,// = shogiGui.Link_Server.KifuTree.CurNode;
             Sky positionA,// = shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue();
             MainGui_Csharp shogiGui,
-            KwLogger errH
+            Tree kifu1,
+            KwLogger logger
             )
         {
             //------------------------------
@@ -131,8 +137,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
                 // [コマ送り][再生]ボタン
                 string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
                     node6.Key,
-                    node6.ToPvList(),
-                    positionA, errH);
+                    kifu1.ToPvList(),
+                    positionA, logger);
 
                 shogiGui.Shape_PnlTaikyoku.SetFugo(jsaFugoStr);
             }

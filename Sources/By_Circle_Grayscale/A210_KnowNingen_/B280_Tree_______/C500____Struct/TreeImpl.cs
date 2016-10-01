@@ -45,17 +45,44 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
                 index++;
             }
             logger.AppendLine("└──────────┘");
-        }
 
-        public void ClearPv( KwLogger logger)
+            this.LogPvList(this, logger);
+        }
+        public void LogPvList(Tree kifu1, KwLogger logger)
+        {
+            List<Move> pvList = kifu1.ToPvList();
+
+            logger.AppendLine("┌──────────┐ToPvList 旧・新");
+            for (int index = 0; ; index++)
+            {
+                if (pvList.Count <= index && kifu1.CountPv() <= index)
+                {
+                    break;
+                }
+                logger.AppendLine("[" + Conv_Move.ToLog(
+                    index < pvList.Count ? pvList[index] : Move.Empty
+                    ) + "] [" + Conv_Move.ToLog(kifu1.GetPv(index)) + "]");
+            }
+            logger.AppendLine("└──────────┘");
+        }
+        public void RemoveLastPv(KwLogger logger)
+        {
+            if (1 < this.m_pv_.Count)//[0]はルート☆（*＾～＾*）
+            {
+                this.m_pv_.RemoveAt(this.m_pv_.Count - 1);
+                this.LogPv("RemoveLastPv後", logger);
+            }
+        }
+        public void ClearAllPv( KwLogger logger)
         {
             this.m_pv_.Clear();
             this.m_pv_.Add(Move.Empty);
-            this.LogPv("Clear後", logger);
+            this.LogPv("ClearAll後", logger);
         }
         public void AppendPv(Move tail,KwLogger logger)
         {
             this.m_pv_.Add(tail);
+            //this.m_pvIndex_++;
             this.LogPv("Append後", logger);
         }
         public Move GetLatestPv()
@@ -65,6 +92,26 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
                 return this.m_pv_[this.m_pv_.Count - 1];
             }
             return Move.Empty;
+        }
+        public Move GetPv(int index)
+        {
+            if (index < this.m_pv_.Count)
+            {
+                return this.m_pv_[index];
+            }
+            return Move.Empty;
+        }
+        public int CountPv()
+        {
+            return this.m_pv_.Count;
+        }
+        public List<Move> ToPvList()
+        {
+            return new List<Move>(this.m_pv_);
+        }
+        public bool IsRoot()
+        {
+            return this.m_pv_.Count == 1;
         }
         private List<Move> m_pv_;
 
@@ -77,46 +124,21 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// 根を「startpos」等の初期局面コマンドとし、次の節からは棋譜の符号「2g2f」等が連なっている。
         /// </summary>
         public MoveNode CurrentNode { get { return this.m_currentNode_; } }
-        public MoveNode ParentNode1 { get { return ((MoveNodeImpl)this.m_currentNode_).m_parentNode_; } }
-        public void ClearCurrentChildren( KwLogger logger)
+        public void RemoveCurrentChildren( KwLogger logger)
         {
-            this.CurrentNode.Child_Clear(this,logger);
+            this.CurrentNode.Child_RemoveThis(this,logger);
         }
         public void SetCurrentSetAndAdd(Move move, MoveNode newChildNode, KwLogger logger)
         {
             this.CurrentNode.Child_SetChild(move, newChildNode, this,logger);
         }
-        /// <summary>
-        /// 棋譜を空っぽにします。
-        /// 
-        /// ルートは残します。
-        /// </summary>
-        /*
-        public MoveNode OnClearCurrentMove(Sky sky)
+        public static MoveNode ClearAllCurrentMove(MoveNode curNode, Tree tree, Sky positionA, KwLogger logger)
         {
-            {
-                this.m_currentNode_ = TreeImpl.ClearCurrentMove(this.CurrentNode, this, sky);
-            }
-
-            return this.m_currentNode_;
-        }
-        */
-        public static MoveNode ClearCurrentMove(MoveNode curNode, Tree tree, Sky positionA, KwLogger logger)
-        {
-            {
-                // ルートまで遡ります。
-                while (!curNode.IsRoot())
-                {
-                    curNode = ((MoveNodeImpl)curNode).m_parentNode_;
-                }
-
-                // ルートの次の手を全クリアーします。
-                curNode.Child_Clear(tree,logger);
-            }
-
+            tree.SetCurrentNode(new MoveNodeImpl());
+            ((TreeImpl)tree).m_pv_.Clear();
+            ((TreeImpl)tree).m_pv_.Add(Move.Empty);
             tree.SetPositionA(positionA);
-
-            return curNode;
+            return tree.CurrentNode;
         }
         public MoveNode OnDoCurrentMove(MoveNode node, Sky sky)
         {
@@ -128,38 +150,18 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             kifu1.SetPositionA( positionA);
             return kifu1.CurrentNode;
         }
-        /*
-        public MoveNode OnUndoCurrentMove(MoveNode node, Sky sky)
+        public static MoveNode UndoCurrentMove(MoveNode curNode, Tree kifu1, Sky positionA, KwLogger logger)
         {
+            if (kifu1.IsRoot())
             {
-                this.m_currentNode_ = TreeImpl.UndoCurrentMove(this.CurrentNode, this, sky);
+                // やってはいけない操作は、例外を返すようにします。
+                string message = "ルート局面を削除しようとしました。";
+                throw new Exception(message);
             }
 
-            return this.m_currentNode_;
-        }
-        }*/
-        public static MoveNode UndoCurrentMove(MoveNode curNode, Tree kifu1, Sky positionA)
-        {
-            //一手戻した後処理に必要
-            // 現在の要素を切り取って返します。なければヌル。
-            // カレントは、１手前に戻ります。
-            {
-                if (curNode.IsRoot())
-                {
-                    // やってはいけない操作は、例外を返すようにします。
-                    string message = "ルート局面を削除しようとしました。";
-                    throw new Exception(message);
-                }
-
-                //>>>>> ラスト要素がルートでなかったら
-
-                // カレントを、１つ前の要素に替えます。
-                curNode = ((MoveNodeImpl)curNode).m_parentNode_;
-            }
-
+            kifu1.RemoveLastPv(logger);
             kifu1.SetPositionA(positionA);
-
-            return curNode;
+            return kifu1.CurrentNode;
         }
         /// <summary>
         /// 局面編集中

@@ -75,7 +75,9 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                         restText,
                         this.mainGui.Link_Server.KifuTree.CurrentNode,
                         this.mainGui.Link_Server.KifuTree.PositionA,//.CurNode2ok.GetNodeValue()
-                        this.mainGui, errH);//追加
+                        this.mainGui,
+                        this.mainGui.Link_Server.KifuTree,
+                        errH);//追加
                     // ↑チェンジターン済み
                     Util_Menace.Menace((MainGui_Csharp)this.mainGui, errH);// メナス
                 }

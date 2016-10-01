@@ -76,7 +76,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     earth1.Clear();
 
                     // 棋譜を空っぽにします。
-                    kifu1_mutable.SetCurrentNode(TreeImpl.ClearCurrentMove(kifu1_mutable.CurrentNode, kifu1_mutable, result.NewSky,logger));
+                    kifu1_mutable.SetCurrentNode(TreeImpl.ClearAllCurrentMove(kifu1_mutable.CurrentNode, kifu1_mutable, result.NewSky,logger));
                     curNode1 = kifu1_mutable.CurrentNode;
                     //curNode1 = kifu1_mutable.OnClearCurrentMove(result.NewSky);
 
@@ -166,7 +166,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                         earth1.Clear();
 
                         // 棋譜を空っぽにします。
-                        kifu1_mutable.SetCurrentNode(TreeImpl.ClearCurrentMove(kifu1_mutable.CurrentNode, kifu1_mutable, positionInit,logger));
+                        kifu1_mutable.SetCurrentNode(TreeImpl.ClearAllCurrentMove(kifu1_mutable.CurrentNode, kifu1_mutable, positionInit,logger));
                         curNode1 = kifu1_mutable.CurrentNode;
                         //curNode1 = kifu1_mutable.OnClearCurrentMove(positionInit);
 

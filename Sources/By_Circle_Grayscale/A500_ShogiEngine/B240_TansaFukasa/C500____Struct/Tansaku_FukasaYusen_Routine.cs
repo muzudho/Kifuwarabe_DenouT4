@@ -623,14 +623,14 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         positionA = ittemodosuResult.SyuryoSky;
                         //*/
 
-                        kifu1.SetCurrentNode(TreeImpl.UndoCurrentMove(kifu1.CurrentNode, kifu1, ittemodosuResult.SyuryoSky));
+                        kifu1.SetCurrentNode(TreeImpl.UndoCurrentMove(kifu1.CurrentNode, kifu1, ittemodosuResult.SyuryoSky,logger));
                         //kifu1.OnUndoCurrentMove(kifu1.CurrentNode, ittemodosuResult.SyuryoSky);
 
 
 
 
                         // FIXME:
-                        kifu1.ClearCurrentChildren(logger);
+                        kifu1.RemoveCurrentChildren(logger);
 
 
 

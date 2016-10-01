@@ -38,7 +38,10 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui
         /// ************************************************************************************************************************
         /// </summary>
         void ChangedTurn(
-            MoveNode endNode,
+
+            //MoveNode endNode,
+            Tree kifu1,
+
             Playerside pside,
             KwLogger errH);
 

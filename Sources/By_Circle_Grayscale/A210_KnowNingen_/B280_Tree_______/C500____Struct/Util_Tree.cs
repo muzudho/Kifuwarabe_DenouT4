@@ -11,8 +11,19 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 {
     public abstract class Util_Tree
     {
-        public static List<MoveNode> CreateHonpu1List(MoveNode endNode)
+        /// <summary>
+        /// 本譜だけ。
+        /// </summary>
+        /// <param name="endNode">葉側のノード。</param>
+        /// <param name="delegate_Foreach"></param>
+        public static void ForeachHonpu2(Tree kifu1,
+            //MoveNode endNode,
+            DELEGATE_Foreach2 delegate_Foreach)
         {
+            bool toBreak = false;
+
+            List<Move> pvList = kifu1.ToPvList();
+            /*
             // 本譜（ノードのリスト）
             List<MoveNode> honpu = new List<MoveNode>();
 
@@ -29,72 +40,19 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
                 endNode = ((MoveNodeImpl)endNode).m_parentNode_;
             }
             honpu.Reverse();
-
-            return honpu;
-        }
-
-        /// <summary>
-        /// 本譜だけ。
-        /// </summary>
-        /// <param name="endNode">葉側のノード。</param>
-        /// <param name="delegate_Foreach"></param>
-        public static void ForeachHonpu1(MoveNode endNode, DELEGATE_Foreach1 delegate_Foreach)
-        {
-            bool toBreak = false;
-
-            // 本譜（ノードのリスト）
-            List<MoveNode> honpu = Util_Tree.CreateHonpu1List(endNode);
+            */
 
             //
             // 手済みを数えます。
             //
             int temezumi = 0;//初期局面が[0]
 
-            foreach (MoveNode item in honpu)//正順になっています。
+            //foreach (MoveNode item in honpu)//正順になっています。
+            foreach (Move move in pvList)//正順になっています。
             {
-                delegate_Foreach(temezumi, item.Key, item, ref toBreak);
-                if (toBreak)
-                {
-                    break;
-                }
-
-                temezumi++;
-            }
-        }
-        /// <summary>
-        /// 本譜だけ。
-        /// </summary>
-        /// <param name="endNode">葉側のノード。</param>
-        /// <param name="delegate_Foreach"></param>
-        public static void ForeachHonpu2(MoveNode endNode, DELEGATE_Foreach2 delegate_Foreach)
-        {
-            bool toBreak = false;
-
-            // 本譜（ノードのリスト）
-            List<MoveNode> honpu = new List<MoveNode>();
-
-            //
-            // ツリー型なので、１本のリストに変換するために工夫します。
-            //
-            // カレントからルートまで遡り、それを逆順にすれば、本譜になります。
-            //
-
-            while (null != endNode)//ルートを含むところまで遡ります。
-            {
-                honpu.Add(endNode); // リスト作成
-
-                endNode = ((MoveNodeImpl)endNode).m_parentNode_;
-            }
-            honpu.Reverse();
-
-            //
-            // 手済みを数えます。
-            //
-            int temezumi = 0;//初期局面が[0]
-
-            foreach (MoveNode item in honpu)//正順になっています。
-            {
-                delegate_Foreach(temezumi, item.Key, ref toBreak);
+                delegate_Foreach(temezumi,
+                    move,//item.Key,
+                    ref toBreak);
                 if (toBreak)
                 {
                     break;

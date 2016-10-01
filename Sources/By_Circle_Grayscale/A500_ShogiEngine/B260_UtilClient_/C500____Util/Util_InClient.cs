@@ -64,7 +64,7 @@ namespace Grayscale.A500_ShogiEngine.B260_UtilClient_.C500____Util
             {
                 earth1.Clear();
 
-                kifu1.SetCurrentNode(TreeImpl.ClearCurrentMove(kifu1.CurrentNode, kifu1, null,logger));
+                kifu1.SetCurrentNode(TreeImpl.ClearAllCurrentMove(kifu1.CurrentNode, kifu1, null,logger));
                 //kifu1.OnClearCurrentMove(null);// 棋譜を空っぽにします。
 
                 // 文字列から、指定局面を作成します。

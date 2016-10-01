@@ -38,7 +38,10 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
         /// <param name="fugoList"></param>
         public static string ToJsaFugoListString(
             Earth earth1,
-            MoveNode curNode_base,
+
+            //MoveNode curNode_base,
+            Tree kifu1,
+
             string hint,
             KwLogger logger
             )
@@ -59,7 +62,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                 earth1.Clear();
 
                 // 棋譜を空っぽにします。
-                saifuKifu2.SetCurrentNode( TreeImpl.ClearCurrentMove(saifuKifu2.CurrentNode, saifuKifu2, positionInit,logger));
+                saifuKifu2.SetCurrentNode( TreeImpl.ClearAllCurrentMove(saifuKifu2.CurrentNode, saifuKifu2, positionInit,logger));
                 //saifuKifu2.OnClearCurrentMove(positionInit);
 
                 saifuEarth2.SetProperty(
@@ -67,7 +70,9 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
             }
 
             MoveNode curNode = saifuKifu2.CurrentNode;
-            Util_Tree.ForeachHonpu2(curNode_base, (int temezumi, Move move, ref bool toBreak) =>
+            Util_Tree.ForeachHonpu2(
+                kifu1,//curNode_base,
+                (int temezumi, Move move, ref bool toBreak) =>
             {
                 if (0 == temezumi)
                 {
@@ -105,7 +110,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                 // 後手の符号がまだ含まれていない。
                 string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
                     saifu_newChild.Key,
-                    saifu_newChild.ToPvList(),
+                    saifuKifu2.ToPvList(),
                     saifu_PositionA,
                     logger);
                 sb.Append(jsaFugoStr);
@@ -129,7 +134,9 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
         /// <param name="fugoList"></param>
         public static string ToSfen_PositionCommand(
             Earth earth1,
-            MoveNode endNode1
+
+            //MoveNode endNode1
+            Tree kifu1
             )
         {
             StringBuilder sb = new StringBuilder();
@@ -140,7 +147,10 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
             // 本譜
             int count = 0;
-            Util_Tree.ForeachHonpu2(endNode1, (int temezumi, Move move, ref bool toBreak) =>
+            Util_Tree.ForeachHonpu2(
+                //endNode1,
+                kifu1,
+                (int temezumi, Move move, ref bool toBreak) =>
             {
                 if (0 == temezumi)
                 {

@@ -143,7 +143,9 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     Util_Function_Csharp.Komaokuri_Gui(restText,
                         mainGui3.Link_Server.KifuTree.CurrentNode,
                         mainGui3.Link_Server.KifuTree.PositionA,//.CurNode2ok.GetNodeValue()
-                        mainGui3, errH);
+                        mainGui3,
+                        mainGui3.Link_Server.KifuTree,
+                        errH);
                     Util_Menace.Menace(mainGui3, errH);// メナス
                 };
 
@@ -175,7 +177,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     }
 
                     Util_Function_Csharp.Makimodosi_Gui(
-                        mainGui2.Link_Server.KifuTree.CurrentNode,
+                        mainGui2.Link_Server.KifuTree,//.CurrentNode,
                         mainGui2.Link_Server.KifuTree.PositionA.KaisiPside,
                         mainGui2,
                         movedKoma, foodKoma, fugoJStr, Util_Function_Csharp.ReadLine_FromTextbox(), errH);
@@ -395,7 +397,9 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                             modifyNode,
                             modifyNode.Key,
                             positionA,
-                            out jsaFugoStr, errH2);
+                            out jsaFugoStr,
+                            mainGui3.Link_Server.KifuTree,
+                            errH2);
                         mainGui3.RepaintRequest.SetFlag_RefreshRequest();
                     }
                 };
@@ -577,7 +581,9 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         mainGui.Link_Server.KifuTree.CurrentNode,
                         mainGui.Link_Server.KifuTree.CurrentNode.Key,
                         positionA,
-                        out jsaFugoStr, logger);
+                        out jsaFugoStr,
+                        mainGui.Link_Server.KifuTree,
+                        logger);
                     mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
                     //------------------------------
@@ -597,7 +603,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                 {
                     //System.C onsole.WriteLine("マウス左ボタンを押したのでチェンジターンします。");
                     mainGui.ChangedTurn(
-                        mainGui.Link_Server.KifuTree.CurrentNode,
+                        mainGui.Link_Server.KifuTree,//.CurrentNode,
                         mainGui.Link_Server.KifuTree.PositionA.KaisiPside,
                         logger);
                 }
@@ -615,7 +621,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
             mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
             mainGui.ChangedTurn(
-                mainGui.Link_Server.KifuTree.CurrentNode,
+                mainGui.Link_Server.KifuTree,//.CurrentNode,
                 mainGui.Link_Server.KifuTree.PositionA.KaisiPside,
                 logger);//マウス左ボタンを押したのでチェンジターンします。
 

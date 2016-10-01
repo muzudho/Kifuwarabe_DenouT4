@@ -91,19 +91,9 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
         {
             return this.KifuA.CurrentNode.Key;
         }
-        /*
-        private Children GetCurChildren()
+        public Move ToCurChildItem()
         {
-            return this.KifuA.CurChildren;
-        }
-        */
-        public bool HasItemCurChildren()
-        {
-            return this.KifuA.CurrentNode.Child_Exists;
-        }
-        public Move ToCurChildrenItem()
-        {
-            return this.KifuA.CurrentNode.Child_GetItem(this.KifuA);
+            return this.KifuA.CurrentNode.Key;//.Child_GetItem(this.KifuA);
         }
 
         /// <summary>

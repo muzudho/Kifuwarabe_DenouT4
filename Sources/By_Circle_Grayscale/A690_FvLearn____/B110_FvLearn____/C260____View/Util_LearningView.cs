@@ -155,15 +155,17 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
 
 
                 Move move;
-                if (curNodeB.IsRoot())
+                /*
+                if (curNodeB.IsRoot(kifu1,logger))
                 {
                     move = Move.Empty;
                 }
                 else
                 {
+                */
                     // FIXME: 未テスト。
                     move = Conv_Move.ToMove_ByCsa(csaSasite, kifu1.PositionA);
-                }
+                //}
                 HonpuSasiteListItemImpl listItem = new HonpuSasiteListItemImpl(csaSasite, move);
                 uc_Main.LstSasite.Items.Add(listItem);
             }
@@ -187,14 +189,14 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             uc_Main.TxtAllNodesCount.Text = "--";// FIXME: 一旦削除
 
             // 合法手の数
-            uc_Main.TxtGohosyuTe.Text = learningData.HasItemCurChildren().ToString();
+            uc_Main.TxtGohosyuTe.Text = "不明";
         }
 
         /// <summary>
         /// 合法手リストの表示
         /// </summary>
         /// <param name="uc_Main"></param>
-        public static void Aa_ShowGohosyu2(LearningData learningData, Uc_Main uc_Main, KwLogger errH)
+        public static void Aa_ShowGohosyu2(LearningData learningData, Uc_Main uc_Main, KwLogger logger)
         {
             //----------------------------------------
             // フォルダー作成
@@ -210,16 +212,16 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 //uc_Main.LstGohosyu.Items.Clear();
                 int itemNumber = 0;
                 Sky positionA = learningData.PositionA;
-                List<Move> pvList = learningData.KifuA.CurrentNode.ToPvList();
+                List<Move> pvList = learningData.KifuA.ToPvList();
                 {
-                    Move moveB = learningData.ToCurChildrenItem();
+                    Move moveB = learningData.ToCurChildItem();
                     pvList.Add(moveB);
 
                     Util_IttesasuSuperRoutine.DoMove_Super1(
                         ref positionA,//指定局面
                         ref moveB,
                         "D100",
-                        errH
+                        logger
                     );
 
 
@@ -234,7 +236,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                         Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
                             moveB,
                             pvList,
-                            positionA, errH)
+                            positionA, logger)
                             );
                     list.Add(item);
 
@@ -246,7 +248,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                         moveB,
                         positionA,
                         "D900",
-                        errH
+                        logger
                         );
                     positionA = ittemodosuResult.SyuryoSky;
 
