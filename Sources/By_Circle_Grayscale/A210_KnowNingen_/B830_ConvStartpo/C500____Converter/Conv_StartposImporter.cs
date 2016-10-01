@@ -19,6 +19,7 @@ using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B830_ConvStartpo.C500____Converter
 {
@@ -61,7 +62,7 @@ namespace Grayscale.A210_KnowNingen_.B830_ConvStartpo.C500____Converter
                 Sky newSky = startposImporter.ToSky();
                 newSky.SetKaisiPside(parsedKyokumen.FirstPside);
                 newSky.SetTemezumi(startposImporter.RO_SfenStartpos.Temezumi);// FIXME: 将棋所だと常に 1 かも？？
-                parsedKyokumen.NewMove = Conv_Move.GetErrorMove();//ルートなので
+                parsedKyokumen.NewMove = Move.Empty;// Conv_Move.GetErrorMove();//ルートなので
                 parsedKyokumen.NewSky = newSky;
             }
 

@@ -51,7 +51,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
         /// </summary>
         /// <param name="uc_Main"></param>
         /// <param name="tyoseiryo"></param>
-        public static void A_RankUp_SelectedSasite(Uc_Main uc_Main, float tyoseiryo, KwLogger errH)
+        public static void A_RankUp_SelectedSasite(Uc_Main uc_Main, float tyoseiryo, KwLogger logger)
         {
             //----------------------------------------
             // 選択したノードを参考に、減点を行う。
@@ -64,8 +64,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                 errH.AppendLine("sfen=" + sfen);
                 errH.Flush(LogTypes.Plain);
 #endif
-
-                if (uc_Main.LearningData.ContainsKeyCurChildNode(move1))
+                /*
+                if (uc_Main.LearningData.ContainsKeyCurChildNode(move1, uc_Main.LearningData.KifuA, logger))
                 {
 #if DEBUG
                     errH.AppendLine("----------------------------------------");
@@ -81,11 +81,11 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                         ref positionA,//指定局面
                         ref move1,
                         "F100",
-                        errH
+                        logger
                     );
 
                     // 盤上の駒、持駒を数えます。
-                    N54List nextNode_n54List = Util_54List.Calc_54List(positionA, errH);
+                    N54List nextNode_n54List = Util_54List.Calc_54List(positionA, logger);
 
                     float real_tyoseiryo; //実際に調整した量。
                     Util_FvScoreing.UpdateKyokumenHyoka(
@@ -94,7 +94,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                         uc_Main.LearningData.Fv,
                         tyoseiryo,
                         out real_tyoseiryo,
-                        errH
+                        logger
                         );//相手が有利になる点
 
                     IttemodosuResult ittemodosuResult;
@@ -103,7 +103,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                         move1,
                         positionA,
                         "F900",
-                        errH
+                        logger
                         );
                     positionA = ittemodosuResult.SyuryoSky;
 
@@ -116,12 +116,13 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                     errH.Flush(LogTypes.Plain);
 #endif
                 }
+                */
             }
 
             //----------------------------------------
             // 点数を付け直すために、ノードを一旦、全削除
             //----------------------------------------
-            uc_Main.LearningData.KifuA.ClearChildren();
+            uc_Main.LearningData.KifuA.ClearCurrentChildren(logger);
 
             //----------------------------------------
             // ネクスト・ノードを再作成

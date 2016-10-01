@@ -89,7 +89,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
         public Sky PositionA { get; set; }// FIXME: できればカレントノードの局面。
         public Move GetMove()
         {
-            return this.KifuA.CurNode.Key;
+            return this.KifuA.CurrentNode.Key;
         }
         /*
         private Children GetCurChildren()
@@ -99,15 +99,11 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
         */
         public bool HasItemCurChildren()
         {
-            return this.KifuA.CurNode.Child_HasItem;
+            return this.KifuA.CurrentNode.Child_Exists;
         }
         public Move ToCurChildrenItem()
         {
-            return this.KifuA.CurNode.Child_GetItem();
-        }
-        public bool ContainsKeyCurChildNode(Move move)
-        {
-            return this.KifuA.CurNode.Child_ContainsKey(move);
+            return this.KifuA.CurrentNode.Child_GetItem(this.KifuA);
         }
 
         /// <summary>

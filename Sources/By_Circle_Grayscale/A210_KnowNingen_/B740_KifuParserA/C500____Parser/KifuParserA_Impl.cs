@@ -8,6 +8,7 @@ using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 using System;
 using System.Runtime.CompilerServices;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 {
@@ -40,7 +41,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             Earth earth1,
             Tree kifu1_mutable,
             KifuParserA_Genjo genjo,
-            KwLogger errH
+            KwLogger logger
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -58,7 +59,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 #endif
 
                 KifuParserA_State nextState;
-                MoveNode curNode1 = kifu1_mutable.CurNode;
+                MoveNode curNode1 = kifu1_mutable.CurrentNode;
 
                 MoveNodeType moveNodeType;
                 genjo.InputLine = this.State.Execute(
@@ -66,15 +67,18 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     ref result,
                     earth1,
                     curNode1.Key,
-                    kifu1_mutable.PositionA,// curNode1.GetNodeValue(),
+                    kifu1_mutable.PositionA,
                     out nextState,
                     this,
-                    genjo, errH);
+                    genjo, logger);
                 if (MoveNodeType.Clear == moveNodeType)
                 {
                     earth1.Clear();
 
-                    curNode1 = kifu1_mutable.OnClearMove(result.NewSky);// 棋譜を空っぽにします。
+                    // 棋譜を空っぽにします。
+                    kifu1_mutable.SetCurrentNode(TreeImpl.ClearCurrentMove(kifu1_mutable.CurrentNode, kifu1_mutable, result.NewSky,logger));
+                    curNode1 = kifu1_mutable.CurrentNode;
+                    //curNode1 = kifu1_mutable.OnClearCurrentMove(result.NewSky);
 
                     earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
                 }
@@ -85,9 +89,10 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                         earth1,
                         kifu1_mutable,
                         result.Out_newNode_OrNull.Key,
-                        result.NewSky
+                        result.NewSky,
+                        logger
                         );
-                    curNode1 = kifu1_mutable.CurNode;
+                    curNode1 = kifu1_mutable.CurrentNode;
                     // ■■■■■■■■■■カレント・チェンジ■■■■■■■■■■
                     result.SetNode(curNode1,
                         result.NewSky
@@ -115,7 +120,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             Earth earth1,
             Tree kifu1_mutable,
             KifuParserA_Genjo genjo,
-            KwLogger errH
+            KwLogger logger
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -132,7 +137,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
                 KifuParserA_State nextState = this.State;
 
-                MoveNode curNode1 = kifu1_mutable.CurNode;
+                MoveNode curNode1 = kifu1_mutable.CurrentNode;
                 while (!genjo.IsBreak())//breakするまでくり返し。
                 {
                     if ("" == genjo.InputLine)
@@ -154,13 +159,16 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                         kifu1_mutable.PositionA,// curNode1.GetNodeValue(), //
                         out nextState,
                         this,
-                        genjo, errH);
+                        genjo, logger);
                     if (MoveNodeType.Clear == moveNodeType)
                     {
                         Sky positionInit = Util_SkyCreator.New_Hirate();
                         earth1.Clear();
 
-                        curNode1 = kifu1_mutable.OnClearMove(positionInit);// 棋譜を空っぽにします。
+                        // 棋譜を空っぽにします。
+                        kifu1_mutable.SetCurrentNode(TreeImpl.ClearCurrentMove(kifu1_mutable.CurrentNode, kifu1_mutable, positionInit,logger));
+                        curNode1 = kifu1_mutable.CurrentNode;
+                        //curNode1 = kifu1_mutable.OnClearCurrentMove(positionInit);
 
                         earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
                     }
@@ -172,9 +180,10 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                             earth1,
                             kifu1_mutable,
                             result.Out_newNode_OrNull.Key,
-                            result.NewSky
+                            result.NewSky,
+                            logger
                             );
-                        MoveNode newNodeB = kifu1_mutable.CurNode;
+                        MoveNode newNodeB = kifu1_mutable.CurrentNode;
                         // ■■■■■■■■■■カレント・チェンジ■■■■■■■■■■
                         result.SetNode(newNodeB,
                             result.NewSky

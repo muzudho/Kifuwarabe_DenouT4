@@ -61,7 +61,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C061____Util
 
                 logBrd_move1.YomikaisiTemezumi = kifu1.PositionA.Temezumi;//読み開始手目済み    // int.MinValue;
                 logBrd_move1.Temezumi = int.MinValue;
-                logBrd_move1.Score = (int)niniNode.MoveEx.Score;
+                logBrd_move1.Score = (int)niniNode.Score;
 
                 logF_kiki.boards.Add(logBrd_move1);
             }

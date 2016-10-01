@@ -26,7 +26,6 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
         Sky PositionA { get; set; }
         Move GetMove();
         Move ToCurChildrenItem();
-        bool ContainsKeyCurChildNode(Move move);
         bool HasItemCurChildren();
 
         /// <summary>

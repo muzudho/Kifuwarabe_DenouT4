@@ -214,34 +214,24 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             Earth earth1,
             Tree kifu1,
             Move move,
-            Sky positionA
+            Sky positionA,
+            KwLogger logger
             )
         {
             MoveNode newNodeB = new MoveNodeImpl(move);
 
-            if (!kifu1.CurNode.Child_ContainsKey(move))
             {
                 //----------------------------------------
                 // 次ノード追加（なければ）
                 //----------------------------------------
                 earth1.GetSennititeCounter().CountUp_New(
                     Conv_Sky.ToKyokumenHash(positionA), "After3_ChangeCurrent(次の一手なし)");
-                kifu1.AddCurChild(newNodeB.Key,newNodeB);//次ノートを追加します。//,kifu1.CurNode
-            }
-            else
-            {
-                //----------------------------------------
-                // 次ノード上書き（あれば）
-                //----------------------------------------
-                earth1.GetSennititeCounter().CountUp_New(
-                    Conv_Sky.ToKyokumenHash(positionA), "After3_ChangeCurrent（次の一手あり）");
-                kifu1.CurNode.Child_SetItem(newNodeB.Key, newNodeB);//次ノートを上書きします。
+                kifu1.SetCurrentSetAndAdd(newNodeB.Key,newNodeB,logger);//次ノートを追加します。//,kifu1.CurNode
             }
 
-            kifu1.OnDoMove(
-                newNodeB,
-                positionA
-            );//次ノードを、これからのカレントとします。
+            //次ノードを、これからのカレントとします。
+            kifu1.SetCurrentNode(TreeImpl.DoCurrentMove(newNodeB, kifu1, positionA));
+            //kifu1.OnDoCurrentMove(newNodeB, positionA);
         }
 
 

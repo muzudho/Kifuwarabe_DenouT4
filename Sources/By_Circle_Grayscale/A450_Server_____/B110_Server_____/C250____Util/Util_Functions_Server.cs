@@ -99,7 +99,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             SkyWrapper_Gui model_Manual,
             out bool toBreak,
             string hint,
-            KwLogger errH,
+            KwLogger logger,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
@@ -129,7 +129,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                         earth1,
                         kifu1,
                         genjo,
-                        errH
+                        logger
                         );
 
                     Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
@@ -163,7 +163,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                             earth1,
                             kifu1,
                             genjo,
-                            errH
+                            logger
                             );
                         Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
 
@@ -186,7 +186,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                             earth1,
                             kifu1,
                             genjo,
-                            errH
+                            logger
                             );
                         Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
 
@@ -218,20 +218,22 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                         earth1,
                         kifu1,
                         genjo,
-                        errH
+                        logger
                         );
 
                     if (null != result.Out_newNode_OrNull)
                     {
                         string jsaFugoStr;
 
-                        kifu1.OnDoMove(result.Out_newNode_OrNull, result.NewSky);
+                        kifu1.SetCurrentNode(TreeImpl.DoCurrentMove(result.Out_newNode_OrNull, kifu1, result.NewSky));
+                        //kifu1.OnDoCurrentMove(result.Out_newNode_OrNull, result.NewSky);
+
                         Util_Functions_Server.AfterSetCurNode_Srv(
                             model_Manual,
                             result.Out_newNode_OrNull,
                             result.Out_newNode_OrNull.Key,
                             result.NewSky,
-                            out jsaFugoStr, errH);
+                            out jsaFugoStr, logger);
                     }
 
                     if (genjo.IsBreak())
@@ -257,7 +259,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                         model_Manual,
                         genjo.StartposImporter_OrNull,//指定されているはず。
                         genjo,
-                        errH
+                        logger
                         );
 
                     //------------------------------
@@ -266,13 +268,17 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     string jsaFugoStr;
 
                     MoveNode curNode1 = new MoveNodeImpl(parsedKyokumen.NewMove);
-                    curNode1 = kifu1.OnClearMove(parsedKyokumen.NewSky);
+
+                    kifu1.SetCurrentNode(TreeImpl.ClearCurrentMove(kifu1.CurrentNode, kifu1, parsedKyokumen.NewSky,logger));
+                    curNode1 = kifu1.CurrentNode;
+                    //curNode1 = kifu1.OnClearCurrentMove(parsedKyokumen.NewSky);
+
                     Util_Functions_Server.AfterSetCurNode_Srv(
                         model_Manual,
                         curNode1,
                         parsedKyokumen.NewMove,
                         parsedKyokumen.NewSky,
-                        out jsaFugoStr, errH);// GUIに通知するだけ。
+                        out jsaFugoStr, logger);// GUIに通知するだけ。
                 }
 
 
@@ -351,7 +357,10 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                 "B",
                 errH
                 );
-            kifu1_mutable.OnUndoMove(kifu1_mutable.CurNode, ittemodosuResult.SyuryoSky);
+
+            kifu1_mutable.SetCurrentNode(TreeImpl.UndoCurrentMove(kifu1_mutable.CurrentNode, kifu1_mutable, ittemodosuResult.SyuryoSky));
+            //kifu1_mutable.OnUndoCurrentMove(kifu1_mutable.CurrentNode, ittemodosuResult.SyuryoSky);
+
             movedKoma = ittemodosuResult.FigMovedKoma;
             foodKoma = ittemodosuResult.FigFoodKoma;
 

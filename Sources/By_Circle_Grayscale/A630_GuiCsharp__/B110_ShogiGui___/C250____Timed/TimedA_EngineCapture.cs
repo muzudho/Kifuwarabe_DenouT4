@@ -73,7 +73,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                         );// 棋譜の[コマ送り]を実行します。
                     Util_Function_Csharp.Komaokuri_Gui(
                         restText,
-                        this.mainGui.Link_Server.KifuTree.CurNode,
+                        this.mainGui.Link_Server.KifuTree.CurrentNode,
                         this.mainGui.Link_Server.KifuTree.PositionA,//.CurNode2ok.GetNodeValue()
                         this.mainGui, errH);//追加
                     // ↑チェンジターン済み

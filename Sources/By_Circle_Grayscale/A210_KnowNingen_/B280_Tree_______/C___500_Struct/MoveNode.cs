@@ -1,5 +1,5 @@
-﻿using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using System.Collections.Generic;
 
 namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
@@ -24,26 +24,16 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
 
 
 
-
-        /// <summary>
-        /// 親ノード。変更可能。
-        /// </summary>
-        MoveNode GetParentNode();
-        void SetParentNode(MoveNode parent);
-
-
-
         
-        bool Child_HasItem { get; }
-        void Child_Clear();
-        bool Child_ContainsKey(Move key);
-        void Child_SetItem(Move key, MoveNode newNode);
+        bool Child_Exists { get; }
+        void Child_Clear(Tree kifu1, KwLogger logger);
+        void Child_SetChild(Move key, MoveNode newNode, Tree kifu1, KwLogger logger);
 
         /// <summary>
         /// 学習で使ってるだけ。
         /// </summary>
         /// <returns></returns>
-        Move Child_GetItem();
+        Move Child_GetItem(Tree kifu1);
 
         List<Move> ToPvList();
     }

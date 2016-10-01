@@ -4,6 +4,7 @@ using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using System.Collections.Generic;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 {
@@ -17,20 +18,20 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         {
             this.Score = 0.0f;
 
-            this.SetParentNode(null);
-            this.m_key_ = Conv_Move.GetErrorMove();
+            this.m_parentNode_ = null;
+            this.m_key_ = Move.Empty;
 
-            this.m_move_ = Move.Empty;
+            this.m_childMove_ = Move.Empty;
             this.m_childNode_ = null;
         }
         public MoveNodeImpl(Move move)
         {
             this.Score = 0.0f;
 
-            this.SetParentNode(null);
+            this.m_parentNode_ = null;
             this.m_key_ = move;
 
-            this.m_move_ = Move.Empty;
+            this.m_childMove_ = Move.Empty;
             this.m_childNode_ = null;
         }
 
@@ -40,15 +41,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
 
 
-        public MoveNode GetParentNode()
-        {
-            return this.parentNode;
-        }
-        public void SetParentNode(MoveNode parent)
-        {
-            this.parentNode = parent;
-        }
-        private MoveNode parentNode;
+        public MoveNode m_parentNode_;
 
 
         /// <summary>
@@ -57,7 +50,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// <returns></returns>
         public bool IsRoot()
         {
-            return this.GetParentNode() == null;
+            return this.m_parentNode_ == null;
         }
 
 
@@ -91,7 +84,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             {
                 pvList.Add(cursor.Key); // リスト作成
 
-                cursor = cursor.GetParentNode();
+                cursor = ((MoveNodeImpl)cursor).m_parentNode_;
             }
             pvList.Reverse();
 
@@ -102,11 +95,11 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 
 
 
-        public bool Child_HasItem
+        public bool Child_Exists
         {
             get
             {
-                if (this.m_move_ == Move.Empty)
+                if (this.m_childMove_ == Move.Empty)
                 {
                     return false;
                 }
@@ -117,28 +110,27 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// <summary>
         /// 次の局面への全ての候補手
         /// </summary>
-        private Move m_move_;
+        private Move m_childMove_;
         private MoveNode m_childNode_;
 
-        public bool Child_ContainsKey(Move key)
+        public void Child_Clear(Tree kifu1, KwLogger logger)
         {
-            return this.m_move_ == key && key != Move.Empty;
-        }
-        public void Child_Clear()
-        {
-            this.m_move_ = Move.Empty;
+            this.m_childMove_ = Move.Empty;
+            kifu1.ClearPv(logger);
+
             this.m_childNode_ = null;
         }
-        public void Child_SetItem(Move move, MoveNode newNode)
+        public void Child_SetChild(Move move, MoveNode newChildNode, Tree kifu1, KwLogger logger)
         {
-            this.m_move_ = move;
-            this.m_childNode_ = newNode;
-            newNode.SetParentNode(this);
-        }
+            this.m_childMove_ = move;
+            this.m_childNode_ = newChildNode;
+            kifu1.AppendPv(move,logger);
 
-        public Move Child_GetItem()
+            ((MoveNodeImpl)newChildNode).m_parentNode_ = this;
+        }
+        public Move Child_GetItem(Tree kifu1)
         {
-            return this.m_move_;
+            return this.m_childMove_;
         }
     }
 }

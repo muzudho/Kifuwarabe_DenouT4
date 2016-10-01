@@ -44,7 +44,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
         public static void ShowSasiteList(
             LearningData learningData,
             Uc_Main uc_Main,
-            KwLogger errH)
+            KwLogger logger)
         {
             //
             // まず、リストを空っぽにします。
@@ -90,14 +90,14 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     else
                     {
                         // 盤上の駒。
-                        figSrcKoma = Util_Sky_FingerQuery.InBanjoMasuNow(kaisi_Sky, pside, srcMasu, errH);
+                        figSrcKoma = Util_Sky_FingerQuery.InBanjoMasuNow(kaisi_Sky, pside, srcMasu, logger);
                     }
                     kaisi_Sky.AssertFinger(figSrcKoma);
                     Busstop srcKoma = kaisi_Sky.BusstopIndexOf(figSrcKoma);
 
                     // 先位置
                     SyElement dstMasu = Util_CsaSasite.ToDstMasu(csaSasite);
-                    Finger figFoodKoma = Util_Sky_FingerQuery.InMasuNow_FilteringBanjo(kaisi_Sky, pside, dstMasu, errH);
+                    Finger figFoodKoma = Util_Sky_FingerQuery.InMasuNow_FilteringBanjo(kaisi_Sky, pside, dstMasu, logger);
                     Komasyurui14 foodKomasyurui;
                     if (figFoodKoma == Fingers.Error_1)
                     {
@@ -139,15 +139,16 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                         out ittesasuResult,
                         ref nextMove,
                         positionA,
-                        errH
+                        logger
                     );
                     Util_IttesasuRoutine.BeforeUpdateKifuTree(
                         earth1,
                         kifu1,
                         nextMove,
-                        ittesasuResult.SyuryoKyokumenW
+                        ittesasuResult.SyuryoKyokumenW,
+                        logger
                         );
-                    curNodeB = kifu1.CurNode;
+                    curNodeB = kifu1.CurrentNode;
                     // これで、棋譜ツリーに、構造変更があったはず。
                     //↑↑一手指し
                 }
@@ -209,7 +210,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 //uc_Main.LstGohosyu.Items.Clear();
                 int itemNumber = 0;
                 Sky positionA = learningData.PositionA;
-                List<Move> pvList = learningData.KifuA.CurNode.ToPvList();
+                List<Move> pvList = learningData.KifuA.CurrentNode.ToPvList();
                 {
                     Move moveB = learningData.ToCurChildrenItem();
                     pvList.Add(moveB);
@@ -296,7 +297,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
         public static void Ittesasu_ByBtnClick(
             ref bool isRequestShowGohosyu,
             ref bool isRequestChangeKyokumenPng,
-            LearningData learningData, Uc_Main uc_Main, KwLogger errH)
+            LearningData learningData, Uc_Main uc_Main, KwLogger logger)
         {
 #if DEBUG
             Stopwatch sw1 = new Stopwatch();
@@ -316,9 +317,9 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             // リストボックスの先頭から指し手をSFEN形式で１つ取得。
             HonpuSasiteListItemImpl item = (HonpuSasiteListItemImpl)uc_Main.LstSasite.Items[0];
             Move move = item.Move;
-            if (null != errH.KwDisplayer_OrNull.Dlgt_OnLog1Append_or_Null)
+            if (null != logger.KwDisplayer_OrNull.Dlgt_OnLog1Append_or_Null)
             {
-                errH.KwDisplayer_OrNull.Dlgt_OnLog1Append_or_Null("sfen=" + Conv_Move.ToSfen(move) + Environment.NewLine);
+                logger.KwDisplayer_OrNull.Dlgt_OnLog1Append_or_Null("sfen=" + Conv_Move.ToSfen(move) + Environment.NewLine);
             }
 
             //
@@ -332,20 +333,13 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             //
             Move nextMove;
             {
-                if (learningData.ContainsKeyCurChildNode(move))
-                {
-                    nextMove = move;//次の棋譜ノードのキーが、指し手（きふわらべ式）になっています。
-                }
-                else
-                {
-                    nextMove = Conv_Move.GetErrorMove();
-                    StringBuilder sb = new StringBuilder();
-                    sb.Append("指し手[" + Conv_Move.ToSfen(move) + "]はありませんでした。\n" + learningData.DumpToAllGohosyu(learningData.PositionA));
+                nextMove = Move.Empty;// Conv_Move.GetErrorMove();
+                StringBuilder sb = new StringBuilder();
+                sb.Append("指し手[" + Conv_Move.ToSfen(move) + "]はありませんでした。\n" + learningData.DumpToAllGohosyu(learningData.PositionA));
 
-                    //Debug.Fail(sb.ToString());
-                    errH.DonimoNaranAkirameta("Util_LearningView#Ittesasu_ByBtnClick：" + sb.ToString());
-                    MessageBox.Show(sb.ToString(), "エラー");
-                }
+                //Debug.Fail(sb.ToString());
+                logger.DonimoNaranAkirameta("Util_LearningView#Ittesasu_ByBtnClick：" + sb.ToString());
+                MessageBox.Show(sb.ToString(), "エラー");
             }
 
             //----------------------------------------
@@ -357,13 +351,14 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 out ittesasuResult,
                 ref nextMove,
                 learningData.PositionA,
-                errH
+                logger
             );
             Util_IttesasuRoutine.BeforeUpdateKifuTree(
                 learningData.Earth,
                 learningData.KifuA,
                 nextMove,
-                ittesasuResult.SyuryoKyokumenW
+                ittesasuResult.SyuryoKyokumenW,
+                logger
                 );
             // これで、棋譜ツリーに、構造変更があったはず。
             //↑↑一手指し
@@ -390,12 +385,12 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 learningData.KifuA,
                 learningData.PositionA,
                 searchedPv,
-                errH);
+                logger);
             // ノード情報の表示
             Util_LearningView.Aa_ShowNode2(
                 uc_Main.LearningData,
                 uc_Main.LearningData.PositionA,
-                uc_Main, errH);
+                uc_Main, logger);
 
             // 合法手表示の更新を要求します。 
             isRequestShowGohosyu = true;

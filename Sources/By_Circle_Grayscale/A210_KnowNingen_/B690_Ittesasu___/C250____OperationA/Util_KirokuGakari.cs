@@ -11,6 +11,7 @@ using Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500____Converter;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System.Text;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 {
@@ -37,9 +38,9 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
         /// <param name="fugoList"></param>
         public static string ToJsaFugoListString(
             Earth earth1,
-            MoveNode curNode_notUse,
+            MoveNode curNode_base,
             string hint,
-            KwLogger errH
+            KwLogger logger
             )
         {
             StringBuilder sb = new StringBuilder();
@@ -51,19 +52,22 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
             // 採譜用に、新しい対局を用意します。
             Earth saifuEarth2 = new EarthImpl();
-            Tree saifuKifu2;
+            Tree saifuKifu2;//使い捨て☆
             {
                 Sky positionInit = Util_SkyCreator.New_Hirate();//日本の符号読取時
                 saifuKifu2 = new TreeImpl(positionInit);
                 earth1.Clear();
 
-                saifuKifu2.OnClearMove(positionInit);// 棋譜を空っぽにします。
+                // 棋譜を空っぽにします。
+                saifuKifu2.SetCurrentNode( TreeImpl.ClearCurrentMove(saifuKifu2.CurrentNode, saifuKifu2, positionInit,logger));
+                //saifuKifu2.OnClearCurrentMove(positionInit);
 
                 saifuEarth2.SetProperty(
                     Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面 // FIXME:平手とは限らないのでは？
             }
 
-            Util_Tree.ForeachHonpu2(curNode_notUse, (int temezumi, Move move, ref bool toBreak) =>
+            MoveNode curNode = saifuKifu2.CurrentNode;
+            Util_Tree.ForeachHonpu2(curNode_base, (int temezumi, Move move, ref bool toBreak) =>
             {
                 if (0 == temezumi)
                 {
@@ -74,7 +78,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                 //------------------------------
                 // 符号の追加（記録係）
                 //------------------------------
-                Sky saifu_PositionA = new SkyImpl(saifuKifu2.PositionA);//curNode1.GetNodeValue()
+                Sky saifu_PositionA = new SkyImpl(saifuKifu2.PositionA);
 
 
                 // 採譜用新ノード
@@ -86,25 +90,24 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                 // 記録係り用棋譜（採譜）
                 // 新しい次ノードを追加。次ノードを、これからカレントとする。
                 {
-                    if (!saifuKifu2.CurNode.Child_ContainsKey(saifu_newChild.Key))
-                    {
-                        //----------------------------------------
-                        // 次ノート追加
-                        //----------------------------------------
-                        earth1.GetSennititeCounter().CountUp_New(
-                            Conv_Sky.ToKyokumenHash(saifu_PositionA),
-                            hint + "/AppendChild_And_ChangeCurrentToChild");
-                        saifuKifu2.AddCurChild(saifu_newChild.Key, saifu_newChild);//, saifuKifu2.CurNode
-                    }
+                    //----------------------------------------
+                    // 次ノート追加
+                    //----------------------------------------
+                    earth1.GetSennititeCounter().CountUp_New(
+                        Conv_Sky.ToKyokumenHash(saifu_PositionA),
+                        hint + "/AppendChild_And_ChangeCurrentToChild");
+                    saifuKifu2.SetCurrentSetAndAdd(saifu_newChild.Key, saifu_newChild, logger);
                 }
-                saifuKifu2.OnDoMove(saifu_newChild, saifu_PositionA);//次ノードを、これからのカレントとします。
+
+                saifuKifu2.SetCurrentNode(TreeImpl.DoCurrentMove(saifu_newChild, saifuKifu2, saifu_PositionA));
+                //saifuKifu2.OnDoCurrentMove(saifu_newChild, saifu_PositionA);//次ノードを、これからのカレントとします。
 
                 // 後手の符号がまだ含まれていない。
                 string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
                     saifu_newChild.Key,
                     saifu_newChild.ToPvList(),
                     saifu_PositionA,
-                    errH);
+                    logger);
                 sb.Append(jsaFugoStr);
 
             gt_EndLoop:

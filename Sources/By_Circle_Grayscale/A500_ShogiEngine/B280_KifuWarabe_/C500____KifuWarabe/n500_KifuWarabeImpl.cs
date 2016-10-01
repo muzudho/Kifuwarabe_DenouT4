@@ -761,7 +761,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
 #if DEBUG
                 this.Log2_Png_Tyokkin_AtLoop2(line,
-                    result.Out_newNode_OrNull.MoveEx,
+                    result.Out_newNode_OrNull.Key,
                     this.Kifu_AtLoop2.PositionA,
                     logger);
 #endif
@@ -911,7 +911,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
                 // ┏━━━━プログラム━━━━┓
 
-                MoveNode curNode1 = this.Kifu_AtLoop2.CurNode;
+                MoveNode curNode1 = this.Kifu_AtLoop2.CurrentNode;
                 Sky positionA = this.Kifu_AtLoop2.PositionA;
                 int latestTemezumi = positionA.Temezumi;//現・手目済// curNode1.GetNodeValue()
 
@@ -1037,7 +1037,9 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
                                         this.Logger)
                                         );
-                                    this.Kifu_AtLoop2.OnDoMove(this.Kifu_AtLoop2.CurNode, this.Kifu_AtLoop2.PositionA);
+
+                                    this.Kifu_AtLoop2.SetCurrentNode(TreeImpl.DoCurrentMove(this.Kifu_AtLoop2.CurrentNode, this.Kifu_AtLoop2, this.Kifu_AtLoop2.PositionA));
+                                    //this.Kifu_AtLoop2.OnDoCurrentMove(this.Kifu_AtLoop2.CurrentNode, this.Kifu_AtLoop2.PositionA);
                                 }
 
 
@@ -1461,7 +1463,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             Util_Loggers.ProcessEngine_DEFAULT.AppendLine(message);
             Util_Loggers.ProcessEngine_DEFAULT.Flush(LogTypes.Plain);
         }
-        private void Log2_Png_Tyokkin_AtLoop2(string line, MoveEx moveEx, Sky sky, KwLogger errH)
+        private void Log2_Png_Tyokkin_AtLoop2(string line, Move move_forLog, Sky sky, KwLogger errH)
         {
             //OwataMinister.WARABE_ENGINE.Logger.WriteLine_AddMemo(
             //    Util_Sky307.Json_1Sky(this.Kifu.CurNode.Value.ToKyokumenConst, "現局面になっているのかなんだぜ☆？　line=[" + line + "]　棋譜＝" + KirokuGakari.ToJsaKifuText(this.Kifu, OwataMinister.WARABE_ENGINE),
@@ -1477,9 +1479,9 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 // 出力先
                 string fileName = "_log_直近の指し手.png";
 
-                SyElement srcMasu = Conv_Move.ToSrcMasu(moveEx.Move);
-                SyElement dstMasu = Conv_Move.ToDstMasu(moveEx.Move);
-                Komasyurui14 captured = Conv_Move.ToCaptured(moveEx.Move);
+                SyElement srcMasu = Conv_Move.ToSrcMasu(move_forLog);
+                SyElement dstMasu = Conv_Move.ToDstMasu(move_forLog);
+                Komasyurui14 captured = Conv_Move.ToCaptured(move_forLog);
                 int srcMasuNum = Conv_Masu.ToMasuHandle(srcMasu);
                 int dstMasuNum = Conv_Masu.ToMasuHandle(dstMasu);
 
@@ -1510,7 +1512,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                     srcMasuNum,
                     dstMasuNum,
                     foodKoma,
-                    Conv_Move.ToSfen(moveEx.Move),
+                    Conv_Move.ToSfen(move_forLog),
                     "",
                     fileName,
                     Util_KifuTreeLogWriter.REPORT_ENVIRONMENT,

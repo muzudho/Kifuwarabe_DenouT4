@@ -8,7 +8,7 @@ namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct
     {
         public MoveExImpl()
         {
-            this.Move = Conv_Move.GetErrorMove();
+            this.Move = Move.Empty;// Conv_Move.GetErrorMove();
         }
         public MoveExImpl(Move move)
         {

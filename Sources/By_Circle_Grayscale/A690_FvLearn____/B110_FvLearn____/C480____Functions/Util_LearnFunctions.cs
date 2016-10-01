@@ -161,7 +161,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
         public static void Do_RankUpHonpu(
             ref bool ref_isRequestShowGohosyu, Uc_Main uc_Main, Move move1, float tyoseiryo)
         {
-            KwLogger errH = Util_Loggers.ProcessLearner_DEFAULT;
+            KwLogger logger = Util_Loggers.ProcessLearner_DEFAULT;
 
             //----------------------------------------
             // 1P は正の数がグッド、2P は負の数がグッド。
@@ -191,12 +191,12 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
                     ref positionA,//指定局面
                     ref moveB,
                     "E100",
-                    errH
+                    logger
                 );
 
 
                 // 盤上の駒、持駒を数えます。
-                N54List childNode_n54List = Util_54List.Calc_54List(positionA, errH);
+                N54List childNode_n54List = Util_54List.Calc_54List(positionA, logger);
 
                 float real_tyoseiryo; //実際に調整した量。
                 Util_FvScoreing.UpdateKyokumenHyoka(
@@ -205,7 +205,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
                     uc_Main.LearningData.Fv,
                     tyoseiryo_bad,
                     out real_tyoseiryo,
-                    errH
+                    logger
                     );//相手が有利になる点
                 tyoseiryo_good += -real_tyoseiryo;
 
@@ -216,7 +216,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
                     moveB,//この関数が呼び出されたときの指し手☆（＾～＾）
                     positionA,
                     "E900",
-                    errH
+                    logger
                     );
                 positionA = ittemodosuResult.SyuryoSky;
 
@@ -228,7 +228,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
             //
             // 本譜手
             //
-            if (uc_Main.LearningData.ContainsKeyCurChildNode(move1))
+            /*
+            if (uc_Main.LearningData.ContainsKeyCurChildNode(move1, uc_Main.LearningData.KifuA, logger))
             {
                 // 進める
                 Move moveD = move1;
@@ -236,11 +237,11 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
                     ref positionA,//指定局面
                     ref moveD,
                     "H100_LearnFunc",
-                    errH
+                    logger
                 );
 
                 // 盤上の駒、持駒を数えます。
-                N54List currentNode_n54List = Util_54List.Calc_54List(positionA, errH);
+                N54List currentNode_n54List = Util_54List.Calc_54List(positionA, logger);
 
                 float real_tyoseiryo; //実際に調整した量。
                 Util_FvScoreing.UpdateKyokumenHyoka(
@@ -249,7 +250,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
                     uc_Main.LearningData.Fv,
                     tyoseiryo_good,
                     out real_tyoseiryo,
-                    errH
+                    logger
                     );//自分が有利になる点
 
 
@@ -259,17 +260,20 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
                     moveD,//この関数が呼び出されたときの指し手☆（＾～＾）
                     positionA,
                     "H900_LearnFunc",
-                    errH
+                    logger
                     );
                 positionA = ittemodosuResult.SyuryoSky;
             }
             else
             {
+            */
                 Debug.Fail("指し手[" + move1 +
                     "]に対応する次ノードは作成されていませんでした。\n" +
                     uc_Main.LearningData.DumpToAllGohosyu(
                         uc_Main.LearningData.PositionA));
+            /*
             }
+            */
 
             // 局面の合法手表示の更新を要求します。
             ref_isRequestShowGohosyu = true;

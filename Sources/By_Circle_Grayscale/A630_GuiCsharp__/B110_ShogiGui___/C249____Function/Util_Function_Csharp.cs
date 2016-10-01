@@ -31,7 +31,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
         /// </summary>
         public static void Perform_SyokiHaichi_CurrentMutable(
             MainGui_Csharp mainGui,
-            KwLogger errH
+            KwLogger logger
             )
         {
             MoveNode newNode = new MoveNodeImpl();
@@ -39,7 +39,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             Sky positionA = Util_SkyCreator.New_Hirate();//[初期配置]ボタン押下時
             mainGui.Link_Server.Earth.Clear();
 
-            mainGui.Link_Server.KifuTree.OnClearMove(positionA);// 棋譜を空っぽにします。
+            mainGui.Link_Server.KifuTree.SetCurrentNode(TreeImpl.ClearCurrentMove(mainGui.Link_Server.KifuTree.CurrentNode, mainGui.Link_Server.KifuTree, positionA,logger));
+            //mainGui.Link_Server.KifuTree.OnClearCurrentMove(positionA);// 棋譜を空っぽにします。
 
             mainGui.Link_Server.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
 
@@ -53,7 +54,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
                 newNode,
                 newNode.Key,
                 positionA,
-                out jsaFugoStr, errH);
+                out jsaFugoStr, logger);
             mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
             mainGui.RepaintRequest.SetFlag_RecalculateRequested();// 駒の再描画要求

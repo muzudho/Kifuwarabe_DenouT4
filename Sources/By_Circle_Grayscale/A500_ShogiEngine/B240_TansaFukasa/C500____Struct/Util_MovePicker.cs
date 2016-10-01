@@ -39,22 +39,21 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         /// <param name="out_yomiDeep"></param>
         /// <param name="out_a_childrenBest"></param>
         /// <param name="errH"></param>
-        public static void CreateMovelist_BeforeLoop(
+        public static List<Move> CreateMovelist_BeforeLoop(
             Tansaku_Genjo genjo,
             
-            Move move_ForLog,
+            //Move move_ForLog,
             Sky pos1,//この局面から合法手を作成☆（＾～＾）
 
-            out List<Move> out_movelist,
             ref int searchedMaxDepth,
             out int out_yomiDeep,
             KwLogger errH
             )
         {
-            out_movelist = Util_MovePicker.WAAAA_Create_ChildNodes(
+            List<Move> result_movelist = Util_MovePicker.WAAAA_Create_ChildNodes(
                 genjo,
                 pos1,
-                move_ForLog,//ログ用
+                //move_ForLog,//ログ用
                 errH);
 
             out_yomiDeep = pos1.Temezumi - genjo.YomikaisiTemezumi + 1;
@@ -62,6 +61,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             {
                 searchedMaxDepth = out_yomiDeep - 1;
             }
+
+            return result_movelist;
         }
 
 
@@ -82,7 +83,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         private static List<Move> WAAAA_Create_ChildNodes(
             Tansaku_Genjo genjo,
             Sky positionA,
-            Move move_ForLog,
+            //Move move_ForLog,
             KwLogger logger
             )
         {
@@ -109,7 +110,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
 #if DEBUG
                 MmLogGenjoImpl mm_log_orNull = null;
                 KaisetuBoard logBrd_move1;
-                Tansaku_FukasaYusen_Routine.Log1(genjo, move_ForLog, positionA, out mm_log_orNull, out logBrd_move1, logger);
+                Tansaku_FukasaYusen_Routine.Log1(genjo, positionA, out mm_log_orNull, out logBrd_move1, logger);
 #endif
 
                 //----------------------------------------

@@ -228,26 +228,25 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     temezumi,
                     isHonshogi, mode_Tansaku, errH);
 
+                // 最初は投了からスタートだぜ☆（*＾～＾*）
                 MoveEx a_bestmoveEx_Children = new MoveExImpl(
                     Move.Empty,
-                    Util_Scoreing.GetWorstScore(positionA.KaisiPside)// プレイヤー1ならmax値、プレイヤー2ならmin値。
-                    );// kifu1.CurNode.MoveEx;
-                Move moveA = a_bestmoveEx_Children.Move;
+                    //最悪点からスタートだぜ☆（＾～＾）
+                    // プレイヤー1ならmax値、プレイヤー2ならmin値。
+                    Util_Scoreing.GetWorstScore(pside)
+                    );
 
                 int wideCount2 = 0;
 
                 // 
                 // （１）合法手に一対一対応した子ノードを作成し、ハブ・ノードにぶら下げます。
                 //
-                List<Move> movelist;
                 int yomiDeep;
-                Util_MovePicker.CreateMovelist_BeforeLoop(
+                List<Move> movelist = Util_MovePicker.CreateMovelist_BeforeLoop(
                     genjo,
 
-                    moveA,
                     positionA,
 
-                    out movelist,
                     ref searchedMaxDepth,
                     out yomiDeep,
                     errH
@@ -272,7 +271,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         );
 
                     a_bestmoveEx_Children = Util_Scoreing.GetHighScore(
-                        moveA,
+                        a_bestmoveEx_Children.Move,
                         score,
                         a_bestmoveEx_Children, positionA.KaisiPside);
                 }
@@ -284,12 +283,12 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         ref searchedNodes,
                         searchedPv,
                         genjo,
-                        Util_Scoreing.GetWorstScore(pside),//最悪点からスタートだぜ☆（＾～＾）
 
                         positionA.Temezumi,
-                        moveA,
                         positionA,//この局面から合法手を作成☆（＾～＾）
-                        kifu1.CurNode,// ツリーを伸ばしているぜ☆（＾～＾）
+                        a_bestmoveEx_Children.Move,
+                        a_bestmoveEx_Children.Score,
+                        kifu1.CurrentNode,// ツリーを伸ばしているぜ☆（＾～＾）
                         kifu1,
 
                         movelist.Count,
@@ -435,28 +434,28 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         /// <param name="genjo"></param>
         /// <param name="alphabeta_otherBranchDecidedValue"></param>
         /// <param name="args"></param>
-        /// <param name="errH"></param>
+        /// <param name="logger"></param>
         /// <returns>子の中で最善の点</returns>
         private static MoveEx WAAA_Yomu_Loop(
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
             string[] searchedPv,
             Tansaku_Genjo genjo,
-            float parentsiblingBestScore,
 
             int kaisiTemezumi,
-            Move mov1,//改造後
             Sky positionA,//この局面から、合法手を作成☆（＾～＾）
-            MoveNode nod1,// ツリーを伸ばしているぜ☆（＾～＾）
+            Move baseMov1,//改造後
+            float parentsiblingBestScore,
+            MoveNode baseNod1,// ツリーを伸ばしているぜ☆（＾～＾）
             Tree kifu1,
 
             int movelist_count,
             EvaluationArgs args,
-            KwLogger errH
+            KwLogger logger
             )
         {
             int exceptionArea = 0;
-            MoveEx result_mov3;
+            MoveEx movExResult_thisDepth;
 
             try
             {
@@ -471,31 +470,28 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                 // 
                 // （１）合法手に一対一対応した子ノードを作成し、ハブ・ノードにぶら下げます。
                 //
-                List<Move> movelist2;
                 int yomiDeep2;
-                Util_MovePicker.CreateMovelist_BeforeLoop(
+                List<Move> movelist2 = Util_MovePicker.CreateMovelist_BeforeLoop(
                     genjo,
 
-                    mov1,
                     positionA,
 
-                    out movelist2,
                     ref searchedMaxDepth,
                     out yomiDeep2,
-                    errH
+                    logger
                     );
 
                 // 空っぽにして用意しておくぜ☆
-                result_mov3 = new MoveExImpl(Move.Empty);
-                result_mov3.SetScore(Util_Scoreing.GetWorstScore(positionA.KaisiPside));// プレイヤー1ならmax値、プレイヤー2ならmin値。
+                movExResult_thisDepth = new MoveExImpl(Move.Empty);
+                movExResult_thisDepth.SetScore(Util_Scoreing.GetWorstScore(positionA.KaisiPside));// プレイヤー1ならmax値、プレイヤー2ならmin値。
 
                 exceptionArea = 2000;
 
                 int wideCount1 = 0;
-                foreach (Move iMov in movelist2)//次に読む手
+                foreach (Move iMov_child_const in movelist2)//次に読む手
                 {
-                    Move mov2 = iMov;
-                    MoveNode nod2 = new MoveNodeImpl(mov2);
+                    Move iMov_child_variable = iMov_child_const;
+                    MoveNode iNod_child = new MoveNodeImpl(iMov_child_variable);
 
                     if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(
                         yomiDeep2,
@@ -511,25 +507,25 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         //----------------------------------------
                         // もう深くよまないなら
                         //----------------------------------------
-                        float this_score = Tansaku_FukasaYusen_Routine.Do_Leaf(
+                        float baseDepth_score = Tansaku_FukasaYusen_Routine.Do_Leaf(
                             genjo,
 
                             positionA,//改造前
 
                             args,
-                            errH
+                            logger
                             );
 
-                        result_mov3 = new MoveExImpl(nod1.Key, this_score);
-                        /*
-                        result_mov3 = Util_Scoreing.GetHighScore(
-                            nod1.Key,
-                            this_score,
-                            result_mov3,
+                        //result_movEx3 = new MoveExImpl(nod1.Key, this_score);
+                        //*
+                        movExResult_thisDepth = Util_Scoreing.GetHighScore(
+                            baseNod1.Key,
+                            baseDepth_score,
+                            movExResult_thisDepth,
                             positionA.KaisiPside
                             );
 
-                        */
+                        //*/
                         wideCount1++;
                         break;
                     }
@@ -559,9 +555,9 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         // 局面
                         Util_IttesasuSuperRoutine.DoMove_Super1(
                                 ref positionA,//指定局面
-                                ref mov2,
+                                ref iMov_child_variable,
                                 "C100",
-                                errH
+                                logger
                         );
 
                         exceptionArea = 44011;
@@ -569,12 +565,12 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         try
                         {
                             // 自分を親要素につなげたあとで、子を検索するぜ☆（＾～＾）
-                            kifu1.AddCurChild(mov2,nod2);// ツリーを伸ばしているぜ☆（＾～＾）//,nod1
+                            kifu1.SetCurrentSetAndAdd(iMov_child_variable,iNod_child, logger);// ツリーを伸ばしているぜ☆（＾～＾）//,nod1
                         }
                         catch (Exception ex)
                         {
-                            errH.DonimoNaranAkirameta(ex, "指し手をツリーに追加したとき。\n"+
-                                "mov2    =" + Conv_Move.ToLog(mov2)
+                            logger.DonimoNaranAkirameta(ex, "指し手をツリーに追加したとき。\n"+
+                                "mov2    =" + Conv_Move.ToLog(iMov_child_variable)
                                 );
                             throw ex;//追加
                         }
@@ -582,8 +578,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
 
 
 
-
-                        kifu1.OnDoMove(nod2, positionA);
+                        kifu1.SetCurrentNode(TreeImpl.DoCurrentMove(iNod_child, kifu1, positionA));
+                        //kifu1.OnDoCurrentMove(iNod_child, positionA);
 
 
 
@@ -594,22 +590,22 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         // これを呼び出す回数を減らすのが、アルファ法。
                         // 枝か、葉か、確定させにいきます。
                         // （＾▽＾）再帰☆
-                        MoveEx mov4 = Tansaku_FukasaYusen_Routine.WAAA_Yomu_Loop(
+                        MoveEx iMovEx_child_temp = Tansaku_FukasaYusen_Routine.WAAA_Yomu_Loop(
                             ref searchedMaxDepth,
                             ref searchedNodes,
                             searchedPv,
                             genjo,
-                            result_mov3.Score,
 
                             positionA.Temezumi,
-                            mov2,//改造後
                             positionA,//この局面から合法手を作成☆（＾～＾）
-                            kifu1.CurNode,// nod2,// ツリーを伸ばしているぜ☆（＾～＾）
+                            iMov_child_variable,//改造後
+                            movExResult_thisDepth.Score,
+                            kifu1.CurrentNode,// ツリーを伸ばしているぜ☆（＾～＾）
                             kifu1,
 
                             movelist2.Count,
                             args,
-                            errH);
+                            logger);
 
                         exceptionArea = 6000;
 
@@ -619,20 +615,22 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         IttemodosuResult ittemodosuResult;
                         Util_IttemodosuRoutine.UndoMove(
                             out ittemodosuResult,
-                            mov2,//mov1,//この関数が呼び出されたときの指し手☆（＾～＾）
+                            iMov_child_variable,//mov1,//この関数が呼び出されたときの指し手☆（＾～＾）
                             positionA,
                             "C900",
-                            errH
+                            logger
                             );
                         positionA = ittemodosuResult.SyuryoSky;
                         //*/
-                        kifu1.OnUndoMove(kifu1.CurNode, ittemodosuResult.SyuryoSky);
+
+                        kifu1.SetCurrentNode(TreeImpl.UndoCurrentMove(kifu1.CurrentNode, kifu1, ittemodosuResult.SyuryoSky));
+                        //kifu1.OnUndoCurrentMove(kifu1.CurrentNode, ittemodosuResult.SyuryoSky);
 
 
 
 
                         // FIXME:
-                        kifu1.ClearChildren();
+                        kifu1.ClearCurrentChildren(logger);
 
 
 
@@ -643,7 +641,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         //----------------------------------------
                         // 子要素の検索が終わった時点で、読み筋を格納☆
                         //----------------------------------------
-                        searchedPv[yomiDeep2] = Conv_Move.ToSfen(mov2); //FIXME:
+                        searchedPv[yomiDeep2] = Conv_Move.ToSfen(iMov_child_variable); //FIXME:
                         searchedPv[yomiDeep2 + 1] = "";//後ろの１手を消しておいて 終端子扱いにする。
 
 
@@ -655,15 +653,15 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         //
                         // 子の点数を、自分に反映させるぜ☆
                         bool alpha_cut;
-                        result_mov3 = Util_Scoreing.Update_BestScore_And_Check_AlphaCut(
-                            result_mov3,// これを更新する
+                        movExResult_thisDepth = Util_Scoreing.Update_BestScore_And_Check_AlphaCut(
+                            movExResult_thisDepth,// これを更新する
 
                             yomiDeep2,// yomiDeep0,
 
                             positionA.KaisiPside,
 
                             parentsiblingBestScore,
-                            mov4,
+                            iMovEx_child_temp,
 
                             out alpha_cut
                             );
@@ -706,8 +704,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                             i++;
                         }
 
-                        errH.DonimoNaranAkirameta(ex, "棋譜ツリーで例外です(A)。exceptionArea=" + exceptionArea
-                            + " entry.Key=" + Conv_Move.ToSfen(mov2)
+                        logger.DonimoNaranAkirameta(ex, "棋譜ツリーで例外です(A)。exceptionArea=" + exceptionArea
+                            + " entry.Key=" + Conv_Move.ToSfen(iMov_child_variable)
                             //+ " node_yomi.CountAllNodes=" + node_yomi_KAIZOMAE.CountAllNodes()
                             + " 指し手候補="+sb.ToString());
                         throw ex;
@@ -717,22 +715,22 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             }
             catch (Exception ex)
             {
-                errH.DonimoNaranAkirameta(ex, "棋譜ツリーで例外です(B)。exceptionArea=" + exceptionArea);
+                logger.DonimoNaranAkirameta(ex, "棋譜ツリーで例外です(B)。exceptionArea=" + exceptionArea);
                 throw ex;
             }
 
-            return result_mov3;
+            return movExResult_thisDepth;
         }
 #if DEBUG
         public static void Log1(
             Tansaku_Genjo genjo,
-            Move move_forLog,
             Sky src_Sky,
             out MmLogGenjoImpl out_mm_log,
             out KaisetuBoard out_logBrd_move1,
             KwLogger errH
         )
         {
+            Move move_forLog = Move.Empty;//ログ出力しないことにした☆（＞＿＜）
             out_logBrd_move1 = new KaisetuBoard();// 盤１個分のログの準備
 
             try

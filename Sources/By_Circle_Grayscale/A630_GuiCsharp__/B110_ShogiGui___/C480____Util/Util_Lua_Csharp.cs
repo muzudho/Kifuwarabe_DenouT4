@@ -135,11 +135,12 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
         /// </summary>
         public static void ClearKifu(MainGui_Csharp mainGui, RepaintRequest repaintRequest)
         {
-            KwLogger errH = Util_Loggers.ProcessNone_ERROR;
+            KwLogger logger = Util_Loggers.ProcessNone_ERROR;
 
             mainGui.Link_Server.Earth.Clear();
 
-            mainGui.Link_Server.KifuTree.OnClearMove(null);// 棋譜を空っぽにします。
+            mainGui.Link_Server.KifuTree.SetCurrentNode(TreeImpl.ClearCurrentMove(mainGui.Link_Server.KifuTree.CurrentNode, mainGui.Link_Server.KifuTree, null,logger));
+            //mainGui.Link_Server.KifuTree.OnClearCurrentMove(null);// 棋譜を空っぽにします。
             // FIXME:
 
             Sky newSky = new SkyImpl(mainGui.SkyWrapper_Gui.GuiSky);
@@ -242,13 +243,17 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
                 MoveNode newNode = new MoveNodeImpl();
 
                 string jsaFugoStr;
-                mainGui.Link_Server.KifuTree.OnClearMove(newSky);
+
+                mainGui.Link_Server.KifuTree.SetCurrentNode(TreeImpl.ClearCurrentMove(mainGui.Link_Server.KifuTree.CurrentNode, mainGui.Link_Server.KifuTree, newSky,logger));
+                //mainGui.Link_Server.KifuTree.OnClearCurrentMove(newSky);
+
+
                 Util_Functions_Server.AfterSetCurNode_Srv(
                     mainGui.SkyWrapper_Gui,
                     newNode,
                     newNode.Key,
                     newSky,
-                    out jsaFugoStr, errH);
+                    out jsaFugoStr, logger);
                 repaintRequest.SetFlag_RefreshRequest();
 
                 mainGui.Link_Server.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "9/9/9/9/9/9/9/9/9 b K1R1B1G2S2N2L2P9 k1r1b1g2s2n2l2p9 1");

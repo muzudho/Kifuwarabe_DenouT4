@@ -6,6 +6,7 @@ using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System.Collections.Generic;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
 {
@@ -101,7 +102,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             Earth earth1,
             Sky positionA,//kifu1.GetRoot().GetNodeValue()
             Tree kifu1,
-            Playerside pside, KwLogger errH)
+            Playerside pside, KwLogger logger)
         {
 
             //------------------------------------------------------------
@@ -109,11 +110,12 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //------------------------------------------------------------
             earth1.Clear();
 
-            kifu1.OnClearMove(positionA);
+            kifu1.SetCurrentNode( TreeImpl.ClearCurrentMove(kifu1.CurrentNode, kifu1, positionA, logger));
+            //kifu1.OnClearCurrentMove(positionA);
 
             earth1.SetProperty(
                 Word_KifuTree.PropName_Startpos,
-                Conv_KifuNode.ToSfenstring(positionA, pside, errH));
+                Conv_KifuNode.ToSfenstring(positionA, pside, logger));
         }
 
     }

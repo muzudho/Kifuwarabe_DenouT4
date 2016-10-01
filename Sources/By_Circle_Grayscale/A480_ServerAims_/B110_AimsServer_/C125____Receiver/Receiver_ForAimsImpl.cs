@@ -127,7 +127,7 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C125____Receiver
                                 ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Position(
                                     Util_KirokuGakari.ToSfen_PositionCommand(
                                         this.Owner_AimsServer.Earth,
-                                        this.Owner_AimsServer.KifuTree.CurNode//エンドノード
+                                        this.Owner_AimsServer.KifuTree.CurrentNode//エンドノード
                                         ), errH
                                 );
 
@@ -135,7 +135,7 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C125____Receiver
                                 // 例：「position startpos moves 7g7f」
                                 Console.Out.WriteLine( Util_KirokuGakari.ToSfen_PositionCommand(
                                     this.Owner_AimsServer.Earth,
-                                    this.Owner_AimsServer.KifuTree.CurNode//エンドノード
+                                    this.Owner_AimsServer.KifuTree.CurrentNode//エンドノード
                                     ));
 
                                 Console.Out.WriteLine("go");

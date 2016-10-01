@@ -1,7 +1,6 @@
-﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B630_Sennitite__.C___500_Struct;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
 {
@@ -18,28 +17,36 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
 
     public interface Tree
     {
+        void LogPv(string message, KwLogger logger);
+
+        void ClearPv(KwLogger logger);
+        void AppendPv(Move tail, KwLogger logger);
+        Move GetLatestPv();
+
         /// <summary>
         /// ツリー構造になっている本譜の葉ノード。
         /// 根を「startpos」等の初期局面コマンドとし、次の節からは棋譜の符号「2g2f」等が連なっている。
         /// </summary>
-        MoveNode CurNode { get; }
+        MoveNode CurrentNode { get; }
         MoveNode ParentNode1 { get; }
-        void ClearChildren();
-        void AddCurChild(Move move, MoveNode newNode);
+        void ClearCurrentChildren( KwLogger logger);
+        void SetCurrentSetAndAdd(Move move, MoveNode newNode, KwLogger logger);
         /// <summary>
         /// 棋譜を空っぽにします。
         /// 
         /// ルートは残します。
         /// </summary>
-        MoveNode OnClearMove(Sky sky);
-        MoveNode OnDoMove(MoveNode node, Sky sky);
-        MoveNode OnUndoMove(MoveNode node, Sky sky);
+        //MoveNode OnClearCurrentMove(Sky sky);
+        MoveNode OnDoCurrentMove(MoveNode node, Sky sky);
+        //MoveNode OnUndoCurrentMove(MoveNode node, Sky sky);
         /// <summary>
         /// 局面編集中
         /// </summary>
         /// <param name="sky"></param>
         /// <returns></returns>
-        MoveNode OnEditMove(MoveNode node, Sky sky);
+        MoveNode OnEditCurrentMove(MoveNode node, Sky sky);
         Sky PositionA { get; }
+        void SetPositionA(Sky positionA);
+        void SetCurrentNode(MoveNode curNode);
     }
 }

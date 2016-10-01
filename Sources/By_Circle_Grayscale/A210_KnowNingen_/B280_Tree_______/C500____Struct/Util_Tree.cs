@@ -26,7 +26,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             {
                 honpu.Add(endNode); // リスト作成
 
-                endNode = endNode.GetParentNode();
+                endNode = ((MoveNodeImpl)endNode).m_parentNode_;
             }
             honpu.Reverse();
 
@@ -83,7 +83,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             {
                 honpu.Add(endNode); // リスト作成
 
-                endNode = endNode.GetParentNode();
+                endNode = ((MoveNodeImpl)endNode).m_parentNode_;
             }
             honpu.Reverse();
 
