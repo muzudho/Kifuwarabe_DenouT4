@@ -94,7 +94,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                 //------------------------------
                                 Util_Function_Csharp.Komaokuri_Gui(
                                     restText,
-                                    mainGui.Link_Server.KifuTree.CurrentNode,
+                                    mainGui.Link_Server.KifuTree.MoveEx_Current,
                                     mainGui.Link_Server.KifuTree.PositionA,//.CurNode2ok.GetNodeValue()
                                     mainGui,
                                     mainGui.Link_Server.KifuTree,

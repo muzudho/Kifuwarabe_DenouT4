@@ -19,9 +19,9 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C061____Util
         /// 盤１個分のログ。
         /// </summary>
         public static void Build_LogBoard(
-            MoveNode node_forLog,
+            MoveEx node_forLog,
             string nodePath,
-            MoveNode niniNode,//任意のノード
+            MoveEx niniNode,//任意のノード
             Tree kifu1,
             KyokumenPngEnvironment reportEnvironment,
             KaisetuBoards logF_kiki,

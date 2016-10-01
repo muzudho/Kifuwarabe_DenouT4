@@ -16,15 +16,14 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 using Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table;
+using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word;
 using Grayscale.A210_KnowNingen_.B390_KomahaiyaEx.C500____Util;
 using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___005_Usi_Loop;
@@ -41,7 +40,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
 
 #if DEBUG
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
@@ -911,7 +909,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
                 // ┏━━━━プログラム━━━━┓
 
-                MoveNode curNode1 = this.Kifu_AtLoop2.CurrentNode;
+                MoveEx curNode1 = this.Kifu_AtLoop2.MoveEx_Current;
                 Sky positionA = this.Kifu_AtLoop2.PositionA;
                 int latestTemezumi = positionA.Temezumi;//現・手目済// curNode1.GetNodeValue()
 
@@ -1038,8 +1036,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                                         this.Logger)
                                         );
 
-                                    this.Kifu_AtLoop2.SetCurrentNode(TreeImpl.DoCurrentMove(this.Kifu_AtLoop2.CurrentNode, this.Kifu_AtLoop2, this.Kifu_AtLoop2.PositionA));
-                                    //this.Kifu_AtLoop2.OnDoCurrentMove(this.Kifu_AtLoop2.CurrentNode, this.Kifu_AtLoop2.PositionA);
+                                    this.Kifu_AtLoop2.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(this.Kifu_AtLoop2.MoveEx_Current, this.Kifu_AtLoop2, this.Kifu_AtLoop2.PositionA,this.Logger));
                                 }
 
 

@@ -1,28 +1,38 @@
 ﻿using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 
-namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct
+namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
 {
     public class MoveExImpl : MoveEx
     {
         public MoveExImpl()
         {
-            this.Move = Move.Empty;// Conv_Move.GetErrorMove();
+            this.m_move_ = Move.Empty;
         }
         public MoveExImpl(Move move)
         {
-            this.Move = move;
+            this.m_move_ = move;
         }
         public MoveExImpl(Move move,float score)
         {
-            this.Move = move;
+            this.m_move_ = move;
             this.m_score_ = score;
         }
 
 
 
-        public Move Move { get; set; }
+        public Move Move
+        {
+            get
+            {
+                return this.m_move_;
+            }
+        }
+        public void SetMove(Move move)
+        {
+            this.m_move_ = move;
+        }
+        private Move m_move_;
 
 
 

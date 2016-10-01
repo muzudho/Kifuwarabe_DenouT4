@@ -2,20 +2,16 @@
 using Grayscale.A060_Application.B410_Collection_.C500____Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C250____Struct;
-using Grayscale.A210_KnowNingen_.B110_GraphicLog_.C500____Util;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C___250_Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
-
 using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B430_Play_______.C500____Query;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter;
 using System;
@@ -25,7 +21,6 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;

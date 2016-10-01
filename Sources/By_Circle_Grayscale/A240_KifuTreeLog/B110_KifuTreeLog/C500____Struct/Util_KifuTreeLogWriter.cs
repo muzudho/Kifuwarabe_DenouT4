@@ -8,11 +8,9 @@ using Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C500____UtilWriter;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System.IO;
 
@@ -100,7 +98,7 @@ namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
                 //sb_folder.Append( Conv_SasiteStr_Sfen.ToSasiteStr_Sfen_ForFilename(kifu.CurNode.Key) + "/");
 
                 string sasiteText1 = Conv_Move.ToSfen(kifu.CurNode.Key);
-                MoveNode kifuNode1 = kifu.CurNode;
+                MoveEx kifuNode1 = kifu.CurNode;
 
                 /*
                 // 評価明細のログ出力。

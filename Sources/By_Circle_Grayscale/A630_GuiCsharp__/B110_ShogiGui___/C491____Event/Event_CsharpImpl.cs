@@ -141,7 +141,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         errH
                         );
                     Util_Function_Csharp.Komaokuri_Gui(restText,
-                        mainGui3.Link_Server.KifuTree.CurrentNode,
+                        mainGui3.Link_Server.KifuTree.MoveEx_Current,
                         mainGui3.Link_Server.KifuTree.PositionA,//.CurNode2ok.GetNodeValue()
                         mainGui3,
                         mainGui3.Link_Server.KifuTree,
@@ -169,7 +169,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     if (!Util_Functions_Server.Makimodosi_Srv(
                         out movedKoma, out foodKoma,
                         out fugoJStr,
-                        mainGui2.Link_Server.KifuTree.CurrentNode,
+                        mainGui2.Link_Server.KifuTree.MoveEx_Current,
                         mainGui2.Link_Server.KifuTree,
                         errH))
                     {
@@ -376,7 +376,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     if (Busstop.Empty != koma)
                     {
                         Sky positionA = new SkyImpl(mainGui3.SkyWrapper_Gui.GuiSky);
-                        MoveNode modifyNode = new MoveNodeImpl(mainGui3.Link_Server.KifuTree.CurrentNode.Key);
+                        MoveEx modifyNode = new MoveExImpl(mainGui3.Link_Server.KifuTree.MoveEx_Current.Move);
                         positionA.AddObjects(
                                 new Finger[] { figKoma }, new Busstop[] {
                                     Conv_Busstop.ToBusstop(
@@ -391,11 +391,11 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         // ここで局面データを変更します。
                         // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
                         string jsaFugoStr;
-                        mainGui3.Link_Server.KifuTree.OnEditCurrentMove(modifyNode, positionA);
+                        mainGui3.Link_Server.KifuTree.MoveEx_OnEditCurrent(modifyNode, positionA);
                         Util_Functions_Server.AfterSetCurNode_Srv(
                             mainGui3.SkyWrapper_Gui,
                             modifyNode,
-                            modifyNode.Key,
+                            modifyNode.Move,
                             positionA,
                             out jsaFugoStr,
                             mainGui3.Link_Server.KifuTree,
@@ -547,7 +547,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     false
                     );// 選択している駒の元の場所と、移動先
 
-                MoveNode newNode;
+                MoveEx newNode;
                 Sky positionA;
                 {
                     //
@@ -559,27 +559,26 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     positionA.SetKaisiPside(Conv_Playerside.Reverse(positionA.KaisiPside));// 先後を反転させます。
                     positionA.SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//１手進める
 
-                    newNode = new MoveNodeImpl(move);
+                    newNode = new MoveExImpl(move);
 
 
                     //「成る／成らない」ボタンを押したときです。
-                    {
-                        //----------------------------------------
-                        // 次ノード追加
-                        //----------------------------------------
-                        mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(positionA), "After_NaruNaranai");
-                        mainGui.Link_Server.KifuTree.SetCurrentSetAndAdd(newNode.Key, newNode, logger);
-                    }
+                    //----------------------------------------
+                    // 次ノード追加
+                    //----------------------------------------
+                    mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(positionA), "After_NaruNaranai");
 
                     // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
                     // ここで棋譜の変更をします。
                     // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+                    mainGui.Link_Server.KifuTree.Pv_Append(newNode.Move, logger);
+                    mainGui.Link_Server.KifuTree.MoveEx_OnEditCurrent(newNode, positionA);
+
                     string jsaFugoStr;
-                    mainGui.Link_Server.KifuTree.OnEditCurrentMove(newNode, positionA);
                     Util_Functions_Server.AfterSetCurNode_Srv(
                         mainGui.SkyWrapper_Gui,
-                        mainGui.Link_Server.KifuTree.CurrentNode,
-                        mainGui.Link_Server.KifuTree.CurrentNode.Key,
+                        mainGui.Link_Server.KifuTree.MoveEx_Current,
+                        mainGui.Link_Server.KifuTree.MoveEx_Current.Move,
                         positionA,
                         out jsaFugoStr,
                         mainGui.Link_Server.KifuTree,

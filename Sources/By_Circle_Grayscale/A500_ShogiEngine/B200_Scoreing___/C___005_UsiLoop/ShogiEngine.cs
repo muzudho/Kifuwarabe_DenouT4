@@ -1,10 +1,8 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
-using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___240_Shogisasi;
 using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___490_Option__;
-using System.Collections.Generic;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
+using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___240_Shogisasi;
+using System.Collections.Generic;
 
 namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C___005_Usi_Loop
 {

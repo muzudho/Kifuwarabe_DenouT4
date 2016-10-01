@@ -1,5 +1,4 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using System;
 using System.Text.RegularExpressions;
 

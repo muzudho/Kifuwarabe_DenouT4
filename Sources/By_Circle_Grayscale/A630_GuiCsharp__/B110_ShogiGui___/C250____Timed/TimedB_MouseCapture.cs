@@ -6,15 +6,13 @@ using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
-using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
-
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A450_Server_____.B110_Server_____.C250____Util;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___080_Shape;
@@ -28,9 +26,6 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function;
 using System.Collections.Generic;
 using System.Drawing;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 #if DEBUG
 using System.Windows.Forms;
@@ -397,30 +392,25 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     Sky sky_newChild = new SkyImpl(src_GuiSky);
                                                     sky_newChild.SetKaisiPside(Conv_Playerside.Reverse(Playerside.P1));//FIXME:人間が先手でハードコーディング中
                                                     sky_newChild.SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//1手進ませる。
-                                                    MoveNode newNode = new MoveNodeImpl(move);
+                                                    MoveEx newNode = new MoveExImpl(move);
                                                     //MessageBox.Show(
                                                     //    "追加前\n"+
                                                     //    "newNode=KaisiPside=" + newNode.Value.ToKyokumenConst.KaisiPside,
                                                     //    "デバッグ");
 
                                                     //マウスの左ボタンを放したときです。
-                                                    {
-                                                        //----------------------------------------
-                                                        // 次ノード追加
-                                                        //----------------------------------------
-                                                        mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(sky_newChild), "TimedB.Step(1)");
-                                                        mainGui.Link_Server.KifuTree.SetCurrentSetAndAdd(newNode.Key, newNode, logger);
-                                                    }
+                                                    //----------------------------------------
+                                                    // 次ノード追加
+                                                    //----------------------------------------
+                                                    mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(sky_newChild), "TimedB.Step(1)");
+
+                                                    mainGui.Link_Server.KifuTree.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(newNode, mainGui.Link_Server.KifuTree, sky_newChild,logger));
 
                                                     string jsaFugoStr;
-
-                                                    mainGui.Link_Server.KifuTree.SetCurrentNode(TreeImpl.DoCurrentMove(newNode, mainGui.Link_Server.KifuTree, sky_newChild));
-                                                    //mainGui.Link_Server.KifuTree.OnDoCurrentMove(newNode, sky_newChild);
-
                                                     Util_Functions_Server.AfterSetCurNode_Srv(
                                                         mainGui.SkyWrapper_Gui,
-                                                        mainGui.Link_Server.KifuTree.CurrentNode,
-                                                        mainGui.Link_Server.KifuTree.CurrentNode.Key,
+                                                        mainGui.Link_Server.KifuTree.MoveEx_Current,
+                                                        mainGui.Link_Server.KifuTree.MoveEx_Current.Move,
                                                         sky_newChild,
                                                         out jsaFugoStr,
                                                         mainGui.Link_Server.KifuTree,
@@ -547,29 +537,25 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
 
                                                         // 駒を置いたので、次のノードを準備しておく☆？
                                                         Sky sky_newChild = new SkyImpl(src_GuiSky);
-                                                        MoveNode newNode =
-                                                            new MoveNodeImpl(move);
+                                                        MoveEx newNode =
+                                                            new MoveExImpl(move);
                                                         sky_newChild.SetTemezumi( mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//1手進ませる。
 
 
                                                         //マウスの左ボタンを放したときです。
-                                                        {
-                                                            //----------------------------------------
-                                                            // 次ノード追加
-                                                            //----------------------------------------
-                                                            mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(sky_newChild), "TimedB.Step(2)");
-                                                            mainGui.Link_Server.KifuTree.SetCurrentSetAndAdd(newNode.Key, newNode, logger);
-                                                        }
+                                                        //----------------------------------------
+                                                        // 次ノード追加
+                                                        //----------------------------------------
+                                                        mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(sky_newChild), "TimedB.Step(2)");
+
+                                                        mainGui.Link_Server.KifuTree.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(newNode, mainGui.Link_Server.KifuTree, sky_newChild,logger));
 
                                                         string jsaFugoStr;
 
-                                                        mainGui.Link_Server.KifuTree.SetCurrentNode(TreeImpl.DoCurrentMove(newNode, mainGui.Link_Server.KifuTree, sky_newChild));
-                                                        //mainGui.Link_Server.KifuTree.OnDoCurrentMove(newNode, sky_newChild);
-
                                                         Util_Functions_Server.AfterSetCurNode_Srv(
                                                             mainGui.SkyWrapper_Gui,
-                                                            mainGui.Link_Server.KifuTree.CurrentNode,
-                                                            mainGui.Link_Server.KifuTree.CurrentNode.Key,
+                                                            mainGui.Link_Server.KifuTree.MoveEx_Current,
+                                                            mainGui.Link_Server.KifuTree.MoveEx_Current.Move,
                                                             sky_newChild,
                                                             out jsaFugoStr,
                                                             mainGui.Link_Server.KifuTree,

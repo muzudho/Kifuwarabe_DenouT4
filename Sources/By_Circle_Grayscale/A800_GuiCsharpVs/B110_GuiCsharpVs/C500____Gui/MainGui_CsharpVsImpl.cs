@@ -27,7 +27,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500____Gui
         /// </summary>
         public override void ChangedTurn(
 
-            //MoveNode endNode,
+            //MoveEx endNode,
             Tree kifu1,
 
             Playerside pside,//endNode.GetNodeValue().KaisiPside,

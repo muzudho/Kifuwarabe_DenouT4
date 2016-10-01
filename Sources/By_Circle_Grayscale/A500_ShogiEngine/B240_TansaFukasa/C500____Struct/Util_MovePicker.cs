@@ -3,18 +3,15 @@ using Grayscale.A060_Application.B410_Collection_.C500____Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B730_Util_SasuEx.C500____Util;
 using Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util;
-using Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util;
 using Grayscale.A500_ShogiEngine.B220_Tansaku____.C___500_Tansaku;
 using System;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;

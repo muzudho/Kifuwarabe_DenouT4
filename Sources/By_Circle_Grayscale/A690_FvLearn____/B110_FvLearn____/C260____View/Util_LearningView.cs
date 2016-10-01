@@ -127,7 +127,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     );
                 }
 
-                MoveNode curNodeB;
+                MoveEx curNodeB;
                 {
                     //----------------------------------------
                     // 一手指したい。
@@ -148,7 +148,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                         ittesasuResult.SyuryoKyokumenW,
                         logger
                         );
-                    curNodeB = kifu1.CurrentNode;
+                    curNodeB = kifu1.MoveEx_Current;
                     // これで、棋譜ツリーに、構造変更があったはず。
                     //↑↑一手指し
                 }
@@ -212,7 +212,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 //uc_Main.LstGohosyu.Items.Clear();
                 int itemNumber = 0;
                 Sky positionA = learningData.PositionA;
-                List<Move> pvList = learningData.KifuA.ToPvList();
+                List<Move> pvList = learningData.KifuA.Pv_ToList();
                 {
                     Move moveB = learningData.ToCurChildItem();
                     pvList.Add(moveB);

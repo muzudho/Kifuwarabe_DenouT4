@@ -5,10 +5,10 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser
 {
     public interface KifuParserA_Result
     {
-        MoveNode Out_newNode_OrNull { get; }
+        MoveEx Out_newNode_OrNull { get; }
 
         Sky NewSky { get; }
 
-        void SetNode(MoveNode node, Sky sky);
+        void SetNode(MoveEx node, Sky sky);
     }
 }

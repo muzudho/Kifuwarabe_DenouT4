@@ -19,7 +19,6 @@ using Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table;
 using Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word;
 using Grayscale.A210_KnowNingen_.B390_KomahaiyaEx.C500____Util;
 using Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct;
@@ -36,7 +35,6 @@ using System;
 using System.IO;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using System.Collections.Generic;
 
 #if DEBUG
 using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
@@ -89,11 +87,11 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
         public Sky PositionA { get; set; }// FIXME: できればカレントノードの局面。
         public Move GetMove()
         {
-            return this.KifuA.CurrentNode.Key;
+            return this.KifuA.MoveEx_Current.Move;
         }
         public Move ToCurChildItem()
         {
-            return this.KifuA.CurrentNode.Key;//.Child_GetItem(this.KifuA);
+            return this.KifuA.MoveEx_Current.Move;//.Child_GetItem(this.KifuA);
         }
 
         /// <summary>

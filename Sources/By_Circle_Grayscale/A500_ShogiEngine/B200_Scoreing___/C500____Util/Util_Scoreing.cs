@@ -1,15 +1,15 @@
 ﻿using Grayscale.A000_Platform___.B021_Random_____.C500____Struct;
 using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C___500_Hyokakansu;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C510____HyokakansuColl;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
 using System;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
@@ -182,7 +182,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
                     if (result_moveEx_best.Score < mov4.Score)
                     {
                         result_moveEx_best.SetScore(mov4.Score);
-                        result_moveEx_best.Move = mov4.Move;
+                        result_moveEx_best.SetMove( mov4.Move);
                     }
                     //----------------------------------------
                     // アルファー・カット
@@ -198,7 +198,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
                     if (mov4.Score < result_moveEx_best.Score)
                     {
                         result_moveEx_best.SetScore(mov4.Score);
-                        result_moveEx_best.Move = mov4.Move;
+                        result_moveEx_best.SetMove( mov4.Move);
                     }
                     //----------------------------------------
                     // アルファー・カット

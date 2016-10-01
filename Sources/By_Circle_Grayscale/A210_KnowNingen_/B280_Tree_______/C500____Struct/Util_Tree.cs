@@ -17,15 +17,15 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         /// <param name="endNode">葉側のノード。</param>
         /// <param name="delegate_Foreach"></param>
         public static void ForeachHonpu2(Tree kifu1,
-            //MoveNode endNode,
+            //MoveEx endNode,
             DELEGATE_Foreach2 delegate_Foreach)
         {
             bool toBreak = false;
 
-            List<Move> pvList = kifu1.ToPvList();
+            List<Move> pvList = kifu1.Pv_ToList();
             /*
             // 本譜（ノードのリスト）
-            List<MoveNode> honpu = new List<MoveNode>();
+            List<MoveEx> honpu = new List<MoveEx>();
 
             //
             // ツリー型なので、１本のリストに変換するために工夫します。
@@ -37,7 +37,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             {
                 honpu.Add(endNode); // リスト作成
 
-                endNode = ((MoveNodeImpl)endNode).m_parentNode_;
+                endNode = ((MoveExImpl)endNode).m_parentNode_;
             }
             honpu.Reverse();
             */
@@ -47,7 +47,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             //
             int temezumi = 0;//初期局面が[0]
 
-            //foreach (MoveNode item in honpu)//正順になっています。
+            //foreach (MoveEx item in honpu)//正順になっています。
             foreach (Move move in pvList)//正順になっています。
             {
                 delegate_Foreach(temezumi,

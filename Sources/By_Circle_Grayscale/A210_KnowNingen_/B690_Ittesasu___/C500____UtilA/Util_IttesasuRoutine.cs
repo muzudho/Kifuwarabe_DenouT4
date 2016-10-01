@@ -218,20 +218,16 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             KwLogger logger
             )
         {
-            MoveNode newNodeB = new MoveNodeImpl(move);
+            MoveEx newNodeB = new MoveExImpl(move);
 
-            {
                 //----------------------------------------
-                // 次ノード追加（なければ）
+                // 次ノード追加
                 //----------------------------------------
                 earth1.GetSennititeCounter().CountUp_New(
                     Conv_Sky.ToKyokumenHash(positionA), "After3_ChangeCurrent(次の一手なし)");
-                kifu1.SetCurrentSetAndAdd(newNodeB.Key,newNodeB,logger);//次ノートを追加します。//,kifu1.CurNode
-            }
 
             //次ノードを、これからのカレントとします。
-            kifu1.SetCurrentNode(TreeImpl.DoCurrentMove(newNodeB, kifu1, positionA));
-            //kifu1.OnDoCurrentMove(newNodeB, positionA);
+            kifu1.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(newNodeB, kifu1, positionA,logger));
         }
 
 

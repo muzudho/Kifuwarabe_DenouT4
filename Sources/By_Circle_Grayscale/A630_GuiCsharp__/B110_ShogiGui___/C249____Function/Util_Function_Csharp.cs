@@ -34,12 +34,12 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             KwLogger logger
             )
         {
-            MoveNode newNode = new MoveNodeImpl();
+            MoveEx newNode = new MoveExImpl();
 
             Sky positionA = Util_SkyCreator.New_Hirate();//[初期配置]ボタン押下時
             mainGui.Link_Server.Earth.Clear();
 
-            mainGui.Link_Server.KifuTree.SetCurrentNode(TreeImpl.ClearAllCurrentMove(mainGui.Link_Server.KifuTree.CurrentNode, mainGui.Link_Server.KifuTree, positionA,logger));
+            mainGui.Link_Server.KifuTree.MoveEx_SetCurrent(TreeImpl.MoveEx_ClearAllCurrent(mainGui.Link_Server.KifuTree.MoveEx_Current, mainGui.Link_Server.KifuTree, positionA,logger));
             //mainGui.Link_Server.KifuTree.OnClearCurrentMove(positionA);// 棋譜を空っぽにします。
 
             mainGui.Link_Server.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
@@ -52,7 +52,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             Util_Functions_Server.AfterSetCurNode_Srv(
                 mainGui.SkyWrapper_Gui,
                 newNode,
-                newNode.Key,
+                newNode.Move,
                 positionA,
                 out jsaFugoStr,
                 mainGui.Link_Server.KifuTree,
@@ -71,7 +71,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
         /// </summary>
         public static bool Makimodosi_Gui(
 
-            //MoveNode curNode1,
+            //MoveEx curNode1,
             Tree kifu1,
 
             Playerside pside,
@@ -123,7 +123,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
 
         public static bool Komaokuri_Gui(
             string restText,
-            MoveNode node6,// = shogiGui.Link_Server.KifuTree.CurNode;
+            MoveEx node6,// = shogiGui.Link_Server.KifuTree.CurNode;
             Sky positionA,// = shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue();
             MainGui_Csharp shogiGui,
             Tree kifu1,
@@ -136,8 +136,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             {
                 // [コマ送り][再生]ボタン
                 string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
-                    node6.Key,
-                    kifu1.ToPvList(),
+                    node6.Move,
+                    kifu1.Pv_ToList(),
                     positionA, logger);
 
                 shogiGui.Shape_PnlTaikyoku.SetFugo(jsaFugoStr);

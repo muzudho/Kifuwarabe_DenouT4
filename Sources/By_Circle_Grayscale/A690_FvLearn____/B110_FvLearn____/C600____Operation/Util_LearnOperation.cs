@@ -3,9 +3,8 @@ using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C500____usiFrame___;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
@@ -13,20 +12,13 @@ using Grayscale.A500_ShogiEngine.B200_Scoreing___.C250____Args;
 using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi;
 using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe;
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C___400_54List;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C400____54List;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C420____Inspection;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C460____Scoreing;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C470____StartZero;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 
 #if DEBUG || LEARN
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C480____UtilFvEdit;
@@ -122,7 +114,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             //----------------------------------------
             // 点数を付け直すために、ノードを一旦、全削除
             //----------------------------------------
-            uc_Main.LearningData.KifuA.RemoveCurrentChildren(logger);
+            uc_Main.LearningData.KifuA.Pv_RemoveLast(logger);
 
             //----------------------------------------
             // ネクスト・ノードを再作成

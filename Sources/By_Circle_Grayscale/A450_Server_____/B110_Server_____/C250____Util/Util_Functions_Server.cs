@@ -49,9 +49,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
         /// <param name="kifu"></param>
         /// <param name="newNode"></param>
         public static void AfterSetCurNode_Srv(
-            //Tree kifu1,//kifu1.SetCurNode(newNodeB);
             SkyWrapper_Gui model_Manual,
-            MoveNode newNodeA,
+            MoveEx newNodeA,
             Move move,
             Sky positionA,
             out string jsaFugoStr,
@@ -59,19 +58,11 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             KwLogger logger
             )
         {
-            MoveNode newNodeB = newNodeA;
-            /*
-            KifuNode newNodeB = new KifuNodeImpl(move, positionA);
-            newNodeB.Children1 = newNodeA.Children1;
-            newNodeB.MoveEx = newNodeA.MoveEx;
-            newNodeB.SetParentNode(newNodeA.GetParentNode());
-             */
-
             model_Manual.SetGuiSky(positionA);
 
             jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
                 move,
-                kifu1.ToPvList(),
+                kifu1.Pv_ToList(),
                 positionA,
                 logger
                 );
@@ -226,13 +217,14 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     {
                         string jsaFugoStr;
 
-                        kifu1.SetCurrentNode(TreeImpl.DoCurrentMove(result.Out_newNode_OrNull, kifu1, result.NewSky));
+                        //× kifu1.Pv_Append(result.Out_newNode_OrNull.Move, logger);
+                        //kifu1.MoveEx_SetCurrent(TreeImpl.DoCurrentMove(result.Out_newNode_OrNull, kifu1, result.NewSky,logger));
                         //kifu1.OnDoCurrentMove(result.Out_newNode_OrNull, result.NewSky);
 
                         Util_Functions_Server.AfterSetCurNode_Srv(
                             model_Manual,
                             result.Out_newNode_OrNull,
-                            result.Out_newNode_OrNull.Key,
+                            result.Out_newNode_OrNull.Move,
                             result.NewSky,
                             out jsaFugoStr,
                             kifu1,
@@ -270,10 +262,10 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     //------------------------------
                     string jsaFugoStr;
 
-                    MoveNode curNode1 = new MoveNodeImpl(parsedKyokumen.NewMove);
+                    MoveEx curNode1 = new MoveExImpl(parsedKyokumen.NewMove);
 
-                    kifu1.SetCurrentNode(TreeImpl.ClearAllCurrentMove(kifu1.CurrentNode, kifu1, parsedKyokumen.NewSky,logger));
-                    curNode1 = kifu1.CurrentNode;
+                    kifu1.MoveEx_SetCurrent(TreeImpl.MoveEx_ClearAllCurrent(kifu1.MoveEx_Current, kifu1, parsedKyokumen.NewSky,logger));
+                    curNode1 = kifu1.MoveEx_Current;
                     //curNode1 = kifu1.OnClearCurrentMove(parsedKyokumen.NewSky);
 
                     Util_Functions_Server.AfterSetCurNode_Srv(
@@ -315,7 +307,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             out Finger movedKoma,
             out Finger foodKoma,
             out string jsaFugoStr,
-            MoveNode curNode1,//削るノード
+            MoveEx curNode1,//削るノード
             Tree kifu1_mutable,
             KwLogger logger
             )
@@ -328,7 +320,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             Sky positionA = kifu1_mutable.PositionA;// curNode1.GetNodeValue();
             int korekaranoTemezumi = positionA.Temezumi - 1;//１手前へ。
 
-            if (kifu1_mutable.IsRoot())// curNode1.IsRoot(kifu1_mutable,logger)
+            if (kifu1_mutable.Pv_IsRoot())// curNode1.IsRoot(kifu1_mutable,logger)
             {
                 // ルート
                 jsaFugoStr = "×";
@@ -343,8 +335,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             //------------------------------
             // [巻戻し]ボタン
             jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
-                curNode1.Key,
-                kifu1_mutable.ToPvList(),
+                curNode1.Move,
+                kifu1_mutable.Pv_ToList(),
                 positionA,
                 logger);
 
@@ -357,14 +349,15 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             IttemodosuResult ittemodosuResult;
             Util_IttemodosuRoutine.UndoMove(
                 out ittemodosuResult,
-                curNode1.Key,
+                curNode1.Move,
                 positionA,
                 "B",
                 logger
                 );
 
-            kifu1_mutable.SetCurrentNode(TreeImpl.UndoCurrentMove(kifu1_mutable.CurrentNode, kifu1_mutable, ittemodosuResult.SyuryoSky,logger));
-            //kifu1_mutable.OnUndoCurrentMove(kifu1_mutable.CurrentNode, ittemodosuResult.SyuryoSky);
+            kifu1_mutable.MoveEx_SetCurrent(
+                TreeImpl.OnUndoCurrentMove(kifu1_mutable, ittemodosuResult.SyuryoSky,logger, "Makimodosi_Srv30000")
+            );
 
             movedKoma = ittemodosuResult.FigMovedKoma;
             foodKoma = ittemodosuResult.FigFoodKoma;

@@ -144,7 +144,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
         public void OnChangedTurn(
             Earth earth1,
 
-            //MoveNode endNode1,
+            //MoveEx endNode1,
             Tree kifu1,
 
             Playerside kaisiPside,

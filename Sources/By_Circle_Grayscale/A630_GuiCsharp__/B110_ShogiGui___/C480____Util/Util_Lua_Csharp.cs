@@ -6,9 +6,9 @@ using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A450_Server_____.B110_Server_____.C250____Util;
@@ -18,8 +18,6 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C125____Scene;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed;
 using NLua;
 using System;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
 {
@@ -139,7 +137,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
 
             mainGui.Link_Server.Earth.Clear();
 
-            mainGui.Link_Server.KifuTree.SetCurrentNode(TreeImpl.ClearAllCurrentMove(mainGui.Link_Server.KifuTree.CurrentNode, mainGui.Link_Server.KifuTree, null,logger));
+            mainGui.Link_Server.KifuTree.MoveEx_SetCurrent(TreeImpl.MoveEx_ClearAllCurrent(mainGui.Link_Server.KifuTree.MoveEx_Current, mainGui.Link_Server.KifuTree, null,logger));
             //mainGui.Link_Server.KifuTree.OnClearCurrentMove(null);// 棋譜を空っぽにします。
             // FIXME:
 
@@ -240,18 +238,18 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
 
             {
                 newSky.SetTemezumi(0);//空っぽに戻すので、 0手済みに変更。
-                MoveNode newNode = new MoveNodeImpl();
+                MoveEx newNode = new MoveExImpl();
 
                 string jsaFugoStr;
 
-                mainGui.Link_Server.KifuTree.SetCurrentNode(TreeImpl.ClearAllCurrentMove(mainGui.Link_Server.KifuTree.CurrentNode, mainGui.Link_Server.KifuTree, newSky,logger));
+                mainGui.Link_Server.KifuTree.MoveEx_SetCurrent(TreeImpl.MoveEx_ClearAllCurrent(mainGui.Link_Server.KifuTree.MoveEx_Current, mainGui.Link_Server.KifuTree, newSky,logger));
                 //mainGui.Link_Server.KifuTree.OnClearCurrentMove(newSky);
 
 
                 Util_Functions_Server.AfterSetCurNode_Srv(
                     mainGui.SkyWrapper_Gui,
                     newNode,
-                    newNode.Key,
+                    newNode.Move,
                     newSky,
                     out jsaFugoStr,
                     mainGui.Link_Server.KifuTree,

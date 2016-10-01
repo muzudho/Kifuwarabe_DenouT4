@@ -246,7 +246,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
         /// ************************************************************************************************************************
         /// </summary>
         public virtual void ChangedTurn(
-            //MoveNode endNode,
+            //MoveEx endNode,
             Tree kifu1,
 
             Playerside pside,
