@@ -33,13 +33,14 @@ namespace Grayscale.A210_KnowNingen_.B450_Play2______.C500____Struct
         /// 
         /// １局面につき、１回実行される。
         /// </summary>
-        /// <param name="src_Sky"></param>
+        /// <param name="positionA"></param>
         /// <param name="fingers_sirabetaiMOTIkoma"></param>
         /// <param name="motiOkenaiMasus">持ち駒を置けないマス（味方駒、敵駒が置いてあるマス）</param>
         /// <param name="errH_orNull"></param>
         /// <returns></returns>
         public static List_OneAndMulti<Finger, SySet<SyElement>> Translate_Motikoma_ToMove(
-            Sky src_Sky,
+            Playerside psideA,
+            Sky positionA,
             Fingers fingers_sirabetaiMOTIkoma,
             SySet<SyElement> masus_mikata_onBanjo,//打ち歩詰めチェック用
             SySet<SyElement> masus_aite_onBanjo,//打ち歩詰めチェック用
@@ -57,7 +58,7 @@ namespace Grayscale.A210_KnowNingen_.B450_Play2______.C500____Struct
 
             Finger[] daihyoArray;// 持駒。駒の種類代表１個
             Util_Fingers_KomasyuruiQuery.Translate_Fingers_ToKomasyuruiBETUFirst(
-                src_Sky,
+                positionA,
                 fingers_sirabetaiMOTIkoma,
                 out daihyoArray
                 );
@@ -65,15 +66,15 @@ namespace Grayscale.A210_KnowNingen_.B450_Play2______.C500____Struct
             {
                 if (Fingers.Error_1 != figDaihyo)
                 {
-                    src_Sky.AssertFinger(figDaihyo);
-                    Busstop daihyo = src_Sky.BusstopIndexOf(figDaihyo);
+                    positionA.AssertFinger(figDaihyo);
+                    Busstop daihyo = positionA.BusstopIndexOf(figDaihyo);
 #if DEBUG
                     Debug.Assert(daihyo != Busstop.Empty, "持ち駒の代表がヌル");
 #endif
                     // 駒種類別、置こうとする駒
                     aDaihyo[(int)Conv_Busstop.ToKomasyurui( daihyo)] = daihyo;
                     // 駒種類別、置こうとする升
-                    aMasus[(int)Conv_Busstop.ToKomasyurui(daihyo)] = Util_Sky_SyugoQuery.KomaKidou_Potential(figDaihyo, src_Sky);
+                    aMasus[(int)Conv_Busstop.ToKomasyurui(daihyo)] = Util_Sky_SyugoQuery.KomaKidou_Potential(figDaihyo, positionA);
                     // 駒種類別、置こうとする駒番号
                     aFigKoma[(int)Conv_Busstop.ToKomasyurui(daihyo)] = figDaihyo;
                 }
@@ -99,7 +100,7 @@ namespace Grayscale.A210_KnowNingen_.B450_Play2______.C500____Struct
 #endif
                 // 将棋盤上の自歩一覧。
                 Fingers banjoJiFus = Util_Sky_FingersQuery.InOkibaPsideKomasyuruiNow(
-                    src_Sky,//指定局面
+                    positionA,//指定局面
                     Okiba.ShogiBan,//将棋盤上の
                     Conv_Busstop.ToPlayerside( aDaihyo[(int)Komasyurui14.H01_Fu_____]),//持駒を持っているプレイヤー側の
                     Komasyurui14.H01_Fu_____//歩
@@ -121,8 +122,8 @@ namespace Grayscale.A210_KnowNingen_.B450_Play2______.C500____Struct
                 bool[] existsFu_sujibetu = new bool[10];
                 foreach (Finger figBanjoJiFu in banjoJiFus.Items)
                 {
-                    src_Sky.AssertFinger(figBanjoJiFu);
-                    Busstop banjoJiFu = src_Sky.BusstopIndexOf(figBanjoJiFu);
+                    positionA.AssertFinger(figBanjoJiFu);
+                    Busstop banjoJiFu = positionA.BusstopIndexOf(figBanjoJiFu);
                     int suji;//1～9
                     Conv_Masu.ToSuji_FromBanjoMasu(Conv_Busstop.ToMasu( banjoJiFu), out suji);
                     existsFu_sujibetu[suji] = true;
@@ -166,7 +167,8 @@ namespace Grayscale.A210_KnowNingen_.B450_Play2______.C500____Struct
                 if (false)
                 {
                     Util_Utifudume.Utifudume(
-                        src_Sky,
+                        psideA,
+                        positionA,
                         masus_mikata_onBanjo,//打ち歩詰めチェック用
                         masus_aite_onBanjo,//打ち歩詰めチェック用
                         aMasus,//駒種類別、置こうとする升

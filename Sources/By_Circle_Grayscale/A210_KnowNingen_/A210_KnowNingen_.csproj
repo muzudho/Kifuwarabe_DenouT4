@@ -117,7 +117,6 @@
     <Compile Include="B220_ZobrishHash\C500____Struct\Util_ZobristHashing.cs" />
     <Compile Include="B630_Sennitite__\C500____Struct\SennititeConfirmerImpl.cs" />
     <Compile Include="B630_Sennitite__\C___500_Struct\SennititeConfirmer.cs" />
-    <Compile Include="B600_UtilSky____\C500____Util\Conv_Sfenstring307.cs" />
     <Compile Include="B600_UtilSky____\C500____Util\Conv_Starlight.cs" />
     <Compile Include="B620_KyokumHyoka\C___250_Struct\HyokakansuName.cs" />
     <Compile Include="B670_ConvKyokume\C500____Converter\Conv_KifuNode.cs" />

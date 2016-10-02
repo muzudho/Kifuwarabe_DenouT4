@@ -264,9 +264,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
                     MoveEx curNode1 = new MoveExImpl(parsedKyokumen.NewMove);
 
-                    kifu1.MoveEx_SetCurrent(TreeImpl.MoveEx_ClearAllCurrent(kifu1.MoveEx_Current, kifu1, parsedKyokumen.NewSky,logger));
+                    kifu1.MoveEx_SetCurrent(TreeImpl.MoveEx_ClearAllCurrent(kifu1, parsedKyokumen.NewSky,logger));
                     curNode1 = kifu1.MoveEx_Current;
-                    //curNode1 = kifu1.OnClearCurrentMove(parsedKyokumen.NewSky);
 
                     Util_Functions_Server.AfterSetCurNode_Srv(
                         model_Manual,
@@ -350,6 +349,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             Util_IttemodosuRoutine.UndoMove(
                 out ittemodosuResult,
                 curNode1.Move,
+                Conv_Move.ToPlayerside(curNode1.Move),
                 positionA,
                 "B",
                 logger

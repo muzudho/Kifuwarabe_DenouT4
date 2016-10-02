@@ -161,7 +161,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             float chosei_bairitu;
             float.TryParse(uc_Main.TxtChoseiBairituB.Text, out chosei_bairitu);
 
-            if (Playerside.P2 == uc_Main.LearningData.PositionA.KaisiPside)
+            if (Playerside.P2 == uc_Main.LearningData.PositionA.GetKaisiPside())
             {
                 chosei_bairitu *= -1; //後手はマイナスの方が有利。
             }
@@ -188,7 +188,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             float.TryParse(uc_Main.TxtChoseiBairituB.Text, out badScore);
             badScore *= -1.0f;
 
-            if (Playerside.P2 == uc_Main.LearningData.PositionA.KaisiPside)
+            if (Playerside.P2 == uc_Main.LearningData.PositionA.GetKaisiPside())
             {
                 badScore *= -1; //後手はプラスの方が不利。
             }

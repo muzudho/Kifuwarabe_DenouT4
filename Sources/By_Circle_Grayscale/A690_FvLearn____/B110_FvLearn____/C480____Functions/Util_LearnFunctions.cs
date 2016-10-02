@@ -20,6 +20,7 @@ using System.Text;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 
 namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
 {
@@ -171,7 +172,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
 
             float badScore_temp = tyoseiryo_bad;
             Sky positionA = uc_Main.LearningData.PositionA;
-            if (positionA.KaisiPside == Playerside.P2)
+            if (positionA.GetKaisiPside() == Playerside.P2)
             {
                 tyoseiryo_bad *= -1.0f;//2Pは、負数の方が高得点です。
             }
@@ -188,6 +189,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
                 }
 
                 Util_IttesasuSuperRoutine.DoMove_Super1(
+                    Conv_Move.ToPlayerside(moveB),
                     ref positionA,//指定局面
                     ref moveB,
                     "E100",
@@ -214,6 +216,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
                 Util_IttemodosuRoutine.UndoMove(
                     out ittemodosuResult,
                     moveB,//この関数が呼び出されたときの指し手☆（＾～＾）
+                    Conv_Move.ToPlayerside(moveB),
                     positionA,
                     "E900",
                     logger

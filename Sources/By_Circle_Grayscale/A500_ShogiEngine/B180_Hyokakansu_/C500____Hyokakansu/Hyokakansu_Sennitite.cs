@@ -37,7 +37,7 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
             KwLogger errH
             )
         {
-            switch (src_Sky.KaisiPside)
+            switch (src_Sky.GetKaisiPside())
             {
                 case Playerside.P1: return float.MinValue;
                 case Playerside.P2: return float.MaxValue;

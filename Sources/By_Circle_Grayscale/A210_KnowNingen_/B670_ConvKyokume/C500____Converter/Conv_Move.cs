@@ -847,6 +847,11 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
 
         public static string ToLog(Move move)
         {
+            if (Move.Empty==move)
+            {
+                return "EMPTY";
+            }
+
             StringBuilder sb = new StringBuilder();
 
             int v = (int)move;              // バリュー

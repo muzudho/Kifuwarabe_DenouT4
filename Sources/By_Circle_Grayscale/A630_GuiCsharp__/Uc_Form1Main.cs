@@ -147,8 +147,8 @@ namespace Grayscale.P699_Form_______
                 Sky positionInit = Util_SkyCreator.New_Hirate();//起動直後
                 this.MainGui.Link_Server.Earth.Clear();
 
-                this.MainGui.Link_Server.KifuTree.MoveEx_SetCurrent(TreeImpl.MoveEx_ClearAllCurrent(this.MainGui.Link_Server.KifuTree.MoveEx_Current, this.MainGui.Link_Server.KifuTree, positionInit,logger));
-                //this.MainGui.Link_Server.KifuTree.OnClearCurrentMove(positionInit);// 棋譜を空っぽにします。
+                // 棋譜を空っぽにします。
+                this.MainGui.Link_Server.KifuTree.MoveEx_SetCurrent(TreeImpl.MoveEx_ClearAllCurrent(this.MainGui.Link_Server.KifuTree, positionInit,logger));
 
                 this.MainGui.Link_Server.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
 

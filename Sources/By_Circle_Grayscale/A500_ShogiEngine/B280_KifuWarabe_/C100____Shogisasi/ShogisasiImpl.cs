@@ -112,6 +112,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                     searchedPv,
 
                     kifu1,// ツリーを伸ばしているぜ☆（＾～＾）
+                    positionA.GetKaisiPside(),
                     positionA,
 
                     isHonshogi, Mode_Tansaku.Shogi_ENgine,

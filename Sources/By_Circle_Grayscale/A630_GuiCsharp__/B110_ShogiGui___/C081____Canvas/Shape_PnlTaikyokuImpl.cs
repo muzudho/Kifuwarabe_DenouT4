@@ -378,7 +378,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C081____Canvas
             //----------
             // 先後表示
             //----------
-            this.lblPside.Text = Conv_Playerside.ToLog_Kanji(sky.KaisiPside);
+            this.lblPside.Text = Conv_Playerside.ToLog_Kanji(sky.GetKaisiPside());
             this.lblPside.Paint(e.Graphics);
 
 

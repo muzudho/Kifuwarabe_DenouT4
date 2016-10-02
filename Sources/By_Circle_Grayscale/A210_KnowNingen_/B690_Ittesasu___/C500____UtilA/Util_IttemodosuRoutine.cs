@@ -39,6 +39,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         public static void UndoMove(
             out IttemodosuResult ittemodosuResult,
             Move moved,
+            Playerside psideA,
             Sky positionA,
             string hint,
             KwLogger logger
@@ -51,7 +52,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 if (log)
                 {
                     logger.AppendLine("戻す前 " + hint);
-                    logger.Append(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(positionA,logger)));
+                    logger.Append(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(psideA, positionA, logger)));
                     logger.Flush(LogTypes.Plain);
                 }
 
@@ -75,7 +76,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 {
                     logger.DonimoNaranAkirameta(
                         "戻せる駒が無かった☆ hint:" + hint + "\n" +
-                        Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(positionA,logger), positionA, moved)
+                        Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA,logger), positionA, moved)
                         );
                     goto gt_EndMethod;
                 }
@@ -134,7 +135,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     // 指し手の、取った駒部分を差替えます。
                     //------------------------------
                     SyElement dstMasu = Conv_Move.ToDstMasu(moved);
-                    Playerside pside = Conv_Move.ToPlayerside(moved);
+                    Playerside pside10 = Conv_Move.ToPlayerside(moved);
                     Komasyurui14 captured = Conv_Move.ToCaptured(moved);
 
                     positionA.AddObjects(
@@ -143,7 +144,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                         //
                         new Finger[] { figFoodKoma },
                         new Busstop[] { Conv_Busstop.ToBusstop(
-                            Conv_Playerside.Reverse(pside),//先後を逆にして盤上に置きます。
+                            Conv_Playerside.Reverse(pside10),//先後を逆にして盤上に置きます。
                             dstMasu,// マス
                             captured
                         )
@@ -171,7 +172,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
                     exception_area = 700041;
 
-                    ShogibanImpl shogiban = Conv_Sky.ToShogiban(positionA,logger);
+                    ShogibanImpl shogiban = Conv_Sky.ToShogiban(psideA, positionA,logger);
 
                     exception_area = 700051;
 

@@ -178,7 +178,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
 
                     Util_Function_Csharp.Makimodosi_Gui(
                         mainGui2.Link_Server.KifuTree,//.CurrentNode,
-                        mainGui2.Link_Server.KifuTree.PositionA.KaisiPside,
+                        mainGui2.Link_Server.KifuTree.PositionA.GetKaisiPside(),
                         mainGui2,
                         movedKoma, foodKoma, fugoJStr, Util_Function_Csharp.ReadLine_FromTextbox(), errH);
                     Util_Menace.Menace(mainGui2, errH);//メナス
@@ -314,7 +314,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         shogibanGui2.Link_Server.KifuTree.PositionA,//.GetRoot().GetNodeValue(),
                         shogibanGui2.Link_Server.KifuTree,
                         
-                        shogibanGui2.Link_Server.KifuTree.PositionA.KaisiPside,//.CurNode2ok.GetNodeValue()
+                        shogibanGui2.Link_Server.KifuTree.PositionA.GetKaisiPside(),
                         errH2
                         );
                     shogibanGui2.RepaintRequest.SyuturyokuRequest = RepaintRequestGedanTxt.Kifu;
@@ -556,7 +556,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     positionA = new SkyImpl(mainGui.SkyWrapper_Gui.GuiSky);
                     // 先後を逆転させて、1手進めます。
                     //newNode.GetValue().IncreasePsideTemezumi();
-                    positionA.SetKaisiPside(Conv_Playerside.Reverse(positionA.KaisiPside));// 先後を反転させます。
+                    positionA.ReversePlayerside();// 先後を反転させます。
                     positionA.SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//１手進める
 
                     newNode = new MoveExImpl(move);
@@ -603,7 +603,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     //System.C onsole.WriteLine("マウス左ボタンを押したのでチェンジターンします。");
                     mainGui.ChangedTurn(
                         mainGui.Link_Server.KifuTree,//.CurrentNode,
-                        mainGui.Link_Server.KifuTree.PositionA.KaisiPside,
+                        mainGui.Link_Server.KifuTree.PositionA.GetKaisiPside(),
                         logger);
                 }
             }
@@ -621,7 +621,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
 
             mainGui.ChangedTurn(
                 mainGui.Link_Server.KifuTree,//.CurrentNode,
-                mainGui.Link_Server.KifuTree.PositionA.KaisiPside,
+                mainGui.Link_Server.KifuTree.PositionA.GetKaisiPside(),
                 logger);//マウス左ボタンを押したのでチェンジターンします。
 
             mainGui.Shape_PnlTaikyoku.Request_NaruDialogToShow(false);

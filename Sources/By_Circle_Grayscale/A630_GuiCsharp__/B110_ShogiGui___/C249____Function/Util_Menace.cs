@@ -48,7 +48,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
                     if (
                         Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma)
                         &&
-                        mainGui.SkyWrapper_Gui.GuiSky.KaisiPside != Conv_Busstop.ToPlayerside( koma)
+                        mainGui.SkyWrapper_Gui.GuiSky.GetKaisiPside() != Conv_Busstop.ToPlayerside( koma)
                         )
                     {
                         // 駒の利き

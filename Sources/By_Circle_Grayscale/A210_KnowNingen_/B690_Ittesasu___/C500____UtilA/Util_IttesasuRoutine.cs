@@ -197,7 +197,9 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             // 駒を進めてから、先後と手目済を進めること。
             //------------------------------
             {
-                positionA.SetKaisiPside(Conv_Playerside.Reverse(positionA.KaisiPside));
+                positionA.ReversePlayerside();
+
+
                 positionA.SetTemezumi(positionA.Temezumi + 1);
             }
 

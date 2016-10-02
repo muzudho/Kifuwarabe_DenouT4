@@ -134,7 +134,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         private MoveEx m_moveEx_;
 
 
-        public static MoveEx MoveEx_ClearAllCurrent(MoveEx curNode, Tree tree, Sky positionA, KwLogger logger)
+        public static MoveEx MoveEx_ClearAllCurrent(Tree tree, Sky positionA, KwLogger logger)
         {
             tree.MoveEx_SetCurrent(new MoveExImpl());
             ((TreeImpl)tree).m_pv_.Clear();

@@ -39,7 +39,8 @@ namespace Grayscale.A210_KnowNingen_.B440_Utifudume__.C500____Util
         /// TODO:打ち歩詰めチェック
         /// </summary>
         public static void Utifudume(
-            Sky src_Sky,
+            Playerside psideA,// = positionA.GetKaisiPside();
+            Sky positionA,
             SySet<SyElement> masus_mikata_onBanjo,//打ち歩詰めチェック用
             SySet<SyElement> masus_aite_onBanjo,//打ち歩詰めチェック用
             SySet<SyElement>[] aMasus,//駒種類別、置こうとする升
@@ -47,7 +48,7 @@ namespace Grayscale.A210_KnowNingen_.B440_Utifudume__.C500____Util
             )
         {
             // 攻め側
-            Playerside pside_seme = src_Sky.KaisiPside;
+            //Playerside psideA = positionA.GetKaisiPside();
 
             // 相手の王の位置
             Busstop king_aite;
@@ -55,19 +56,19 @@ namespace Grayscale.A210_KnowNingen_.B440_Utifudume__.C500____Util
             Playerside pside_aite;
 
 
-            switch (src_Sky.KaisiPside)
+            switch (psideA)
             {
                 case Playerside.P1:
                     pside_aite = Playerside.P2;
                     figKing_aite = Finger_Honshogi.GoteOh;
-                    src_Sky.AssertFinger(figKing_aite);
-                    king_aite = src_Sky.BusstopIndexOf(figKing_aite);
+                    positionA.AssertFinger(figKing_aite);
+                    king_aite = positionA.BusstopIndexOf(figKing_aite);
                     break;
                 case Playerside.P2:
                     pside_aite = Playerside.P1;
                     figKing_aite = Finger_Honshogi.SenteOh;
-                    src_Sky.AssertFinger(figKing_aite);
-                    king_aite = src_Sky.BusstopIndexOf(figKing_aite);
+                    positionA.AssertFinger(figKing_aite);
+                    king_aite = positionA.BusstopIndexOf(figKing_aite);
                     break;
                 default: throw new Exception("エラー：打ち歩詰めチェック中。プレイヤー不明。");
             }
@@ -100,7 +101,7 @@ namespace Grayscale.A210_KnowNingen_.B440_Utifudume__.C500____Util
                     fingers_aiteKing,
                     masus_mikata_onBanjo,
                     masus_aite_onBanjo,
-                    src_Sky,
+                    positionA,
                     errH_orNull
                 );
 
@@ -130,14 +131,14 @@ namespace Grayscale.A210_KnowNingen_.B440_Utifudume__.C500____Util
             SySet<SyElement> aitegyokuKiki;
             {
                 // 相手側の盤上の駒一覧。
-                Fingers fingers_aiteKoma_Banjo = Util_Sky_FingersQuery.InOkibaPsideNow(src_Sky, Okiba.ShogiBan, pside_aite);
+                Fingers fingers_aiteKoma_Banjo = Util_Sky_FingersQuery.InOkibaPsideNow(positionA, Okiba.ShogiBan, pside_aite);
 
                 // 利き一覧
                 Maps_OneAndOne<Finger, SySet<SyElement>> kikiMap = Query_FingersMasusSky.To_KomabetuKiki_OnBanjo(
                     fingers_aiteKoma_Banjo,
                     masus_aite_onBanjo,//相手の駒は、味方
                     masus_mikata_onBanjo,//味方の駒は、障害物。
-                    src_Sky,
+                    positionA,
                     errH_orNull
                 );
                 aitegyokuKiki = kikiMap.ElementAt(figKing_aite);
@@ -150,8 +151,8 @@ namespace Grayscale.A210_KnowNingen_.B440_Utifudume__.C500____Util
                         int masuNumber = Conv_Masu.ToMasuHandle(element);
                         if (masuNumber == gyokutouMasuNumber)
                         {
-                            src_Sky.AssertFinger(figKoma);
-                            ksList.Add(Conv_Busstop.ToKomasyurui(src_Sky.BusstopIndexOf(figKoma)));
+                            positionA.AssertFinger(figKoma);
+                            ksList.Add(Conv_Busstop.ToKomasyurui(positionA.BusstopIndexOf(figKoma)));
                             break;
                         }
                     }
@@ -169,9 +170,9 @@ namespace Grayscale.A210_KnowNingen_.B440_Utifudume__.C500____Util
             }
 
             // 「王様に逃げ道がある」なら、スルー。
-            MasubetuKikisu masubetuKikisu_semeKoma = Util_SkyPside.ToMasubetuKikisu(src_Sky, pside_seme);
+            MasubetuKikisu masubetuKikisu_semeKoma = Util_SkyPside.ToMasubetuKikisu(positionA, psideA);
             Dictionary<int, int> nigerarenaiMap = new Dictionary<int, int>();
-            switch (src_Sky.KaisiPside)
+            switch (psideA)
             {
                 case Playerside.P1: nigerarenaiMap = masubetuKikisu_semeKoma.Kikisu_AtMasu_2P; break;
                 case Playerside.P2: nigerarenaiMap = masubetuKikisu_semeKoma.Kikisu_AtMasu_1P; break;

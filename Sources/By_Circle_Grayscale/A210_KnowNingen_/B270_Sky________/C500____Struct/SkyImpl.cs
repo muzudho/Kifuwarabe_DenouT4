@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 
 namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
 {
@@ -35,7 +36,7 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
         public SkyImpl(Sky src)
         {
             // 手番のクローン
-            this.m_kaisiPside_ = src.KaisiPside;
+            this.m_kaisiPside_ = ((SkyImpl)src).m_kaisiPside_;
             this.temezumi = src.Temezumi;
 
             // 星々のクローン
@@ -86,17 +87,17 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
         /// </summary>
         public void ReversePlayerside()
         {
-            this.m_kaisiPside_ = Conv_Playerside.Reverse(this.KaisiPside);
+            this.m_kaisiPside_ = Conv_Playerside.Reverse(this.m_kaisiPside_);
         }
 
         public void IncreasePsideTemezumi()
         {
-            this.SetKaisiPside(Conv_Playerside.Reverse(this.KaisiPside));// 先後を逆転させます。
+            this.ReversePlayerside();// 先後を逆転させます。
             this.SetTemezumi(this.Temezumi + 1);// 1手進めます。
         }
         public void DecreasePsideTemezumi()
         {
-            this.SetKaisiPside(Conv_Playerside.Reverse(this.KaisiPside));// 先後を逆転させます。
+            this.ReversePlayerside();// 先後を逆転させます。
             this.SetTemezumi(this.Temezumi - 1);// 1手戻します。
         }
 
@@ -105,11 +106,32 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
         /// <summary>
         /// TODO:
         /// </summary>
-        public Playerside KaisiPside { get { return this.m_kaisiPside_; } }
+        //public Playerside KaisiPside { get { return this.m_kaisiPside_; } }
+        public Playerside GetKaisiPside()
+        {
+            return this.m_kaisiPside_;
+        }
+        public Playerside GetKaisiPside(Move move) {
+            return this.m_kaisiPside_;
+        }
         private Playerside m_kaisiPside_;
+        /*
+        public void SetKaisiPside( Move move)//Playerside pside,
+        {
+            //this.m_kaisiPside_ = pside;
+            this.m_kaisiPside_ = Conv_Move.ToPlayerside(move);
+        }
+        */
         public void SetKaisiPside(Playerside pside)
         {
             this.m_kaisiPside_ = pside;
+        }
+        /// <summary>
+        /// 先後を逆転させます。
+        /// </summary>
+        public void ReversePside()
+        {
+            this.m_kaisiPside_ = Conv_Playerside.Reverse(this.m_kaisiPside_);
         }
 
         /// <summary>

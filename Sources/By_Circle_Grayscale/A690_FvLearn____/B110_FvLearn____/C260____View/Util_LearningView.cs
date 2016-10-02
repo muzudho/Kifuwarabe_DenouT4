@@ -218,6 +218,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     pvList.Add(moveB);
 
                     Util_IttesasuSuperRoutine.DoMove_Super1(
+                        Conv_Move.ToPlayerside(moveB),
                         ref positionA,//指定局面
                         ref moveB,
                         "D100",
@@ -246,6 +247,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     Util_IttemodosuRoutine.UndoMove(
                         out ittemodosuResult,
                         moveB,
+                        Conv_Move.ToPlayerside(moveB),
                         positionA,
                         "D900",
                         logger
@@ -269,7 +271,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
 
                     int bScore = 0;
 
-                    switch (learningData.PositionA.KaisiPside)
+                    switch (learningData.PositionA.GetKaisiPside())
                     {
                         case Playerside.P1: result = bScore - aScore; break;
                         case Playerside.P2: result = aScore - bScore; break;

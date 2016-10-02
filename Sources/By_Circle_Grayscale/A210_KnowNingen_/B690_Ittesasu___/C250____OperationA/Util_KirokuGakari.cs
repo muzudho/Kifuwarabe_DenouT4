@@ -62,8 +62,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                 earth1.Clear();
 
                 // 棋譜を空っぽにします。
-                saifuKifu2.MoveEx_SetCurrent( TreeImpl.MoveEx_ClearAllCurrent(saifuKifu2.MoveEx_Current, saifuKifu2, positionInit,logger));
-                //saifuKifu2.OnClearCurrentMove(positionInit);
+                saifuKifu2.MoveEx_SetCurrent( TreeImpl.MoveEx_ClearAllCurrent(saifuKifu2, positionInit,logger));
 
                 saifuEarth2.SetProperty(
                     Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面 // FIXME:平手とは限らないのでは？
@@ -88,7 +87,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 
                 // 採譜用新ノード
                 MoveEx saifu_newChild = new MoveExImpl(move);
-                saifu_PositionA.SetKaisiPside(Conv_Playerside.Reverse(saifu_PositionA.KaisiPside));
+                saifu_PositionA.ReversePlayerside();
                 saifu_PositionA.SetTemezumi(temezumi);
 
 

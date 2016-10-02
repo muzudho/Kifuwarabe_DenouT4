@@ -361,6 +361,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
                     searchedPv,
 
                     kifu1,
+                    positionA.GetKaisiPside(),
                     positionA,
 
 

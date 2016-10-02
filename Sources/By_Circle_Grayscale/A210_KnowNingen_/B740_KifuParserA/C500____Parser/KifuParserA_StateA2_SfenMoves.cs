@@ -12,6 +12,7 @@ using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C400____Conv;
 using System;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 {
@@ -55,7 +56,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             ref KifuParserA_Result result,
 
             Earth earth1,
-            Move move1,
+            Move moveA,
             Sky positionA,
 
             out KifuParserA_State nextState,
@@ -80,7 +81,11 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     Move nextMove = Conv_StringMove.ToMove(
                         out rest,
                         genjo.InputLine,
-                        move1,
+                        moveA,
+
+                        //Conv_Move.ToPlayerside(move1),
+                        positionA.GetKaisiPside(),
+
                         positionA,
                         errH
                         );

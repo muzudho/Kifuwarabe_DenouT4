@@ -82,8 +82,8 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util
             out List_OneAndMulti<Finger, SySet<SyElement>> out_komaBETUSusumeruMasus,
 
             bool isHonshogi,
-            Sky src_Sky,
-            Playerside pside_genTeban3,
+            Sky positionA,
+            Playerside psideA,
             bool isAiteban
 #if DEBUG
             ,
@@ -112,7 +112,7 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util
                 Playerside tebanSeme;   //手番（利きを調べる側）
                 Playerside tebanKurau;  //手番（喰らう側）
                 {
-                    Util_KyokumenMoves.SplitGroup_Teban(out tebanSeme, out tebanKurau, isAiteban, pside_genTeban3);
+                    Util_KyokumenMoves.SplitGroup_Teban(out tebanSeme, out tebanKurau, isAiteban, psideA);
                 }
 
 
@@ -134,7 +134,7 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util
                 {
                     Util_Sky_FingersQueryFx.Split_BanjoSeme_BanjoKurau_MotiSeme_MotiKurau(
                         out fingers_seme_BANJO, out fingers_kurau_BANJO, out fingers_seme_MOTI,
-                        out fingers_kurau_MOTI, src_Sky, tebanSeme, tebanKurau,
+                        out fingers_kurau_MOTI, positionA, tebanSeme, tebanKurau,
                         errH);
 //#if DEBUG
 //                    System.Console.WriteLine("◇fingers_seme_BANJOの要素数=" + fingers_seme_BANJO.Count);
@@ -163,7 +163,7 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util
                 SySet<SyElement> masus_seme_BANJO;// 盤上のマス（利きを調べる側の駒）
                 SySet<SyElement> masus_kurau_BANJO;// 盤上のマス（喰らう側の駒）
                 {
-                    Util_KyokumenMoves.SplitGroup_Banjo(out masus_seme_BANJO, out masus_kurau_BANJO, src_Sky, fingers_kurau_BANJO, fingers_seme_BANJO);
+                    Util_KyokumenMoves.SplitGroup_Banjo(out masus_seme_BANJO, out masus_kurau_BANJO, positionA, fingers_kurau_BANJO, fingers_seme_BANJO);
                     // 駒のマスの位置は、特にログに取らない。
                 }
 
@@ -175,7 +175,7 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util
                     fingers_seme_BANJO,
                     masus_seme_BANJO,
                     masus_kurau_BANJO,
-                    src_Sky,
+                    positionA,
                     errH
                     );// 盤上の駒の移動できる場所
 
@@ -188,7 +188,8 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util
                     fingers_seme_MOTI,
                     masus_seme_BANJO,
                     masus_kurau_BANJO,
-                    src_Sky,//これは、どの局面？
+                    psideA,
+                    positionA,//これは、どの局面？
                     errH
                     );
 //#if DEBUG
@@ -238,7 +239,7 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util
         /// <param name="fingers_sirabetaiMOTIkoma">攻め側の持ち駒</param>
         /// <param name="masus_mikata_onBanjo">攻め側の盤上の駒の、利き</param>
         /// <param name="masus_aite_onBanjo">食らう側の盤上の駒の、利き</param>
-        /// <param name="src_Sky">局面</param>
+        /// <param name="positionA">局面</param>
         /// <param name="errH_orNull"></param>
         /// <returns></returns>
         public static List_OneAndMulti<Finger, SySet<SyElement>> Get_MotiDaihyo_ToMove(
@@ -246,7 +247,8 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util
             Fingers fingers_sirabetaiMOTIkoma,
             SySet<SyElement> masus_mikata_onBanjo,
             SySet<SyElement> masus_aite_onBanjo,
-            Sky src_Sky,
+            Playerside psideA,
+            Sky positionA,
             KwLogger errH_orNull
             )
         {
@@ -262,7 +264,8 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util
 
             // 「どの持ち駒（代表）を」「どこに置けるか」のコレクション。
             List_OneAndMulti<Finger, SySet<SyElement>> result = Play.Translate_Motikoma_ToMove(
-                src_Sky,
+                psideA,
+                positionA,
                 fingers_sirabetaiMOTIkoma,
                 masus_mikata_onBanjo,
                 masus_aite_onBanjo,

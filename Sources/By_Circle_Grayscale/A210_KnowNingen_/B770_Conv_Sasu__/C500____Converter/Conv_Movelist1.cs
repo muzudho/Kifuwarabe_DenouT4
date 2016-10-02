@@ -1,13 +1,13 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B410_Collection_.C500____Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
 {
@@ -17,12 +17,13 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
         /// 成らない手☆
         /// </summary>
         /// <param name="komabetuSusumuMasus"></param>
-        /// <param name="src_Sky"></param>
+        /// <param name="positionA"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
         public static List<Move> ToMovelist_NonPromotion(
             Maps_OneAndOne<Finger, SySet<SyElement>> komabetuSusumuMasus,
-            Sky src_Sky,
+            Playerside psideA,
+            Sky positionA,
             KwLogger errH
         )
         {
@@ -30,8 +31,8 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
 
             komabetuSusumuMasus.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
             {
-                src_Sky.AssertFinger(key);
-                Busstop koma = src_Sky.BusstopIndexOf(key);
+                positionA.AssertFinger(key);
+                Busstop koma = positionA.BusstopIndexOf(key);
 
                 foreach (SyElement dstMasu in value.Elements)
                 {
@@ -42,7 +43,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
                         Komasyurui14.H00_Null___,
                         false,//成らない
                         false,//ドロップしない
-                        src_Sky.KaisiPside,
+                        psideA,// positionA.GetKaisiPside(),
                         false
                         );
 
@@ -83,7 +84,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
                         Komasyurui14.H00_Null___,
                         false,//成らない
                         false,//多分打たない
-                        src_Sky.KaisiPside,
+                        src_Sky.GetKaisiPside(),
                         false
                         );
 

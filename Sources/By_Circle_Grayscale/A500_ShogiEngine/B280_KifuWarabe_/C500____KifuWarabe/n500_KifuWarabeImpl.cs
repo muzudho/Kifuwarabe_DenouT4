@@ -922,7 +922,9 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 if (test)
                 {
                     this.Logger.AppendLine("サーバーから受信した局面☆（＾▽＾）");
-                    this.Logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(positionA, Logger)));
+                    this.Logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(
+                        Conv_Move.ToPlayerside(curNode1.Move),
+                        positionA, Logger)));
                     this.Logger.Flush(LogTypes.Plain);
                 }
 
@@ -1094,7 +1096,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                                 //----------------------------------------
                                 {
                                     int hyojiScore = (int)bestScore;
-                                    if (this.Kifu_AtLoop2.PositionA.KaisiPside == Playerside.P2)//.CurNode1.GetNodeValue()
+                                    if (this.Kifu_AtLoop2.PositionA.GetKaisiPside() == Playerside.P2)//.CurNode1.GetNodeValue()
                                     {
                                         // 符号を逆転
                                         hyojiScore = -hyojiScore;

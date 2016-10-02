@@ -82,7 +82,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
                         yomikaisiTemezumi,
                         inputMovelist,
                         positionA.Temezumi,
-                        positionA.KaisiPside,
+                        positionA.GetKaisiPside(),
                         positionA,
 #if DEBUG
                     logF_kiki,
@@ -184,10 +184,11 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
                 try
                 {
                     bool successful = Util_IttesasuSuperRoutine.DoMove_Super1(
-                            ref positionA,//指定局面
-                            ref moveB,
-                            "A100_IfMate",
-                            errH
+                        Conv_Move.ToPlayerside(moveB),
+                        ref positionA,//指定局面
+                        ref moveB,
+                        "A100_IfMate",
+                        errH
                     );
                     if (!successful)
                     {
@@ -224,6 +225,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
                     Util_IttemodosuRoutine.UndoMove(
                         out ittemodosuResult,
                         moveB,//この関数が呼び出されたときの指し手☆（＾～＾）
+                        Conv_Move.ToPlayerside(moveB),
                         positionA,
                         "A900_IfMate",
                         errH

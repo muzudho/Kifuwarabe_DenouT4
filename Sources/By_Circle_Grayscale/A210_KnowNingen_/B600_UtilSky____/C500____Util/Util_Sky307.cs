@@ -21,19 +21,19 @@ namespace Grayscale.A210_KnowNingen_.B600_UtilSky____.C500____Util
     public abstract class Util_Sky307
     {
 
-        public static SfenstringImpl ExportSfen(Sky src_Sky,KwLogger errH)
+        public static SfenstringImpl ExportSfen(Playerside psideA, Sky positionA,KwLogger errH)
         {
-            Debug.Assert(src_Sky.Count == 40, "sky.Starlights.Count=[" + src_Sky.Count + "]");//将棋の駒の数
+            Debug.Assert(positionA.Count == 40, "sky.Starlights.Count=[" + positionA.Count + "]");//将棋の駒の数
 
             return new SfenstringImpl("sfen " + Util_StartposExporter.ToSfenstring(
-                Conv_Sky.ToShogiban(src_Sky, errH), false));
+                Conv_Sky.ToShogiban(psideA, positionA, errH), false));
         }
 
         public static SfenstringImpl ExportSfen_ForDebug(
-            Sky src_Sky, bool psideIsBlack, KwLogger logger)
+            Playerside psideA, Sky positionA, bool psideIsBlack, KwLogger logger)
         {
             return new SfenstringImpl("sfen " + Util_StartposExporter.ToSfenstring(
-                Conv_Sky.ToShogiban(src_Sky, logger), true));
+                Conv_Sky.ToShogiban(psideA, positionA, logger), true));
         }
 
         /// <summary>

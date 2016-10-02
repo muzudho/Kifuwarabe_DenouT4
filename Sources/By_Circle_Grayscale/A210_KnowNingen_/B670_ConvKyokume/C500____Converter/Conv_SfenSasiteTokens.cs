@@ -44,6 +44,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             string str4, //abcdefghi
             string strNari, //+
             out Move move,
+            Playerside psideA,
             Sky positionA,
             string hint,
             KwLogger logger
@@ -52,7 +53,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             move = Move.Empty;
             
             //kifu.AssertPside(kifu.CurNode, "str1=" + str1, errH);
-            Playerside pside1 = positionA.KaisiPside;
+            //Playerside pside1 = positionA.KaisiPside;
 
 #if DEBUG
             Debug.Assert(!Conv_Masu.OnKomabukuro(Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu(positionA.BusstopIndexOf((Finger)0)))), "[" + positionA.Temezumi + "]手目、駒が駒袋にあった。");
@@ -115,13 +116,13 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                     // 駒台から、打った種類の駒を取得
                     koma = Util_Sky_FingerQuery.InOkibaSyuruiNow_IgnoreCase(
                         positionA,
-                        Conv_Playerside.ToKomadai(pside1),//FIXME:
+                        Conv_Playerside.ToKomadai(psideA),//FIXME:
                         uttaSyurui,
                         logger);
                     if (Fingers.Error_1 == koma)
                     {
-                        string message = "Conv_SfenSasiteTokens#ToMove：["+Conv_Playerside.ToLog_Kanji(pside1)+"]駒台から種類[" + uttaSyurui + "]の駒を掴もうとしましたが、エラーでした。\n"+
-                            Conv_Shogiban.ToLog( Conv_Sky.ToShogiban(positionA,logger))+"\n"+
+                        string message = "Conv_SfenSasiteTokens#ToMove：["+Conv_Playerside.ToLog_Kanji(psideA)+"]駒台から種類[" + uttaSyurui + "]の駒を掴もうとしましたが、エラーでした。\n"+
+                            Conv_Shogiban.ToLog( Conv_Sky.ToShogiban(psideA,positionA,logger))+"\n"+
                             "hint=["+hint+"]\n"+
                             "str1=["+ str1+"]\n"+
                             "str2=[" + str2 + "]\n" +
@@ -189,7 +190,8 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
 
                         // どんな局面なのか？
                         {
-                            sb.AppendLine("局面=sfen " + Util_StartposExporter.ToSfenstring(Conv_Sky.ToShogiban(positionA,logger), true));
+                            sb.AppendLine("局面=sfen " + Util_StartposExporter.ToSfenstring(
+                                Conv_Sky.ToShogiban(psideA, positionA,logger), true));
                         }
 
                         sb.Append(Util_Sky307.Json_1Sky(positionA, "エラー駒になったとき",
@@ -216,7 +218,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
 
                     dstSyurui = uttaSyurui;
                     srcSyurui = uttaSyurui;
-                    switch (pside1)
+                    switch (psideA)
                     {
                         case Playerside.P2:
                             srcOkiba = Okiba.Gote_Komadai;
@@ -278,7 +280,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                     Komasyurui14.H00_Null___,//符号からは、取った駒は分からない
                     promotion,
                     drop,
-                    pside1,
+                    psideA,
                     false
                 );
             }

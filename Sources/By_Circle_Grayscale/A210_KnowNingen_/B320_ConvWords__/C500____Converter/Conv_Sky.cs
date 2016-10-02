@@ -8,16 +8,17 @@ using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 namespace Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter
 {
     public abstract class Conv_Sky
     {
-        public static ShogibanImpl ToShogiban(Sky src_Sky,KwLogger logger)
+        public static ShogibanImpl ToShogiban(Playerside pside, Sky src_Sky, KwLogger logger)
         {
             ShogibanImpl shogiban = new ShogibanImpl();
 
-            shogiban.KaisiPside = src_Sky.KaisiPside;// TODO:
+            shogiban.KaisiPside = pside;// src_Sky.GetKaisiPside();// TODO:
 
 
             // 将棋の駒４０個の場所を確認します。

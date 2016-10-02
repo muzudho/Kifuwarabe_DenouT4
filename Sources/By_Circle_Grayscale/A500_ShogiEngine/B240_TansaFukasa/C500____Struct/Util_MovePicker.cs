@@ -12,6 +12,7 @@ using Grayscale.A500_ShogiEngine.B220_Tansaku____.C___500_Tansaku;
 using System;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
@@ -40,6 +41,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             Tansaku_Genjo genjo,
             
             //Move move_ForLog,
+            Playerside psideA,
             Sky pos1,//この局面から合法手を作成☆（＾～＾）
 
             ref int searchedMaxDepth,
@@ -49,6 +51,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         {
             List<Move> result_movelist = Util_MovePicker.WAAAA_Create_ChildNodes(
                 genjo,
+                psideA,
                 pos1,
                 //move_ForLog,//ログ用
                 errH);
@@ -79,6 +82,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         /// <returns>複数のノードを持つハブ・ノード</returns>
         private static List<Move> WAAAA_Create_ChildNodes(
             Tansaku_Genjo genjo,
+            Playerside psideA,
             Sky positionA,
             //Move move_ForLog,
             KwLogger logger
@@ -119,7 +123,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     out komaBETUSusumeruMasus,
                     genjo.Args.IsHonshogi,//本将棋か
                     positionA,//現在の局面  // FIXME:Lockすると、ここでヌルになる☆
-                    positionA.KaisiPside,//手番
+                    positionA.GetKaisiPside(),//手番
                     false//相手番か
 #if DEBUG
                     ,
@@ -204,6 +208,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     //成り以外の手
                     movelist = Conv_Movelist1.ToMovelist_NonPromotion(
                         starbetuSusumuMasus,
+                        psideA,
                         positionA,
                         logger
                     );

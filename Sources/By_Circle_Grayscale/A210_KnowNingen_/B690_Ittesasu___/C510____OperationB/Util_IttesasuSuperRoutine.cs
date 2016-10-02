@@ -19,6 +19,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
     public abstract class Util_IttesasuSuperRoutine
     {
         public static bool DoMove_Super1(
+            Playerside psideA,
             ref Sky positionA,//指定局面
             ref Move move,//TODO:取った駒があると、上書きされる
             string hint,
@@ -31,7 +32,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
             if (log)
             {
                 logger.AppendLine("進める前 "+ hint);
-                logger.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(positionA,logger), positionA, move));
+                logger.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logger), positionA, move));
                 logger.Flush(LogTypes.Plain);
             }
             //*/
@@ -64,7 +65,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
                 if (log)
                 {
                     logger.AppendLine("進めた後 " + hint);
-                    logger.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(positionA, logger), positionA, move));
+                    logger.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logger), positionA, move));
                     logger.Flush(LogTypes.Plain);
                 }
             }
@@ -76,15 +77,15 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
         /// <summary>
         /// 指したあとの、次の局面を作るだけ☆
         /// </summary>
-        /// <param name="position"></param>
+        /// <param name="positionA"></param>
         /// <param name="figKoma"></param>
         /// <param name="dstMasu"></param>
         /// <param name="pside_genTeban"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
         public static void DoMove_Super2(
-            ref Sky position,//指定局面
-            ref Move move,
+            ref Sky positionA,//指定局面
+            ref Move moveA,
             Finger figKoma,//動かす駒
             SyElement dstMasu,//移動先マス
             bool toNaru,//成るなら真
@@ -92,7 +93,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
             )
         {
             // 移動先に相手の駒がないか、確認します。
-            Finger tottaKomaFig = Util_Sky_FingersQuery.InMasuNow_Old(position, dstMasu).ToFirst();
+            Finger tottaKomaFig = Util_Sky_FingersQuery.InMasuNow_Old(positionA, dstMasu).ToFirst();
 
             if (tottaKomaFig != Fingers.Error_1)
             {
@@ -100,26 +101,28 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
 
                 // 駒台の空いているマス１つ。
                 SyElement akiMasu;
-                if (position.KaisiPside == Playerside.P1)
+                if (positionA.GetKaisiPside(moveA) == Playerside.P1)
                 {
-                    akiMasu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Okiba.Sente_Komadai, position);
+                    akiMasu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Okiba.Sente_Komadai, positionA);
                 }
                 else
                 {
-                    akiMasu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Okiba.Gote_Komadai, position);
+                    akiMasu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Okiba.Gote_Komadai, positionA);
                 }
 
-                position.AssertFinger(tottaKomaFig);
-                Busstop tottaKomaBus = position.BusstopIndexOf(tottaKomaFig);
+                positionA.AssertFinger(tottaKomaFig);
+                Busstop tottaKomaBus = positionA.BusstopIndexOf(tottaKomaFig);
 
                 // 駒台の空いているマスへ移動☆
-                position.PutOverwriteOrAdd_Busstop(tottaKomaFig, Conv_Busstop.ToBusstop(position.KaisiPside, akiMasu, Conv_Busstop.ToKomasyurui(tottaKomaBus)));
+                positionA.PutOverwriteOrAdd_Busstop(tottaKomaFig,
+                    Conv_Busstop.ToBusstop(positionA.GetKaisiPside(moveA), akiMasu, Conv_Busstop.ToKomasyurui(tottaKomaBus))
+                    );
 
                 if (Conv_Busstop.ToKomasyurui(tottaKomaBus) != Komasyurui14.H00_Null___)
                 {
                     // 元のキーの、取った駒の種類だけを差替えます。
-                    move = Conv_Move.SetCaptured(
-                        move,
+                    moveA = Conv_Move.SetCaptured(
+                        moveA,
                         Conv_Busstop.ToKomasyurui(tottaKomaBus)
                         );
                 }
@@ -127,19 +130,21 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB
 
             // 駒を１個動かします。
             {
-                position.AssertFinger(figKoma);
-                Komasyurui14 komaSyurui = Conv_Busstop.ToKomasyurui(position.BusstopIndexOf(figKoma));
+                positionA.AssertFinger(figKoma);
+                Komasyurui14 komaSyurui = Conv_Busstop.ToKomasyurui(positionA.BusstopIndexOf(figKoma));
 
                 if (toNaru)
                 {
                     komaSyurui = Util_Komasyurui14.ToNariCase(komaSyurui);
                 }
 
-                position.PutOverwriteOrAdd_Busstop(figKoma, Conv_Busstop.ToBusstop(position.KaisiPside, dstMasu, komaSyurui));
+                positionA.PutOverwriteOrAdd_Busstop(figKoma,
+                    Conv_Busstop.ToBusstop(positionA.GetKaisiPside(moveA), dstMasu, komaSyurui)
+                    );
             }
 
             // 動かしたあとに、先後を逆転させて、手目済カウントを増やします。
-            position.IncreasePsideTemezumi();
+            positionA.IncreasePsideTemezumi();
         }
         //*/
     }

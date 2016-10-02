@@ -23,7 +23,7 @@ namespace Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine(Conv_Playerside.ToLog_Kanji(sky.KaisiPside));
+            sb.AppendLine(Conv_Playerside.ToLog_Kanji(sky.GetKaisiPside(move)));
             sb.AppendLine(sky.Temezumi+"手目済");
             sb.AppendLine(Conv_Move.ToLog(move));
 
