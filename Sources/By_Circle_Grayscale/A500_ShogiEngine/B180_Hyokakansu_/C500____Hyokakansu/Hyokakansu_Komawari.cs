@@ -7,6 +7,7 @@ using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 #if DEBUG || LEARN
 using System.Text;
@@ -30,7 +31,8 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
         /// <param name="args"></param>
         /// <returns></returns>
         public override float Evaluate(
-            Sky src_Sky,
+            Playerside psideA,
+            Sky positionA,
             FeatureVector fv,
             KwLogger errH
             )
@@ -40,7 +42,7 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
 
 
 
-            src_Sky.Foreach_Busstops((Finger finger, Busstop koma, ref bool toBreak) =>
+            positionA.Foreach_Busstops((Finger finger, Busstop koma, ref bool toBreak) =>
             {
                 // 駒の種類による点数
                 float komaScore_temp = fv.Komawari[(int)Conv_Busstop.ToKomasyurui( koma)];

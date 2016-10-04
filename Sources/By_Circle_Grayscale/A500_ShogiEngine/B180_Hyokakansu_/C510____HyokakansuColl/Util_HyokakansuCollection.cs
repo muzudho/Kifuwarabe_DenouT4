@@ -4,6 +4,7 @@ using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C___500_Hyokakansu;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu;
 using System.Collections.Generic;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
@@ -42,7 +43,8 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C510____HyokakansuColl
         /// <param name="fv"></param>
         /// <param name="errH"></param>
         public static float EvaluateAll_Normal(
-            Sky position,
+            Playerside psideA,
+            Sky positionA,
             FeatureVector fv,
             KwLogger errH
             )
@@ -53,7 +55,8 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C510____HyokakansuColl
             foreach (Hyokakansu hyokakansu in Util_HyokakansuCollection.Hyokakansu_Normal)
             {
                 score += hyokakansu.Evaluate(
-                    position,
+                    psideA,
+                    positionA,
                     fv,
                     errH
                 );

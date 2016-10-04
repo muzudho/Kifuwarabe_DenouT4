@@ -264,7 +264,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
                     MoveEx curNode1 = new MoveExImpl(parsedKyokumen.NewMove);
 
-                    kifu1.MoveEx_SetCurrent(TreeImpl.MoveEx_ClearAllCurrent(kifu1, parsedKyokumen.NewSky,logger));
+                    Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(kifu1, parsedKyokumen.NewSky,logger);
                     curNode1 = kifu1.MoveEx_Current;
 
                     Util_Functions_Server.AfterSetCurNode_Srv(

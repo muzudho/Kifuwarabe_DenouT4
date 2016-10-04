@@ -40,7 +40,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             mainGui.Link_Server.Earth.Clear();
 
             // 棋譜を空っぽにします。
-            mainGui.Link_Server.KifuTree.MoveEx_SetCurrent(TreeImpl.MoveEx_ClearAllCurrent(mainGui.Link_Server.KifuTree, positionA,logger));
+            Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(mainGui.Link_Server.KifuTree, positionA,logger);
 
             mainGui.Link_Server.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
 

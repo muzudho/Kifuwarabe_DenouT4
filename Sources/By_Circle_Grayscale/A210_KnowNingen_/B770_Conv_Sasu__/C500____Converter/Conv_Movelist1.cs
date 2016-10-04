@@ -62,7 +62,8 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
 
         public static List<Move> ToMovelist_NonPromotion(
             List_OneAndMulti<Finger, SySet<SyElement>> komaMasus,
-            Sky src_Sky,
+            Playerside psideA,
+            Sky positionA,
             KwLogger errH
             )
         {
@@ -71,8 +72,8 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
 
             komaMasus.Foreach_Entry((Finger figKoma, SySet<SyElement> dstMasus, ref bool toBreak) =>
             {
-                src_Sky.AssertFinger(figKoma);
-                Busstop koma = src_Sky.BusstopIndexOf(figKoma);
+                positionA.AssertFinger(figKoma);
+                Busstop koma = positionA.BusstopIndexOf(figKoma);
 
 
                 foreach (SyElement dstMasu in dstMasus.Elements)
@@ -84,7 +85,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
                         Komasyurui14.H00_Null___,
                         false,//成らない
                         false,//多分打たない
-                        src_Sky.GetKaisiPside(),
+                        psideA,// positionA.GetKaisiPside(),
                         false
                         );
 

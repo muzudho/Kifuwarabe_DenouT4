@@ -106,7 +106,6 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
         /// <summary>
         /// TODO:
         /// </summary>
-        //public Playerside KaisiPside { get { return this.m_kaisiPside_; } }
         public Playerside GetKaisiPside()
         {
             return this.m_kaisiPside_;

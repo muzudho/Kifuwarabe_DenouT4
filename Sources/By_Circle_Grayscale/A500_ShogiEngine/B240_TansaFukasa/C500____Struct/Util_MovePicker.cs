@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
@@ -42,7 +43,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
             
             //Move move_ForLog,
             Playerside psideA,
-            Sky pos1,//この局面から合法手を作成☆（＾～＾）
+            Sky positionA,//この局面から合法手を作成☆（＾～＾）
 
             ref int searchedMaxDepth,
             out int out_yomiDeep,
@@ -51,12 +52,12 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         {
             List<Move> result_movelist = Util_MovePicker.WAAAA_Create_ChildNodes(
                 genjo,
-                psideA,
-                pos1,
+                psideA,//× Conv_Playerside.Reverse( psideA),
+                positionA,
                 //move_ForLog,//ログ用
                 errH);
 
-            out_yomiDeep = pos1.Temezumi - genjo.YomikaisiTemezumi + 1;
+            out_yomiDeep = positionA.Temezumi - genjo.YomikaisiTemezumi + 1;
             if (searchedMaxDepth < out_yomiDeep - 1)//これから探索する分をマイナス1しているんだぜ☆（＾～＾）
             {
                 searchedMaxDepth = out_yomiDeep - 1;
@@ -123,7 +124,10 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     out komaBETUSusumeruMasus,
                     genjo.Args.IsHonshogi,//本将棋か
                     positionA,//現在の局面  // FIXME:Lockすると、ここでヌルになる☆
-                    positionA.GetKaisiPside(),//手番
+
+                    //手番
+                    positionA.GetKaisiPside(),// × psideA,
+
                     false//相手番か
 #if DEBUG
                     ,
@@ -193,6 +197,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         genjo.YomikaisiTemezumi,
                         genjo.Args.IsHonshogi,
                         komaBETUAllSasites,//駒別の全ての指し手
+                        psideA,
                         positionA,
 #if DEBUG
                         genjo.Args.LogF_moveKiki,//利き用
@@ -249,6 +254,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     //
                     movelist = Conv_Movelist1.ToMovelist_NonPromotion(
                         komaBETUSusumeruMasus,
+                        psideA,
                         positionA,
                         logger
                         );

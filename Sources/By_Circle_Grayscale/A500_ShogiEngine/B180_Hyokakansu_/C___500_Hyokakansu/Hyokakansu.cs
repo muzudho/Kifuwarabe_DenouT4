@@ -3,6 +3,7 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C___500_Hyokakansu
 {
@@ -24,7 +25,8 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C___500_Hyokakansu
         /// <param name="keisanArgs"></param>
         /// <returns></returns>
         float Evaluate(
-            Sky src_Sky,
+            Playerside psideA,
+            Sky positionA,
             FeatureVector featureVector,
             KwLogger errH
             );

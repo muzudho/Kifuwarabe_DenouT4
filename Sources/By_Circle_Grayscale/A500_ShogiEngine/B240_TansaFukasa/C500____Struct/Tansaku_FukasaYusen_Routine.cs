@@ -257,6 +257,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     float score = Tansaku_FukasaYusen_Routine.Do_Leaf(
                         genjo,
 
+                        psideA,// positionA.GetKaisiPside(),
                         positionA,
 
                         args,
@@ -266,7 +267,9 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     a_bestmoveEx_Children = Util_Scoreing.GetHighScore(
                         a_bestmoveEx_Children.Move,
                         score,
-                        a_bestmoveEx_Children, positionA.GetKaisiPside());
+                        a_bestmoveEx_Children,
+                        psideA//positionA.GetKaisiPside()
+                        );
                 }
                 else
                 {
@@ -278,7 +281,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         genjo,
 
                         positionA.Temezumi,
-                        positionA.GetKaisiPside(),
+                        psideA,//positionA.GetKaisiPside(),
                         positionA,//この局面から合法手を作成☆（＾～＾）
                         a_bestmoveEx_Children.Score,
                         kifu1.MoveEx_Current,// ツリーを伸ばしているぜ☆（＾～＾）
@@ -370,7 +373,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         private static float Do_Leaf(
             Tansaku_Genjo genjo,
 
-            Sky position,
+            Playerside psideA,
+            Sky positionA,
 
             EvaluationArgs args,
             KwLogger errH
@@ -380,7 +384,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
 
             // 局面に評価値を付けます。
             score += Util_Scoreing.DoScoreing_Kyokumen(
-                position,
+                psideA,
+                positionA,
 
                 args,
                 errH
@@ -477,7 +482,9 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
 
                 // 空っぽにして用意しておくぜ☆
                 result_thisDepth = new MoveExImpl(Move.Empty);
-                result_thisDepth.SetScore(Util_Scoreing.GetWorstScore(positionA.GetKaisiPside()));// プレイヤー1ならmax値、プレイヤー2ならmin値。
+                result_thisDepth.SetScore(Util_Scoreing.GetWorstScore(
+                    positionA.GetKaisiPside() //× psideA//
+                    ));// プレイヤー1ならmax値、プレイヤー2ならmin値。
 
                 exceptionArea = 2000;
 
@@ -504,6 +511,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         float baseDepth_score = Tansaku_FukasaYusen_Routine.Do_Leaf(
                             genjo,
 
+                            psideA,//positionA.GetKaisiPside(),
                             positionA,//改造前
 
                             args,
@@ -516,7 +524,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                             baseNod1.Move,
                             baseDepth_score,
                             result_thisDepth,
-                            positionA.GetKaisiPside()
+                            positionA.GetKaisiPside()//× psideA//
                             );
 
                         //*/
@@ -554,6 +562,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                             "C100",
                             logger
                         );
+                        //Playerside psideB = positionA.GetKaisiPside();//反転している☆（*＾～＾*）？
                         iNod_child.SetMove(iMov_child_variable);
 
                         exceptionArea = 44011;
@@ -625,9 +634,9 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         result_thisDepth = Util_Scoreing.Update_BestScore_And_Check_AlphaCut(
                             result_thisDepth,// これを更新する
 
-                            yomiDeep2,// yomiDeep0,
+                            yomiDeep2,
 
-                            positionA.GetKaisiPside(),
+                            psideA,// positionA.GetKaisiPside(),
 
                             parentsiblingBestScore,
                             iMovEx_child_temp,

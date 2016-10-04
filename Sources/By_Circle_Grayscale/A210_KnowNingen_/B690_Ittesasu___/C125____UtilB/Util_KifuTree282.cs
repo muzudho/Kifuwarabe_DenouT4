@@ -110,7 +110,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
             //------------------------------------------------------------
             earth1.Clear();
 
-            kifu1.MoveEx_SetCurrent( TreeImpl.MoveEx_ClearAllCurrent(kifu1, positionA, logger));
+            Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(kifu1, positionA, logger);
 
             earth1.SetProperty(
                 Word_KifuTree.PropName_Startpos,

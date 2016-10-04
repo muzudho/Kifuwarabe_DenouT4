@@ -209,6 +209,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
         public static void Do_ShowNikomaHyokati(Uc_Main uc_Main)
         {
             uc_Main.LearningData.DoScoreing_ForLearning(
+                uc_Main.LearningData.PositionA.GetKaisiPside(),
                 uc_Main.LearningData.PositionA
                 );
 

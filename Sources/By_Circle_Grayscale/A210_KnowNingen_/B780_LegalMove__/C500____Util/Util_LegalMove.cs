@@ -44,11 +44,12 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
         /// </summary>
         /// <param name="km_available">自軍の各駒の移動できる升セット</param>
         /// <param name="sbGohosyu"></param>
-        /// <param name="errH"></param>
+        /// <param name="logger"></param>
         public static Maps_OneAndOne<Finger, SySet<SyElement>> LA_RemoveMate(
             int yomikaisiTemezumi,
             bool isHonshogi,
             Maps_OneAndMulti<Finger, Move> genTeban_komabetuAllMoves1,// 指定局面で、どの駒が、どんな手を指すことができるか
+            Playerside psideA,
             Sky positionA,//指定局面。
 
 #if DEBUG
@@ -56,7 +57,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
 #endif
 
             string hint,
-            KwLogger errH)
+            KwLogger logger)
         {
             Maps_OneAndOne<Finger, SySet<SyElement>> starbetuSusumuMasus = new Maps_OneAndOne<Finger, SySet<SyElement>>();// 「どの星を、どこに進める」の一覧
 
@@ -68,7 +69,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
                     out inputMovelist,
                     genTeban_komabetuAllMoves1,
                     positionA,
-                    errH
+                    logger
                     );// ハブ・ノード自身はダミーノードなんだが、子ノードに、次のノードが入っている。
 
                 exception_area = 20000;
@@ -82,12 +83,12 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
                         yomikaisiTemezumi,
                         inputMovelist,
                         positionA.Temezumi,
-                        positionA.GetKaisiPside(),
+                        psideA,//positionA.GetKaisiPside(),
                         positionA,
 #if DEBUG
                     logF_kiki,
 #endif
-                    errH);
+                    logger);
                 }
                 else
                 {
@@ -99,7 +100,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
                 // 「指し手一覧」を、「星別の全指し手」に分けます。
                 Maps_OneAndMulti<Finger, Move> starbetuAllSasites2 = Util_Sky258A.SplitSasite_ByStar(positionA,
                     restMovelist,//hubNode1.ToMovelist(),
-                    errH);
+                    logger);
 
                 exception_area = 40000;
 
@@ -125,7 +126,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
                     }
                     catch (Exception ex2)
                     {
-                        errH.DonimoNaranAkirameta(ex2,"ポテンシャルムーブを調べているときだぜ☆（＾▽＾）");
+                        logger.DonimoNaranAkirameta(ex2,"ポテンシャルムーブを調べているときだぜ☆（＾▽＾）");
                         throw ex2;
                     }
 
@@ -150,7 +151,7 @@ namespace Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util
             }
             catch (Exception ex)
             {
-                errH.DonimoNaranAkirameta(ex, "王手回避漏れを除外しているときだぜ☆（＾▽＾） exception_area="+ exception_area);
+                logger.DonimoNaranAkirameta(ex, "王手回避漏れを除外しているときだぜ☆（＾▽＾） exception_area="+ exception_area);
                 throw ex;
             }
 

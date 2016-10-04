@@ -68,6 +68,7 @@ namespace Grayscale.P910_SpeedKeisok
             watch.Start();
 
             float score_notUse = handan1.Evaluate(
+                positionA.GetKaisiPside(),
                 positionA,
                 this.FeatureVector,
                 Util_Loggers.ProcessSpeedTest_KEISOKU

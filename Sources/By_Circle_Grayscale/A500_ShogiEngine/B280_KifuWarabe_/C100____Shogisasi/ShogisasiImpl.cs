@@ -14,6 +14,7 @@ using Grayscale.A500_ShogiEngine.B210_timeMan____.C500____struct__;
 using Grayscale.A500_ShogiEngine.B240_TansaFukasa.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct;
 using System;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
@@ -72,6 +73,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
 
             Earth earth1,
             Tree kifu1,// ツリーを伸ばしているぜ☆（＾～＾）
+            Playerside psideA,
             Sky positionA,
 
             KwLogger errH
@@ -112,7 +114,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                     searchedPv,
 
                     kifu1,// ツリーを伸ばしているぜ☆（＾～＾）
-                    positionA.GetKaisiPside(),
+                    psideA,//positionA.GetKaisiPside(),
                     positionA,
 
                     isHonshogi, Mode_Tansaku.Shogi_ENgine,

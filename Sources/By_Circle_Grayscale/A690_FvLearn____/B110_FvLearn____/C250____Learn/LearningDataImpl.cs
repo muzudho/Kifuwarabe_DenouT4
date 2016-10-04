@@ -35,6 +35,7 @@ using System;
 using System.IO;
 using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 #if DEBUG
 using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
@@ -378,7 +379,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
         /// 二駒関係の評価値を算出します。
         /// </summary>
         public void DoScoreing_ForLearning(
-            Sky position
+            Playerside psideA,
+            Sky positionA
         )
         {
             //----------------------------------------
@@ -387,7 +389,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
             {
                 Hyokakansu_Komawari handan = new Hyokakansu_Komawari();
                 float score_notUse = handan.Evaluate(
-                    position,
+                    psideA,
+                    positionA,
                     this.Fv, //参照してもらうだけ。
                     Util_Loggers.ProcessLearner_DEFAULT
                 );
@@ -398,7 +401,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
             {
                 Hyokakansu_NikomaKankeiPp handan_pp = new Hyokakansu_NikomaKankeiPp();
                 float score_notUse = handan_pp.Evaluate(
-                    position,
+                    psideA,
+                    positionA,
                     this.Fv, //参照してもらうだけ。
                     Util_Loggers.ProcessLearner_DEFAULT
                 );

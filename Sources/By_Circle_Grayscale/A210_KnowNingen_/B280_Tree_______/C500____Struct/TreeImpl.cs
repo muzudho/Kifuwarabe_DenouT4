@@ -5,6 +5,8 @@ using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using System.Collections.Generic;
 using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 #if DEBUG
 using System.Diagnostics;
@@ -134,13 +136,20 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         private MoveEx m_moveEx_;
 
 
-        public static MoveEx MoveEx_ClearAllCurrent(Tree tree, Sky positionA, KwLogger logger)
+        public static Playerside MoveEx_ClearAllCurrent(Tree tree, Sky positionA, KwLogger logger)
         {
             tree.MoveEx_SetCurrent(new MoveExImpl());
+
+            Playerside rootPside = Playerside.P2;
+            if (1<((TreeImpl)tree).m_pv_.Count)
+            {
+                rootPside = Conv_Playerside.Reverse(Conv_Move.ToPlayerside(((TreeImpl)tree).m_pv_[1]));
+            }
+
             ((TreeImpl)tree).m_pv_.Clear();
             ((TreeImpl)tree).m_pv_.Add(Move.Empty);
             tree.SetPositionA(positionA);
-            return tree.MoveEx_Current;
+            return rootPside;
         }
         /// <summary>
         /// 局面編集中

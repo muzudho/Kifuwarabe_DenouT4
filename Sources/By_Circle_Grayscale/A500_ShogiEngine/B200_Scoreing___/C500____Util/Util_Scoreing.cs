@@ -10,6 +10,7 @@ using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C___500_Hyokakansu;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C510____HyokakansuColl;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
 using System;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
@@ -219,7 +220,8 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
         /// 局面に、評価値を付けます。
         /// </summary>
         public static float DoScoreing_Kyokumen(
-            Sky position,
+            Playerside psideA,
+            Sky positionA,
 
             EvaluationArgs args,
             KwLogger errH
@@ -232,7 +234,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
             //----------------------------------------
             bool isSennitite;
             {
-                ulong hash = Conv_Sky.ToKyokumenHash(position);
+                ulong hash = Conv_Sky.ToKyokumenHash(positionA);
                 if (args.SennititeConfirmer.IsNextSennitite(hash))
                 {
                     // 千日手になる場合。
@@ -250,7 +252,8 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
                 Hyokakansu hyokakansu = Util_HyokakansuCollection.Hyokakansu_Sennichite;
 
                 score += hyokakansu.Evaluate(
-                    position,//node_yomi_mutable_KAIZOMAE.Value.Kyokumen,
+                    psideA,
+                    positionA,//node_yomi_mutable_KAIZOMAE.Value.Kyokumen,
                     args.FeatureVector,
                     errH
                 );
@@ -258,7 +261,8 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
             else
             {
                 score += Util_HyokakansuCollection.EvaluateAll_Normal(
-                    position,
+                    psideA,
+                    positionA,
                     args.FeatureVector,
                     errH
                     );

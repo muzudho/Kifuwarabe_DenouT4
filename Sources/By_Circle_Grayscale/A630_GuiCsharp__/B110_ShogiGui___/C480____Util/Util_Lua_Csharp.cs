@@ -138,7 +138,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
             mainGui.Link_Server.Earth.Clear();
 
             // 棋譜を空っぽにします。
-            mainGui.Link_Server.KifuTree.MoveEx_SetCurrent(TreeImpl.MoveEx_ClearAllCurrent(mainGui.Link_Server.KifuTree, null,logger));
+            //Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(mainGui.Link_Server.KifuTree, null,logger);
 
             Sky newSky = new SkyImpl(mainGui.SkyWrapper_Gui.GuiSky);
 
@@ -241,7 +241,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
 
                 string jsaFugoStr;
 
-                mainGui.Link_Server.KifuTree.MoveEx_SetCurrent(TreeImpl.MoveEx_ClearAllCurrent(mainGui.Link_Server.KifuTree, newSky,logger));
+                Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(mainGui.Link_Server.KifuTree, newSky,logger);
 
 
                 Util_Functions_Server.AfterSetCurNode_Srv(

@@ -148,7 +148,7 @@ namespace Grayscale.P699_Form_______
                 this.MainGui.Link_Server.Earth.Clear();
 
                 // 棋譜を空っぽにします。
-                this.MainGui.Link_Server.KifuTree.MoveEx_SetCurrent(TreeImpl.MoveEx_ClearAllCurrent(this.MainGui.Link_Server.KifuTree, positionInit,logger));
+                Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(this.MainGui.Link_Server.KifuTree, positionInit,logger);
 
                 this.MainGui.Link_Server.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
 

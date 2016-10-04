@@ -15,6 +15,7 @@ using System;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 #if DEBUG || LEARN
 using System.Text;
@@ -46,7 +47,8 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
         /// <param name="input_node"></param>
         /// <returns></returns>
         public override float Evaluate(
-            Sky src_Sky,
+            Playerside psideA,
+            Sky positionA,
             FeatureVector fv,
             KwLogger errH
             )
@@ -73,8 +75,8 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
 
             for (int i=0; i < Finger_Honshogi.Items_KomaOnly.Length; i++)// 全駒
             {
-                src_Sky.AssertFinger(Finger_Honshogi.Items_KomaOnly[i]);
-                Busstop koma = src_Sky.BusstopIndexOf(Finger_Honshogi.Items_KomaOnly[i]);
+                positionA.AssertFinger(Finger_Honshogi.Items_KomaOnly[i]);
+                Busstop koma = positionA.BusstopIndexOf(Finger_Honshogi.Items_KomaOnly[i]);
 
                 if (Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma))
                 {
@@ -92,7 +94,7 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
             {
                 for (int iKomasyurui = 0; iKomasyurui < Array_Komasyurui.MotiKoma7Syurui.Length; iKomasyurui++ )
                 {
-                    komokuArray_unsorted[nextIndex] = Util_FvParamIndex.ParamIndex_Moti(src_Sky, Array_Playerside.Items_PlayerOnly[iPside], Array_Komasyurui.MotiKoma7Syurui[iKomasyurui]);
+                    komokuArray_unsorted[nextIndex] = Util_FvParamIndex.ParamIndex_Moti(positionA, Array_Playerside.Items_PlayerOnly[iPside], Array_Komasyurui.MotiKoma7Syurui[iKomasyurui]);
                     nextIndex++;
                 }
             }

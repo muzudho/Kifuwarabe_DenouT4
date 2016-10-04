@@ -228,6 +228,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
 
 
                     learningData.DoScoreing_ForLearning(
+                        Conv_Move.ToPlayerside(moveB),
                         positionA
                         );
 

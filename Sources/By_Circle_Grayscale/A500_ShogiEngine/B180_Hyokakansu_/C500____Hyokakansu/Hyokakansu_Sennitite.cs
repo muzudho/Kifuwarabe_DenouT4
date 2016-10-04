@@ -5,6 +5,7 @@ using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using System;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 #if DEBUG || LEARN
 #endif
@@ -32,12 +33,13 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
         /// <param name="playerInfo"></param>
         /// <returns></returns>
         public override float Evaluate(
-            Sky src_Sky,
+            Playerside psideA,
+            Sky positionA,
             FeatureVector featureVector,
             KwLogger errH
             )
         {
-            switch (src_Sky.GetKaisiPside())
+            switch (psideA)//positionA.GetKaisiPside()
             {
                 case Playerside.P1: return float.MinValue;
                 case Playerside.P2: return float.MaxValue;

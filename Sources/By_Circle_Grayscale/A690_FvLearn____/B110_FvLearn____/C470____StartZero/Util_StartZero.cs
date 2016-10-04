@@ -93,6 +93,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C470____StartZero
             // 平手初期局面の点数を調べます。
             //
             float score = kansu.Evaluate(
+                Util_StartZero.src_Sky_hirateSyokikyokumen.GetKaisiPside(),
                 Util_StartZero.src_Sky_hirateSyokikyokumen,
                 fv,
                 errH
@@ -145,6 +146,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C470____StartZero
                 // 平手初期局面の点数を調べます。
                 //
                 score = kansu.Evaluate(
+                    Util_StartZero.src_Sky_hirateSyokikyokumen.GetKaisiPside(),
                     Util_StartZero.src_Sky_hirateSyokikyokumen,
                     fv,
                     errH

@@ -1033,6 +1033,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
                                         this.Earth_AtLoop2,
                                         this.Kifu_AtLoop2,// ツリーを伸ばしているぜ☆（＾～＾）
+                                        this.Kifu_AtLoop2.PositionA.GetKaisiPside(),
                                         this.Kifu_AtLoop2.PositionA,//.CurNode1.GetNodeValue(),
 
                                         this.Logger)

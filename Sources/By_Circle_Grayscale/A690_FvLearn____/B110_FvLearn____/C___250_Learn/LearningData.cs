@@ -6,6 +6,7 @@ using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
 using System.Collections.Generic;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
@@ -85,7 +86,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
         /// 評価値を算出します。
         /// </summary>
         void DoScoreing_ForLearning(
-            Sky position
+            Playerside psideA,
+            Sky positionA
             );
 
         

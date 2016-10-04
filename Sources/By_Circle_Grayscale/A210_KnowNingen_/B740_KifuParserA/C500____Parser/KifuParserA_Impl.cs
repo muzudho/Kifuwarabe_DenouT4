@@ -9,6 +9,7 @@ using System;
 using System.Runtime.CompilerServices;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 {
@@ -59,14 +60,13 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 #endif
 
                 KifuParserA_State nextState;
-                MoveEx curNode1 = kifu1_mutable.MoveEx_Current;
 
                 MoveNodeType moveNodeType;
                 genjo.InputLine = this.State.Execute(
                     out moveNodeType,
                     ref result,
                     earth1,
-                    curNode1.Move,
+                    kifu1_mutable.MoveEx_Current.Move,
                     kifu1_mutable.PositionA,
                     out nextState,
                     this,
@@ -76,8 +76,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     earth1.Clear();
 
                     // 棋譜を空っぽにします。
-                    kifu1_mutable.MoveEx_SetCurrent(TreeImpl.MoveEx_ClearAllCurrent(kifu1_mutable, result.NewSky,logger));
-                    curNode1 = kifu1_mutable.MoveEx_Current;
+                    Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(kifu1_mutable, result.NewSky,logger);
 
                     earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
                 }
@@ -91,14 +90,10 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                         result.NewSky,
                         logger
                         );
-                    curNode1 = kifu1_mutable.MoveEx_Current;
                     // ■■■■■■■■■■カレント・チェンジ■■■■■■■■■■
-                    result.SetNode(curNode1,
-                        result.NewSky
-                        );
+                    result.SetNode(kifu1_mutable.MoveEx_Current, result.NewSky);
                 }
                 this.State = nextState;
-
             }
             catch (Exception ex) {
                 Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "棋譜解析中☆");
@@ -136,7 +131,6 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
                 KifuParserA_State nextState = this.State;
 
-                MoveEx curNode1 = kifu1_mutable.MoveEx_Current;
                 while (!genjo.IsBreak())//breakするまでくり返し。
                 {
                     if ("" == genjo.InputLine)
@@ -154,7 +148,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                         out moveNodeType,
                         ref result,
                         earth1,
-                        curNode1.Move,
+                        kifu1_mutable.MoveEx_Current.Move,
                         kifu1_mutable.PositionA,
                         out nextState,
                         this,
@@ -165,10 +159,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                         earth1.Clear();
 
                         // 棋譜を空っぽにします。
-                        kifu1_mutable.MoveEx_SetCurrent(
-                            TreeImpl.MoveEx_ClearAllCurrent(kifu1_mutable, positionInit,logger)
-                            );
-                        curNode1 = kifu1_mutable.MoveEx_Current;
+                        Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(kifu1_mutable, positionInit, logger);
 
                         earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
                     }
@@ -183,40 +174,20 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                             result.NewSky,
                             logger
                             );
-                        MoveEx newNodeB = kifu1_mutable.MoveEx_Current;
                         // ■■■■■■■■■■カレント・チェンジ■■■■■■■■■■
-                        result.SetNode(newNodeB,
-                            result.NewSky
-                            );
+                        result.SetNode(kifu1_mutable.MoveEx_Current, result.NewSky);
                     }
-
 
                     this.State = nextState;
 
                 gt_NextLoop1:
                     ;
                 }
-
-
-
-                //if (null != genjo.StartposImporter_OrNull)
-                //{
-                //    // SFENの解析結果を渡すので、
-                //    // その解析結果をどう使うかは、委譲します。
-                //    this.Delegate_OnChangeSky_Im(
-                //        model_PnlTaikyoku,
-                //        genjo,
-                //        errH
-                //        );
-                //}
-
-
             }
             catch (Exception ex) {
                 Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "棋譜解析中☆");
                 throw ex;
             }
         }
-
     }
 }
