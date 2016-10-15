@@ -336,8 +336,10 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C081____Canvas
         /// <param name="sender"></param>
         /// <param name="e"></param>
         public override void Paint(
-            object sender, PaintEventArgs e,
-            Sky sky,//shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue()
+            object sender,
+            PaintEventArgs e,
+            Playerside psideA,
+            Sky positionA,
             MainGui_Csharp shogiGui,
             string windowName,
             KwLogger errH
@@ -378,12 +380,15 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C081____Canvas
             //----------
             // 先後表示
             //----------
-            this.lblPside.Text = Conv_Playerside.ToLog_Kanji(sky.GetKaisiPside());
+            this.lblPside.Text = Conv_Playerside.ToLog_Kanji(
+                psideA// positionA.GetKaisiPside()
+                );
             this.lblPside.Paint(e.Graphics);
 
 
             base.Paint(sender, e,
-                shogiGui.Link_Server.KifuTree.PositionA,//.CurNode2ok.GetNodeValue()
+                psideA,//shogiGui.Link_Server.KifuTree.PositionA.GetKaisiPside(),
+                shogiGui.Link_Server.KifuTree.PositionA,
                 shogiGui, windowName, errH);
 
         gt_EndMethod:

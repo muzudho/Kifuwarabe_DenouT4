@@ -1,7 +1,0 @@
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A000_Platform___\Grayscale.A000_Platform___.exe.config
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A000_Platform___\Grayscale.A000_Platform___.exe
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A000_Platform___\Grayscale.A000_Platform___.pdb
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A000_Platform___\obj\Debug\A000_Platform___.csproj.GenerateResource.Cache
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A000_Platform___\obj\Debug\Grayscale.A000_Platform___.exe
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A000_Platform___\obj\Debug\Grayscale.A000_Platform___.pdb
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A000_Platform___\obj\Debug\Grayscale.A000_Platform___.Properties.Resources.resources

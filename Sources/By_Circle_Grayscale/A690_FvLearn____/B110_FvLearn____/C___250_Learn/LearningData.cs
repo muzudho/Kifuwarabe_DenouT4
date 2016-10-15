@@ -70,6 +70,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
             Tree kifu1,
+            Playerside psideA,
             Sky positionA,
             string[] searchedPv,
             EvaluationArgs args,

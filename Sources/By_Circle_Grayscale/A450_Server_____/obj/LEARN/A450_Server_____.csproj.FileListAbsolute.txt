@@ -1,6 +1,0 @@
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A450_Server_____\Grayscale.A450_Server_____.dll.config
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A450_Server_____\Grayscale.A450_Server_____.dll
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A450_Server_____\Grayscale.A450_Server_____.pdb
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A450_Server_____\obj\LEARN\A450_Server_____.csprojResolveAssemblyReference.cache
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A450_Server_____\obj\LEARN\Grayscale.A450_Server_____.dll
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A450_Server_____\obj\LEARN\Grayscale.A450_Server_____.pdb

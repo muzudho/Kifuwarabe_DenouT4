@@ -22,12 +22,13 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
         /// <summary>
         /// v(^▽^)v超能力『メナス』だぜ☆ 未来の脅威を予測し、可視化するぜ☆ｗｗｗ
         /// </summary>
-        public static void Menace( MainGui_Csharp mainGui, KwLogger errH)
+        public static void Menace( MainGui_Csharp mainGui, KwLogger logger)
         {
             if (0 < mainGui.SkyWrapper_Gui.GuiSky.Temezumi)
             {
                 // 処理の順序が悪く、初回はうまく判定できない。
-                Sky src_Sky = mainGui.SkyWrapper_Gui.GuiSky;
+                Sky positionA = mainGui.SkyWrapper_Gui.GuiSky;
+                Playerside psideA = mainGui.SkyWrapper_Gui.GuiSky.GetKaisiPside();
 
 
                 //----------
@@ -41,18 +42,18 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
                 // 全駒
                 foreach (Finger figKoma in Finger_Honshogi.Items_KomaOnly)
                 {
-                    src_Sky.AssertFinger(figKoma);
-                    Busstop koma = src_Sky.BusstopIndexOf(figKoma);
+                    positionA.AssertFinger(figKoma);
+                    Busstop koma = positionA.BusstopIndexOf(figKoma);
 
 
                     if (
                         Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma)
                         &&
-                        mainGui.SkyWrapper_Gui.GuiSky.GetKaisiPside() != Conv_Busstop.ToPlayerside( koma)
+                        psideA != Conv_Busstop.ToPlayerside( koma)
                         )
                     {
                         // 駒の利き
-                        SySet<SyElement> kikiZukei = Util_Sky_SyugoQuery.KomaKidou_Potential(figKoma, src_Sky);
+                        SySet<SyElement> kikiZukei = Util_Sky_SyugoQuery.KomaKidou_Potential(figKoma, positionA);
 
                         IEnumerable<SyElement> kikiMasuList = kikiZukei.Elements;
                         foreach (SyElement masu in kikiMasuList)

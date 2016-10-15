@@ -41,7 +41,6 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         public static List<Move> CreateMovelist_BeforeLoop(
             Tansaku_Genjo genjo,
             
-            //Move move_ForLog,
             Playerside psideA,
             Sky positionA,//この局面から合法手を作成☆（＾～＾）
 

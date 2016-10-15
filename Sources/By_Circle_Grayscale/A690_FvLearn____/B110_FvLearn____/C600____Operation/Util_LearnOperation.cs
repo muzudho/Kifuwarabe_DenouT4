@@ -366,6 +366,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                 ref searchedMaxDepth,
                 ref searchedNodes,
                 newKifu1_Hirate,
+                positionA.GetKaisiPside(),
                 positionA,
                 searchedPv,
                 args, errH);

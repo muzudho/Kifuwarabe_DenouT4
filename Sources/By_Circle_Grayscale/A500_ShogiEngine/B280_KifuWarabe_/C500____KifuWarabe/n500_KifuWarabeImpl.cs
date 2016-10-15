@@ -78,7 +78,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             this.EngineOptions = new EngineOptionsImpl();
             this.EngineOptions.AddOption(EngineOptionNames.USI_PONDER, new EngineOption_BoolImpl());// ポンダーに対応している将棋サーバーなら真です。
             this.EngineOptions.AddOption(EngineOptionNames.NOOPABLE, new EngineOption_BoolImpl());// 独自実装のコマンドなので、ＯＦＦにしておきます。
-            this.EngineOptions.AddOption(EngineOptionNames.THINKING_MILLI_SECOND, new EngineOption_NumberImpl(90000));//60000//8000//4000
+            this.EngineOptions.AddOption(EngineOptionNames.THINKING_MILLI_SECOND, new EngineOption_NumberImpl(30000));//30秒//90000//60000//8000//4000
 
 
 
@@ -1097,7 +1097,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                                 //----------------------------------------
                                 {
                                     int hyojiScore = (int)bestScore;
-                                    if (this.Kifu_AtLoop2.PositionA.GetKaisiPside() == Playerside.P2)//.CurNode1.GetNodeValue()
+                                    if (this.Kifu_AtLoop2.PositionA.GetKaisiPside() == Playerside.P2)
                                     {
                                         // 符号を逆転
                                         hyojiScore = -hyojiScore;

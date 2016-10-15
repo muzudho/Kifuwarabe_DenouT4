@@ -1,6 +1,0 @@
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P080_Application\obj\Release\P080_Application.csprojResolveAssemblyReference.cache
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\P080_Application\Grayscale.P080_Application.exe.config
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\P080_Application\Grayscale.P080_Application.exe
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\P080_Application\Grayscale.P080_Application.pdb
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P080_Application\obj\Release\Grayscale.P080_Application.exe
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\P080_Application\obj\Release\Grayscale.P080_Application.pdb

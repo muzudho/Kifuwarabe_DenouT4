@@ -1,0 +1,1225 @@
+>     position startpos moves 9g9f 
+>     ┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+go
+サーバーから受信した局面☆（＾▽＾）
+
+┌──┬──┬──┬──┬──┬──┬──┬──┬──┐
+│香▽│桂▽│銀▽│金▽│王▽│金▽│銀▽│桂▽│香▽│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│飛▽│　　│　　│　　│　　│　　│角▽│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│歩▽│歩▽│歩▽│歩▽│歩▽│歩▽│歩▽│歩▽│歩▽│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│　　│　　│　　│　　│　　│　　│　　│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│　　│　　│　　│　　│　　│　　│　　│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│▲歩│　　│　　│　　│　　│　　│　　│　　│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│▲歩│▲歩│▲歩│▲歩│▲歩│▲歩│▲歩│▲歩│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│▲角│　　│　　│　　│　　│　　│▲飛│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│▲香│▲桂│▲銀│▲金│▲王│▲金│▲銀│▲桂│▲香│
+└──┴──┴──┴──┴──┴──┴──┴──┴──┘
+
+
+>     ┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=５一 dst=４二 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=９二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=７二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=６二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=５二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=３二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=４一 dst=４二 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=４一 dst=５二 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=４一 dst=３二 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=６一 dst=６二 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=６一 dst=７二 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=６一 dst=５二 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=３一 dst=３二 srcKs=銀 dstKs=銀 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=３一 dst=４二 srcKs=銀 dstKs=銀 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=７一 dst=７二 srcKs=銀 dstKs=銀 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=７一 dst=６二 srcKs=銀 dstKs=銀 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=１一 dst=１二 srcKs=香 dstKs=香 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=９一 dst=９二 srcKs=香 dstKs=香 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=１三 dst=１四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=２三 dst=２四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=３三 dst=３四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=５三 dst=５四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=６三 dst=６四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=７三 dst=７四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８三 dst=８四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=９三 dst=９四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=９三 dst=９四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+noop from server
+>     position startpos moves 9g9f 8b4b 8h9g 
+>     ┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+go
+サーバーから受信した局面☆（＾▽＾）
+
+┌──┬──┬──┬──┬──┬──┬──┬──┬──┐
+│香▽│桂▽│銀▽│金▽│王▽│金▽│銀▽│桂▽│香▽│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│　　│　　│　　│　　│飛▽│　　│角▽│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│歩▽│歩▽│歩▽│歩▽│歩▽│歩▽│歩▽│歩▽│歩▽│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│　　│　　│　　│　　│　　│　　│　　│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│　　│　　│　　│　　│　　│　　│　　│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│▲歩│　　│　　│　　│　　│　　│　　│　　│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│▲角│▲歩│▲歩│▲歩│▲歩│▲歩│▲歩│▲歩│▲歩│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│　　│　　│　　│　　│　　│　　│▲飛│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│▲香│▲桂│▲銀│▲金│▲王│▲金│▲銀│▲桂│▲香│
+└──┴──┴──┴──┴──┴──┴──┴──┴──┘
+
+
+>     ┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４二 dst=５二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４二 dst=６二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４二 dst=７二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４二 dst=８二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４二 dst=９二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４二 dst=３二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４一 dst=５二 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４一 dst=３二 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=６一 dst=６二 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=６一 dst=７二 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=６一 dst=５二 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=３一 dst=３二 srcKs=銀 dstKs=銀 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=７一 dst=７二 srcKs=銀 dstKs=銀 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=７一 dst=８二 srcKs=銀 dstKs=銀 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=７一 dst=６二 srcKs=銀 dstKs=銀 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=１一 dst=１二 srcKs=香 dstKs=香 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=９一 dst=９二 srcKs=香 dstKs=香 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=１三 dst=１四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=２三 dst=２四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=３三 dst=３四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=５三 dst=５四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=６三 dst=６四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=７三 dst=７四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=８三 dst=８四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=９三 dst=９四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=９三 dst=９四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+noop from server
+>     position startpos moves 9g9f 8b4b 8h9g 4c4d 9g5c+ 
+>     ┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+go
+サーバーから受信した局面☆（＾▽＾）
+
+┌──┬──┬──┬──┬──┬──┬──┬──┬──┐
+│香▽│桂▽│銀▽│金▽│王▽│金▽│銀▽│桂▽│香▽│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│　　│　　│　　│　　│飛▽│　　│角▽│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│歩▽│歩▽│歩▽│歩▽│▲馬│　　│歩▽│歩▽│歩▽│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│　　│　　│　　│　　│歩▽│　　│　　│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│　　│　　│　　│　　│　　│　　│　　│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│▲歩│　　│　　│　　│　　│　　│　　│　　│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│▲歩│▲歩│▲歩│▲歩│▲歩│▲歩│▲歩│▲歩│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│　　│　　│　　│　　│　　│　　│▲飛│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│▲香│▲桂│▲銀│▲金│▲王│▲金│▲銀│▲桂│▲香│
+└──┴──┴──┴──┴──┴──┴──┴──┴──┘
+歩
+
+>     ┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=４二 dst=４三 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=４二 dst=５二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=４二 dst=６二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=４二 dst=７二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=４二 dst=８二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=４二 dst=９二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=４二 dst=３二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=４一 dst=５二 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=４一 dst=３二 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=６一 dst=６二 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=６一 dst=７二 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=６一 dst=５二 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=３一 dst=３二 srcKs=銀 dstKs=銀 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=７一 dst=７二 srcKs=銀 dstKs=銀 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=７一 dst=８二 srcKs=銀 dstKs=銀 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=７一 dst=６二 srcKs=銀 dstKs=銀 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=１一 dst=１二 srcKs=香 dstKs=香 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=９一 dst=９二 srcKs=香 dstKs=香 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=１三 dst=１四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=２三 dst=２四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=３三 dst=３四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=４四 dst=４五 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=６三 dst=６四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=７三 dst=７四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=８三 dst=８四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=９三 dst=９四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=８八 dst=９七 srcKs=角 dstKs=角 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=９七 dst=５三 srcKs=角 dstKs=馬 captured=歩
+(6)pside=後手 src=９三 dst=９四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+quit
+>     quit

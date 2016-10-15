@@ -1,5 +1,0 @@
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A720_SigmoidTest\Grayscale.A720_SigmoidTest.exe.config
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A720_SigmoidTest\Grayscale.A720_SigmoidTest.exe
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A720_SigmoidTest\Grayscale.A720_SigmoidTest.pdb
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A720_SigmoidTest\obj\Release\Grayscale.A720_SigmoidTest.exe
-E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Sources\By_Circle_Grayscale\A720_SigmoidTest\obj\Release\Grayscale.A720_SigmoidTest.pdb

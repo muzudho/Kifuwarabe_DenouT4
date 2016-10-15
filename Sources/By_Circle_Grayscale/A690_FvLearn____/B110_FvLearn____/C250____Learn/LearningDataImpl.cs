@@ -223,6 +223,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
                 ref searchedMaxDepth,
                 ref searchedNodes,
                 kifu1,
+                positionA.GetKaisiPside(),
                 positionA,
                 searchedPv,
                 args, errH);
@@ -345,10 +346,11 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
             Tree kifu1,
+            Playerside psideA,
             Sky positionA,
             string[] searchedPv,
             EvaluationArgs args,
-            KwLogger errH)
+            KwLogger logger)
         {
             try
             {
@@ -362,15 +364,15 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
                     searchedPv,
 
                     kifu1,
-                    positionA.GetKaisiPside(),
+                    psideA,//positionA.GetKaisiPside(),
                     positionA,
 
 
                     isHonshogi, Mode_Tansaku.Learning,
-                    args, errH);
+                    args, logger);
             }
             catch (Exception ex) {
-                errH.DonimoNaranAkirameta(ex, "棋譜ツリーを作っていたときです。");
+                logger.DonimoNaranAkirameta(ex, "棋譜ツリーを作っていたときです。");
                 throw ex;
             }
         }

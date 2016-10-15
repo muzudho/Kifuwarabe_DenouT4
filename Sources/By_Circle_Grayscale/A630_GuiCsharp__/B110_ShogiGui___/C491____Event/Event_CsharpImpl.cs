@@ -156,7 +156,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , KwLogger errH
+                    , KwLogger logger
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -171,7 +171,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         out fugoJStr,
                         mainGui2.Link_Server.KifuTree.MoveEx_Current,
                         mainGui2.Link_Server.KifuTree,
-                        errH))
+                        logger))
                     {
                         goto gt_EndBlock;
                     }
@@ -180,8 +180,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                         mainGui2.Link_Server.KifuTree,//.CurrentNode,
                         mainGui2.Link_Server.KifuTree.PositionA.GetKaisiPside(),
                         mainGui2,
-                        movedKoma, foodKoma, fugoJStr, Util_Function_Csharp.ReadLine_FromTextbox(), errH);
-                    Util_Menace.Menace(mainGui2, errH);//メナス
+                        movedKoma, foodKoma, fugoJStr, Util_Function_Csharp.ReadLine_FromTextbox(), logger);
+                    Util_Menace.Menace(mainGui2, logger);//メナス
 
                 gt_EndBlock:
                     ;
@@ -301,7 +301,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , KwLogger errH2
+                    , KwLogger logger
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -311,11 +311,11 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     Util_KifuTree282.Clear_SetStartpos_KokokaraSaifu(
 
                         shogibanGui2.Link_Server.Earth,
-                        shogibanGui2.Link_Server.KifuTree.PositionA,//.GetRoot().GetNodeValue(),
+                        shogibanGui2.Link_Server.KifuTree.PositionA,
                         shogibanGui2.Link_Server.KifuTree,
                         
                         shogibanGui2.Link_Server.KifuTree.PositionA.GetKaisiPside(),
-                        errH2
+                        logger
                         );
                     shogibanGui2.RepaintRequest.SyuturyokuRequest = RepaintRequestGedanTxt.Kifu;
                 };
@@ -620,7 +620,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
             mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
             mainGui.ChangedTurn(
-                mainGui.Link_Server.KifuTree,//.CurrentNode,
+                mainGui.Link_Server.KifuTree,
                 mainGui.Link_Server.KifuTree.PositionA.GetKaisiPside(),
                 logger);//マウス左ボタンを押したのでチェンジターンします。
 
