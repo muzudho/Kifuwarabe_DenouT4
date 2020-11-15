@@ -44,10 +44,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="KeraLua">
-      <HintPath>..\..\..\Engine01_Binaries\Lib_NLua\KeraLua.dll</HintPath>
+      <HintPath>..\..\..\Resources\Lib_NLua\KeraLua.dll</HintPath>
     </Reference>
     <Reference Include="NLua">
-      <HintPath>..\..\..\Engine01_Binaries\Lib_NLua\NLua.dll</HintPath>
+      <HintPath>..\..\..\Resources\Lib_NLua\NLua.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

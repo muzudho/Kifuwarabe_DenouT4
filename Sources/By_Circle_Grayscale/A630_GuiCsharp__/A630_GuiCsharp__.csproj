@@ -48,16 +48,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DynamicJson">
-      <HintPath>..\..\..\Engine01_Binaries\Lib_NeueCC\DynamicJson.dll</HintPath>
+      <HintPath>..\..\..\Resources\Lib_NeueCC\DynamicJson.dll</HintPath>
     </Reference>
     <Reference Include="KeraLua">
-      <HintPath>..\..\..\Engine01_Binaries\Lib_NLua\KeraLua.dll</HintPath>
+      <HintPath>..\..\..\Resources\Lib_NLua\KeraLua.dll</HintPath>
     </Reference>
     <Reference Include="NLua">
-      <HintPath>..\..\..\Engine01_Binaries\Lib_NLua\NLua.dll</HintPath>
+      <HintPath>..\..\..\Resources\Lib_NLua\NLua.dll</HintPath>
     </Reference>
     <Reference Include="ProjectDark.KWSupport">
-      <HintPath>..\..\..\Engine01_Binaries\Lib_Circle_ProjectDark\ProjectDark.KWSupport.dll</HintPath>
+      <HintPath>..\..\..\Resources\Lib_Circle_ProjectDark\ProjectDark.KWSupport.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -1,6 +1,5 @@
 ﻿using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
 using System.Text;
-using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
 
 namespace Grayscale.A120_KifuSfen___.B180_FormatSfen_.C260____Format
 {

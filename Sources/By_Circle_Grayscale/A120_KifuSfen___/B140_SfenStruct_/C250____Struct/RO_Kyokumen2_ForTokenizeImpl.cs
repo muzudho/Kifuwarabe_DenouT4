@@ -1,6 +1,5 @@
 ﻿using Grayscale.A120_KifuSfen___.B120_ConvSujiDan.C500____Converter;
 using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
-using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
 using System;
 
 namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct

@@ -59,7 +59,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ProjectDark.KWSupport">
-      <HintPath>..\..\..\Engine01_Binaries\Lib_Circle_ProjectDark\ProjectDark.KWSupport.dll</HintPath>
+      <HintPath>..\..\..\Resources\Lib_Circle_ProjectDark\ProjectDark.KWSupport.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

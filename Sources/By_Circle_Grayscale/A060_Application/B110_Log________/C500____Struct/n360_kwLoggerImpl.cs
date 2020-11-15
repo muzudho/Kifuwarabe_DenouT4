@@ -1,10 +1,8 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B310_Settei_____.C500____Struct;//FIXME:
 using System;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using System.Diagnostics;
 
 namespace Grayscale.A060_Application.B110_Log________.C500____Struct
