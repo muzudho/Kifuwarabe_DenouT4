@@ -8,7 +8,7 @@ using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 #if DEBUG
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+// using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 #else
 #endif
 

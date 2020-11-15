@@ -10,7 +10,7 @@ using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C___500_Hyokakansu;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C510____HyokakansuColl;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
 using System;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+// using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;

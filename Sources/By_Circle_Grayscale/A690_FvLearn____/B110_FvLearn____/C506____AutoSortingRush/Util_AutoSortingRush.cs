@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+// using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 #endif
 
 namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C506____AutoSasiteSort

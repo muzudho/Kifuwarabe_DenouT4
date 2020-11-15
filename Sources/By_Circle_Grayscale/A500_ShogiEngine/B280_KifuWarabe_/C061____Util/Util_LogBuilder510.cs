@@ -36,7 +36,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C061____Util
                 KaisetuBoard logBrd_move1 = new KaisetuBoard();
 
                 List_OneAndMulti<Finger, SySet<SyElement>> komaBETUSusumeruMasus;
-                Playerside pside = kifu1.PositionA.KaisiPside;
+                Playerside pside = kifu1.PositionA.GetKaisiPside();//.KaisiPside;
                 Util_KyokumenMoves.LA_Split_KomaBETUSusumeruMasus(
                     2,
                     //node_forLog,

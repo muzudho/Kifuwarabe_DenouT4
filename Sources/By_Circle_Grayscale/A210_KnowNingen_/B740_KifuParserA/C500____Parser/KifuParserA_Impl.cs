@@ -54,9 +54,9 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             try
             {
 #if DEBUG
-                errH.AppendLine("┏━━━━━┓(^o^)");
-                errH.AppendLine("わたしは　" + this.State.GetType().Name + "　の　Execute_Step　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
-                errH.Flush(LogTypes.Plain);
+                logger.AppendLine("┏━━━━━┓(^o^)");
+                logger.AppendLine("わたしは　" + this.State.GetType().Name + "　の　Execute_Step　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
+                logger.Flush(LogTypes.Plain);
 #endif
 
                 KifuParserA_State nextState;
@@ -124,9 +124,9 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             try
             {
 #if DEBUG
-                errH.AppendLine("┏━━━━━━━━━━┓");
-                errH.AppendLine("わたしは　" + this.State.GetType().Name + "　の　Execute_All　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
-                errH.Flush(LogTypes.Plain);
+                logger.AppendLine("┏━━━━━━━━━━┓");
+                logger.AppendLine("わたしは　" + this.State.GetType().Name + "　の　Execute_All　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
+                logger.Flush(LogTypes.Plain);
 #endif
 
                 KifuParserA_State nextState = this.State;

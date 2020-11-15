@@ -32,7 +32,7 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 #if DEBUG
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+// using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 #endif
 
 namespace Grayscale.P699_Form_______

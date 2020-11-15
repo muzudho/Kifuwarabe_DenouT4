@@ -28,7 +28,7 @@ using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+// using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 #endif
 
 namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
@@ -53,8 +53,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                 Move move1 = item.Move;
 #if DEBUG
                 string sfen = Conv_Move.ToSfen(item.Move);
-                errH.AppendLine("sfen=" + sfen);
-                errH.Flush(LogTypes.Plain);
+                logger.AppendLine("sfen=" + sfen);
+                logger.Flush(LogTypes.Plain);
 #endif
                 /*
                 if (uc_Main.LearningData.ContainsKeyCurChildNode(move1, uc_Main.LearningData.KifuA, logger))

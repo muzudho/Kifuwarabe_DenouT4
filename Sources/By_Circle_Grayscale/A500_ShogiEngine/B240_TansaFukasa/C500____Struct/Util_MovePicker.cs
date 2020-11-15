@@ -20,7 +20,7 @@ using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
 using Grayscale.A210_KnowNingen_.B110_GraphicLog_.C500____Util;
 using Grayscale.A210_KnowNingen_.B460_KyokumMoves.C250____Log;
 using Grayscale.A210_KnowNingen_.B810_LogGraphiEx.C500____Util;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+// using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 #else
 #endif
 

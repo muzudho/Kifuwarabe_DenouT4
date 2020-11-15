@@ -112,9 +112,9 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     // 最初はここ
 
 #if DEBUG
-                    errH.AppendLine("(^o^)... ...");
-                    errH.AppendLine("ｻｲｼｮﾊｺｺ☆　：　" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
-                    errH.Flush(LogTypes.Plain);
+                    logger.AppendLine("(^o^)... ...");
+                    logger.AppendLine("ｻｲｼｮﾊｺｺ☆　：　" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
+                    logger.Flush(LogTypes.Plain);
 #endif
                     inputLine = kifuParserA_Impl.Execute_Step_CurrentMutable(
                         ref result,
@@ -146,8 +146,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                     {
 #if DEBUG
                         string message = "(^o^)ﾂｷﾞﾊ　ﾋﾗﾃ　ﾏﾀﾊ　ｼﾃｲｷｮｸﾒﾝ　ｦ　ｼｮﾘｼﾀｲ☆ inputLine=[" + inputLine + "]";
-                        errH.AppendLine(message);
-                        errH.Flush(LogTypes.Plain);
+                        logger.AppendLine(message);
+                        logger.Flush(LogTypes.Plain);
 #endif
 
                         inputLine = kifuParserA_Impl.Execute_Step_CurrentMutable(
@@ -169,8 +169,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
                     {
 #if DEBUG
-                        errH.AppendLine("(^o^)ﾂｷﾞﾊ　ﾑｰﾌﾞｽ　ｦ　ｼｮﾘｼﾀｲ☆");
-                        errH.Flush(LogTypes.Plain);
+                        logger.AppendLine("(^o^)ﾂｷﾞﾊ　ﾑｰﾌﾞｽ　ｦ　ｼｮﾘｼﾀｲ☆");
+                        logger.Flush(LogTypes.Plain);
 #endif
 
                         inputLine = kifuParserA_Impl.Execute_Step_CurrentMutable(

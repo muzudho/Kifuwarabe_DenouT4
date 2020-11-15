@@ -38,10 +38,10 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 #if DEBUG
-using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
+// using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
 using System.Diagnostics;
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
-using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
+// using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
 #endif
 
 #if DEBUG || LEARN
