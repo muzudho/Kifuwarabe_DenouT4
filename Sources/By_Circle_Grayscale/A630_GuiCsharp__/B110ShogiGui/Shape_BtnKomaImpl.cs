@@ -131,7 +131,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C080Shape
         /// ************************************************************************************************************************
         /// </summary>
         /// <param name="g1"></param>
-        public void Paint(Graphics g1, MainGui_Csharp mainGui, KwLogger errH)
+        public void Paint(Graphics g1, MainGui_Csharp mainGui, ILogger errH)
         {
 
             if (!this.Visible)

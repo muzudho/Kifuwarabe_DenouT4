@@ -14,7 +14,7 @@ namespace Grayscale.P489_Form_______
 
         static void Main(string[] args)
         {
-            KwLogger errH = Util_Loggers.ProcessAims_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessAimsDefault;
             MessageBox.Show("AIMSサーバー");
 
 
@@ -47,7 +47,7 @@ namespace Grayscale.P489_Form_______
 
             MessageBox.Show("AIMSサーバー\n将棋エンジン・ファイルパス＝[" + setteiXmlFile.ShogiEngineFilePath + "]");
 
-            ISky src_Sky = Util_SkyCreator.New_Hirate();
+            ISky src_Sky = UtilSkyCreator.New_Hirate();
 
             AimsServerImpl aimsServer = new AimsServerImpl(src_Sky);
             aimsServer.ShogiEngineFilePath = setteiXmlFile.ShogiEngineFilePath;

@@ -13,7 +13,7 @@ namespace Grayscale.A450Server.B110Server.C498Server
     {
         public Server_Impl(ISky src_Sky, IReceiver receiver)
         {
-            this.engineClient = new EngineClient_Impl(receiver);
+            this.engineClient = new EngineClientImpl(receiver);
             this.engineClient.SetOwner_Server(this);
 
             //----------

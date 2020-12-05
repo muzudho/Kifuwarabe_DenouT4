@@ -17,11 +17,11 @@ namespace Grayscale.A210KnowNingen.B280Tree.C500Struct
 
     public interface Tree
     {
-        void LogPv(string message, KwLogger logger);
+        void LogPv(string message, ILogger logger);
 
-        void Pv_RemoveLast(KwLogger logger);
-        void Pv_ClearAll(KwLogger logger);
-        void Pv_Append(Move tail, KwLogger logger);
+        void Pv_RemoveLast(ILogger logger);
+        void Pv_ClearAll(ILogger logger);
+        void Pv_Append(Move tail, ILogger logger);
         Move Pv_GetLatest();
         Move Pv_Get(int index);
         int Pv_Count();

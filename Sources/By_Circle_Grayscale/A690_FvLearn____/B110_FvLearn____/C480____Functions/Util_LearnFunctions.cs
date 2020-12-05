@@ -28,7 +28,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C480____Functions
         /// <summary>
         /// FVを、-999.0～999.0(*bairitu)に矯正。
         /// </summary>
-        public static void FvParamRange_PP(FeatureVector fv, KwLogger errH)
+        public static void FvParamRange_PP(FeatureVector fv, ILogger errH)
         {
             //--------------------------------------------------------------------------------
             // 変換前のデータを確認。 
@@ -50,7 +50,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C480____Functions
         /// FVの保存。
         /// </summary>
         /// <param name="uc_Main"></param>
-        public static void Do_Save(Uc_Main uc_Main, KwLogger errH)
+        public static void Do_Save(Uc_Main uc_Main, ILogger errH)
         {
             FeatureVector fv = uc_Main.LearningData.Fv;
 
@@ -141,18 +141,18 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C480____Functions
             // 駒割
             File.WriteAllText(uc_Main.TxtFvFilepath.Text, Format_FeatureVector_Komawari.Format_Text(fv));
             // スケール
-            Util_FeatureVectorOutput.Write_Scale(fv, fvFolderPath);
+            UtilFeatureVectorOutput.Write_Scale(fv, fvFolderPath);
             // KK
-            Util_FeatureVectorOutput.Write_KK(fv, fvFolderPath);
+            UtilFeatureVectorOutput.Write_KK(fv, fvFolderPath);
             // 1pKP,2pKP
-            Util_FeatureVectorOutput.Write_KP(fv, fvFolderPath);
+            UtilFeatureVectorOutput.Write_KP(fv, fvFolderPath);
             // PP 盤上
-            Util_FeatureVectorOutput.Write_PP_Banjo(fv, fvFolderPath);
+            UtilFeatureVectorOutput.Write_PP_Banjo(fv, fvFolderPath);
             // PP １９枚の持駒
-            Util_FeatureVectorOutput.Write_PP_19Mai(fv, fvFolderPath);
+            UtilFeatureVectorOutput.Write_PP_19Mai(fv, fvFolderPath);
             // PP ５枚の持駒、３枚の持駒
-            Util_FeatureVectorOutput.Write_PP_5Mai(fv, fvFolderPath);
-            Util_FeatureVectorOutput.Write_PP_3Mai(fv, fvFolderPath);
+            UtilFeatureVectorOutput.Write_PP_5Mai(fv, fvFolderPath);
+            UtilFeatureVectorOutput.Write_PP_3Mai(fv, fvFolderPath);
         }
 
         /// <summary>
@@ -161,7 +161,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C480____Functions
         public static void Do_RankUpHonpu(
             ref bool ref_isRequestShowGohosyu, Uc_Main uc_Main, Move move1, float tyoseiryo)
         {
-            KwLogger logger = Util_Loggers.ProcessLearner_DEFAULT;
+            ILogger logger = ErrorControllerReference.ProcessLearnerDefault;
 
             //----------------------------------------
             // 1P は正の数がグッド、2P は負の数がグッド。
@@ -188,7 +188,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C480____Functions
                 }
 
                 Util_IttesasuSuperRoutine.DoMove_Super1(
-                    Conv_Move.ToPlayerside(moveB),
+                    ConvMove.ToPlayerside(moveB),
                     ref positionA,//指定局面
                     ref moveB,
                     "E100",
@@ -212,10 +212,10 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C480____Functions
 
 
                 IIttemodosuResult ittemodosuResult;
-                Util_IttemodosuRoutine.UndoMove(
+                UtilIttemodosuRoutine.UndoMove(
                     out ittemodosuResult,
                     moveB,//この関数が呼び出されたときの指し手☆（＾～＾）
-                    Conv_Move.ToPlayerside(moveB),
+                    ConvMove.ToPlayerside(moveB),
                     positionA,
                     "E900",
                     logger

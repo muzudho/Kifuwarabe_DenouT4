@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using Grayscale.A210KnowNingen.B280Tree.C500Struct;
-using Grayscale.A210KnowNingen.B630Sennitite.C500Struct;
 using Grayscale.A210KnowNingen.B630Sennitite.C500Struct;
 
 #if DEBUG

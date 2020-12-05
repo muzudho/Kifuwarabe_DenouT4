@@ -43,7 +43,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C260____View
         public static void ShowSasiteList(
             LearningData learningData,
             Uc_Main uc_Main,
-            KwLogger logger)
+            ILogger logger)
         {
             //
             // まず、リストを空っぽにします。
@@ -51,7 +51,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C260____View
             uc_Main.LstSasite.Items.Clear();
 
             Earth earth1 = new EarthImpl();
-            ISky positionA = Util_SkyCreator.New_Hirate();//日本の符号読取時
+            ISky positionA = UtilSkyCreator.New_Hirate();//日本の符号読取時
             Tree kifu1 = new TreeImpl(positionA);
             //kifu1.AssertPside(kifu1.CurNode, "ShowSasiteList",errH);
 
@@ -84,19 +84,19 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C260____View
                             default: komadai = Okiba.Empty; break;
                         }
 
-                        figSrcKoma = Util_Sky_FingersQuery.InOkibaPsideKomasyuruiNow(kaisi_Sky, komadai, pside, utuKomasyurui).ToFirst();
+                        figSrcKoma = UtilSkyFingersQuery.InOkibaPsideKomasyuruiNow(kaisi_Sky, komadai, pside, utuKomasyurui).ToFirst();
                     }
                     else
                     {
                         // 盤上の駒。
-                        figSrcKoma = Util_Sky_FingerQuery.InBanjoMasuNow(kaisi_Sky, pside, srcMasu, logger);
+                        figSrcKoma = UtilSkyFingerQuery.InBanjoMasuNow(kaisi_Sky, pside, srcMasu, logger);
                     }
                     kaisi_Sky.AssertFinger(figSrcKoma);
                     Busstop srcKoma = kaisi_Sky.BusstopIndexOf(figSrcKoma);
 
                     // 先位置
                     SyElement dstMasu = Util_CsaSasite.ToDstMasu(csaSasite);
-                    Finger figFoodKoma = Util_Sky_FingerQuery.InMasuNow_FilteringBanjo(kaisi_Sky, pside, dstMasu, logger);
+                    Finger figFoodKoma = UtilSkyFingerQuery.InMasuNow_FilteringBanjo(kaisi_Sky, pside, dstMasu, logger);
                     Komasyurui14 foodKomasyurui;
                     if (figFoodKoma == Fingers.Error_1)
                     {
@@ -115,7 +115,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C260____View
                         Util_CsaSasite.ToKomasyurui(csaSasite)
                     );
 
-                    nextMove = Conv_Move.ToMove(
+                    nextMove = ConvMove.ToMove(
                         Conv_Busstop.ToMasu(srcKoma),// 移動元
                         Conv_Busstop.ToMasu(busstop),// 移動先
                         Conv_Busstop.ToKomasyurui(srcKoma),
@@ -134,13 +134,13 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C260____View
                     //
                     //↓↓一手指し
                     IIttesasuResult ittesasuResult;
-                    Util_IttesasuRoutine.DoMove_Normal(
+                    UtilIttesasuRoutine.DoMove_Normal(
                         out ittesasuResult,
                         ref nextMove,
                         positionA,
                         logger
                     );
-                    Util_IttesasuRoutine.BeforeUpdateKifuTree(
+                    UtilIttesasuRoutine.BeforeUpdateKifuTree(
                         earth1,
                         kifu1,
                         nextMove,
@@ -163,7 +163,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C260____View
                 {
                 */
                 // FIXME: 未テスト。
-                move = Conv_Move.ToMove_ByCsa(csaSasite, kifu1.PositionA);
+                move = ConvMove.ToMove_ByCsa(csaSasite, kifu1.PositionA);
                 //}
                 HonpuSasiteListItemImpl listItem = new HonpuSasiteListItemImpl(csaSasite, move);
                 uc_Main.LstSasite.Items.Add(listItem);
@@ -179,7 +179,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C260____View
         public static void Aa_ShowNode2(
             LearningData learningData,
             ISky positionA,
-            Uc_Main uc_Main, KwLogger errH)
+            Uc_Main uc_Main, ILogger errH)
         {
             // 手目済み
             uc_Main.TxtTemezumi.Text = positionA.Temezumi.ToString();
@@ -195,7 +195,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C260____View
         /// 合法手リストの表示
         /// </summary>
         /// <param name="uc_Main"></param>
-        public static void Aa_ShowGohosyu2(LearningData learningData, Uc_Main uc_Main, KwLogger logger)
+        public static void Aa_ShowGohosyu2(LearningData learningData, Uc_Main uc_Main, ILogger logger)
         {
             //----------------------------------------
             // フォルダー作成
@@ -217,7 +217,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C260____View
                     pvList.Add(moveB);
 
                     Util_IttesasuSuperRoutine.DoMove_Super1(
-                        Conv_Move.ToPlayerside(moveB),
+                        ConvMove.ToPlayerside(moveB),
                         ref positionA,//指定局面
                         ref moveB,
                         "D100",
@@ -227,7 +227,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C260____View
 
 
                     learningData.DoScoreing_ForLearning(
-                        Conv_Move.ToPlayerside(moveB),
+                        ConvMove.ToPlayerside(moveB),
                         positionA
                         );
 
@@ -244,10 +244,10 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C260____View
                     itemNumber++;
 
                     IIttemodosuResult ittemodosuResult;
-                    Util_IttemodosuRoutine.UndoMove(
+                    UtilIttemodosuRoutine.UndoMove(
                         out ittemodosuResult,
                         moveB,
-                        Conv_Move.ToPlayerside(moveB),
+                        ConvMove.ToPlayerside(moveB),
                         positionA,
                         "D900",
                         logger
@@ -301,7 +301,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C260____View
         public static void Ittesasu_ByBtnClick(
             ref bool isRequestShowGohosyu,
             ref bool isRequestChangeKyokumenPng,
-            LearningData learningData, Uc_Main uc_Main, KwLogger logger)
+            LearningData learningData, Uc_Main uc_Main, ILogger logger)
         {
 #if DEBUG
             Stopwatch sw1 = new Stopwatch();
@@ -321,9 +321,9 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C260____View
             // リストボックスの先頭から指し手をSFEN形式で１つ取得。
             HonpuSasiteListItemImpl item = (HonpuSasiteListItemImpl)uc_Main.LstSasite.Items[0];
             Move move = item.Move;
-            if (null != logger.KwDisplayer_OrNull.Dlgt_OnLog1Append_or_Null)
+            if (null != logger.KwDisplayer_OrNull.OnAppendLog)
             {
-                logger.KwDisplayer_OrNull.Dlgt_OnLog1Append_or_Null("sfen=" + Conv_Move.ToSfen(move) + Environment.NewLine);
+                logger.KwDisplayer_OrNull.OnAppendLog("sfen=" + ConvMove.ToSfen(move) + Environment.NewLine);
             }
 
             //
@@ -339,7 +339,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C260____View
             {
                 nextMove = Move.Empty;// Conv_Move.GetErrorMove();
                 StringBuilder sb = new StringBuilder();
-                sb.Append("指し手[" + Conv_Move.ToSfen(move) + "]はありませんでした。\n" + learningData.DumpToAllGohosyu(learningData.PositionA));
+                sb.Append("指し手[" + ConvMove.ToSfen(move) + "]はありませんでした。\n" + learningData.DumpToAllGohosyu(learningData.PositionA));
 
                 //Debug.Fail(sb.ToString());
                 logger.DonimoNaranAkirameta("Util_LearningView#Ittesasu_ByBtnClick：" + sb.ToString());
@@ -351,13 +351,13 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C260____View
             //----------------------------------------
             //↓↓一手指し
             IIttesasuResult ittesasuResult;
-            Util_IttesasuRoutine.DoMove_Normal(
+            UtilIttesasuRoutine.DoMove_Normal(
                 out ittesasuResult,
                 ref nextMove,
                 learningData.PositionA,
                 logger
             );
-            Util_IttesasuRoutine.BeforeUpdateKifuTree(
+            UtilIttesasuRoutine.BeforeUpdateKifuTree(
                 learningData.Earth,
                 learningData.KifuA,
                 nextMove,

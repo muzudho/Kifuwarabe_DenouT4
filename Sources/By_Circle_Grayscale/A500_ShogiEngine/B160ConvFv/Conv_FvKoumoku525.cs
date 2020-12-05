@@ -33,7 +33,7 @@ namespace Grayscale.A500ShogiEngine.B160ConvFv.C500Converter
 
             SyElement masu;
             {
-                Finger figK1 = Util_Sky_FingersQuery.InOkibaPsideKomasyuruiNow(src_Sky, Okiba.ShogiBan, pside, Komasyurui14.H06_Gyoku__).ToFirst();
+                Finger figK1 = UtilSkyFingersQuery.InOkibaPsideKomasyuruiNow(src_Sky, Okiba.ShogiBan, pside, Komasyurui14.H06_Gyoku__).ToFirst();
 
                 src_Sky.AssertFinger(figK1);
                 Busstop komaK1 = src_Sky.BusstopIndexOf(figK1);

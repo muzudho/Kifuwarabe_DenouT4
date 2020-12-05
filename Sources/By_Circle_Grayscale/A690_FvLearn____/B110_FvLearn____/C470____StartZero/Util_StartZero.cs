@@ -64,12 +64,12 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C470____StartZero
         /// </summary>
         public static void Adjust_HirateSyokiKyokumen_0ten_AndFvParamRange(
             ref bool ref_isRequestDoEvents,
-            FeatureVector fv, KwLogger errH)
+            FeatureVector fv, ILogger errH)
         {
             if (null == Util_StartZero.src_Sky_hirateSyokikyokumen)
             {
                 // 平手初期局面
-                Util_StartZero.src_Sky_hirateSyokikyokumen = Util_SkyCreator.New_Hirate();
+                Util_StartZero.src_Sky_hirateSyokikyokumen = UtilSkyCreator.New_Hirate();
             }
 
             if (null == Util_StartZero.n54List_hirateSyokikyokumen)

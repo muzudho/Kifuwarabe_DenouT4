@@ -84,7 +84,7 @@
     <Compile Include="Form2_Console.Designer.cs">
       <DependentUpon>Form2_Console.cs</DependentUpon>
     </Compile>
-    <Compile Include="B110ShogiGui\Shape_CanvasImpl.cs" />
+    <Compile Include="B110ShogiGui\ShapeCanvasImpl.cs" />
     <Compile Include="B110ShogiGui\Conv_Koma_InGui.cs" />
     <Compile Include="B110ShogiGui\Util_Function_Csharp.cs" />
     <Compile Include="B110ShogiGui\SubGuiImpl.cs" />
@@ -95,7 +95,7 @@
     <Compile Include="B110ShogiGui\Shape_BtnMasu.cs" />
     <Compile Include="B110ShogiGui\Shape_PnlKomadai.cs" />
     <Compile Include="B110ShogiGui\Shape_PnlShogiban.cs" />
-    <Compile Include="B110ShogiGui\Shape_PnlTaikyoku.cs" />
+    <Compile Include="B110ShogiGui\ShapePnlTaikyoku.cs" />
     <Compile Include="B110ShogiGui\Shape_Canvas.cs" />
     <Compile Include="B110ShogiGui\Timed.cs" />
     <Compile Include="B110ShogiGui\SubGui.cs" />
@@ -116,13 +116,13 @@
     <Compile Include="B110ShogiGui\UserWidget_MasuImpl.cs" />
     <Compile Include="B110ShogiGui\Shape_BtnBoxImpl.cs" />
     <Compile Include="B110ShogiGui\Shape_BtnMasuImpl.cs" />
-    <Compile Include="B110ShogiGui\Shape_PnlTaikyokuImpl.cs" />
-    <Compile Include="B110ShogiGui\Shape_PnlShogibanImpl.cs" />
+    <Compile Include="B110ShogiGui\ShapePnlTaikyokuImpl.cs" />
+    <Compile Include="B110ShogiGui\ShapePnlShogibanImpl.cs" />
     <Compile Include="B110ShogiGui\Shape_PnlKomadaiImpl.cs" />
     <Compile Include="B110ShogiGui\Shape_LblBoxImpl.cs" />
     <Compile Include="B110ShogiGui\TimedA_EngineCapture.cs" />
-    <Compile Include="B110ShogiGui\Timed_Abstract.cs" />
-    <Compile Include="B110ShogiGui\TimedB_MouseCapture.cs" />
+    <Compile Include="B110ShogiGui\TimedAbstract.cs" />
+    <Compile Include="B110ShogiGui\TimedBMouseCapture.cs" />
     <Compile Include="B110ShogiGui\TimedC_SaiseiCapture.cs" />
     <Compile Include="B110ShogiGui\MainGui_CsharpImpl.cs" />
     <Compile Include="B110ShogiGui\Util_Lua_Csharp.cs" />
@@ -131,7 +131,7 @@
     <Compile Include="B110ShogiGui\MainGui_Csharp.cs" />
     <Compile Include="B110ShogiGui\WidgetsLoader.cs" />
     <Compile Include="B110ShogiGui\Form1_Mutex.cs" />
-    <Compile Include="B110ShogiGui\Form1_Shogiable.cs" />
+    <Compile Include="B110ShogiGui\Form1Shogiable.cs" />
     <Compile Include="B110ShogiGui\Uc_Form1Mainable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Uc_Form2Main.cs">

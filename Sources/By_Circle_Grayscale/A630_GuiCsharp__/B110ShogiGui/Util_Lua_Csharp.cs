@@ -23,7 +23,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C480Util
         private static Lua lua;
 
         public static MainGui_Csharp ShogiGui { get; set; }
-        public static KwLogger ErrH { get; set; }
+        public static ILogger ErrH { get; set; }
 
         /// <summary>
         /// 
@@ -130,7 +130,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C480Util
         /// </summary>
         public static void ClearKifu(MainGui_Csharp mainGui, RepaintRequest repaintRequest)
         {
-            KwLogger logger = Util_Loggers.ProcessNone_ERROR;
+            ILogger logger = ErrorControllerReference.ProcessNoneError;
 
             mainGui.Link_Server.Earth.Clear();
 

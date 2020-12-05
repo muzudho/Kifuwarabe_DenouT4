@@ -108,11 +108,11 @@ namespace Grayscale.A690FvLearn
             //
             // イベントハンドラー登録
             //
-            Util_Loggers.ProcessLearner_DEFAULT.KwDisplayer_OrNull.Dlgt_OnLog1Append_or_Null = (string log) =>
+            ErrorControllerReference.ProcessLearnerDefault.KwDisplayer_OrNull.OnAppendLog = (string log) =>
             {
                 this.txtIttesasuLog.Text += log;
             };
-            Util_Loggers.ProcessLearner_DEFAULT.KwDisplayer_OrNull.Dlgt_OnLog1Clear_or_Null = () =>
+            ErrorControllerReference.ProcessLearnerDefault.KwDisplayer_OrNull.OnClearLog = () =>
             {
                 this.txtIttesasuLog.Text = "";
             };
@@ -140,7 +140,7 @@ namespace Grayscale.A690FvLearn
         /// <param name="e"></param>
         private void btnSasu_Click(object sender, EventArgs e)
         {
-            KwLogger errH = Util_Loggers.ProcessLearner_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessLearnerDefault;
             bool isRequest_ShowGohosyu = false;
             bool isRequest_ChangeKyokumenPng = false;
 
@@ -200,7 +200,7 @@ namespace Grayscale.A690FvLearn
 
         private void btnOpenCsa_Click(object sender, EventArgs e)
         {
-            KwLogger errH = Util_Loggers.ProcessLearner_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessLearnerDefault;
 
             bool isRequest_ShowGohosyu = false;
             bool isRequest_ChangeKyokumenPng = false;
@@ -232,7 +232,7 @@ namespace Grayscale.A690FvLearn
             {
                 // 合法手一覧を更新
                 Util_LearnFunctions.FvParamRange_PP(this.LearningData.Fv, errH);// 自動で -999～999(*bairitu) に矯正。
-                Util_LearningView.Aa_ShowGohosyu2(this.LearningData, this, Util_Loggers.ProcessLearner_DEFAULT);
+                Util_LearningView.Aa_ShowGohosyu2(this.LearningData, this, ErrorControllerReference.ProcessLearnerDefault);
                 isRequest_ShowGohosyu = false;
             }
 
@@ -255,7 +255,7 @@ namespace Grayscale.A690FvLearn
         /// <param name="e"></param>
         private void btnOpenFvCsv_Click(object sender, EventArgs e)
         {
-            KwLogger errH = Util_Loggers.ProcessLearner_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessLearnerDefault;
 
             Util_LearnOperation.Do_OpenFvCsv(this, errH);
         }
@@ -267,7 +267,7 @@ namespace Grayscale.A690FvLearn
         /// <param name="e"></param>
         private void btnWriteFv_Click(object sender, EventArgs e)
         {
-            KwLogger errH = Util_Loggers.ProcessLearner_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessLearnerDefault;
 
             Util_LearnFunctions.Do_Save(this, errH);
         }
@@ -279,7 +279,7 @@ namespace Grayscale.A690FvLearn
         /// <param name="e"></param>
         private void btnUpdateKyokumenHyoka_Click(object sender, EventArgs e)
         {
-            KwLogger errH = Util_Loggers.ProcessLearner_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessLearnerDefault;
             bool isRequest_ShowGohosyu = false;
             bool isRequest_ChangeKyokumenPng = false;
 
@@ -313,7 +313,7 @@ namespace Grayscale.A690FvLearn
         /// </summary>
         public void SeikoIdo()
         {
-            KwLogger errH = Util_Loggers.ProcessLearner_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessLearnerDefault;
 
             // 今読んだ棋譜を移す先（成功時）
             if (2 <= this.search_kifu_folder_lines.Length)
@@ -343,7 +343,7 @@ namespace Grayscale.A690FvLearn
         /// </summary>
         private void SippaiIdo()
         {
-            KwLogger errH = Util_Loggers.ProcessLearner_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessLearnerDefault;
 
             // 今読んだ棋譜を移す先（失敗時）
             if (3 <= this.search_kifu_folder_lines.Length)
@@ -376,7 +376,7 @@ namespace Grayscale.A690FvLearn
         /// <param name="e"></param>
         private void btnFv999_999_Click(object sender, EventArgs e)
         {
-            KwLogger errH = Util_Loggers.ProcessLearner_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessLearnerDefault;
             bool isRequest_ShowGohosyu = false;
 
             isRequest_ShowGohosyu = true;
@@ -406,7 +406,7 @@ namespace Grayscale.A690FvLearn
         /// <param name="e"></param>
         private void btnSasiteRankDown_Click(object sender, EventArgs e)
         {
-            KwLogger errH = Util_Loggers.ProcessLearner_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessLearnerDefault;
             bool isRequest_ShowGohosyu = false;
             bool isRequest_ChangeKyokumenPng = false;
 
@@ -441,7 +441,7 @@ namespace Grayscale.A690FvLearn
         /// <param name="e"></param>
         private void btnSasiteRankUp_Click(object sender, EventArgs e)
         {
-            KwLogger errH = Util_Loggers.ProcessLearner_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessLearnerDefault;
             bool isRequest_ShowGohosyu = false;
             bool isRequest_ChangeKyokumenPng = false;
 
@@ -477,7 +477,7 @@ namespace Grayscale.A690FvLearn
         /// <param name="e"></param>
         private void btnStartZero_Click(object sender, EventArgs e)
         {
-            KwLogger errH = Util_Loggers.ProcessLearner_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessLearnerDefault;
             bool isRequest_ShowGohosyu = false;
 
             Util_LearnOperation.Do_ZeroStart(ref isRequest_ShowGohosyu, this, errH);
@@ -508,7 +508,7 @@ namespace Grayscale.A690FvLearn
             out bool out_isEmptyKifu,
             ref bool ref_isRequest_ShowGohosyu,
             ref bool ref_isRequest_ChangeKyokumenPng,
-            KwLogger errH)
+            ILogger errH)
         {
             //
             // 前対局の情報のクリアー
@@ -542,7 +542,7 @@ namespace Grayscale.A690FvLearn
         /// <param name="e"></param>
         private void btnNextKifuSet_Click(object sender, EventArgs e)
         {
-            KwLogger errH = Util_Loggers.ProcessLearner_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessLearnerDefault;
 
             bool isRequest_ShowGohosyu = false;
             bool isRequest_ChangeKyokumenPng = false;
@@ -555,7 +555,7 @@ namespace Grayscale.A690FvLearn
             {
                 // 合法手一覧を更新
                 Util_LearnFunctions.FvParamRange_PP(this.LearningData.Fv, errH);// 自動で -999～999(*bairitu) に矯正。
-                Util_LearningView.Aa_ShowGohosyu2(this.LearningData, this, Util_Loggers.ProcessLearner_DEFAULT);
+                Util_LearningView.Aa_ShowGohosyu2(this.LearningData, this, ErrorControllerReference.ProcessLearnerDefault);
                 isRequest_ShowGohosyu = false;
             }
 

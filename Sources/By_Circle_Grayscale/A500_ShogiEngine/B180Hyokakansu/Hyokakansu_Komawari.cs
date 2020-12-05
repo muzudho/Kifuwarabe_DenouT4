@@ -33,7 +33,7 @@ namespace Grayscale.A500ShogiEngine.B180Hyokakansu.C500Hyokakansu
             Playerside psideA,
             ISky positionA,
             FeatureVector fv,
-            KwLogger errH
+            ILogger errH
             )
         {
             float score_p1 = 0.0f;

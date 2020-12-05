@@ -54,7 +54,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
 #endif
 
             string hint,
-            KwLogger logger)
+            ILogger logger)
         {
             Maps_OneAndOne<Finger, SySet<SyElement>> starbetuSusumuMasus = new Maps_OneAndOne<Finger, SySet<SyElement>>();// 「どの星を、どこに進める」の一覧
 
@@ -62,7 +62,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
             try
             {
                 List<Move> inputMovelist;
-                Conv_StarbetuSasites.ToNextNodes_AsHubNode(
+                ConvStarbetuSasites.ToNextNodes_AsHubNode(
                     out inputMovelist,
                     genTeban_komabetuAllMoves1,
                     positionA,
@@ -117,7 +117,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
                     {
                         foreach (Move move in moveList)
                         {
-                            SyElement dstMasu = Conv_Move.ToDstMasu(move);
+                            SyElement dstMasu = ConvMove.ToDstMasu(move);
                             masus_PotentialMove.AddElement(dstMasu);
                         }
                     }
@@ -169,7 +169,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
             KaisetuBoards logF_kiki,
 #endif
 
-            KwLogger errH
+            ILogger errH
             )
         {
             // 残す指し手☆
@@ -182,7 +182,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
                 try
                 {
                     bool successful = Util_IttesasuSuperRoutine.DoMove_Super1(
-                        Conv_Move.ToPlayerside(moveB),
+                        ConvMove.ToPlayerside(moveB),
                         ref positionA,//指定局面
                         ref moveB,
                         "A100_IfMate",
@@ -220,10 +220,10 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
                     exception_area = 5000110;
 
                     IIttemodosuResult ittemodosuResult;
-                    Util_IttemodosuRoutine.UndoMove(
+                    UtilIttemodosuRoutine.UndoMove(
                         out ittemodosuResult,
                         moveB,//この関数が呼び出されたときの指し手☆（＾～＾）
-                        Conv_Move.ToPlayerside(moveB),
+                        ConvMove.ToPlayerside(moveB),
                         positionA,
                         "A900_IfMate",
                         errH
@@ -234,7 +234,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
                 {
                     errH.DonimoNaranAkirameta(ex,
                         "ノードを削除しているときだぜ☆（＾▽＾） exception_area=" + exception_area +
-                        "\nmove=" + Conv_Move.ToLog(moveB));
+                        "\nmove=" + ConvMove.ToLog(moveB));
                     throw ex;
                 }
 
@@ -261,7 +261,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
             KaisetuBoards logF_kiki,
 #endif
             Move move_forLog,
-            KwLogger errH
+            ILogger errH
             )
         {
             bool isHonshogi = true;
@@ -347,7 +347,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
             string logBrd_caption,
             int temezumi_yomiCur_forLog,
             Move move_forLog,
-            KwLogger errH
+            ILogger errH
             )
         {
 #if DEBUG
@@ -397,7 +397,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
                 Fingers dust1;
                 Fingers dust2;
 
-                Util_Sky_FingersQueryFx.Split_BanjoSeme_BanjoKurau_MotiSeme_MotiKurau(
+                UtilSkyFingersQueryFx.Split_BanjoSeme_BanjoKurau_MotiSeme_MotiKurau(
                         out fingers_seme_BANJO,
                         out fingers_kurau_BANJO,
                         out dust1,
@@ -440,8 +440,8 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
 
 
                 // 《１．３》
-                SySet<SyElement> masus_seme_BANJO = Conv_Fingers.ToMasus(fingers_seme_BANJO, src_Sky);// 盤上のマス（利きを調べる側の駒）
-                SySet<SyElement> masus_kurau_BANJO = Conv_Fingers.ToMasus(fingers_kurau_BANJO, src_Sky);// 盤上のマス（喰らう側の駒）
+                SySet<SyElement> masus_seme_BANJO = ConvFingers.ToMasus(fingers_seme_BANJO, src_Sky);// 盤上のマス（利きを調べる側の駒）
+                SySet<SyElement> masus_kurau_BANJO = ConvFingers.ToMasus(fingers_kurau_BANJO, src_Sky);// 盤上のマス（喰らう側の駒）
 
                 // 駒のマスの位置は、特にログに取らない。
 

@@ -43,7 +43,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation
         /// </summary>
         /// <param name="uc_Main"></param>
         /// <param name="tyoseiryo"></param>
-        public static void A_RankUp_SelectedSasite(Uc_Main uc_Main, float tyoseiryo, KwLogger logger)
+        public static void A_RankUp_SelectedSasite(Uc_Main uc_Main, float tyoseiryo, ILogger logger)
         {
             //----------------------------------------
             // 選択したノードを参考に、減点を行う。
@@ -129,14 +129,14 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation
                 uc_Main.LearningData.KifuA,
                 uc_Main.LearningData.PositionA,
                 searchedPv,
-                Util_Loggers.ProcessLearner_DEFAULT);
+                ErrorControllerReference.ProcessLearnerDefault);
         }
 
 
         /// <summary>
         /// 初期局面の評価値を 0 点にするようにFVを調整します。
         /// </summary>
-        public static void Do_ZeroStart(ref bool isRequest_ShowGohosyu, Uc_Main uc_Main, KwLogger errH)
+        public static void Do_ZeroStart(ref bool isRequest_ShowGohosyu, Uc_Main uc_Main, ILogger errH)
         {
             bool isRequestDoEvents = false;
             Util_StartZero.Adjust_HirateSyokiKyokumen_0ten_AndFvParamRange(ref isRequestDoEvents, uc_Main.LearningData.Fv, errH);
@@ -155,7 +155,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation
         public static void Do_RankUpSasite(
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
-            Uc_Main uc_Main, KwLogger errH)
+            Uc_Main uc_Main, ILogger errH)
         {
             // 評価値変化量
             float chosei_bairitu;
@@ -181,7 +181,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation
         public static void Do_RankDownSasite(
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
-            Uc_Main uc_Main, KwLogger errH)
+            Uc_Main uc_Main, ILogger errH)
         {
             // 評価値変化量
             float badScore;
@@ -216,7 +216,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation
             uc_Main.TxtNikomaHyokati.Text = "";
         }
 
-        public static void Do_OpenFvCsv(Uc_Main uc_Main, KwLogger errH)
+        public static void Do_OpenFvCsv(Uc_Main uc_Main, ILogger errH)
         {
             if ("" != uc_Main.TxtFvFilepath.Text)
             {
@@ -269,7 +269,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation
 
 
 
-        public static void Load_CsaKifu(Uc_Main uc_Main, KwLogger errH)
+        public static void Load_CsaKifu(Uc_Main uc_Main, ILogger errH)
         {
             uc_Main.LearningData.ReadKifu(uc_Main);
 
@@ -281,7 +281,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
             string kifuFilepath,
-            Uc_Main uc_Main, KwLogger errH)
+            Uc_Main uc_Main, ILogger errH)
         {
             uc_Main.TxtKifuFilepath.Text = kifuFilepath;
 
@@ -312,7 +312,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation
             Util_LearningView.Aa_ShowNode2(
                 uc_Main.LearningData,
                 uc_Main.LearningData.PositionA,
-                uc_Main, Util_Loggers.ProcessLearner_DEFAULT);
+                uc_Main, ErrorControllerReference.ProcessLearnerDefault);
 
             //gt_EndMethod:
             //    ;
@@ -325,7 +325,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
             Uc_Main uc_Main,
-            KwLogger errH)
+            ILogger errH)
         {
             ISky positionA;
             Tree newKifu1_Hirate;
@@ -350,7 +350,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation
                     uc_Main.LearningData.Earth.GetSennititeCounter(),
                     new FeatureVectorImpl(),
                     new ShogisasiImpl(new KifuWarabeImpl(new UsiFrameworkImpl())),
-                    Util_KifuTreeLogWriter.REPORT_ENVIRONMENT
+                    UtilKifuTreeLogWriter.REPORT_ENVIRONMENT
 #if DEBUG
                     ,
                     logF_kiki

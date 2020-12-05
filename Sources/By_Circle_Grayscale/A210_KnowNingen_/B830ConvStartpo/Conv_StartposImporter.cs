@@ -29,7 +29,7 @@ namespace Grayscale.A210KnowNingen.B830ConvStartpo.C500Converter
             SkyWrapper_Gui model_Manual,// Gui局面を使用
             StartposImporter startposImporter,
             IKifuParserAGenjo genjo,
-            KwLogger errH
+            ILogger errH
             )
         {
             ParsedKyokumen parsedKyokumen = new ParsedKyokumenImpl();
@@ -237,7 +237,7 @@ namespace Grayscale.A210KnowNingen.B830ConvStartpo.C500Converter
                     parsedKyokumen.Sky = model_Manual.GuiSky;
 
 
-                    Fingers komas = Util_Sky_FingersQuery.InOkibaKomasyuruiNow(
+                    Fingers komas = UtilSkyFingersQuery.InOkibaKomasyuruiNow(
                         parsedKyokumen.Sky,
                         Okiba.KomaBukuro,
                         parsedKyokumen.MotiList[i].Komasyurui
@@ -246,7 +246,7 @@ namespace Grayscale.A210KnowNingen.B830ConvStartpo.C500Converter
                     foreach (Finger koma in komas.Items)
                     {
                         // 駒台の空いている枡
-                        SyElement akiMasu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(
+                        SyElement akiMasu = UtilIttesasuRoutine.GetKomadaiKomabukuroSpace(
                             itaruOkiba,
                             parsedKyokumen.Sky
                         );

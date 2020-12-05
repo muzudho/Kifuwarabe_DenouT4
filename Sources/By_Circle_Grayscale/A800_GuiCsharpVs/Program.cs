@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.P699_Form_______;
+using Grayscale.P699Form;
 
 namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500Gui
 {
@@ -14,13 +14,13 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500Gui
         [STAThread]
         static void Main()
         {
-            KwLogger errH = Util_Loggers.ProcessGui_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessGuiDefault;
             MainGui_CsharpVsImpl mainGuiVs = new MainGui_CsharpVsImpl();
 
             //↓ [STAThread]指定のあるメソッドで フォームを作成してください。
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            mainGuiVs.OwnerForm = new Form1_Shogi(mainGuiVs);
+            mainGuiVs.OwnerForm = new Form1Shogi(mainGuiVs);
             //↑ [STAThread]指定のあるメソッドで フォームを作成してください。
 
             mainGuiVs.Load_AsStart(errH);

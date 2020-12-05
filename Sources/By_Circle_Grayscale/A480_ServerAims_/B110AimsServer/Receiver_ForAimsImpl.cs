@@ -13,7 +13,7 @@ using Grayscale.A480ServerAims.B110AimsServer.C070ServerBase;
 
 namespace Grayscale.A480ServerAims.B110AimsServer.C125Receiver
 {
-    public class Receiver_ForAimsImpl : Receiver_ForCsharpVsImpl, Receiver_ForAims
+    public class Receiver_ForAimsImpl : ReceiverForCsharpVsImpl, Receiver_ForAims
     {
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace Grayscale.A480ServerAims.B110AimsServer.C125Receiver
         /// <param name="e"></param>
         public override void OnListenUpload_Async(object sender, DataReceivedEventArgs e)
         {
-            KwLogger errH = Util_Loggers.ProcessAims_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessAimsDefault;
 
             string line = e.Data;
 
@@ -99,7 +99,7 @@ namespace Grayscale.A480ServerAims.B110AimsServer.C125Receiver
                                 ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Usinewgame(errH);
 
                                 // FIXME:平手とは限らないが、平手という前提で、毎回一から作りなおします。
-                                ISky positionInit = Util_SkyCreator.New_Hirate();
+                                ISky positionInit = UtilSkyCreator.New_Hirate();
                                 this.Owner_AimsServer.SetKifuTree(new TreeImpl(positionInit));
                                 this.Owner_AimsServer.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");
 
@@ -117,7 +117,7 @@ namespace Grayscale.A480ServerAims.B110AimsServer.C125Receiver
                                 // 将棋エンジンに対して
                                 // 例：「position startpos moves 7g7f」
                                 ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Position(
-                                    Util_KirokuGakari.ToSfen_PositionCommand(
+                                    UtilKirokuGakari.ToSfen_PositionCommand(
                                         this.Owner_AimsServer.Earth,
                                         this.Owner_AimsServer.KifuTree//.CurrentNode//エンドノード
                                         ), errH
@@ -125,7 +125,7 @@ namespace Grayscale.A480ServerAims.B110AimsServer.C125Receiver
 
                                 // AIMS GUIに対して
                                 // 例：「position startpos moves 7g7f」
-                                Console.Out.WriteLine(Util_KirokuGakari.ToSfen_PositionCommand(
+                                Console.Out.WriteLine(UtilKirokuGakari.ToSfen_PositionCommand(
                                     this.Owner_AimsServer.Earth,
                                     this.Owner_AimsServer.KifuTree//.CurrentNode//エンドノード
                                     ));

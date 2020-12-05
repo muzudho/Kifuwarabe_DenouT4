@@ -18,7 +18,7 @@ namespace Grayscale.A950UnitTest
     {
         static void Main(string[] args)
         {
-            KwLogger logger = Util_Loggers.ProcessUnitTest_DEFAULT;
+            ILogger logger = ErrorControllerReference.ProcessUnitTestDefault;
 
             logger.AppendLine("テストＡ");
             logger.Flush(LogTypes.Plain);
@@ -26,7 +26,7 @@ namespace Grayscale.A950UnitTest
 
 
 
-            ISky positionA = Util_SkyCreator.New_Hirate();
+            ISky positionA = UtilSkyCreator.New_Hirate();
             Playerside psideA_init = Playerside.P1;
 
             // 盤面をログ出力したいぜ☆
@@ -56,7 +56,7 @@ namespace Grayscale.A950UnitTest
                 while ("" != commandLine)
                 {
                     string rest;
-                    Move moveA = Conv_StringMove.ToMove(
+                    Move moveA = ConvStringMove.ToMove(
                         out rest, commandLine, pv[pv.Count - 1],
                         positionA.GetKaisiPside(),
                         positionA, logger);
@@ -66,16 +66,16 @@ namespace Grayscale.A950UnitTest
                     {
                         IIttesasuResult syuryoResult;
                         moveB = moveA;
-                        Util_IttesasuRoutine.DoMove_Normal(out syuryoResult,
+                        UtilIttesasuRoutine.DoMove_Normal(out syuryoResult,
                             ref moveB,// 駒を取った場合、moveは更新される。
                             positionA,
                             logger);
                         positionA = syuryoResult.SyuryoKyokumenW;
 
                         // 盤面をログ出力したいぜ☆
-                        logger.AppendLine("sfen=[" + Conv_Move.ToSfen(moveB) + "] captured=[" + Conv_Komasyurui.ToStr_Ichimoji(Conv_Move.ToCaptured(moveB)) + "]");
+                        logger.AppendLine("sfen=[" + ConvMove.ToSfen(moveB) + "] captured=[" + Conv_Komasyurui.ToStr_Ichimoji(ConvMove.ToCaptured(moveB)) + "]");
                         logger.AppendLine(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(
-                            Conv_Move.ToPlayerside(moveB),
+                            ConvMove.ToPlayerside(moveB),
                             positionA, logger)
                             , positionA, moveB));
                         logger.Flush(LogTypes.Plain);
@@ -109,7 +109,7 @@ namespace Grayscale.A950UnitTest
                 int i = 0;
                 foreach (Move move in pv)
                 {
-                    logger.AppendLine("[" + i + "]" + Conv_Move.ToLog(move));
+                    logger.AppendLine("[" + i + "]" + ConvMove.ToLog(move));
                     i++;
                 }
                 logger.Flush(LogTypes.Plain);
@@ -124,10 +124,10 @@ namespace Grayscale.A950UnitTest
                 if (Move.Empty != move1)
                 {
                     IIttemodosuResult syuryoResult2;
-                    Util_IttemodosuRoutine.UndoMove(
+                    UtilIttemodosuRoutine.UndoMove(
                         out syuryoResult2,
                         move1,
-                        Conv_Move.ToPlayerside(move1),
+                        ConvMove.ToPlayerside(move1),
                         positionA,
                         "G900",
                         logger
@@ -136,9 +136,9 @@ namespace Grayscale.A950UnitTest
                     Debug.Assert(null != positionA, "局面がヌル");
 
                     // 盤面をログ出力したいぜ☆
-                    logger.AppendLine("back sfen=[" + Conv_Move.ToSfen(move1) + "] captured=[" + Conv_Komasyurui.ToStr_Ichimoji(Conv_Move.ToCaptured(move1)) + "]");
+                    logger.AppendLine("back sfen=[" + ConvMove.ToSfen(move1) + "] captured=[" + Conv_Komasyurui.ToStr_Ichimoji(ConvMove.ToCaptured(move1)) + "]");
                     logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(
-                        Conv_Move.ToPlayerside(move1),
+                        ConvMove.ToPlayerside(move1),
                         positionA, logger)));
                     logger.Flush(LogTypes.Plain);
 

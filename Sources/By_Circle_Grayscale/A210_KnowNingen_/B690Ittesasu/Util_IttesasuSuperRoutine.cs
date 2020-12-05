@@ -21,7 +21,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB
             ref ISky positionA,//指定局面
             ref Move move,//TODO:取った駒があると、上書きされる
             string hint,
-            KwLogger logger
+            ILogger logger
             )
         {
             bool successful = true;
@@ -36,13 +36,13 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB
             //*/
 
             // 動かす駒
-            Fingers fingers = Util_Sky_FingersQuery.InMasuNow_New(positionA, move, logger);
+            Fingers fingers = UtilSkyFingersQuery.InMasuNow_New(positionA, move, logger);
 
             if (fingers.Count < 1)
             {
                 string message = "Util_IttesasuSuperRoutine#DoMove_Super:指し手に該当する駒が無かったぜ☆（＾～＾） hint=" +
                     hint +
-                    " move=" + Conv_Move.ToLog(move);
+                    " move=" + ConvMove.ToLog(move);
 
                 throw new Exception(message);
             }
@@ -55,8 +55,8 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB
                         // フィンガー
                         fingers.ToFirst(),// マス
 
-                        Conv_Move.ToDstMasu(move),//移動先升
-                        Conv_Move.ToPromotion(move),//成るか。
+                        ConvMove.ToDstMasu(move),//移動先升
+                        ConvMove.ToPromotion(move),//成るか。
                         logger
                     );
 
@@ -87,11 +87,11 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB
             Finger figKoma,//動かす駒
             SyElement dstMasu,//移動先マス
             bool toNaru,//成るなら真
-            KwLogger errH
+            ILogger errH
             )
         {
             // 移動先に相手の駒がないか、確認します。
-            Finger tottaKomaFig = Util_Sky_FingersQuery.InMasuNow_Old(positionA, dstMasu).ToFirst();
+            Finger tottaKomaFig = UtilSkyFingersQuery.InMasuNow_Old(positionA, dstMasu).ToFirst();
 
             if (tottaKomaFig != Fingers.Error_1)
             {
@@ -101,11 +101,11 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB
                 SyElement akiMasu;
                 if (positionA.GetKaisiPside(moveA) == Playerside.P1)
                 {
-                    akiMasu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Okiba.Sente_Komadai, positionA);
+                    akiMasu = UtilIttesasuRoutine.GetKomadaiKomabukuroSpace(Okiba.Sente_Komadai, positionA);
                 }
                 else
                 {
-                    akiMasu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Okiba.Gote_Komadai, positionA);
+                    akiMasu = UtilIttesasuRoutine.GetKomadaiKomabukuroSpace(Okiba.Gote_Komadai, positionA);
                 }
 
                 positionA.AssertFinger(tottaKomaFig);
@@ -119,7 +119,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB
                 if (Conv_Busstop.ToKomasyurui(tottaKomaBus) != Komasyurui14.H00_Null___)
                 {
                     // 元のキーの、取った駒の種類だけを差替えます。
-                    moveA = Conv_Move.SetCaptured(
+                    moveA = ConvMove.SetCaptured(
                         moveA,
                         Conv_Busstop.ToKomasyurui(tottaKomaBus)
                         );

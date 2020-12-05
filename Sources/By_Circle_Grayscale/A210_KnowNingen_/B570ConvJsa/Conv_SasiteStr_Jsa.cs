@@ -23,12 +23,12 @@ namespace Grayscale.A210KnowNingen.B570ConvJsa.C500Converter
             Move move,
             List<Move> honpuList,
             ISky positionA,
-            KwLogger errH
+            ILogger errH
             )
         {
-            Komasyurui14 ks = Conv_Move.ToSrcKomasyurui(move);
+            Komasyurui14 ks = ConvMove.ToSrcKomasyurui(move);
 
-            JsaFugoImpl jsaFugo = Array_JsaFugoCreator15.ItemMethods[(int)ks](
+            JsaFugoImpl jsaFugo = ArrayJsaFugoCreator15.ItemMethods[(int)ks](
                 move,
                 positionA,
                 errH);//「▲２二角成」なら、馬（dst）ではなくて角（src）。

@@ -41,7 +41,7 @@ namespace Grayscale.A210KnowNingen.B770ConvSasu.C500Converter
                     );
 
                     // 打かどうかは元位置（駒台）から判定してくれだぜ☆（＾▽＾）
-                    Move move = Conv_Move.ToMove(
+                    Move move = ConvMove.ToMove(
                         Conv_Busstop.ToMasu(srcStar),
                         Conv_Busstop.ToMasu(dstStar),
                         Conv_Busstop.ToKomasyurui(srcStar),
@@ -64,11 +64,11 @@ namespace Grayscale.A210KnowNingen.B770ConvSasu.C500Converter
                     //if(Conv_Move.ToDrop(move))
                     {
                         // 将棋盤上の駒だけが、「成り」ができるぜ☆（＾～＾）
-                        SyElement srcMasu = Conv_Move.ToSrcMasu(move, positionA);
-                        SyElement dstMasu = Conv_Move.ToDstMasu(move);
-                        Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move);
-                        Komasyurui14 dstKs = Conv_Move.ToDstKomasyurui(move);
-                        Playerside pside = Conv_Move.ToPlayerside(move);
+                        SyElement srcMasu = ConvMove.ToSrcMasu(move, positionA);
+                        SyElement dstMasu = ConvMove.ToDstMasu(move);
+                        Komasyurui14 srcKs = ConvMove.ToSrcKomasyurui(move);
+                        Komasyurui14 dstKs = ConvMove.ToDstKomasyurui(move);
+                        Playerside pside = ConvMove.ToPlayerside(move);
                         Util_Sasu269.Add_KomaBETUAllNariSasites(
                             result_komabetuAllMoves,
                             figKoma,//動かす駒

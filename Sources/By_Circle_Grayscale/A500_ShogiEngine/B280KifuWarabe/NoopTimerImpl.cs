@@ -36,7 +36,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C249Noop
         /// </summary>
         /// <param name="owner"></param>
         /// <param name="isTimeoutShutdown"></param>
-        public void _02_AtEmptyMessage(ShogiEngine owner, out bool isTimeoutShutdown, KwLogger errH)
+        public void _02_AtEmptyMessage(ShogiEngine owner, out bool isTimeoutShutdown, ILogger errH)
         {
             isTimeoutShutdown = false;
             //errH.AppendLine_AddMemo("メッセージは届いていませんでした。this.sw_forNoop.Elapsed.Seconds=[" + this.sw_forNoop.Elapsed.Seconds + "]");
@@ -80,7 +80,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C249Noop
         /// <summary>
         /// 応答があったとき。
         /// </summary>
-        public void _03_AtResponsed(ShogiEngine owner, string command, KwLogger errH)
+        public void _03_AtResponsed(ShogiEngine owner, string command, ILogger errH)
         {
             //System.Windows.Forms.MessageBox.Show("メッセージが届いています [" + line + "]");
 

@@ -98,7 +98,7 @@ namespace Grayscale.A210KnowNingen.B490ForcePromot.C250Struct
                         "rowCount=[" + rowCount + "]\n" +
                         "masuHandle=[" + masuHandle + "]\n";
                         Exception ex = new Exception(message);
-                        Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "強制昇格中☆");
+                        ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "強制昇格中☆");
                         throw ex;
                     }
 

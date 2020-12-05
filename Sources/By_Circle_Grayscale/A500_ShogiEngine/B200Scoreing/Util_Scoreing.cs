@@ -223,7 +223,7 @@ namespace Grayscale.A500ShogiEngine.B200Scoreing.C500Util
             ISky positionA,
 
             EvaluationArgs args,
-            KwLogger errH
+            ILogger errH
             )
         {
             float score = 0.0f;
@@ -248,7 +248,7 @@ namespace Grayscale.A500ShogiEngine.B200Scoreing.C500Util
             if (isSennitite)
             {
                 // 千日手用の評価をします。
-                IHyokakansu hyokakansu = Util_HyokakansuCollection.Hyokakansu_Sennichite;
+                IHyokakansu hyokakansu = UtilHyokakansuCollection.Hyokakansu_Sennichite;
 
                 score += hyokakansu.Evaluate(
                     psideA,
@@ -259,7 +259,7 @@ namespace Grayscale.A500ShogiEngine.B200Scoreing.C500Util
             }
             else
             {
-                score += Util_HyokakansuCollection.EvaluateAll_Normal(
+                score += UtilHyokakansuCollection.EvaluateAll_Normal(
                     psideA,
                     positionA,
                     args.FeatureVector,

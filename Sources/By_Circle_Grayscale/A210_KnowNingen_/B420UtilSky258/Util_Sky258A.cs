@@ -25,7 +25,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
         /// <returns></returns>
         public static Komasyurui14 ToNariCase(Move move)
         {
-            return Util_Komasyurui14.NariCaseHandle[(int)Conv_Move.ToDstKomasyurui(move)];
+            return Util_Komasyurui14.NariCaseHandle[(int)ConvMove.ToDstKomasyurui(move)];
         }
 
         /// <summary>
@@ -34,8 +34,8 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
         /// <returns></returns>
         public static char ToGaiji(Move move)
         {
-            Komasyurui14 dstKs = Conv_Move.ToDstKomasyurui(move);
-            Playerside pside = Conv_Move.ToPlayerside(move);
+            Komasyurui14 dstKs = ConvMove.ToDstKomasyurui(move);
+            Playerside pside = ConvMove.ToPlayerside(move);
 
             return Util_Komasyurui14.ToGaiji(dstKs, pside);
         }
@@ -179,14 +179,14 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
         public static Maps_OneAndMulti<Finger, Move> SplitSasite_ByStar(
             ISky positionA,
             List<Move> siblingMoves,
-            KwLogger logger
+            ILogger logger
             )
         {
             Maps_OneAndMulti<Finger, Move> enable_moveMap = new Maps_OneAndMulti<Finger, Move>();
 
             foreach (Move move in siblingMoves)
             {
-                Finger figKoma = Util_Sky_FingersQuery.InMasuNow_New(
+                Finger figKoma = UtilSkyFingersQuery.InMasuNow_New(
                     positionA,
                     move,
                     logger
@@ -195,7 +195,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
                 {
                     throw new ApplicationException("駒のハンドルが負数でしたが、間違いです(B)。figKoma=" + (int)figKoma +
                         " move=" + Convert.ToString((int)move, 2) +
-                        "\n Log=" + Conv_Move.ToLog(move));
+                        "\n Log=" + ConvMove.ToLog(move));
                 }
 
                 enable_moveMap.Put_NewOrOverwrite(

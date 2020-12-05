@@ -22,7 +22,7 @@ namespace Grayscale.A210KnowNingen.B500CollectOpeA.C500CollectionOpeA
             komabetuMasus.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
             {
                 sb.AppendLine("駒＝[" + key + "]");
-                sb.AppendLine(Util_Masus<INewBasho>.LogString_Concrete(value));
+                sb.AppendLine(UtilMasus<INewBasho>.LogStringConcrete(value));
             });
 
             return sb.ToString();
@@ -112,7 +112,7 @@ namespace Grayscale.A210KnowNingen.B500CollectOpeA.C500CollectionOpeA
 
                 foreach (INewBasho masu in value.Elements)
                 {
-                    sb.Append(Util_Masus<INewBasho>.LogString_Concrete(value));
+                    sb.Append(UtilMasus<INewBasho>.LogStringConcrete(value));
                     //sb.Append(Masu81Array.Items[hMasu].ToString());
                 }
             });

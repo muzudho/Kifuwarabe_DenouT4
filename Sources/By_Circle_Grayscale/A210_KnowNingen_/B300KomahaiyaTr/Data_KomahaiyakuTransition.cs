@@ -223,7 +223,7 @@ namespace Grayscale.A210KnowNingen.B300_KomahaiyaTr.C500Table
                         "rowCount=[" + rowCount2 + "]\n" +
                         "columnCount=[" + columnCount + "]\n";
                         Exception ex = new Exception(message);
-                        Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "配役変換中☆");
+                        ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "配役変換中☆");
                         throw ex;
                     }
 

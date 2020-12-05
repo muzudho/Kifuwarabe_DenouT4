@@ -32,7 +32,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C508____AutoSasiteRush
             ref bool isRequest_ChangeKyokumenPng,
             int renzokuTe,
             Uc_Main uc_Main,
-            KwLogger errH)
+            ILogger errH)
         {
             out_isEndKifuread = false;
 

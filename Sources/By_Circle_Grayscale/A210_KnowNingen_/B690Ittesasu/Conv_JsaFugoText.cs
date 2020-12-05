@@ -26,7 +26,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
             out string str8,
             out string str9,
             out string rest,
-            KwLogger errH
+            ILogger errH
             )
         {
             //nextTe = null;

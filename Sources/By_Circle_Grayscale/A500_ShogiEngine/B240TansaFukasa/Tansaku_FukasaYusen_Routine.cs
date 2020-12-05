@@ -44,7 +44,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
             int temezumi,
             bool isHonshogi,
             Mode_Tansaku mode_Tansaku,
-            KwLogger errH
+            ILogger errH
             )
         {
             // TODO:ここではログを出力せずに、ツリーの先端で出力したい。
@@ -205,7 +205,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
             bool isHonshogi,
             Mode_Tansaku mode_Tansaku,
             EvaluationArgs args,
-            KwLogger errH
+            ILogger errH
             )
         {
             int temezumi = positionA.Temezumi;
@@ -232,7 +232,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                 // （１）合法手に一対一対応した子ノードを作成し、ハブ・ノードにぶら下げます。
                 //
                 int yomiDeep;
-                List<Move> movelist = Util_MovePicker.CreateMovelist_BeforeLoop(
+                List<Move> movelist = UtilMovePicker.CreateMovelist_BeforeLoop(
                     genjo,
 
                     psideA,//TODO:
@@ -375,7 +375,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
             ISky positionA,
 
             EvaluationArgs args,
-            KwLogger errH
+            ILogger errH
             )
         {
             float score = 0.0f;
@@ -447,7 +447,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
 
             int movelist_count,
             EvaluationArgs args,
-            KwLogger logger
+            ILogger logger
             )
         {
             int exceptionArea = 0;
@@ -467,7 +467,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                 // （１）合法手に一対一対応した子ノードを作成し、ハブ・ノードにぶら下げます。
                 //
                 int yomiDeep2;
-                List<Move> movelist2 = Util_MovePicker.CreateMovelist_BeforeLoop(
+                List<Move> movelist2 = UtilMovePicker.CreateMovelist_BeforeLoop(
                     genjo,
 
                     psideA,//TODO:
@@ -554,7 +554,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
 
                         // 局面
                         Util_IttesasuSuperRoutine.DoMove_Super1(
-                            Conv_Move.ToPlayerside(iMov_child_variable),
+                            ConvMove.ToPlayerside(iMov_child_variable),
                             ref positionA,//指定局面
                             ref iMov_child_variable,
                             "C100",
@@ -581,7 +581,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                             genjo,
 
                             positionA.Temezumi,
-                            Conv_Move.ToPlayerside(iMov_child_variable),// positionA.GetKaisiPside(),
+                            ConvMove.ToPlayerside(iMov_child_variable),// positionA.GetKaisiPside(),
                             positionA,//この局面から合法手を作成☆（＾～＾）
                             result_thisDepth.Score,
                             kifu1.MoveEx_Current,// ツリーを伸ばしているぜ☆（＾～＾）
@@ -597,10 +597,10 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                         // １手戻したいぜ☆（＾～＾）
 
                         IIttemodosuResult ittemodosuResult;
-                        Util_IttemodosuRoutine.UndoMove(
+                        UtilIttemodosuRoutine.UndoMove(
                             out ittemodosuResult,
                             iMov_child_variable,//この関数が呼び出されたときの指し手☆（＾～＾）
-                            Conv_Move.ToPlayerside(iMov_child_variable),
+                            ConvMove.ToPlayerside(iMov_child_variable),
                             positionA,
                             "C900",
                             logger
@@ -617,7 +617,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                         //----------------------------------------
                         // 子要素の検索が終わった時点で、読み筋を格納☆
                         //----------------------------------------
-                        searchedPv[yomiDeep2] = Conv_Move.ToSfen(iMov_child_variable); //FIXME:
+                        searchedPv[yomiDeep2] = ConvMove.ToSfen(iMov_child_variable); //FIXME:
                         searchedPv[yomiDeep2 + 1] = "";//後ろの１手を消しておいて 終端子扱いにする。
 
 
@@ -671,7 +671,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                         int i = 0;
                         foreach (Move entry2 in movelist2)
                         {
-                            sb.Append(Conv_Move.ToSfen(entry2));
+                            sb.Append(ConvMove.ToSfen(entry2));
                             sb.Append(",");
                             if (0 == i % 15)
                             {
@@ -681,7 +681,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                         }
 
                         logger.DonimoNaranAkirameta(ex, "棋譜ツリーで例外です(A)。exceptionArea=" + exceptionArea
-                            + " entry.Key=" + Conv_Move.ToSfen(iMov_child_variable)
+                            + " entry.Key=" + ConvMove.ToSfen(iMov_child_variable)
                             //+ " node_yomi.CountAllNodes=" + node_yomi_KAIZOMAE.CountAllNodes()
                             + " 指し手候補=" + sb.ToString());
                         throw ex;

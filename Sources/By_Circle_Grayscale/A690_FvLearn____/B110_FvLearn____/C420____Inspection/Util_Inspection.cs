@@ -28,7 +28,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C420____Inspection
         /// <summary>
         /// フィーチャー・ベクターの概要をデバッグ出力します。
         /// </summary>
-        public static void Inspection1(FeatureVector fv, KwLogger errH)
+        public static void Inspection1(FeatureVector fv, ILogger errH)
         {
             float negative_length;// 負の数の一番小さな値の絶対値。
             float positive_length;// 正の数の一番大きな値の絶対値。

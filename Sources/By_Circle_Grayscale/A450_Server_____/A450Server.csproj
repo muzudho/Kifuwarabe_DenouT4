@@ -64,10 +64,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="B110Server\Util_Functions_Server.cs" />
-    <Compile Include="B110Server\Receiver_ForCsharpVsImpl.cs" />
+    <Compile Include="B110Server\ReceiverForCsharpVsImpl.cs" />
     <Compile Include="B110Server\EngineProcessWrapperImpl.cs" />
     <Compile Include="B110Server\Server_Impl.cs" />
-    <Compile Include="B110Server\EngineClient_Impl.cs" />
+    <Compile Include="B110Server\EngineClientImpl.cs" />
     <Compile Include="B110Server\IReceiver.cs" />
     <Compile Include="B110Server\EngineProcessWrapper.cs" />
     <Compile Include="B110Server\EngineClient.cs" />

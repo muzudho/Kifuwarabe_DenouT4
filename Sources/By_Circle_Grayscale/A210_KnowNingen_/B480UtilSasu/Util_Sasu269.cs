@@ -218,7 +218,7 @@ namespace Grayscale.A210KnowNingen.B480UtilSasu.C500Util
                 {
                     //MessageBox.Show("成りの資格がある駒がありました。 src=["+srcKoma.Masu.Word+"]["+srcKoma.Syurui+"]");
 
-                    Move move = Conv_Move.ToMove(
+                    Move move = ConvMove.ToMove(
                         srcMasu,
                         dstMasu,
                         srcKs,

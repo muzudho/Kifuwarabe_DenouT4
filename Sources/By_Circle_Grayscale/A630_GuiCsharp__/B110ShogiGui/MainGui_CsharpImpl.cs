@@ -105,14 +105,14 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
         /// グラフィックを描くツールは全部この中です。
         /// ------------------------------------------------------------------------------------------------------------------------
         /// </summary>
-        public Shape_PnlTaikyoku Shape_PnlTaikyoku
+        public ShapePnlTaikyoku Shape_PnlTaikyoku
         {
             get
             {
                 return this.shape_PnlTaikyoku;
             }
         }
-        private Shape_PnlTaikyoku shape_PnlTaikyoku;
+        private ShapePnlTaikyoku shape_PnlTaikyoku;
 
         /// <summary>
         /// ------------------------------------------------------------------------------------------------------------------------
@@ -148,15 +148,15 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
                 return this.flowB;
             }
         }
-        public void SetFlowB(SceneName name1, KwLogger errH)
+        public void SetFlowB(SceneName name1, ILogger errH)
         {
             this.flowB = name1;
 
             //アライブ
             {
-                TimedB_MouseCapture timeB = ((TimedB_MouseCapture)this.TimedB_MouseCapture);
+                TimedBMouseCapture timeB = ((TimedBMouseCapture)this.TimedB_MouseCapture);
                 timeB.MouseEventQueue.Enqueue(
-                    new MouseEventState(name1, Shape_CanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.Arive, Point.Empty, errH));
+                    new MouseEventState(name1, ShapeCanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.Arive, Point.Empty, errH));
             }
         }
         private SceneName flowB;
@@ -180,14 +180,14 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
         public MainGui_CsharpImpl()
         {
             this.m_skyWrapper_Gui_ = new SkyWrapper_GuiImpl();
-            this.server = new Server_Impl(this.m_skyWrapper_Gui_.GuiSky, new Receiver_ForCsharpVsImpl());
+            this.server = new Server_Impl(this.m_skyWrapper_Gui_.GuiSky, new ReceiverForCsharpVsImpl());
 
             this.Widgets = new Dictionary<string, UserWidget>();
 
             this.consoleWindowGui = new SubGuiImpl(this);
 
             this.TimedA = new TimedA_EngineCapture(this);
-            this.TimedB_MouseCapture = new TimedB_MouseCapture(this);
+            this.TimedB_MouseCapture = new TimedBMouseCapture(this);
             this.TimedC = new TimedC_SaiseiCapture(this);
 
             this.Data_Settei_Csv = new Data_Settei_Csv();
@@ -200,7 +200,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
             //
             //      ボタンや将棋盤などを描画するツールを、事前準備しておきます。
             //
-            this.shape_PnlTaikyoku = new Shape_PnlTaikyokuImpl("#TaikyokuPanel", this);
+            this.shape_PnlTaikyoku = new ShapePnlTaikyokuImpl("#TaikyokuPanel", this);
 
             //System.C onsole.WriteLine("つまんでいる駒を放します。(1)");
             this.SetFigTumandeiruKoma(-1);
@@ -219,14 +219,14 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
         /// 将棋エンジンを起動します。
         /// ************************************************************************************************************************
         /// </summary>
-        public virtual void Start_ShogiEngine(string shogiEngineFilePath, KwLogger errH)
+        public virtual void Start_ShogiEngine(string shogiEngineFilePath, ILogger errH)
         {
         }
 
         /// <summary>
         /// コンピューターの先手
         /// </summary>
-        public virtual void Do_ComputerSente(KwLogger errH)
+        public virtual void Do_ComputerSente(ILogger errH)
         {
         }
 
@@ -240,7 +240,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
             Tree kifu1,
 
             Playerside pside,
-            KwLogger errH)
+            ILogger errH)
         {
         }
 
@@ -248,7 +248,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
         /// </summary>
-        public virtual void Shutdown(KwLogger errH)
+        public virtual void Shutdown(ILogger errH)
         {
         }
 
@@ -256,14 +256,14 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
         /// <summary>
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
-        public virtual void Logdase(KwLogger errH)
+        public virtual void Logdase(ILogger errH)
         {
         }
 
 
 
         private int noopSend_counter;
-        public void Timer_Tick(KwLogger errH)
+        public void Timer_Tick(ILogger errH)
         {
             if (this.server.EngineClient.ShogiEngineProcessWrapper.IsLive_ShogiEngine())
             {
@@ -291,7 +291,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
         /// <summary>
         /// 見た目の設定を読み込みます。
         /// </summary>
-        public void ReadStyle_ToForm(Form1_Shogiable ui_Form1)
+        public void ReadStyle_ToForm(Form1Shogiable ui_Form1)
         {
             try
             {
@@ -355,7 +355,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
         /// <summary>
         /// このアプリケーションソフトの開始時の処理。
         /// </summary>
-        public virtual void Load_AsStart(KwLogger errH)
+        public virtual void Load_AsStart(ILogger errH)
         {
             //
             // 既存のログファイルを削除したい。
@@ -419,9 +419,9 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
             this.WidgetLoaders.Add(new WidgetsLoader_CsharpImpl(filepath_widgets02, this));
         }
 
-        public void LaunchForm_AsBody(KwLogger errH)
+        public void LaunchForm_AsBody(ILogger errH)
         {
-            ((Form1_Shogiable)this.OwnerForm).Delegate_Form1_Load = (MainGui_Csharp shogiGui, object sender, EventArgs e) =>
+            ((Form1Shogiable)this.OwnerForm).Delegate_Form1_Load = (MainGui_Csharp shogiGui, object sender, EventArgs e) =>
             {
 
                 //
@@ -444,14 +444,14 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
 
             };
 
-            this.ReadStyle_ToForm((Form1_Shogiable)this.OwnerForm);
+            this.ReadStyle_ToForm((Form1Shogiable)this.OwnerForm);
 
             //
             // FIXME: [初期配置]を１回やっておかないと、[コマ送り]ボタン等で不具合が出てしまう。
             //
             {
                 Util_Function_Csharp.Perform_SyokiHaichi_CurrentMutable(
-                    ((Form1_Shogiable)this.OwnerForm).Uc_Form1Main.MainGui,
+                    ((Form1Shogiable)this.OwnerForm).Uc_Form1Main.MainGui,
                     errH
                 );
             }
@@ -461,9 +461,9 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
         }
 
 
-        public void Response(string mutexString, KwLogger errH)
+        public void Response(string mutexString, ILogger errH)
         {
-            Uc_Form1Mainable uc_Form1Main = ((Form1_Shogiable)this.OwnerForm).Uc_Form1Main;
+            Uc_Form1Mainable uc_Form1Main = ((Form1Shogiable)this.OwnerForm).Uc_Form1Main;
 
             // enum型
             Form1_Mutex mutex2;

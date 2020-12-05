@@ -91,11 +91,11 @@ namespace Grayscale.A500ShogiEngine.B180Hyokakansu.C499UtilFv
 
             if (index_playerside == -1)
             {
-                Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta("二駒関係の先後不明の駒");
+                ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta("二駒関係の先後不明の駒");
             }
             else if (index_komasyurui == -1)
             {
-                Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta("二駒関係の駒種類が対象外の駒");
+                ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta("二駒関係の駒種類が対象外の駒");
             }
 
             koumokuP = index_playerside + index_komasyurui + p_masuHandle;
@@ -114,18 +114,18 @@ namespace Grayscale.A500ShogiEngine.B180Hyokakansu.C499UtilFv
         /// <returns>エラー時は-1</returns>
         public static int ParamIndex_Moti(ISky src_Sky, Playerside pside, Komasyurui14 syurui)
         {
-            Fingers fingers = Util_Sky_FingersQuery.InOkibaPsideKomasyuruiNow(src_Sky, Conv_Playerside.ToKomadai(pside), pside, syurui);
+            Fingers fingers = UtilSkyFingersQuery.InOkibaPsideKomasyuruiNow(src_Sky, Conv_Playerside.ToKomadai(pside), pside, syurui);
 
             int index_playerside = Util_FvParamIndex.paramIndex_Playerside[(int)pside];
             int index_komasyurui = Util_FvParamIndex.paramIndex_KomaSyrui_Moti[(int)syurui];
 
             if (index_playerside == -1)
             {
-                Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta("二駒関係の持ち駒_先後不明の駒");
+                ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta("二駒関係の持ち駒_先後不明の駒");
             }
             else if (index_komasyurui == -1)
             {
-                Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta("二駒関係の持ち駒_駒種類が対象外の駒");
+                ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta("二駒関係の持ち駒_駒種類が対象外の駒");
             }
 
             int koumokuP = index_playerside + index_komasyurui + fingers.Count;

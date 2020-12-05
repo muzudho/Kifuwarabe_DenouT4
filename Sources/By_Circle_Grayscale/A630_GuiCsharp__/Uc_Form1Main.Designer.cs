@@ -1,4 +1,4 @@
-﻿namespace Grayscale.P699_Form_______
+﻿namespace Grayscale.P699Form
 {
     partial class Uc_Form1Main
     {

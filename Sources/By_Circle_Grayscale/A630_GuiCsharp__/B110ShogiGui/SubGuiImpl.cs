@@ -1,6 +1,5 @@
 ﻿using Grayscale.A630GuiCsharp.B110ShogiGui.C081Canvas;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui;
-using Grayscale.A630GuiCsharp.B110ShogiGui.C081Canvas;
 
 namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
 {
@@ -64,7 +63,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
             //
             //      ボタンや将棋盤などを描画するツールを、事前準備しておきます。
             //
-            this.shape_Canvas = new Shape_CanvasImpl("#Canvas", 0, 0, 0, 0);
+            this.shape_Canvas = new ShapeCanvasImpl("#Canvas", 0, 0, 0, 0);
         }
 
     }

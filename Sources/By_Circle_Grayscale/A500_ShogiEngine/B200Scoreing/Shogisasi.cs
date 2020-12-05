@@ -48,7 +48,7 @@ namespace Grayscale.A500ShogiEngine.B200Scoreing.C240Shogisasi
             Playerside psideA,
             ISky positionA,
 
-            KwLogger errH
+            ILogger errH
             );
 
     }

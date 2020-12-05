@@ -15,7 +15,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C250Timed
     /// <summary>
     /// ▲人間vs△コンピューター対局のやりとりです。
     /// </summary>
-    public class TimedA_EngineCapture : Timed_Abstract
+    public class TimedA_EngineCapture : TimedAbstract
     {
 
 
@@ -28,7 +28,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C250Timed
         }
 
 
-        public override void Step(KwLogger errH)
+        public override void Step(ILogger errH)
         {
             // 将棋エンジンからの入力が、input99 に溜まるものとします。
             if (0 < this.mainGui.ConsoleWindowGui.InputString99.Length)

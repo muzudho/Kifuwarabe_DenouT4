@@ -73,7 +73,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi
             Playerside psideA,
             ISky positionA,
 
-            KwLogger errH
+            ILogger errH
             )
         {
             MoveEx bestNode = null;
@@ -90,7 +90,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi
                 earth1.GetSennititeCounter(),
                 this.FeatureVector,
                 this,
-                Util_KifuTreeLogWriter.REPORT_ENVIRONMENT
+                UtilKifuTreeLogWriter.REPORT_ENVIRONMENT
 #if DEBUG
                 ,
                 logF_kiki

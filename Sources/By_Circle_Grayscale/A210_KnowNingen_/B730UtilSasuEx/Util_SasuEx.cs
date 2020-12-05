@@ -28,7 +28,7 @@ namespace Grayscale.A210KnowNingen.B730UtilSasuEx.C500Util
         public static List<Move> CreateNariSasite(
             ISky positionA,
             List<Move> a_sasitebetuEntry,
-            KwLogger errH
+            ILogger errH
             )
         {
             //----------------------------------------
@@ -43,13 +43,13 @@ namespace Grayscale.A210KnowNingen.B730UtilSasuEx.C500Util
                 foreach (Move move1 in a_sasitebetuEntry)
                 {
                     // ・移動元の駒
-                    SyElement srcMasu = Conv_Move.ToSrcMasu(move1, positionA);
-                    Komasyurui14 srcKs = Conv_Move.ToSrcKomasyurui(move1);
+                    SyElement srcMasu = ConvMove.ToSrcMasu(move1, positionA);
+                    Komasyurui14 srcKs = ConvMove.ToSrcKomasyurui(move1);
 
                     // ・移動先の駒
-                    SyElement dstMasu = Conv_Move.ToDstMasu(move1);
-                    Komasyurui14 dstKs = Conv_Move.ToDstKomasyurui(move1);
-                    Playerside pside = Conv_Move.ToPlayerside(move1);
+                    SyElement dstMasu = ConvMove.ToDstMasu(move1);
+                    Komasyurui14 dstKs = ConvMove.ToDstKomasyurui(move1);
+                    Playerside pside = ConvMove.ToPlayerside(move1);
 
                     // 成りができる動きなら真。
                     bool isPromotionable;
@@ -61,7 +61,7 @@ namespace Grayscale.A210KnowNingen.B730UtilSasuEx.C500Util
 
                     if (isPromotionable)
                     {
-                        Move move = Conv_Move.ToMove(
+                        Move move = ConvMove.ToMove(
                             srcMasu,
                             dstMasu,
                             srcKs,
@@ -73,7 +73,7 @@ namespace Grayscale.A210KnowNingen.B730UtilSasuEx.C500Util
                         );
 
                         // TODO: 一段目の香車のように、既に駒は成っている場合があります。無い指し手だけ追加するようにします。
-                        string sasiteStr = Conv_Move.ToSfen(move);//重複防止用のキー
+                        string sasiteStr = ConvMove.ToSfen(move);//重複防止用のキー
                         if (!newSasiteList.ContainsKey(sasiteStr))
                         {
                             newSasiteList.Add(sasiteStr, move);
@@ -89,7 +89,7 @@ namespace Grayscale.A210KnowNingen.B730UtilSasuEx.C500Util
                 foreach (Move newMove in newSasiteList.Values)
                 {
                     // 指す前の駒
-                    SyElement srcMasu = Conv_Move.ToSrcMasu(newMove, positionA);
+                    SyElement srcMasu = ConvMove.ToSrcMasu(newMove, positionA);
 
                     try
                     {
@@ -112,13 +112,13 @@ namespace Grayscale.A210KnowNingen.B730UtilSasuEx.C500Util
                             foreach (Move entry in a_sasitebetuEntry)
                             {
                                 sb.Append("「");
-                                sb.Append(Conv_Move.ToSfen(entry));
+                                sb.Append(ConvMove.ToSfen(entry));
                                 sb.Append("」");
                             }
                         }
 
                         //>>>>> エラーが起こりました。
-                        errH.DonimoNaranAkirameta(ex, "新しく作った「成りの指し手」を既存ノードに追加していた時です。：追加したい指し手=「" + Conv_Move.ToSfen(newMove) + "」既存の手=" + sb.ToString());
+                        errH.DonimoNaranAkirameta(ex, "新しく作った「成りの指し手」を既存ノードに追加していた時です。：追加したい指し手=「" + ConvMove.ToSfen(newMove) + "」既存の手=" + sb.ToString());
                         throw ex;
                     }
 

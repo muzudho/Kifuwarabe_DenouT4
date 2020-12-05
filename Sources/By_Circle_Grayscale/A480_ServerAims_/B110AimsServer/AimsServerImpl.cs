@@ -52,7 +52,7 @@ namespace Grayscale.A480ServerAims.B110AimsServer.C500Server
         {
         }
 
-        public void AtBody(KwLogger errH)
+        public void AtBody(ILogger errH)
         {
             PhaseResult_AimsServer phaseResult = PhaseResult_AimsServer.None;
 

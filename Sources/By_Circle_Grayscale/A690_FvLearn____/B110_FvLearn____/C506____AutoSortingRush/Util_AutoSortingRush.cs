@@ -39,7 +39,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C506____AutoSasiteSort
             int loopLimit,
             ref float ref_tyoseiryo,
             Move move1,
-            Uc_Main uc_Main, KwLogger errH
+            Uc_Main uc_Main, ILogger errH
             )
         {
             out_isEndAutoLearn = false;

@@ -28,12 +28,12 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C249Function
         /// </summary>
         public static void Perform_SyokiHaichi_CurrentMutable(
             MainGui_Csharp mainGui,
-            KwLogger logger
+            ILogger logger
             )
         {
             MoveEx newNode = new MoveExImpl();
 
-            ISky positionA = Util_SkyCreator.New_Hirate();//[初期配置]ボタン押下時
+            ISky positionA = UtilSkyCreator.New_Hirate();//[初期配置]ボタン押下時
             mainGui.Link_Server.Earth.Clear();
 
             // 棋譜を空っぽにします。
@@ -77,7 +77,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C249Function
             Finger foodKoma,
             string fugoJStr,
             string backedInputText,
-            KwLogger errH)
+            ILogger errH)
         {
             //------------------------------
             // チェンジターン
@@ -124,7 +124,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C249Function
             ISky positionA,// = shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue();
             MainGui_Csharp shogiGui,
             Tree kifu1,
-            KwLogger logger
+            ILogger logger
             )
         {
             //------------------------------
@@ -234,7 +234,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C249Function
         public static void Redraw_KomaLocation(
             Finger figKoma,
             MainGui_Csharp mainGui,
-            KwLogger errH
+            ILogger errH
             )
         {
             mainGui.SkyWrapper_Gui.GuiSky.AssertFinger(figKoma);

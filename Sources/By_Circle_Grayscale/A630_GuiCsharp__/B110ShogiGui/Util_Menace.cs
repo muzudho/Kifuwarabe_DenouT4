@@ -19,7 +19,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C249Function
         /// <summary>
         /// v(^▽^)v超能力『メナス』だぜ☆ 未来の脅威を予測し、可視化するぜ☆ｗｗｗ
         /// </summary>
-        public static void Menace(MainGui_Csharp mainGui, KwLogger logger)
+        public static void Menace(MainGui_Csharp mainGui, ILogger logger)
         {
             if (0 < mainGui.SkyWrapper_Gui.GuiSky.Temezumi)
             {
@@ -50,7 +50,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C249Function
                         )
                     {
                         // 駒の利き
-                        SySet<SyElement> kikiZukei = Util_Sky_SyugoQuery.KomaKidou_Potential(figKoma, positionA);
+                        SySet<SyElement> kikiZukei = UtilSkySyugoQuery.KomaKidou_Potential(figKoma, positionA);
 
                         IEnumerable<SyElement> kikiMasuList = kikiZukei.Elements;
                         foreach (SyElement masu in kikiMasuList)

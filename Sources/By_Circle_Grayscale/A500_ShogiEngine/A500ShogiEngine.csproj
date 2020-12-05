@@ -71,7 +71,7 @@
     <Compile Include="B150UtilFv\Util_FeatureVectorEdit.cs" />
     <Compile Include="B150UtilFv\Format_FeatureVector_Scale.cs" />
     <Compile Include="B180Hyokakansu\Hyokakansu_Sennitite.cs" />
-    <Compile Include="B180Hyokakansu\Util_HyokakansuCollection.cs" />
+    <Compile Include="B180Hyokakansu\UtilHyokakansuCollection.cs" />
     <Compile Include="B200Scoreing\EvaluationArgsImpl.cs" />
     <Compile Include="B200Scoreing\Util_Scoreing.cs" />
     <Compile Include="B200Scoreing\EvaluationArgs.cs" />
@@ -84,11 +84,11 @@
     <Compile Include="B240TansaFukasa\Tansaku_FukasaYusen_Routine.cs" />
     <Compile Include="B150UtilFv\Const_FeatureVectorFormat.cs" />
     <Compile Include="B150UtilFv\Format_FeatureVector_KK.cs" />
-    <Compile Include="B150UtilFv\Format_FeatureVector_KP.cs" />
-    <Compile Include="B150UtilFv\Format_FeatureVector_PP_P1Banjo.cs" />
-    <Compile Include="B150UtilFv\Format_FeatureVector_PP_P1Moti.cs" />
+    <Compile Include="B150UtilFv\FormatFeatureVectorKP.cs" />
+    <Compile Include="B150UtilFv\FormatFeatureVectorPpP1Banjo.cs" />
+    <Compile Include="B150UtilFv\FormatFeatureVectorPpP1Moti.cs" />
     <Compile Include="B150UtilFv\Util_FeatureVectorInput.cs" />
-    <Compile Include="B150UtilFv\Util_FeatureVectorOutput.cs" />
+    <Compile Include="B150UtilFv\UtilFeatureVectorOutput.cs" />
     <Compile Include="B130FeatureVect\FeatureVector.cs" />
     <Compile Include="B130FeatureVect\Const_NikomaKankeiP_Param.cs" />
     <Compile Include="B130FeatureVect\FeatureVectorImpl.cs" />
@@ -102,7 +102,7 @@
     <Compile Include="B180Hyokakansu\Util_KomanoKyori.cs" />
     <Compile Include="B180Hyokakansu\HyokakansuAbstract.cs" />
     <Compile Include="B180Hyokakansu\Hyokakansu_Komawari.cs" />
-    <Compile Include="B240TansaFukasa\Util_MovePicker.cs" />
+    <Compile Include="B240TansaFukasa\UtilMovePicker.cs" />
     <Compile Include="B240TansaFukasa\Mode_Tansaku.cs" />
     <Compile Include="B260_UtilClient_\Util_InClient.cs" />
     <Compile Include="B200Scoreing\Shogisasi.cs" />

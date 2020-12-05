@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;

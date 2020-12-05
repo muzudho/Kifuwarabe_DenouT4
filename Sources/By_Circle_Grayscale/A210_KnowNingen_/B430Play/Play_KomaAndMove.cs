@@ -27,7 +27,7 @@ namespace Grayscale.A210KnowNingen.B430Play.C250Calc
             ISky src_Sky_forLog,
             Maps_OneAndOne<Finger, SySet<SyElement>> a1,
             SySet<SyElement> b,
-            KwLogger errH_orNull
+            ILogger errH_orNull
             )
         {
             //GraphicalLogUtil.Log(enableLog, "Thought_KomaAndMove#MinusMasus",
@@ -66,7 +66,7 @@ namespace Grayscale.A210KnowNingen.B430Play.C250Calc
             ISky src_srcSky_forLog,
             Maps_OneAndOne<Finger, SySet<SyElement>> a,
             SySet<SyElement> b,
-            KwLogger errH_orNull
+            ILogger errH_orNull
         )
         {
             Maps_OneAndOne<Finger, SySet<SyElement>> c = new Maps_OneAndOne<Finger, SySet<SyElement>>(a);

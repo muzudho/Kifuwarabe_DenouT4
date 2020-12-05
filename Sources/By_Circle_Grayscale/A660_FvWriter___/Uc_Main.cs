@@ -42,7 +42,7 @@ namespace Grayscale.P720FvWriter
 
         private void btnRead_Click(object sender, EventArgs e)
         {
-            KwLogger errH = Util_Loggers.ProcessTestProgram_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessTestProgramDefault;
 
             string filepathR = Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG + "fv_00_Komawari.csv";
             string filepathR_KK = Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG + "fv_01_KK.csv";
@@ -135,7 +135,7 @@ namespace Grayscale.P720FvWriter
             FeatureVector fv = new FeatureVectorImpl();
             Util_FeatureVectorInput.Make_FromFile_Komawari(fv, filepathR);
 
-            Util_FeatureVectorOutput.Write_KK(fv, Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG);
+            UtilFeatureVectorOutput.Write_KK(fv, Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG);
         }
 
         /// <summary>
@@ -149,7 +149,7 @@ namespace Grayscale.P720FvWriter
             FeatureVector fv = new FeatureVectorImpl();
             Util_FeatureVectorInput.Make_FromFile_Komawari(fv, filepathR);
 
-            Util_FeatureVectorOutput.Write_KP(fv, Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG);
+            UtilFeatureVectorOutput.Write_KP(fv, Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG);
         }
 
         /// <summary>
@@ -163,10 +163,10 @@ namespace Grayscale.P720FvWriter
             FeatureVector fv = new FeatureVectorImpl();
             Util_FeatureVectorInput.Make_FromFile_Komawari(fv, filepathR);
 
-            Util_FeatureVectorOutput.Write_PP_Banjo(fv, Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG);
-            Util_FeatureVectorOutput.Write_PP_19Mai(fv, Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG);
-            Util_FeatureVectorOutput.Write_PP_5Mai(fv, Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG);
-            Util_FeatureVectorOutput.Write_PP_3Mai(fv, Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG);
+            UtilFeatureVectorOutput.Write_PP_Banjo(fv, Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG);
+            UtilFeatureVectorOutput.Write_PP_19Mai(fv, Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG);
+            UtilFeatureVectorOutput.Write_PP_5Mai(fv, Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG);
+            UtilFeatureVectorOutput.Write_PP_3Mai(fv, Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG);
         }
 
         /// <summary>

@@ -4,12 +4,11 @@
 using System;
 using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B310Settei.C500Struct;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C492Widgets;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI;
 
-namespace Grayscale.P699_Form_______
+namespace Grayscale.P699Form
 {
 
     static class Program
@@ -20,13 +19,13 @@ namespace Grayscale.P699_Form_______
         [STAThread]
         static void Main()
         {
-            KwLogger errH = Util_Loggers.ProcessGui_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessGuiDefault;
             MainGui_CsharpImpl mainGui = new MainGui_CsharpImpl();//new ShogiEngineVsClientImpl(this)
 
             //↓ [STAThread]指定のあるメソッドで フォームを作成してください。
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            mainGui.OwnerForm = new Form1_Shogi(mainGui);
+            mainGui.OwnerForm = new Form1Shogi(mainGui);
             //↑ [STAThread]指定のあるメソッドで フォームを作成してください。
 
             mainGui.Load_AsStart(errH);

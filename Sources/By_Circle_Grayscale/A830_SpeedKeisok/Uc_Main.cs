@@ -71,7 +71,7 @@ namespace Grayscale.P910SpeedKeisok
                 positionA.GetKaisiPside(),
                 positionA,
                 this.FeatureVector,
-                Util_Loggers.ProcessSpeedTest_KEISOKU
+                ErrorControllerReference.ProcessSpeedTestKeisoku
                 );
 
             watch.Stop();
@@ -126,7 +126,7 @@ namespace Grayscale.P910SpeedKeisok
         /// <param name="e"></param>
         private void btnOpenFv_Click(object sender, EventArgs e)
         {
-            KwLogger errH = Util_Loggers.ProcessSpeedTest_KEISOKU;
+            ILogger errH = ErrorControllerReference.ProcessSpeedTestKeisoku;
 
 
             if ("" != this.txtFvFilepath.Text)

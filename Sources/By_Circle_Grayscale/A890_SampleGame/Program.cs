@@ -20,7 +20,7 @@ namespace P930_SampleGame
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            KwLogger errH = Util_Loggers.ProcessEngine_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessEngineDefault;
 
 
             // 将棋エンジン　きふわらべ
@@ -33,7 +33,7 @@ namespace P930_SampleGame
 
             // 棋譜
             Earth earth1 = new EarthImpl();
-            ISky positionA = Util_SkyCreator.New_Hirate();//日本の符号読取時;
+            ISky positionA = UtilSkyCreator.New_Hirate();//日本の符号読取時;
             Tree kifu1 = new TreeImpl(positionA);
 
             int searchedMaxDepth = 0;
@@ -53,7 +53,7 @@ namespace P930_SampleGame
                 errH);
 
             Move move = bestmoveNode.Move;
-            string sfenText = Conv_Move.ToSfen(move);
+            string sfenText = ConvMove.ToSfen(move);
             System.Console.WriteLine("sfenText=" + sfenText + " move=" + Convert.ToString((int)move, 2));
 
 

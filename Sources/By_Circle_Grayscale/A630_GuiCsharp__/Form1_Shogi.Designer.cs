@@ -1,6 +1,6 @@
-﻿namespace Grayscale.P699_Form_______
+﻿namespace Grayscale.P699Form
 {
-    partial class Form1_Shogi
+    partial class Form1Shogi
     {
         /// <summary>
         /// 必要なデザイナー変数です。
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uc_Form1Main = new Grayscale.P699_Form_______.Uc_Form1Main();
+            this.uc_Form1Main = new Grayscale.P699Form.Uc_Form1Main();
             this.SuspendLayout();
             // 
             // ui_PnlMain1

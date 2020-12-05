@@ -22,7 +22,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
             Tree kifu1,
 
             IKifuParserAGenjo genjo,
-            KwLogger errH
+            ILogger errH
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -42,7 +42,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
             Tree kifu1,
 
             IKifuParserAGenjo genjo,
-            KwLogger errH
+            ILogger errH
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",

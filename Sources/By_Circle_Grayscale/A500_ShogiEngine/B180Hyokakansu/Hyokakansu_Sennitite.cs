@@ -35,7 +35,7 @@ namespace Grayscale.A500ShogiEngine.B180Hyokakansu.C500Hyokakansu
             Playerside psideA,
             ISky positionA,
             FeatureVector featureVector,
-            KwLogger errH
+            ILogger errH
             )
         {
             switch (psideA)//positionA.GetKaisiPside()

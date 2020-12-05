@@ -24,7 +24,7 @@ namespace Grayscale.A210KnowNingen.B770ConvSasu.C500Converter
             Maps_OneAndOne<Finger, SySet<SyElement>> komabetuSusumuMasus,
             Playerside psideA,
             ISky positionA,
-            KwLogger errH
+            ILogger errH
         )
         {
             List<Move> result_movelist = new List<Move>();
@@ -36,7 +36,7 @@ namespace Grayscale.A210KnowNingen.B770ConvSasu.C500Converter
 
                 foreach (SyElement dstMasu in value.Elements)
                 {
-                    Move move = Conv_Move.ToMove(
+                    Move move = ConvMove.ToMove(
                         Conv_Busstop.ToMasu(koma),
                         dstMasu,
                         Conv_Busstop.ToKomasyurui(koma),
@@ -64,7 +64,7 @@ namespace Grayscale.A210KnowNingen.B770ConvSasu.C500Converter
             List_OneAndMulti<Finger, SySet<SyElement>> komaMasus,
             Playerside psideA,
             ISky positionA,
-            KwLogger errH
+            ILogger errH
             )
         {
             List<Move> movelist = new List<Move>();
@@ -78,7 +78,7 @@ namespace Grayscale.A210KnowNingen.B770ConvSasu.C500Converter
 
                 foreach (SyElement dstMasu in dstMasus.Elements)
                 {
-                    Move move = Conv_Move.ToMove(
+                    Move move = ConvMove.ToMove(
                         Conv_Busstop.ToMasu(koma),
                         dstMasu,
                         Conv_Busstop.ToKomasyurui(koma),

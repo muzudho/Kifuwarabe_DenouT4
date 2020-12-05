@@ -31,11 +31,11 @@ namespace Grayscale.A210KnowNingen.B430Play.C500Query
             SySet<SyElement> masus_mikata_Banjo,
             SySet<SyElement> masus_aite_Banjo,
             ISky src_Sky,
-            KwLogger errH_orNull
+            ILogger errH_orNull
             )
         {
             // 利きを調べる側の利き（戦駒）
-            Maps_OneAndOne<Finger, SySet<SyElement>> komabetuKiki = Query_SkyFingers.Get_PotentialMoves(src_Sky, fs_sirabetaiKoma, errH_orNull);
+            Maps_OneAndOne<Finger, SySet<SyElement>> komabetuKiki = QuerySkyFingers.Get_PotentialMoves(src_Sky, fs_sirabetaiKoma, errH_orNull);
 
             // 盤上の現手番の駒利きから、 現手番の駒がある枡を除外します。
             komabetuKiki = Play_KomaAndMove.MinusMasus(src_Sky, komabetuKiki, masus_mikata_Banjo, errH_orNull);

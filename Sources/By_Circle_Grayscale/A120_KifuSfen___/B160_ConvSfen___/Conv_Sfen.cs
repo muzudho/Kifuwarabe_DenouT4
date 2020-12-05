@@ -62,7 +62,7 @@ namespace Grayscale.A120KifuSfen.B160ConvSfen.C500Converter
             out string moji4,
             out string moji5,
             out string rest,
-            KwLogger errH
+            ILogger errH
             )
         {
             bool successful = false;
@@ -115,7 +115,7 @@ namespace Grayscale.A120KifuSfen.B160ConvSfen.C500Converter
                     }
                     catch (Exception ex)
                     {
-                        Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "moves解析中☆");
+                        ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "moves解析中☆");
                         throw ex;
                     }
                 }
@@ -125,7 +125,7 @@ namespace Grayscale.A120KifuSfen.B160ConvSfen.C500Converter
             }
             catch (Exception ex)
             {
-                Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "moves解析中☆");
+                ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "moves解析中☆");
                 throw ex;
             }
 

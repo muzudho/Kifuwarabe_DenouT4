@@ -13,7 +13,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C250Timed
     /// <summary>
     /// [再生]ボタンを押したときの処理。
     /// </summary>
-    public class TimedC_SaiseiCapture : Timed_Abstract
+    public class TimedC_SaiseiCapture : TimedAbstract
     {
 
 
@@ -34,7 +34,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C250Timed
             this.SaiseiEventQueue = new Queue<SaiseiEventState>();
         }
 
-        public override void Step(KwLogger errH)
+        public override void Step(ILogger errH)
         {
 
             // 入っているマウス操作イベントは、全部捨てていきます。

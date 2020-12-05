@@ -33,7 +33,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 // using Grayscale.A060Application.B110Log.C500Struct;
 #endif
 
-namespace Grayscale.P699_Form_______
+namespace Grayscale.P699Form
 {
 
     /// <summary>
@@ -85,7 +85,7 @@ namespace Grayscale.P699_Form_______
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            KwLogger errH = Util_Loggers.ProcessGui_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessGuiDefault;
 
             this.MainGui.Timer_Tick(errH);
         }
@@ -101,9 +101,9 @@ namespace Grayscale.P699_Form_______
         /// <param name="e"></param>
         private void Uc_Form1Main_Load(object sender, EventArgs e)
         {
-            KwLogger logger = Util_Loggers.ProcessGui_DEFAULT;
+            ILogger logger = ErrorControllerReference.ProcessGuiDefault;
 
-            Uc_Form2Main uc_Form2Main = ((Form1_Shogi)this.ParentForm).Form2_Console.Uc_Form2Main;
+            Uc_Form2Main uc_Form2Main = ((Form1Shogi)this.ParentForm).Form2_Console.Uc_Form2Main;
 
             //
             // 設定XMLファイル
@@ -142,7 +142,7 @@ namespace Grayscale.P699_Form_______
             //      平手に並べます。
             //
             {
-                ISky positionInit = Util_SkyCreator.New_Hirate();//起動直後
+                ISky positionInit = UtilSkyCreator.New_Hirate();//起動直後
                 this.MainGui.Link_Server.Earth.Clear();
 
                 // 棋譜を空っぽにします。
@@ -219,7 +219,7 @@ namespace Grayscale.P699_Form_______
                 e,
                 this.MainGui.Link_Server.KifuTree.PositionA.GetKaisiPside(),
                 this.MainGui.Link_Server.KifuTree.PositionA,
-                this.MainGui, Shape_CanvasImpl.WINDOW_NAME_SHOGIBAN, Util_Loggers.ProcessGui_PAINT);
+                this.MainGui, ShapeCanvasImpl.WINDOW_NAME_SHOGIBAN, ErrorControllerReference.ProcessGuiPaint);
 
         gt_EndMethod:
             ;
@@ -237,7 +237,7 @@ namespace Grayscale.P699_Form_______
         /// <param name="e"></param>
         private void Uc_Form1Main_MouseMove(object sender, MouseEventArgs e)
         {
-            KwLogger errH = Util_Loggers.ProcessGui_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessGuiDefault;
 
             if (null != this.MainGui.Shape_PnlTaikyoku)
             {
@@ -246,9 +246,9 @@ namespace Grayscale.P699_Form_______
 
                 // マウスムーブ
                 {
-                    TimedB_MouseCapture timeB = ((TimedB_MouseCapture)this.MainGui.TimedB_MouseCapture);
+                    TimedBMouseCapture timeB = ((TimedBMouseCapture)this.MainGui.TimedB_MouseCapture);
                     timeB.MouseEventQueue.Enqueue(
-                        new MouseEventState(this.MainGui.Scene, Shape_CanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.MouseMove, e.Location, errH));
+                        new MouseEventState(this.MainGui.Scene, ShapeCanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.MouseMove, e.Location, errH));
                 }
 
                 //------------------------------
@@ -270,7 +270,7 @@ namespace Grayscale.P699_Form_______
         /// <param name="e"></param>
         private void Uc_Form1Main_MouseDown(object sender, MouseEventArgs e)
         {
-            KwLogger errH = Util_Loggers.ProcessGui_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessGuiDefault;
 
             if (null == this.MainGui.Shape_PnlTaikyoku)
             {
@@ -286,18 +286,18 @@ namespace Grayscale.P699_Form_______
                 //------------------------------------------------------------
                 // 左ボタン
                 //------------------------------------------------------------
-                TimedB_MouseCapture timeB = ((TimedB_MouseCapture)this.MainGui.TimedB_MouseCapture);
+                TimedBMouseCapture timeB = ((TimedBMouseCapture)this.MainGui.TimedB_MouseCapture);
                 timeB.MouseEventQueue.Enqueue(
-                    new MouseEventState(this.MainGui.Scene, Shape_CanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.MouseLeftButtonDown, e.Location, errH));
+                    new MouseEventState(this.MainGui.Scene, ShapeCanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.MouseLeftButtonDown, e.Location, errH));
             }
             else if (e.Button == MouseButtons.Right)
             {
                 //------------------------------------------------------------
                 // 右ボタン
                 //------------------------------------------------------------
-                TimedB_MouseCapture timeB = ((TimedB_MouseCapture)this.MainGui.TimedB_MouseCapture);
+                TimedBMouseCapture timeB = ((TimedBMouseCapture)this.MainGui.TimedB_MouseCapture);
                 timeB.MouseEventQueue.Enqueue(
-                    new MouseEventState(this.MainGui.Scene, Shape_CanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.MouseRightButtonDown, e.Location, errH));
+                    new MouseEventState(this.MainGui.Scene, ShapeCanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.MouseRightButtonDown, e.Location, errH));
 
 
                 //------------------------------
@@ -327,7 +327,7 @@ namespace Grayscale.P699_Form_______
         /// <param name="e"></param>
         private void Uc_Form1Main_MouseUp(object sender, MouseEventArgs e)
         {
-            KwLogger errH = Util_Loggers.ProcessGui_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessGuiDefault;
 
             // このメインパネルに、何かして欲しいという要求は、ここに入れられます。
             this.MainGui.RepaintRequest = new RepaintRequestImpl();
@@ -340,18 +340,18 @@ namespace Grayscale.P699_Form_______
                 //------------------------------------------------------------
                 // 左ボタン
                 //------------------------------------------------------------
-                TimedB_MouseCapture timeB = ((TimedB_MouseCapture)this.MainGui.TimedB_MouseCapture);
+                TimedBMouseCapture timeB = ((TimedBMouseCapture)this.MainGui.TimedB_MouseCapture);
                 timeB.MouseEventQueue.Enqueue(
-                    new MouseEventState(this.MainGui.Scene, Shape_CanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.MouseLeftButtonUp, e.Location, errH));
+                    new MouseEventState(this.MainGui.Scene, ShapeCanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.MouseLeftButtonUp, e.Location, errH));
             }
             else if (e.Button == MouseButtons.Right)
             {
                 //------------------------------------------------------------
                 // 右ボタン
                 //------------------------------------------------------------
-                TimedB_MouseCapture timeB = ((TimedB_MouseCapture)this.MainGui.TimedB_MouseCapture);
+                TimedBMouseCapture timeB = ((TimedBMouseCapture)this.MainGui.TimedB_MouseCapture);
                 timeB.MouseEventQueue.Enqueue(
-                    new MouseEventState(this.MainGui.Scene, Shape_CanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.MouseRightButtonUp, e.Location, errH));
+                    new MouseEventState(this.MainGui.Scene, ShapeCanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.MouseRightButtonUp, e.Location, errH));
             }
         }
 
@@ -370,9 +370,9 @@ namespace Grayscale.P699_Form_______
         /// </summary>
         /// <param name="response"></param>
         public void Solute_RepaintRequest(
-            Form1_Mutex mutex, MainGui_Csharp mainGui, KwLogger errH)
+            Form1_Mutex mutex, MainGui_Csharp mainGui, ILogger errH)
         {
-            Uc_Form2Main form2 = ((Form1_Shogi)this.ParentForm).Form2_Console.Uc_Form2Main;
+            Uc_Form2Main form2 = ((Form1Shogi)this.ParentForm).Form2_Console.Uc_Form2Main;
 
             //------------------------------------------------------------
             // 駒の座標再計算
@@ -424,14 +424,14 @@ namespace Grayscale.P699_Form_______
                         switch (this.MainGui.SyuturyokuKirikae)
                         {
                             case SyuturyokuKirikae.Japanese:
-                                form2.WriteLine_Syuturyoku(Util_KirokuGakari.ToJsaFugoListString(
+                                form2.WriteLine_Syuturyoku(UtilKirokuGakari.ToJsaFugoListString(
                                     this.MainGui.Link_Server.Earth,
                                     this.MainGui.Link_Server.KifuTree,//.CurrentNode,
                                     "Ui_PnlMain.Response", errH));
                                 break;
                             case SyuturyokuKirikae.Sfen:
                                 form2.WriteLine_Syuturyoku(
-                                    Util_KirokuGakari.ToSfen_PositionCommand(
+                                    UtilKirokuGakari.ToSfen_PositionCommand(
                                         this.MainGui.Link_Server.Earth,
                                         this.MainGui.Link_Server.KifuTree//.CurrentNode//エンドノード
                                         ));

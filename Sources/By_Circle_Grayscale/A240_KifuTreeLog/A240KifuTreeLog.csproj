@@ -56,7 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="B110_KifuTreeLog\Util_KifuTreeLogWriter.cs" />
+    <Compile Include="B110_KifuTreeLog\UtilKifuTreeLogWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -41,17 +41,17 @@ namespace Grayscale.A450Server.B110Server.C497EngineClient
             Tree kifu1,
 
             Playerside kaisiPside,
-            KwLogger errH);
+            ILogger errH);
 
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
         /// </summary>
-        void Send_Shutdown(KwLogger errH);
+        void Send_Shutdown(ILogger errH);
 
         /// <summary>
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
-        void Send_Logdase(KwLogger errH);
+        void Send_Logdase(ILogger errH);
 
     }
 }

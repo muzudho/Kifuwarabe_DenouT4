@@ -2,14 +2,13 @@
 using System.Reflection;
 using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C510Form;
 
-namespace Grayscale.P699_Form_______
+namespace Grayscale.P699Form
 {
     [Serializable]
-    public partial class Form1_Shogi : Form, Form1_Shogiable
+    public partial class Form1Shogi : Form, Form1Shogiable
     {
         private MainGui_Csharp owner;
 
@@ -38,7 +37,7 @@ namespace Grayscale.P699_Form_______
         /// コンストラクターです。
         /// ************************************************************************************************************************
         /// </summary>
-        public Form1_Shogi(MainGui_Csharp owner)
+        public Form1Shogi(MainGui_Csharp owner)
         {
             this.owner = owner;
             InitializeComponent();
@@ -85,13 +84,13 @@ namespace Grayscale.P699_Form_______
         /// <param name="e"></param>
         private void Ui_Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            KwLogger errH = Util_Loggers.ProcessGui_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessGuiDefault;
             this.owner.Shutdown(errH);
         }
 
         private void Ui_Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            KwLogger errH = Util_Loggers.ProcessGui_DEFAULT;
+            ILogger errH = ErrorControllerReference.ProcessGuiDefault;
             this.owner.Shutdown(errH);
         }
     }

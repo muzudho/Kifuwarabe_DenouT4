@@ -99,7 +99,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C125UtilB
             Earth earth1,
             ISky positionA,//kifu1.GetRoot().GetNodeValue()
             Tree kifu1,
-            Playerside pside, KwLogger logger)
+            Playerside pside, ILogger logger)
         {
 
             //------------------------------------------------------------
@@ -111,7 +111,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C125UtilB
 
             earth1.SetProperty(
                 Word_KifuTree.PropName_Startpos,
-                Conv_KifuNode.ToSfenstring(positionA, pside, logger));
+                ConvKifuNode.ToSfenstring(positionA, pside, logger));
         }
 
     }

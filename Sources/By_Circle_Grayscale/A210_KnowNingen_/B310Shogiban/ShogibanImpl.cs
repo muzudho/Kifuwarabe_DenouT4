@@ -48,7 +48,7 @@ namespace Grayscale.A210KnowNingen.B310Shogiban.C250Struct
         public Playerside KaisiPside { get; set; }
 
 
-        public void AddKoma(SyElement masu, Busstop koma, KwLogger errH)
+        public void AddKoma(SyElement masu, Busstop koma, ILogger errH)
         {
             Debug.Assert(!this.ContainsBanjoKoma(Conv_Masu.ToMasuHandle(masu)), "既に駒がある枡に、駒を置こうとしています。[" + Conv_Masu.ToMasuHandle(masu) + "]");
 

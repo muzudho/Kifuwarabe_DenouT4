@@ -31,7 +31,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500Gui
             Tree kifu1,
 
             Playerside pside,//endNode.GetNodeValue().KaisiPside,
-            KwLogger errH)
+            ILogger errH)
         {
             this.Link_Server.EngineClient.OnChangedTurn(
                 this.Link_Server.Earth,
@@ -43,7 +43,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500Gui
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
         /// </summary>
-        public override void Shutdown(KwLogger errH)
+        public override void Shutdown(ILogger errH)
         {
             this.Link_Server.EngineClient.Send_Shutdown(errH);
         }
@@ -51,7 +51,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500Gui
         /// <summary>
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
-        public override void Logdase(KwLogger errH)
+        public override void Logdase(ILogger errH)
         {
             this.Link_Server.EngineClient.Send_Logdase(errH);
         }
@@ -61,7 +61,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500Gui
         /// 将棋エンジンを起動します。
         /// ************************************************************************************************************************
         /// </summary>
-        public override void Start_ShogiEngine(string shogiEngineFilePath, KwLogger errH)
+        public override void Start_ShogiEngine(string shogiEngineFilePath, ILogger errH)
         {
             this.Link_Server.EngineClient.Start(shogiEngineFilePath);
             this.Link_Server.EngineClient.ShogiEngineProcessWrapper.Send_Usi(errH);
@@ -70,10 +70,10 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500Gui
         /// <summary>
         /// コンピューターの先手
         /// </summary>
-        public override void Do_ComputerSente(KwLogger errH)
+        public override void Do_ComputerSente(ILogger errH)
         {
             this.Link_Server.EngineClient.ShogiEngineProcessWrapper.Send_Position(
-                Util_KirokuGakari.ToSfen_PositionCommand(
+                UtilKirokuGakari.ToSfen_PositionCommand(
                     this.Link_Server.Earth,
                     this.Link_Server.KifuTree//.CurrentNode//エンドノード
                     ), errH);
@@ -84,7 +84,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500Gui
         /// <summary>
         /// このアプリケーションソフトの開始時の処理。
         /// </summary>
-        public new void Load_AsStart(KwLogger errH)
+        public new void Load_AsStart(ILogger errH)
         {
             base.Load_AsStart(errH);
 

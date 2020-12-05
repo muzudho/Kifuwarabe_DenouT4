@@ -36,8 +36,8 @@ namespace Grayscale.A210KnowNingen.B550JsaFugo.C500Util
         {
             StringBuilder sb = new StringBuilder();
 
-            Playerside pside = Conv_Move.ToPlayerside(move);
-            SyElement dstMasu = Conv_Move.ToDstMasu(move);
+            Playerside pside = ConvMove.ToPlayerside(move);
+            SyElement dstMasu = ConvMove.ToDstMasu(move);
 
             sb.Append(Conv_Playerside.ToSankaku(pside));
 
@@ -117,8 +117,8 @@ namespace Grayscale.A210KnowNingen.B550JsaFugo.C500Util
 
 
 
-            SyElement dstMasu = Conv_Move.ToDstMasu(move);
-            Playerside pside = Conv_Move.ToPlayerside(move);
+            SyElement dstMasu = ConvMove.ToDstMasu(move);
+            Playerside pside = ConvMove.ToPlayerside(move);
 
             sb.Append(Conv_Playerside.ToSankaku(pside));
 
@@ -129,7 +129,7 @@ namespace Grayscale.A210KnowNingen.B550JsaFugo.C500Util
             if (0 < index - 1)
             {
                 index--;
-                SyElement preDstMasu = Conv_Move.ToDstMasu(honpuList[index]);
+                SyElement preDstMasu = ConvMove.ToDstMasu(honpuList[index]);
                 if (Masu_Honshogi.Query_ErrorMasu() != preDstMasu)
                 {
                     if (Conv_Masu.ToMasuHandle(preDstMasu) == Conv_Masu.ToMasuHandle(dstMasu))

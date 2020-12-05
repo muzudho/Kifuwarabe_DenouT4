@@ -52,7 +52,7 @@ namespace Grayscale.A450Server.B110Server.C250Util
             ISky positionA,
             out string jsaFugoStr,
             Tree kifu1,
-            KwLogger logger
+            ILogger logger
             )
         {
             model_Manual.SetGuiSky(positionA);
@@ -88,7 +88,7 @@ namespace Grayscale.A450Server.B110Server.C250Util
             SkyWrapper_Gui model_Manual,
             out bool toBreak,
             string hint,
-            KwLogger logger,
+            ILogger logger,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
@@ -97,14 +97,14 @@ namespace Grayscale.A450Server.B110Server.C250Util
             //KwLogger errH = OwataMinister.SERVER_KIFU_YOMITORI;
 
             bool successful = false;
-            KifuParserA_Impl kifuParserA_Impl = new KifuParserA_Impl();
+            KifuParserAImpl kifuParserA_Impl = new KifuParserAImpl();
             IKifuParserAResult result = new KifuParserA_ResultImpl();
             IKifuParserAGenjo genjo = new KifuParserA_GenjoImpl(inputLine);
 
             try
             {
 
-                if (kifuParserA_Impl.State is KifuParserA_StateA0_Document)
+                if (kifuParserA_Impl.State is KifuParserAStateA0Document)
                 {
                     // 最初はここ
 
@@ -131,7 +131,7 @@ namespace Grayscale.A450Server.B110Server.C250Util
                     // （２）日本式棋譜で、何もしませんでした。→moves
                 }
 
-                if (kifuParserA_Impl.State is KifuParserA_StateA1_SfenPosition)
+                if (kifuParserA_Impl.State is KifuParserAStateA1SfenPosition)
                 {
                     //------------------------------------------------------------
                     // このブロックでは「position ～ moves 」まで一気に(*1)を処理します。
@@ -195,7 +195,7 @@ namespace Grayscale.A450Server.B110Server.C250Util
                 //
                 // 対COMP戦で関係があるのはここです。
                 //
-                if (kifuParserA_Impl.State is KifuParserA_StateA2_SfenMoves)
+                if (kifuParserA_Impl.State is KifuParserAStateA2SfenMoves)
                 {
 #if DEBUG
                     errH.AppendLine("ﾂｷﾞﾊ　ｲｯﾃ　ｼｮﾘｼﾀｲ☆");
@@ -305,7 +305,7 @@ namespace Grayscale.A450Server.B110Server.C250Util
             out string jsaFugoStr,
             MoveEx curNode1,//削るノード
             Tree kifu1_mutable,
-            KwLogger logger
+            ILogger logger
             )
         {
             bool successful = false;
@@ -343,10 +343,10 @@ namespace Grayscale.A450Server.B110Server.C250Util
             // 前の手に戻します
             //------------------------------
             IIttemodosuResult ittemodosuResult;
-            Util_IttemodosuRoutine.UndoMove(
+            UtilIttemodosuRoutine.UndoMove(
                 out ittemodosuResult,
                 curNode1.Move,
-                Conv_Move.ToPlayerside(curNode1.Move),
+                ConvMove.ToPlayerside(curNode1.Move),
                 positionA,
                 "B",
                 logger
@@ -385,7 +385,7 @@ namespace Grayscale.A450Server.B110Server.C250Util
             Tree kifu1,
 
             SkyWrapper_Gui model_Manual,
-            KwLogger errH,
+            ILogger errH,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
@@ -431,7 +431,7 @@ namespace Grayscale.A450Server.B110Server.C250Util
             Finger fig_btnTumandeiruKoma,
             Busstop foodee_koma,//取られる対象の駒
             SkyWrapper_Gui model_Manual,
-            KwLogger errH
+            ILogger errH
             )
         {
 
@@ -440,7 +440,7 @@ namespace Grayscale.A450Server.B110Server.C250Util
 
 
             // 取られることになる駒のボタン
-            btnKoma_Food_Koma = Util_Sky_FingersQuery.InMasuNow_Old(model_Manual.GuiSky, Conv_Busstop.ToMasu(foodee_koma)).ToFirst();
+            btnKoma_Food_Koma = UtilSkyFingersQuery.InMasuNow_Old(model_Manual.GuiSky, Conv_Busstop.ToMasu(foodee_koma)).ToFirst();
             if (Fingers.Error_1 == btnKoma_Food_Koma)
             {
                 koma_Food_after = Busstop.Empty;
@@ -467,7 +467,7 @@ namespace Grayscale.A450Server.B110Server.C250Util
             {
                 case Playerside.P2:
 
-                    akiMasu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Okiba.Gote_Komadai, model_Manual.GuiSky);
+                    akiMasu = UtilIttesasuRoutine.GetKomadaiKomabukuroSpace(Okiba.Gote_Komadai, model_Manual.GuiSky);
                     if (!Masu_Honshogi.IsErrorBasho(akiMasu))
                     {
                         // 駒台に空きスペースがありました。
@@ -499,7 +499,7 @@ namespace Grayscale.A450Server.B110Server.C250Util
                 case Playerside.P1://thru
                 default:
 
-                    akiMasu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Okiba.Sente_Komadai, model_Manual.GuiSky);
+                    akiMasu = UtilIttesasuRoutine.GetKomadaiKomabukuroSpace(Okiba.Sente_Komadai, model_Manual.GuiSky);
                     if (!Masu_Honshogi.IsErrorBasho(akiMasu))
                     {
                         // 駒台に空きスペースがありました。

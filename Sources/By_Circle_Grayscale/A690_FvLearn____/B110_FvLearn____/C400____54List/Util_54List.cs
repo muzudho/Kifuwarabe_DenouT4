@@ -18,7 +18,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C400____54List
     public class Util_54List
     {
 
-        private static void Error1(Busstop busstop, KwLogger errH)
+        private static void Error1(Busstop busstop, ILogger errH)
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("Util_54List#Error1：２駒関係FVの配列添え字がわからないぜ☆！処理は続けられない。");
@@ -36,7 +36,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C400____54List
         /// 盤上の40駒リスト。
         /// 駒台の14駒リスト。
         /// </summary>
-        public static N54List Calc_54List(ISky src_Sky, KwLogger errH)
+        public static N54List Calc_54List(ISky src_Sky, ILogger errH)
         {
             N54List result_n54List = new N54ListImpl();
 
@@ -87,7 +87,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C400____54List
                     //----------------------------------------
                     Komasyurui14 motiKomasyurui = Util_Komasyurui14.NarazuCaseHandle(Conv_Busstop.ToKomasyurui(busstop));//例：駒台に馬はない。角の数を数える。
                     // 駒の枚数
-                    int maisu = Util_Sky_FingersQuery.InOkibaKomasyuruiNow(src_Sky, Conv_Playerside.ToKomadai(Conv_Busstop.ToPlayerside(busstop)), motiKomasyurui).Items.Count;
+                    int maisu = UtilSkyFingersQuery.InOkibaKomasyuruiNow(src_Sky, Conv_Playerside.ToKomadai(Conv_Busstop.ToPlayerside(busstop)), motiKomasyurui).Items.Count;
                     Conv_FvKoumoku525.ToPIndex_FromMoti_PsideKomasyuruiMaisu(Conv_Busstop.ToPlayerside(busstop), motiKomasyurui, maisu, out pIndex);
 
                     if (FeatureVectorImpl.CHOSA_KOMOKU_ERROR == pIndex)

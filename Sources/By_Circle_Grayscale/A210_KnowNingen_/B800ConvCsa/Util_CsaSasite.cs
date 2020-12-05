@@ -180,7 +180,7 @@ namespace Grayscale.A210KnowNingen.B800ConvCsa.C500Converter
                     //});
 
                     SyElement srcMasu = Conv_Masu.ToMasu_FromBanjoSujiDan(srcSuji, srcDan);
-                    Busstop srcKoma = Util_Sky_KomaQuery.InMasuNow(ittemae_Sky_orNull, srcMasu);
+                    Busstop srcKoma = UtilSkyKomaQuery.InMasuNow(ittemae_Sky_orNull, srcMasu);
                     Debug.Assert(Busstop.Empty != srcKoma, "元位置の駒を取得できなかった。1");
 
                     if (!Util_Komasyurui14.IsNari(Conv_Busstop.ToKomasyurui(srcKoma)) && nari)//移動元で「成り」でなかった駒が、移動後に「成駒」になっていた場合。

@@ -41,7 +41,7 @@ namespace Grayscale.A210KnowNingen.B440Utifudume.C500Util
             SySet<SyElement> masus_mikata_onBanjo,//打ち歩詰めチェック用
             SySet<SyElement> masus_aite_onBanjo,//打ち歩詰めチェック用
             SySet<SyElement>[] aMasus,//駒種類別、置こうとする升
-            KwLogger errH_orNull
+            ILogger errH_orNull
             )
         {
             // 攻め側
@@ -128,7 +128,7 @@ namespace Grayscale.A210KnowNingen.B440Utifudume.C500Util
             SySet<SyElement> aitegyokuKiki;
             {
                 // 相手側の盤上の駒一覧。
-                Fingers fingers_aiteKoma_Banjo = Util_Sky_FingersQuery.InOkibaPsideNow(positionA, Okiba.ShogiBan, pside_aite);
+                Fingers fingers_aiteKoma_Banjo = UtilSkyFingersQuery.InOkibaPsideNow(positionA, Okiba.ShogiBan, pside_aite);
 
                 // 利き一覧
                 Maps_OneAndOne<Finger, SySet<SyElement>> kikiMap = Query_FingersMasusSky.To_KomabetuKiki_OnBanjo(

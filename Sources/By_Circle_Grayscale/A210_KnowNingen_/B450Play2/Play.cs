@@ -8,7 +8,6 @@ using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
 using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
 using Grayscale.A210KnowNingen.B240Move.C500Struct;
 using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
 using Grayscale.A210KnowNingen.B420UtilSky258.C250UtilFingers;
 using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
 using Grayscale.A210KnowNingen.B440Utifudume.C500Util;
@@ -45,7 +44,7 @@ namespace Grayscale.A210KnowNingen.B450Play2.C500Struct
             SySet<SyElement> masus_mikata_onBanjo,//打ち歩詰めチェック用
             SySet<SyElement> masus_aite_onBanjo,//打ち歩詰めチェック用
             SySet<SyElement> motiOkenaiMasus,
-            KwLogger errH_orNull
+            ILogger errH_orNull
             )
         {
             // 駒種類別、置こうとする升
@@ -74,7 +73,7 @@ namespace Grayscale.A210KnowNingen.B450Play2.C500Struct
                     // 駒種類別、置こうとする駒
                     aDaihyo[(int)Conv_Busstop.ToKomasyurui(daihyo)] = daihyo;
                     // 駒種類別、置こうとする升
-                    aMasus[(int)Conv_Busstop.ToKomasyurui(daihyo)] = Util_Sky_SyugoQuery.KomaKidou_Potential(figDaihyo, positionA);
+                    aMasus[(int)Conv_Busstop.ToKomasyurui(daihyo)] = UtilSkySyugoQuery.KomaKidou_Potential(figDaihyo, positionA);
                     // 駒種類別、置こうとする駒番号
                     aFigKoma[(int)Conv_Busstop.ToKomasyurui(daihyo)] = figDaihyo;
                 }
@@ -99,7 +98,7 @@ namespace Grayscale.A210KnowNingen.B450Play2.C500Struct
                 //}
 #endif
                 // 将棋盤上の自歩一覧。
-                Fingers banjoJiFus = Util_Sky_FingersQuery.InOkibaPsideKomasyuruiNow(
+                Fingers banjoJiFus = UtilSkyFingersQuery.InOkibaPsideKomasyuruiNow(
                     positionA,//指定局面
                     Okiba.ShogiBan,//将棋盤上の
                     Conv_Busstop.ToPlayerside(aDaihyo[(int)Komasyurui14.H01_Fu_____]),//持駒を持っているプレイヤー側の

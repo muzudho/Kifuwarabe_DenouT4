@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A210KnowNingen.B630Sennitite.C500Struct;
 
 namespace Grayscale.A210KnowNingen.B630Sennitite.C500Struct
 {
@@ -160,19 +158,19 @@ namespace Grayscale.A210KnowNingen.B630Sennitite.C500Struct
 
             if (processName == "Grayscale.P800_ShogiGuiVs.vshost")
             {
-                Util_Loggers.ProcessGui_SENNITITE.AppendLine(text);
-                Util_Loggers.ProcessGui_SENNITITE.Flush(LogTypes.Plain);
+                ErrorControllerReference.ProcessGuiSennitite.AppendLine(text);
+                ErrorControllerReference.ProcessGuiSennitite.Flush(LogTypes.Plain);
             }
             else if (processName == "Grayscale.P500_ShogiEngine_KifuWarabe")
             {
-                Util_Loggers.ProcessEngine_SENNITITE.AppendLine(text);
-                Util_Loggers.ProcessEngine_SENNITITE.Flush(LogTypes.Plain);
+                ErrorControllerReference.ProcessEngineSennitite.AppendLine(text);
+                ErrorControllerReference.ProcessEngineSennitite.Flush(LogTypes.Plain);
             }
             else
             {
                 // 名称変更したことを忘れていた場合は、デフォルトの書き出し先へ退避。
-                Util_Loggers.PeocessNone_SENNITITE.AppendLine(text);
-                Util_Loggers.PeocessNone_SENNITITE.Flush(LogTypes.Plain);
+                ErrorControllerReference.PeocessNoneSennitite.AppendLine(text);
+                ErrorControllerReference.PeocessNoneSennitite.Flush(LogTypes.Plain);
             }
         }
 

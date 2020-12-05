@@ -11,8 +11,8 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C125Scene
         public SaiseiEventStateName Name2 { get { return this.name2; } }
         private SaiseiEventStateName name2;
 
-        public KwLogger Flg_logTag { get { return this.flg_logTag; } }
-        private KwLogger flg_logTag;
+        public ILogger Flg_logTag { get { return this.flg_logTag; } }
+        private ILogger flg_logTag;
 
 
         public SaiseiEventState()
@@ -20,7 +20,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C125Scene
             this.name2 = SaiseiEventStateName.Ignore;
         }
 
-        public SaiseiEventState(SaiseiEventStateName name2, KwLogger flg_logTag)
+        public SaiseiEventState(SaiseiEventStateName name2, ILogger flg_logTag)
         {
             this.name2 = name2;
             this.flg_logTag = flg_logTag;

@@ -28,7 +28,7 @@ namespace Grayscale.A500ShogiEngine.B260UtilClient.C500Util
             Tree kifu1,
 
             IKifuParserAGenjo genjo,
-            KwLogger logger
+            ILogger logger
             )
         {
             logger.AppendLine("（＾△＾）「" + genjo.InputLine + "」Util_InClient　：　クライアントの委譲メソッドｷﾀｰ☆");

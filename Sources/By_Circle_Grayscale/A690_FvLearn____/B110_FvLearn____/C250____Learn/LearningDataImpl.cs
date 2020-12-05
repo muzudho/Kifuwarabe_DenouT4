@@ -147,7 +147,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C250____Learn
             this.WritePng(
                 move,
                 positionA,
-                Util_Loggers.ProcessLearner_DEFAULT
+                ErrorControllerReference.ProcessLearnerDefault
                 );
             uc_Main.PctKyokumen.ImageLocation = Const_Filepath.m_EXE_TO_LOGGINGS + "_log_学習局面.png";
         }
@@ -194,7 +194,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C250____Learn
             Tree kifu1,
             ISky positionA,
             string[] searchedPv,
-            KwLogger errH)
+            ILogger errH)
         {
             //----------------------------------------
             // 合法手のNextNodesを作成します。
@@ -286,16 +286,16 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C250____Learn
         public void WritePng(
             Move move,
             ISky positionA,
-            KwLogger errH
+            ILogger errH
             )
         {
             int srcMasu_orMinusOne = -1;
             int dstMasu_orMinusOne = -1;
 
-            SyElement srcMasu = Conv_Move.ToSrcMasu(move);
-            SyElement dstMasu = Conv_Move.ToSrcMasu(move);
-            Komasyurui14 captured = Conv_Move.ToCaptured(move);
-            bool errorCheck = Conv_Move.ToErrorCheck(move);
+            SyElement srcMasu = ConvMove.ToSrcMasu(move);
+            SyElement dstMasu = ConvMove.ToSrcMasu(move);
+            Komasyurui14 captured = ConvMove.ToCaptured(move);
+            bool errorCheck = ConvMove.ToErrorCheck(move);
 
             if (!errorCheck)
             {
@@ -326,11 +326,11 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C250____Learn
 
             // 学習フォーム
             Util_KyokumenPng_Writer.Write1(
-                Conv_KifuNode.ToRO_Kyokumen1(positionA, errH),
+                ConvKifuNode.ToRO_Kyokumen1(positionA, errH),
                 srcMasu_orMinusOne,
                 dstMasu_orMinusOne,
                 foodKoma,
-                Conv_Move.ToSfen(move),
+                ConvMove.ToSfen(move),
                 "",
                 "_log_学習局面.png",
                 LearningDataImpl.REPORT_ENVIRONMENT,
@@ -350,7 +350,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C250____Learn
             ISky positionA,
             string[] searchedPv,
             EvaluationArgs args,
-            KwLogger logger)
+            ILogger logger)
         {
             try
             {
@@ -395,7 +395,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C250____Learn
                     psideA,
                     positionA,
                     this.Fv, //参照してもらうだけ。
-                    Util_Loggers.ProcessLearner_DEFAULT
+                    ErrorControllerReference.ProcessLearnerDefault
                 );
             }
             //----------------------------------------
@@ -407,7 +407,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C250____Learn
                     psideA,
                     positionA,
                     this.Fv, //参照してもらうだけ。
-                    Util_Loggers.ProcessLearner_DEFAULT
+                    ErrorControllerReference.ProcessLearnerDefault
                 );
             }
         }

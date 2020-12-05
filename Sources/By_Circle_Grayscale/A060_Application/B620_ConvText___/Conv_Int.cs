@@ -32,7 +32,7 @@ namespace Grayscale.A060Application.B620ConvText.C500Converter
                 case 9: alphabet = "i"; break;
                 default:
                     Exception ex = new Exception("筋[" + num + "]をアルファベットに変えることはできませんでした。");
-                    Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "筋をアルファベットに変換中☆");
+                    ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "筋をアルファベットに変換中☆");
                     throw ex;
             }
 

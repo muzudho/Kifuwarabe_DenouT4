@@ -58,7 +58,7 @@ namespace Grayscale.A150LogKyokuPng.B200LogKyokuPng.C500UtilWriter
                 relFolder,
                 outFile,
                 reportEnvironment,
-                Util_Loggers.ProcessTestProgram_DEFAULT
+                ErrorControllerReference.ProcessTestProgramDefault
                 );
 
         gt_EndMethod:
@@ -83,7 +83,7 @@ namespace Grayscale.A150LogKyokuPng.B200LogKyokuPng.C500UtilWriter
             string appendFilepath,
             string outFile,
             KyokumenPngEnvironment reportEnvironment,
-            KwLogger errH
+            ILogger errH
             )
         {
             bool successful = true;

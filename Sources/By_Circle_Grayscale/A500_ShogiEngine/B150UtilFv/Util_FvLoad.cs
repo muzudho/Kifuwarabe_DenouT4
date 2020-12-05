@@ -42,7 +42,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C510UtilFvLoad
 
             // 棋譜
             out_earth1 = new EarthImpl();
-            out_positionA = Util_SkyCreator.New_Hirate();
+            out_positionA = UtilSkyCreator.New_Hirate();
             out_kifu1 = new TreeImpl(out_positionA);
             out_earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手
 
@@ -64,7 +64,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C510UtilFvLoad
         /// <param name="rv_orNull">学習でしか使いません。</param>
         /// <param name="filepath_komawari_base"></param>
         /// <returns></returns>
-        public static string OpenFv(FeatureVector fv, string filepath_komawari_base, KwLogger errH)
+        public static string OpenFv(FeatureVector fv, string filepath_komawari_base, ILogger errH)
         {
             StringBuilder sb_result = new StringBuilder();
 

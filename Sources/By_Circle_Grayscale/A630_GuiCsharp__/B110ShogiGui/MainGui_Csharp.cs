@@ -42,18 +42,18 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui
             Tree kifu1,
 
             Playerside pside,
-            KwLogger errH);
+            ILogger errH);
 
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
         /// </summary>
-        void Shutdown(KwLogger errH);
+        void Shutdown(ILogger errH);
 
 
         /// <summary>
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
-        void Logdase(KwLogger errH);
+        void Logdase(ILogger errH);
 
 
         /// <summary>
@@ -61,12 +61,12 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui
         /// 将棋エンジンを起動します。
         /// ************************************************************************************************************************
         /// </summary>
-        void Start_ShogiEngine(string shogiEngineFilePath, KwLogger errH);
+        void Start_ShogiEngine(string shogiEngineFilePath, ILogger errH);
 
         /// <summary>
         /// コンピューターの先手
         /// </summary>
-        void Do_ComputerSente(KwLogger errH);
+        void Do_ComputerSente(ILogger errH);
 
 
         Busstop GetKoma(Finger finger);
@@ -101,7 +101,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui
         /// グラフィックを描くツールは全部この中です。
         /// ------------------------------------------------------------------------------------------------------------------------
         /// </summary>
-        Shape_PnlTaikyoku Shape_PnlTaikyoku { get; }
+        ShapePnlTaikyoku Shape_PnlTaikyoku { get; }
 
         /// <summary>
         /// ウィジェットは、１箇所にまとめておきます。
@@ -116,7 +116,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui
         Timed TimedA { get; set; }
         Timed TimedB_MouseCapture { get; set; }
         Timed TimedC { get; set; }
-        void Timer_Tick(KwLogger errH);
+        void Timer_Tick(ILogger errH);
 
         RepaintRequest RepaintRequest { get; set; }
 
@@ -143,7 +143,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui
         void SetScene(SceneName scene);
 
 
-        void Response(string mutexString, KwLogger errH);
+        void Response(string mutexString, ILogger errH);
 
 
 

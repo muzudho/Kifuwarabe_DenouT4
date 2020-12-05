@@ -53,12 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="B110Log\n350_kwDisplayerImpl.cs" />
-    <Compile Include="B110Log\n360_kwLoggerImpl.cs" />
+    <Compile Include="B110Log\ErrorControllerImpl.cs" />
+    <Compile Include="B110Log\LoggerImpl.cs" />
     <Compile Include="B110Log\n500_util_Loggers.cs" />
-    <Compile Include="B110Log\n200_logTypes.cs" />
-    <Compile Include="B110Log\n350_kwDisplayer.cs" />
-    <Compile Include="B110Log\n360_kwLogger.cs" />
+    <Compile Include="B110Log\LogTypes.cs" />
+    <Compile Include="B110Log\IErrorController.cs" />
+    <Compile Include="B110Log\ILogger.cs" />
     <Compile Include="B210Tushin\Util_Message.cs" />
     <Compile Include="B310_Settei_____\Const_Filepath.cs" />
     <Compile Include="B310_Settei_____\Data_Settei_Csv.cs" />

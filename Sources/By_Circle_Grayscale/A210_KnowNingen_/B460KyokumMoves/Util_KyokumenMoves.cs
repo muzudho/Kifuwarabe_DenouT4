@@ -59,8 +59,8 @@ namespace Grayscale.A210KnowNingen.B460KyokumMoves.C500Util
             Fingers fs_seme//盤上の駒（利きを調べる側）
             )
         {
-            out_masus_seme = Conv_Fingers.ToMasus(fs_seme, src_Sky);// 盤上のマス（利きを調べる側の駒）
-            out_masus_kurau = Conv_Fingers.ToMasus(fs_kurau, src_Sky);// 盤上のマス（喰らう側の駒）
+            out_masus_seme = ConvFingers.ToMasus(fs_seme, src_Sky);// 盤上のマス（利きを調べる側の駒）
+            out_masus_kurau = ConvFingers.ToMasus(fs_kurau, src_Sky);// 盤上のマス（喰らう側の駒）
         }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace Grayscale.A210KnowNingen.B460KyokumMoves.C500Util
 #endif
             )
         {
-            KwLogger errH = null;
+            ILogger errH = null;
 #if DEBUG
                     if (mmLog_orNull != null)
                     {
@@ -130,7 +130,7 @@ namespace Grayscale.A210KnowNingen.B460KyokumMoves.C500Util
                 Fingers fingers_seme_MOTI;// 持駒（利きを調べる側）
                 Fingers fingers_kurau_MOTI;// 持駒（喰らう側）
                 {
-                    Util_Sky_FingersQueryFx.Split_BanjoSeme_BanjoKurau_MotiSeme_MotiKurau(
+                    UtilSkyFingersQueryFx.Split_BanjoSeme_BanjoKurau_MotiSeme_MotiKurau(
                         out fingers_seme_BANJO, out fingers_kurau_BANJO, out fingers_seme_MOTI,
                         out fingers_kurau_MOTI, positionA, tebanSeme, tebanKurau,
                         errH);
@@ -247,7 +247,7 @@ namespace Grayscale.A210KnowNingen.B460KyokumMoves.C500Util
             SySet<SyElement> masus_aite_onBanjo,
             Playerside psideA,
             ISky positionA,
-            KwLogger errH_orNull
+            ILogger errH_orNull
             )
         {
             // 持ち駒を置けない升

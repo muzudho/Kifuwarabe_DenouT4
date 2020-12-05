@@ -24,7 +24,7 @@ namespace Grayscale.A210KnowNingen.B320ConvWords.C500Converter
 
             sb.AppendLine(Conv_Playerside.ToLog_Kanji(sky.GetKaisiPside(move)));
             sb.AppendLine(sky.Temezumi + "手目済");
-            sb.AppendLine(Conv_Move.ToLog(move));
+            sb.AppendLine(ConvMove.ToLog(move));
 
 
             sb.Append(Conv_Shogiban.ToLog(shogiban));
