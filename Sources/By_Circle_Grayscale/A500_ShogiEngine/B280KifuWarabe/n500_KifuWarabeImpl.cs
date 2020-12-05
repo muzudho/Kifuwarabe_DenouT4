@@ -35,6 +35,7 @@ using Grayscale.A500ShogiEngine.B260UtilClient.C500Util;
 using Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi;
 using Grayscale.A500ShogiEngine.B280KifuWarabe.C125AjimiEngine;
 using Grayscale.A500ShogiEngine.B523UtilFv.C510UtilFvLoad;
+using Nett;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
@@ -59,12 +60,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
         /// </summary>
         public KifuWarabeImpl(IUsiFramework usiFramework)
         {
-            // 作者名
-            this.authorName = "TAKAHASHI Satoshi"; // むずでょ
-
-            // 製品名
-            this.seihinName = ((System.Reflection.AssemblyProductAttribute)Attribute.GetCustomAttribute(System.Reflection.Assembly.GetExecutingAssembly(), typeof(System.Reflection.AssemblyProductAttribute))).Product;
-
             this.Logger = ErrorControllerReference.ProcessEngineDefault;
 
             //-------------+----------------------------------------------------------------------------------------------------------
@@ -178,19 +173,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
 
 
         #region プロパティー
-        /// <summary>
-        /// きふわらべの作者名です。
-        /// </summary>
-        public string AuthorName { get { return this.authorName; } }
-        private string authorName;
-
-
-        /// <summary>
-        /// 製品名です。
-        /// </summary>
-        public string SeihinName { get { return this.seihinName; } }
-        private string seihinName;
-
         public ILogger Logger { get; set; }
 
         /// <summary>
@@ -360,8 +342,12 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             // オプションも送り返せば、受け取ってくれます。
             // usi を受け取ってから、5秒以内に usiok を送り返して完了です。
             #endregion
-            this.Send("id name " + this.SeihinName);
-            this.Send("id author " + this.AuthorName);
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+            var engineName = toml.Get<TomlTable>("Engine").Get<string>("Name");
+            var engineAuthor = toml.Get<TomlTable>("Engine").Get<string>("Author");
+            this.Send($"id name {engineName}");
+            this.Send($"id author {engineAuthor}");
             this.Send("usiok");
 
             return PhaseResultUsiLoop1.None;

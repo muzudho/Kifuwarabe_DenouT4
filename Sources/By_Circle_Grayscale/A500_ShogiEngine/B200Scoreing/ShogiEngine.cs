@@ -14,17 +14,6 @@ namespace Grayscale.A500ShogiEngine.B200Scoreing.C005UsiLoop
         /// <param name="line">メッセージ</param>
         void Send(string line);
 
-
-        /// <summary>
-        /// きふわらべの作者名です。
-        /// </summary>
-        string AuthorName { get; }
-
-        /// <summary>
-        /// 製品名です。
-        /// </summary>
-        string SeihinName { get; }
-
         /// <summary>
         /// USI「setoption」コマンドのリストです。
         /// </summary>
