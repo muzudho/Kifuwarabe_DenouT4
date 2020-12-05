@@ -1,6 +1,6 @@
 ﻿using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 
-namespace Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter
+namespace Grayscale.A210_KnowNingen_.B320_ConvWords__.C500Converter
 {
     public abstract class Conv_Komasyurui
     {

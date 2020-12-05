@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B480_Util_Sasu__.C500____Util;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210_KnowNingen_.B480_Util_Sasu__.C500Util;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
 
-namespace Grayscale.A210_KnowNingen_.B730_Util_SasuEx.C500____Util
+namespace Grayscale.A210_KnowNingen_.B730_Util_SasuEx.C500Util
 {
 
     /// <summary>

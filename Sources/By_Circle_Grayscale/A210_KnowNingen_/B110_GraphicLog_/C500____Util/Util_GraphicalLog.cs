@@ -1,12 +1,12 @@
 ﻿
 #if DEBUG
-using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
+using Grayscale.A060Application.B310Settei.C500Struct;
 using System.IO;
 using System.Text;
 #endif
 
 
-namespace Grayscale.A210_KnowNingen_.B110_GraphicLog_.C500____Util
+namespace Grayscale.A210_KnowNingen_.B110_GraphicLog_.C500Util
 {
     public abstract class Util_GraphicalLog
     {

@@ -1,7 +1,7 @@
 ﻿using System.Text;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI;

@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B630_Sennitite__.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B630_Sennitite__.C500____Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B630_Sennitite__.C500Struct;
+using Grayscale.A210_KnowNingen_.B630_Sennitite__.C500Struct;
 
 #if DEBUG
 using System.Diagnostics;
 #endif
 
-namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
+namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct
 {
     public class EarthImpl : Earth
     {

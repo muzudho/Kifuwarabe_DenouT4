@@ -8,47 +8,47 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B110_Log________.C500____Struct;
-using Grayscale.A060_Application.B210_Tushin_____.C500____Util;
-using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
-using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___250_UsiLoop;
-using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___490_Option__;
-using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___500_usiFrame___;//FIXME:
-using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C490____Option__;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B210Tushin.C500Util;
+using Grayscale.A060Application.B310Settei.C500Struct;
+using Grayscale.A090UsiFramewor.B100UsiFrame1.C250UsiLoop;
+using Grayscale.A090UsiFramewor.B100UsiFrame1.C490Option;
+using Grayscale.A090UsiFramewor.B100UsiFrame1.C500UsiFrame;//FIXME:
+using Grayscale.A090UsiFramewor.B100UsiFrame1.C490Option;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
 using Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table;
-using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500Converter;
 using Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word;
-using Grayscale.A210_KnowNingen_.B390_KomahaiyaEx.C500____Util;
-using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
+using Grayscale.A210_KnowNingen_.B390_KomahaiyaEx.C500Util;
+using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B490_ForcePromot.C250Struct;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250Struct;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
-using Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser;
+using Grayscale.A210_KnowNingen_.B740_KifuParserA.C500Parser;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___005_Usi_Loop;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___240_Shogisasi;
-using Grayscale.A500_ShogiEngine.B260_UtilClient_.C500____Util;
+using Grayscale.A500_ShogiEngine.B260_UtilClient_.C500Util;
 using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi;
 using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C125____AjimiEngine;
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C___500_Struct;
+using Grayscale.A060Application.B520Syugoron.C250Struct;
+using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500Struct;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
+using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500Util;
 using Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C500____UtilWriter;
-using Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct;
-// using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500Struct;
+// using Grayscale.A060Application.B110Log.C500Struct;
 #endif
 
 namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
@@ -61,7 +61,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
         /// <summary>
         /// コンストラクター
         /// </summary>
-        public KifuWarabeImpl(UsiFramework usiFramework)
+        public KifuWarabeImpl(IUsiFramework usiFramework)
         {
             // 作者名
             this.authorName = "TAKAHASHI Satoshi"; // むずでょ
@@ -76,9 +76,9 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             //-------------+----------------------------------------------------------------------------------------------------------
             // 将棋所から送られてくるデータを、一覧表に変えたものです。
             this.EngineOptions = new EngineOptionsImpl();
-            this.EngineOptions.AddOption(EngineOptionNames.USI_PONDER, new EngineOption_BoolImpl());// ポンダーに対応している将棋サーバーなら真です。
-            this.EngineOptions.AddOption(EngineOptionNames.NOOPABLE, new EngineOption_BoolImpl());// 独自実装のコマンドなので、ＯＦＦにしておきます。
-            this.EngineOptions.AddOption(EngineOptionNames.THINKING_MILLI_SECOND, new EngineOption_NumberImpl(30000));//30秒//90000//60000//8000//4000
+            this.EngineOptions.AddOption(EngineOptionNames.USI_PONDER, new EngineOptionBoolImpl());// ポンダーに対応している将棋サーバーなら真です。
+            this.EngineOptions.AddOption(EngineOptionNames.NOOPABLE, new EngineOptionBoolImpl());// 独自実装のコマンドなので、ＯＦＦにしておきます。
+            this.EngineOptions.AddOption(EngineOptionNames.THINKING_MILLI_SECOND, new EngineOptionNumberImpl(30000));//30秒//90000//60000//8000//4000
 
 
 
@@ -287,7 +287,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
 
 
-        private PhaseResult_Usi_Loop1 OnUsiReceived_AtLoop1Body(string line)
+        private PhaseResultUsiLoop1 OnUsiReceived_AtLoop1Body(string line)
         {
             //------------------------------------------------------------
             // あなたは USI ですか？
@@ -368,11 +368,11 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             this.Send("id author " + this.AuthorName);
             this.Send("usiok");
 
-            return PhaseResult_Usi_Loop1.None;
+            return PhaseResultUsiLoop1.None;
         }
 
 
-        private PhaseResult_Usi_Loop1 OnSetoptionReceived_AtLoop1Body(string line)
+        private PhaseResultUsiLoop1 OnSetoptionReceived_AtLoop1Body(string line)
         {
             //------------------------------------------------------------
             // 設定してください
@@ -455,11 +455,11 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 */
             }
 
-            return PhaseResult_Usi_Loop1.None;
+            return PhaseResultUsiLoop1.None;
         }
 
 
-        private PhaseResult_Usi_Loop1 OnIsreadyReceived_AtLoop1Body(string line)
+        private PhaseResultUsiLoop1 OnIsreadyReceived_AtLoop1Body(string line)
         {
             //------------------------------------------------------------
             // それでは定刻になりましたので……
@@ -506,10 +506,10 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             #endregion
             this.Send("readyok");
 
-            return PhaseResult_Usi_Loop1.None;
+            return PhaseResultUsiLoop1.None;
         }
 
-        private PhaseResult_Usi_Loop1 OnUsinewgameReceived_AtLoop1Body(string line)
+        private PhaseResultUsiLoop1 OnUsinewgameReceived_AtLoop1Body(string line)
         {
             //------------------------------------------------------------
             // 対局時計が ポチッ とされました
@@ -530,10 +530,10 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
 
             // 無限ループ（１つ目）を抜けます。無限ループ（２つ目）に進みます。
-            return PhaseResult_Usi_Loop1.Break;
+            return PhaseResultUsiLoop1.Break;
         }
 
-        private PhaseResult_Usi_Loop1 OnQuitReceived_AtLoop1Body(string line)
+        private PhaseResultUsiLoop1 OnQuitReceived_AtLoop1Body(string line)
         {
             //------------------------------------------------------------
             // おつかれさまでした
@@ -575,7 +575,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
 
             // このプログラムを終了します。
-            return PhaseResult_Usi_Loop1.Quit;
+            return PhaseResultUsiLoop1.Quit;
         }
 
 
@@ -626,7 +626,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             return line;
         }
 
-        private PhaseResult_Usi_Loop2 OnPositionReceived_AtLoop2Body(string line)
+        private PhaseResultUsiLoop2 OnPositionReceived_AtLoop2Body(string line)
         {
             KwLogger logger = Util_Loggers.ProcessEngine_DEFAULT;
 
@@ -781,10 +781,10 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 throw ex;
             }
 
-            return PhaseResult_Usi_Loop2.None;
+            return PhaseResultUsiLoop2.None;
         }
 
-        private PhaseResult_Usi_Loop2 OnGoponderReceived_AtLoop2Body(string line)
+        private PhaseResultUsiLoop2 OnGoponderReceived_AtLoop2Body(string line)
         {
             try
             {
@@ -833,10 +833,10 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 throw ex;
             }
 
-            return PhaseResult_Usi_Loop2.None;
+            return PhaseResultUsiLoop2.None;
         }
 
-        private PhaseResult_Usi_Loop2 OnGoReceived_AtLoop2Body(string line)
+        private PhaseResultUsiLoop2 OnGoReceived_AtLoop2Body(string line)
         {
             int exceptionArea = 0;
 
@@ -1200,11 +1200,11 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             //System.C onsole.WriteLine();
 
             //throw new Exception("デバッグだぜ☆！　エラーはキャッチできたかな～☆？（＾▽＾）");
-            return PhaseResult_Usi_Loop2.None;
+            return PhaseResultUsiLoop2.None;
         }
 
 
-        private PhaseResult_Usi_Loop2 OnStopReceived_AtLoop2Body(string line)
+        private PhaseResultUsiLoop2 OnStopReceived_AtLoop2Body(string line)
         {
             try
             {
@@ -1303,11 +1303,11 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 throw ex;//追加
             }
 
-            return PhaseResult_Usi_Loop2.None;
+            return PhaseResultUsiLoop2.None;
         }
 
 
-        private PhaseResult_Usi_Loop2 OnGameoverReceived_AtLoop2Body(string line)
+        private PhaseResultUsiLoop2 OnGameoverReceived_AtLoop2Body(string line)
         {
             try
             {
@@ -1360,23 +1360,23 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
 
                 // 無限ループ（２つ目）を抜けます。無限ループ（１つ目）に戻ります。
-                return PhaseResult_Usi_Loop2.Break;
+                return PhaseResultUsiLoop2.Break;
             }
             catch (Exception ex)
             {
                 // エラー続行
                 Util_Loggers.ProcessEngine_DEFAULT.DonimoNaranAkirameta(ex, "Program「gameover」：" + ex.GetType().Name + " " + ex.Message);
-                return PhaseResult_Usi_Loop2.None;
+                return PhaseResultUsiLoop2.None;
             }
         }
 
-        private PhaseResult_Usi_Loop2 OnLogdaseReceived_AtLoop2Body(string line)
+        private PhaseResultUsiLoop2 OnLogdaseReceived_AtLoop2Body(string line)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("ログ出せ機能は廃止だぜ～☆（＾▽＾）");
             File.WriteAllText(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS, "_log_ログ出せ命令.txt"), sb.ToString());
 
-            return PhaseResult_Usi_Loop2.None;
+            return PhaseResultUsiLoop2.None;
         }
 
         private void OnLoop2End()

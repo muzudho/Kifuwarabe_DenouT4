@@ -1,15 +1,15 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+﻿using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A210_KnowNingen_.B150_KifuJsa____.C500____Word;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.A210_KnowNingen_.B550_JsaFugo____.C250____Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B550_JsaFugo____.C250Struct;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
 
 namespace Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer
 {

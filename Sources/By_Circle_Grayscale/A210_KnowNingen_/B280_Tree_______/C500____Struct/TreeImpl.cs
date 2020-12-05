@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
 
 #if DEBUG
 using System.Diagnostics;
 #endif
 
-namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
+namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct
 {
 
     /// <summary>

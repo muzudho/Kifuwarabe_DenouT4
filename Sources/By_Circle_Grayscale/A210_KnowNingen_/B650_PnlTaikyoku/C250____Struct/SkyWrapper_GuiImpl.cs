@@ -1,8 +1,8 @@
-﻿using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+﻿using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C250Struct;
 
-namespace Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C250____Struct
+namespace Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C250Struct
 {
     public class SkyWrapper_GuiImpl : SkyWrapper_Gui
     {

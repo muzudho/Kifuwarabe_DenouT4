@@ -5,17 +5,17 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using Codeplex.Data;//DynamicJson
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B310Settei.C500Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
 using Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table;
 using Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word;
-using Grayscale.A210_KnowNingen_.B390_KomahaiyaEx.C500____Util;
-using Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct;
-using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
-using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C250____Struct;
+using Grayscale.A210_KnowNingen_.B390_KomahaiyaEx.C500Util;
+using Grayscale.A210_KnowNingen_.B490_ForcePromot.C250Struct;
+using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C250Struct;
+using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C250Struct;
 using Grayscale.A450_Server_____.B110_Server_____.C___498_Server;
 using Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient;
 using Grayscale.A450_Server_____.B110_Server_____.C498____Server;
@@ -35,7 +35,7 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C492____Widgets;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
-// using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+// using Grayscale.A060Application.B110Log.C500Struct;
 #endif
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI

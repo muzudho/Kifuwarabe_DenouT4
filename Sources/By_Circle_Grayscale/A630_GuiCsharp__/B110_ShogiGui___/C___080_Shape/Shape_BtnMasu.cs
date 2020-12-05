@@ -1,5 +1,5 @@
 ﻿
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A060Application.B520Syugoron.C250Struct;
 
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___080_Shape

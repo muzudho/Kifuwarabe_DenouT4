@@ -1,15 +1,15 @@
 ﻿using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B110_Log________.C500____Struct;
-using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C500____usiFrame___;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
+using Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500Struct;
+using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C250____Args;
 using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi;
@@ -22,13 +22,13 @@ using Grayscale.A690_FvLearn____.B110_FvLearn____.C470____StartZero;
 
 #if DEBUG || LEARN
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C480____UtilFvEdit;
-using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C250Struct;
 #endif
 
 #if DEBUG
-using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-// using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250Struct;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
+// using Grayscale.A060Application.B110Log.C500Struct;
 #endif
 
 namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation

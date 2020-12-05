@@ -1,13 +1,13 @@
 ﻿#if DEBUG
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B410_Collection_.C500____Struct;
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C___500_Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B410Collection.C500Struct;
+using Grayscale.A060Application.B520Syugoron.C250Struct;
+using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
 using Grayscale.A210_KnowNingen_.B460_KyokumMoves.C250____Log;
-using Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util;
+using Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500Util;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C061____Util

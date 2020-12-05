@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct
+namespace Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C250Struct
 {
     /// <summary>
     /// 評価項目名＋自信クラス名

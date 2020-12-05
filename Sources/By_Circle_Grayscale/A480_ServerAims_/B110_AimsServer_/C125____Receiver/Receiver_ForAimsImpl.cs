@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Windows.Forms;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B110_Log________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250Struct;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA;
 using Grayscale.A450_Server_____.B110_Server_____.C___497_EngineClient;
 using Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient;

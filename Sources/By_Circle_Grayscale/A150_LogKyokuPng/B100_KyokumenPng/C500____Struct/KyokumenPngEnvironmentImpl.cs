@@ -1,6 +1,6 @@
-﻿using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C___500_Struct;
+﻿using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500Struct;
 
-namespace Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500____Struct
+namespace Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500Struct
 {
     public class KyokumenPngEnvironmentImpl : KyokumenPngEnvironment
     {

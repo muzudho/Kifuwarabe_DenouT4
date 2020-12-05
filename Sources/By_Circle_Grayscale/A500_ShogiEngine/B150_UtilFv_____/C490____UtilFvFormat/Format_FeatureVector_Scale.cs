@@ -1,5 +1,5 @@
 ﻿using System.Text;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
+using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 
 
 namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat

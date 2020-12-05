@@ -1,6 +1,6 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
+﻿using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C___400_54List;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C450____Tyoseiryo;
 

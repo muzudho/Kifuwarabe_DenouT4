@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.A120_KifuSfen___.B120_ConvSujiDan.C500____Converter
+namespace Grayscale.A120_KifuSfen___.B120_ConvSujiDan.C500Converter
 {
 
 

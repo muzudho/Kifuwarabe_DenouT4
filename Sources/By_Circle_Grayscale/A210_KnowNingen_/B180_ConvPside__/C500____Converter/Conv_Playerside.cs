@@ -1,6 +1,6 @@
 ﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
-namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter
+namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter
 {
     public abstract class Conv_Playerside
     {

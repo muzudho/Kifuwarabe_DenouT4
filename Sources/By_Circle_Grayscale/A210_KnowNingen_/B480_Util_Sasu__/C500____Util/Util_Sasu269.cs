@@ -1,15 +1,15 @@
 ﻿using System;
-using Grayscale.A060_Application.B410_Collection_.C500____Struct;
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A060Application.B410Collection.C500Struct;
+using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500Util;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
-namespace Grayscale.A210_KnowNingen_.B480_Util_Sasu__.C500____Util
+namespace Grayscale.A210_KnowNingen_.B480_Util_Sasu__.C500Util
 {
     public abstract class Util_Sasu269
     {

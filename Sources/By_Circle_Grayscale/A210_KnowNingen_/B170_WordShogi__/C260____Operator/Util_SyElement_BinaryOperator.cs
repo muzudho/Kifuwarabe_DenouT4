@@ -1,4 +1,4 @@
-﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+﻿using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C___250_Masu;
 
 namespace Grayscale.A210_KnowNingen_.B170_WordShogi__.C260____Operator

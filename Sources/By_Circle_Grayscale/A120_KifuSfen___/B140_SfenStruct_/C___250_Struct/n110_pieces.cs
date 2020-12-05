@@ -1,4 +1,4 @@
-﻿namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct
+﻿namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250Struct
 {
     /// <summary>
     /// 駒の種類。先後を含む。持ち駒を指定するのに便利（配列のインデックス）。

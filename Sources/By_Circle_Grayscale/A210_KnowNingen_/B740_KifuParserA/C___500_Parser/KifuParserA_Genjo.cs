@@ -1,4 +1,4 @@
-﻿using Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct;
+﻿using Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500Struct;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser
 {

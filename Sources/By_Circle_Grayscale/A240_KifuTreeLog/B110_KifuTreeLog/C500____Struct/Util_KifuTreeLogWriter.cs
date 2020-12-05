@@ -1,30 +1,30 @@
 ﻿using System.IO;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
-using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C___500_Struct;
-using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500____Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B310Settei.C500Struct;
+using Grayscale.A060Application.B520Syugoron.C250Struct;
+using Grayscale.A060Application.B620ConvText.C500Converter;
+using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500Struct;
+using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500Struct;
 using Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C500____UtilWriter;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
-using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500Util;
+using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
 
 #if DEBUG
 using System;
 using System.Diagnostics;
-using Grayscale.A210_KnowNingen_.B110_GraphicLog_.C500____Util;
-using Grayscale.A210_KnowNingen_.B810_LogGraphiEx.C500____Util;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B110_GraphicLog_.C500Util;
+using Grayscale.A210_KnowNingen_.B810_LogGraphiEx.C500Util;
+using Grayscale.A060Application.B110Log.C500Struct;
 using System.Text;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
 #endif
 
-namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct
+namespace Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500Struct
 {
 
     /// <summary>

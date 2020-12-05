@@ -1,7 +1,7 @@
-﻿using Grayscale.A000_Platform___.B021_Random_____.C500____Struct;
+﻿using Grayscale.A000Platform.B021Random.C500Struct;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct;
+using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
+using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 
 namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C480____UtilFvEdit
 {

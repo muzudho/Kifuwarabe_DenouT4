@@ -2,9 +2,9 @@
 using System.IO;
 using System.Text;
 using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C250____Word;
-using Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct;
+using Grayscale.A210_KnowNingen_.B490_ForcePromot.C250Struct;
 
-namespace Grayscale.A210_KnowNingen_.B490_ForcePromot.C500____Util
+namespace Grayscale.A210_KnowNingen_.B490_ForcePromot.C500Util
 {
 
 

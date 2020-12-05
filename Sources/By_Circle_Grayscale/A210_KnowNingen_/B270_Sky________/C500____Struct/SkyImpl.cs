@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
+using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
-namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
+namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct
 {
 
     /// <summary>

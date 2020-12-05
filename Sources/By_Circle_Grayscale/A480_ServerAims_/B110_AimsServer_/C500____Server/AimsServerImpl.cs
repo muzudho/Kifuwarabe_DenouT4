@@ -1,6 +1,6 @@
 ﻿using System;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
 using Grayscale.A450_Server_____.B110_Server_____.C498____Server;
 using Grayscale.A480_ServerAims_.B110_AimsServer_.C___060_Phase;
 using Grayscale.A480_ServerAims_.B110_AimsServer_.C___070_ServerBase;

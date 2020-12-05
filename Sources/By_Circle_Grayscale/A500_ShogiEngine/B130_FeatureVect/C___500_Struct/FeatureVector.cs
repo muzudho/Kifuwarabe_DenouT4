@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct
+namespace Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct
 {
     public interface FeatureVector
     {

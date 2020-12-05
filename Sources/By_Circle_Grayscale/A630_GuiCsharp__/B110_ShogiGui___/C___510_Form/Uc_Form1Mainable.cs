@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B310_Settei_____.L510____Xml;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B310Settei.L510Xml;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___510_Form

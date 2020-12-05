@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct
+namespace Grayscale.A210_KnowNingen_.B640_KifuTree___.C250Struct
 {
     public abstract class Word_KifuTree
     {

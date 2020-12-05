@@ -1,4 +1,4 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___125_Scene;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed

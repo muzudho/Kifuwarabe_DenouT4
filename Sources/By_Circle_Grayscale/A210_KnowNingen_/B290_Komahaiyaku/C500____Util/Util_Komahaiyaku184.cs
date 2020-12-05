@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C250____Word;
 
-namespace Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C500____Util
+namespace Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C500Util
 {
 
 

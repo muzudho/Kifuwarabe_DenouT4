@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C___500_Struct;
-using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500____Struct;
+using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500Struct;
+using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500Struct;
 using Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C500____UtilWriter;
 
 namespace Grayscale.P159_Form_______

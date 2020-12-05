@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B110_Log________.C500____Struct;
-using Grayscale.A120_KifuSfen___.B120_ConvSujiDan.C500____Converter;
-using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
-using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct;
-using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C500____Util;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A120_KifuSfen___.B120_ConvSujiDan.C500Converter;
+using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250Struct;
+using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250Struct;
+using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C500Util;
 
-namespace Grayscale.A120_KifuSfen___.B160_ConvSfen___.C500____Converter
+namespace Grayscale.A120_KifuSfen___.B160_ConvSfen___.C500Converter
 {
     /// <summary>
     /// SFEN用の変換。

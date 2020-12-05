@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using Grayscale.A000_Platform___.B011_Csv________.C250____Parser;
-using Grayscale.A060_Application.B110_Log________.C500____Struct;
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A000Platform.B011Csv.C250Parser;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C250____Word;
 
 #if DEBUG
-using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
+using Grayscale.A060Application.B310Settei.C500Struct;
 #endif
 
 namespace Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table
@@ -53,12 +53,12 @@ namespace Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table
 
             int masuHandle = Conv_Masu.ToMasuHandle(Conv_Masu.BothSenteView(masu_shogiban, pside));
 
-            if (B180_ConvPside__.C500____Converter.Conv_Masu.OnShogiban(masuHandle))
+            if (B180_ConvPside__.C500Converter.Conv_Masu.OnShogiban(masuHandle))
             {
 
                 result = Data_KomahaiyakuTransition.Map[syurui][(int)masuHandle];
             }
-            else if (B180_ConvPside__.C500____Converter.Conv_Masu.OnKomadai(masuHandle))
+            else if (B180_ConvPside__.C500Converter.Conv_Masu.OnKomadai(masuHandle))
             {
                 switch (syurui)
                 {
@@ -79,7 +79,7 @@ namespace Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table
                     default: result = Komahaiyaku185.n000_未設定; break;
                 }
             }
-            else if (B180_ConvPside__.C500____Converter.Conv_Masu.OnKomabukuro(masuHandle))
+            else if (B180_ConvPside__.C500Converter.Conv_Masu.OnKomabukuro(masuHandle))
             {
                 switch (syurui)
                 {

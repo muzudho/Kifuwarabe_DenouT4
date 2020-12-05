@@ -1,7 +1,7 @@
-﻿using Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct;
+﻿using Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500Struct;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 
-namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
+namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500Parser
 {
     public class KifuParserA_GenjoImpl : KifuParserA_Genjo
     {

@@ -1,16 +1,16 @@
-﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+﻿using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct;
-using Grayscale.A500_ShogiEngine.B140_Conv_FvKoumoku.C500____Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
+using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
+using Grayscale.A500_ShogiEngine.B140_Conv_FvKoumoku.C500Converter;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
-namespace Grayscale.A500_ShogiEngine.B160_ConvFv_____.C500____Converter
+namespace Grayscale.A500_ShogiEngine.B160_ConvFv_____.C500Converter
 {
 
     /// <summary>

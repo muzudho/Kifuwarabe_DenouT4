@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
 
 #if DEBUG
 using System.Diagnostics;
 #endif
 
-namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
+namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct
 {
     public abstract class Util_Tree
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text;
-using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
+using Grayscale.A060Application.B620ConvText.C500Converter;
 
 
 namespace Grayscale.A780_SgSyugoTest.B110_SgSyugoTest.C500____ShogiSyugoronTest

@@ -1,6 +1,6 @@
 ﻿using Grayscale.A210_KnowNingen_.B150_KifuJsa____.C500____Word;
 
-namespace Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter
+namespace Grayscale.A210_KnowNingen_.B320_ConvWords__.C500Converter
 {
     public abstract class Conv_AgaruHiku
     {

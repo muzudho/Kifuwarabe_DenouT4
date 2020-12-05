@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C___500_Struct
+namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500Struct
 {
     public enum Mode_Tansaku
     {

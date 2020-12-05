@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct
+namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250Struct
 {
 
     /// <summary>

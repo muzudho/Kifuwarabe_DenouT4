@@ -1,9 +1,9 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+﻿using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C500____Util;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C500Util;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
 namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky

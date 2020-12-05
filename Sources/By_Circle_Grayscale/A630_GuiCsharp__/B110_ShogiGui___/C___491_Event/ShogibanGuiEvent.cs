@@ -1,4 +1,4 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using Grayscale.A060Application.B110Log.C500Struct;
 
 /// <summary>
 /// この名前空間は、デリゲートを定義しているだけ。

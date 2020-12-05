@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.A210_KnowNingen_.B630_Sennitite__.C___500_Struct
+namespace Grayscale.A210_KnowNingen_.B630_Sennitite__.C500Struct
 {
 
     /// <summary>

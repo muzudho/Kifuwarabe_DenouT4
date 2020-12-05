@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
 
-namespace Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct
+namespace Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250Struct
 {
 
     /// <summary>

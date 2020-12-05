@@ -1,9 +1,9 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct;
+﻿using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
+using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 
 #if DEBUG
-// using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+// using Grayscale.A060Application.B110Log.C500Struct;
 #endif
 
 namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C420____Inspection

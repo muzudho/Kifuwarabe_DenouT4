@@ -1,21 +1,21 @@
 ﻿using System.Diagnostics;
 using System.Text;
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
-using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
+using Grayscale.A060Application.B520Syugoron.C250Struct;
+using Grayscale.A060Application.B620ConvText.C500Converter;
+using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C___250_Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250Struct;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
-namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter
+namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter
 {
     /*
      /// <summary>

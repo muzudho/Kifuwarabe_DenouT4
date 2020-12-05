@@ -1,10 +1,10 @@
-﻿using Grayscale.A060_Application.B210_Tushin_____.C500____Util;
+﻿using Grayscale.A060Application.B210Tushin.C500Util;
 using Grayscale.A210_KnowNingen_.B150_KifuJsa____.C500____Word;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 
 
-namespace Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter
+namespace Grayscale.A210_KnowNingen_.B320_ConvWords__.C500Converter
 {
     public abstract class Conv_String268
     {

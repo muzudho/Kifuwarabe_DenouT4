@@ -1,4 +1,4 @@
-﻿namespace Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct
+﻿namespace Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct
 {
     public enum MoveMask
     {

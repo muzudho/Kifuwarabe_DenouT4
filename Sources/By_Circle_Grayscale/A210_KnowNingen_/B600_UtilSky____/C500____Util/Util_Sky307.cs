@@ -1,20 +1,20 @@
 ﻿using System.Diagnostics;
 using System.Text;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct;
-using Grayscale.A210_KnowNingen_.B130_Json_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B130_Json_______.C500____Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250Struct;
+using Grayscale.A210_KnowNingen_.B130_Json_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B130_Json_______.C500Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
-using Grayscale.A210_KnowNingen_.B350_SfenTransla.C500____Util;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500Converter;
+using Grayscale.A210_KnowNingen_.B350_SfenTransla.C500Util;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C505____ConvLogJson;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
-namespace Grayscale.A210_KnowNingen_.B600_UtilSky____.C500____Util
+namespace Grayscale.A210_KnowNingen_.B600_UtilSky____.C500Util
 {
     public abstract class Util_Sky307
     {

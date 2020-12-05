@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct;
+using Grayscale.A060Application.B620ConvText.C500Converter;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
+using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
+using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 
 namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat
 {

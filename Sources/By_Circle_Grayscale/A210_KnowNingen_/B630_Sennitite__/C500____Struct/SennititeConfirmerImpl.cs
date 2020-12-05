@@ -1,6 +1,6 @@
-﻿using Grayscale.A210_KnowNingen_.B630_Sennitite__.C___500_Struct;
+﻿using Grayscale.A210_KnowNingen_.B630_Sennitite__.C500Struct;
 
-namespace Grayscale.A210_KnowNingen_.B630_Sennitite__.C500____Struct
+namespace Grayscale.A210_KnowNingen_.B630_Sennitite__.C500Struct
 {
 
     /// <summary>

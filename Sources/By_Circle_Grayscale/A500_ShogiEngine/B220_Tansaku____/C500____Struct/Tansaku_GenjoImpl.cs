@@ -1,6 +1,6 @@
 ﻿using Grayscale.A500_ShogiEngine.B220_Tansaku____.C___500_Tansaku;
 
-namespace Grayscale.A500_ShogiEngine.B220_Tansaku____.C500____Struct
+namespace Grayscale.A500_ShogiEngine.B220_Tansaku____.C500Struct
 {
     /// <summary>
     /// 探索中に変化するデータです。

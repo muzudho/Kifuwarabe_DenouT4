@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
-namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
+namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct
 {
 
     /// <summary>

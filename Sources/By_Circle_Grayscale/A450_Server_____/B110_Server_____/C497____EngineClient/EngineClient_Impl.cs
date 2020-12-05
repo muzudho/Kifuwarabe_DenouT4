@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B110_Log________.C500____Struct;
-using Grayscale.A060_Application.B210_Tushin_____.C500____Util;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B210Tushin.C500Util;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA;
 using Grayscale.A450_Server_____.B110_Server_____.C___125_Receiver;
 using Grayscale.A450_Server_____.B110_Server_____.C___496_EngineWrapper;

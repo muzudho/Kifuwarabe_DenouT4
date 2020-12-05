@@ -1,5 +1,5 @@
 ﻿using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B110_Log________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B630_Sennitite__.C___500_Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A210_KnowNingen_.B630_Sennitite__.C500Struct;
 
-namespace Grayscale.A210_KnowNingen_.B630_Sennitite__.C500____Struct
+namespace Grayscale.A210_KnowNingen_.B630_Sennitite__.C500Struct
 {
     public class SennititeCounterImpl : SennititeCounter
     {

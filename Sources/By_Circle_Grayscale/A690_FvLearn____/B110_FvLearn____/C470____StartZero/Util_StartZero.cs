@@ -1,7 +1,7 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+﻿using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
+using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C___400_54List;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C400____54List;
@@ -10,7 +10,7 @@ using Grayscale.A690_FvLearn____.B110_FvLearn____.C440____Ranking;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C460____Scoreing;
 
 #if DEBUG || LEARN
-using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C250Struct;
 #endif
 
 namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C470____StartZero

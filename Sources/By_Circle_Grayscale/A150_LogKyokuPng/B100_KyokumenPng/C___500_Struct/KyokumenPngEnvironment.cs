@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C___500_Struct
+namespace Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500Struct
 {
     public interface KyokumenPngEnvironment
     {

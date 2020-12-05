@@ -2,32 +2,32 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C___250_Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B520Syugoron.C250Struct;
+using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C250Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
+using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500Util;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500____Converter;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB;
-using Grayscale.A210_KnowNingen_.B800_ConvCsa____.C500____Converter;
+using Grayscale.A210_KnowNingen_.B800_ConvCsa____.C500Converter;
 using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG || LEARN
-using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C250Struct;
 using System.Diagnostics;
 #endif
 

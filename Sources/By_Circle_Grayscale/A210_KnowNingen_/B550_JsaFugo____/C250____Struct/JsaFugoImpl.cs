@@ -1,7 +1,7 @@
 ﻿using Grayscale.A210_KnowNingen_.B150_KifuJsa____.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 
-namespace Grayscale.A210_KnowNingen_.B550_JsaFugo____.C250____Struct
+namespace Grayscale.A210_KnowNingen_.B550_JsaFugo____.C250Struct
 {
 
     /// <summary>

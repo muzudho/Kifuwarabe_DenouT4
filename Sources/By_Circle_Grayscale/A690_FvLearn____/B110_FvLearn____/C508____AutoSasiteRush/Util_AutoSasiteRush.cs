@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C450____Tyoseiryo;

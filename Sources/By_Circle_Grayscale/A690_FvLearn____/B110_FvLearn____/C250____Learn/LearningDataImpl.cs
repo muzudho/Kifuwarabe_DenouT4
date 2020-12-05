@@ -1,51 +1,51 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B110_Log________.C500____Struct;
-using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
-using Grayscale.A060_Application.B510_Conv_Sy____.C500____Converter;
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C500____usiFrame___;
-using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C___500_Struct;
-using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500____Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B310Settei.C500Struct;
+using Grayscale.A060Application.B510ConvSy.C500Converter;
+using Grayscale.A060Application.B520Syugoron.C250Struct;
+using Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___;
+using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500Struct;
+using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500Struct;
 using Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C500____UtilWriter;
-using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C___250_Struct;
-using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C250____Struct;
+using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C250Struct;
+using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C250Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500Util;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
 using Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table;
 using Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word;
-using Grayscale.A210_KnowNingen_.B390_KomahaiyaEx.C500____Util;
-using Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct;
+using Grayscale.A210_KnowNingen_.B390_KomahaiyaEx.C500Util;
+using Grayscale.A210_KnowNingen_.B490_ForcePromot.C250Struct;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
+using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
+using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___240_Shogisasi;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C250____Args;
-using Grayscale.A500_ShogiEngine.B240_TansaFukasa.C___500_Struct;
-using Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct;
+using Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500Struct;
+using Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500Struct;
 using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi;
 using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
-// using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
+// using Grayscale.A060Application.B310Settei.C500Struct;
 using System.Diagnostics;
-using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
-// using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250Struct;
+// using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C250Struct;
 #endif
 
 #if DEBUG || LEARN
-using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C250Struct;
 #endif
 
 namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn

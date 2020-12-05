@@ -1,4 +1,4 @@
-﻿namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct
+﻿namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct
 {
     /// <summary>
     /// ツリー構造の移動の区分

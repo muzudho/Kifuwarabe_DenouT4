@@ -1,11 +1,11 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A450_Server_____.B110_Server_____.C250____Util;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function;
 
 #if DEBUG
-// using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+// using Grayscale.A060Application.B110Log.C500Struct;
 #endif
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed

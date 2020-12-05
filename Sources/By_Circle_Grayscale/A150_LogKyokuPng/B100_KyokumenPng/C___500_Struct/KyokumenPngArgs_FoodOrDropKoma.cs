@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C___500_Struct
+namespace Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500Struct
 {
     /// <summary>
     /// 取った駒の種類の定数。打った駒との兼用。

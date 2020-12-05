@@ -1,34 +1,34 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B210_Tushin_____.C500____Util;
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B210Tushin.C500Util;
+using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
-using Grayscale.A210_KnowNingen_.B310_Shogiban___.C500____Util;
+using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500Util;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B310_Shogiban___.C500Util;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500____Converter;
-using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500Converter;
+using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C250Struct;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
-using Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser;
+using Grayscale.A210_KnowNingen_.B740_KifuParserA.C500Parser;
 using Grayscale.A210_KnowNingen_.B820_KyokuParser.C___500_Parser;
-using Grayscale.A210_KnowNingen_.B830_ConvStartpo.C500____Converter;
+using Grayscale.A210_KnowNingen_.B830_ConvStartpo.C500Converter;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
 #endif
 
 namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util

@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Grayscale.A000_Platform___.B011_Csv________.C500____Parser;
-using Grayscale.A060_Application.B110_Log________.C500____Struct;
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A000Platform.B011Csv.C500Parser;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
 using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C250____Word;
 
-namespace Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct
+namespace Grayscale.A210_KnowNingen_.B490_ForcePromot.C250Struct
 {
 
 

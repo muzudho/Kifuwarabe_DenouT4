@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Text;
-using Grayscale.A210_KnowNingen_.B130_Json_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B130_Json_______.C500Struct;
 
-namespace Grayscale.A210_KnowNingen_.B130_Json_______.C500____Struct
+namespace Grayscale.A210_KnowNingen_.B130_Json_______.C500Struct
 {
     /// <summary>
     /// 配列

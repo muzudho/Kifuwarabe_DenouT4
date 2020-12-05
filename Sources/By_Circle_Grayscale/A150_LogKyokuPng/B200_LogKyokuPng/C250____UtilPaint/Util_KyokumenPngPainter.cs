@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
-using Grayscale.A060_Application.B610_ConstShogi_.C250____Const;
-using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
-using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C___500_Struct;
+using Grayscale.A060Application.B610_ConstShogi_.C250Const;
+using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250Struct;
+using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500Struct;
 
 namespace Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C250____UtilPaint
 {

@@ -1,5 +1,5 @@
 ﻿using System;
-using Grayscale.A000_Platform___.B021_Random_____.C500____Struct;
+using Grayscale.A000Platform.B021Random.C500Struct;
 using NLua;
 
 namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C060____UtilLua

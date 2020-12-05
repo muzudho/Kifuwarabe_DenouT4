@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C___250_Struct;
-using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C250____Struct;
+using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C250Struct;
+using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C250Struct;
 using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C500____Writer;
 
 namespace Grayscale.P169_Form_______

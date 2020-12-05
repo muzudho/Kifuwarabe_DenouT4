@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using System.Text;
-using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C___250_Struct;
+using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C250Struct;
 
 namespace Grayscale.A180_KifuCsa____.B120_KifuCsa____.C500____Writer
 {

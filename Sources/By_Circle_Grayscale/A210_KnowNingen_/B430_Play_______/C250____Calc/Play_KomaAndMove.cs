@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B410_Collection_.C500____Struct;
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using Grayscale.A210_KnowNingen_.B110_GraphicLog_.C500____Util;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B410Collection.C500Struct;
+using Grayscale.A060Application.B520Syugoron.C250Struct;
+using Grayscale.A210_KnowNingen_.B110_GraphicLog_.C500Util;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C260____Operator;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 

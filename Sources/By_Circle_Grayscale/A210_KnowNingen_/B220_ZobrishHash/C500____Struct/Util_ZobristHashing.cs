@@ -1,9 +1,9 @@
-﻿using Grayscale.A000_Platform___.B021_Random_____.C500____Struct;
-using Grayscale.A060_Application.B610_ConstShogi_.C250____Const;
+﻿using Grayscale.A000Platform.B021Random.C500Struct;
+using Grayscale.A060Application.B610_ConstShogi_.C250Const;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 
-namespace Grayscale.A210_KnowNingen_.B220_ZobrishHash.C500____Struct
+namespace Grayscale.A210_KnowNingen_.B220_ZobrishHash.C500Struct
 {
     /// <summary>
     /// 本将棋の千日手検出用のゾブリスト・ハッシュ・テーブルを作成します。

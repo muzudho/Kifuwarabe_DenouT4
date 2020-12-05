@@ -1,11 +1,11 @@
 ﻿using System;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B110_Log________.C500____Struct;
-using Grayscale.A120_KifuSfen___.B160_ConvSfen___.C500____Converter;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A120_KifuSfen___.B160_ConvSfen___.C500Converter;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C400____Conv

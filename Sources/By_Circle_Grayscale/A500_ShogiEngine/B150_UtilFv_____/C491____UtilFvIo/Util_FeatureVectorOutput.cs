@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct;
+using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
+using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat;
 
 namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo

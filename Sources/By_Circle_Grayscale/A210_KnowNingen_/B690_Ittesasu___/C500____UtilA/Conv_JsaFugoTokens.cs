@@ -1,20 +1,20 @@
 ﻿using System.Diagnostics;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using Grayscale.A060_Application.B520_Syugoron___.C250____Struct;
-using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B520Syugoron.C250Struct;
+using Grayscale.A060Application.B520Syugoron.C250Struct;
+using Grayscale.A060Application.B620ConvText.C500Converter;
 using Grayscale.A210_KnowNingen_.B150_KifuJsa____.C500____Word;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
-using Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500Util;
+using Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500Converter;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
@@ -1018,7 +1018,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
             // １手を、データにします。
             move = Conv_Move.ToMove(
-                B180_ConvPside__.C500____Converter.Conv_Masu.ToMasu(srcMasuHandle1),
+                B180_ConvPside__.C500Converter.Conv_Masu.ToMasu(srcMasuHandle1),
                 dstMasu,//符号は将棋盤の升目です。
                 srcSyurui,//dstSyurui
                 Komasyurui14.H00_Null___, // 符号からは、取った駒の種類は分からないんだぜ☆　だがバグではない☆　あとで調べる☆

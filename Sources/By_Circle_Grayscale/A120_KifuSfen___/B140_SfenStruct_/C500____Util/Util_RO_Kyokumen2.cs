@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Text;
-using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
+using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250Struct;
 
-namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C500____Util
+namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C500Util
 {
 
     /// <summary>

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B110_Log________.C500____Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.P699_Form_______;
 
 namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500____Gui

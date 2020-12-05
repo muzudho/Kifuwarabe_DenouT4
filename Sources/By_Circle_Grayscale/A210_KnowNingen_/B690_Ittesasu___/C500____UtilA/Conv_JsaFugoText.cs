@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 {

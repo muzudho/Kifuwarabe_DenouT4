@@ -1,23 +1,23 @@
 ﻿using System;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___490_Option__;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A090UsiFramewor.B100UsiFrame1.C490Option;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
+using Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500Struct;
+using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
+using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___005_Usi_Loop;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___240_Shogisasi;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C250____Args;
 using Grayscale.A500_ShogiEngine.B210_timeMan____.C___500_struct__;
 using Grayscale.A500_ShogiEngine.B210_timeMan____.C500____struct__;
-using Grayscale.A500_ShogiEngine.B240_TansaFukasa.C___500_Struct;
-using Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct;
+using Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500Struct;
+using Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500Struct;
 
 #if DEBUG
-using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
+using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250Struct;
 #endif
 
 namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi

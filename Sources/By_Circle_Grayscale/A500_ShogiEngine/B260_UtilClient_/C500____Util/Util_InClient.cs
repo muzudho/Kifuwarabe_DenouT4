@@ -1,18 +1,18 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
-using Grayscale.A120_KifuSfen___.B160_ConvSfen___.C500____Converter;
+﻿using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250Struct;
+using Grayscale.A120_KifuSfen___.B160_ConvSfen___.C500Converter;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250Struct;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 
 #if DEBUG
-// using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+// using Grayscale.A060Application.B110Log.C500Struct;
 #else
 #endif
 
-namespace Grayscale.A500_ShogiEngine.B260_UtilClient_.C500____Util
+namespace Grayscale.A500_ShogiEngine.B260_UtilClient_.C500Util
 {
     public abstract class Util_InClient
     {

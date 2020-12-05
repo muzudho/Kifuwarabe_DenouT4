@@ -2,7 +2,7 @@
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B820_KyokuParser.C___500_Parser;
 
-namespace Grayscale.A210_KnowNingen_.B820_KyokuParser.C500____Parser
+namespace Grayscale.A210_KnowNingen_.B820_KyokuParser.C500Parser
 {
     public class MotiItemImpl : MotiItem
     {

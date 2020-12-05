@@ -1,10 +1,10 @@
 ﻿using System.Text;
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
+using Grayscale.A060Application.B520Syugoron.C250Struct;
+using Grayscale.A060Application.B620ConvText.C500Converter;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C___250_Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
 
 namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C250____Writer
 {

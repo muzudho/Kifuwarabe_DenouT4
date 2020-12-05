@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Text;
-using Grayscale.A000_Platform___.B011_Csv________.C500____Parser;
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A000Platform.B011Csv.C500Parser;
+using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C250____Word;
-using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C500____Util;
+using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C500Util;
 using Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word;
 
-namespace Grayscale.A210_KnowNingen_.B390_KomahaiyaEx.C500____Util
+namespace Grayscale.A210_KnowNingen_.B390_KomahaiyaEx.C500Util
 {
     public abstract class Util_Array_KomahaiyakuEx184
     {

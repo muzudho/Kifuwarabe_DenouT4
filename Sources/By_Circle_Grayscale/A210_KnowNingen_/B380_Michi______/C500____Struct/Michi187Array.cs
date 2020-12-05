@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using Grayscale.A000_Platform___.B011_Csv________.C500____Parser;
-using Grayscale.A060_Application.B510_Conv_Sy____.C500____Converter;
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using Grayscale.A060_Application.B520_Syugoron___.C250____Struct;
+using Grayscale.A000Platform.B011Csv.C500Parser;
+using Grayscale.A060Application.B510ConvSy.C500Converter;
+using Grayscale.A060Application.B520Syugoron.C250Struct;
+using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
 
 namespace Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word
 {

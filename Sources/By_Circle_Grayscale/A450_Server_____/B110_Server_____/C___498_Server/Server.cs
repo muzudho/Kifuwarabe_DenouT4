@@ -1,4 +1,4 @@
-﻿using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+﻿using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
 using Grayscale.A450_Server_____.B110_Server_____.C___497_EngineClient;
 
 namespace Grayscale.A450_Server_____.B110_Server_____.C___498_Server

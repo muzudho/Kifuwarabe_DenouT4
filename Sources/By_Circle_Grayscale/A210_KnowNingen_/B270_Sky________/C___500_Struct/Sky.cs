@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
-namespace Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct
+namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct
 {
     public delegate void DELEGATE_Sky_Foreach(Finger finger, Busstop busstop, ref bool toBreak);
 

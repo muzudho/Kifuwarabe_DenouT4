@@ -1,13 +1,13 @@
 ﻿using System.Text;
-using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
-using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C500____Util;
-using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250Struct;
+using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C500Util;
+using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500Converter;
 
 #if DEBUG
 
 #endif
 
-namespace Grayscale.A210_KnowNingen_.B810_LogGraphiEx.C500____Util
+namespace Grayscale.A210_KnowNingen_.B810_LogGraphiEx.C500Util
 {
     public abstract class Conv_KaisetuBoards
     {

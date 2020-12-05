@@ -1,7 +1,7 @@
 ﻿using System;
-using Grayscale.A060_Application.B110_Log________.C500____Struct;
-using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___500_usiFrame___;
-using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C500____usiFrame___;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A090UsiFramewor.B100UsiFrame1.C500UsiFrame;
+using Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___;
 using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe;
 
 namespace Grayscale.P580_Form_______
@@ -19,7 +19,7 @@ namespace Grayscale.P580_Form_______
         static void Main(string[] args)
         {
             // USIフレームワーク
-            UsiFramework usiFramework = new UsiFrameworkImpl();
+            IUsiFramework usiFramework = new UsiFrameworkImpl();
 
             // 将棋エンジン　きふわらべ
             KifuWarabeImpl kifuWarabe = new KifuWarabeImpl(usiFramework);

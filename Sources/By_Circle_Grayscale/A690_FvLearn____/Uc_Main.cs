@@ -2,9 +2,9 @@
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using Grayscale.A000_Platform___.B021_Random_____.C500____Struct;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B110_Log________.C500____Struct;
+using Grayscale.A000Platform.B021Random.C500Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C___450_Tyoseiryo;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C___490_StopLearning;

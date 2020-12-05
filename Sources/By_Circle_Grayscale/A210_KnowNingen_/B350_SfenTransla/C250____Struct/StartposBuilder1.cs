@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
 
-namespace Grayscale.A210_KnowNingen_.B350_SfenTransla.C250____Struct
+namespace Grayscale.A210_KnowNingen_.B350_SfenTransla.C250Struct
 {
     /// <summary>
     /// 将棋盤上の情報を数えます。未使用？

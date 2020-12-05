@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
+using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C250Struct;
 using Grayscale.A450_Server_____.B110_Server_____.C___498_Server;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___080_Shape;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___081_Canvas;
