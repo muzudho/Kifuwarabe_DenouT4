@@ -1,4 +1,4 @@
-﻿namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___400_54List
+﻿namespace Grayscale.A690FvLearn.B110_FvLearn____.C___400_54List
 {
     /// <summary>
     /// 40+14要素のリスト。

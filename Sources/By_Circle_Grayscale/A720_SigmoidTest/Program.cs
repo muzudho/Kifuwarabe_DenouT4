@@ -2,7 +2,7 @@
 using System.Text;
 
 
-namespace Grayscale.P760_SigmoidTest
+namespace Grayscale.P760SigmoidTest
 {
     class Program
     {

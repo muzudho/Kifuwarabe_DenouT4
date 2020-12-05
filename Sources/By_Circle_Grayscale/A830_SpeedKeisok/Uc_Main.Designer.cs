@@ -1,4 +1,4 @@
-﻿namespace Grayscale.P910_SpeedKeisok
+﻿namespace Grayscale.P910SpeedKeisok
 {
     partial class Uc_Main
     {

@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // アセンブリに関する一般情報は以下の属性セットをとおして制御されます。
 // アセンブリに関連付けられている情報を変更するには、
 // これらの属性値を変更してください。
-[assembly: AssemblyTitle("P910_SpeedKeisok")]
+[assembly: AssemblyTitle("P910SpeedKeisok")]
 [assembly: AssemblyDescription("評価関数の実行速度を計測しようとしたもの。")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ぐれーすけーる")]
-[assembly: AssemblyProduct("P910_SpeedKeisok")]
+[assembly: AssemblyProduct("P910SpeedKeisok")]
 [assembly: AssemblyCopyright("Copyright © ぐれーすけーる 2015")]
 [assembly: AssemblyTrademark("きふわらべ")]
 [assembly: AssemblyCulture("")]

@@ -1,4 +1,4 @@
-﻿namespace Grayscale.A690_FvLearn____
+﻿namespace Grayscale.A690FvLearn
 {
     partial class Uc_Main
     {

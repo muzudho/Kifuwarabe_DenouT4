@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using Grayscale.A000Platform.B025Machine;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B240Move.C500Struct;
 using Grayscale.A210KnowNingen.B270Sky.C500Struct;
@@ -13,7 +12,7 @@ using Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA;
 using Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA;
 using Grayscale.A210KnowNingen.B740KifuParserA.C400Conv;
 
-namespace Grayscale.A950_UnitTest___
+namespace Grayscale.A950UnitTest
 {
     class Program
     {

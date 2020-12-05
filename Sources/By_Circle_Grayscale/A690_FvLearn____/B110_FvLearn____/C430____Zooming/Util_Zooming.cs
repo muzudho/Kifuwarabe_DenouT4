@@ -1,13 +1,13 @@
 ﻿using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C420____Inspection;
+using Grayscale.A690FvLearn.B110_FvLearn____.C420____Inspection;
 
 #if DEBUG
 // using Grayscale.A060Application.B110Log.C500Struct;
 #endif
 
-namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C430____Zooming
+namespace Grayscale.A690FvLearn.B110_FvLearn____.C430____Zooming
 {
 
     /// <summary>

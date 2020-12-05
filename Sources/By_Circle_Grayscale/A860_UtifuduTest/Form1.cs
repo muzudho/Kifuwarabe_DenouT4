@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace P920_UtifuduTest
+namespace P920UtifuduTest
 {
     public partial class Form1 : Form
     {

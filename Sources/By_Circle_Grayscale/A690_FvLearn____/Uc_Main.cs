@@ -5,19 +5,19 @@ using System.Windows.Forms;
 using Grayscale.A000Platform.B021Random.C500Struct;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C___450_Tyoseiryo;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C___490_StopLearning;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C450____Tyoseiryo;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C490____StopLearning;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C508____AutoSasiteRush;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C510____AutoKifuRead;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation;
+using Grayscale.A690FvLearn.B110_FvLearn____.C___250_Learn;
+using Grayscale.A690FvLearn.B110_FvLearn____.C___450_Tyoseiryo;
+using Grayscale.A690FvLearn.B110_FvLearn____.C___490_StopLearning;
+using Grayscale.A690FvLearn.B110_FvLearn____.C250____Learn;
+using Grayscale.A690FvLearn.B110_FvLearn____.C260____View;
+using Grayscale.A690FvLearn.B110_FvLearn____.C450____Tyoseiryo;
+using Grayscale.A690FvLearn.B110_FvLearn____.C480____Functions;
+using Grayscale.A690FvLearn.B110_FvLearn____.C490____StopLearning;
+using Grayscale.A690FvLearn.B110_FvLearn____.C508____AutoSasiteRush;
+using Grayscale.A690FvLearn.B110_FvLearn____.C510____AutoKifuRead;
+using Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation;
 
-namespace Grayscale.A690_FvLearn____
+namespace Grayscale.A690FvLearn
 {
     public partial class Uc_Main : UserControl
     {

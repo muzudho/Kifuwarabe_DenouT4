@@ -6,7 +6,7 @@ using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 // using Grayscale.A060Application.B110Log.C500Struct;
 #endif
 
-namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C420____Inspection
+namespace Grayscale.A690FvLearn.B110_FvLearn____.C420____Inspection
 {
     /// <summary>
     /// フィーチャー・ベクターの概要をデバッグ出力します。

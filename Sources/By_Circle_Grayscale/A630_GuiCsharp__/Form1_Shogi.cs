@@ -3,8 +3,8 @@ using System.Reflection;
 using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
-using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___510_Form;
+using Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui;
+using Grayscale.A630GuiCsharp.B110ShogiGui.C510Form;
 
 namespace Grayscale.P699_Form_______
 {

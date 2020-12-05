@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace P920_UtifuduTest
+namespace P920UtifuduTest
 {
     static class Program
     {

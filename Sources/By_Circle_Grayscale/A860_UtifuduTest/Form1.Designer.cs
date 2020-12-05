@@ -1,4 +1,4 @@
-﻿namespace P920_UtifuduTest
+﻿namespace P920UtifuduTest
 {
     partial class Form1
     {

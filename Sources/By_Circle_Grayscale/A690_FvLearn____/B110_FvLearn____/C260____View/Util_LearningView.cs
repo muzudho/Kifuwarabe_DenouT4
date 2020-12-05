@@ -22,8 +22,8 @@ using Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA;
 using Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB;
 using Grayscale.A210KnowNingen.B800ConvCsa.C500Converter;
 using Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn;
+using Grayscale.A690FvLearn.B110_FvLearn____.C___250_Learn;
+using Grayscale.A690FvLearn.B110_FvLearn____.C250____Learn;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG || LEARN
@@ -31,7 +31,7 @@ using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 using System.Diagnostics;
 #endif
 
-namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
+namespace Grayscale.A690FvLearn.B110_FvLearn____.C260____View
 {
     public abstract class Util_LearningView
     {

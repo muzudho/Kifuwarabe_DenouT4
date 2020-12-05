@@ -1,4 +1,4 @@
-﻿namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___490_StopLearning
+﻿namespace Grayscale.A690FvLearn.B110_FvLearn____.C___490_StopLearning
 {
     public interface StopLearning
     {

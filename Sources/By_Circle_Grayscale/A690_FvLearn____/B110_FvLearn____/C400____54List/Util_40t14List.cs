@@ -10,10 +10,10 @@ using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
 using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 using Grayscale.A500ShogiEngine.B160ConvFv.C500Converter;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C___400_54List;
+using Grayscale.A690FvLearn.B110_FvLearn____.C___400_54List;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
-namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C400____54List
+namespace Grayscale.A690FvLearn.B110_FvLearn____.C400____54List
 {
     /// <summary>
     /// 52要素のリスト。

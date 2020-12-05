@@ -15,18 +15,18 @@ using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
 using Grayscale.A210KnowNingen.B640_KifuTree___.C250Struct;
 using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 using Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA;
-using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___080_Shape;
-using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___100_Widgets;
-using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___125_Scene;
-using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___499_Repaint;
-using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
-using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___510_Form;
-using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C060____TextBoxListener;
-using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape;
-using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C081____Canvas;
-using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C125____Scene;
-using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function;
-using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed;
+using Grayscale.A630GuiCsharp.B110ShogiGui.C080Shape;
+using Grayscale.A630GuiCsharp.B110ShogiGui.C100Widgets;
+using Grayscale.A630GuiCsharp.B110ShogiGui.C125Scene;
+using Grayscale.A630GuiCsharp.B110ShogiGui.C499Repaint;
+using Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui;
+using Grayscale.A630GuiCsharp.B110ShogiGui.C510Form;
+using Grayscale.A630GuiCsharp.B110ShogiGui.C060TextBoxListener;
+using Grayscale.A630GuiCsharp.B110ShogiGui.C080Shape;
+using Grayscale.A630GuiCsharp.B110ShogiGui.C081Canvas;
+using Grayscale.A630GuiCsharp.B110ShogiGui.C125Scene;
+using Grayscale.A630GuiCsharp.B110ShogiGui.C249Function;
+using Grayscale.A630GuiCsharp.B110ShogiGui.C250Timed;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG

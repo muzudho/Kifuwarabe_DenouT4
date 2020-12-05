@@ -1,8 +1,8 @@
 ﻿using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C508____AutoSasiteRush;
+using Grayscale.A690FvLearn.B110_FvLearn____.C508____AutoSasiteRush;
 
-namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C510____AutoKifuRead
+namespace Grayscale.A690FvLearn.B110_FvLearn____.C510____AutoKifuRead
 {
 
     /// <summary>

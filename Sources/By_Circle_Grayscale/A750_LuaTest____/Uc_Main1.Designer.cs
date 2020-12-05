@@ -1,4 +1,4 @@
-﻿namespace Grayscale.P771_LuaTest____
+﻿namespace Grayscale.P771LuaTest
 {
     partial class Uc_Main1
     {

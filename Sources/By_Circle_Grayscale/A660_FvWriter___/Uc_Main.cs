@@ -14,7 +14,7 @@ using Grayscale.A500ShogiEngine.B523UtilFv.C480UtilFvEdit;
 using Grayscale.A500ShogiEngine.B523UtilFv.C490UtilFvFormat;
 using Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo;
 
-namespace Grayscale.P720_FvWriter___
+namespace Grayscale.P720FvWriter
 {
     public partial class Uc_Main : UserControl
     {

@@ -1,4 +1,4 @@
-﻿namespace Grayscale.P771_LuaTest____
+﻿namespace Grayscale.P771LuaTest
 {
     partial class Form1
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uc_Main11 = new Grayscale.P771_LuaTest____.Uc_Main1();
+            this.uc_Main11 = new Grayscale.P771LuaTest.Uc_Main1();
             this.SuspendLayout();
             // 
             // uc_Main11

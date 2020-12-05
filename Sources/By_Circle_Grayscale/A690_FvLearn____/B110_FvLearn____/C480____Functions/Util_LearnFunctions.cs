@@ -14,14 +14,14 @@ using Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 using Grayscale.A500ShogiEngine.B523UtilFv.C490UtilFvFormat;
 using Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C___400_54List;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C400____54List;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C420____Inspection;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C430____Zooming;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C440____Ranking;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C460____Scoreing;
+using Grayscale.A690FvLearn.B110_FvLearn____.C___400_54List;
+using Grayscale.A690FvLearn.B110_FvLearn____.C400____54List;
+using Grayscale.A690FvLearn.B110_FvLearn____.C420____Inspection;
+using Grayscale.A690FvLearn.B110_FvLearn____.C430____Zooming;
+using Grayscale.A690FvLearn.B110_FvLearn____.C440____Ranking;
+using Grayscale.A690FvLearn.B110_FvLearn____.C460____Scoreing;
 
-namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
+namespace Grayscale.A690FvLearn.B110_FvLearn____.C480____Functions
 {
     public abstract class Util_LearnFunctions
     {

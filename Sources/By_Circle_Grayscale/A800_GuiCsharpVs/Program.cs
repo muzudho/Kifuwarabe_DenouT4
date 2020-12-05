@@ -4,7 +4,7 @@ using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.P699_Form_______;
 
-namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500____Gui
+namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500Gui
 {
     static class Program
     {

@@ -6,8 +6,8 @@ using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B310Settei.C500Struct;
-using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C492____Widgets;
-using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI;
+using Grayscale.A630GuiCsharp.B110ShogiGui.C492Widgets;
+using Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI;
 
 namespace Grayscale.P699_Form_______
 {

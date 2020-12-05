@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C___450_Tyoseiryo;
+using Grayscale.A690FvLearn.B110_FvLearn____.C___450_Tyoseiryo;
 
-namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C450____Tyoseiryo
+namespace Grayscale.A690FvLearn.B110_FvLearn____.C450____Tyoseiryo
 {
 
     /// <summary>

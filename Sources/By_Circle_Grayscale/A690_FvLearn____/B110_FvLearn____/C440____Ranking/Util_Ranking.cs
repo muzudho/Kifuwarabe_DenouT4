@@ -2,7 +2,7 @@
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 
-namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C440____Ranking
+namespace Grayscale.A690FvLearn.B110_FvLearn____.C440____Ranking
 {
     /// <summary>
     /// 評価値を、順位に変換します。

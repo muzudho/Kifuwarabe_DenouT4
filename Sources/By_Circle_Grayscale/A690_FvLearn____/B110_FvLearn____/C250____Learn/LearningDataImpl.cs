@@ -34,7 +34,7 @@ using Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct;
 using Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct;
 using Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi;
 using Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn;
+using Grayscale.A690FvLearn.B110_FvLearn____.C___250_Learn;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
@@ -48,7 +48,7 @@ using Grayscale.A210KnowNingen.B250LogKaisetu.C250Struct;
 using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 #endif
 
-namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
+namespace Grayscale.A690FvLearn.B110_FvLearn____.C250____Learn
 {
     /// <summary>
     /// 学習用データ。

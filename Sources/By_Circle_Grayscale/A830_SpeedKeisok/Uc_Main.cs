@@ -18,7 +18,7 @@ using Grayscale.A500ShogiEngine.B523UtilFv.C510UtilFvLoad;
 using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 #endif
 
-namespace Grayscale.P910_SpeedKeisok
+namespace Grayscale.P910SpeedKeisok
 {
 
     public partial class Uc_Main : UserControl

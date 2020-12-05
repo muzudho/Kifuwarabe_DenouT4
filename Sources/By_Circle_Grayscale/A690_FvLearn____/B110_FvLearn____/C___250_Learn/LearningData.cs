@@ -11,7 +11,7 @@ using Grayscale.A500ShogiEngine.B200Scoreing.C250Args;
 using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 #endif
 
-namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
+namespace Grayscale.A690FvLearn.B110_FvLearn____.C___250_Learn
 {
 
     /// <summary>

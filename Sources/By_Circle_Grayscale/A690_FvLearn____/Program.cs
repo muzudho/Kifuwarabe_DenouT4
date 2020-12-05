@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Grayscale.A690_FvLearn____
+namespace Grayscale.A690FvLearn
 {
     static class Program
     {

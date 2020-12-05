@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Grayscale.P771_LuaTest____
+namespace Grayscale.P771LuaTest
 {
     static class Program
     {

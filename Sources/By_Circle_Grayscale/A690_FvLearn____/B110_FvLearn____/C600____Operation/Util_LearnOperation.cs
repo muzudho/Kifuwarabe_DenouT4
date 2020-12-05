@@ -15,10 +15,10 @@ using Grayscale.A500ShogiEngine.B200Scoreing.C250Args;
 using Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi;
 using Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe;
 using Grayscale.A500ShogiEngine.B523UtilFv.C510UtilFvLoad;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C420____Inspection;
-using Grayscale.A690_FvLearn____.B110_FvLearn____.C470____StartZero;
+using Grayscale.A690FvLearn.B110_FvLearn____.C250____Learn;
+using Grayscale.A690FvLearn.B110_FvLearn____.C260____View;
+using Grayscale.A690FvLearn.B110_FvLearn____.C420____Inspection;
+using Grayscale.A690FvLearn.B110_FvLearn____.C470____StartZero;
 
 #if DEBUG || LEARN
 using Grayscale.A500ShogiEngine.B523UtilFv.C480UtilFvEdit;
@@ -31,7 +31,7 @@ using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 // using Grayscale.A060Application.B110Log.C500Struct;
 #endif
 
-namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
+namespace Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation
 {
     public abstract class Util_LearnOperation
     {
