@@ -141,7 +141,7 @@ namespace Grayscale.A120KifuSfen.B160ConvSfen.C500Converter
         public static bool ToKyokumen2(
             string inputLine,
             out string rest,
-            out RO_Kyokumen2_ForTokenize result_kyokumen2
+            out ROKyokumen2ForTokenize result_kyokumen2
             )
         {
 
@@ -360,7 +360,7 @@ namespace Grayscale.A120KifuSfen.B160ConvSfen.C500Converter
         /// <param name="ml_Str"></param>
         /// <param name="mp_Str"></param>
         /// <param name="temezumi_Str"></param>
-        private static RO_Kyokumen2_ForTokenize ToKyokumen2_ReadString2(
+        private static ROKyokumen2ForTokenize ToKyokumen2_ReadString2(
             string dan1,  //1段目
             string dan2,//2段目
             string dan3,//3段目
@@ -580,7 +580,7 @@ namespace Grayscale.A120KifuSfen.B160ConvSfen.C500Converter
             }
 
 
-            RO_Kyokumen2_ForTokenize result = new RO_Kyokumen2_ForTokenizeImpl(
+            ROKyokumen2ForTokenize result = new ROKyokumen2ForTokenizeImpl(
                 masu201,//全升
                 motiSu,//持駒の枚数
 

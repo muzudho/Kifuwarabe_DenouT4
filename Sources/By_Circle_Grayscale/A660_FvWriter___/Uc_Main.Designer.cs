@@ -1,6 +1,6 @@
 ﻿namespace Grayscale.P720FvWriter
 {
-    partial class Uc_Main
+    partial class UcMain
     {
         /// <summary> 
         /// 必要なデザイナー変数です。

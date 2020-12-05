@@ -11,8 +11,6 @@ using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
 using Grayscale.A210KnowNingen.B190Komasyurui.C500Util;
 using Grayscale.A210KnowNingen.B240Move.C500Struct;
 using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B280Tree.C500Struct;
 using Grayscale.A210KnowNingen.B280Tree.C500Struct;
 using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
 using Grayscale.A210KnowNingen.B570ConvJsa.C500Converter;
@@ -22,8 +20,8 @@ using Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA;
 using Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB;
 using Grayscale.A210KnowNingen.B800ConvCsa.C500Converter;
 using Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe;
-using Grayscale.A690FvLearn.B110_FvLearn____.C___250_Learn;
-using Grayscale.A690FvLearn.B110_FvLearn____.C250____Learn;
+using Grayscale.A690FvLearn.B110FvLearn.C___250_Learn;
+using Grayscale.A690FvLearn.B110FvLearn.C250Learn;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG || LEARN
@@ -31,9 +29,9 @@ using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 using System.Diagnostics;
 #endif
 
-namespace Grayscale.A690FvLearn.B110_FvLearn____.C260____View
+namespace Grayscale.A690FvLearn.B110FvLearn.C260View
 {
-    public abstract class Util_LearningView
+    public abstract class UtilLearningView
     {
 
         /// <summary>
@@ -42,7 +40,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C260____View
         /// <param name="uc_Main"></param>
         public static void ShowSasiteList(
             LearningData learningData,
-            Uc_Main uc_Main,
+            UcMain uc_Main,
             ILogger logger)
         {
             //
@@ -179,7 +177,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C260____View
         public static void Aa_ShowNode2(
             LearningData learningData,
             ISky positionA,
-            Uc_Main uc_Main, ILogger errH)
+            UcMain uc_Main, ILogger errH)
         {
             // 手目済み
             uc_Main.TxtTemezumi.Text = positionA.Temezumi.ToString();
@@ -195,7 +193,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C260____View
         /// 合法手リストの表示
         /// </summary>
         /// <param name="uc_Main"></param>
-        public static void Aa_ShowGohosyu2(LearningData learningData, Uc_Main uc_Main, ILogger logger)
+        public static void Aa_ShowGohosyu2(LearningData learningData, UcMain uc_Main, ILogger logger)
         {
             //----------------------------------------
             // フォルダー作成
@@ -301,7 +299,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C260____View
         public static void Ittesasu_ByBtnClick(
             ref bool isRequestShowGohosyu,
             ref bool isRequestChangeKyokumenPng,
-            LearningData learningData, Uc_Main uc_Main, ILogger logger)
+            LearningData learningData, UcMain uc_Main, ILogger logger)
         {
 #if DEBUG
             Stopwatch sw1 = new Stopwatch();
@@ -342,7 +340,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C260____View
                 sb.Append("指し手[" + ConvMove.ToSfen(move) + "]はありませんでした。\n" + learningData.DumpToAllGohosyu(learningData.PositionA));
 
                 //Debug.Fail(sb.ToString());
-                logger.DonimoNaranAkirameta("Util_LearningView#Ittesasu_ByBtnClick：" + sb.ToString());
+                logger.DonimoNaranAkirameta("UtilLearningView#Ittesasu_ByBtnClick：" + sb.ToString());
                 MessageBox.Show(sb.ToString(), "エラー");
             }
 
@@ -391,7 +389,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C260____View
                 searchedPv,
                 logger);
             // ノード情報の表示
-            Util_LearningView.Aa_ShowNode2(
+            UtilLearningView.Aa_ShowNode2(
                 uc_Main.LearningData,
                 uc_Main.LearningData.PositionA,
                 uc_Main, logger);

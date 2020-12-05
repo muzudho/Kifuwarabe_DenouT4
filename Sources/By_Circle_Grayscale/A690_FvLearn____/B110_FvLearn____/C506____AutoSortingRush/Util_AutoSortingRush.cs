@@ -1,18 +1,18 @@
 ﻿using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A690FvLearn.B110_FvLearn____.C250____Learn;
-using Grayscale.A690FvLearn.B110_FvLearn____.C260____View;
-using Grayscale.A690FvLearn.B110_FvLearn____.C450____Tyoseiryo;
-using Grayscale.A690FvLearn.B110_FvLearn____.C470____StartZero;
-using Grayscale.A690FvLearn.B110_FvLearn____.C480____Functions;
+using Grayscale.A690FvLearn.B110FvLearn.C250Learn;
+using Grayscale.A690FvLearn.B110FvLearn.C260View;
+using Grayscale.A690FvLearn.B110FvLearn.C450____Tyoseiryo;
+using Grayscale.A690FvLearn.B110FvLearn.C470____StartZero;
+using Grayscale.A690FvLearn.B110FvLearn.C480Functions;
 
 #if DEBUG
 using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 // using Grayscale.A060Application.B110Log.C500Struct;
 #endif
 
-namespace Grayscale.A690FvLearn.B110_FvLearn____.C506____AutoSasiteSort
+namespace Grayscale.A690FvLearn.B110FvLearn.C506____AutoSasiteSort
 {
     public abstract class Util_AutoSortingRush
     {
@@ -39,7 +39,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C506____AutoSasiteSort
             int loopLimit,
             ref float ref_tyoseiryo,
             Move move1,
-            Uc_Main uc_Main, ILogger errH
+            UcMain uc_Main, ILogger errH
             )
         {
             out_isEndAutoLearn = false;
@@ -78,7 +78,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C506____AutoSasiteSort
                 }
 
                 // １位ではないのでランクアップ。
-                Util_LearnFunctions.Do_RankUpHonpu(ref ref_isRequest_ShowGohosyu, uc_Main, move1, ref_tyoseiryo);
+                UtilLearnFunctions.Do_RankUpHonpu(ref ref_isRequest_ShowGohosyu, uc_Main, move1, ref_tyoseiryo);
 
                 // 調整量の自動調整
                 if (uc_Main.ChkTyoseiryoAuto.Checked)
@@ -95,7 +95,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C506____AutoSasiteSort
                 if (ref_isRequest_ShowGohosyu)
                 {
                     // 合法手一覧を更新
-                    Util_LearningView.Aa_ShowGohosyu2(uc_Main.LearningData, uc_Main, errH);
+                    UtilLearningView.Aa_ShowGohosyu2(uc_Main.LearningData, uc_Main, errH);
                     // 局面PNG画像の更新は、ここでは行いません。
                     ref_isRequest_ShowGohosyu = false;
 

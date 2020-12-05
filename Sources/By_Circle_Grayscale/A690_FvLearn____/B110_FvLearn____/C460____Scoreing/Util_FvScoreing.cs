@@ -1,10 +1,10 @@
 ﻿using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A210KnowNingen.B270Sky.C500Struct;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
-using Grayscale.A690FvLearn.B110_FvLearn____.C___400_54List;
-using Grayscale.A690FvLearn.B110_FvLearn____.C450____Tyoseiryo;
+using Grayscale.A690FvLearn.B110FvLearn.C___400_54List;
+using Grayscale.A690FvLearn.B110FvLearn.C450____Tyoseiryo;
 
-namespace Grayscale.A690FvLearn.B110_FvLearn____.C460____Scoreing
+namespace Grayscale.A690FvLearn.B110FvLearn.C460____Scoreing
 {
     public abstract class Util_FvScoreing
     {

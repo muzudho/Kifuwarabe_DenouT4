@@ -5,7 +5,7 @@ namespace Grayscale.A780SgSyugoTest
     public partial class Ui_SyugoronTestForm : Form
     {
 
-        public Ui_SyugoronTestPanel Ui_SyugoronTestPanel
+        public UiSyugoronTestPanel Ui_SyugoronTestPanel
         {
             get
             {

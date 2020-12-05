@@ -5,12 +5,9 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A210KnowNingen.B270Sky.C500Struct;
 using Grayscale.A210KnowNingen.B280Tree.C500Struct;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
-using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
-using Grayscale.A500ShogiEngine.B180Hyokakansu.C500Hyokakansu;
 using Grayscale.A500ShogiEngine.B180Hyokakansu.C500Hyokakansu;
 using Grayscale.A500ShogiEngine.B523UtilFv.C510UtilFvLoad;
 
@@ -21,7 +18,7 @@ using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 namespace Grayscale.P910SpeedKeisok
 {
 
-    public partial class Uc_Main : UserControl
+    public partial class UcMain : UserControl
     {
         private class KeisokuResult
         {
@@ -45,7 +42,7 @@ namespace Grayscale.P910SpeedKeisok
         public Tree Kifu { get; set; }
 
 
-        public Uc_Main()
+        public UcMain()
         {
             this.FeatureVector = new FeatureVectorImpl();
             {

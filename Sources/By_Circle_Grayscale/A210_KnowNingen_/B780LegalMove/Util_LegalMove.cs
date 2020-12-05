@@ -124,7 +124,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
                     catch (Exception ex2)
                     {
                         logger.DonimoNaranAkirameta(ex2, "ポテンシャルムーブを調べているときだぜ☆（＾▽＾）");
-                        throw ex2;
+                        throw;
                     }
 
 

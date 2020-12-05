@@ -1,6 +1,6 @@
 ﻿namespace Grayscale.P910SpeedKeisok
 {
-    partial class Uc_Main
+    partial class UcMain
     {
         /// <summary> 
         /// 必要なデザイナー変数です。

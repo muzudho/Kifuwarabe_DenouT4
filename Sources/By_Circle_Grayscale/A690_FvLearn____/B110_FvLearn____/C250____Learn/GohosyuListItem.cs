@@ -6,7 +6,7 @@ using Grayscale.A210KnowNingen.B240Move.C500Struct;
 using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 #endif
 
-namespace Grayscale.A690FvLearn.B110_FvLearn____.C250____Learn
+namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
 {
     /// <summary>
     /// 合法手リストのアイテム。

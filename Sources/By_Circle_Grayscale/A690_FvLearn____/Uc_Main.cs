@@ -4,22 +4,21 @@ using System.Text;
 using System.Windows.Forms;
 using Grayscale.A000Platform.B021Random.C500Struct;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A690FvLearn.B110_FvLearn____.C___250_Learn;
-using Grayscale.A690FvLearn.B110_FvLearn____.C___450_Tyoseiryo;
-using Grayscale.A690FvLearn.B110_FvLearn____.C___490_StopLearning;
-using Grayscale.A690FvLearn.B110_FvLearn____.C250____Learn;
-using Grayscale.A690FvLearn.B110_FvLearn____.C260____View;
-using Grayscale.A690FvLearn.B110_FvLearn____.C450____Tyoseiryo;
-using Grayscale.A690FvLearn.B110_FvLearn____.C480____Functions;
-using Grayscale.A690FvLearn.B110_FvLearn____.C490____StopLearning;
-using Grayscale.A690FvLearn.B110_FvLearn____.C508____AutoSasiteRush;
-using Grayscale.A690FvLearn.B110_FvLearn____.C510____AutoKifuRead;
-using Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation;
+using Grayscale.A690FvLearn.B110FvLearn.C___250_Learn;
+using Grayscale.A690FvLearn.B110FvLearn.C___450_Tyoseiryo;
+using Grayscale.A690FvLearn.B110FvLearn.C___490_StopLearning;
+using Grayscale.A690FvLearn.B110FvLearn.C250Learn;
+using Grayscale.A690FvLearn.B110FvLearn.C260View;
+using Grayscale.A690FvLearn.B110FvLearn.C450____Tyoseiryo;
+using Grayscale.A690FvLearn.B110FvLearn.C480Functions;
+using Grayscale.A690FvLearn.B110FvLearn.C490____StopLearning;
+using Grayscale.A690FvLearn.B110FvLearn.C508____AutoSasiteRush;
+using Grayscale.A690FvLearn.B110FvLearn.C510____AutoKifuRead;
+using Grayscale.A690FvLearn.B110FvLearn.C600Operation;
 
 namespace Grayscale.A690FvLearn
 {
-    public partial class Uc_Main : UserControl
+    public partial class UcMain : UserControl
     {
 
         public LearningData LearningData { get; set; }
@@ -99,7 +98,7 @@ namespace Grayscale.A690FvLearn
         public StopLearning StopLearning { get { return this.stopLearning; } }
         private StopLearning stopLearning;
 
-        public Uc_Main()
+        public UcMain()
         {
             this.LearningData = new LearningDataImpl();
             this.stopLearning = new StopLearningImpl(Path.Combine(Application.StartupPath, "Stop_learning.txt"));
@@ -144,7 +143,7 @@ namespace Grayscale.A690FvLearn
             bool isRequest_ShowGohosyu = false;
             bool isRequest_ChangeKyokumenPng = false;
 
-            Util_LearningView.Ittesasu_ByBtnClick(
+            UtilLearningView.Ittesasu_ByBtnClick(
                 ref isRequest_ShowGohosyu,
                 ref isRequest_ChangeKyokumenPng,
                 this.LearningData,
@@ -155,8 +154,8 @@ namespace Grayscale.A690FvLearn
             if (isRequest_ShowGohosyu)
             {
                 // 合法手一覧を更新
-                Util_LearnFunctions.FvParamRange_PP(this.LearningData.Fv, errH);// 自動で -999～999(*bairitu) に矯正。
-                Util_LearningView.Aa_ShowGohosyu2(this.LearningData, this, errH);
+                UtilLearnFunctions.FvParamRange_PP(this.LearningData.Fv, errH);// 自動で -999～999(*bairitu) に矯正。
+                UtilLearningView.Aa_ShowGohosyu2(this.LearningData, this, errH);
                 isRequest_ShowGohosyu = false;
             }
 
@@ -231,8 +230,8 @@ namespace Grayscale.A690FvLearn
             if (isRequest_ShowGohosyu)
             {
                 // 合法手一覧を更新
-                Util_LearnFunctions.FvParamRange_PP(this.LearningData.Fv, errH);// 自動で -999～999(*bairitu) に矯正。
-                Util_LearningView.Aa_ShowGohosyu2(this.LearningData, this, ErrorControllerReference.ProcessLearnerDefault);
+                UtilLearnFunctions.FvParamRange_PP(this.LearningData.Fv, errH);// 自動で -999～999(*bairitu) に矯正。
+                UtilLearningView.Aa_ShowGohosyu2(this.LearningData, this, ErrorControllerReference.ProcessLearnerDefault);
                 isRequest_ShowGohosyu = false;
             }
 
@@ -269,7 +268,7 @@ namespace Grayscale.A690FvLearn
         {
             ILogger errH = ErrorControllerReference.ProcessLearnerDefault;
 
-            Util_LearnFunctions.Do_Save(this, errH);
+            UtilLearnFunctions.Do_Save(this, errH);
         }
 
         /// <summary>
@@ -292,8 +291,8 @@ namespace Grayscale.A690FvLearn
             if (isRequest_ShowGohosyu)
             {
                 // 合法手一覧を更新
-                Util_LearnFunctions.FvParamRange_PP(this.LearningData.Fv, errH);// 自動で -999～999(*bairitu) に矯正。
-                Util_LearningView.Aa_ShowGohosyu2(this.LearningData, this, errH);
+                UtilLearnFunctions.FvParamRange_PP(this.LearningData.Fv, errH);// 自動で -999～999(*bairitu) に矯正。
+                UtilLearningView.Aa_ShowGohosyu2(this.LearningData, this, errH);
                 isRequest_ShowGohosyu = false;
             }
 
@@ -384,7 +383,7 @@ namespace Grayscale.A690FvLearn
             if (isRequest_ShowGohosyu)
             {
                 // 合法手一覧を更新
-                Util_LearnFunctions.FvParamRange_PP(this.LearningData.Fv, errH);// 自動で -999～999(*bairitu) に矯正。
+                UtilLearnFunctions.FvParamRange_PP(this.LearningData.Fv, errH);// 自動で -999～999(*bairitu) に矯正。
                 isRequest_ShowGohosyu = false;
             }
         }
@@ -418,8 +417,8 @@ namespace Grayscale.A690FvLearn
             if (isRequest_ShowGohosyu)
             {
                 // 合法手一覧を更新
-                Util_LearnFunctions.FvParamRange_PP(this.LearningData.Fv, errH);// 自動で -999～999(*bairitu) に矯正。
-                Util_LearningView.Aa_ShowGohosyu2(this.LearningData, this, errH);
+                UtilLearnFunctions.FvParamRange_PP(this.LearningData.Fv, errH);// 自動で -999～999(*bairitu) に矯正。
+                UtilLearningView.Aa_ShowGohosyu2(this.LearningData, this, errH);
                 isRequest_ShowGohosyu = false;
             }
 
@@ -453,8 +452,8 @@ namespace Grayscale.A690FvLearn
             if (isRequest_ShowGohosyu)
             {
                 // 合法手一覧を更新
-                Util_LearnFunctions.FvParamRange_PP(this.LearningData.Fv, errH);// 自動で -999～999(*bairitu) に矯正。
-                Util_LearningView.Aa_ShowGohosyu2(this.LearningData, this, errH);
+                UtilLearnFunctions.FvParamRange_PP(this.LearningData.Fv, errH);// 自動で -999～999(*bairitu) に矯正。
+                UtilLearningView.Aa_ShowGohosyu2(this.LearningData, this, errH);
                 isRequest_ShowGohosyu = false;
             }
 
@@ -485,8 +484,8 @@ namespace Grayscale.A690FvLearn
             if (isRequest_ShowGohosyu)
             {
                 // 合法手一覧を更新
-                Util_LearnFunctions.FvParamRange_PP(this.LearningData.Fv, errH);// 自動で -999～999(*bairitu) に矯正。
-                Util_LearningView.Aa_ShowGohosyu2(this.LearningData, this, errH);
+                UtilLearnFunctions.FvParamRange_PP(this.LearningData.Fv, errH);// 自動で -999～999(*bairitu) に矯正。
+                UtilLearningView.Aa_ShowGohosyu2(this.LearningData, this, errH);
                 isRequest_ShowGohosyu = false;
             }
         }
@@ -554,8 +553,8 @@ namespace Grayscale.A690FvLearn
             if (isRequest_ShowGohosyu)
             {
                 // 合法手一覧を更新
-                Util_LearnFunctions.FvParamRange_PP(this.LearningData.Fv, errH);// 自動で -999～999(*bairitu) に矯正。
-                Util_LearningView.Aa_ShowGohosyu2(this.LearningData, this, ErrorControllerReference.ProcessLearnerDefault);
+                UtilLearnFunctions.FvParamRange_PP(this.LearningData.Fv, errH);// 自動で -999～999(*bairitu) に矯正。
+                UtilLearningView.Aa_ShowGohosyu2(this.LearningData, this, ErrorControllerReference.ProcessLearnerDefault);
                 isRequest_ShowGohosyu = false;
             }
 

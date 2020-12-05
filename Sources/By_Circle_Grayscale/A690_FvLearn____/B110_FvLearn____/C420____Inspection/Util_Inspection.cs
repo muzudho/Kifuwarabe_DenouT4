@@ -1,17 +1,16 @@
 ﻿using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
-using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 
 #if DEBUG
 // using Grayscale.A060Application.B110Log.C500Struct;
 #endif
 
-namespace Grayscale.A690FvLearn.B110_FvLearn____.C420____Inspection
+namespace Grayscale.A690FvLearn.B110FvLearn.C420Inspection
 {
     /// <summary>
     /// フィーチャー・ベクターの概要をデバッグ出力します。
     /// </summary>
-    public abstract class Util_Inspection
+    public abstract class UtilInspection
     {
 
         /// <summary>

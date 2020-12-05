@@ -71,9 +71,9 @@
     <Compile Include="B180_FormatSfen_\Format_Kyokumen1.cs" />
     <Compile Include="B160_ConvSfen___\Conv_Sfen.cs" />
     <Compile Include="B140SfenStruct\RO_Kyokumen1_ForFormat.cs" />
-    <Compile Include="B140SfenStruct\RO_Kyokumen2_ForTokenize.cs" />
+    <Compile Include="B140SfenStruct\ROKyokumen2ForTokenize.cs" />
     <Compile Include="B140SfenStruct\RO_Kyokumen1_ForFormatImpl.cs" />
-    <Compile Include="B140SfenStruct\RO_Kyokumen2_ForTokenizeImpl.cs" />
+    <Compile Include="B140SfenStruct\ROKyokumen2ForTokenizeImpl.cs" />
     <Compile Include="B140SfenStruct\SfenstringImpl.cs" />
     <Compile Include="B120_ConvSujiDan\Conv_SujiDan.cs" />
     <Compile Include="B140SfenStruct\Util_RO_Kyokumen2.cs" />

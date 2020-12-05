@@ -1,8 +1,8 @@
 ﻿using System.IO;
 using System.Windows.Forms;
-using Grayscale.A690FvLearn.B110_FvLearn____.C___490_StopLearning;
+using Grayscale.A690FvLearn.B110FvLearn.C___490_StopLearning;
 
-namespace Grayscale.A690FvLearn.B110_FvLearn____.C490____StopLearning
+namespace Grayscale.A690FvLearn.B110FvLearn.C490____StopLearning
 {
     public class StopLearningImpl : StopLearning
     {

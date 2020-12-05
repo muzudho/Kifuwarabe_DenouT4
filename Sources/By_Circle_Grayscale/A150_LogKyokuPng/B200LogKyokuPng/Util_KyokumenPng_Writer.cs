@@ -39,7 +39,7 @@ namespace Grayscale.A150LogKyokuPng.B200LogKyokuPng.C500UtilWriter
             //
             // SFEN → RO_SfenStartpos
             //
-            RO_Kyokumen2_ForTokenize ro_SfenStartpos;
+            ROKyokumen2ForTokenize ro_SfenStartpos;
             string rest;
             if (!Conv_Sfen.ToKyokumen2(sfenstring, out rest, out ro_SfenStartpos))
             {

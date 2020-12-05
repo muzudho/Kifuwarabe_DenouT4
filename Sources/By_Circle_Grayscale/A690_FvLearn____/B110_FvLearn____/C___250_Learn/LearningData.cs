@@ -11,7 +11,7 @@ using Grayscale.A500ShogiEngine.B200Scoreing.C250Args;
 using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 #endif
 
-namespace Grayscale.A690FvLearn.B110_FvLearn____.C___250_Learn
+namespace Grayscale.A690FvLearn.B110FvLearn.C___250_Learn
 {
 
     /// <summary>
@@ -35,18 +35,18 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C___250_Learn
         /// <summary>
         /// 初期設定。
         /// </summary>
-        void AtBegin(Uc_Main uc_Main);
+        void AtBegin(UcMain uc_Main);
 
         /// <summary>
         /// 棋譜読込み。
         /// </summary>
-        void ReadKifu(Uc_Main uc_Main);
+        void ReadKifu(UcMain uc_Main);
 
         /// <summary>
         /// 局面PNG画像を更新。
         /// </summary>
         void ChangeKyokumenPng(
-            Uc_Main uc_Main,
+            UcMain uc_Main,
             Move move,
             ISky positionA
             );

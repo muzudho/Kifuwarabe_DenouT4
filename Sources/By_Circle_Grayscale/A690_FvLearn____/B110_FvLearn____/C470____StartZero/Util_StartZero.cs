@@ -3,17 +3,17 @@ using Grayscale.A210KnowNingen.B270Sky.C500Struct;
 using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 using Grayscale.A500ShogiEngine.B180Hyokakansu.C500Hyokakansu;
-using Grayscale.A690FvLearn.B110_FvLearn____.C___400_54List;
-using Grayscale.A690FvLearn.B110_FvLearn____.C400____54List;
-using Grayscale.A690FvLearn.B110_FvLearn____.C430____Zooming;
-using Grayscale.A690FvLearn.B110_FvLearn____.C440____Ranking;
-using Grayscale.A690FvLearn.B110_FvLearn____.C460____Scoreing;
+using Grayscale.A690FvLearn.B110FvLearn.C___400_54List;
+using Grayscale.A690FvLearn.B110FvLearn.C400____54List;
+using Grayscale.A690FvLearn.B110FvLearn.C430Zooming;
+using Grayscale.A690FvLearn.B110FvLearn.C440Ranking;
+using Grayscale.A690FvLearn.B110FvLearn.C460____Scoreing;
 
 #if DEBUG || LEARN
 using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 #endif
 
-namespace Grayscale.A690FvLearn.B110_FvLearn____.C470____StartZero
+namespace Grayscale.A690FvLearn.B110FvLearn.C470____StartZero
 {
     /// <summary>
     /// 平手初期局面を 0 点に近づける機能です。
@@ -110,7 +110,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C470____StartZero
                 //--------------------------------------------------------------------------------
                 // 点数を、順位に変換します。
                 //--------------------------------------------------------------------------------
-                Util_Ranking.Perform_Ranking(fv);
+                UtilRanking.Perform_Ranking(fv);
 
                 //
                 // 調整量
@@ -132,7 +132,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C470____StartZero
                     Util_StartZero.n54List_hirateSyokikyokumen, errH);
 
                 // 順位を、点数に変換します。
-                Util_Zooming.ZoomTo_FvParamRange(fv, errH);
+                UtilZooming.ZoomTo_FvParamRange(fv, errH);
 
                 // フォームの更新を要求します。
                 ref_isRequestDoEvents = true;

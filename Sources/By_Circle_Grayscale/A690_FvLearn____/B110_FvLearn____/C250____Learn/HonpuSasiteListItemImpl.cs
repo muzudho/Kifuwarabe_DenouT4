@@ -2,7 +2,7 @@
 using Grayscale.A180KifuCsa.B120KifuCsa.C250Struct;
 using Grayscale.A210KnowNingen.B240Move.C500Struct;
 
-namespace Grayscale.A690FvLearn.B110_FvLearn____.C250____Learn
+namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
 {
     /// <summary>
     /// 本譜指し手リストの項目。

@@ -1,7 +1,7 @@
-﻿using Grayscale.A690FvLearn.B110_FvLearn____.C___400_54List;
-using Grayscale.A690FvLearn.B110_FvLearn____.C___450_Tyoseiryo;
+﻿using Grayscale.A690FvLearn.B110FvLearn.C___400_54List;
+using Grayscale.A690FvLearn.B110FvLearn.C___450_Tyoseiryo;
 
-namespace Grayscale.A690FvLearn.B110_FvLearn____.C450____Tyoseiryo
+namespace Grayscale.A690FvLearn.B110FvLearn.C450____Tyoseiryo
 {
     public abstract class Util_Tyoseiryo
     {
@@ -122,7 +122,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C450____Tyoseiryo
         /// <param name="ref_isRequestDoEvents"></param>
         /// <param name="value">調整量</param>
         /// <param name="bairitu"></param>
-        public static void Up_Bairitu(ref bool ref_isRequestDoEvents, ref float value, Uc_Main uc_Main, float bairitu)
+        public static void Up_Bairitu(ref bool ref_isRequestDoEvents, ref float value, UcMain uc_Main, float bairitu)
         {
             value *= bairitu;//増減
 
@@ -144,7 +144,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C450____Tyoseiryo
         /// </summary>
         /// <param name="pushedCount"></param>
         /// <param name="value">調整量</param>
-        public static void Up_Bairitu_AtStep(ref bool ref_isRequestDoEvents, Uc_Main uc_Main, int pushedCount, ref float value)
+        public static void Up_Bairitu_AtStep(ref bool ref_isRequestDoEvents, UcMain uc_Main, int pushedCount, ref float value)
         {
             if (uc_Main.TyoseiryoSettings.BairituUpDic_AtStep.ContainsKey(pushedCount))
             {
@@ -159,7 +159,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C450____Tyoseiryo
         /// </summary>
         /// <param name="pushedCount"></param>
         /// <param name="value">調整量</param>
-        public static void Up_Bairitu_AtEnd(ref bool ref_isRequestDoEvents, Uc_Main uc_Main, int pushedCount, ref float value)
+        public static void Up_Bairitu_AtEnd(ref bool ref_isRequestDoEvents, UcMain uc_Main, int pushedCount, ref float value)
         {
             float bairitu = 1.0f; // 倍率の最高値は、1.0 とします。
 

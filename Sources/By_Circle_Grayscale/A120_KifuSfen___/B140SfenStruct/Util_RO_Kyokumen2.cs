@@ -15,7 +15,7 @@ namespace Grayscale.A120KifuSfen.B140SfenStruct.C500Util
 
 
 
-        public static void Assert_Koma40(RO_Kyokumen2_ForTokenize result, string hint)
+        public static void Assert_Koma40(ROKyokumen2ForTokenize result, string hint)
         {
             //#if DEBUG
             StringBuilder sb = new StringBuilder();

@@ -1,6 +1,6 @@
-﻿using Grayscale.A690FvLearn.B110_FvLearn____.C___400_54List;
+﻿using Grayscale.A690FvLearn.B110FvLearn.C___400_54List;
 
-namespace Grayscale.A690FvLearn.B110_FvLearn____.C400____54List
+namespace Grayscale.A690FvLearn.B110FvLearn.C400____54List
 {
     public class N54ListImpl : N54List
     {

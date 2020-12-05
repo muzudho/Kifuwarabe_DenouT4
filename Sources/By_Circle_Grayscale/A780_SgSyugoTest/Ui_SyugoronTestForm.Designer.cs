@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ui_SyugoronTestPanel = new Grayscale.A780SgSyugoTest.Ui_SyugoronTestPanel();
+            this.ui_SyugoronTestPanel = new Grayscale.A780SgSyugoTest.UiSyugoronTestPanel();
             this.SuspendLayout();
             // 
             // ui_Main1
@@ -52,6 +52,6 @@
 
         #endregion
 
-        private Ui_SyugoronTestPanel ui_SyugoronTestPanel;
+        private UiSyugoronTestPanel ui_SyugoronTestPanel;
     }
 }

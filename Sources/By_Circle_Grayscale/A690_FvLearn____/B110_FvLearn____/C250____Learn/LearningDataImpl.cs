@@ -2,15 +2,12 @@
 using System.IO;
 using System.Text;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B310Settei.C500Struct;
 using Grayscale.A060Application.B510ConvSy.C500Converter;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___;
 using Grayscale.A150LogKyokuPng.B100KyokumenPng.C500Struct;
-using Grayscale.A150LogKyokuPng.B100KyokumenPng.C500Struct;
 using Grayscale.A150LogKyokuPng.B200LogKyokuPng.C500UtilWriter;
-using Grayscale.A180KifuCsa.B120KifuCsa.C250Struct;
 using Grayscale.A180KifuCsa.B120KifuCsa.C250Struct;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
@@ -25,16 +22,13 @@ using Grayscale.A210KnowNingen.B390KomahaiyaEx.C500Util;
 using Grayscale.A210KnowNingen.B490ForcePromot.C250Struct;
 using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
-using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 using Grayscale.A500ShogiEngine.B180Hyokakansu.C500Hyokakansu;
 using Grayscale.A500ShogiEngine.B200Scoreing.C240Shogisasi;
 using Grayscale.A500ShogiEngine.B200Scoreing.C250Args;
-using Grayscale.A500ShogiEngine.B200Scoreing.C250Args;
-using Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct;
 using Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct;
 using Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi;
 using Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe;
-using Grayscale.A690FvLearn.B110_FvLearn____.C___250_Learn;
+using Grayscale.A690FvLearn.B110FvLearn.C___250_Learn;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
@@ -48,7 +42,7 @@ using Grayscale.A210KnowNingen.B250LogKaisetu.C250Struct;
 using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 #endif
 
-namespace Grayscale.A690FvLearn.B110_FvLearn____.C250____Learn
+namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
 {
     /// <summary>
     /// 学習用データ。
@@ -104,7 +98,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C250____Learn
         /// <summary>
         /// 初期設定。
         /// </summary>
-        public void AtBegin(Uc_Main uc_Main)
+        public void AtBegin(UcMain uc_Main)
         {
             // データの読取「道」
             if (Michi187Array.Load(Const_Filepath.m_EXE_TO_CONFIG + "data_michi187.csv"))
@@ -138,7 +132,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C250____Learn
         /// 局面PNG画像を更新。
         /// </summary>
         public void ChangeKyokumenPng(
-            Uc_Main uc_Main,
+            UcMain uc_Main,
             Move move,
             ISky positionA
             )
@@ -155,7 +149,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C250____Learn
         /// <summary>
         /// 棋譜読込み。
         /// </summary>
-        public void ReadKifu(Uc_Main uc_Main)
+        public void ReadKifu(UcMain uc_Main)
         {
 
             if (!File.Exists(uc_Main.TxtKifuFilepath.Text))

@@ -122,9 +122,9 @@ namespace Grayscale.A060Application.B110Log.C500Struct
             {
                 this.m_buffer_.AppendLine(token);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "ログ中☆");
+                // 循環参照になるので、ログを取れません。
                 // ログ出力に失敗しても、続行します。
             }
         }
@@ -145,9 +145,9 @@ namespace Grayscale.A060Application.B110Log.C500Struct
             {
                 this.m_buffer_.AppendLine(line);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "ログ中☆");
+                // 循環参照になるので、ログを取れません。
                 // ログ出力に失敗しても、続行します。
             }
         }
@@ -207,9 +207,9 @@ namespace Grayscale.A060Application.B110Log.C500Struct
                     System.Console.Write(message);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "ログ中☆");
+                // 循環参照になるので、ログを取れません。
                 // ログ出力に失敗しても、続行します。
             }
         }

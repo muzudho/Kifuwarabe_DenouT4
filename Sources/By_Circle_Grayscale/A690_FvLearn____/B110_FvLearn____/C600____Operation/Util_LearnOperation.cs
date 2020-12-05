@@ -2,7 +2,6 @@
 using System.Text;
 using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B240Move.C500Struct;
@@ -11,14 +10,13 @@ using Grayscale.A210KnowNingen.B280Tree.C500Struct;
 using Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 using Grayscale.A500ShogiEngine.B200Scoreing.C250Args;
-using Grayscale.A500ShogiEngine.B200Scoreing.C250Args;
 using Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi;
 using Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe;
 using Grayscale.A500ShogiEngine.B523UtilFv.C510UtilFvLoad;
-using Grayscale.A690FvLearn.B110_FvLearn____.C250____Learn;
-using Grayscale.A690FvLearn.B110_FvLearn____.C260____View;
-using Grayscale.A690FvLearn.B110_FvLearn____.C420____Inspection;
-using Grayscale.A690FvLearn.B110_FvLearn____.C470____StartZero;
+using Grayscale.A690FvLearn.B110FvLearn.C250Learn;
+using Grayscale.A690FvLearn.B110FvLearn.C260View;
+using Grayscale.A690FvLearn.B110FvLearn.C420Inspection;
+using Grayscale.A690FvLearn.B110FvLearn.C470____StartZero;
 
 #if DEBUG || LEARN
 using Grayscale.A500ShogiEngine.B523UtilFv.C480UtilFvEdit;
@@ -31,7 +29,7 @@ using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 // using Grayscale.A060Application.B110Log.C500Struct;
 #endif
 
-namespace Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation
+namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
 {
     public abstract class Util_LearnOperation
     {
@@ -43,7 +41,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation
         /// </summary>
         /// <param name="uc_Main"></param>
         /// <param name="tyoseiryo"></param>
-        public static void A_RankUp_SelectedSasite(Uc_Main uc_Main, float tyoseiryo, ILogger logger)
+        public static void A_RankUp_SelectedSasite(UcMain uc_Main, float tyoseiryo, ILogger logger)
         {
             //----------------------------------------
             // 選択したノードを参考に、減点を行う。
@@ -136,7 +134,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation
         /// <summary>
         /// 初期局面の評価値を 0 点にするようにFVを調整します。
         /// </summary>
-        public static void Do_ZeroStart(ref bool isRequest_ShowGohosyu, Uc_Main uc_Main, ILogger errH)
+        public static void Do_ZeroStart(ref bool isRequest_ShowGohosyu, UcMain uc_Main, ILogger errH)
         {
             bool isRequestDoEvents = false;
             Util_StartZero.Adjust_HirateSyokiKyokumen_0ten_AndFvParamRange(ref isRequestDoEvents, uc_Main.LearningData.Fv, errH);
@@ -155,7 +153,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation
         public static void Do_RankUpSasite(
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
-            Uc_Main uc_Main, ILogger errH)
+            UcMain uc_Main, ILogger errH)
         {
             // 評価値変化量
             float chosei_bairitu;
@@ -181,7 +179,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation
         public static void Do_RankDownSasite(
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
-            Uc_Main uc_Main, ILogger errH)
+            UcMain uc_Main, ILogger errH)
         {
             // 評価値変化量
             float badScore;
@@ -206,7 +204,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation
         /// 二駒の評価値を表示。
         /// </summary>
         /// <param name="uc_Main"></param>
-        public static void Do_ShowNikomaHyokati(Uc_Main uc_Main)
+        public static void Do_ShowNikomaHyokati(UcMain uc_Main)
         {
             uc_Main.LearningData.DoScoreing_ForLearning(
                 uc_Main.LearningData.PositionA.GetKaisiPside(),
@@ -216,7 +214,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation
             uc_Main.TxtNikomaHyokati.Text = "";
         }
 
-        public static void Do_OpenFvCsv(Uc_Main uc_Main, ILogger errH)
+        public static void Do_OpenFvCsv(UcMain uc_Main, ILogger errH)
         {
             if ("" != uc_Main.TxtFvFilepath.Text)
             {
@@ -252,7 +250,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation
 
 
                         // 半径
-                        float paramRange = Util_Inspection.FvParamRange(uc_Main.LearningData.Fv);
+                        float paramRange = UtilInspection.FvParamRange(uc_Main.LearningData.Fv);
                         uc_Main.ChkAutoParamRange.Text = "評価更新毎-" + paramRange + "～" + paramRange + "矯正";
                     }
 
@@ -269,11 +267,11 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation
 
 
 
-        public static void Load_CsaKifu(Uc_Main uc_Main, ILogger errH)
+        public static void Load_CsaKifu(UcMain uc_Main, ILogger errH)
         {
             uc_Main.LearningData.ReadKifu(uc_Main);
 
-            Util_LearningView.ShowSasiteList(uc_Main.LearningData, uc_Main, errH);
+            UtilLearningView.ShowSasiteList(uc_Main.LearningData, uc_Main, errH);
         }
 
 
@@ -281,7 +279,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
             string kifuFilepath,
-            Uc_Main uc_Main, ILogger errH)
+            UcMain uc_Main, ILogger errH)
         {
             uc_Main.TxtKifuFilepath.Text = kifuFilepath;
 
@@ -309,7 +307,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation
                 searchedPv,
                 errH);
             // ノード情報の表示
-            Util_LearningView.Aa_ShowNode2(
+            UtilLearningView.Aa_ShowNode2(
                 uc_Main.LearningData,
                 uc_Main.LearningData.PositionA,
                 uc_Main, ErrorControllerReference.ProcessLearnerDefault);
@@ -324,7 +322,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C600____Operation
         public static void Setup_KifuTree(
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
-            Uc_Main uc_Main,
+            UcMain uc_Main,
             ILogger errH)
         {
             ISky positionA;

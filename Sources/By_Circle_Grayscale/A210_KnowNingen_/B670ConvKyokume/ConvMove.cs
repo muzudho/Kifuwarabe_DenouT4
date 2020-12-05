@@ -631,7 +631,7 @@ namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
                 drop = Okiba.ShogiBan != Conv_Masu.ToOkiba(srcMasu)//駒台（駒袋）から打ったとき。
                     && Okiba.Empty != Conv_Masu.ToOkiba(srcMasu);//初期配置から移動しても、打にはしません。
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 drop = false;
                 //Util_OwataMinister.ERROR.Logger.DonimoNaranAkirameta(ex, "IsDaAction:");// exceptionArea=" + exceptionArea

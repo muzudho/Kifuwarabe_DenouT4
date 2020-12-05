@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uc_Main1 = new Uc_Main();
+            this.uc_Main1 = new UcMain();
             this.SuspendLayout();
             // 
             // uc_Main1
@@ -52,7 +52,7 @@
 
         #endregion
 
-        private Uc_Main uc_Main1;
+        private UcMain uc_Main1;
     }
 }
 

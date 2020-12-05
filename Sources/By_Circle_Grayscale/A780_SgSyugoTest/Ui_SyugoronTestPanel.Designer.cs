@@ -1,6 +1,6 @@
 ﻿namespace Grayscale.A780SgSyugoTest
 {
-    partial class Ui_SyugoronTestPanel
+    partial class UiSyugoronTestPanel
     {
         /// <summary> 
         /// 必要なデザイナー変数です。

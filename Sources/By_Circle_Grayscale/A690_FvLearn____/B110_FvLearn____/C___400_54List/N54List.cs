@@ -1,4 +1,4 @@
-﻿namespace Grayscale.A690FvLearn.B110_FvLearn____.C___400_54List
+﻿namespace Grayscale.A690FvLearn.B110FvLearn.C___400_54List
 {
     public interface N54List
     {

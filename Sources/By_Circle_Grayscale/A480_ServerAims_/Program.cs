@@ -1,13 +1,12 @@
 ﻿using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B310Settei.C500Struct;
 using Grayscale.A060Application.B310Settei.L510Xml;
 using Grayscale.A210KnowNingen.B270Sky.C500Struct;
 using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
 using Grayscale.A480ServerAims.B110AimsServer.C500Server;
 
-namespace Grayscale.P489_Form_______
+namespace Grayscale.P489Form
 {
     class Program
     {

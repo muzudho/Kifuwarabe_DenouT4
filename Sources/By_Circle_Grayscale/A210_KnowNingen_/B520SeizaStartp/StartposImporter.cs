@@ -24,7 +24,7 @@ namespace Grayscale.A210KnowNingen.B520_SeizaStartp.C500Struct
         /// </summary>
         private Dictionary<int, Busstop> masubetuKoma_banjo;
 
-        public RO_Kyokumen2_ForTokenize RO_SfenStartpos { get; set; }
+        public ROKyokumen2ForTokenize RO_SfenStartpos { get; set; }
 
 
         public static bool TryParse(
@@ -35,7 +35,7 @@ namespace Grayscale.A210KnowNingen.B520_SeizaStartp.C500Struct
         {
             bool successful = true;
 
-            RO_Kyokumen2_ForTokenize ro_SfenStartpos;
+            ROKyokumen2ForTokenize ro_SfenStartpos;
             if (!Conv_Sfen.ToKyokumen2(inputLine, out rest, out ro_SfenStartpos))
             {
                 successful = false;
@@ -51,7 +51,7 @@ namespace Grayscale.A210KnowNingen.B520_SeizaStartp.C500Struct
 
         private StartposImporter(
             string inputLine,
-            RO_Kyokumen2_ForTokenize ro_SfenStartpos
+            ROKyokumen2ForTokenize ro_SfenStartpos
             )
         {
             this.InputLine = inputLine;
