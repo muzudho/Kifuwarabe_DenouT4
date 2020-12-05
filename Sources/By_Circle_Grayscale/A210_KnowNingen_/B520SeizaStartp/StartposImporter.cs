@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Grayscale.A120KifuSfen.B140SfenStruct.C250Struct;
-using Grayscale.A120KifuSfen.B160ConvSfen.C500Converter;
+using Grayscale.A120KifuSfen;
 using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
@@ -24,7 +23,7 @@ namespace Grayscale.A210KnowNingen.B520_SeizaStartp.C500Struct
         /// </summary>
         private Dictionary<int, Busstop> masubetuKoma_banjo;
 
-        public ROKyokumen2ForTokenize RO_SfenStartpos { get; set; }
+        public ISfenFormat2 RO_SfenStartpos { get; set; }
 
 
         public static bool TryParse(
@@ -35,8 +34,8 @@ namespace Grayscale.A210KnowNingen.B520_SeizaStartp.C500Struct
         {
             bool successful = true;
 
-            ROKyokumen2ForTokenize ro_SfenStartpos;
-            if (!Conv_Sfen.ToKyokumen2(inputLine, out rest, out ro_SfenStartpos))
+            ISfenFormat2 ro_SfenStartpos;
+            if (!SfenConf.ToKyokumen2(inputLine, out rest, out ro_SfenStartpos))
             {
                 successful = false;
                 instance = null;
@@ -51,7 +50,7 @@ namespace Grayscale.A210KnowNingen.B520_SeizaStartp.C500Struct
 
         private StartposImporter(
             string inputLine,
-            ROKyokumen2ForTokenize ro_SfenStartpos
+            ISfenFormat2 ro_SfenStartpos
             )
         {
             this.InputLine = inputLine;

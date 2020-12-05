@@ -1,4 +1,4 @@
-﻿using Grayscale.A120KifuSfen.B140SfenStruct.C250Struct;
+﻿using Grayscale.A120KifuSfen;
 
 namespace Grayscale.A150LogKyokuPng.B100KyokumenPng.C500Struct
 {
@@ -12,7 +12,7 @@ namespace Grayscale.A150LogKyokuPng.B100KyokumenPng.C500Struct
         /// </summary>
         string OutFile { get; }
 
-        RO_Kyokumen1_ForFormat Ro_Kyokumen1 { get; }
+        ISfenPosition1 Ro_Kyokumen1 { get; }
 
         /// <summary>
         /// 移動元升。１一を0とし、１二を1、９九を80とする。なければ-1。範囲外の数字は無視するだけ。

@@ -1,10 +1,10 @@
-﻿namespace Grayscale.A120KifuSfen.B140SfenStruct.C250Struct
+﻿namespace Grayscale.A120KifuSfen
 {
     /// <summary>
     /// 駒の種類。先後を含む。持ち駒を指定するのに便利（配列のインデックス）。
     /// 成りは含んでいない。
     /// </summary>
-    public enum Pieces
+    public enum Piece
     {
         /// <summary>
         /// 意味はないが、とりあえず空けている☆

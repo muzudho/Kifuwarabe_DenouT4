@@ -2,7 +2,7 @@
 using System.Text;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A060Application.B620ConvText.C500Converter;
-using Grayscale.A120KifuSfen.B140SfenStruct.C250Struct;
+using Grayscale.A120KifuSfen;
 using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
@@ -59,7 +59,7 @@ namespace Grayscale.A210KnowNingen.B550JsaFugo.C500Util
             else
             {
                 // 盤外に指すことはないぜ☆（＾～＾）エラーの代わりに適当に文字を出そうぜ☆（＾▽＾）
-                Pieces pieces;
+                Piece pieces;
                 Conv_Masu.ToPiece_FromBangaiMasu(dstMasu, out pieces);
 
                 // FIXME: ほんとはこんなの表記しないぜ☆（＾～＾）
@@ -158,7 +158,7 @@ namespace Grayscale.A210KnowNingen.B550JsaFugo.C500Util
                 else
                 {
                     // 盤外に指すことはないぜ☆（＾～＾）エラーの代わりに適当に文字を出そうぜ☆（＾▽＾）
-                    Pieces pieces;
+                    Piece pieces;
                     Conv_Masu.ToPiece_FromBangaiMasu(dstMasu, out pieces);
 
                     // FIXME: ほんとはこんなの表記しないぜ☆（＾～＾）

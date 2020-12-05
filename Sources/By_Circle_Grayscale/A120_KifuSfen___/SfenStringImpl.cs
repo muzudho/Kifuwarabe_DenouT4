@@ -1,4 +1,4 @@
-﻿namespace Grayscale.A120KifuSfen.B140SfenStruct.C250Struct
+﻿namespace Grayscale.A120KifuSfen
 {
 
     /// <summary>
@@ -6,17 +6,17 @@
     /// 
     /// string では分かりづらかったので。
     /// </summary>
-    public class SfenstringImpl
+    public class SfenStringImpl
     {
         public string ValueStr { get { return this.valueStr; } }
         private string valueStr;
 
-        public SfenstringImpl()
+        public SfenStringImpl()
         {
             this.valueStr = "";
         }
 
-        public SfenstringImpl(string src)
+        public SfenStringImpl(string src)
         {
             this.valueStr = src;
         }

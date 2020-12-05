@@ -2,7 +2,7 @@
 using System.Text;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A060Application.B620ConvText.C500Converter;
-using Grayscale.A120KifuSfen.B140SfenStruct.C250Struct;
+using Grayscale.A120KifuSfen;
 using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
@@ -466,7 +466,7 @@ namespace Grayscale.A210KnowNingen.B180ConvPside.C500Converter
         /// <param name="masu"></param>
         /// <param name="result"></param>
         /// <returns></returns>
-        public static bool ToPiece_FromBangaiMasu(SyElement masu, out Pieces result)
+        public static bool ToPiece_FromBangaiMasu(SyElement masu, out Piece result)
         {
             int masuNumber = Conv_Masu.ToMasuHandle(masu);
             return Conv_Masu.ToPiece_FromBangaiMasu(masuNumber, out result);
@@ -521,7 +521,7 @@ namespace Grayscale.A210KnowNingen.B180ConvPside.C500Converter
         /// <param name="masuNumber"></param>
         /// <param name="result"></param>
         /// <returns></returns>
-        public static bool ToPiece_FromBangaiMasu(int masuNumber, out Pieces result)
+        public static bool ToPiece_FromBangaiMasu(int masuNumber, out Piece result)
         {
             bool successful = true;
 
@@ -530,12 +530,12 @@ namespace Grayscale.A210KnowNingen.B180ConvPside.C500Converter
             switch (okiba)
             {
                 // TODO: まだ使えない☆
-                case Okiba.Sente_Komadai: result = (Pieces)(masuNumber - Conv_Masu.FirstMasu_SenteKomadai); break;
-                case Okiba.Gote_Komadai: result = (Pieces)(masuNumber - Conv_Masu.FirstMasu_GoteKomadai); break;
-                case Okiba.KomaBukuro: result = (Pieces)(masuNumber - Conv_Masu.FirstMasu_Komabukuro); break;
+                case Okiba.Sente_Komadai: result = (Piece)(masuNumber - Conv_Masu.FirstMasu_SenteKomadai); break;
+                case Okiba.Gote_Komadai: result = (Piece)(masuNumber - Conv_Masu.FirstMasu_GoteKomadai); break;
+                case Okiba.KomaBukuro: result = (Piece)(masuNumber - Conv_Masu.FirstMasu_Komabukuro); break;
                 default:
                     // エラー
-                    result = Pieces.None;
+                    result = Piece.None;
                     successful = false;
                     goto gt_EndMethod;
             }

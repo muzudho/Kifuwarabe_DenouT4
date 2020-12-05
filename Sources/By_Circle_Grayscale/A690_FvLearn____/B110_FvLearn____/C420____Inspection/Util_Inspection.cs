@@ -31,13 +31,17 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C420Inspection
         {
             float negative_length;// 負の数の一番小さな値の絶対値。
             float positive_length;// 正の数の一番大きな値の絶対値。
-            bool longest_positive; // 正の方の絶対値の方が大きければ真。
             int negative_items;//負の項目数。平均値を求めるのに使う。
             int positive_items;//正の項目数
             float negative_total;//負の合計。平均値を求めるのに使う。
             float positive_total;//正の合計。
             //float zoom;
             int notZero;
+
+#if DEBUG
+            bool longest_positive; // 正の方の絶対値の方が大きければ真。
+#endif
+
             {
                 negative_length = 0.0f;
                 positive_length = 0.0f;
@@ -78,6 +82,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C420Inspection
                     }
                 }
 
+#if DEBUG
                 // 長いのは正負のどちらか。
                 if (negative_length < positive_length)
                 {
@@ -87,7 +92,6 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C420Inspection
                 {
                     longest_positive = false;
                 }
-#if DEBUG
                 errH.AppendLine("PP");
                 errH.AppendLine("----------------------------------------");
                 errH.AppendLine("begin");

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using Grayscale.A120KifuSfen.B140SfenStruct.C250Struct;
+using Grayscale.A120KifuSfen;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
 using Grayscale.A210KnowNingen.B240Move.C500Struct;
@@ -25,7 +25,7 @@ namespace Grayscale.A210KnowNingen.B270Sky.C500Struct
             this.m_kaisiPside_ = Playerside.P1;// 初期局面では、Player 1 の手番とします。
             this.temezumi = 0;//初期局面は 0手目済み
             this.m_busstops_ = new List<Busstop>();
-            this.MotiSu = new int[(int)Pieces.Num];
+            this.MotiSu = new int[(int)Piece.Num];
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace Grayscale.A210KnowNingen.B270Sky.C500Struct
             {
                 this.m_busstops_.Add(busstop);
             });
-            this.MotiSu = new int[(int)Pieces.Num];
+            this.MotiSu = new int[(int)Piece.Num];
             Array.Copy(src.MotiSu, this.MotiSu, src.MotiSu.Length);
         }
         /// <summary>
@@ -172,7 +172,7 @@ namespace Grayscale.A210KnowNingen.B270Sky.C500Struct
             {
                 int maisu = this.m_busstops_.Count;
 
-                for (int iMoti = 0; iMoti < (int)Pieces.Num; iMoti++)
+                for (int iMoti = 0; iMoti < (int)Piece.Num; iMoti++)
                 {
                     maisu += this.MotiSu[iMoti];
                 }

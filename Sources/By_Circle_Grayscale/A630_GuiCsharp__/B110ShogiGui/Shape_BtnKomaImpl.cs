@@ -13,6 +13,7 @@ using Grayscale.A210KnowNingen.B320ConvWords.C500Converter;
 using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C080Shape;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui;
+using Grayscale.B110ShogiGui;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.A630GuiCsharp.B110ShogiGui.C080Shape
@@ -158,7 +159,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C080Shape
             mainGui.SkyWrapper_Gui.GuiSky.AssertFinger(this.Finger);
             Busstop koma = mainGui.SkyWrapper_Gui.GuiSky.BusstopIndexOf(this.Finger);
 
-            if (true)
+            if (ShogiGuiDebugOptions.KomaImage)
             {
                 //----------
                 // 駒画像
@@ -210,7 +211,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C080Shape
             //----------
             // 枠線
             //----------
-            if (false)
+            if (ShogiGuiDebugOptions.FrameLine)
             {
                 Pen pen;
                 if (this.Light)
@@ -228,7 +229,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C080Shape
             //----------
             // 文字
             //----------
-            if (false)
+            if (ShogiGuiDebugOptions.Text)
             {
                 if (Conv_Busstop.ToPlayerside(koma) == Playerside.P1)
                 {

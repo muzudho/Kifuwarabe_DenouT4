@@ -1,7 +1,7 @@
 ﻿
-namespace Grayscale.A120KifuSfen.B140SfenStruct.C250Struct
+namespace Grayscale.A120KifuSfen
 {
-    public abstract class Word_Sfen
+    public abstract class SfenWord
     {
         public const string P_PAWN__ = "P";
         public const string L_LANCE_ = "L";

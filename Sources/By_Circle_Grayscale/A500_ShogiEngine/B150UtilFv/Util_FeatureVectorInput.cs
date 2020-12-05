@@ -337,7 +337,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
                                 Conv_FvKoumoku522.Converter_K1_to_P(Playerside.P2, k2dan, k2suji, out p2);
 
 
-                                if (Const_FeatureVectorFormat.PARAMETER_INDEX_INPUT)
+                                if (FeatureVectorFormatDebugOptions.ParameterIndexInput)
                                 {
                                     // これは、評価値の代わりにインデックスを入れています。
                                     fv.NikomaKankeiPp_ForMemory[p1, p2] = k1 * 10000 + k2;
@@ -473,7 +473,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
                                 Conv_FvKoumoku522.Converter_K1_to_P(k_pside, kDan, kSuji, out k1);
                                 int p2 = Conv_Masu.ToMasuHandle_FromBanjoSujiDan(pSuji, pDan);
 
-                                if (Const_FeatureVectorFormat.PARAMETER_INDEX_INPUT)
+                                if (FeatureVectorFormatDebugOptions.ParameterIndexInput)
                                 {
                                     // これは、評価値の代わりにインデックスを入れています。
                                     fv.NikomaKankeiPp_ForMemory[k1, pKoumoku_base + p2] = k1 * 10000 + (pKoumoku_base + p2);
@@ -568,7 +568,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
                                 int k1;
                                 Conv_FvKoumoku522.Converter_K1_to_P(k_pside, kDan, kSuji, out k1);
 
-                                if (Const_FeatureVectorFormat.PARAMETER_INDEX_INPUT)
+                                if (FeatureVectorFormatDebugOptions.ParameterIndexInput)
                                 {
                                     // これは、評価値の代わりにインデックスを入れています。
                                     fv.NikomaKankeiPp_ForMemory[k1, p2] = k1 * 10000 + p2;
@@ -732,7 +732,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
                                 int p1 = p1_base + Conv_Masu.ToMasuHandle_FromBanjoSujiDan(largeSuji, largeDan);
                                 int p2 = p2_base + Conv_Masu.ToMasuHandle_FromBanjoSujiDan(smallSuji, smallDan);
 
-                                if (Const_FeatureVectorFormat.PARAMETER_INDEX_INPUT)
+                                if (FeatureVectorFormatDebugOptions.ParameterIndexInput)
                                 {
                                     // これは、評価値の代わりにインデックスを入れています。
                                     fv.NikomaKankeiPp_ForMemory[p1, p2] = p1 * 10000 + p2;
@@ -829,7 +829,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
                                 //p1_base + 
                                 int p1 = Conv_Masu.ToMasuHandle_FromBanjoSujiDan(smallSuji, smallDan);
 
-                                if (Const_FeatureVectorFormat.PARAMETER_INDEX_INPUT)
+                                if (FeatureVectorFormatDebugOptions.ParameterIndexInput)
                                 {
                                     // これは、評価値の代わりにインデックスを入れています。
                                     fv.NikomaKankeiPp_ForMemory[p1, p2] = p1 * 10000 + p2;
@@ -995,7 +995,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
 
                                 int p1 = p1_base + largeFuMaisu;
                                 int p2 = p2_base + Conv_Masu.ToMasuHandle_FromBanjoSujiDan(smallSuji, smallDan);
-                                if (Const_FeatureVectorFormat.PARAMETER_INDEX_INPUT)
+                                if (FeatureVectorFormatDebugOptions.ParameterIndexInput)
                                 {
                                     // これは、評価値の代わりにインデックスを入れています。
                                     fv.NikomaKankeiPp_ForMemory[p1, p2] = p1 * 10000 + p2;
@@ -1092,7 +1092,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
                                 {
                                     int p1 = p1_base + maisuRow;
                                     int p2 = p2_base + maisuCol;
-                                    if (Const_FeatureVectorFormat.PARAMETER_INDEX_INPUT)
+                                    if (FeatureVectorFormatDebugOptions.ParameterIndexInput)
                                     {
                                         // これは評価値の代わりに インデックス を入れています。
                                         fv.NikomaKankeiPp_ForMemory[p1, p2] = p1 * 10000 + p2;
@@ -1239,7 +1239,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
 
                                 int p1 = p1_base + largeCol_motiMaisu;
                                 int p2 = p2_base + Conv_Masu.ToMasuHandle_FromBanjoSujiDan(smallSuji, smallDan);
-                                if (Const_FeatureVectorFormat.PARAMETER_INDEX_INPUT)
+                                if (FeatureVectorFormatDebugOptions.ParameterIndexInput)
                                 {
                                     // これは、評価値の代わりにインデックスを入れています。
                                     fv.NikomaKankeiPp_ForMemory[p1, p2] = p1 * 10000 + p2;
@@ -1327,7 +1327,6 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
                                     break;
                                 default:
                                     throw new Exception("範囲外rowMoti=[" + row_motiArea + "]");
-                                    break;
                             }
 
                             int smallDan = (int)(row_motiArea % 9) + 1;
@@ -1338,7 +1337,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
                                 {
                                     int p1 = p1_base + maisuRow;
                                     int p2 = p2_base + maisuCol;
-                                    if (Const_FeatureVectorFormat.PARAMETER_INDEX_INPUT)
+                                    if (FeatureVectorFormatDebugOptions.ParameterIndexInput)
                                     {
                                         // これは、評価値の代わりにインデックスを入れています。
                                         fv.NikomaKankeiPp_ForMemory[p1, p2] = p1 * 10000 + p2;

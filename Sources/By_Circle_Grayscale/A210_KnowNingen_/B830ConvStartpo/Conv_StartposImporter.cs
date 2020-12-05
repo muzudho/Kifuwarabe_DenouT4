@@ -1,6 +1,6 @@
 ﻿using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A120KifuSfen.B140SfenStruct.C250Struct;
+using Grayscale.A120KifuSfen;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
 using Grayscale.A210KnowNingen.B240Move.C500Struct;
@@ -66,144 +66,144 @@ namespace Grayscale.A210KnowNingen.B830ConvStartpo.C500Converter
                 //------------------------------
                 // 持ち駒 ▲王
                 //------------------------------
-                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.K])
+                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.K])
                 {
-                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H06_Gyoku__, startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.K], Playerside.P1));
+                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H06_Gyoku__, startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.K], Playerside.P1));
                     //System.C onsole.WriteLine("mK=" + ro_SfenStartpos.Moti1K);
                 }
 
                 //------------------------------
                 // 持ち駒 ▲飛
                 //------------------------------
-                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.R])
+                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.R])
                 {
-                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H07_Hisya__, startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.R], Playerside.P1));
+                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H07_Hisya__, startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.R], Playerside.P1));
                     //System.C onsole.WriteLine("mR=" + ro_SfenStartpos.Moti1R);
                 }
 
                 //------------------------------
                 // 持ち駒 ▲角
                 //------------------------------
-                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.B])
+                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.B])
                 {
-                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H08_Kaku___, startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.B], Playerside.P1));
+                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H08_Kaku___, startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.B], Playerside.P1));
                     //System.C onsole.WriteLine("mB=" + ro_SfenStartpos.Moti1B);
                 }
 
                 //------------------------------
                 // 持ち駒 ▲金
                 //------------------------------
-                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.G])
+                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.G])
                 {
-                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H05_Kin____, startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.G], Playerside.P1));
+                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H05_Kin____, startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.G], Playerside.P1));
                     //System.C onsole.WriteLine("mG=" + ro_SfenStartpos.Moti1G);
                 }
 
                 //------------------------------
                 // 持ち駒 ▲銀
                 //------------------------------
-                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.S])
+                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.S])
                 {
-                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H04_Gin____, startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.S], Playerside.P1));
+                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H04_Gin____, startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.S], Playerside.P1));
                     //System.C onsole.WriteLine("mS=" + ro_SfenStartpos.Moti1S);
                 }
 
                 //------------------------------
                 // 持ち駒 ▲桂
                 //------------------------------
-                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.N])
+                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.N])
                 {
-                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H03_Kei____, startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.N], Playerside.P1));
+                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H03_Kei____, startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.N], Playerside.P1));
                     //System.C onsole.WriteLine("mN=" + ro_SfenStartpos.Moti1N);
                 }
 
                 //------------------------------
                 // 持ち駒 ▲香
                 //------------------------------
-                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.L])
+                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.L])
                 {
-                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H02_Kyo____, startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.L], Playerside.P1));
+                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H02_Kyo____, startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.L], Playerside.P1));
                     //System.C onsole.WriteLine("mL=" + ro_SfenStartpos.Moti1L);
                 }
 
                 //------------------------------
                 // 持ち駒 ▲歩
                 //------------------------------
-                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.P])
+                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.P])
                 {
-                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H01_Fu_____, startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.P], Playerside.P1));
+                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H01_Fu_____, startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.P], Playerside.P1));
                     //System.C onsole.WriteLine("mP=" + ro_SfenStartpos.Moti1P);
                 }
 
                 //------------------------------
                 // 持ち駒 △王
                 //------------------------------
-                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.k])
+                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.k])
                 {
-                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H06_Gyoku__, startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.k], Playerside.P2));
+                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H06_Gyoku__, startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.k], Playerside.P2));
                     //System.C onsole.WriteLine("mk=" + ro_SfenStartpos.Moti2k);
                 }
 
                 //------------------------------
                 // 持ち駒 △飛
                 //------------------------------
-                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.r])
+                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.r])
                 {
-                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H07_Hisya__, startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.r], Playerside.P2));
+                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H07_Hisya__, startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.r], Playerside.P2));
                     //System.C onsole.WriteLine("mr=" + ro_SfenStartpos.Moti2r);
                 }
 
                 //------------------------------
                 // 持ち駒 △角
                 //------------------------------
-                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.b])
+                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.b])
                 {
-                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H08_Kaku___, startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.b], Playerside.P2));
+                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H08_Kaku___, startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.b], Playerside.P2));
                     //System.C onsole.WriteLine("mb=" + ro_SfenStartpos.Moti2b);
                 }
 
                 //------------------------------
                 // 持ち駒 △金
                 //------------------------------
-                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.g])
+                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.g])
                 {
-                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H05_Kin____, startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.g], Playerside.P2));
+                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H05_Kin____, startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.g], Playerside.P2));
                     //System.C onsole.WriteLine("mg=" + ro_SfenStartpos.Moti2g);
                 }
 
                 //------------------------------
                 // 持ち駒 △銀
                 //------------------------------
-                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.s])
+                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.s])
                 {
-                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H04_Gin____, startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.s], Playerside.P2));
+                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H04_Gin____, startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.s], Playerside.P2));
                     //System.C onsole.WriteLine("ms=" + ro_SfenStartpos.Moti2s);
                 }
 
                 //------------------------------
                 // 持ち駒 △桂
                 //------------------------------
-                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.n])
+                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.n])
                 {
-                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H03_Kei____, startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.n], Playerside.P2));
+                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H03_Kei____, startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.n], Playerside.P2));
                     //System.C onsole.WriteLine("mn=" + ro_SfenStartpos.Moti2n);
                 }
 
                 //------------------------------
                 // 持ち駒 △香
                 //------------------------------
-                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.l])
+                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.l])
                 {
-                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H02_Kyo____, startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.l], Playerside.P2));
+                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H02_Kyo____, startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.l], Playerside.P2));
                     //System.C onsole.WriteLine("ml=" + ro_SfenStartpos.Moti2l);
                 }
 
                 //------------------------------
                 // 持ち駒 △歩
                 //------------------------------
-                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.p])
+                if (0 < startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.p])
                 {
-                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H01_Fu_____, startposImporter.RO_SfenStartpos.MotiSu[(int)Pieces.p], Playerside.P2));
+                    parsedKyokumen.MotiList.Add(new MotiItemImpl(Komasyurui14.H01_Fu_____, startposImporter.RO_SfenStartpos.MotiSu[(int)Piece.p], Playerside.P2));
                     //System.C onsole.WriteLine("mp=" + ro_SfenStartpos.Moti2p);
                 }
             }

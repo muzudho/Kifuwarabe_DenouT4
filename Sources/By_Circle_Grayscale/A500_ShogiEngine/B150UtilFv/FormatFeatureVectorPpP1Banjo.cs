@@ -230,7 +230,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C490UtilFvFormat
                         sb.Append("     ");//5文字
                     }
 
-                    if (Const_FeatureVectorFormat.PARAMETER_INDEX_OUTPUT)
+                    if (FeatureVectorFormatDebugOptions.ParameterIndexOutput)
                     {
                         sb.Append("                                             ");//調整
                     }
@@ -267,7 +267,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C490UtilFvFormat
 
                             int p1 = p1_base + p1Masu;
                             int p2 = p2Item.P2_base + p2Masu;
-                            if (Const_FeatureVectorFormat.PARAMETER_INDEX_OUTPUT)
+                            if (FeatureVectorFormatDebugOptions.ParameterIndexOutput)
                             {
                                 sb.Append(string.Format("{0,4}_{1,4}", p1, p2));
                             }
@@ -329,7 +329,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C490UtilFvFormat
 
                     int p1 = p1_base + nMasu;
                     int p2 = p2Item.P2_base;
-                    if (Const_FeatureVectorFormat.PARAMETER_INDEX_OUTPUT)
+                    if (FeatureVectorFormatDebugOptions.ParameterIndexOutput)
                     {
                         sb.Append(string.Format("{0,4}_{1,4}", p1, p2));
                     }

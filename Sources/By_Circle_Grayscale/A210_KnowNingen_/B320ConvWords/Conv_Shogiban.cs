@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Grayscale.A120KifuSfen.B140SfenStruct.C250Struct;
+using Grayscale.A120KifuSfen;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
 using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
@@ -36,7 +36,7 @@ namespace Grayscale.A210KnowNingen.B320ConvWords.C500Converter
             StringBuilder sb = new StringBuilder();
 
             // 後手の持ち駒
-            for (int iMoti = (int)Pieces.StartGote; iMoti < (int)Pieces.NumGote; iMoti++)
+            for (int iMoti = (int)Piece.StartGote; iMoti < (int)Piece.NumGote; iMoti++)
             {
                 if (0 < shogiban.MotiSu[iMoti])
                 {
@@ -94,7 +94,7 @@ namespace Grayscale.A210KnowNingen.B320ConvWords.C500Converter
             sb.AppendLine("└──┴──┴──┴──┴──┴──┴──┴──┴──┘");
 
             // 先手の持ち駒
-            for (int iMoti = (int)Pieces.StartSente; iMoti < (int)Pieces.NumSente; iMoti++)
+            for (int iMoti = (int)Piece.StartSente; iMoti < (int)Piece.NumSente; iMoti++)
             {
                 if (0 < shogiban.MotiSu[iMoti])
                 {

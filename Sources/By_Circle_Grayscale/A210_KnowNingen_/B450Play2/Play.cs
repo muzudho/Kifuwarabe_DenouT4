@@ -1,6 +1,7 @@
 ﻿using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B410Collection.C500Struct;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
+using Grayscale.A210_KnowNingen_;
 using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
 using Grayscale.A210KnowNingen.B170WordShogi.C260Operator;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
@@ -163,7 +164,7 @@ namespace Grayscale.A210KnowNingen.B450Play2.C500Struct
                 //----------------------------------------
                 // 打ち歩詰めチェック
                 //----------------------------------------
-                if (false)
+                if (HumanKnowsDebugOptions.UtiFuDumeCheck)
                 {
                     Util_Utifudume.Utifudume(
                         psideA,

@@ -1,13 +1,12 @@
 ﻿using System;
-using Grayscale.A120KifuSfen.B120ConvSujiDan.C500Converter;
 
-namespace Grayscale.A120KifuSfen.B140SfenStruct.C250Struct
+namespace Grayscale.A120KifuSfen
 {
 
     /// <summary>
     /// SFENのstartpos。読取専用。
     /// </summary>
-    public class ROKyokumen2ForTokenizeImpl : ROKyokumen2ForTokenize
+    public class SfenFormat2Impl : ISfenFormat2
     {
         /// <summary>
         /// 盤上の駒を、文字の配列で。
@@ -27,7 +26,7 @@ namespace Grayscale.A120KifuSfen.B140SfenStruct.C250Struct
 
         public string GetKomaAs(int suji, int dan)
         {
-            return this.Masu201[Conv_SujiDan.ToMasu(suji, dan)];
+            return this.Masu201[Square.From(suji, dan)];
         }
 
         public void Foreach_Masu201(DELEGATE_Masu201 delegate_method)
@@ -53,6 +52,10 @@ namespace Grayscale.A120KifuSfen.B140SfenStruct.C250Struct
         /// 持駒の枚数。
         /// </summary>
         public int[] MotiSu { get { return this.m_motiSu_; } }
+
+        /// <summary>
+        /// Array.Copy でセットしてる。
+        /// </summary>
         private int[] m_motiSu_;
 
         /// <summary>
@@ -118,7 +121,7 @@ namespace Grayscale.A120KifuSfen.B140SfenStruct.C250Struct
 
 
 
-        public ROKyokumen2ForTokenizeImpl(
+        public SfenFormat2Impl(
             string[] masu201,
             int[] motiSu,
             int fK,//駒袋 王
@@ -171,9 +174,9 @@ namespace Grayscale.A120KifuSfen.B140SfenStruct.C250Struct
             Array.Copy(srcNumOfHand, this.m_motiSu_, srcNumOfHand.Length);
         }
 
-        public RO_Kyokumen1_ForFormat ToKyokumen1()
+        public ISfenPosition1 ToKyokumen1()
         {
-            RO_Kyokumen1_ForFormat ro_Kyokumen1 = new RO_Kyokumen1_ForFormatImpl();
+            ISfenPosition1 ro_Kyokumen1 = new SfenPosition1Impl();
 
             for (int suji = 1; suji < 10; suji++)
             {

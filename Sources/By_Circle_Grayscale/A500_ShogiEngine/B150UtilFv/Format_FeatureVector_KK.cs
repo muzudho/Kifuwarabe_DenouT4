@@ -61,7 +61,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C490UtilFvFormat
                     }
                     sb.Append("     ");//5文字
 
-                    if (Const_FeatureVectorFormat.PARAMETER_INDEX_OUTPUT)
+                    if (FeatureVectorFormatDebugOptions.ParameterIndexOutput)
                     {
                         sb.Append("                                             ");//調整
                     }
@@ -92,7 +92,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C490UtilFvFormat
 
                             Conv_FvKoumoku522.Converter_KK_to_PP(k1dan, k2dan, k1suji, k2suji, out p1, out p2);
 
-                            if (Const_FeatureVectorFormat.PARAMETER_INDEX_OUTPUT)
+                            if (FeatureVectorFormatDebugOptions.ParameterIndexOutput)
                             {
                                 sb.Append(string.Format("{0,4}_{1,4}", p1, p2));
                             }

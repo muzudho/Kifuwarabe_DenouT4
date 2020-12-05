@@ -234,6 +234,7 @@
     <Compile Include="B820KyokuParser\MotiItem.cs" />
     <Compile Include="B820KyokuParser\ParsedKyokumen.cs" />
     <Compile Include="B830ConvStartpo\Conv_StartposImporter.cs" />
+    <Compile Include="HumanKnowsDebugOptions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

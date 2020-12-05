@@ -3,8 +3,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A120KifuSfen.B140SfenStruct.C250Struct;
-using Grayscale.A120KifuSfen.B160ConvSfen.C500Converter;
+using Grayscale.A120KifuSfen;
 using Grayscale.A150LogKyokuPng.B100KyokumenPng.C500Struct;
 using Grayscale.A150LogKyokuPng.B200LogKyokuPng.C250UtilPaint;
 
@@ -39,9 +38,9 @@ namespace Grayscale.A150LogKyokuPng.B200LogKyokuPng.C500UtilWriter
             //
             // SFEN → RO_SfenStartpos
             //
-            ROKyokumen2ForTokenize ro_SfenStartpos;
+            ISfenFormat2 ro_SfenStartpos;
             string rest;
-            if (!Conv_Sfen.ToKyokumen2(sfenstring, out rest, out ro_SfenStartpos))
+            if (!SfenConf.ToKyokumen2(sfenstring, out rest, out ro_SfenStartpos))
             {
                 //System.Windows.Forms.MessageBox.Show(sfenstring,"sfenstringパース失敗");
                 successful = false;
@@ -75,7 +74,7 @@ namespace Grayscale.A150LogKyokuPng.B200LogKyokuPng.C500UtilWriter
         /// <param name="reportEnvironment"></param>
         /// <returns></returns>
         public static bool Write1(
-            RO_Kyokumen1_ForFormat ro_Kyokumen1,
+            ISfenPosition1 ro_Kyokumen1,
             int srcMasu_orMinusOne,
             int dstMasu_orMinusOne,
             KyokumenPngArgs_FoodOrDropKoma foodKoma,
@@ -103,7 +102,7 @@ namespace Grayscale.A150LogKyokuPng.B200LogKyokuPng.C500UtilWriter
                     string moji4;
                     string moji5;
                     string rest;
-                    Conv_Sfen.ToTokens_FromMove(
+                    SfenConf.ToTokens_FromMove(
                         sfenSasiteStr_orEmpty,
                         out moji1,
                         out moji2,
@@ -119,13 +118,13 @@ namespace Grayscale.A150LogKyokuPng.B200LogKyokuPng.C500UtilWriter
                     {
                         switch (moji1)
                         {
-                            case Word_Sfen.P_PAWN__: dropKoma = KyokumenPngArgs_FoodOrDropKoma.FU__; break;
-                            case Word_Sfen.L_LANCE_: dropKoma = KyokumenPngArgs_FoodOrDropKoma.KYO_; break;
-                            case Word_Sfen.N_KNIGHT: dropKoma = KyokumenPngArgs_FoodOrDropKoma.KEI_; break;
-                            case Word_Sfen.S_SILVER: dropKoma = KyokumenPngArgs_FoodOrDropKoma.GIN_; break;
-                            case Word_Sfen.G_GOLD__: dropKoma = KyokumenPngArgs_FoodOrDropKoma.KIN_; break;
-                            case Word_Sfen.B_BISHOP: dropKoma = KyokumenPngArgs_FoodOrDropKoma.KAKU; break;
-                            case Word_Sfen.R_ROOK__: dropKoma = KyokumenPngArgs_FoodOrDropKoma.HI__; break;
+                            case SfenWord.P_PAWN__: dropKoma = KyokumenPngArgs_FoodOrDropKoma.FU__; break;
+                            case SfenWord.L_LANCE_: dropKoma = KyokumenPngArgs_FoodOrDropKoma.KYO_; break;
+                            case SfenWord.N_KNIGHT: dropKoma = KyokumenPngArgs_FoodOrDropKoma.KEI_; break;
+                            case SfenWord.S_SILVER: dropKoma = KyokumenPngArgs_FoodOrDropKoma.GIN_; break;
+                            case SfenWord.G_GOLD__: dropKoma = KyokumenPngArgs_FoodOrDropKoma.KIN_; break;
+                            case SfenWord.B_BISHOP: dropKoma = KyokumenPngArgs_FoodOrDropKoma.KAKU; break;
+                            case SfenWord.R_ROOK__: dropKoma = KyokumenPngArgs_FoodOrDropKoma.HI__; break;
                             default: break;
                         }
                     }

@@ -82,7 +82,7 @@
     <Compile Include="B220Tansaku\Tansaku_Args.cs" />
     <Compile Include="B220Tansaku\Tansaku_Genjo.cs" />
     <Compile Include="B240TansaFukasa\Tansaku_FukasaYusen_Routine.cs" />
-    <Compile Include="B150UtilFv\Const_FeatureVectorFormat.cs" />
+    <Compile Include="B150UtilFv\FeatureVectorFormatDebugOptions.cs" />
     <Compile Include="B150UtilFv\Format_FeatureVector_KK.cs" />
     <Compile Include="B150UtilFv\FormatFeatureVectorKP.cs" />
     <Compile Include="B150UtilFv\FormatFeatureVectorPpP1Banjo.cs" />

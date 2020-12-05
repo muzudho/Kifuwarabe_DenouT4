@@ -1,6 +1,6 @@
 ﻿using System;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A120KifuSfen.B160ConvSfen.C500Converter;
+using Grayscale.A120KifuSfen;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B240Move.C500Struct;
 using Grayscale.A210KnowNingen.B270Sky.C500Struct;
@@ -39,7 +39,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C400Conv
                     string str7;
                     string str8;
                     string str9;
-                    if (Conv_Sfen.ToTokens_FromMove(
+                    if (SfenConf.ToTokens_FromMove(
                         sfenMove2, out str1, out str2, out str3, out str4, out str5,
                         out out_restString, errH)
                         &&

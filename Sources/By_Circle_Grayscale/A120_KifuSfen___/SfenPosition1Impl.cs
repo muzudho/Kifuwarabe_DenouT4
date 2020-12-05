@@ -1,13 +1,11 @@
-﻿using Grayscale.A120KifuSfen.B140SfenStruct.C250Struct;
-
-namespace Grayscale.A120KifuSfen.B140SfenStruct.C250Struct
+﻿namespace Grayscale.A120KifuSfen
 {
 
     /// <summary>
     /// 盤上の駒を２次元配列で。
     /// 持ち駒を種類別の配列で。
     /// </summary>
-    public class RO_Kyokumen1_ForFormatImpl : RO_Kyokumen1_ForFormat
+    public class SfenPosition1Impl : ISfenPosition1
     {
 
         public string[,] Ban { get; set; }
@@ -23,7 +21,7 @@ namespace Grayscale.A120KifuSfen.B140SfenStruct.C250Struct
         /// </summary>
         public int Temezumi { get; set; }
 
-        public RO_Kyokumen1_ForFormatImpl()
+        public SfenPosition1Impl()
         {
             this.Ban = new string[10, 10];// 将棋盤。10×10。0は使わない。
             {// 全クリアー
@@ -39,7 +37,7 @@ namespace Grayscale.A120KifuSfen.B140SfenStruct.C250Struct
 
             // 持ち駒の枚数。
             // 駒の種類は [0]から、空っぽ,空っぽ,▲飛,▲角,▲金,▲銀,▲桂,▲香,▲歩,空っぽ,△飛,△角,△金,△銀,△桂,△香,△歩 の順。
-            this.MotiSu = new int[(int)Pieces.Num];
+            this.MotiSu = new int[(int)Piece.Num];
 
             this.Temezumi = 1;//将棋所に合わせて、 1固定 をデフォルトとする。
         }

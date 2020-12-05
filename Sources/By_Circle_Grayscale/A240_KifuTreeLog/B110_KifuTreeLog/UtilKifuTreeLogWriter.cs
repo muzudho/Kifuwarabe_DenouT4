@@ -12,6 +12,7 @@ using Grayscale.A210KnowNingen.B250LogKaisetu.C250Struct;
 using Grayscale.A210KnowNingen.B270Sky.C500Struct;
 using Grayscale.A210KnowNingen.B280Tree.C500Struct;
 using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
+using Grayscale.A120KifuSfen;
 
 #if DEBUG
 using System;

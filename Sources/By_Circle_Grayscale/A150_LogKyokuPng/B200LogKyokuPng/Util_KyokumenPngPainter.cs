@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 using Grayscale.A060Application.B610_ConstShogi_.C250Const;
-using Grayscale.A120KifuSfen.B140SfenStruct.C250Struct;
+using Grayscale.A120KifuSfen;
 using Grayscale.A150LogKyokuPng.B100KyokumenPng.C500Struct;
 
 namespace Grayscale.A150LogKyokuPng.B200LogKyokuPng.C250UtilPaint
@@ -109,18 +109,17 @@ namespace Grayscale.A150LogKyokuPng.B200LogKyokuPng.C250UtilPaint
                 string[] signs = new string[] { "", "", "r", "b", "g", "s", "n", "l", "p" };
                 int ox = 0;
                 int oy = 0;
-                for (int iMoti = (int)Pieces.StartGote; iMoti < (int)Pieces.NumGote; iMoti++)
+                for (int iMoti = (int)Piece.StartGote; iMoti < (int)Piece.NumGote; iMoti++)
                 {
                     Point pt = Util_KyokumenPngPainter.CropXyBySign(signs[iMoti], args);
                     // 枚数
-                    int player = 2;
                     int maisu = args.Ro_Kyokumen1.MotiSu[iMoti];
                     if (0 < maisu)
                     {
                         //駒
                         g.DrawImage(
                             Image.FromFile(args.Env.ImgFolder + args.Env.KmFile),
-                            new Rectangle(ox, (signs.Length - iMoti - (int)PieceTypes.Start - 1) * args.Env.KmH + oy, args.Env.KmW, args.Env.KmH),//dst
+                            new Rectangle(ox, (signs.Length - iMoti - (int)PieceType.Start - 1) * args.Env.KmH + oy, args.Env.KmW, args.Env.KmH),//dst
                             new Rectangle(pt.X, pt.Y, args.Env.KmW, args.Env.KmH),//src
                             GraphicsUnit.Pixel
                             );
@@ -158,17 +157,16 @@ namespace Grayscale.A150LogKyokuPng.B200LogKyokuPng.C250UtilPaint
                 string[] signs = new string[] { "", "", "R", "B", "G", "S", "N", "L", "P" };
                 int ox = (args.Env.KmW + 2 * args.Env.SjW) + 9 * args.Env.KmW + BN_BRD_R_W;
                 int oy = (9 * args.Env.KmW + BN_BRD_B_W) - 7 * args.Env.KmH;
-                for (int iMoti = (int)Pieces.StartSente; iMoti < (int)Pieces.NumSente; iMoti++)
+                for (int iMoti = (int)Piece.StartSente; iMoti < (int)Piece.NumSente; iMoti++)
                 {
                     Point pt = Util_KyokumenPngPainter.CropXyBySign(signs[iMoti], args);
 
                     // 枚数
-                    int player = 1;
                     int maisu = args.Ro_Kyokumen1.MotiSu[iMoti];
                     if (0 < maisu)
                     {
                         g.DrawImage(Image.FromFile(args.Env.ImgFolder + args.Env.KmFile),
-                            new Rectangle(ox, (iMoti - (int)PieceTypes.Start) * args.Env.KmH + oy, args.Env.KmW, args.Env.KmH),//dst
+                            new Rectangle(ox, (iMoti - (int)PieceType.Start) * args.Env.KmH + oy, args.Env.KmW, args.Env.KmH),//dst
                             new Rectangle(pt.X, pt.Y, args.Env.KmW, args.Env.KmH),//src
                             GraphicsUnit.Pixel
                             );//駒
@@ -181,7 +179,7 @@ namespace Grayscale.A150LogKyokuPng.B200LogKyokuPng.C250UtilPaint
                                 ju = -1;//空桁
                             }
                             g.DrawImage(Image.FromFile(args.Env.ImgFolder + args.Env.SjFile),
-                                new Rectangle(ox + args.Env.KmW, (iMoti - (int)PieceTypes.Start) * args.Env.KmH + (args.Env.KmH - args.Env.SjH) + oy, args.Env.SjW, args.Env.SjH),//dst
+                                new Rectangle(ox + args.Env.KmW, (iMoti - (int)PieceType.Start) * args.Env.KmH + (args.Env.KmH - args.Env.SjH) + oy, args.Env.SjW, args.Env.SjH),//dst
                                 new Rectangle(ju * args.Env.SjW, 0, args.Env.SjW, args.Env.SjH),//src
                                 GraphicsUnit.Pixel
                                 );// 十の位
@@ -191,7 +189,7 @@ namespace Grayscale.A150LogKyokuPng.B200LogKyokuPng.C250UtilPaint
                         {
                             int ichi = maisu % 10;
                             g.DrawImage(Image.FromFile(args.Env.ImgFolder + args.Env.SjFile),
-                                new Rectangle(ox + args.Env.KmW + args.Env.SjW, (iMoti - (int)PieceTypes.Start) * args.Env.KmH + (args.Env.KmH - args.Env.SjH) + oy, args.Env.SjW, args.Env.SjH),//dst
+                                new Rectangle(ox + args.Env.KmW + args.Env.SjW, (iMoti - (int)PieceType.Start) * args.Env.KmH + (args.Env.KmH - args.Env.SjH) + oy, args.Env.SjW, args.Env.SjH),//dst
                                 new Rectangle(ichi * args.Env.SjW, 0, args.Env.SjW, args.Env.SjH),//src
                                 GraphicsUnit.Pixel
                                 );// 一の位

@@ -1,8 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Text;
-using Grayscale.A120KifuSfen.B140SfenStruct.C250Struct;
 
-namespace Grayscale.A120KifuSfen.B140SfenStruct.C500Util
+namespace Grayscale.A120KifuSfen
 {
 
     /// <summary>
@@ -10,12 +9,12 @@ namespace Grayscale.A120KifuSfen.B140SfenStruct.C500Util
     /// SFEN形式の初期配置の書き方の、データの持ち方です。
     /// ************************************************************************************************************************
     /// </summary>
-    public class Util_RO_Kyokumen2
+    public static class SfenFormat2Reference
     {
 
 
 
-        public static void Assert_Koma40(ROKyokumen2ForTokenize result, string hint)
+        public static void Assert_Koma40(ISfenFormat2 result, string hint)
         {
             //#if DEBUG
             StringBuilder sb = new StringBuilder();

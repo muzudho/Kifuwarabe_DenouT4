@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A120KifuSfen.B140SfenStruct.C250Struct;
+using Grayscale.A120KifuSfen;
 using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
@@ -46,7 +46,7 @@ namespace Grayscale.A210KnowNingen.B360_MasusWriter.C500Util
                     else
                     {
                         // TODO: まだ使えない☆（＾～＾）
-                        Pieces piece;
+                        Piece piece;
                         Conv_Masu.ToPiece_FromBangaiMasu(hMasu1, out piece);
 
                         sb.Append("["
@@ -84,7 +84,7 @@ namespace Grayscale.A210KnowNingen.B360_MasusWriter.C500Util
                     else
                     {
                         // TODO: まだ使えない☆（＾～＾）
-                        Pieces piece;
+                        Piece piece;
                         Conv_Masu.ToPiece_FromBangaiMasu(hMasu1, out piece);
 
                         sb.Append("["
@@ -123,7 +123,7 @@ namespace Grayscale.A210KnowNingen.B360_MasusWriter.C500Util
                     else
                     {
                         // TODO: まだ使えない☆（＾～＾）
-                        Pieces piece;
+                        Piece piece;
                         Conv_Masu.ToPiece_FromBangaiMasu(hMasu1, out piece);
 
                         sb.Append(
@@ -218,7 +218,7 @@ namespace Grayscale.A210KnowNingen.B360_MasusWriter.C500Util
                     else
                     {
                         // TODO: まだ使えない☆（＾～＾）
-                        Pieces piece;
+                        Piece piece;
                         Conv_Masu.ToPiece_FromBangaiMasu(hMasu1, out piece);
 
                         sb.Append("["
@@ -257,7 +257,7 @@ namespace Grayscale.A210KnowNingen.B360_MasusWriter.C500Util
                     else
                     {
                         // TODO: まだ使えない☆（＾～＾）
-                        Pieces piece;
+                        Piece piece;
                         Conv_Masu.ToPiece_FromBangaiMasu(hMasu1, out piece);
 
                         sb.Append(

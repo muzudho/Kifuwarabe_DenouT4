@@ -1,5 +1,5 @@
 ﻿using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A120KifuSfen.B140SfenStruct.C250Struct;
+using Grayscale.A120KifuSfen;
 using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
 using Grayscale.A210KnowNingen.B190Komasyurui.C500Util;
 using Grayscale.A210KnowNingen.B240Move.C500Struct;
@@ -44,7 +44,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
             ILogger errH
         )
         {
-            motiSu = new int[(int)Pieces.Num];
+            motiSu = new int[(int)Piece.Num];
 
             Fingers komas_moti1p;// 先手の持駒
             Fingers komas_moti2p;// 後手の持駒
@@ -58,35 +58,35 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
                 Komasyurui14 syurui = Util_Komasyurui14.NarazuCaseHandle(Conv_Busstop.ToKomasyurui(busstop));
                 if (Komasyurui14.H06_Gyoku__ == syurui)
                 {
-                    motiSu[(int)Pieces.K]++;
+                    motiSu[(int)Piece.K]++;
                 }
                 else if (Komasyurui14.H07_Hisya__ == syurui)
                 {
-                    motiSu[(int)Pieces.R]++;
+                    motiSu[(int)Piece.R]++;
                 }
                 else if (Komasyurui14.H08_Kaku___ == syurui)
                 {
-                    motiSu[(int)Pieces.B]++;
+                    motiSu[(int)Piece.B]++;
                 }
                 else if (Komasyurui14.H05_Kin____ == syurui)
                 {
-                    motiSu[(int)Pieces.G]++;
+                    motiSu[(int)Piece.G]++;
                 }
                 else if (Komasyurui14.H04_Gin____ == syurui)
                 {
-                    motiSu[(int)Pieces.S]++;
+                    motiSu[(int)Piece.S]++;
                 }
                 else if (Komasyurui14.H03_Kei____ == syurui)
                 {
-                    motiSu[(int)Pieces.N]++;
+                    motiSu[(int)Piece.N]++;
                 }
                 else if (Komasyurui14.H02_Kyo____ == syurui)
                 {
-                    motiSu[(int)Pieces.L]++;
+                    motiSu[(int)Piece.L]++;
                 }
                 else if (Komasyurui14.H01_Fu_____ == syurui)
                 {
-                    motiSu[(int)Pieces.P]++;
+                    motiSu[(int)Piece.P]++;
                 }
                 else
                 {
@@ -103,35 +103,35 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
 
                 if (Komasyurui14.H06_Gyoku__ == syurui)
                 {
-                    motiSu[(int)Pieces.k]++;
+                    motiSu[(int)Piece.k]++;
                 }
                 else if (Komasyurui14.H07_Hisya__ == syurui)
                 {
-                    motiSu[(int)Pieces.r]++;
+                    motiSu[(int)Piece.r]++;
                 }
                 else if (Komasyurui14.H08_Kaku___ == syurui)
                 {
-                    motiSu[(int)Pieces.b]++;
+                    motiSu[(int)Piece.b]++;
                 }
                 else if (Komasyurui14.H05_Kin____ == syurui)
                 {
-                    motiSu[(int)Pieces.g]++;
+                    motiSu[(int)Piece.g]++;
                 }
                 else if (Komasyurui14.H04_Gin____ == syurui)
                 {
-                    motiSu[(int)Pieces.s]++;
+                    motiSu[(int)Piece.s]++;
                 }
                 else if (Komasyurui14.H03_Kei____ == syurui)
                 {
-                    motiSu[(int)Pieces.n]++;
+                    motiSu[(int)Piece.n]++;
                 }
                 else if (Komasyurui14.H02_Kyo____ == syurui)
                 {
-                    motiSu[(int)Pieces.l]++;
+                    motiSu[(int)Piece.l]++;
                 }
                 else if (Komasyurui14.H01_Fu_____ == syurui)
                 {
-                    motiSu[(int)Pieces.p]++;
+                    motiSu[(int)Piece.p]++;
                 }
                 else
                 {

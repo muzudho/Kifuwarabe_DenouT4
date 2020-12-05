@@ -2,7 +2,7 @@
 using System.Text;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A060Application.B620ConvText.C500Converter;
-using Grayscale.A120KifuSfen.B140SfenStruct.C250Struct;
+using Grayscale.A120KifuSfen;
 using Grayscale.A180KifuCsa.B120KifuCsa.C250Struct;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
@@ -127,15 +127,15 @@ namespace Grayscale.A210KnowNingen.B800ConvCsa.C500Converter
                 string syurui;
                 switch (csa.Syurui)
                 {
-                    case Word_Csa.FU_FU_____: syurui = Word_Sfen.P_PAWN__; break;
-                    case Word_Csa.KY_KYO____: syurui = Word_Sfen.L_LANCE_; break;
-                    case Word_Csa.KE_KEI____: syurui = Word_Sfen.N_KNIGHT; break;
-                    case Word_Csa.GI_GIN____: syurui = Word_Sfen.S_SILVER; break;
-                    case Word_Csa.KI_KIN____: syurui = Word_Sfen.G_GOLD__; break;
-                    case Word_Csa.KA_KAKU___: syurui = Word_Sfen.B_BISHOP; break;
-                    case Word_Csa.HI_HISYA__: syurui = Word_Sfen.R_ROOK__; break;
-                    case Word_Csa.OU_OU_____: syurui = Word_Sfen.K_KING__; break;//おまけ
-                    default: syurui = Word_Sfen.ERROR___; break;//エラー
+                    case Word_Csa.FU_FU_____: syurui = SfenWord.P_PAWN__; break;
+                    case Word_Csa.KY_KYO____: syurui = SfenWord.L_LANCE_; break;
+                    case Word_Csa.KE_KEI____: syurui = SfenWord.N_KNIGHT; break;
+                    case Word_Csa.GI_GIN____: syurui = SfenWord.S_SILVER; break;
+                    case Word_Csa.KI_KIN____: syurui = SfenWord.G_GOLD__; break;
+                    case Word_Csa.KA_KAKU___: syurui = SfenWord.B_BISHOP; break;
+                    case Word_Csa.HI_HISYA__: syurui = SfenWord.R_ROOK__; break;
+                    case Word_Csa.OU_OU_____: syurui = SfenWord.K_KING__; break;//おまけ
+                    default: syurui = SfenWord.ERROR___; break;//エラー
                 }
 
                 sb.Append(syurui);

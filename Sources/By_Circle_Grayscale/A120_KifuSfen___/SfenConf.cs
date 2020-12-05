@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A120KifuSfen.B120ConvSujiDan.C500Converter;
-using Grayscale.A120KifuSfen.B140SfenStruct.C250Struct;
-using Grayscale.A120KifuSfen.B140SfenStruct.C500Util;
 
-namespace Grayscale.A120KifuSfen.B160ConvSfen.C500Converter
+namespace Grayscale.A120KifuSfen
 {
     /// <summary>
     /// SFEN用の変換。
     /// </summary>
-    public abstract class Conv_Sfen
+    public abstract class SfenConf
     {
         /// <summary>
         /// 持ち駒の枚数を数えます。
@@ -141,7 +138,7 @@ namespace Grayscale.A120KifuSfen.B160ConvSfen.C500Converter
         public static bool ToKyokumen2(
             string inputLine,
             out string rest,
-            out ROKyokumen2ForTokenize result_kyokumen2
+            out ISfenFormat2 result_kyokumen2
             )
         {
 
@@ -269,7 +266,7 @@ namespace Grayscale.A120KifuSfen.B160ConvSfen.C500Converter
 
                             )
                         {
-                            result_kyokumen2 = Conv_Sfen.ToKyokumen2_ReadString2(
+                            result_kyokumen2 = SfenConf.ToKyokumen2_ReadString2(
                                 stra[1],  //1段目
                                 stra[2],  //2段目
                                 stra[3],  //3段目
@@ -360,7 +357,7 @@ namespace Grayscale.A120KifuSfen.B160ConvSfen.C500Converter
         /// <param name="ml_Str"></param>
         /// <param name="mp_Str"></param>
         /// <param name="temezumi_Str"></param>
-        private static ROKyokumen2ForTokenize ToKyokumen2_ReadString2(
+        private static ISfenFormat2 ToKyokumen2_ReadString2(
             string dan1,  //1段目
             string dan2,//2段目
             string dan3,//3段目
@@ -401,22 +398,22 @@ namespace Grayscale.A120KifuSfen.B160ConvSfen.C500Converter
 
             int[] motiSu = new int[] {
                 0,//空き
-                Conv_Sfen.CountMaisu(mK_Str),  //持駒▲王
-                Conv_Sfen.CountMaisu(mR_Str),  //持駒▲飛
-                Conv_Sfen.CountMaisu(mB_Str),  //持駒▲角
-                Conv_Sfen.CountMaisu(mG_Str),  //持駒▲金
-                Conv_Sfen.CountMaisu(mS_Str),  //持駒▲銀
-                Conv_Sfen.CountMaisu(mN_Str),  //持駒▲桂
-                Conv_Sfen.CountMaisu(mL_Str),  //持駒▲香
-                Conv_Sfen.CountMaisu(mP_Str),  //持駒▲歩
-                Conv_Sfen.CountMaisu(mk_Str),  //持駒△王
-                Conv_Sfen.CountMaisu(mr_Str),  //持駒△飛
-                Conv_Sfen.CountMaisu(mb_Str),  //持駒△角
-                Conv_Sfen.CountMaisu(mg_Str),  //持駒△金
-                Conv_Sfen.CountMaisu(ms_Str),  //持駒△銀
-                Conv_Sfen.CountMaisu(mn_Str),  //持駒△桂
-                Conv_Sfen.CountMaisu(ml_Str),  //持駒△香
-                Conv_Sfen.CountMaisu(mp_Str),  //持駒△歩
+                SfenConf.CountMaisu(mK_Str),  //持駒▲王
+                SfenConf.CountMaisu(mR_Str),  //持駒▲飛
+                SfenConf.CountMaisu(mB_Str),  //持駒▲角
+                SfenConf.CountMaisu(mG_Str),  //持駒▲金
+                SfenConf.CountMaisu(mS_Str),  //持駒▲銀
+                SfenConf.CountMaisu(mN_Str),  //持駒▲桂
+                SfenConf.CountMaisu(mL_Str),  //持駒▲香
+                SfenConf.CountMaisu(mP_Str),  //持駒▲歩
+                SfenConf.CountMaisu(mk_Str),  //持駒△王
+                SfenConf.CountMaisu(mr_Str),  //持駒△飛
+                SfenConf.CountMaisu(mb_Str),  //持駒△角
+                SfenConf.CountMaisu(mg_Str),  //持駒△金
+                SfenConf.CountMaisu(ms_Str),  //持駒△銀
+                SfenConf.CountMaisu(mn_Str),  //持駒△桂
+                SfenConf.CountMaisu(ml_Str),  //持駒△香
+                SfenConf.CountMaisu(mp_Str),  //持駒△歩
             };
 
             string[] strDanArr = new string[]{
@@ -523,7 +520,7 @@ namespace Grayscale.A120KifuSfen.B160ConvSfen.C500Converter
                                 case "+p": bP++; break;
                             }
 
-                            masu201[Conv_SujiDan.ToMasu(suji, dan)] = moji;
+                            masu201[Square.From(suji, dan)] = moji;
 
                             suji--;
                         }
@@ -532,14 +529,14 @@ namespace Grayscale.A120KifuSfen.B160ConvSfen.C500Converter
             }
 
             // 駒袋の中に残っている駒の数を数えます。
-            int fK = 2 - bK - motiSu[(int)Pieces.K] - motiSu[(int)Pieces.k];
-            int fR = 2 - bR - motiSu[(int)Pieces.R] - motiSu[(int)Pieces.r]; // 将棋盤上の駒の数も数えないと☆
-            int fB = 2 - bB - motiSu[(int)Pieces.B] - motiSu[(int)Pieces.b];
-            int fG = 4 - bG - motiSu[(int)Pieces.G] - motiSu[(int)Pieces.g];
-            int fS = 4 - bS - motiSu[(int)Pieces.S] - motiSu[(int)Pieces.s];
-            int fN = 4 - bN - motiSu[(int)Pieces.N] - motiSu[(int)Pieces.n];
-            int fL = 4 - bL - motiSu[(int)Pieces.L] - motiSu[(int)Pieces.l];
-            int fP = 18 - bP - motiSu[(int)Pieces.P] - motiSu[(int)Pieces.p];
+            int fK = 2 - bK - motiSu[(int)Piece.K] - motiSu[(int)Piece.k];
+            int fR = 2 - bR - motiSu[(int)Piece.R] - motiSu[(int)Piece.r]; // 将棋盤上の駒の数も数えないと☆
+            int fB = 2 - bB - motiSu[(int)Piece.B] - motiSu[(int)Piece.b];
+            int fG = 4 - bG - motiSu[(int)Piece.G] - motiSu[(int)Piece.g];
+            int fS = 4 - bS - motiSu[(int)Piece.S] - motiSu[(int)Piece.s];
+            int fN = 4 - bN - motiSu[(int)Piece.N] - motiSu[(int)Piece.n];
+            int fL = 4 - bL - motiSu[(int)Piece.L] - motiSu[(int)Piece.l];
+            int fP = 18 - bP - motiSu[(int)Piece.P] - motiSu[(int)Piece.p];
 
 
             // 盤外
@@ -549,24 +546,24 @@ namespace Grayscale.A120KifuSfen.B160ConvSfen.C500Converter
                 // 持ち駒
 
                 iMasu = 81;// (int)Masu_Honshogi.nsen01;
-                for (int i = 0; i < motiSu[(int)Pieces.K]; i++) { masu201[(int)iMasu] = "K"; iMasu++; }//▲王
-                for (int i = 0; i < motiSu[(int)Pieces.R]; i++) { masu201[(int)iMasu] = "R"; iMasu++; }//▲飛
-                for (int i = 0; i < motiSu[(int)Pieces.B]; i++) { masu201[(int)iMasu] = "B"; iMasu++; }//▲角
-                for (int i = 0; i < motiSu[(int)Pieces.G]; i++) { masu201[(int)iMasu] = "G"; iMasu++; }//▲金
-                for (int i = 0; i < motiSu[(int)Pieces.S]; i++) { masu201[(int)iMasu] = "S"; iMasu++; }//▲銀
-                for (int i = 0; i < motiSu[(int)Pieces.N]; i++) { masu201[(int)iMasu] = "N"; iMasu++; }//▲桂
-                for (int i = 0; i < motiSu[(int)Pieces.L]; i++) { masu201[(int)iMasu] = "L"; iMasu++; }//▲香
-                for (int i = 0; i < motiSu[(int)Pieces.P]; i++) { masu201[(int)iMasu] = "P"; iMasu++; }//▲歩
+                for (int i = 0; i < motiSu[(int)Piece.K]; i++) { masu201[(int)iMasu] = "K"; iMasu++; }//▲王
+                for (int i = 0; i < motiSu[(int)Piece.R]; i++) { masu201[(int)iMasu] = "R"; iMasu++; }//▲飛
+                for (int i = 0; i < motiSu[(int)Piece.B]; i++) { masu201[(int)iMasu] = "B"; iMasu++; }//▲角
+                for (int i = 0; i < motiSu[(int)Piece.G]; i++) { masu201[(int)iMasu] = "G"; iMasu++; }//▲金
+                for (int i = 0; i < motiSu[(int)Piece.S]; i++) { masu201[(int)iMasu] = "S"; iMasu++; }//▲銀
+                for (int i = 0; i < motiSu[(int)Piece.N]; i++) { masu201[(int)iMasu] = "N"; iMasu++; }//▲桂
+                for (int i = 0; i < motiSu[(int)Piece.L]; i++) { masu201[(int)iMasu] = "L"; iMasu++; }//▲香
+                for (int i = 0; i < motiSu[(int)Piece.P]; i++) { masu201[(int)iMasu] = "P"; iMasu++; }//▲歩
 
                 iMasu = 121;// (int)Masu_Honshogi.ngo01;
-                for (int i = 0; i < motiSu[(int)Pieces.k]; i++) { masu201[(int)iMasu] = "k"; iMasu++; }//△王
-                for (int i = 0; i < motiSu[(int)Pieces.r]; i++) { masu201[(int)iMasu] = "r"; iMasu++; }//△飛
-                for (int i = 0; i < motiSu[(int)Pieces.b]; i++) { masu201[(int)iMasu] = "b"; iMasu++; }//△角
-                for (int i = 0; i < motiSu[(int)Pieces.g]; i++) { masu201[(int)iMasu] = "g"; iMasu++; }//△金
-                for (int i = 0; i < motiSu[(int)Pieces.s]; i++) { masu201[(int)iMasu] = "s"; iMasu++; }//△銀
-                for (int i = 0; i < motiSu[(int)Pieces.n]; i++) { masu201[(int)iMasu] = "n"; iMasu++; }//△桂
-                for (int i = 0; i < motiSu[(int)Pieces.l]; i++) { masu201[(int)iMasu] = "l"; iMasu++; }//△香
-                for (int i = 0; i < motiSu[(int)Pieces.p]; i++) { masu201[(int)iMasu] = "p"; iMasu++; }//△歩
+                for (int i = 0; i < motiSu[(int)Piece.k]; i++) { masu201[(int)iMasu] = "k"; iMasu++; }//△王
+                for (int i = 0; i < motiSu[(int)Piece.r]; i++) { masu201[(int)iMasu] = "r"; iMasu++; }//△飛
+                for (int i = 0; i < motiSu[(int)Piece.b]; i++) { masu201[(int)iMasu] = "b"; iMasu++; }//△角
+                for (int i = 0; i < motiSu[(int)Piece.g]; i++) { masu201[(int)iMasu] = "g"; iMasu++; }//△金
+                for (int i = 0; i < motiSu[(int)Piece.s]; i++) { masu201[(int)iMasu] = "s"; iMasu++; }//△銀
+                for (int i = 0; i < motiSu[(int)Piece.n]; i++) { masu201[(int)iMasu] = "n"; iMasu++; }//△桂
+                for (int i = 0; i < motiSu[(int)Piece.l]; i++) { masu201[(int)iMasu] = "l"; iMasu++; }//△香
+                for (int i = 0; i < motiSu[(int)Piece.p]; i++) { masu201[(int)iMasu] = "p"; iMasu++; }//△歩
 
                 iMasu = 161;// (int)Masu_Honshogi.nfukuro01;
                 for (int i = 0; i < fP; i++) { masu201[(int)iMasu] = "P"; iMasu++; }//駒袋 歩
@@ -580,7 +577,7 @@ namespace Grayscale.A120KifuSfen.B160ConvSfen.C500Converter
             }
 
 
-            ROKyokumen2ForTokenize result = new ROKyokumen2ForTokenizeImpl(
+            ISfenFormat2 result = new SfenFormat2Impl(
                 masu201,//全升
                 motiSu,//持駒の枚数
 
@@ -597,7 +594,7 @@ namespace Grayscale.A120KifuSfen.B160ConvSfen.C500Converter
                 temezumi_Str  //手目
             );
 
-            Util_RO_Kyokumen2.Assert_Koma40(result,
+            SfenFormat2Reference.Assert_Koma40(result,
                 " dan1=[" + dan1 + "]\n"
                 + " dan2=[" + dan2 + "]\n"
                 + " dan3=[" + dan3 + "]\n"

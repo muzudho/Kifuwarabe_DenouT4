@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Text;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A120KifuSfen.B140SfenStruct.C250Struct;
+using Grayscale.A120KifuSfen;
 using Grayscale.A210KnowNingen.B130Json.C500Struct;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
@@ -18,18 +18,18 @@ namespace Grayscale.A210KnowNingen.B600UtilSky.C500Util
     public abstract class UtilSky307
     {
 
-        public static SfenstringImpl ExportSfen(Playerside psideA, ISky positionA, ILogger errH)
+        public static SfenStringImpl ExportSfen(Playerside psideA, ISky positionA, ILogger errH)
         {
             Debug.Assert(positionA.Count == 40, "sky.Starlights.Count=[" + positionA.Count + "]");//将棋の駒の数
 
-            return new SfenstringImpl("sfen " + Util_StartposExporter.ToSfenstring(
+            return new SfenStringImpl("sfen " + Util_StartposExporter.ToSfenstring(
                 Conv_Sky.ToShogiban(psideA, positionA, errH), false));
         }
 
-        public static SfenstringImpl ExportSfen_ForDebug(
+        public static SfenStringImpl ExportSfen_ForDebug(
             Playerside psideA, ISky positionA, bool psideIsBlack, ILogger logger)
         {
-            return new SfenstringImpl("sfen " + Util_StartposExporter.ToSfenstring(
+            return new SfenStringImpl("sfen " + Util_StartposExporter.ToSfenstring(
                 Conv_Sky.ToShogiban(psideA, positionA, logger), true));
         }
 

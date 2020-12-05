@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A120KifuSfen.B140SfenStruct.C250Struct;
+using Grayscale.A120KifuSfen;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
 using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
@@ -19,8 +19,8 @@ namespace Grayscale.A210KnowNingen.B310Shogiban.C250Struct
             this.KaisiPside = Playerside.Empty;
             this.BanjoKomas = new Dictionary<int, Busstop>();
             this.ErrorMessage = new Dictionary<int, string>();
-            this.m_motiSu_ = new int[(int)Pieces.Num];
-            this.m_komabukuroSu_ = new int[(int)PieceTypes.Num];
+            this.m_motiSu_ = new int[(int)Piece.Num];
+            this.m_komabukuroSu_ = new int[(int)PieceType.Num];
         }
 
 
@@ -100,28 +100,28 @@ namespace Grayscale.A210KnowNingen.B310Shogiban.C250Struct
                 switch (Conv_Busstop.ToKomasyurui(koma))
                 {
                     case Komasyurui14.H01_Fu_____:
-                        this.m_motiSu_[(int)Pieces.P]++;
+                        this.m_motiSu_[(int)Piece.P]++;
                         break;
                     case Komasyurui14.H02_Kyo____:
-                        this.m_motiSu_[(int)Pieces.L]++;
+                        this.m_motiSu_[(int)Piece.L]++;
                         break;
                     case Komasyurui14.H03_Kei____:
-                        this.m_motiSu_[(int)Pieces.N]++;
+                        this.m_motiSu_[(int)Piece.N]++;
                         break;
                     case Komasyurui14.H04_Gin____:
-                        this.m_motiSu_[(int)Pieces.S]++;
+                        this.m_motiSu_[(int)Piece.S]++;
                         break;
                     case Komasyurui14.H05_Kin____:
-                        this.m_motiSu_[(int)Pieces.G]++;
+                        this.m_motiSu_[(int)Piece.G]++;
                         break;
                     case Komasyurui14.H06_Gyoku__:
-                        this.m_motiSu_[(int)Pieces.K]++;
+                        this.m_motiSu_[(int)Piece.K]++;
                         break;
                     case Komasyurui14.H07_Hisya__:
-                        this.m_motiSu_[(int)Pieces.R]++;
+                        this.m_motiSu_[(int)Piece.R]++;
                         break;
                     case Komasyurui14.H08_Kaku___:
-                        this.m_motiSu_[(int)Pieces.B]++;
+                        this.m_motiSu_[(int)Piece.B]++;
                         break;
                 }
             }
@@ -131,28 +131,28 @@ namespace Grayscale.A210KnowNingen.B310Shogiban.C250Struct
                 switch (Conv_Busstop.ToKomasyurui(koma))
                 {
                     case Komasyurui14.H01_Fu_____:
-                        this.m_motiSu_[(int)Pieces.p]++;
+                        this.m_motiSu_[(int)Piece.p]++;
                         break;
                     case Komasyurui14.H02_Kyo____:
-                        this.m_motiSu_[(int)Pieces.l]++;
+                        this.m_motiSu_[(int)Piece.l]++;
                         break;
                     case Komasyurui14.H03_Kei____:
-                        this.m_motiSu_[(int)Pieces.n]++;
+                        this.m_motiSu_[(int)Piece.n]++;
                         break;
                     case Komasyurui14.H04_Gin____:
-                        this.m_motiSu_[(int)Pieces.s]++;
+                        this.m_motiSu_[(int)Piece.s]++;
                         break;
                     case Komasyurui14.H05_Kin____:
-                        this.m_motiSu_[(int)Pieces.g]++;
+                        this.m_motiSu_[(int)Piece.g]++;
                         break;
                     case Komasyurui14.H06_Gyoku__:
-                        this.m_motiSu_[(int)Pieces.k]++;
+                        this.m_motiSu_[(int)Piece.k]++;
                         break;
                     case Komasyurui14.H07_Hisya__:
-                        this.m_motiSu_[(int)Pieces.r]++;
+                        this.m_motiSu_[(int)Piece.r]++;
                         break;
                     case Komasyurui14.H08_Kaku___:
-                        this.m_motiSu_[(int)Pieces.b]++;
+                        this.m_motiSu_[(int)Piece.b]++;
                         break;
                 }
             }
@@ -162,28 +162,28 @@ namespace Grayscale.A210KnowNingen.B310Shogiban.C250Struct
                 switch (Conv_Busstop.ToKomasyurui(koma))
                 {
                     case Komasyurui14.H01_Fu_____:
-                        this.m_komabukuroSu_[(int)PieceTypes.P]++;
+                        this.m_komabukuroSu_[(int)PieceType.P]++;
                         break;
                     case Komasyurui14.H02_Kyo____:
-                        this.m_komabukuroSu_[(int)PieceTypes.L]++;
+                        this.m_komabukuroSu_[(int)PieceType.L]++;
                         break;
                     case Komasyurui14.H03_Kei____:
-                        this.m_komabukuroSu_[(int)PieceTypes.N]++;
+                        this.m_komabukuroSu_[(int)PieceType.N]++;
                         break;
                     case Komasyurui14.H04_Gin____:
-                        this.m_komabukuroSu_[(int)PieceTypes.S]++;
+                        this.m_komabukuroSu_[(int)PieceType.S]++;
                         break;
                     case Komasyurui14.H05_Kin____:
-                        this.m_komabukuroSu_[(int)PieceTypes.G]++;
+                        this.m_komabukuroSu_[(int)PieceType.G]++;
                         break;
                     case Komasyurui14.H06_Gyoku__:
-                        this.m_komabukuroSu_[(int)PieceTypes.K]++;
+                        this.m_komabukuroSu_[(int)PieceType.K]++;
                         break;
                     case Komasyurui14.H07_Hisya__:
-                        this.m_komabukuroSu_[(int)PieceTypes.R]++;
+                        this.m_komabukuroSu_[(int)PieceType.R]++;
                         break;
                     case Komasyurui14.H08_Kaku___:
-                        this.m_komabukuroSu_[(int)PieceTypes.B]++;
+                        this.m_komabukuroSu_[(int)PieceType.B]++;
                         break;
                 }
             }

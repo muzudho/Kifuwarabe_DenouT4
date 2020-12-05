@@ -60,24 +60,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="B140SfenStruct\n110_pieces.cs" />
-    <Compile Include="B140SfenStruct\n100_pieceTypes.cs" />
+    <Compile Include="Piece.cs" />
+    <Compile Include="PieceType.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="B180_FormatSfen_\Format_Kyokumen1.cs" />
-    <Compile Include="B160_ConvSfen___\Conv_Sfen.cs" />
-    <Compile Include="B140SfenStruct\RO_Kyokumen1_ForFormat.cs" />
-    <Compile Include="B140SfenStruct\ROKyokumen2ForTokenize.cs" />
-    <Compile Include="B140SfenStruct\RO_Kyokumen1_ForFormatImpl.cs" />
-    <Compile Include="B140SfenStruct\ROKyokumen2ForTokenizeImpl.cs" />
-    <Compile Include="B140SfenStruct\SfenstringImpl.cs" />
-    <Compile Include="B120_ConvSujiDan\Conv_SujiDan.cs" />
-    <Compile Include="B140SfenStruct\Util_RO_Kyokumen2.cs" />
-    <Compile Include="B140SfenStruct\Word_Sfen.cs" />
+    <Compile Include="SfenString.cs" />
+    <Compile Include="SfenConf.cs" />
+    <Compile Include="ISfenPosition1.cs" />
+    <Compile Include="ISfenFormat2.cs" />
+    <Compile Include="SfenPosition1Impl.cs" />
+    <Compile Include="SfenFormat2Impl.cs" />
+    <Compile Include="SfenStringImpl.cs" />
+    <Compile Include="Square.cs" />
+    <Compile Include="SfenFormat2Reference.cs" />
+    <Compile Include="SfenWord.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -105,7 +105,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="B100_／／SFEN棋譜\" />
+    <Folder Include="／／SFEN棋譜\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\A060_Application\A060Application.csproj">

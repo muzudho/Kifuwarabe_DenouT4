@@ -1,6 +1,5 @@
 ﻿using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A120KifuSfen.B140SfenStruct.C250Struct;
-using Grayscale.A120KifuSfen.B160ConvSfen.C500Converter;
+using Grayscale.A120KifuSfen;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B280Tree.C500Struct;
 using Grayscale.A210KnowNingen.B640_KifuTree___.C250Struct;
@@ -37,8 +36,8 @@ namespace Grayscale.A500ShogiEngine.B260UtilClient.C500Util
 
             string old_inputLine = genjo.InputLine;//退避
             string rest;
-            ROKyokumen2ForTokenize ro_Kyokumen2_ForTokenize;
-            Conv_Sfen.ToKyokumen2(
+            ISfenFormat2 ro_Kyokumen2_ForTokenize;
+            SfenConf.ToKyokumen2(
                 genjo.InputLine,
                 out rest,
                 out ro_Kyokumen2_ForTokenize
