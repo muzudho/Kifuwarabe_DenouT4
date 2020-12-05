@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A000_Platform___", "A000_Platform___\A000_Platform___.csproj", "{147B11E0-827B-4D3F-844C-ADF2BEAFA53F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A000Platform", "A000_Platform___\A000Platform.csproj", "{147B11E0-827B-4D3F-844C-ADF2BEAFA53F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A060_Application", "A060_Application\A060_Application.csproj", "{8AC05075-A6EF-4779-B18C-3D0E801A4BCD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A060Application", "A060_Application\A060Application.csproj", "{8AC05075-A6EF-4779-B18C-3D0E801A4BCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A090_UsiFramewor", "A090_UsiFramewor\A090_UsiFramewor.csproj", "{EAAE7F89-1539-4AFF-BAC6-5E9004AD427E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A090UsiFramewor", "A090_UsiFramewor\A090UsiFramewor.csproj", "{EAAE7F89-1539-4AFF-BAC6-5E9004AD427E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A120_KifuSfen___", "A120_KifuSfen___\A120_KifuSfen___.csproj", "{B0982362-AB7F-45A6-AF5F-C9FDFA49F9DD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A120KifuSfen", "A120_KifuSfen___\A120KifuSfen.csproj", "{B0982362-AB7F-45A6-AF5F-C9FDFA49F9DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A150_LogKyokuPng", "A150_LogKyokuPng\A150_LogKyokuPng.csproj", "{6F26BAE0-8E17-4FDA-A242-D1D7C4DB2507}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A150LogKyokuPng", "A150_LogKyokuPng\A150LogKyokuPng.csproj", "{6F26BAE0-8E17-4FDA-A242-D1D7C4DB2507}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A180_KifuCsa____", "A180_KifuCsa____\A180_KifuCsa____.csproj", "{ABED6201-9999-44CD-A91B-4CA01CC89006}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A180KifuCsa", "A180_KifuCsa____\A180KifuCsa.csproj", "{ABED6201-9999-44CD-A91B-4CA01CC89006}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A210_KnowNingen_", "A210_KnowNingen_\A210_KnowNingen_.csproj", "{2CFB37AE-2D9E-4478-ABD8-1EAAAF98F223}"
 EndProject

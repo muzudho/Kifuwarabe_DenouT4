@@ -4,7 +4,7 @@ using System.Text;
 using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C250Struct;
+using Grayscale.A180KifuCsa.B120KifuCsa.C250Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;

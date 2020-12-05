@@ -63,17 +63,17 @@
     <Folder Include="B100_／／棋譜ツリーログ\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\A060_Application\A060_Application.csproj">
+    <ProjectReference Include="..\A060_Application\A060Application.csproj">
       <Project>{8ac05075-a6ef-4779-b18c-3d0e801a4bcd}</Project>
-      <Name>A060_Application</Name>
+      <Name>A060Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\A120_KifuSfen___\A120_KifuSfen___.csproj">
+    <ProjectReference Include="..\A120_KifuSfen___\A120KifuSfen.csproj">
       <Project>{b0982362-ab7f-45a6-af5f-c9fdfa49f9dd}</Project>
-      <Name>A120_KifuSfen___</Name>
+      <Name>A120KifuSfen</Name>
     </ProjectReference>
-    <ProjectReference Include="..\A150_LogKyokuPng\A150_LogKyokuPng.csproj">
+    <ProjectReference Include="..\A150_LogKyokuPng\A150LogKyokuPng.csproj">
       <Project>{6f26bae0-8e17-4fda-a242-d1d7c4db2507}</Project>
-      <Name>A150_LogKyokuPng</Name>
+      <Name>A150LogKyokuPng</Name>
     </ProjectReference>
     <ProjectReference Include="..\A210_KnowNingen_\A210_KnowNingen_.csproj">
       <Project>{2cfb37ae-2d9e-4478-abd8-1eaaaf98f223}</Project>

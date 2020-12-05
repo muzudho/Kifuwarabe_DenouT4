@@ -2,7 +2,7 @@
 using System.Text;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A060Application.B620ConvText.C500Converter;
-using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250Struct;
+using Grayscale.A120KifuSfen.B140SfenStruct.C250Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;

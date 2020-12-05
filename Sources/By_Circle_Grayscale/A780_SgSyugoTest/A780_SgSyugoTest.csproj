@@ -109,9 +109,9 @@
     <Folder Include="B100_／／将棋集合論テスター\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\A060_Application\A060_Application.csproj">
+    <ProjectReference Include="..\A060_Application\A060Application.csproj">
       <Project>{8ac05075-a6ef-4779-b18c-3d0e801a4bcd}</Project>
-      <Name>A060_Application</Name>
+      <Name>A060Application</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -105,13 +105,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\A060_Application\A060_Application.csproj">
+    <ProjectReference Include="..\A060_Application\A060Application.csproj">
       <Project>{8ac05075-a6ef-4779-b18c-3d0e801a4bcd}</Project>
-      <Name>A060_Application</Name>
+      <Name>A060Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\A180_KifuCsa____\A180_KifuCsa____.csproj">
+    <ProjectReference Include="..\A180_KifuCsa____\A180KifuCsa.csproj">
       <Project>{abed6201-9999-44cd-a91b-4ca01cc89006}</Project>
-      <Name>A180_KifuCsa____</Name>
+      <Name>A180KifuCsa</Name>
     </ProjectReference>
     <ProjectReference Include="..\A210_KnowNingen_\A210_KnowNingen_.csproj">
       <Project>{2cfb37ae-2d9e-4478-abd8-1eaaaf98f223}</Project>

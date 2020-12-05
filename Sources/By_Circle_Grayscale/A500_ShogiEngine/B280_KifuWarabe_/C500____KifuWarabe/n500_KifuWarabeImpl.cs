@@ -43,10 +43,10 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
 using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500Struct;
+using Grayscale.A150LogKyokuPng.B100KyokumenPng.C500Struct;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500Util;
-using Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C500____UtilWriter;
+using Grayscale.A150LogKyokuPng.B200LogKyokuPng.C500UtilWriter;
 using Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500Struct;
 // using Grayscale.A060Application.B110Log.C500Struct;
 #endif

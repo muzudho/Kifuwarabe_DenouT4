@@ -5,7 +5,7 @@ using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
 using Grayscale.A210_KnowNingen_.B550_JsaFugo____.C250Struct;
 using Grayscale.A210_KnowNingen_.B550_JsaFugo____.C500Util;
-using Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer;
+using Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500Writer;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
 
 namespace Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500Converter

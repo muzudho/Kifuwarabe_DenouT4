@@ -1,5 +1,5 @@
 ﻿using System;
-using Grayscale.A120_KifuSfen___.B120_ConvSujiDan.C500Converter;
+using Grayscale.A120KifuSfen.B120ConvSujiDan.C500Converter;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 

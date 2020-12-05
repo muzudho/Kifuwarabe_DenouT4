@@ -2,7 +2,7 @@
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B410Collection.C500Struct;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500Struct;
+using Grayscale.A150LogKyokuPng.B100KyokumenPng.C500Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;

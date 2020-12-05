@@ -5,7 +5,7 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
 using Grayscale.A210_KnowNingen_.B600_UtilSky____.C500Util;
 
-namespace Grayscale.A210_KnowNingen_.B610_NodeWriter_.C500____Writer
+namespace Grayscale.A210_KnowNingen_.B610_NodeWriter_.C500Writer
 {
     public class NodeWriterImpl
     {

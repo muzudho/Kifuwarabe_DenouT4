@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Text;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250Struct;
+using Grayscale.A120KifuSfen.B140SfenStruct.C250Struct;
 using Grayscale.A210_KnowNingen_.B130_Json_______.C500Struct;
 using Grayscale.A210_KnowNingen_.B130_Json_______.C500Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;

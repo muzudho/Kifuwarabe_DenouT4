@@ -1,6 +1,6 @@
 ﻿using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250Struct;
+using Grayscale.A120KifuSfen.B140SfenStruct.C250Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
