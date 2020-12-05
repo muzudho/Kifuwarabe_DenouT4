@@ -1,5 +1,5 @@
 ﻿using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C___400_54List;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C450____Tyoseiryo;
@@ -117,7 +117,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C460____Scoreing
         /// <summary>
         /// ２駒関係の54要素で表される箇所全ての評価値に加算します。
         /// </summary>
-        public static void Fill54x54_Add(out int changedCells, float offset, Sky src_Sky, FeatureVector fv_mutable,
+        public static void Fill54x54_Add(out int changedCells, float offset, ISky src_Sky, FeatureVector fv_mutable,
             N54List n54List, KwLogger errH)
         {
             changedCells = 0;
@@ -252,7 +252,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C460____Scoreing
         /// </summary>
         public static void UpdateKyokumenHyoka(
             N54List n54List,
-            Sky src_Sky,
+            ISky src_Sky,
             FeatureVector fv_mutable,
             float tyoseiryo,
             out float out_real_tyoseiryo,//実際に調整した量。

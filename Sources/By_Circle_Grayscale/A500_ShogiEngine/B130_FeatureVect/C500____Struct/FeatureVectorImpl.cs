@@ -2,9 +2,9 @@
 using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A060Application.B610_ConstShogi_.C250Const;
 using Grayscale.A060Application.B620ConvText.C500Converter;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
+using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 
 #if DEBUG
@@ -143,7 +143,7 @@ namespace Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct
 
             if (0 <= hMasu && hMasu < ConstShogi.BAN_SIZE)
             {
-                SyElement masu = A210_KnowNingen_.B180_ConvPside__.C500Converter.Conv_Masu.ToMasu(hMasu);
+                SyElement masu = A210KnowNingen.B180ConvPside.C500Converter.Conv_Masu.ToMasu(hMasu);
 
                 int suji;
                 int dan;

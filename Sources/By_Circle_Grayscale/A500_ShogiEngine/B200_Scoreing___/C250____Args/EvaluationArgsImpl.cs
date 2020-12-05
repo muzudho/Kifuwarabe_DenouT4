@@ -1,11 +1,11 @@
 ﻿using Grayscale.A150LogKyokuPng.B100KyokumenPng.C500Struct;
-using Grayscale.A210_KnowNingen_.B630_Sennitite__.C500Struct;
+using Grayscale.A210KnowNingen.B630Sennitite.C500Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___240_Shogisasi;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
 
 #if DEBUG
-using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250Struct;
+using Grayscale.A210KnowNingen.B250LogKaisetu.C250Struct;
 #endif
 
 namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C250____Args

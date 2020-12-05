@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Text;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
+using Grayscale.A210KnowNingen.B240Move.C500Struct;
 
 #if DEBUG || LEARN
-using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C250Struct;
+using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 #endif
 
 namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn

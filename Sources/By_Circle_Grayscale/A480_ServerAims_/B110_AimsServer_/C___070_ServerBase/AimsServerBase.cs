@@ -1,4 +1,4 @@
-﻿using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
+﻿using Grayscale.A210KnowNingen.B280Tree.C500Struct;
 using Grayscale.A480_ServerAims_.B110_AimsServer_.C___060_Phase;
 
 namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C___070_ServerBase

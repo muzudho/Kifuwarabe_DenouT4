@@ -3,15 +3,15 @@ using System.Diagnostics;
 using Grayscale.A000Platform.B025Machine;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500Converter;
-using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
-using Grayscale.A210_KnowNingen_.B740_KifuParserA.C400____Conv;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.A210KnowNingen.B240Move.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B320ConvWords.C500Converter;
+using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
+using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
+using Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA;
+using Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA;
+using Grayscale.A210KnowNingen.B740KifuParserA.C400Conv;
 
 namespace Grayscale.A950_UnitTest___
 {
@@ -27,7 +27,7 @@ namespace Grayscale.A950_UnitTest___
 
 
 
-            Sky positionA = Util_SkyCreator.New_Hirate();
+            ISky positionA = Util_SkyCreator.New_Hirate();
             Playerside psideA_init = Playerside.P1;
 
             // 盤面をログ出力したいぜ☆
@@ -65,7 +65,7 @@ namespace Grayscale.A950_UnitTest___
                     commandLine = rest.Trim();
 
                     {
-                        IttesasuResult syuryoResult;
+                        IIttesasuResult syuryoResult;
                         moveB = moveA;
                         Util_IttesasuRoutine.DoMove_Normal(out syuryoResult,
                             ref moveB,// 駒を取った場合、moveは更新される。
@@ -124,7 +124,7 @@ namespace Grayscale.A950_UnitTest___
             {
                 if (Move.Empty != move1)
                 {
-                    IttemodosuResult syuryoResult2;
+                    IIttemodosuResult syuryoResult2;
                     Util_IttemodosuRoutine.UndoMove(
                         out syuryoResult2,
                         move1,

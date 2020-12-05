@@ -1,11 +1,11 @@
 ﻿using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
+using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
+using Grayscale.A210KnowNingen.B240Move.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
+using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 using Grayscale.A500_ShogiEngine.B140_Conv_FvKoumoku.C500Converter;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
@@ -26,7 +26,7 @@ namespace Grayscale.A500_ShogiEngine.B160_ConvFv_____.C500Converter
         /// <param name="komasyurui">盤上の種類</param>
         /// <param name="masu">盤上の駒の升</param>
         /// <returns></returns>
-        public static int ToKIndex_From_PsideBanjoKomasyuruiMasu(Sky src_Sky, Playerside pside)
+        public static int ToKIndex_From_PsideBanjoKomasyuruiMasu(ISky src_Sky, Playerside pside)
         {
             // 調査項目番号（Ｋ１、Ｋ２等）
             int result;

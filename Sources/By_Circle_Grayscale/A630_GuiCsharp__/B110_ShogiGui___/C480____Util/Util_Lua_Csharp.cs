@@ -2,16 +2,16 @@
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B310Settei.C500Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
+using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B410SeizaFinger.C250Struct;
+using Grayscale.A210KnowNingen.B640_KifuTree___.C250Struct;
+using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 using Grayscale.A450_Server_____.B110_Server_____.C250____Util;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___499_Repaint;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
@@ -140,7 +140,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
             // 棋譜を空っぽにします。
             //Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(mainGui.Link_Server.KifuTree, null,logger);
 
-            Sky newSky = new SkyImpl(mainGui.SkyWrapper_Gui.GuiSky);
+            ISky newSky = new SkyImpl(mainGui.SkyWrapper_Gui.GuiSky);
 
             int figKoma;
 

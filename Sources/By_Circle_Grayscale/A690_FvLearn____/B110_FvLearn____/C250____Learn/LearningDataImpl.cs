@@ -12,18 +12,18 @@ using Grayscale.A150LogKyokuPng.B100KyokumenPng.C500Struct;
 using Grayscale.A150LogKyokuPng.B200LogKyokuPng.C500UtilWriter;
 using Grayscale.A180KifuCsa.B120KifuCsa.C250Struct;
 using Grayscale.A180KifuCsa.B120KifuCsa.C250Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500Util;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table;
-using Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word;
-using Grayscale.A210_KnowNingen_.B390_KomahaiyaEx.C500Util;
-using Grayscale.A210_KnowNingen_.B490_ForcePromot.C250Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
+using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
+using Grayscale.A210KnowNingen.B190Komasyurui.C500Util;
+using Grayscale.A210KnowNingen.B240Move.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B300_KomahaiyaTr.C500Table;
+using Grayscale.A210KnowNingen.B380Michi.C500Word;
+using Grayscale.A210KnowNingen.B390KomahaiyaEx.C500Util;
+using Grayscale.A210KnowNingen.B490ForcePromot.C250Struct;
+using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu;
@@ -40,12 +40,12 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 #if DEBUG
 // using Grayscale.A060Application.B310Settei.C500Struct;
 using System.Diagnostics;
-using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250Struct;
-// using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C250Struct;
+using Grayscale.A210KnowNingen.B250LogKaisetu.C250Struct;
+// using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 #endif
 
 #if DEBUG || LEARN
-using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C250Struct;
+using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 #endif
 
 namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
@@ -85,7 +85,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
 
         public Earth Earth { get; set; }
         public Tree KifuA { get; set; }
-        public Sky PositionA { get; set; }// FIXME: できればカレントノードの局面。
+        public ISky PositionA { get; set; }// FIXME: できればカレントノードの局面。
         public Move GetMove()
         {
             return this.KifuA.MoveEx_Current.Move;
@@ -140,7 +140,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
         public void ChangeKyokumenPng(
             Uc_Main uc_Main,
             Move move,
-            Sky positionA
+            ISky positionA
             )
         {
             uc_Main.PctKyokumen.Image = null;//掴んでいる画像ファイルを放します。
@@ -192,7 +192,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
             Tree kifu1,
-            Sky positionA,
+            ISky positionA,
             string[] searchedPv,
             KwLogger errH)
         {
@@ -250,7 +250,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
         /// 全合法手をダンプ。
         /// </summary>
         /// <returns></returns>
-        public string DumpToAllGohosyu(Sky src_Sky)
+        public string DumpToAllGohosyu(ISky src_Sky)
         {
             StringBuilder sb = new StringBuilder();
             //sb.AppendLine("--------------------");
@@ -285,7 +285,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
         /// </summary>
         public void WritePng(
             Move move,
-            Sky positionA,
+            ISky positionA,
             KwLogger errH
             )
         {
@@ -347,7 +347,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
             ref ulong searchedNodes,
             Tree kifu1,
             Playerside psideA,
-            Sky positionA,
+            ISky positionA,
             string[] searchedPv,
             EvaluationArgs args,
             KwLogger logger)
@@ -383,7 +383,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
         /// </summary>
         public void DoScoreing_ForLearning(
             Playerside psideA,
-            Sky positionA
+            ISky positionA
         )
         {
             //----------------------------------------

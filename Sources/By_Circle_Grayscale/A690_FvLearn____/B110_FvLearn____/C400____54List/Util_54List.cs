@@ -1,13 +1,13 @@
 ﻿using System.Text;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500Util;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
+using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
+using Grayscale.A210KnowNingen.B190Komasyurui.C500Util;
+using Grayscale.A210KnowNingen.B240Move.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
+using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 using Grayscale.A500_ShogiEngine.B160_ConvFv_____.C500Converter;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C___400_54List;
@@ -36,7 +36,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C400____54List
         /// 盤上の40駒リスト。
         /// 駒台の14駒リスト。
         /// </summary>
-        public static N54List Calc_54List(Sky src_Sky, KwLogger errH)
+        public static N54List Calc_54List(ISky src_Sky, KwLogger errH)
         {
             N54List result_n54List = new N54ListImpl();
 

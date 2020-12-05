@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C490Option;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___240_Shogisasi;
 
 namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C___005_Usi_Loop

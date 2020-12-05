@@ -1,6 +1,6 @@
 ﻿using System;
 using Grayscale.A120KifuSfen.B120ConvSujiDan.C500Converter;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 
 namespace Grayscale.A500_ShogiEngine.B140_Conv_FvKoumoku.C500Converter

@@ -3,14 +3,14 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
+using Grayscale.A210KnowNingen.B640_KifuTree___.C250Struct;
+using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo;
@@ -36,7 +36,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad
         /// </summary>
         public static void CreateKifuTree(
             out Earth out_earth1,
-            out Sky out_positionA,
+            out ISky out_positionA,
             out Tree out_kifu1
             )
         {

@@ -1,5 +1,5 @@
 ﻿using System.Drawing;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___491_Event;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___492_Widgets;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;

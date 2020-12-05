@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C___500_Hyokakansu;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu;
 
 #if DEBUG || LEARN
-using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C250Struct;
+using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 #endif
 
 namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C510____HyokakansuColl
@@ -44,7 +44,7 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C510____HyokakansuColl
         /// <param name="errH"></param>
         public static float EvaluateAll_Normal(
             Playerside psideA,
-            Sky positionA,
+            ISky positionA,
             FeatureVector fv,
             KwLogger errH
             )

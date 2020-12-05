@@ -1,19 +1,19 @@
 ﻿using System;
 using Grayscale.A000Platform.B021Random.C500Struct;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500Converter;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.A210KnowNingen.B240Move.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B320ConvWords.C500Converter;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C___500_Hyokakansu;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C510____HyokakansuColl;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
-// using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+// using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 
 #if DEBUG || LEARN
-using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C250Struct;
+using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 #endif
 
 namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500Util
@@ -221,7 +221,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500Util
         /// </summary>
         public static float DoScoreing_Kyokumen(
             Playerside psideA,
-            Sky positionA,
+            ISky positionA,
 
             EvaluationArgs args,
             KwLogger errH

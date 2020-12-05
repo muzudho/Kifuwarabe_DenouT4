@@ -1,10 +1,10 @@
 ﻿using System;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C250Struct;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
-// using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+// using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 
 #if DEBUG || LEARN
 #endif
@@ -33,7 +33,7 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
         /// <returns></returns>
         public override float Evaluate(
             Playerside psideA,
-            Sky positionA,
+            ISky positionA,
             FeatureVector featureVector,
             KwLogger errH
             )

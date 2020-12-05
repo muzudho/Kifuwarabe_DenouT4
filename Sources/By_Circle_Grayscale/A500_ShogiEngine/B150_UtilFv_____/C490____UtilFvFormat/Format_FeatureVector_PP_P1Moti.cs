@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Grayscale.A060Application.B620ConvText.C500Converter;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
+using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 

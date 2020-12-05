@@ -1,5 +1,5 @@
 ﻿using System.Text;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
+using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 
 

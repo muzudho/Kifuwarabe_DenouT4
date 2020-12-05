@@ -3,8 +3,8 @@ using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B310Settei.C500Struct;
 using Grayscale.A060Application.B310Settei.L510Xml;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
 using Grayscale.A480_ServerAims_.B110_AimsServer_.C500____Server;
 
 namespace Grayscale.P489_Form_______
@@ -47,7 +47,7 @@ namespace Grayscale.P489_Form_______
 
             MessageBox.Show("AIMSサーバー\n将棋エンジン・ファイルパス＝[" + setteiXmlFile.ShogiEngineFilePath + "]");
 
-            Sky src_Sky = Util_SkyCreator.New_Hirate();
+            ISky src_Sky = Util_SkyCreator.New_Hirate();
 
             AimsServerImpl aimsServer = new AimsServerImpl(src_Sky);
             aimsServer.ShogiEngineFilePath = setteiXmlFile.ShogiEngineFilePath;

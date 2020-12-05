@@ -16,23 +16,23 @@ using Grayscale.A090UsiFramewor.B100UsiFrame1.C250UsiLoop;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C490Option;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C500UsiFrame;//FIXME:
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C490Option;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table;
-using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500Converter;
-using Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word;
-using Grayscale.A210_KnowNingen_.B390_KomahaiyaEx.C500Util;
-using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250Struct;
-using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.A210_KnowNingen_.B490_ForcePromot.C250Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
-using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
-using Grayscale.A210_KnowNingen_.B740_KifuParserA.C500Parser;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
+using Grayscale.A210KnowNingen.B240Move.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B300_KomahaiyaTr.C500Table;
+using Grayscale.A210KnowNingen.B320ConvWords.C500Converter;
+using Grayscale.A210KnowNingen.B380Michi.C500Word;
+using Grayscale.A210KnowNingen.B390KomahaiyaEx.C500Util;
+using Grayscale.A210KnowNingen.B410SeizaFinger.C250Struct;
+using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
+using Grayscale.A210KnowNingen.B490ForcePromot.C250Struct;
+using Grayscale.A210KnowNingen.B640_KifuTree___.C250Struct;
+using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
+using Grayscale.A210KnowNingen.B740KifuParserA.C500Parser;
+using Grayscale.A210KnowNingen.B740KifuParserA.C500Parser;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___005_Usi_Loop;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___240_Shogisasi;
 using Grayscale.A500_ShogiEngine.B260_UtilClient_.C500Util;
@@ -44,8 +44,8 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 #if DEBUG
 using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A150LogKyokuPng.B100KyokumenPng.C500Struct;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500Util;
+using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
+using Grayscale.A210KnowNingen.B190Komasyurui.C500Util;
 using Grayscale.A150LogKyokuPng.B200LogKyokuPng.C500UtilWriter;
 using Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500Struct;
 // using Grayscale.A060Application.B110Log.C500Struct;
@@ -115,7 +115,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
             #endregion
 
             // 棋譜
-            Sky positionInit = Util_SkyCreator.New_Hirate();// きふわらべ起動時
+            ISky positionInit = Util_SkyCreator.New_Hirate();// きふわらべ起動時
             {
                 // FIXME:平手とは限らないが、平手という前提で作っておく。
                 this.m_earth_AtLoop2_ = new EarthImpl();
@@ -730,9 +730,9 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 this.Log1_AtLoop2("（＾△＾）positionきたｺﾚ！");
 #endif
                 // 入力行を解析します。
-                KifuParserA_Result result = new KifuParserA_ResultImpl();
+                IKifuParserAResult result = new KifuParserA_ResultImpl();
                 KifuParserA_Impl kifuParserA = new KifuParserA_Impl();
-                KifuParserA_Genjo genjo = new KifuParserA_GenjoImpl(line);
+                IKifuParserAGenjo genjo = new KifuParserA_GenjoImpl(line);
                 kifuParserA.Execute_All_CurrentMutable(
                     ref result,
 
@@ -910,7 +910,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                 // ┏━━━━プログラム━━━━┓
 
                 MoveEx curNode1 = this.Kifu_AtLoop2.MoveEx_Current;
-                Sky positionA = this.Kifu_AtLoop2.PositionA;
+                ISky positionA = this.Kifu_AtLoop2.PositionA;
                 int latestTemezumi = positionA.Temezumi;//現・手目済// curNode1.GetNodeValue()
 
                 //#if DEBUG

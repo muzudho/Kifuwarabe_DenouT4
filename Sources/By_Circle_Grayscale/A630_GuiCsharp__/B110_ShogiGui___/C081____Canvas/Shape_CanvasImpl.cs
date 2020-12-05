@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___081_Canvas;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___492_Widgets;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
@@ -37,7 +37,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C081____Canvas
             object sender,
             PaintEventArgs e,
             Playerside psideA,
-            Sky positionA,//shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue()
+            ISky positionA,//shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue()
             MainGui_Csharp shogibanGui,
             string windowName,
             KwLogger errH

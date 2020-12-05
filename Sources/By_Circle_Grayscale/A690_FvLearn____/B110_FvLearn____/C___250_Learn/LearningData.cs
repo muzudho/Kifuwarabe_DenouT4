@@ -1,14 +1,14 @@
 ﻿using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A180KifuCsa.B120KifuCsa.C250Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.A210KnowNingen.B240Move.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
 
 #if DEBUG || LEARN
-using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C250Struct;
+using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 #endif
 
 namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
@@ -23,7 +23,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
 
         Earth Earth { get; set; }
         Tree KifuA { get; set; }
-        Sky PositionA { get; set; }
+        ISky PositionA { get; set; }
         Move GetMove();
         Move ToCurChildItem();
 
@@ -48,7 +48,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
         void ChangeKyokumenPng(
             Uc_Main uc_Main,
             Move move,
-            Sky positionA
+            ISky positionA
             );
 
 
@@ -57,7 +57,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
         /// </summary>
         void WritePng(
             Move move,
-            Sky positionA,
+            ISky positionA,
             KwLogger errH);
 
 
@@ -70,7 +70,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
             ref ulong searchedNodes,
             Tree kifu1,
             Playerside psideA,
-            Sky positionA,
+            ISky positionA,
             string[] searchedPv,
             EvaluationArgs args,
             KwLogger errH);
@@ -79,7 +79,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
         /// 全合法手をダンプ。デバッグ用途。
         /// </summary>
         /// <returns></returns>
-        string DumpToAllGohosyu(Sky src_Sky);
+        string DumpToAllGohosyu(ISky src_Sky);
 
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
         /// </summary>
         void DoScoreing_ForLearning(
             Playerside psideA,
-            Sky positionA
+            ISky positionA
             );
 
 
@@ -98,7 +98,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
             Tree kifu1,
-            Sky positionA,
+            ISky positionA,
             string[] searchedPv,
             KwLogger errH);
 

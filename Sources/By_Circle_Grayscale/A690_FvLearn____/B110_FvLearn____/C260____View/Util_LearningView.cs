@@ -5,29 +5,29 @@ using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A180KifuCsa.B120KifuCsa.C250Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500Util;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500Converter;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB;
-using Grayscale.A210_KnowNingen_.B800_ConvCsa____.C500Converter;
+using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
+using Grayscale.A210KnowNingen.B190Komasyurui.C500Util;
+using Grayscale.A210KnowNingen.B240Move.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
+using Grayscale.A210KnowNingen.B570ConvJsa.C500Converter;
+using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
+using Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA;
+using Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA;
+using Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB;
+using Grayscale.A210KnowNingen.B800ConvCsa.C500Converter;
 using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG || LEARN
-using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C250Struct;
+using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 using System.Diagnostics;
 #endif
 
@@ -51,7 +51,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             uc_Main.LstSasite.Items.Clear();
 
             Earth earth1 = new EarthImpl();
-            Sky positionA = Util_SkyCreator.New_Hirate();//日本の符号読取時
+            ISky positionA = Util_SkyCreator.New_Hirate();//日本の符号読取時
             Tree kifu1 = new TreeImpl(positionA);
             //kifu1.AssertPside(kifu1.CurNode, "ShowSasiteList",errH);
 
@@ -59,7 +59,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             foreach (CsaKifuSasite csaSasite in sasiteList)
             {
                 // 開始局面
-                Sky kaisi_Sky = positionA;
+                ISky kaisi_Sky = positionA;
 
                 //
                 // csaSasite を データ指し手 に変換するには？
@@ -133,7 +133,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     //----------------------------------------
                     //
                     //↓↓一手指し
-                    IttesasuResult ittesasuResult;
+                    IIttesasuResult ittesasuResult;
                     Util_IttesasuRoutine.DoMove_Normal(
                         out ittesasuResult,
                         ref nextMove,
@@ -178,7 +178,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
         /// <param name="uc_Main"></param>
         public static void Aa_ShowNode2(
             LearningData learningData,
-            Sky positionA,
+            ISky positionA,
             Uc_Main uc_Main, KwLogger errH)
         {
             // 手目済み
@@ -210,7 +210,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 List<GohosyuListItem> list = new List<GohosyuListItem>();
                 //uc_Main.LstGohosyu.Items.Clear();
                 int itemNumber = 0;
-                Sky positionA = learningData.PositionA;
+                ISky positionA = learningData.PositionA;
                 List<Move> pvList = learningData.KifuA.Pv_ToList();
                 {
                     Move moveB = learningData.ToCurChildItem();
@@ -243,7 +243,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
 
                     itemNumber++;
 
-                    IttemodosuResult ittemodosuResult;
+                    IIttemodosuResult ittemodosuResult;
                     Util_IttemodosuRoutine.UndoMove(
                         out ittemodosuResult,
                         moveB,
@@ -350,7 +350,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             // 一手指したい。
             //----------------------------------------
             //↓↓一手指し
-            IttesasuResult ittesasuResult;
+            IIttesasuResult ittesasuResult;
             Util_IttesasuRoutine.DoMove_Normal(
                 out ittesasuResult,
                 ref nextMove,

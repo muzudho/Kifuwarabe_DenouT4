@@ -75,9 +75,9 @@
       <Project>{6f26bae0-8e17-4fda-a242-d1d7c4db2507}</Project>
       <Name>A150LogKyokuPng</Name>
     </ProjectReference>
-    <ProjectReference Include="..\A210_KnowNingen_\A210_KnowNingen_.csproj">
+    <ProjectReference Include="..\A210_KnowNingen_\A210KnowNingen.csproj">
       <Project>{2cfb37ae-2d9e-4478-abd8-1eaaaf98f223}</Project>
-      <Name>A210_KnowNingen_</Name>
+      <Name>A210KnowNingen</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

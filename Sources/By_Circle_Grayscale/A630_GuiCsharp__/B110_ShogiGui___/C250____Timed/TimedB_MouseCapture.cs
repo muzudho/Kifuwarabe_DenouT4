@@ -3,19 +3,19 @@ using System.Drawing;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C260____Operator;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500Util;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500Converter;
-using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
+using Grayscale.A210KnowNingen.B170WordShogi.C260Operator;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
+using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
+using Grayscale.A210KnowNingen.B190Komasyurui.C500Util;
+using Grayscale.A210KnowNingen.B240Move.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B320ConvWords.C500Converter;
+using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
+using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 using Grayscale.A450_Server_____.B110_Server_____.C250____Util;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___080_Shape;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___125_Scene;
@@ -63,7 +63,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
             //kikiZukei.DebugWrite("駒の利きLv1");
 
             // 味方の駒
-            Sky positionA = shogiGui.Link_Server.KifuTree.PositionA;
+            ISky positionA = shogiGui.Link_Server.KifuTree.PositionA;
             Playerside psideA = positionA.GetKaisiPside();
 
             //shogiGui.Model_PnlTaikyoku.Kifu.AssertPside(shogiGui.Model_PnlTaikyoku.Kifu.CurNode, "Check_MouseoverKomaKiki",errH);
@@ -128,7 +128,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                         }
                                         bMouseMove_SceneB_1TumamitaiKoma = true;
 
-                                        Sky src_Sky = mainGui.SkyWrapper_Gui.GuiSky;
+                                        ISky src_Sky = mainGui.SkyWrapper_Gui.GuiSky;
 
                                         Point mouse = eventState.MouseLocation;
 
@@ -216,7 +216,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                     {
                                         #region マウス左ボタンダウン
                                         SceneName nextPhaseB = SceneName.Ignore;
-                                        Sky src_Sky = mainGui.SkyWrapper_Gui.GuiSky;
+                                        ISky src_Sky = mainGui.SkyWrapper_Gui.GuiSky;
 
                                         //----------
                                         // 駒
@@ -308,7 +308,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                 case MouseEventStateName.MouseLeftButtonUp:
                                     {
                                         #region マウス左ボタンアップ
-                                        Sky src_GuiSky = mainGui.SkyWrapper_Gui.GuiSky;
+                                        ISky src_GuiSky = mainGui.SkyWrapper_Gui.GuiSky;
 
                                         //----------
                                         // 将棋盤：升目
@@ -391,7 +391,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     //
                                                     // TODO: 一手[巻戻し]のときは追加したくない
                                                     //
-                                                    Sky sky_newChild = new SkyImpl(src_GuiSky);
+                                                    ISky sky_newChild = new SkyImpl(src_GuiSky);
                                                     sky_newChild.SetKaisiPside(Playerside.P2);//FIXME:人間が先手でハードコーディング中
                                                     sky_newChild.SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//1手進ませる。
                                                     MoveEx newNode = new MoveExImpl(move);
@@ -486,7 +486,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                 case MouseEventStateName.MouseLeftButtonUp:
                                     {
                                         #region マウス左ボタンアップ
-                                        Sky src_GuiSky = mainGui.SkyWrapper_Gui.GuiSky;
+                                        ISky src_GuiSky = mainGui.SkyWrapper_Gui.GuiSky;
 
 
                                         //----------
@@ -538,7 +538,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                             );// 選択している駒の元の場所と、移動先
 
                                                         // 駒を置いたので、次のノードを準備しておく☆？
-                                                        Sky sky_newChild = new SkyImpl(src_GuiSky);
+                                                        ISky sky_newChild = new SkyImpl(src_GuiSky);
                                                         MoveEx newNode =
                                                             new MoveExImpl(move);
                                                         sky_newChild.SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//1手進ませる。

@@ -1,14 +1,14 @@
 ﻿using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500Converter;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB;
+using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
+using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
+using Grayscale.A210KnowNingen.B240Move.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B320ConvWords.C500Converter;
+using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
+using Grayscale.A210KnowNingen.B690Ittesasu.C125UtilB;
 using Grayscale.A450_Server_____.B110_Server_____.C250____Util;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___080_Shape;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___125_Scene;
@@ -375,7 +375,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
 
                     if (Busstop.Empty != koma)
                     {
-                        Sky positionA = new SkyImpl(mainGui3.SkyWrapper_Gui.GuiSky);
+                        ISky positionA = new SkyImpl(mainGui3.SkyWrapper_Gui.GuiSky);
                         MoveEx modifyNode = new MoveExImpl(mainGui3.Link_Server.KifuTree.MoveEx_Current.Move);
                         positionA.AddObjects(
                                 new Finger[] { figKoma }, new Busstop[] {
@@ -548,7 +548,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     );// 選択している駒の元の場所と、移動先
 
                 MoveEx newNode;
-                Sky positionA;
+                ISky positionA;
                 {
                     //
                     // 成ったので、指し手データ差替え。

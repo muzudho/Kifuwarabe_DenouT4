@@ -1,6 +1,6 @@
 ﻿using System.Text;
 using Grayscale.A180KifuCsa.B120KifuCsa.C250Struct;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
+using Grayscale.A210KnowNingen.B240Move.C500Struct;
 
 namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
 {

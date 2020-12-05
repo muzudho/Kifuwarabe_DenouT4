@@ -66,9 +66,9 @@
       <Project>{eaae7f89-1539-4aff-bac6-5e9004ad427e}</Project>
       <Name>A090UsiFramewor</Name>
     </ProjectReference>
-    <ProjectReference Include="..\A210_KnowNingen_\A210_KnowNingen_.csproj">
+    <ProjectReference Include="..\A210_KnowNingen_\A210KnowNingen.csproj">
       <Project>{2cfb37ae-2d9e-4478-abd8-1eaaaf98f223}</Project>
-      <Name>A210_KnowNingen_</Name>
+      <Name>A210KnowNingen</Name>
     </ProjectReference>
     <ProjectReference Include="..\A500_ShogiEngine\A500_ShogiEngine.csproj">
       <Project>{e96a7341-b8e6-4979-8b2a-94ff2818962c}</Project>

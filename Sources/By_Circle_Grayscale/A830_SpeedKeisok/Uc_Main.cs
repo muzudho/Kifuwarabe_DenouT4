@@ -6,8 +6,8 @@ using System.Text;
 using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C___500_Hyokakansu;
@@ -15,7 +15,7 @@ using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu;
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad;
 
 #if DEBUG || LEARN
-using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C250Struct;
+using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 #endif
 
 namespace Grayscale.P910_SpeedKeisok
@@ -41,7 +41,7 @@ namespace Grayscale.P910_SpeedKeisok
         public FeatureVector FeatureVector { get; set; }
 
         public Earth Earth { get; set; }
-        public Sky PositionA { get; set; }
+        public ISky PositionA { get; set; }
         public Tree Kifu { get; set; }
 
 
@@ -51,7 +51,7 @@ namespace Grayscale.P910_SpeedKeisok
             {
                 Earth newEarth1;
                 Tree newKifu1_Hirate;
-                Sky positionA;
+                ISky positionA;
                 Util_FvLoad.CreateKifuTree(
                     out newEarth1, out positionA, out newKifu1_Hirate);
 
@@ -62,7 +62,7 @@ namespace Grayscale.P910_SpeedKeisok
             InitializeComponent();
         }
 
-        private KeisokuResult Keisoku(Hyokakansu handan1, Sky positionA)
+        private KeisokuResult Keisoku(Hyokakansu handan1, ISky positionA)
         {
             Stopwatch watch = new Stopwatch();
             watch.Start();
@@ -91,7 +91,7 @@ namespace Grayscale.P910_SpeedKeisok
         {
 
             List<KeisokuResult> list = new List<KeisokuResult>();
-            Sky positionA = this.Kifu.PositionA;//.CurNode2ok.GetNodeValue()
+            ISky positionA = this.Kifu.PositionA;//.CurNode2ok.GetNodeValue()
             list.Add(this.Keisoku(new Hyokakansu_Komawari(), positionA));
             list.Add(this.Keisoku(new Hyokakansu_NikomaKankeiPp(), positionA));
 

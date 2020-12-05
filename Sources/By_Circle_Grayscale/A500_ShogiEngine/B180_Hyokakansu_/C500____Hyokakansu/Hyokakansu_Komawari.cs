@@ -1,12 +1,12 @@
 ﻿using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C250Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.A210KnowNingen.B240Move.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
+using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-// using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+// using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 
 #if DEBUG || LEARN
 using System.Text;
@@ -31,7 +31,7 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
         /// <returns></returns>
         public override float Evaluate(
             Playerside psideA,
-            Sky positionA,
+            ISky positionA,
             FeatureVector fv,
             KwLogger errH
             )

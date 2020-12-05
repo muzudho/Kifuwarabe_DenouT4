@@ -3,11 +3,11 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250Struct;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
+using Grayscale.A210KnowNingen.B640_KifuTree___.C250Struct;
+using Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA;
 using Grayscale.A450_Server_____.B110_Server_____.C___497_EngineClient;
 using Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient;
 using Grayscale.A480_ServerAims_.B110_AimsServer_.C___060_Phase;
@@ -102,7 +102,7 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C125____Receiver
                                 ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Usinewgame(errH);
 
                                 // FIXME:平手とは限らないが、平手という前提で、毎回一から作りなおします。
-                                Sky positionInit = Util_SkyCreator.New_Hirate();
+                                ISky positionInit = Util_SkyCreator.New_Hirate();
                                 this.Owner_AimsServer.SetKifuTree(new TreeImpl(positionInit));
                                 this.Owner_AimsServer.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");
 

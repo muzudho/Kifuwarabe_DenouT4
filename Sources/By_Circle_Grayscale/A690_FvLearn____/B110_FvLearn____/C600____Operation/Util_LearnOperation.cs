@@ -4,10 +4,10 @@ using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.A210KnowNingen.B240Move.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
 using Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
@@ -22,12 +22,12 @@ using Grayscale.A690_FvLearn____.B110_FvLearn____.C470____StartZero;
 
 #if DEBUG || LEARN
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C480____UtilFvEdit;
-using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C250Struct;
+using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 #endif
 
 #if DEBUG
-using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
+using Grayscale.A210KnowNingen.B250LogKaisetu.C250Struct;
+using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 // using Grayscale.A060Application.B110Log.C500Struct;
 #endif
 
@@ -327,7 +327,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             Uc_Main uc_Main,
             KwLogger errH)
         {
-            Sky positionA;
+            ISky positionA;
             Tree newKifu1_Hirate;
             {
                 Earth newEarth1;

@@ -6,16 +6,16 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.A210KnowNingen.B240Move.C500Struct;
+using Grayscale.A210KnowNingen.B250LogKaisetu.C250Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
+using Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA;
+using Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA;
+using Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C500Util;
 using Grayscale.A500_ShogiEngine.B210_timeMan____.C___500_struct__;
@@ -24,12 +24,12 @@ using Grayscale.A500_ShogiEngine.B220_Tansaku____.C500Struct;
 using Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500Struct;
 
 #if DEBUG
-// using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250Struct;
+// using Grayscale.A210KnowNingen.B250LogKaisetu.C250Struct;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210_KnowNingen_.B110_GraphicLog_.C500Util;
-using Grayscale.A210_KnowNingen_.B460_KyokumMoves.C250____Log;
-using Grayscale.A210_KnowNingen_.B810_LogGraphiEx.C500Util;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
+using Grayscale.A210KnowNingen.B110GraphicLog.C500Util;
+using Grayscale.A210KnowNingen.B460KyokumMoves.C250Log;
+using Grayscale.A210KnowNingen.B810LogGraphiEx.C500Util;
+using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
 #else
 #endif
 
@@ -202,7 +202,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500Struct
 
             Tree kifu1,// ツリーを伸ばしているぜ☆（＾～＾）
             Playerside psideA,//Playerside psideA = positionA.GetKaisiPside();
-            Sky positionA,
+            ISky positionA,
 
             bool isHonshogi,
             Mode_Tansaku mode_Tansaku,
@@ -374,7 +374,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500Struct
             Tansaku_Genjo genjo,
 
             Playerside psideA,
-            Sky positionA,
+            ISky positionA,
 
             EvaluationArgs args,
             KwLogger errH
@@ -442,7 +442,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500Struct
 
             int kaisiTemezumi,
             Playerside psideA,
-            Sky positionA,//この局面から、合法手を作成☆（＾～＾）
+            ISky positionA,//この局面から、合法手を作成☆（＾～＾）
             float parentsiblingBestScore,
             MoveEx baseNod1,// ツリーを伸ばしているぜ☆（＾～＾）
             Tree kifu1,
@@ -598,7 +598,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500Struct
                         //*
                         // １手戻したいぜ☆（＾～＾）
 
-                        IttemodosuResult ittemodosuResult;
+                        IIttemodosuResult ittemodosuResult;
                         Util_IttemodosuRoutine.UndoMove(
                             out ittemodosuResult,
                             iMov_child_variable,//この関数が呼び出されたときの指し手☆（＾～＾）

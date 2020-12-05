@@ -4,27 +4,27 @@ using System.Runtime.CompilerServices;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B210Tushin.C500Util;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500Util;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B310_Shogiban___.C500Util;
-using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500Converter;
-using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C250Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
-using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
-using Grayscale.A210_KnowNingen_.B740_KifuParserA.C500Parser;
-using Grayscale.A210_KnowNingen_.B820_KyokuParser.C___500_Parser;
-using Grayscale.A210_KnowNingen_.B830_ConvStartpo.C500Converter;
+using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
+using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
+using Grayscale.A210KnowNingen.B190Komasyurui.C500Util;
+using Grayscale.A210KnowNingen.B240Move.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B310Shogiban.C500Util;
+using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
+using Grayscale.A210KnowNingen.B570ConvJsa.C500Converter;
+using Grayscale.A210KnowNingen.B650PnlTaikyoku.C250Struct;
+using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
+using Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA;
+using Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA;
+using Grayscale.A210KnowNingen.B740KifuParserA.C500Parser;
+using Grayscale.A210KnowNingen.B740KifuParserA.C500Parser;
+using Grayscale.A210KnowNingen.B820KyokuParser.C500Parser;
+using Grayscale.A210KnowNingen.B830ConvStartpo.C500Converter;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
@@ -52,7 +52,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             SkyWrapper_Gui model_Manual,
             MoveEx newNodeA,
             Move move,
-            Sky positionA,
+            ISky positionA,
             out string jsaFugoStr,
             Tree kifu1,
             KwLogger logger
@@ -101,8 +101,8 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
             bool successful = false;
             KifuParserA_Impl kifuParserA_Impl = new KifuParserA_Impl();
-            KifuParserA_Result result = new KifuParserA_ResultImpl();
-            KifuParserA_Genjo genjo = new KifuParserA_GenjoImpl(inputLine);
+            IKifuParserAResult result = new KifuParserA_ResultImpl();
+            IKifuParserAGenjo genjo = new KifuParserA_GenjoImpl(inputLine);
 
             try
             {
@@ -316,7 +316,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             //------------------------------
             // 棋譜から１手削ります
             //------------------------------
-            Sky positionA = kifu1_mutable.PositionA;// curNode1.GetNodeValue();
+            ISky positionA = kifu1_mutable.PositionA;// curNode1.GetNodeValue();
             int korekaranoTemezumi = positionA.Temezumi - 1;//１手前へ。
 
             if (kifu1_mutable.Pv_IsRoot())// curNode1.IsRoot(kifu1_mutable,logger)
@@ -345,7 +345,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             //------------------------------
             // 前の手に戻します
             //------------------------------
-            IttemodosuResult ittemodosuResult;
+            IIttemodosuResult ittemodosuResult;
             Util_IttemodosuRoutine.UndoMove(
                 out ittemodosuResult,
                 curNode1.Move,

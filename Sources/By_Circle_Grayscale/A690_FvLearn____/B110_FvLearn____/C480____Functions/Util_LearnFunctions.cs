@@ -4,13 +4,13 @@ using System.IO;
 using System.Text;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.A210KnowNingen.B240Move.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
+using Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA;
+using Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA;
+using Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat;
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo;
@@ -170,7 +170,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
             float tyoseiryo_good = 0.0f;//加点に使われる数字です。
 
             float badScore_temp = tyoseiryo_bad;
-            Sky positionA = uc_Main.LearningData.PositionA;
+            ISky positionA = uc_Main.LearningData.PositionA;
             if (positionA.GetKaisiPside() == Playerside.P2)
             {
                 tyoseiryo_bad *= -1.0f;//2Pは、負数の方が高得点です。
@@ -211,7 +211,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
                 tyoseiryo_good += -real_tyoseiryo;
 
 
-                IttemodosuResult ittemodosuResult;
+                IIttemodosuResult ittemodosuResult;
                 Util_IttemodosuRoutine.UndoMove(
                     out ittemodosuResult,
                     moveB,//この関数が呼び出されたときの指し手☆（＾～＾）

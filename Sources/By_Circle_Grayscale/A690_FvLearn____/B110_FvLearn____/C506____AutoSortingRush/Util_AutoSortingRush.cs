@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
+using Grayscale.A210KnowNingen.B240Move.C500Struct;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C450____Tyoseiryo;
@@ -8,7 +8,7 @@ using Grayscale.A690_FvLearn____.B110_FvLearn____.C470____StartZero;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions;
 
 #if DEBUG
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
+using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 // using Grayscale.A060Application.B110Log.C500Struct;
 #endif
 

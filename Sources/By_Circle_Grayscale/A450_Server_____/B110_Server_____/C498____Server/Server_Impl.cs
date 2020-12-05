@@ -1,8 +1,8 @@
-﻿using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250Struct;
+﻿using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B640_KifuTree___.C250Struct;
 using Grayscale.A450_Server_____.B110_Server_____.C___125_Receiver;
 using Grayscale.A450_Server_____.B110_Server_____.C___497_EngineClient;
 using Grayscale.A450_Server_____.B110_Server_____.C___498_Server;
@@ -15,7 +15,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C498____Server
     /// </summary>
     public class Server_Impl : Server
     {
-        public Server_Impl(Sky src_Sky, Receiver receiver)
+        public Server_Impl(ISky src_Sky, Receiver receiver)
         {
             this.engineClient = new EngineClient_Impl(receiver);
             this.engineClient.SetOwner_Server(this);
@@ -24,7 +24,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C498____Server
             // モデル
             //----------
             this.m_earth_ = new EarthImpl();
-            Sky positionInit = new SkyImpl(src_Sky);
+            ISky positionInit = new SkyImpl(src_Sky);
             this.m_kifuTree_ = new TreeImpl(positionInit);
             this.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "9/9/9/9/9/9/9/9/9");
 

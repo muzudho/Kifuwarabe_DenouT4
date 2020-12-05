@@ -1,6 +1,6 @@
 ﻿using System;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
 using Grayscale.A450_Server_____.B110_Server_____.C498____Server;
 using Grayscale.A480_ServerAims_.B110_AimsServer_.C___060_Phase;
 using Grayscale.A480_ServerAims_.B110_AimsServer_.C___070_ServerBase;
@@ -39,7 +39,7 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C500____Server
         #endregion
 
 
-        public AimsServerImpl(Sky src_Sky)
+        public AimsServerImpl(ISky src_Sky)
             : base(src_Sky, new Receiver_ForAimsImpl())
         {
             // AIMSサーバー用の特別処理。

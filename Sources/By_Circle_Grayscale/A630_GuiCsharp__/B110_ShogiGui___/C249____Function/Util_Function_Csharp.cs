@@ -1,17 +1,17 @@
 ﻿using System.Drawing;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500Converter;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500Util;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500Struct;
-using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500Converter;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500Converter;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
+using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
+using Grayscale.A210KnowNingen.B190Komasyurui.C500Util;
+using Grayscale.A210KnowNingen.B240Move.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
+using Grayscale.A210KnowNingen.B570ConvJsa.C500Converter;
+using Grayscale.A210KnowNingen.B640_KifuTree___.C250Struct;
+using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 using Grayscale.A450_Server_____.B110_Server_____.C250____Util;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___080_Shape;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___499_Repaint;
@@ -34,7 +34,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
         {
             MoveEx newNode = new MoveExImpl();
 
-            Sky positionA = Util_SkyCreator.New_Hirate();//[初期配置]ボタン押下時
+            ISky positionA = Util_SkyCreator.New_Hirate();//[初期配置]ボタン押下時
             mainGui.Link_Server.Earth.Clear();
 
             // 棋譜を空っぽにします。
@@ -122,7 +122,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
         public static bool Komaokuri_Gui(
             string restText,
             MoveEx node6,// = shogiGui.Link_Server.KifuTree.CurNode;
-            Sky positionA,// = shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue();
+            ISky positionA,// = shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue();
             MainGui_Csharp shogiGui,
             Tree kifu1,
             KwLogger logger
