@@ -324,16 +324,16 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                             // どうにもできないので  ログだけ取って、上に投げます。
                             errH.AppendLine(message);
                             errH.Flush(LogTypes.Error);
-                            throw ex;
+                            throw ;
                         }
 #if DEBUG
                     case 20:
                         {
                             errH.DonimoNaranAkirameta(ex, "棋譜ツリーの読みの後半９０です。");
-                            throw ex;
+                            throw;
                         }
 #endif
-                    default: throw ex;
+                    default: throw ;
                 }
             }
         }
@@ -684,7 +684,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                             + " entry.Key=" + ConvMove.ToSfen(iMov_child_variable)
                             //+ " node_yomi.CountAllNodes=" + node_yomi_KAIZOMAE.CountAllNodes()
                             + " 指し手候補=" + sb.ToString());
-                        throw ex;
+                        throw;
 
                     }
                 }
@@ -692,7 +692,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
             catch (Exception ex)
             {
                 logger.DonimoNaranAkirameta(ex, "棋譜ツリーで例外です(B)。exceptionArea=" + exceptionArea);
-                throw ex;
+                throw;
             }
 
             return result_thisDepth;
@@ -722,7 +722,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
             catch (Exception ex)
             {
                 errH.DonimoNaranAkirameta(ex, "棋譜ツリーの読みループの作成次ノードの前半２０です。");
-                throw ex;
+                throw;
             }
         }
         private static void Log2(
@@ -747,7 +747,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
             catch (Exception ex)
             {
                 errH.DonimoNaranAkirameta(ex, "棋譜ツリーの読みループの作成次ノードの前半４０です。");
-                throw ex;
+                throw;
             }
         }
 #endif

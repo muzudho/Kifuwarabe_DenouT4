@@ -175,7 +175,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
                 string message = "Util_IttesasuRoutine#Execute（B）： exceptionArea=" + exceptionArea + "\n" + ex.GetType().Name + "：" + ex.Message;
                 errH.AppendLine(message);
                 errH.Flush(LogTypes.Error);
-                throw ex;
+                throw;
             }
 
 
@@ -307,7 +307,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
                 logger.DonimoNaranAkirameta(ex, "Util_IttesasuRoutine#Sasu24_UgokasuKoma_IdoSakiHe： exceptionArea=" + exceptionArea + "\n"
                     //+"hint=["+hint+"]"
                     );
-                throw ex;
+                throw;
             }
         }
 

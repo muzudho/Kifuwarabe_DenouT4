@@ -774,7 +774,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             {
                 // エラー：どうにもできないので  ログだけ取って無視します。
                 ErrorControllerReference.ProcessEngineDefault.DonimoNaranAkirameta("Program「position」：" + ex.GetType().Name + "：" + ex.Message);
-                throw ex;
+                throw;
             }
 
             return PhaseResultUsiLoop2.None;
@@ -826,7 +826,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
 
                 // どうにもできないので  ログだけ取って無視します。
                 ErrorControllerReference.ProcessEngineDefault.DonimoNaranAkirameta("Program「go ponder」：" + ex.GetType().Name + "：" + ex.Message);
-                throw ex;
+                throw ;
             }
 
             return PhaseResultUsiLoop2.None;
@@ -1162,22 +1162,22 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                     case 2100:
                         {
                             ErrorControllerReference.ProcessEngineDefault.DonimoNaranAkirameta(ex, "マルチＰＶから、ベスト指し手をチョイスしようとしたときの１０です。");
-                            throw ex;
+                            throw;
                         }
                     case 2200:
                         {
                             ErrorControllerReference.ProcessEngineDefault.DonimoNaranAkirameta(ex, "マルチＰＶから、ベスト指し手をチョイスしようとしたときの４０です。");
-                            throw ex;
+                            throw;
                         }
                     case 2300:
                         {
                             ErrorControllerReference.ProcessEngineDefault.DonimoNaranAkirameta(ex, "マルチＰＶから、ベスト指し手をチョイスしようとしたときの５０です。");
-                            throw ex;
+                            throw;
                         }
                     case 2400:
                         {
                             ErrorControllerReference.ProcessEngineDefault.DonimoNaranAkirameta(ex, "マルチＰＶから、ベスト指し手をチョイスしようとしたときの９０です。");
-                            throw ex;
+                            throw;
                         }
                     default:
                         {
@@ -1186,7 +1186,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
 
                             // どうにもできないので  ログだけ取って無視します。
                             ErrorControllerReference.ProcessEngineDefault.DonimoNaranAkirameta("Program「go」：" + ex.GetType().Name + " " + ex.Message + "：goを受け取ったときです。：");
-                            throw ex;//追加
+                            throw;//追加
                         }
                         //break;
                 }
@@ -1296,7 +1296,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
 
                 // どうにもできないので  ログだけ取って無視します。
                 ErrorControllerReference.ProcessEngineDefault.DonimoNaranAkirameta("Program「stop」：" + ex.GetType().Name + " " + ex.Message);
-                throw ex;//追加
+                throw;//追加
             }
 
             return PhaseResultUsiLoop2.None;
@@ -1636,10 +1636,10 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 {
                     case 1000:
                         ErrorControllerReference.ProcessEngineDefault.DonimoNaranAkirameta("フィーチャーベクターCSVを読み込んでいるとき。" + ex.GetType().Name + "：" + ex.Message);
-                        throw ex;
+                        throw;
                         //break;
                 }
-                throw ex;
+                throw;
             }
         }
 

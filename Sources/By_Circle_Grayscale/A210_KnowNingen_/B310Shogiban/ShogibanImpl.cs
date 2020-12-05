@@ -83,7 +83,7 @@ namespace Grayscale.A210KnowNingen.B310Shogiban.C250Struct
                     " masu=" + Conv_Masu.ToLog(masu) + "\n" +
                     " busstop=" + Conv_Busstop.ToLog(koma)
                     );
-                throw ex;
+                throw;
             }
 
 

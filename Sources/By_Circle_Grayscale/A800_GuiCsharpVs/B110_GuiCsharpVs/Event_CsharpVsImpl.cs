@@ -47,7 +47,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C491Event
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
                     MainGui_Csharp shogiGui = (MainGui_Csharp)obj_shogiGui2;
-                    Uc_Form1Mainable ui_PnlMain = ((Form1Shogi)shogiGui.OwnerForm).Uc_Form1Main;
+                    UcForm1Mainable ui_PnlMain = ((Form1Shogi)shogiGui.OwnerForm).Uc_Form1Main;
 
                     ui_PnlMain.MainGui.Start_ShogiEngine(ui_PnlMain.SetteiXmlFile.ShogiEngineFilePath, errH);
                 };
@@ -65,7 +65,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C491Event
                     // ここに処理を書く
 
                     MainGui_Csharp shogiGui = (MainGui_Csharp)obj_shogiGui2;
-                    Uc_Form1Mainable ui_PnlMain = ((Form1Shogi)shogiGui.OwnerForm).Uc_Form1Main;
+                    UcForm1Mainable ui_PnlMain = ((Form1Shogi)shogiGui.OwnerForm).Uc_Form1Main;
 
                     ui_PnlMain.MainGui.Do_ComputerSente(errH);
                 };

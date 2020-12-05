@@ -120,7 +120,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi
             catch (Exception ex)
             {
                 errH.DonimoNaranAkirameta(ex, "棋譜ツリーを作っていたときです。");
-                throw ex;
+                throw;
             }
 
 

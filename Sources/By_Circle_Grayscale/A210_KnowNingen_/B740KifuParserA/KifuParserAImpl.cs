@@ -95,7 +95,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
             catch (Exception ex)
             {
                 ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "棋譜解析中☆");
-                throw ex;
+                throw;
             }
 
             return genjo.InputLine;
@@ -185,7 +185,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
             catch (Exception ex)
             {
                 ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "棋譜解析中☆");
-                throw ex;
+                throw;
             }
         }
     }

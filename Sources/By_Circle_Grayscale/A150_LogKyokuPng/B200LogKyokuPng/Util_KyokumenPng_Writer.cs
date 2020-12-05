@@ -181,7 +181,7 @@ namespace Grayscale.A150LogKyokuPng.B200LogKyokuPng.C500UtilWriter
             catch (ExternalException ex)
             {
                 MessageBox.Show(ex.GetType().Name + "：" + ex.Message + "\n filepath：" + filepath);
-                throw ex;
+                throw;
             }
 
             return successful;

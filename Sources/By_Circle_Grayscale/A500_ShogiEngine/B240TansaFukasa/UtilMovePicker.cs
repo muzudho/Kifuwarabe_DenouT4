@@ -269,7 +269,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
             catch (Exception ex)
             {
                 logger.DonimoNaranAkirameta(ex, "探索深さルーチンでエラー☆ exceptionArea=" + exceptionArea);
-                throw ex;
+                throw ;
             }
 
 

@@ -5,7 +5,7 @@ using Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui;
 
 namespace Grayscale.A630GuiCsharp.B110ShogiGui.C510Form
 {
-    public interface Uc_Form1Mainable
+    public interface UcForm1Mainable
     {
         Color BackColor { get; set; }
 

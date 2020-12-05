@@ -97,9 +97,9 @@ namespace Grayscale.A210KnowNingen.B490ForcePromot.C250Struct
                         "「強制転成表」に、int型数値でないものが指定されていました。\n" +
                         "rowCount=[" + rowCount + "]\n" +
                         "masuHandle=[" + masuHandle + "]\n";
-                        Exception ex = new Exception(message);
-                        ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "強制昇格中☆");
-                        throw ex;
+                        Exception ex1 = new Exception(message);
+                        ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex1, "強制昇格中☆");
+                        throw ex1;
                     }
 
                     map2.Add(masuHandle, Array_Komahaiyaku185.Items[haiyakuHandle_target]);

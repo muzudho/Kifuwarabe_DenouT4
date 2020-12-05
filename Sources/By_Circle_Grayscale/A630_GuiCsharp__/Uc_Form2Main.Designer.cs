@@ -1,6 +1,6 @@
 ﻿namespace Grayscale.P699Form
 {
-    partial class Uc_Form2Main
+    partial class UcForm2Main
     {
         /// <summary> 
         /// 必要なデザイナー変数です。

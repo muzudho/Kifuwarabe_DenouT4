@@ -1,21 +1,20 @@
 ﻿using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A630GuiCsharp.B110ShogiGui.C100Widgets;
-using Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C080Shape;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C081Canvas;
+using Grayscale.A630GuiCsharp.B110ShogiGui.C100Widgets;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C125Scene;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C250Timed;
+using Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui;
 
 namespace Grayscale.P699Form
 {
-    public partial class Uc_Form2Main : UserControl
+    public partial class UcForm2Main : UserControl
     {
 
 
-        public Uc_Form2Main()
+        public UcForm2Main()
         {
             InitializeComponent();
         }

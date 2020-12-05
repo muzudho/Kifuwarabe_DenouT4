@@ -116,7 +116,7 @@ namespace Grayscale.A120KifuSfen.B160ConvSfen.C500Converter
                     catch (Exception ex)
                     {
                         ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "moves解析中☆");
-                        throw ex;
+                        throw;
                     }
                 }
 
@@ -126,7 +126,7 @@ namespace Grayscale.A120KifuSfen.B160ConvSfen.C500Converter
             catch (Exception ex)
             {
                 ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "moves解析中☆");
-                throw ex;
+                throw;
             }
 
             return successful;

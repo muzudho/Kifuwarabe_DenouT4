@@ -374,7 +374,7 @@ namespace Grayscale.A690FvLearn.B110_FvLearn____.C250____Learn
             catch (Exception ex)
             {
                 logger.DonimoNaranAkirameta(ex, "棋譜ツリーを作っていたときです。");
-                throw ex;
+                throw;
             }
         }
 

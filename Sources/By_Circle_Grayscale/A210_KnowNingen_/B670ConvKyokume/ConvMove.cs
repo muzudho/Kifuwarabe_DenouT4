@@ -635,7 +635,7 @@ namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
             {
                 drop = false;
                 //Util_OwataMinister.ERROR.Logger.DonimoNaranAkirameta(ex, "IsDaAction:");// exceptionArea=" + exceptionArea
-                throw ex;
+                throw;
             }
 
             return ConvMove.ToMove(

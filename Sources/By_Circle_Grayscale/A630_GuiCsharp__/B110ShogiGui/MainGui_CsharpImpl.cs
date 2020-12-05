@@ -338,7 +338,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
                     catch (Exception ex)
                     {
                         MessageBox.Show("JSONのパース時にエラーか？：" + ex.GetType().Name + "：" + ex.Message);
-                        throw ex;
+                        throw;
                     }
 
 
@@ -463,7 +463,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
 
         public void Response(string mutexString, ILogger errH)
         {
-            Uc_Form1Mainable uc_Form1Main = ((Form1Shogiable)this.OwnerForm).Uc_Form1Main;
+            UcForm1Mainable uc_Form1Main = ((Form1Shogiable)this.OwnerForm).Uc_Form1Main;
 
             // enum型
             Form1_Mutex mutex2;

@@ -149,7 +149,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
             catch (Exception ex)
             {
                 logger.DonimoNaranAkirameta(ex, "王手回避漏れを除外しているときだぜ☆（＾▽＾） exception_area=" + exception_area);
-                throw ex;
+                throw;
             }
 
             return starbetuSusumuMasus;
@@ -235,7 +235,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
                     errH.DonimoNaranAkirameta(ex,
                         "ノードを削除しているときだぜ☆（＾▽＾） exception_area=" + exception_area +
                         "\nmove=" + ConvMove.ToLog(moveB));
-                    throw ex;
+                    throw;
                 }
 
             gt_EndLoop:
@@ -483,7 +483,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
                 catch (Exception ex)
                 {
                     errH.DonimoNaranAkirameta(ex, "ランダムチョイス(50)");
-                    throw ex;
+                    throw;
                 }
 
             }

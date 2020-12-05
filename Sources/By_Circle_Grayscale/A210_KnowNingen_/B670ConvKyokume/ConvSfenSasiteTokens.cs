@@ -128,9 +128,9 @@ namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
                             "str4=[" + str4 + "]\n" +
                             "strNari=[" + strNari + "]\n" +
                             "";
-                        Exception ex = new Exception(message);
-                        ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "moves解析中☆");
-                        throw ex;
+                        Exception ex1 = new Exception(message);
+                        ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex1, "moves解析中☆");
+                        throw ex1;
                     }
 
 
@@ -196,9 +196,9 @@ namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
                             hint + "_SF解3",
                             positionA.Temezumi));
 
-                        Exception ex = new Exception(sb.ToString());
-                        ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "SFEN解析中の失敗");
-                        throw ex;
+                        Exception ex1 = new Exception(sb.ToString());
+                        ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex1, "SFEN解析中の失敗");
+                        throw ex1;
                     }
                 }
 
@@ -285,7 +285,7 @@ namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
             catch (Exception ex)
             {
                 ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "moves解析中☆　str1=「" + str1 + "」　str2=「" + str2 + "」　str3=「" + str3 + "」　str4=「" + str4 + "」　strNari=「" + strNari + "」　");
-                throw ex;
+                throw;
             }
         }
     }

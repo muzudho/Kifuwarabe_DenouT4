@@ -24,7 +24,7 @@ namespace Grayscale.P699Form
         }
         private Form2_Console form2_Console;
 
-        public Uc_Form1Mainable Uc_Form1Main
+        public UcForm1Mainable Uc_Form1Main
         {
             get
             {

@@ -222,9 +222,9 @@ namespace Grayscale.A210KnowNingen.B300_KomahaiyaTr.C500Table
                         "「配役転換表」に、int型数値でないものが指定されていました。\n" +
                         "rowCount=[" + rowCount2 + "]\n" +
                         "columnCount=[" + columnCount + "]\n";
-                        Exception ex = new Exception(message);
-                        ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "配役変換中☆");
-                        throw ex;
+                        Exception ex1 = new Exception(message);
+                        ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex1, "配役変換中☆");
+                        throw ex1;
                     }
 
                     int masuHandle = (8 - columnCount) * 9 + (rowCount2 % 9);//0～80

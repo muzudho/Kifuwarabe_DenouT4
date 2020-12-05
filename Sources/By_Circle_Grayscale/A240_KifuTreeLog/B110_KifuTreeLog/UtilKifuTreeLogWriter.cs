@@ -121,7 +121,7 @@ namespace Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct
                 // どうにもできないので  ログだけ取って、上に投げます。
                 errH.AppendLine(message);
                 errH.Flush(LogTypes.Error);
-                throw ex;
+                throw;
             }
 
             try
@@ -144,7 +144,7 @@ namespace Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct
             }
             catch (Exception ex) {
                 errH.DonimoNaranAkirameta(ex, "局面評価明細を出力しようとしたときです。");
-                throw ex;
+                throw;
             }
 #endif
         }
@@ -230,7 +230,7 @@ namespace Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct
             catch (System.Exception ex)
             {
                 errH.DonimoNaranAkirameta(ex, "盤１個分のログを出力しようとしていたときです。\n fileName=[" + fileName + "]\n relFolder=[" + relFolder + "]");
-                throw ex;
+                throw;
             }
         }
     }

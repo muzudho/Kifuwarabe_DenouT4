@@ -83,7 +83,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
             catch (Exception ex)
             {
                 ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "positionの解析中。");
-                throw ex;
+                throw;
             }
 
             return genjo.InputLine;

@@ -2,7 +2,6 @@
 using System.Text;
 using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B310Settei.C500Struct;
 using Grayscale.A060Application.B310Settei.L510Xml;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
@@ -15,18 +14,16 @@ using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
 using Grayscale.A210KnowNingen.B640_KifuTree___.C250Struct;
 using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 using Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA;
-using Grayscale.A630GuiCsharp.B110ShogiGui.C080Shape;
-using Grayscale.A630GuiCsharp.B110ShogiGui.C100Widgets;
-using Grayscale.A630GuiCsharp.B110ShogiGui.C125Scene;
-using Grayscale.A630GuiCsharp.B110ShogiGui.C499Repaint;
-using Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui;
-using Grayscale.A630GuiCsharp.B110ShogiGui.C510Form;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C060TextBoxListener;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C080Shape;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C081Canvas;
+using Grayscale.A630GuiCsharp.B110ShogiGui.C100Widgets;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C125Scene;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C249Function;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C250Timed;
+using Grayscale.A630GuiCsharp.B110ShogiGui.C499Repaint;
+using Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui;
+using Grayscale.A630GuiCsharp.B110ShogiGui.C510Form;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
@@ -42,7 +39,7 @@ namespace Grayscale.P699Form
     /// ************************************************************************************************************************
     /// </summary>
     [Serializable]
-    public partial class Uc_Form1Main : UserControl, Uc_Form1Mainable
+    public partial class UcForm1Main : UserControl, UcForm1Mainable
     {
 
         #region プロパティー類
@@ -77,7 +74,7 @@ namespace Grayscale.P699Form
         /// コンストラクターです。
         /// ************************************************************************************************************************
         /// </summary>
-        public Uc_Form1Main()
+        public UcForm1Main()
         {
             InitializeComponent();
         }
@@ -103,7 +100,7 @@ namespace Grayscale.P699Form
         {
             ILogger logger = ErrorControllerReference.ProcessGuiDefault;
 
-            Uc_Form2Main uc_Form2Main = ((Form1Shogi)this.ParentForm).Form2_Console.Uc_Form2Main;
+            UcForm2Main uc_Form2Main = ((Form1Shogi)this.ParentForm).Form2_Console.Uc_Form2Main;
 
             //
             // 設定XMLファイル
@@ -372,7 +369,7 @@ namespace Grayscale.P699Form
         public void Solute_RepaintRequest(
             Form1_Mutex mutex, MainGui_Csharp mainGui, ILogger errH)
         {
-            Uc_Form2Main form2 = ((Form1Shogi)this.ParentForm).Form2_Console.Uc_Form2Main;
+            UcForm2Main form2 = ((Form1Shogi)this.ParentForm).Form2_Console.Uc_Form2Main;
 
             //------------------------------------------------------------
             // 駒の座標再計算
@@ -437,7 +434,7 @@ namespace Grayscale.P699Form
                                         ));
                                 break;
                             case SyuturyokuKirikae.Html:
-                                form2.WriteLine_Syuturyoku(Uc_Form1Main.CreateHtml(this.MainGui));
+                                form2.WriteLine_Syuturyoku(UcForm1Main.CreateHtml(this.MainGui));
                                 break;
                         }
 

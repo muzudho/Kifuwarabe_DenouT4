@@ -219,7 +219,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
             catch (Exception ex)
             {
                 ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "IsDaAction:");// exceptionArea=" + exceptionArea
-                throw ex;
+                throw;
             }
 
             return result;

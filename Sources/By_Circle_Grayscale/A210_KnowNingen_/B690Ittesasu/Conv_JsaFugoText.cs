@@ -87,7 +87,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
 
                 // どうにもできないので  ログだけ取って無視します。
                 errH.DonimoNaranAkirameta("TuginoItte_JapanFugo.GetData_FromText（A）：" + ex.GetType().Name + "：" + ex.Message + "：text=「" + inputLine + "」");
-                throw ex;//追加
+                throw;//追加
             }
 
 

@@ -116,7 +116,7 @@ namespace Grayscale.A060Application.B110Log.C500Struct
             catch (Exception ex)
             {
                 ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "ﾛｸﾞﾌｧｲﾙ削除中☆");
-                throw ex;
+                throw;
             }
         }
     }

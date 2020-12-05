@@ -132,7 +132,7 @@
     <Compile Include="B110ShogiGui\WidgetsLoader.cs" />
     <Compile Include="B110ShogiGui\Form1_Mutex.cs" />
     <Compile Include="B110ShogiGui\Form1Shogiable.cs" />
-    <Compile Include="B110ShogiGui\Uc_Form1Mainable.cs" />
+    <Compile Include="B110ShogiGui\UcForm1Mainable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Uc_Form2Main.cs">
       <SubType>UserControl</SubType>

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uc_Form1Main = new Grayscale.P699Form.Uc_Form1Main();
+            this.uc_Form1Main = new Grayscale.P699Form.UcForm1Main();
             this.SuspendLayout();
             // 
             // ui_PnlMain1
@@ -56,7 +56,7 @@
 
         #endregion
 
-        private Uc_Form1Main uc_Form1Main;
+        private UcForm1Main uc_Form1Main;
 
 
 

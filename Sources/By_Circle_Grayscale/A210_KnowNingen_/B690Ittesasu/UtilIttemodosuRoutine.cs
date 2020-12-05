@@ -188,7 +188,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
             catch (Exception ex)
             {
                 logger.DonimoNaranAkirameta(ex, "駒を戻しているとき☆ hint=" + hint + " exception_area=" + exception_area);
-                throw ex;
+                throw;
             }
         }
 

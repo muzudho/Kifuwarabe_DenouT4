@@ -113,7 +113,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C400Conv
                 catch (Exception ex)
                 {
                     ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "moves解析中☆");
-                    throw ex;
+                    throw;
                 }
             }
 

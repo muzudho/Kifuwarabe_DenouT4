@@ -7,7 +7,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C510Form
 
     public interface Form1Shogiable
     {
-        Uc_Form1Mainable Uc_Form1Main { get; }
+        UcForm1Mainable Uc_Form1Main { get; }
 
         DELEGATE_Form1_Load Delegate_Form1_Load { get; set; }
     }
