@@ -1,7 +1,7 @@
-﻿using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___490_Option__;
+﻿using System;
 using System.Collections.Generic;
-using System;
 using System.Text;
+using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___490_Option__;
 
 namespace Grayscale.A090_UsiFramewor.B100_usiFrame1__.C490____Option__
 {
@@ -75,7 +75,7 @@ namespace Grayscale.A090_UsiFramewor.B100_usiFrame1__.C490____Option__
 
                 // プロパティ値
                 string valueName = "";
-                string valueType="";
+                string valueType = "";
                 string valueDefault = "";
                 List<string> valueVars = new List<string>();
                 string valueMin = "";
@@ -83,14 +83,14 @@ namespace Grayscale.A090_UsiFramewor.B100_usiFrame1__.C490____Option__
 
                 // 部品ごとに、ばらばらにするぜ☆（＾▽＾）
                 index++;
-                for (;index<tokens.Length;index++ )
+                for (; index < tokens.Length; index++)
                 {
                     string token = tokens[index];
 
                     if ("" == propertyName)
                     {
                         // プロパティ名
-                        if (token== "name"|| token == "type" || token == "default" || token == "var" || token == "min" || token == "max")
+                        if (token == "name" || token == "type" || token == "default" || token == "var" || token == "min" || token == "max")
                         {
                             propertyName = token;
                         }
@@ -112,12 +112,12 @@ namespace Grayscale.A090_UsiFramewor.B100_usiFrame1__.C490____Option__
                 }
 
                 // 部品を組み立てるぜ☆（＾▽＾）
-                EngineOption option =null;
+                EngineOption option = null;
                 switch (valueType)
                 {
                     case "check": option = new EngineOption_BoolImpl(valueDefault); break;
                     case "spin": option = new EngineOption_SpinImpl(valueDefault, valueMin, valueMax); break;
-                    case "combo": option = new EngineOption_ComboImpl(valueDefault,valueVars); break;
+                    case "combo": option = new EngineOption_ComboImpl(valueDefault, valueVars); break;
                     case "button": option = new EngineOption_ButtonImpl(valueDefault); break;
                     case "filename": option = new EngineOption_FilenameImpl(valueDefault); break;
 
@@ -177,7 +177,7 @@ namespace Grayscale.A090_UsiFramewor.B100_usiFrame1__.C490____Option__
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine("┏━━━━━設定━━━━━┓");
-            foreach (KeyValuePair<string,EngineOption> entry in this.m_entries_)
+            foreach (KeyValuePair<string, EngineOption> entry in this.m_entries_)
             {
                 sb.AppendLine(entry.Key + "=" + entry.Value);
             }

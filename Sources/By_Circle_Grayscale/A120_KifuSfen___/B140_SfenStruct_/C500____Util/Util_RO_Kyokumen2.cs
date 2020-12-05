@@ -1,6 +1,6 @@
-﻿using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Text;
+using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
 
 namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C500____Util
 {
@@ -15,9 +15,9 @@ namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C500____Util
 
 
 
-        public  static void Assert_Koma40(RO_Kyokumen2_ForTokenize result, string hint)
+        public static void Assert_Koma40(RO_Kyokumen2_ForTokenize result, string hint)
         {
-//#if DEBUG
+            //#if DEBUG
             StringBuilder sb = new StringBuilder();
             int komaCount = 0;
             result.Foreach_Masu201((int masuHandle, string masuString, ref bool toBreak) =>
@@ -29,8 +29,8 @@ namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C500____Util
                 }
             });
 
-            Debug.Assert(komaCount == 40, "将棋の駒の数が40個ではありませんでした。[" + komaCount + "] " + sb.ToString() + "\n hint="+hint);
-//#endif
+            Debug.Assert(komaCount == 40, "将棋の駒の数が40個ではありませんでした。[" + komaCount + "] " + sb.ToString() + "\n hint=" + hint);
+            //#endif
         }
 
 

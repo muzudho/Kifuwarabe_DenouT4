@@ -1,10 +1,9 @@
-﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
+﻿using System.Drawing;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___080_Shape;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___492_Widgets;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
-using System.Drawing;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
 {
@@ -85,7 +84,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
         /// </summary>
         /// <param name="suji"></param>
         /// <returns></returns>
-        public int SujiToX( int suji)
+        public int SujiToX(int suji)
         {
             return (Conv_Masu.KOMADAI_LAST_SUJI - suji) * this.MasuWidth + this.Bounds.X;
         }
@@ -100,7 +99,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
         /// <returns></returns>
         public int DanToY(int dan)
         {
-            return (dan-1) * this.MasuHeight + this.Bounds.Y;
+            return (dan - 1) * this.MasuHeight + this.Bounds.Y;
         }
 
 
@@ -110,7 +109,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
         /// ************************************************************************************************************************
         /// </summary>
         /// <param name="g"></param>
-        public void Paint( Graphics g)
+        public void Paint(Graphics g)
         {
             if (!this.Visible)
             {

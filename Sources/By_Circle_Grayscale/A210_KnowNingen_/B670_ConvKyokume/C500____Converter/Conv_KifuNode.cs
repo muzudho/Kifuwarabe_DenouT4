@@ -1,4 +1,6 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using System.Text;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
 using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
@@ -8,8 +10,6 @@ using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using System;
-using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
@@ -31,7 +31,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 for (int dan = 1; dan < 10; dan++)
                 {
                     Finger koma0 = Util_Sky_FingersQuery.InMasuNow_Old(
-                        src_Sky, Conv_Masu.ToMasu_FromBanjoSujiDan( suji, dan)
+                        src_Sky, Conv_Masu.ToMasu_FromBanjoSujiDan(suji, dan)
                         ).ToFirst();
 
                     if (Fingers.Error_1 != koma0)
@@ -39,9 +39,9 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                         src_Sky.AssertFinger(koma0);
                         Busstop koma1 = src_Sky.BusstopIndexOf(koma0);
 
-                        ro_Kyokumen1.Ban[suji,dan] = Util_Komasyurui14.SfenText(
+                        ro_Kyokumen1.Ban[suji, dan] = Util_Komasyurui14.SfenText(
                             Conv_Busstop.ToKomasyurui(koma1),
-                            Conv_Busstop.ToPlayerside( koma1)
+                            Conv_Busstop.ToPlayerside(koma1)
                             );
                     }
                 }
@@ -83,7 +83,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 {
                     // 将棋盤上のどこかにある駒？
                     Finger koma0 = Util_Sky_FingersQuery.InMasuNow_Old(
-                        src_Sky, Conv_Masu.ToMasu_FromBanjoSujiDan( suji, dan)
+                        src_Sky, Conv_Masu.ToMasu_FromBanjoSujiDan(suji, dan)
                         ).ToFirst();
 
                     if (Fingers.Error_1 != koma0)
@@ -100,7 +100,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
 
                         sb.Append(Util_Komasyurui14.SfenText(
                             Conv_Busstop.ToKomasyurui(koma1),
-                            Conv_Busstop.ToPlayerside( koma1)
+                            Conv_Busstop.ToPlayerside(koma1)
                             ));
                     }
                     else

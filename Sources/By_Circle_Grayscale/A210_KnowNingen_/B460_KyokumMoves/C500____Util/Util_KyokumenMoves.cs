@@ -1,17 +1,17 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B410_Collection_.C500____Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B430_Play_______.C500____Query;
 using Grayscale.A210_KnowNingen_.B450_Play2______.C500____Struct;
-using System;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B460_KyokumMoves.C___250_Log;
@@ -136,12 +136,12 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util
                         out fingers_seme_BANJO, out fingers_kurau_BANJO, out fingers_seme_MOTI,
                         out fingers_kurau_MOTI, positionA, tebanSeme, tebanKurau,
                         errH);
-//#if DEBUG
-//                    System.Console.WriteLine("◇fingers_seme_BANJOの要素数=" + fingers_seme_BANJO.Count);
-//                    System.Console.WriteLine("◇fingers_kurau_BANJOの要素数=" + fingers_kurau_BANJO.Count);
-//                    System.Console.WriteLine("◇fingers_seme_MOTIの要素数=" + fingers_seme_MOTI.Count);
-//                    System.Console.WriteLine("◇fingers_kurau_MOTIの要素数=" + fingers_kurau_MOTI.Count);
-//#endif
+                    //#if DEBUG
+                    //                    System.Console.WriteLine("◇fingers_seme_BANJOの要素数=" + fingers_seme_BANJO.Count);
+                    //                    System.Console.WriteLine("◇fingers_kurau_BANJOの要素数=" + fingers_kurau_BANJO.Count);
+                    //                    System.Console.WriteLine("◇fingers_seme_MOTIの要素数=" + fingers_seme_MOTI.Count);
+                    //                    System.Console.WriteLine("◇fingers_kurau_MOTIの要素数=" + fingers_kurau_MOTI.Count);
+                    //#endif
                     //if (null != log_orNull)
                     //{
                     //    log_orNull.Log3(mmGenjo.Src_Sky, tebanKurau, tebanSeme, fingers_kurau_IKUSA, fingers_kurau_MOTI, fingers_seme_IKUSA, fingers_seme_MOTI);
@@ -192,9 +192,9 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util
                     positionA,//これは、どの局面？
                     errH
                     );
-//#if DEBUG
-//                System.Console.WriteLine("sMsSusumeruMasus_seme_MOTIの要素数=" + Util_List_OneAndMultiEx<Finger, SySet<SyElement>>.CountAllElements(sMsSusumeruMasus_seme_MOTI));
-//#endif
+                //#if DEBUG
+                //                System.Console.WriteLine("sMsSusumeruMasus_seme_MOTIの要素数=" + Util_List_OneAndMultiEx<Finger, SySet<SyElement>>.CountAllElements(sMsSusumeruMasus_seme_MOTI));
+                //#endif
 
                 //if (null != log_orNull)
                 //{
@@ -226,7 +226,7 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util
                     }
 #endif
 
-                    throw new Exception( msg,ex);
+                    throw new Exception(msg, ex);
                 }
 
             }
@@ -272,13 +272,13 @@ namespace Grayscale.A210_KnowNingen_.B460_KyokumMoves.C500____Util
                 okenaiMasus,
                 errH_orNull
                 );
-//#if DEBUG
-//            if (caller_forLog == 1)
-//            {
-//                string jsaSasiteStr = Util_Translator_Sasite.ToSasite(node_forLog, node_forLog.Value, errH_orNull);
-//                System.Console.WriteLine("Util_Things: [" + node_forLog .Value.ToKyokumenConst.Temezumi+ "]手目済み 局面で、[" + jsaSasiteStr + "]の駒別置ける升 調べ（持ち駒編）\n" + Util_List_OneAndMultiEx<Finger, SySet<SyElement>>.Dump(result, node_forLog.Value.ToKyokumenConst));
-//            }
-//#endif
+            //#if DEBUG
+            //            if (caller_forLog == 1)
+            //            {
+            //                string jsaSasiteStr = Util_Translator_Sasite.ToSasite(node_forLog, node_forLog.Value, errH_orNull);
+            //                System.Console.WriteLine("Util_Things: [" + node_forLog .Value.ToKyokumenConst.Temezumi+ "]手目済み 局面で、[" + jsaSasiteStr + "]の駒別置ける升 調べ（持ち駒編）\n" + Util_List_OneAndMultiEx<Finger, SySet<SyElement>>.Dump(result, node_forLog.Value.ToKyokumenConst));
+            //            }
+            //#endif
             return result;
         }
 

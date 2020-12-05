@@ -1,6 +1,5 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu;
@@ -9,7 +8,6 @@ using Grayscale.A690_FvLearn____.B110_FvLearn____.C400____54List;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C430____Zooming;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C440____Ranking;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C460____Scoreing;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
@@ -126,7 +124,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C470____StartZero
                 }
                 else if (100 < score)// ±0か、マイナスに転じさせたい。
                 {
-                    chosei_offset *= - 1;
+                    chosei_offset *= -1;
                 }
 
                 int changedCells;

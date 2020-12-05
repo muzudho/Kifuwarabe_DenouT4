@@ -1,9 +1,8 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C___400_54List;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C450____Tyoseiryo;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C460____Scoreing
 {
@@ -43,7 +42,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C460____Scoreing
         //                (Playerside.P2 == selfPside && Const_NikomaKankeiP_ParamIx.PLAYER2 <= p1 && 0.0f < fv_mutable.NikomaKankeiPp_ForMemory[p1, p2] )
         //                )
         //            {
-                        
+
         //                result_sum += fv_mutable.NikomaKankeiPp_ForMemory[p1, p2];
         //                fv_mutable.NikomaKankeiPp_ForMemory[p1, p2] = 0;
         //            }

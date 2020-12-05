@@ -1,14 +1,14 @@
-﻿using Grayscale.A000_Platform___.B011_Csv________.C500____Parser;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using System.Windows.Forms;
+using Grayscale.A000_Platform___.B011_Csv________.C500____Parser;
 using Grayscale.A060_Application.B510_Conv_Sy____.C500____Converter;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Windows.Forms;
 
 namespace Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word
 {
@@ -21,7 +21,7 @@ namespace Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word
     public abstract class Michi187Array
     {
 
-                
+
         #region 静的プロパティー類
 
         public static List<SySet<SyElement>> Items
@@ -152,7 +152,7 @@ namespace Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word
 
             if (!File.Exists(filepath2))
             {
-                MessageBox.Show("ファイルがありません。\n"+
+                MessageBox.Show("ファイルがありません。\n" +
                     "filepath2=[" + filepath2 + "]", "情報");
                 rows = null;
                 goto gt_EndMethod;
@@ -193,7 +193,7 @@ namespace Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word
                 {
                     string cell = cell1.Trim();
 
-                    if(cell=="")
+                    if (cell == "")
                     {
                         goto gt_Next1;
                     }
@@ -221,7 +221,7 @@ namespace Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word
                         if (isPart_Define_Member)
                         {
                             // 「１一」を「1」に変換します。
-                            SyElement masu81 = Masu_Honshogi.Query_Basho( Conv_Sy.Query_Bitfield(cell));
+                            SyElement masu81 = Masu_Honshogi.Query_Basho(Conv_Sy.Query_Bitfield(cell));
                             michiPart.AddElement(masu81);
                         }
                         else
@@ -244,8 +244,8 @@ namespace Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word
                         }
                     }
 
-                    gt_Next1:
-                        ;
+                gt_Next1:
+                    ;
                 }
 
                 Michi187Array.Items.Add(michi187);
@@ -296,9 +296,9 @@ namespace Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word
                 Dictionary<SyElement, int> orderOnBanT = new Dictionary<SyElement, int>();
 
                 int order = 1;
-                foreach (SySet<SyElement>superset in michi.Supersets)
+                foreach (SySet<SyElement> superset in michi.Supersets)
                 {
-                    switch(superset.Word)
+                    switch (superset.Word)
                     {
                         case "味方陣":
                             {
@@ -328,12 +328,12 @@ namespace Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word
                             }
                             break;
                         default:
-                            throw new Exception("未定義の集合名です。["+superset.Word+"]");
+                            throw new Exception("未定義の集合名です。[" + superset.Word + "]");
                     }
                 }
 
 
-                
+
 
                 sb.Append("<table>");
                 // ９一～１一、９二～１二、…９九～１九の順だぜ☆
@@ -345,7 +345,7 @@ namespace Grayscale.A210_KnowNingen_.B380_Michi______.C500____Word
                     for (int suji = 9; suji >= 1; suji--)
                     {
 
-                        SyElement masu = Conv_Masu.ToMasu_FromBanjoSujiDan( suji, dan);
+                        SyElement masu = Conv_Masu.ToMasu_FromBanjoSujiDan(suji, dan);
 
                         if (orderOnBanM.ContainsKey(masu))
                         {

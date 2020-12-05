@@ -1,4 +1,7 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System.IO;
+using System.Text;
+using System.Windows.Forms;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C500____usiFrame___;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
@@ -16,9 +19,6 @@ using Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C420____Inspection;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C470____StartZero;
-using System.IO;
-using System.Text;
-using System.Windows.Forms;
 
 #if DEBUG || LEARN
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C480____UtilFvEdit;
@@ -252,7 +252,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
 
 
                         // 半径
-                        float paramRange = Util_Inspection.FvParamRange( uc_Main.LearningData.Fv);
+                        float paramRange = Util_Inspection.FvParamRange(uc_Main.LearningData.Fv);
                         uc_Main.ChkAutoParamRange.Text = "評価更新毎-" + paramRange + "～" + paramRange + "矯正";
                     }
 
@@ -289,13 +289,13 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
             Util_LearnOperation.Setup_KifuTree(
                 ref isRequest_ShowGohosyu,
                 ref isRequest_ChangeKyokumenPng,
-                uc_Main,errH);
+                uc_Main, errH);
 
             // 処理が重いので。
             Application.DoEvents();
 
             // CSA棋譜を読み込みます。
-            Util_LearnOperation.Load_CsaKifu(uc_Main,errH);
+            Util_LearnOperation.Load_CsaKifu(uc_Main, errH);
 
             // 合法手を調べます。
             int searchedMaxDepth = 0;
@@ -314,8 +314,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
                 uc_Main.LearningData.PositionA,
                 uc_Main, Util_Loggers.ProcessLearner_DEFAULT);
 
-        //gt_EndMethod:
-        //    ;
+            //gt_EndMethod:
+            //    ;
         }
 
         /// <summary>
@@ -373,7 +373,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation
 
             // 現局面の合法手表示の更新を要求
             isRequest_ShowGohosyu = true;
-            
+
             // 局面PNG画像更新を要求
             isRequest_ChangeKyokumenPng = true;
         }

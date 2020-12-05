@@ -1,4 +1,6 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System.Collections.Generic;
+using System.Drawing;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C260____Operator;
@@ -23,8 +25,6 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C125____Scene;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function;
-using System.Collections.Generic;
-using System.Drawing;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
@@ -383,7 +383,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                         Conv_Busstop.ToMasu(srcStarlight),
                                                         Conv_Busstop.ToKomasyurui(dstStarlight),
                                                         Conv_Busstop.ToKomasyurui(srcStarlight),//これで成りかどうか判定
-                                                        mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma != Busstop.Empty ? Conv_Busstop.ToKomasyurui( mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma) : Komasyurui14.H00_Null___,
+                                                        mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma != Busstop.Empty ? Conv_Busstop.ToKomasyurui(mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma) : Komasyurui14.H00_Null___,
                                                         Conv_Busstop.ToPlayerside(dstStarlight),
                                                         false
                                                     );// 選択している駒の元の場所と、移動先
@@ -406,7 +406,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     //----------------------------------------
                                                     mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(sky_newChild), "TimedB.Step(1)");
 
-                                                    mainGui.Link_Server.KifuTree.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(newNode, mainGui.Link_Server.KifuTree, sky_newChild,logger));
+                                                    mainGui.Link_Server.KifuTree.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(newNode, mainGui.Link_Server.KifuTree, sky_newChild, logger));
 
                                                     string jsaFugoStr;
                                                     Util_Functions_Server.AfterSetCurNode_Srv(
@@ -526,13 +526,13 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                         //------------------------------
 
                                                         src_GuiSky.AssertFinger(btnKoma.Koma);
-                                                        
+
                                                         Move move = Conv_Move.ToMove(
                                                             Conv_Busstop.ToMasu(mainGui.Shape_PnlTaikyoku.MouseBusstopOrNull2),
                                                             Conv_Busstop.ToMasu(src_GuiSky.BusstopIndexOf(btnKoma.Koma)),
                                                             Conv_Busstop.ToKomasyurui(mainGui.Shape_PnlTaikyoku.MouseBusstopOrNull2),
                                                             Conv_Busstop.ToKomasyurui(src_GuiSky.BusstopIndexOf(btnKoma.Koma)),//これで成りかどうか判定
-                                                            mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma != Busstop.Empty ? Conv_Busstop.ToKomasyurui( mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma) : Komasyurui14.H00_Null___,
+                                                            mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma != Busstop.Empty ? Conv_Busstop.ToKomasyurui(mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma) : Komasyurui14.H00_Null___,
                                                             Conv_Busstop.ToPlayerside(mainGui.Shape_PnlTaikyoku.MouseBusstopOrNull2),
                                                             false
                                                             );// 選択している駒の元の場所と、移動先
@@ -541,7 +541,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                         Sky sky_newChild = new SkyImpl(src_GuiSky);
                                                         MoveEx newNode =
                                                             new MoveExImpl(move);
-                                                        sky_newChild.SetTemezumi( mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//1手進ませる。
+                                                        sky_newChild.SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//1手進ませる。
 
 
                                                         //マウスの左ボタンを放したときです。
@@ -550,7 +550,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                         //----------------------------------------
                                                         mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(sky_newChild), "TimedB.Step(2)");
 
-                                                        mainGui.Link_Server.KifuTree.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(newNode, mainGui.Link_Server.KifuTree, sky_newChild,logger));
+                                                        mainGui.Link_Server.KifuTree.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(newNode, mainGui.Link_Server.KifuTree, sky_newChild, logger));
 
                                                         string jsaFugoStr;
 
@@ -669,7 +669,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
 
                                                     mainGui.SkyWrapper_Gui.GuiSky.Foreach_Busstops((Finger finger, Busstop koma, ref bool toBreak) =>
                                                     {
-                                                        if (Conv_Busstop.ToMasu( koma) == btnSasitaiMasu2.Zahyo)
+                                                        if (Conv_Busstop.ToMasu(koma) == btnSasitaiMasu2.Zahyo)
                                                         {
                                                             //>>>>> そこに駒が置いてあった。
 #if DEBUG
@@ -723,7 +723,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                             mainGui.Link_Server.KifuTree.PositionA.GetKaisiPside()
                                                             )
                                                         ||
-                                                        Util_Sky_BoolQuery.InBanjoAitejin(Conv_Busstop.ToMasu( koma), Conv_Busstop.ToPlayerside( koma))
+                                                        Util_Sky_BoolQuery.InBanjoAitejin(Conv_Busstop.ToMasu(koma), Conv_Busstop.ToPlayerside(koma))
                                                     )
                                                 )
                                             {
@@ -750,7 +750,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                                                     // GuiからServerへ渡す情報
                                                     Komasyurui14 syurui;
                                                     Busstop dst;
-                                                    
+
                                                     Util_Function_Csharp.Komamove1a_49Gui(out syurui, out dst, btnTumandeiruKoma, btnSasitaiMasu, mainGui);
 
                                                     // ServerからGuiへ渡す情報
@@ -946,14 +946,14 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed
                         break;
                 }
             }
-            
 
 
 
 
 
-        //gt_EndMethod1:
-        //    ;
+
+            //gt_EndMethod1:
+            //    ;
         }
     }
 

@@ -1,6 +1,9 @@
-﻿using Grayscale.A000_Platform___.B025_Machine____;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
+using Grayscale.A000_Platform___.B025_Machine____;
 using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
@@ -9,9 +12,6 @@ using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C400____Conv;
-using System.Collections.Generic;
-using System.Diagnostics;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 namespace Grayscale.A950_UnitTest___
 {
@@ -78,7 +78,7 @@ namespace Grayscale.A950_UnitTest___
                         logger.AppendLine(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(
                             Conv_Move.ToPlayerside(moveB),
                             positionA, logger)
-                            ,positionA,moveB));
+                            , positionA, moveB));
                         logger.Flush(LogTypes.Plain);
 
                         while (true)
@@ -93,8 +93,8 @@ namespace Grayscale.A950_UnitTest___
                                 default: break;
                             }
                         }
-                        gt_Next:
-                            ;
+                    gt_Next:
+                        ;
                     }
                     pv.Add(moveB);
 
@@ -110,7 +110,7 @@ namespace Grayscale.A950_UnitTest___
                 int i = 0;
                 foreach (Move move in pv)
                 {
-                    logger.AppendLine("["+i+"]" + Conv_Move.ToLog(move));
+                    logger.AppendLine("[" + i + "]" + Conv_Move.ToLog(move));
                     i++;
                 }
                 logger.Flush(LogTypes.Plain);
@@ -155,7 +155,7 @@ namespace Grayscale.A950_UnitTest___
                             default: break;
                         }
                     }
-                    gt_Next:
+                gt_Next:
                     ;
                 }
             }

@@ -1,4 +1,5 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System.Windows.Forms;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View;
@@ -6,7 +7,6 @@ using Grayscale.A690_FvLearn____.B110_FvLearn____.C450____Tyoseiryo;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C470____StartZero;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C506____AutoSasiteSort;
-using System.Windows.Forms;
 
 namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C508____AutoSasiteRush
 {
@@ -69,7 +69,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C508____AutoSasiteRush
                         goto gt_EndTesu;
                     }
 
-                    if (uc_Main.LearningData.PositionA.Temezumi < tesu+1)
+                    if (uc_Main.LearningData.PositionA.Temezumi < tesu + 1)
                     {
                         goto gt_EndLearn;
                     }
@@ -223,7 +223,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C508____AutoSasiteRush
                 }
             }//指し手ループ
 
-            gt_EndSasiteList:
+        gt_EndSasiteList:
             ;
 
             // 終局時は、オートセーブ

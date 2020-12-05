@@ -1,6 +1,9 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using System.Collections.Generic;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B410_Collection_.C500____Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
@@ -9,11 +12,7 @@ using Grayscale.A210_KnowNingen_.B730_Util_SasuEx.C500____Util;
 using Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B780_LegalMove__.C500____Util;
 using Grayscale.A500_ShogiEngine.B220_Tansaku____.C___500_Tansaku;
-using System;
-using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
@@ -40,7 +39,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
         /// <param name="errH"></param>
         public static List<Move> CreateMovelist_BeforeLoop(
             Tansaku_Genjo genjo,
-            
+
             Playerside psideA,
             Sky positionA,//この局面から合法手を作成☆（＾～＾）
 
@@ -173,7 +172,8 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                     //----------------------------------------
                     Maps_OneAndMulti<Finger, Move> komaBETUAllSasites = Conv_KomabetuSusumeruMasus.ToKomaBETUAllSasites(
                         komaBETUSusumeruMasus, positionA);
-                    if(test){                        
+                    if (test)
+                    {
                         foreach (Finger fig in komaBETUAllSasites.Items.Keys)
                         {
                             if (fig == Fingers.Error_1)

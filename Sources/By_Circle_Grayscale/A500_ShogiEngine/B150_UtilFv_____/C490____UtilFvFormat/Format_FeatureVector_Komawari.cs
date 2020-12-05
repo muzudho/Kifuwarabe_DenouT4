@@ -1,6 +1,6 @@
-﻿using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
+﻿using System.Text;
+using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
-using System.Text;
 
 
 namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat

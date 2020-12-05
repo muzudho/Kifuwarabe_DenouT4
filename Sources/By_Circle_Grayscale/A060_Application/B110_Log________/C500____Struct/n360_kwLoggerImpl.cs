@@ -1,9 +1,9 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using System;
+﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using System.Diagnostics;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 
 namespace Grayscale.A060_Application.B110_Log________.C500____Struct
 {
@@ -101,7 +101,7 @@ namespace Grayscale.A060_Application.B110_Log________.C500____Struct
             }
 
             // Return true if the fields match:
-            return (this.FileNameWoe+this.Extension == p.FileNameWoe+p.Extension);
+            return (this.FileNameWoe + this.Extension == p.FileNameWoe + p.Extension);
         }
 
 

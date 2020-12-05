@@ -1,10 +1,10 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System.Collections.Generic;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C___500_Hyokakansu;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu;
-using System.Collections.Generic;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;

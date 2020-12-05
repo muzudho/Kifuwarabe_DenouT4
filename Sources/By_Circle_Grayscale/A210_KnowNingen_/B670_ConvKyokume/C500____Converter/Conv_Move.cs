@@ -1,4 +1,7 @@
-﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+﻿using System;
+using System.Diagnostics;
+using System.Text;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
 using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C___250_Struct;
 using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C250____Struct;
@@ -10,9 +13,6 @@ using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using System;
-using System.Diagnostics;
-using System.Text;
 
 namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
 {
@@ -156,7 +156,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                     int s = (int)MoveShift.Promotion;
                     promotion = (v & m) >> s;
                 }
-                if (1== promotion)
+                if (1 == promotion)
                 {
                     sb.Append("+");
                 }
@@ -166,7 +166,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 sb.Append(e.Message);//FIXME:
             }
 
-            gt_EndMethod:
+        gt_EndMethod:
             ;
             return sb.ToString();
         }
@@ -210,7 +210,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 {
                     okiba = Okiba.Sente_Komadai;
                 }
-                else if(Playerside.P2 == Conv_Move.ToPlayerside(move))
+                else if (Playerside.P2 == Conv_Move.ToPlayerside(move))
                 {
                     okiba = Okiba.Gote_Komadai;
                 }
@@ -366,7 +366,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             int dstDan = Conv_Move.ToDstDan(move);
 
             // 至
-            return Conv_Masu.ToMasu_FromBanjoSujiDan( dstSuji, dstDan);
+            return Conv_Masu.ToMasu_FromBanjoSujiDan(dstSuji, dstDan);
         }
 
         public static bool ToPromotion(Move move)
@@ -703,16 +703,17 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 v |= 1 << (int)MoveShift.Promotion;
             }
 
-            if (drop || 
-                (Okiba.Sente_Komadai== srcOkiba
+            if (drop ||
+                (Okiba.Sente_Komadai == srcOkiba
                 |
-                Okiba.Gote_Komadai== srcOkiba
+                Okiba.Gote_Komadai == srcOkiba
                 )
-            ){
+            )
+            {
                 v |= 1 << (int)MoveShift.Drop;
             }
 
-            if (Playerside.P2==pside)
+            if (Playerside.P2 == pside)
             {
                 v |= 1 << (int)MoveShift.Playerside;
             }
@@ -747,7 +748,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 int.TryParse(csa.DestinationMasu[0].ToString(), out dstSuji);
                 int dstDan;
                 int.TryParse(csa.DestinationMasu[1].ToString(), out dstDan);
-                dstMasu = Conv_Masu.ToMasu_FromBanjoSujiDan( dstSuji, dstDan);
+                dstMasu = Conv_Masu.ToMasu_FromBanjoSujiDan(dstSuji, dstDan);
             }
 
             SyElement srcMasu;
@@ -757,7 +758,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 int.TryParse(csa.SourceMasu[0].ToString(), out srcSuji);
                 int srcDan;
                 int.TryParse(csa.SourceMasu[1].ToString(), out srcDan);
-                srcMasu = Conv_Masu.ToMasu_FromBanjoSujiDan( srcSuji, srcDan);
+                srcMasu = Conv_Masu.ToMasu_FromBanjoSujiDan(srcSuji, srcDan);
             }
 
             bool drop;
@@ -811,11 +812,11 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             }
 
             Playerside pside;
-            if ("+"== csa.Sengo)
+            if ("+" == csa.Sengo)
             {
                 pside = Playerside.P1;
             }
-            else if ("-"==csa.Sengo)
+            else if ("-" == csa.Sengo)
             {
                 pside = Playerside.P2;
             }
@@ -825,7 +826,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 pside = Playerside.Empty;
                 errorCheck = true;
             }
-            
+
 
             return Conv_Move.ToMove(
                 srcMasu,
@@ -847,7 +848,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
 
         public static string ToLog(Move move)
         {
-            if (Move.Empty==move)
+            if (Move.Empty == move)
             {
                 return "EMPTY";
             }
@@ -876,7 +877,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
 
             // 手番
             Playerside playersideB = Conv_Move.ToPlayerside(move);
-            sb.Append("pside="+ Conv_Playerside.ToLog_Kanji(playersideB) );
+            sb.Append("pside=" + Conv_Playerside.ToLog_Kanji(playersideB));
 
             bool drop = Conv_Move.ToDrop(move);
 

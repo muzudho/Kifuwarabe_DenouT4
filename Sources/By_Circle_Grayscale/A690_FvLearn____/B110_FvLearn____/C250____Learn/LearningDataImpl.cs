@@ -1,4 +1,7 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using System.IO;
+using System.Text;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
 using Grayscale.A060_Application.B510_Conv_Sy____.C500____Converter;
@@ -9,6 +12,7 @@ using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500____Struct;
 using Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C500____UtilWriter;
 using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C___250_Struct;
 using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C250____Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
@@ -31,11 +35,7 @@ using Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct;
 using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi;
 using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn;
-using System;
-using System.IO;
-using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 #if DEBUG
 // using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
@@ -264,15 +264,15 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
                 sb.Append("　");
 
                 // P1,P2
-                sb.Append(Conv_Busstop.ToPlayerside( koma));
+                sb.Append(Conv_Busstop.ToPlayerside(koma));
                 sb.Append("　");
 
                 // 升00
-                sb.Append(Conv_Sy.Query_Word(Conv_Busstop.ToMasu( koma).Bitfield));
+                sb.Append(Conv_Sy.Query_Word(Conv_Busstop.ToMasu(koma).Bitfield));
                 sb.Append("　");
 
                 // 歩、香…
-                sb.Append(Util_Komasyurui14.ToIchimoji(Conv_Busstop.ToKomasyurui( koma)));
+                sb.Append(Util_Komasyurui14.ToIchimoji(Conv_Busstop.ToKomasyurui(koma)));
 
                 sb.AppendLine();
             });
@@ -371,7 +371,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn
                     isHonshogi, Mode_Tansaku.Learning,
                     args, logger);
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 logger.DonimoNaranAkirameta(ex, "棋譜ツリーを作っていたときです。");
                 throw ex;
             }

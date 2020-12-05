@@ -1,11 +1,11 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using System.Text.RegularExpressions;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A120_KifuSfen___.B120_ConvSujiDan.C500____Converter;
 using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
 using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct;
 using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C500____Util;
-using System;
-using System.Text.RegularExpressions;
 
 namespace Grayscale.A120_KifuSfen___.B160_ConvSfen___.C500____Converter
 {
@@ -19,7 +19,7 @@ namespace Grayscale.A120_KifuSfen___.B160_ConvSfen___.C500____Converter
         /// </summary>
         /// <param name="moti"></param>
         /// <returns></returns>
-        public  static int CountMaisu(string moti)
+        public static int CountMaisu(string moti)
         {
             int result;
 
@@ -115,7 +115,8 @@ namespace Grayscale.A120_KifuSfen___.B160_ConvSfen___.C500____Converter
                         // 最初の１件だけ処理して終わります。
                         break;
                     }
-                    catch (Exception ex) {
+                    catch (Exception ex)
+                    {
                         Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "moves解析中☆");
                         throw ex;
                     }
@@ -124,7 +125,8 @@ namespace Grayscale.A120_KifuSfen___.B160_ConvSfen___.C500____Converter
                 rest = rest.Trim();
 
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "moves解析中☆");
                 throw ex;
             }

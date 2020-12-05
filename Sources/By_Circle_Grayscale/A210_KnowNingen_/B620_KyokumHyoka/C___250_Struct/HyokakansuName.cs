@@ -13,7 +13,7 @@ namespace Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct
         /// <summary>
         /// エラー用。
         /// </summary>
-        N00_Unknown__________=0,
+        N00_Unknown__________ = 0,
 
         /// <summary>
         /// 千日手

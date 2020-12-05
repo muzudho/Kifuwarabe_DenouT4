@@ -1,6 +1,6 @@
-﻿using Grayscale.A060_Application.B110_Log________.C500____Struct;
+﻿using System;
+using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A060_Application.B620_ConvText___.C250____Const;
-using System;
 
 namespace Grayscale.A060_Application.B620_ConvText___.C500____Converter
 {

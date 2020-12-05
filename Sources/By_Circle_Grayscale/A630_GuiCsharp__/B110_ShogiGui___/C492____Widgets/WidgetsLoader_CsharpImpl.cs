@@ -1,12 +1,12 @@
-﻿using Grayscale.A000_Platform___.B011_Csv________.C500____Parser;
+﻿using System.Collections.Generic;
+using System.Drawing;
+using System.Text;
+using Grayscale.A000_Platform___.B011_Csv________.C500____Parser;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___492_Widgets;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Text;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C492____Widgets
 {

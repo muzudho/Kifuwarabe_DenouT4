@@ -1,10 +1,10 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System.Collections.Generic;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B410_Collection_.C500____Struct;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
@@ -24,7 +24,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
         /// <returns>次の局面一覧を持った、入れ物ノード（ハブ・ノード）</returns>
         public static void ToNextNodes_AsHubNode(
             out List<Move> out_inputMovelist,
-            Maps_OneAndMulti<Finger,Move> komabetuAllMoves,
+            Maps_OneAndMulti<Finger, Move> komabetuAllMoves,
             Sky src_Sky,
             KwLogger logger
             )
@@ -39,7 +39,7 @@ namespace Grayscale.A210_KnowNingen_.B770_Conv_Sasu__.C500____Converter
             {
                 Finger figKoma = entry1.Key;// 動かす駒
 
-                if (figKoma==Fingers.Error_1)
+                if (figKoma == Fingers.Error_1)
                 {
                     logger.DonimoNaranAkirameta("駒番号が記載されていない駒があるぜ☆（＾～＾）");
                     continue;

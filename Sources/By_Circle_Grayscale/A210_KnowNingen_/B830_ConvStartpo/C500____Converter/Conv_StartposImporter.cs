@@ -1,31 +1,26 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct;
-
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 using Grayscale.A210_KnowNingen_.B820_KyokuParser.C___500_Parser;
 using Grayscale.A210_KnowNingen_.B820_KyokuParser.C500____Parser;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B830_ConvStartpo.C500____Converter
 {
     public abstract class Conv_StartposImporter
     {
-                /// <summary>
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="kifu"></param>

@@ -9,7 +9,7 @@ namespace Grayscale.A210_KnowNingen_.B150_KifuJsa____.C500____Word
     /// </summary>
     public enum NariNarazu
     {
-        
+
         /// <summary>
         /// 成
         /// </summary>

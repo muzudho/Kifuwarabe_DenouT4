@@ -1,6 +1,6 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System.Diagnostics;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A450_Server_____.B110_Server_____.C___496_EngineWrapper;
-using System.Diagnostics;
 
 namespace Grayscale.A450_Server_____.B110_Server_____.C496____EngineWrapper
 {
@@ -102,7 +102,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C496____EngineWrapper
         /// <summary>
         /// 将棋エンジンに、"usi"を送信します。
         /// </summary>
-        public void Send_Usi( KwLogger errH)
+        public void Send_Usi(KwLogger errH)
         {
             // 将棋エンジンの標準入力へ、メッセージを送ります。
             this.Download("usi", errH);
@@ -111,7 +111,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C496____EngineWrapper
         /// <summary>
         /// 将棋エンジンに、"isready"を送信します。
         /// </summary>
-        public void Send_Isready( KwLogger errH)
+        public void Send_Isready(KwLogger errH)
         {
             this.Download("isready", errH);
         }
@@ -119,7 +119,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C496____EngineWrapper
         /// <summary>
         /// 将棋エンジンに、"usinewgame"を送信します。
         /// </summary>
-        public void Send_Usinewgame( KwLogger errH)
+        public void Send_Usinewgame(KwLogger errH)
         {
             // 将棋エンジンの標準入力へ、メッセージを送ります。
             this.Download("usinewgame", errH);
@@ -128,60 +128,60 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C496____EngineWrapper
         /// <summary>
         /// 将棋エンジンに、"gameover lose"を送信します。
         /// </summary>
-        public void Send_Gameover_lose( KwLogger errH)
+        public void Send_Gameover_lose(KwLogger errH)
         {
             // 将棋エンジンの標準入力へ、メッセージを送ります。
-            this.Download("gameover lose",errH);
+            this.Download("gameover lose", errH);
         }
 
         /// <summary>
         /// 将棋エンジンに、"quit"を送信します。
         /// </summary>
-        public void Send_Quit( KwLogger errH)
+        public void Send_Quit(KwLogger errH)
         {
             // 将棋エンジンの標準入力へ、メッセージを送ります。
-            this.Download("quit",errH);
+            this.Download("quit", errH);
         }
 
         /// <summary>
         /// 将棋エンジンに、"ok"を送信します。"noop"への返事です。
         /// </summary>
-        public void Send_Noop_from_server( KwLogger errH)
+        public void Send_Noop_from_server(KwLogger errH)
         {
             // 将棋エンジンの標準入力へ、メッセージを送ります。
-            this.Download("noop from server",errH);
+            this.Download("noop from server", errH);
         }
 
         /// <summary>
         /// 将棋エンジンに、"go"を送信します。
         /// </summary>
-        public void Send_Go( KwLogger errH)
+        public void Send_Go(KwLogger errH)
         {
             // 将棋エンジンの標準入力へ、メッセージを送ります。
-            this.Download("go",errH);
+            this.Download("go", errH);
         }
 
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
         /// </summary>
-        public void Send_Shutdown( KwLogger errH)
+        public void Send_Shutdown(KwLogger errH)
         {
             if (this.IsLive_ShogiEngine())
             {
                 // 将棋エンジンの標準入力へ、メッセージを送ります。
-                this.Download("quit",errH);
+                this.Download("quit", errH);
             }
         }
 
         /// <summary>
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
-        public void Send_Logdase( KwLogger errH)
+        public void Send_Logdase(KwLogger errH)
         {
             if (this.IsLive_ShogiEngine())
             {
                 // 将棋エンジンの標準入力へ、メッセージを送ります。
-                this.Download("logdase",errH);
+                this.Download("logdase", errH);
             }
         }
 

@@ -1,17 +1,16 @@
-﻿using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
 using Grayscale.A120_KifuSfen___.B160_ConvSfen___.C500____Converter;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
 namespace Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct
 {
@@ -159,10 +158,10 @@ namespace Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct
                 int int_finger;
 
                 // 今回のカウント
-                switch (Conv_Busstop.ToKomasyurui( entry.Value))
+                switch (Conv_Busstop.ToKomasyurui(entry.Value))
                 {
                     case Komasyurui14.H01_Fu_____:
-                        switch (Conv_Busstop.ToPlayerside( entry.Value))
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_finger = int_fingerP1; break;
                             case Playerside.P2: int_finger = int_fingerP2; break;
@@ -171,7 +170,7 @@ namespace Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct
                         break;
 
                     case Komasyurui14.H02_Kyo____:
-                        switch (Conv_Busstop.ToPlayerside( entry.Value))
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_finger = int_fingerL1; break;
                             case Playerside.P2: int_finger = int_fingerL2; break;
@@ -287,21 +286,21 @@ namespace Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct
                         }
                         break;
 
-                    default: throw new Exception("未対応の駒種類=[" + Conv_Busstop.ToKomasyurui( entry.Value) + "]");
+                    default: throw new Exception("未対応の駒種類=[" + Conv_Busstop.ToKomasyurui(entry.Value) + "]");
                 }
 
-                Debug.Assert(0<=int_finger && int_finger<=39, "finger=["+int_finger+"]" );
+                Debug.Assert(0 <= int_finger && int_finger <= 39, "finger=[" + int_finger + "]");
 
-                Debug.Assert(!komaDic.ContainsKey( int_finger), "finger=[" + int_finger + "]");
+                Debug.Assert(!komaDic.ContainsKey(int_finger), "finger=[" + int_finger + "]");
 
                 komaDic.Add(int_finger, entry.Value);
 
 
                 // カウントアップ
-                switch (Conv_Busstop.ToKomasyurui( entry.Value))
+                switch (Conv_Busstop.ToKomasyurui(entry.Value))
                 {
                     case Komasyurui14.H01_Fu_____:
-                        switch (Conv_Busstop.ToPlayerside( entry.Value))
+                        switch (Conv_Busstop.ToPlayerside(entry.Value))
                         {
                             case Playerside.P1: int_fingerP1++; break;
                             case Playerside.P2: int_fingerP2++; break;
@@ -427,7 +426,7 @@ namespace Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct
                         break;
 
                     default:
-                        throw new Exception("未対応の駒種類=[" + Conv_Busstop.ToKomasyurui( entry.Value) + "]");
+                        throw new Exception("未対応の駒種類=[" + Conv_Busstop.ToKomasyurui(entry.Value) + "]");
                 }
             }
 

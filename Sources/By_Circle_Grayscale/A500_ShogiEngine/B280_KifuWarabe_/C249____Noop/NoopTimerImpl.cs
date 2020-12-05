@@ -1,7 +1,7 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___005_Usi_Loop;
+﻿using System.Diagnostics;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___490_Option__;
-using System.Diagnostics;
+using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___005_Usi_Loop;
 
 #if DEBUG
 // using Grayscale.A060_Application.B110_Log________.C___500_Struct;
@@ -87,13 +87,13 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C249____Noop
             // noop リセット処理。
             //if (this.Option_threw_noop)
             //{
-                // noopを投げてなくても、毎回ストップウォッチはリスタートさせます。
-//#if DEBUG
-                errH.AppendLine("サーバーから応答[" + command + "]があったのでタイマーをリスタートさせるぜ☆");
-                errH.Flush(LogTypes.ToClient);
-//#endif
-                this.noopPhase = NoopPhase.None;
-                this.sw_forNoop.Restart();
+            // noopを投げてなくても、毎回ストップウォッチはリスタートさせます。
+            //#if DEBUG
+            errH.AppendLine("サーバーから応答[" + command + "]があったのでタイマーをリスタートさせるぜ☆");
+            errH.Flush(LogTypes.ToClient);
+            //#endif
+            this.noopPhase = NoopPhase.None;
+            this.sw_forNoop.Restart();
             //}
         }
     }

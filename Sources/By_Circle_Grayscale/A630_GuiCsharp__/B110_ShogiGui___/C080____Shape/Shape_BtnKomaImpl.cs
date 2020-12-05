@@ -1,21 +1,19 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C250____Word;
-using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C500____Util;
-using Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct;
-using Grayscale.A210_KnowNingen_.B310_Shogiban___.C500____Util;
-using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
-using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___080_Shape;
-using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Text;
-using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C250____Word;
+using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C500____Util;
+using Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table;
+using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___080_Shape;
+using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
 {
@@ -75,7 +73,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
                 goto gt_EndMethod;
             }
 
-            Komahaiyaku185 haiyaku = Data_KomahaiyakuTransition.ToHaiyaku( Conv_Busstop.ToKomasyurui( komaKs), Conv_Busstop.ToMasu(komaKs), Conv_Busstop.ToPlayerside(komaKs));
+            Komahaiyaku185 haiyaku = Data_KomahaiyakuTransition.ToHaiyaku(Conv_Busstop.ToKomasyurui(komaKs), Conv_Busstop.ToMasu(komaKs), Conv_Busstop.ToPlayerside(komaKs));
 
             if (haiyaku == Komahaiyaku185.n000_未設定)
             {
@@ -160,18 +158,18 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
             mainGui.SkyWrapper_Gui.GuiSky.AssertFinger(this.Finger);
             Busstop koma = mainGui.SkyWrapper_Gui.GuiSky.BusstopIndexOf(this.Finger);
 
-            if(true)
+            if (true)
             {
                 //----------
                 // 駒画像
                 //----------
                 StringBuilder sb = new StringBuilder();
                 sb.Append(Const_Filepath.m_EXE_TO_CONFIG + "img/koma/");
-                sb.Append(Conv_Komasyurui.ToStr_ImageName(Conv_Busstop.ToKomasyurui( koma)));
+                sb.Append(Conv_Komasyurui.ToStr_ImageName(Conv_Busstop.ToKomasyurui(koma)));
                 sb.Append(".png");
                 Image img = Image.FromFile(sb.ToString());
 
-                if (Conv_Busstop.ToPlayerside( koma) == Playerside.P2)
+                if (Conv_Busstop.ToPlayerside(koma) == Playerside.P2)
                 {
                     // 画像を180度回転させたい☆
                     img.RotateFlip(RotateFlipType.Rotate180FlipNone);
@@ -188,7 +186,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
                 // 配役画像
                 //----------
                 StringBuilder sb = new StringBuilder();
-                sb.Append( Const_Filepath.m_EXE_TO_CONFIG + "img/mobility/");
+                sb.Append(Const_Filepath.m_EXE_TO_CONFIG + "img/mobility/");
                 sb.Append((int)
                     Data_KomahaiyakuTransition.ToHaiyaku(Conv_Busstop.ToKomasyurui(koma), Conv_Busstop.ToMasu(koma), Conv_Busstop.ToPlayerside(koma))
                     //koma.Haiyaku
@@ -196,7 +194,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
                 sb.Append(".png");
                 Image img = Image.FromFile(sb.ToString());
 
-                if (Conv_Busstop.ToPlayerside( koma) == Playerside.P2)
+                if (Conv_Busstop.ToPlayerside(koma) == Playerside.P2)
                 {
                     // 画像を180度回転させたい☆
                     img.RotateFlip(RotateFlipType.Rotate180FlipNone);
@@ -212,7 +210,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
             //----------
             // 枠線
             //----------
-            if(false)
+            if (false)
             {
                 Pen pen;
                 if (this.Light)
@@ -230,9 +228,9 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
             //----------
             // 文字
             //----------
-            if(false)
+            if (false)
             {
-                if (Conv_Busstop.ToPlayerside( koma) == Playerside.P1)
+                if (Conv_Busstop.ToPlayerside(koma) == Playerside.P1)
                 {
                     //----------
                     // 先手
@@ -343,20 +341,20 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
             }
 
 
-            //// フィンガー番号
-            //if (false)
-            //{
-            //    g1.DrawString(this.Finger.ToString(), new Font(FontFamily.GenericSerif, 10.0f), Brushes.Black, this.Bounds.Location);
-            //}
+        //// フィンガー番号
+        //if (false)
+        //{
+        //    g1.DrawString(this.Finger.ToString(), new Font(FontFamily.GenericSerif, 10.0f), Brushes.Black, this.Bounds.Location);
+        //}
 
-            ////----------
+        ////----------
         //// デバッグ用
         ////----------
         //if (true)
         //{
         //    string moji = siteiSk.KomaDoors[this.Handle].SrcOkiba.ToString();
 
-            //    g1.DrawString(moji, new Font(FontFamily.GenericSerif, 12.0f), Brushes.Red, this.Bounds.Location);
+        //    g1.DrawString(moji, new Font(FontFamily.GenericSerif, 12.0f), Brushes.Red, this.Bounds.Location);
         //}
 
         gt_EndMethod:
@@ -373,7 +371,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
         /// <param name="y"></param>
         public void LightByMouse(int x, int y)
         {
-            if (this.HitByMouse(x,y)) // マウスが重なっているなら
+            if (this.HitByMouse(x, y)) // マウスが重なっているなら
             {
                 this.Light = true;
             }

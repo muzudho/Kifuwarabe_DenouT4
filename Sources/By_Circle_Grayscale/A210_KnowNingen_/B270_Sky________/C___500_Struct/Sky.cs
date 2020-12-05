@@ -1,9 +1,9 @@
-﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+﻿using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using System.Runtime.CompilerServices;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
-using System.Collections.Generic;
 
 namespace Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct
 {
@@ -39,12 +39,12 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct
 
         Busstop BusstopIndexOf(
             Finger finger
-            /*
-            ,
-            [CallerMemberName] string memberName = "",
-            [CallerFilePath] string sourceFilePath = "",
-            [CallerLineNumber] int sourceLineNumber = 0
-            */
+        /*
+        ,
+        [CallerMemberName] string memberName = "",
+        [CallerFilePath] string sourceFilePath = "",
+        [CallerLineNumber] int sourceLineNumber = 0
+        */
         );
 
         void Foreach_Busstops(DELEGATE_Sky_Foreach delegate_Sky_Foreach);

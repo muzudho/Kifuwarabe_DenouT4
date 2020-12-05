@@ -1,13 +1,12 @@
-﻿using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct;
 using Grayscale.A500_ShogiEngine.B140_Conv_FvKoumoku.C500____Converter;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 
 namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat
 {
@@ -117,7 +116,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat
                 List<Kp_P2Item> kpList = new List<Kp_P2Item>();
 
                 // pieceの 1Pと2P
-                for ( int piecePlayer = 1; piecePlayer < 3; piecePlayer++)
+                for (int piecePlayer = 1; piecePlayer < 3; piecePlayer++)
                 {
                     int koumokuIndex;
                     if (piecePlayer == 1)
@@ -249,7 +248,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat
                     //----------------------------------------
                     for (int kSuji = 9; kSuji > 0; kSuji--)
                     {
-                        if(kSuji!=9)
+                        if (kSuji != 9)
                         {
                             // 表の横の隙間
                             sb.Append("    ");
@@ -263,7 +262,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat
                         //----------------------------------------
                         for (int pSuji = 9; pSuji > 0; pSuji--)
                         {
-                            int pMasu = Conv_Masu.ToMasuHandle_FromBanjoSujiDan( pSuji, pDan);
+                            int pMasu = Conv_Masu.ToMasuHandle_FromBanjoSujiDan(pSuji, pDan);
 
                             if (Const_FeatureVectorFormat.PARAMETER_INDEX_OUTPUT)
                             {

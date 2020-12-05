@@ -1,4 +1,9 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using System.Windows.Forms;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
 using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C___250_Struct;
@@ -8,11 +13,6 @@ using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct;
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C480____UtilFvEdit;
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat;
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Windows.Forms;
 
 namespace Grayscale.P720_FvWriter___
 {
@@ -84,7 +84,7 @@ namespace Grayscale.P720_FvWriter___
 
             StringBuilder sb = new StringBuilder();
             List<CsaKifuSasite> sasiteList = csaKifu.SasiteList;
-            foreach(CsaKifuSasite csaSasite in sasiteList)
+            foreach (CsaKifuSasite csaSasite in sasiteList)
             {
                 sb.Append(csaSasite.OptionTemezumi);
                 sb.Append("手目 ");
@@ -176,11 +176,11 @@ namespace Grayscale.P720_FvWriter___
         /// <param name="e"></param>
         private void btnWriteFvScale_Click(object sender, EventArgs e)
         {
-            string filepathW = Path.Combine( Application.StartupPath, Const_Filepath.m_EXE_TO_CONFIG, Const_Filepath.m_CONFIG_TO_FV, "fv_00_Scale.csv");
+            string filepathW = Path.Combine(Application.StartupPath, Const_Filepath.m_EXE_TO_CONFIG, Const_Filepath.m_CONFIG_TO_FV, "fv_00_Scale.csv");
             MessageBox.Show("filepathW=[" + filepathW + "]", "fv_00_Scale.csv書き出し。");
 
             FeatureVector fv = new FeatureVectorImpl();
-            fv.SetBairitu_NikomaKankeiPp( 0.002f);//仮の初期値。
+            fv.SetBairitu_NikomaKankeiPp(0.002f);//仮の初期値。
 
             File.WriteAllText(filepathW, Format_FeatureVector_Scale.Format_Text(fv));
         }

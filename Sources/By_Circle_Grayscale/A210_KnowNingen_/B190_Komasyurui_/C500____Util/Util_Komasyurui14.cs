@@ -113,7 +113,7 @@ namespace Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util
         {
             return Util_Komasyurui14.FlagNari[(int)syurui];
         }
-        
+
         /// <summary>
         /// ------------------------------------------------------------------------------------------------------------------------
         /// 駒が成ったときの駒ハンドル

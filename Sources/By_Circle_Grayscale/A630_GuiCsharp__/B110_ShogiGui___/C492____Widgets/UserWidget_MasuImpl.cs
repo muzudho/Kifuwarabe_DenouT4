@@ -1,11 +1,10 @@
-﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
+﻿using System.Drawing;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___491_Event;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___492_Widgets;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape;
-using System.Drawing;
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C492____Widgets
 {
@@ -153,7 +152,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C492____Widgets
             return this.this_object.HitByMouse(x, y);
         }
 
-        
+
         /// <summary>
         /// ************************************************************************************************************************
         /// マウスが重なった駒は、光フラグを立てます。
@@ -183,7 +182,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C492____Widgets
             }
         }
 
-        
+
         /// <summary>
         /// ************************************************************************************************************************
         /// 動かしたい駒の解除
@@ -191,7 +190,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C492____Widgets
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        public bool DeselectByMouse(int x, int y, object obj_shogiGui )
+        public bool DeselectByMouse(int x, int y, object obj_shogiGui)
         {
             return false;// this.this_object.DeselectByMouse(x, y, shape_PnlTaikyoku);
         }

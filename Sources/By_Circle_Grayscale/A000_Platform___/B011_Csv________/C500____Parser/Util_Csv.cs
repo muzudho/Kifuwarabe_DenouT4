@@ -1,7 +1,7 @@
-﻿using Grayscale.A000_Platform___.B011_Csv________.C250____Parser;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Grayscale.A000_Platform___.B011_Csv________.C250____Parser;
 
 namespace Grayscale.A000_Platform___.B011_Csv________.C500____Parser
 {

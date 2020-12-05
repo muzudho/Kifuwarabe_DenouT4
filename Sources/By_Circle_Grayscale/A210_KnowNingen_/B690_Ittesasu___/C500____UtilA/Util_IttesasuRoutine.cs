@@ -1,4 +1,8 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Text;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
@@ -9,17 +13,13 @@ using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA;
-using System;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
-using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 {
@@ -115,7 +115,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     if (Fingers.Error_1 != figFoodKoma)
                     {
                         //>>>>> 指した先に駒があったなら
-                        syuryoResult.FoodKomaSyurui = Conv_Busstop.ToKomasyurui( food_koma);
+                        syuryoResult.FoodKomaSyurui = Conv_Busstop.ToKomasyurui(food_koma);
                     }
                     else
                     {
@@ -222,14 +222,14 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
         {
             MoveEx newNodeB = new MoveExImpl(move);
 
-                //----------------------------------------
-                // 次ノード追加
-                //----------------------------------------
-                earth1.GetSennititeCounter().CountUp_New(
-                    Conv_Sky.ToKyokumenHash(positionA), "After3_ChangeCurrent(次の一手なし)");
+            //----------------------------------------
+            // 次ノード追加
+            //----------------------------------------
+            earth1.GetSennititeCounter().CountUp_New(
+                Conv_Sky.ToKyokumenHash(positionA), "After3_ChangeCurrent(次の一手なし)");
 
             //次ノードを、これからのカレントとします。
-            kifu1.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(newNodeB, kifu1, positionA,logger));
+            kifu1.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(newNodeB, kifu1, positionA, logger));
         }
 
 
@@ -274,7 +274,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     Fingers fingers = Util_Sky_FingersQuery.InMasuNow_New(positionA, move, logger);
                     if (fingers.Count < 1)
                     {
-                        string message = "Util_IttesasuRoutine#Do24:指し手に該当する駒が無かったぜ☆（＾～＾）"+
+                        string message = "Util_IttesasuRoutine#Do24:指し手に該当する駒が無かったぜ☆（＾～＾）" +
                             " move=" + Conv_Move.ToLog(move);
                         throw new Exception(message);
                     }
@@ -288,7 +288,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     //----------
 
                     SyElement srcMasu = Conv_Move.ToSrcMasu(move, positionA);
-                    Debug.Assert( !Masu_Honshogi.IsErrorBasho(srcMasu), "srcKoma.Masuエラー。15");
+                    Debug.Assert(!Masu_Honshogi.IsErrorBasho(srcMasu), "srcKoma.Masuエラー。15");
                     SyElement dstMasu = Conv_Move.ToDstMasu(move);
                     Playerside pside = Conv_Move.ToPlayerside(move);
 
@@ -302,12 +302,12 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     Debug.Assert(figMovedKoma != Fingers.Error_1, "駒を動かせなかった？13");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 //>>>>> エラーが起こりました。
 
                 // どうにもできないので  ログだけ取って無視します。
-                logger.DonimoNaranAkirameta(ex, "Util_IttesasuRoutine#Sasu24_UgokasuKoma_IdoSakiHe： exceptionArea=" + exceptionArea+"\n"
+                logger.DonimoNaranAkirameta(ex, "Util_IttesasuRoutine#Sasu24_UgokasuKoma_IdoSakiHe： exceptionArea=" + exceptionArea + "\n"
                     //+"hint=["+hint+"]"
                     );
                 throw ex;
@@ -356,7 +356,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             //----------
             // 将棋盤上のその場所に駒はあるか
             //----------
-            out_figFoodKoma = Util_Sky_FingersQuery.InMasuNow_Old(susunda_Sky_orNull_before, Conv_Busstop.ToMasu( dstKoma)).ToFirst();//盤上
+            out_figFoodKoma = Util_Sky_FingersQuery.InMasuNow_Old(susunda_Sky_orNull_before, Conv_Busstop.ToMasu(dstKoma)).ToFirst();//盤上
 
 
             if (Fingers.Error_1 != out_figFoodKoma)
@@ -378,7 +378,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 // 取られる駒は、駒置き場の空きマスに移動させます。
                 //
                 Okiba okiba;
-                switch (Conv_Busstop.ToPlayerside( dstKoma))
+                switch (Conv_Busstop.ToPlayerside(dstKoma))
                 {
                     case Playerside.P1:
                         {
@@ -398,7 +398,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
                             StringBuilder sb = new StringBuilder();
                             sb.AppendLine("エラー：　先後がおかしいです。");
-                            sb.AppendLine("dst.Pside=" + Conv_Busstop.ToPlayerside( dstKoma));
+                            sb.AppendLine("dst.Pside=" + Conv_Busstop.ToPlayerside(dstKoma));
                             throw new Exception(sb.ToString());
                         }
                 }
@@ -411,7 +411,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     akiMasu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(okiba, susunda_Sky_orNull_before);
 
 
-                    if (Masu_Honshogi.IsErrorBasho( akiMasu))
+                    if (Masu_Honshogi.IsErrorBasho(akiMasu))
                     {
                         //>>>>> エラー：　駒台に空きスペースがありませんでした。
 
@@ -454,14 +454,14 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 if (Conv_Busstop.ToOkiba(koma) == okiba)
                 {
                     exists[
-                        Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu( koma)) - Conv_Masu.ToMasuHandle(Conv_Okiba.GetFirstMasuFromOkiba(okiba))
+                        Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu(koma)) - Conv_Masu.ToMasuHandle(Conv_Okiba.GetFirstMasuFromOkiba(okiba))
                         ] = true;
                 }
             });
 
 
             //駒台スペースは40マスです。
-            for (int i = 0; i < Conv_Masu.KOMADAI_KOMABUKURO_SPACE_LENGTH; i++ )
+            for (int i = 0; i < Conv_Masu.KOMADAI_KOMABUKURO_SPACE_LENGTH; i++)
             {
                 if (!exists[i])
                 {

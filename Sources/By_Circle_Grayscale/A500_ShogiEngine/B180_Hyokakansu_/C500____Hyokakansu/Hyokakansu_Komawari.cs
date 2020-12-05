@@ -1,12 +1,11 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 // using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 #if DEBUG || LEARN
@@ -45,10 +44,10 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
             positionA.Foreach_Busstops((Finger finger, Busstop koma, ref bool toBreak) =>
             {
                 // 駒の種類による点数
-                float komaScore_temp = fv.Komawari[(int)Conv_Busstop.ToKomasyurui( koma)];
+                float komaScore_temp = fv.Komawari[(int)Conv_Busstop.ToKomasyurui(koma)];
 
                 // 持ち駒は、価値を高めます。（ボーナス）序盤に駒をぽんぽん打つのを防ぐため。
-                if(
+                if (
                     (Okiba.Sente_Komadai | Okiba.Gote_Komadai).HasFlag(Conv_Busstop.ToOkiba(koma))
                     )
                 {
@@ -58,7 +57,7 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
                 }
 
 
-                if (Conv_Busstop.ToPlayerside( koma) == Playerside.P1)
+                if (Conv_Busstop.ToPlayerside(koma) == Playerside.P1)
                 {
                     score_p1 += komaScore_temp;
                 }

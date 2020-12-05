@@ -1,12 +1,10 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
-using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
-using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
-using System;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 {
@@ -42,7 +40,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
             Earth earth1,
             Move move1_notUse,
             Sky positionA,
-            
+
             out KifuParserA_State nextState,
             KifuParserA owner,
             KifuParserA_Genjo genjo,
@@ -76,7 +74,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 }
                 else
                 {
-//#if DEBUG
+                    //#if DEBUG
                     errH.AppendLine("（＾△＾）ここはスルーして次に状態遷移するんだぜ☆\n「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】");//　：　局面の指定のようなんだぜ☆　対応していない☆？
                     errH.Flush(LogTypes.Error);
                     //errH.AppendLine_Error("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　局面の指定のようなんだぜ☆　対応していない☆？");
@@ -84,7 +82,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     nextState = KifuParserA_StateA1b_SfenLnsgkgsnl.GetInstance();
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "positionの解析中。");
                 throw ex;
             }

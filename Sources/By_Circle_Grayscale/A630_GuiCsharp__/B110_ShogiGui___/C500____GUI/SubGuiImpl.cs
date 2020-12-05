@@ -64,7 +64,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI
             //
             //      ボタンや将棋盤などを描画するツールを、事前準備しておきます。
             //
-            this.shape_Canvas = new Shape_CanvasImpl( "#Canvas", 0,0,0,0);
+            this.shape_Canvas = new Shape_CanvasImpl("#Canvas", 0, 0, 0, 0);
         }
 
     }

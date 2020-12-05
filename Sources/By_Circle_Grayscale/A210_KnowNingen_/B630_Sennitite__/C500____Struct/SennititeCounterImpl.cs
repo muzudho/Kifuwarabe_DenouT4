@@ -1,10 +1,10 @@
-﻿using Grayscale.A060_Application.B110_Log________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B630_Sennitite__.C___500_Struct;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B110_Log________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B630_Sennitite__.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B630_Sennitite__.C500____Struct
 {
@@ -18,7 +18,7 @@ namespace Grayscale.A210_KnowNingen_.B630_Sennitite__.C500____Struct
         public bool IsNextSennitite(ulong hash)
         {
             bool isNextSennitite;
-            if (this.douituKyokumenCounterDictionary.ContainsKey(hash) && 2<this.douituKyokumenCounterDictionary[hash])
+            if (this.douituKyokumenCounterDictionary.ContainsKey(hash) && 2 < this.douituKyokumenCounterDictionary[hash])
             {
                 isNextSennitite = true;
 
@@ -101,10 +101,10 @@ namespace Grayscale.A210_KnowNingen_.B630_Sennitite__.C500____Struct
         public void CountUp_Overwrite(ulong hash_old, ulong hash_new, string hint)
         {
             // カウントダウン。
-            this.CountDown(hash_old, hint+"/CountUp_Overwrite");
+            this.CountDown(hash_old, hint + "/CountUp_Overwrite");
 
             // カウントアップ。
-            this.CountUp_New(hash_new, hint+"/CountUp_Overwrite");
+            this.CountUp_New(hash_new, hint + "/CountUp_Overwrite");
         }
         /// <summary>
         /// 同一局面カウンター。
@@ -158,7 +158,7 @@ namespace Grayscale.A210_KnowNingen_.B630_Sennitite__.C500____Struct
         {
             string processName = Process.GetCurrentProcess().ProcessName;
 
-            if (processName=="Grayscale.P800_ShogiGuiVs.vshost")
+            if (processName == "Grayscale.P800_ShogiGuiVs.vshost")
             {
                 Util_Loggers.ProcessGui_SENNITITE.AppendLine(text);
                 Util_Loggers.ProcessGui_SENNITITE.Flush(LogTypes.Plain);

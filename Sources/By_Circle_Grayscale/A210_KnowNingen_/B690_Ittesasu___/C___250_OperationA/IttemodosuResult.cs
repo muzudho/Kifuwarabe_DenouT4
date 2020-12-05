@@ -9,12 +9,12 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA
         /// <summary>
         /// 指した駒の番号。
         /// </summary>
-        Finger FigMovedKoma{get;set;}
+        Finger FigMovedKoma { get; set; }
 
         /// <summary>
         /// 取った駒があれば、取った駒の番号。
         /// </summary>
-        Finger FigFoodKoma{get;set;}
+        Finger FigFoodKoma { get; set; }
 
         /// <summary>
         /// 取った駒があれば、取った駒の種類。

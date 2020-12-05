@@ -45,7 +45,7 @@
         /// <summary>
         /// 自筋
         /// </summary>
-        SrcSuji = 4*0,
+        SrcSuji = 4 * 0,
 
         /// <summary>
         /// 自段

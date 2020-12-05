@@ -1,6 +1,6 @@
-﻿using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___080_Shape;
+﻿using System.Collections.Generic;
+using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___080_Shape;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
-using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C101____Conv

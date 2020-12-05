@@ -71,7 +71,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___081_Canvas
         /// </summary>
         bool SelectFirstTouch { get; set; }
 
-        
+
         /// <summary>
         /// ------------------------------------------------------------------------------------------------------------------------
         /// 差し手符号。

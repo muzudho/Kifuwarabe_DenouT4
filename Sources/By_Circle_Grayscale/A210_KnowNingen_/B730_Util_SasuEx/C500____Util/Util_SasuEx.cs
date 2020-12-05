@@ -1,4 +1,7 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
@@ -6,9 +9,6 @@ using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B480_Util_Sasu__.C500____Util;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Grayscale.A210_KnowNingen_.B730_Util_SasuEx.C500____Util
 {
@@ -40,7 +40,7 @@ namespace Grayscale.A210_KnowNingen_.B730_Util_SasuEx.C500____Util
             {
                 Dictionary<string, Move> newSasiteList = new Dictionary<string, Move>();
 
-                foreach(Move move1 in a_sasitebetuEntry)
+                foreach (Move move1 in a_sasitebetuEntry)
                 {
                     // ・移動元の駒
                     SyElement srcMasu = Conv_Move.ToSrcMasu(move1, positionA);
@@ -69,7 +69,7 @@ namespace Grayscale.A210_KnowNingen_.B730_Util_SasuEx.C500____Util
                             true,//強制的に【成り】に駒の種類を変更
                             false,//成りなのでドロップは無いぜ☆（＾▽＾）
                             pside,
-                            false                            
+                            false
                         );
 
                         // TODO: 一段目の香車のように、既に駒は成っている場合があります。無い指し手だけ追加するようにします。
@@ -98,7 +98,7 @@ namespace Grayscale.A210_KnowNingen_.B730_Util_SasuEx.C500____Util
                             // 指し手が既存でない局面だけを追加します。
 
                             // 『進める駒』と、『移動先升』
-                            result_komabetuEntry.Add( 
+                            result_komabetuEntry.Add(
                                 newMove//成りの手
                                 );
                         }

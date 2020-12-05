@@ -1,7 +1,7 @@
-﻿using Grayscale.A060_Application.B410_Collection_.C500____Struct;
+﻿using System.Text;
+using Grayscale.A060_Application.B410_Collection_.C500____Struct;
 using Grayscale.A060_Application.B510_Conv_Sy____.C500____Converter;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using System.Text;
 
 
 namespace Grayscale.A060_Application.B530_UtilSyColle.C500____Util
@@ -14,7 +14,7 @@ namespace Grayscale.A060_Application.B530_UtilSyColle.C500____Util
         /// </summary>
         /// <param name="collection"></param>
         /// <returns></returns>
-        public static string Dump(List_OneAndMulti<T1,T2> collection)
+        public static string Dump(List_OneAndMulti<T1, T2> collection)
         {
             int count = 0;
 

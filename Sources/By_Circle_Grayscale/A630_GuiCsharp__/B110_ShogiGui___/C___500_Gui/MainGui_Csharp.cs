@@ -1,5 +1,9 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct;
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B650_PnlTaikyoku.C___250_Struct;
 using Grayscale.A450_Server_____.B110_Server_____.C___498_Server;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___080_Shape;
@@ -7,12 +11,7 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___081_Canvas;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___125_Scene;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___492_Widgets;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___499_Repaint;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui
 {
@@ -67,7 +66,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui
         /// <summary>
         /// コンピューターの先手
         /// </summary>
-        void Do_ComputerSente( KwLogger errH);
+        void Do_ComputerSente(KwLogger errH);
 
 
         Busstop GetKoma(Finger finger);
@@ -117,7 +116,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui
         Timed TimedA { get; set; }
         Timed TimedB_MouseCapture { get; set; }
         Timed TimedC { get; set; }
-        void Timer_Tick( KwLogger errH);
+        void Timer_Tick(KwLogger errH);
 
         RepaintRequest RepaintRequest { get; set; }
 

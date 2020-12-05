@@ -1,12 +1,11 @@
-﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+﻿using System.Text;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A060_Application.B610_ConstShogi_.C250____Const;
 using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
-using System.Text;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 #if DEBUG
 #endif
@@ -40,7 +39,7 @@ namespace Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct
         public const int CHOSA_KOMOKU_1P = 0;   //1 player
         public const int CHOSA_KOMOKU_2P = CHOSA_KOMOKU_P / 2; //2 player。2で割り切れるはず。
         // 変域の見易さを考慮して、逆順で定義。
-        public const int CHOSA_KOMOKU_MOTIKAKU___ = CHOSA_KOMOKU_2P          - 3;   //「691」～693（0～ 2枚）の持ち角
+        public const int CHOSA_KOMOKU_MOTIKAKU___ = CHOSA_KOMOKU_2P - 3;   //「691」～693（0～ 2枚）の持ち角
         public const int CHOSA_KOMOKU_MOTIHISYA__ = CHOSA_KOMOKU_MOTIKAKU___ - 3;   //「687」～690（0～ 2枚）の持ち飛
         public const int CHOSA_KOMOKU_MOTIKIN____ = CHOSA_KOMOKU_MOTIHISYA__ - 5;   //「682」～686（0～ 4枚）の持ち金
         public const int CHOSA_KOMOKU_MOTIGIN____ = CHOSA_KOMOKU_MOTIKIN____ - 5;   //「677」～681（0～ 4枚）の持ち銀
@@ -126,9 +125,9 @@ namespace Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct
         public FeatureVectorImpl()
         {
             this.Komawari = new float[Array_Komasyurui.Items_AllElements.Length];
-            this.SetBairitu_NikomaKankeiPp( 0.5963f);//ダミー 1.0f;
-            this.SetTyoseiryoSmallest_NikomaKankeiPp( 0.4649f);//ダミー
-            this.SetTyoseiryoLargest_NikomaKankeiPp( 0.5963f);//ダミー
+            this.SetBairitu_NikomaKankeiPp(0.5963f);//ダミー 1.0f;
+            this.SetTyoseiryoSmallest_NikomaKankeiPp(0.4649f);//ダミー
+            this.SetTyoseiryoLargest_NikomaKankeiPp(0.5963f);//ダミー
             this.SetTyoseiryoInit_NikomaKankeiPp(0.5963f);//ダミー
             this.NikomaKankeiPp_ForMemory = new float[FeatureVectorImpl.CHOSA_KOMOKU_P, FeatureVectorImpl.CHOSA_KOMOKU_P];
         }
@@ -384,7 +383,7 @@ namespace Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct
                     sb.Append("自歩");
                 }
                 else// エラー
-                {                    
+                {
                     sb.Append("エラー_p=[");
                     sb.Append(p);
                     sb.Append("]");

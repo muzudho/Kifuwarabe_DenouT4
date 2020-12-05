@@ -1,8 +1,8 @@
-﻿using Grayscale.A060_Application.B210_Tushin_____.C500____Util;
-using System;
+﻿using System;
 using System.IO;
 using System.Text;
 using System.Xml;
+using Grayscale.A060_Application.B210_Tushin_____.C500____Util;
 
 namespace Grayscale.A060_Application.B310_Settei_____.L510____Xml
 {
@@ -131,11 +131,11 @@ namespace Grayscale.A060_Application.B310_Settei_____.L510____Xml
                     break;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 // エラー
                 successfule = false;
-                Util_Message.Whisper(ex.GetType().Name+"　"+ex.Message);
+                Util_Message.Whisper(ex.GetType().Name + "　" + ex.Message);
             }
 
             return successfule;

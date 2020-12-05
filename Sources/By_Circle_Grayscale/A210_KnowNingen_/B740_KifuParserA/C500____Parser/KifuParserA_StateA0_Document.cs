@@ -1,10 +1,10 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
-using System;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
@@ -81,7 +81,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
                     nextState = KifuParserA_StateA1_SfenPosition.GetInstance();
                 }
-                else if (""==genjo.InputLine)
+                else if ("" == genjo.InputLine)
                 {
                     // 異常時。
                     errH.AppendLine("＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない2☆！　終わるぜ☆");
@@ -99,7 +99,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 }
 
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "棋譜ドキュメント解析中☆");
                 throw ex;
             }

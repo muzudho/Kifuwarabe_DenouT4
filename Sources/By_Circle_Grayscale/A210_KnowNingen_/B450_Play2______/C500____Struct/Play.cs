@@ -72,7 +72,7 @@ namespace Grayscale.A210_KnowNingen_.B450_Play2______.C500____Struct
                     Debug.Assert(daihyo != Busstop.Empty, "持ち駒の代表がヌル");
 #endif
                     // 駒種類別、置こうとする駒
-                    aDaihyo[(int)Conv_Busstop.ToKomasyurui( daihyo)] = daihyo;
+                    aDaihyo[(int)Conv_Busstop.ToKomasyurui(daihyo)] = daihyo;
                     // 駒種類別、置こうとする升
                     aMasus[(int)Conv_Busstop.ToKomasyurui(daihyo)] = Util_Sky_SyugoQuery.KomaKidou_Potential(figDaihyo, positionA);
                     // 駒種類別、置こうとする駒番号
@@ -102,10 +102,10 @@ namespace Grayscale.A210_KnowNingen_.B450_Play2______.C500____Struct
                 Fingers banjoJiFus = Util_Sky_FingersQuery.InOkibaPsideKomasyuruiNow(
                     positionA,//指定局面
                     Okiba.ShogiBan,//将棋盤上の
-                    Conv_Busstop.ToPlayerside( aDaihyo[(int)Komasyurui14.H01_Fu_____]),//持駒を持っているプレイヤー側の
+                    Conv_Busstop.ToPlayerside(aDaihyo[(int)Komasyurui14.H01_Fu_____]),//持駒を持っているプレイヤー側の
                     Komasyurui14.H01_Fu_____//歩
                     );
-                    
+
 #if DEBUG
                 //if (null != errH_orNull)
                 //{
@@ -125,7 +125,7 @@ namespace Grayscale.A210_KnowNingen_.B450_Play2______.C500____Struct
                     positionA.AssertFinger(figBanjoJiFu);
                     Busstop banjoJiFu = positionA.BusstopIndexOf(figBanjoJiFu);
                     int suji;//1～9
-                    Conv_Masu.ToSuji_FromBanjoMasu(Conv_Busstop.ToMasu( banjoJiFu), out suji);
+                    Conv_Masu.ToSuji_FromBanjoMasu(Conv_Busstop.ToMasu(banjoJiFu), out suji);
                     existsFu_sujibetu[suji] = true;
                 }
 

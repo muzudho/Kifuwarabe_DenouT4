@@ -1,11 +1,11 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System.Text;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI;
 using Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C492____Widget;
-using System.Text;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500____Gui
 {
@@ -43,7 +43,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500____Gui
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
         /// </summary>
-        public override void Shutdown( KwLogger errH)
+        public override void Shutdown(KwLogger errH)
         {
             this.Link_Server.EngineClient.Send_Shutdown(errH);
         }
@@ -51,7 +51,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500____Gui
         /// <summary>
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
-        public override void Logdase( KwLogger errH)
+        public override void Logdase(KwLogger errH)
         {
             this.Link_Server.EngineClient.Send_Logdase(errH);
         }

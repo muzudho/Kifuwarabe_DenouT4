@@ -1,8 +1,8 @@
-﻿using Grayscale.A060_Application.B110_Log________.C500____Struct;
+﻿using System;
+using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___500_usiFrame___;
-using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe;
 using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C500____usiFrame___;
-using System;
+using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe;
 
 namespace Grayscale.P580_Form_______
 {

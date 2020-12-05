@@ -1,22 +1,15 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System.Collections.Generic;
+using System.Text;
 using Grayscale.A060_Application.B410_Collection_.C500____Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C___250_Masu;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-
-using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C505____ConvLogJson;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using System.Collections.Generic;
-using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
 {
@@ -60,7 +53,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
 
 
                 string komaImg = Util_Converter_LogGraphicEx.Finger_ToString(src_Sky_base, key, "");
-                sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu( koma)) + " },");//FIXME:おかしい？
+                sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu(koma)) + " },");//FIXME:おかしい？
 
                 // コメント
                 sb.AppendLine("                { act:\"drawText\", text:\"" + comment + "\"  , x:0, y:20 },");
@@ -98,14 +91,14 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C510____UtilLogJson
 
 
                 string komaImg = Util_Converter_LogGraphicEx.Finger_ToString(src_Sky, hKoma, "");
-                sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu( koma)) + " },");//FIXME:おかしい？
+                sb.AppendLine("                { act:\"drawImg\", img:\"" + komaImg + "\", masu: " + Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu(koma)) + " },");//FIXME:おかしい？
             }
 
 
 
             sb.AppendLine("                { act:\"drawText\", text:\"" + comment + "\"  , x:0, y:20 },");
 
-            //sb.AppendLine("            ],");
+        //sb.AppendLine("            ],");
 
         gt_EndMethod:
             return sb.ToString();

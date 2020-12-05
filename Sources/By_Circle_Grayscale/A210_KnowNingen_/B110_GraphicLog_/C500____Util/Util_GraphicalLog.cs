@@ -14,7 +14,7 @@ namespace Grayscale.A210_KnowNingen_.B110_GraphicLog_.C500____Util
         /// <summary>
         /// ログファイル通し番号。
         /// </summary>
-        private static int LogFileCounter{get;set;}
+        private static int LogFileCounter { get; set; }
 
 
 

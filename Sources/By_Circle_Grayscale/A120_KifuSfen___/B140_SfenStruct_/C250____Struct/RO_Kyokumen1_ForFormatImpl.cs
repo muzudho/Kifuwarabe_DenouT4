@@ -25,7 +25,7 @@ namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct
 
         public RO_Kyokumen1_ForFormatImpl()
         {
-            this.Ban = new string[10,10];// 将棋盤。10×10。0は使わない。
+            this.Ban = new string[10, 10];// 将棋盤。10×10。0は使わない。
             {// 全クリアー
                 // 将棋盤
                 for (int suji = 0; suji < 10; suji++)

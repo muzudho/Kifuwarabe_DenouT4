@@ -1,4 +1,5 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C500____usiFrame___;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
@@ -10,7 +11,6 @@ using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___240_Shogisasi;
 using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi;
 using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe;
-using System;
 
 namespace P930_SampleGame
 {
@@ -56,7 +56,7 @@ namespace P930_SampleGame
 
             Move move = bestmoveNode.Move;
             string sfenText = Conv_Move.ToSfen(move);
-            System.Console.WriteLine("sfenText="+ sfenText + " move=" + Convert.ToString((int)move, 2));
+            System.Console.WriteLine("sfenText=" + sfenText + " move=" + Convert.ToString((int)move, 2));
 
 
             //bool isTimeoutShutdown_temp;

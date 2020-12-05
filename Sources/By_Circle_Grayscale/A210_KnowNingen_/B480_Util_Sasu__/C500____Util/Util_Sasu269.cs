@@ -1,13 +1,12 @@
-﻿using Grayscale.A060_Application.B410_Collection_.C500____Struct;
+﻿using System;
+using Grayscale.A060_Application.B410_Collection_.C500____Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
-using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using System;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.A210_KnowNingen_.B480_Util_Sasu__.C500____Util
@@ -111,7 +110,7 @@ namespace Grayscale.A210_KnowNingen_.B480_Util_Sasu__.C500____Util
 
             int srcDan;
             Okiba srcOkiba = Conv_Masu.ToOkiba(Conv_Masu.ToMasuHandle(srcMasu));
-            if (srcOkiba==Okiba.ShogiBan)
+            if (srcOkiba == Okiba.ShogiBan)
             {
                 if (!Conv_Masu.ToDan_FromBanjoMasu(srcMasu, out srcDan))
                 {

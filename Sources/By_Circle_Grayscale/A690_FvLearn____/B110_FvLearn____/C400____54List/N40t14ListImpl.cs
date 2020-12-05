@@ -49,11 +49,11 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C400____54List
 
         public N40t14ListImpl()
         {
-            this.SetP40Next( 0);
-            this.SetP40List_Unsorted( new int[40]);
+            this.SetP40Next(0);
+            this.SetP40List_Unsorted(new int[40]);
 
-            this.SetP14Next( 0);
-            this.SetP14List_Unsorted( new int[14]);
+            this.SetP14Next(0);
+            this.SetP14List_Unsorted(new int[14]);
         }
 
         ///// <summary>

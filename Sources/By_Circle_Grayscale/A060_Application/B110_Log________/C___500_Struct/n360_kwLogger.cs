@@ -1,5 +1,4 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using System;
+﻿using System;
 
 namespace Grayscale.A060_Application.B110_Log________.C___500_Struct
 {

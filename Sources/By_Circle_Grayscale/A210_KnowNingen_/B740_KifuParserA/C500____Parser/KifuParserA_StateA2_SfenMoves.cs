@@ -1,4 +1,5 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
@@ -10,9 +11,6 @@ using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C400____Conv;
-using System;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 {
@@ -70,7 +68,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 
             //bool isHonshogi = true;//FIXME:暫定
 
-            
+
             nextState = this;
 
             try
@@ -127,7 +125,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                                 errH
                                 );
                             // 棋譜ツリーのカレントを変更します。
-                            result.SetNode( new MoveExImpl(nextMove),
+                            result.SetNode(new MoveExImpl(nextMove),
                                 ittesasuResult.SyuryoKyokumenW
                                 );
                             out_moveNodeType = MoveNodeType.Do;
@@ -181,7 +179,7 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 goto gt_EndMethod;
             }
 
-            gt_EndMethod:
+        gt_EndMethod:
             return genjo.InputLine;
         }
 

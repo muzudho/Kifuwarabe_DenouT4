@@ -1,5 +1,5 @@
-﻿using Grayscale.A500_ShogiEngine.B210_timeMan____.C___500_struct__;
-using System.Diagnostics;
+﻿using System.Diagnostics;
+using Grayscale.A500_ShogiEngine.B210_timeMan____.C___500_struct__;
 
 namespace Grayscale.A500_ShogiEngine.B210_timeMan____.C500____struct__
 {

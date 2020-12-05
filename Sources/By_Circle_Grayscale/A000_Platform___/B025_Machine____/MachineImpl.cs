@@ -5,7 +5,6 @@
 using System.Diagnostics;
 using System.IO;
 using System.Text;  // TODO: Unityで使うなら、このusing文は消そうぜ☆（＾▽＾）
-using System.Windows.Forms; // TODO: Unityで使うなら、このusing文は消そうぜ☆（＾▽＾）
 
 namespace Grayscale.A000_Platform___.B025_Machine____
 {

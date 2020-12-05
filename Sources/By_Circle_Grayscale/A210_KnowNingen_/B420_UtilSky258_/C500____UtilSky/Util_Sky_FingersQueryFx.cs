@@ -1,12 +1,12 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using System;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
 {
@@ -53,11 +53,11 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
                     //
                     // 盤上
                     //
-                    if (tebanSeme == Conv_Busstop.ToPlayerside( star))
+                    if (tebanSeme == Conv_Busstop.ToPlayerside(star))
                     {
                         fs_banjoSeme_temp.Add(finger);// （１）盤上駒_攻め手
                     }
-                    else if (tebanKurau == Conv_Busstop.ToPlayerside( star))
+                    else if (tebanKurau == Conv_Busstop.ToPlayerside(star))
                     {
                         fs_banjoKurau_temp.Add(finger);// （２）盤上駒_食らう側
                     }
@@ -172,8 +172,8 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
             {
                 if (
                     Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma)
-                    && jiPside == Conv_Busstop.ToPlayerside( koma)
-                    && Komasyurui14.H06_Gyoku__ == Conv_Busstop.ToKomasyurui( koma)
+                    && jiPside == Conv_Busstop.ToPlayerside(koma)
+                    && Komasyurui14.H06_Gyoku__ == Conv_Busstop.ToKomasyurui(koma)
                     )
                 {
                     //
@@ -214,12 +214,12 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
 
             src_Sky.Foreach_Busstops((Finger finger, Busstop koma, ref bool toBreak) =>
             {
-                if(
+                if (
                     Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma)
-                    && Komasyurui14.H06_Gyoku__ == Conv_Busstop.ToKomasyurui( koma)
+                    && Komasyurui14.H06_Gyoku__ == Conv_Busstop.ToKomasyurui(koma)
                     )
                 {
-                    if (Playerside.P1 == Conv_Busstop.ToPlayerside( koma))
+                    if (Playerside.P1 == Conv_Busstop.ToPlayerside(koma))
                     {
                         koma_1PGyoku_temp = koma;// 1P玉の位置
                     }

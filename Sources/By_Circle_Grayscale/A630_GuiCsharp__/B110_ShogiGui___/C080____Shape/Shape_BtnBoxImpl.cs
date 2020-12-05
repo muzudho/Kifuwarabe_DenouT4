@@ -1,5 +1,5 @@
-﻿using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
-using System.Drawing;
+﻿using System.Drawing;
+using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
 {
@@ -155,7 +155,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
         /// <param name="y"></param>
         public void LightByMouse(int x, int y)
         {
-            if (this.HitByMouse(x,y)) // マウスが重なっているなら
+            if (this.HitByMouse(x, y)) // マウスが重なっているなら
             {
                 this.Light = true;
             }
@@ -177,7 +177,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
         {
             bool changed = false;
 
-            if ( this.HitByMouse(x, y)) // マウスが重なっているなら
+            if (this.HitByMouse(x, y)) // マウスが重なっているなら
             {
                 if (shogiGui.Shape_PnlTaikyoku.SelectFirstTouch)
                 {
@@ -198,7 +198,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
 
             return changed;
         }
-    
+
     }
 
 

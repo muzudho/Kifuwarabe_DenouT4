@@ -1,6 +1,10 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A060_Application.B110_Log________.C500____Struct;
+﻿using System;
+using System.IO;
+using System.Text;
+using System.Windows.Forms;
 using Grayscale.A000_Platform___.B021_Random_____.C500____Struct;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C___450_Tyoseiryo;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C___490_StopLearning;
@@ -12,17 +16,13 @@ using Grayscale.A690_FvLearn____.B110_FvLearn____.C490____StopLearning;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C508____AutoSasiteRush;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C510____AutoKifuRead;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C600____Operation;
-using System;
-using System.IO;
-using System.Text;
-using System.Windows.Forms;
 
 namespace Grayscale.A690_FvLearn____
 {
     public partial class Uc_Main : UserControl
     {
 
-        public LearningData LearningData{get;set;}
+        public LearningData LearningData { get; set; }
 
         public Button BtnUpdateKyokumenHyoka { get { return this.btnUpdateKyokumenHyoka; } }
 
@@ -54,7 +54,7 @@ namespace Grayscale.A690_FvLearn____
 
         public OpenFileDialog OpenCsaFileDialog1 { get { return this.openCsaFileDialog1; } }
 
-        
+
 
         public PictureBox PctKyokumen { get { return this.pctKyokumen; } }
 
@@ -171,7 +171,7 @@ namespace Grayscale.A690_FvLearn____
             }
         }
 
-        private string[] search_kifu_folder_lines = new string[]{};
+        private string[] search_kifu_folder_lines = new string[] { };
 
         /// <summary>
         /// フォームの初期化が終わったあとに。
@@ -191,7 +191,7 @@ namespace Grayscale.A690_FvLearn____
             // ファイル読込
             {
                 string path = Path.Combine(Application.StartupPath, "Search_kifu_folder.txt");
-                if(File.Exists(path))
+                if (File.Exists(path))
                 {
                     this.search_kifu_folder_lines = File.ReadAllLines(path, Encoding.UTF8);
                 }
@@ -219,13 +219,13 @@ namespace Grayscale.A690_FvLearn____
                 }
             }
 
-            if(""!=kifuFilepath)
+            if ("" != kifuFilepath)
             {
                 Util_LearnOperation.Do_OpenCsaKifu(
                     ref isRequest_ShowGohosyu,
                     ref isRequest_ChangeKyokumenPng,
                     kifuFilepath,
-                    this,errH);
+                    this, errH);
             }
 
             if (isRequest_ShowGohosyu)
@@ -246,7 +246,7 @@ namespace Grayscale.A690_FvLearn____
                 isRequest_ChangeKyokumenPng = false;
             }
         }
-        
+
 
         /// <summary>
         /// fv.csvを開くボタン。
@@ -257,7 +257,7 @@ namespace Grayscale.A690_FvLearn____
         {
             KwLogger errH = Util_Loggers.ProcessLearner_DEFAULT;
 
-            Util_LearnOperation.Do_OpenFvCsv(this,errH);
+            Util_LearnOperation.Do_OpenFvCsv(this, errH);
         }
 
         /// <summary>
@@ -330,9 +330,9 @@ namespace Grayscale.A690_FvLearn____
                     File.Move(src, dst);
                     this.TxtKifuFilepath.Text = "";
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    errH.DonimoNaranAkirameta("Uc_Main#SeikoIdo: "+ex.GetType().Name+"："+ ex.Message);
+                    errH.DonimoNaranAkirameta("Uc_Main#SeikoIdo: " + ex.GetType().Name + "：" + ex.Message);
                     throw ex;
                 }
             }
@@ -480,7 +480,7 @@ namespace Grayscale.A690_FvLearn____
             KwLogger errH = Util_Loggers.ProcessLearner_DEFAULT;
             bool isRequest_ShowGohosyu = false;
 
-            Util_LearnOperation.Do_ZeroStart( ref isRequest_ShowGohosyu, this, errH);
+            Util_LearnOperation.Do_ZeroStart(ref isRequest_ShowGohosyu, this, errH);
 
             if (isRequest_ShowGohosyu)
             {

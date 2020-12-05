@@ -1,6 +1,6 @@
-﻿using Grayscale.A000_Platform___.B021_Random_____.C500____Struct;
+﻿using System;
+using Grayscale.A000_Platform___.B021_Random_____.C500____Struct;
 using NLua;
-using System;
 
 namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C060____UtilLua
 {
@@ -23,8 +23,8 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C060____UtilLua
             //System.Windows.Forms.MessageBox.Show("[" + luaFuncName + "]呼び出し");
 
             using (Util_Lua_KifuWarabe.lua = new Lua())
-                // 要設定 プラットフォームターゲット x64。32bit/64bit混在できない。
-                // KifuNaraveVs, KifuWarabe
+            // 要設定 プラットフォームターゲット x64。32bit/64bit混在できない。
+            // KifuNaraveVs, KifuWarabe
             {
                 try
                 {
@@ -52,7 +52,7 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C060____UtilLua
                     //System.Windows.Forms.MessageBox.Show("[" + file + "]ファイル読込み");
 
                     Util_Lua_KifuWarabe.lua.DoFile(file);// KifuNarabeVS の、bin/Release等に入れ忘れていないこと。
-                    
+
                     //System.Windows.Forms.MessageBox.Show("[" + luaFuncName + "]呼び出し");
                     Util_Lua_KifuWarabe.lua.GetFunction(luaFuncName).Call();
 
@@ -67,10 +67,10 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C060____UtilLua
                     //----------------------------------------------------------------------------------------------------
 
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    System.Windows.Forms.MessageBox.Show( ex.GetType().Name + "：" + ex.Message);
-                }    
+                    System.Windows.Forms.MessageBox.Show(ex.GetType().Name + "：" + ex.Message);
+                }
             }
         }
 

@@ -1,11 +1,11 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System.Windows.Forms;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___081_Canvas;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___492_Widgets;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape;
-using System.Windows.Forms;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C081____Canvas
 {
@@ -48,7 +48,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C081____Canvas
             //----------------------------------------
             foreach (UserWidget widget in shogibanGui.Widgets.Values)
             {
-                if(widget.Window==windowName)
+                if (widget.Window == windowName)
                 {
                     widget.Paint(e.Graphics);
                 }

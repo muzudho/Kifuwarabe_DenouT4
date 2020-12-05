@@ -1,9 +1,16 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using System.Diagnostics;
+using System.IO;
+using System.Text;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
+using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
+using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat;
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo;
@@ -13,14 +20,6 @@ using Grayscale.A690_FvLearn____.B110_FvLearn____.C420____Inspection;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C430____Zooming;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C440____Ranking;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C460____Scoreing;
-using System;
-using System.Diagnostics;
-using System.IO;
-using System.Text;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 
 namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
 {
@@ -224,7 +223,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
                 positionA = ittemodosuResult.SyuryoSky;
 
 
-                gt_NextLoop1:
+            gt_NextLoop1:
                 ;
             }
 
@@ -270,10 +269,10 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions
             else
             {
             */
-                Debug.Fail("指し手[" + move1 +
-                    "]に対応する次ノードは作成されていませんでした。\n" +
-                    uc_Main.LearningData.DumpToAllGohosyu(
-                        uc_Main.LearningData.PositionA));
+            Debug.Fail("指し手[" + move1 +
+                "]に対応する次ノードは作成されていませんでした。\n" +
+                uc_Main.LearningData.DumpToAllGohosyu(
+                    uc_Main.LearningData.PositionA));
             /*
             }
             */

@@ -1,6 +1,6 @@
-﻿using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___490_Option__;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___490_Option__;
 
 namespace Grayscale.A090_UsiFramewor.B100_usiFrame1__.C490____Option__
 {
@@ -66,7 +66,7 @@ namespace Grayscale.A090_UsiFramewor.B100_usiFrame1__.C490____Option__
         public bool IsTrue()
         {
             bool result;
-            if (bool.TryParse(this.m_value_,out result))
+            if (bool.TryParse(this.m_value_, out result))
             {
                 return result;
             }

@@ -1,9 +1,9 @@
-﻿using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
+﻿using System;
+using System.Text;
+using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B140_Conv_FvKoumoku.C500____Converter;
-using System;
-using System.Text;
 
 namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat
 {
@@ -88,7 +88,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat
                         //----------------------------------------
                         for (int k2suji = 9; k2suji > 0; k2suji--)
                         {
-                            int k2masu = Conv_Masu.ToMasuHandle_FromBanjoSujiDan( k2suji, k2dan);
+                            int k2masu = Conv_Masu.ToMasuHandle_FromBanjoSujiDan(k2suji, k2dan);
 
                             Conv_FvKoumoku522.Converter_KK_to_PP(k1dan, k2dan, k1suji, k2suji, out p1, out p2);
 

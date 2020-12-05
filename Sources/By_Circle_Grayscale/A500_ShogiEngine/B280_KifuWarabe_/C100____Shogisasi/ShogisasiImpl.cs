@@ -1,5 +1,7 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___490_Option__;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500____Struct;
@@ -13,8 +15,6 @@ using Grayscale.A500_ShogiEngine.B210_timeMan____.C___500_struct__;
 using Grayscale.A500_ShogiEngine.B210_timeMan____.C500____struct__;
 using Grayscale.A500_ShogiEngine.B240_TansaFukasa.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct;
-using System;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
@@ -120,7 +120,8 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi
                     isHonshogi, Mode_Tansaku.Shogi_ENgine,
                     args, errH);
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 errH.DonimoNaranAkirameta(ex, "棋譜ツリーを作っていたときです。");
                 throw ex;
             }

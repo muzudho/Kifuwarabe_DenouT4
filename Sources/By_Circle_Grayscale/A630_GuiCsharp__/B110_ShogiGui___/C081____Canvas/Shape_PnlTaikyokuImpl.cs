@@ -1,17 +1,16 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System.Windows.Forms;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___080_Shape;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___081_Canvas;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape;
-using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C081____Canvas
 {
@@ -251,7 +250,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C081____Canvas
             //----------
             // 将ボタン
             //----------
-            this.SetBtn40Komas( new Shape_BtnKomaImpl[]{
+            this.SetBtn40Komas(new Shape_BtnKomaImpl[]{
 
                 new Shape_BtnKomaImpl("#SenteOh",Finger_Honshogi.SenteOh),//[0]
                 new Shape_BtnKomaImpl("#GoteOh",Finger_Honshogi.GoteOh),
@@ -306,7 +305,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C081____Canvas
             //----------
             // 将棋盤
             //----------
-            this.Shogiban = new Shape_PnlShogibanImpl("#Shogiban",200, 220, shogibanGui);
+            this.Shogiban = new Shape_PnlShogibanImpl("#Shogiban", 200, 220, shogibanGui);
 
             //----------
             // 駒置き
@@ -319,12 +318,12 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C081____Canvas
             //----------
             // 符号表示
             //----------
-            this.lblFugo = new Shape_LblBoxImpl("#FugoLabel","符号", 480, 145);
+            this.lblFugo = new Shape_LblBoxImpl("#FugoLabel", "符号", 480, 145);
 
             //----------
             // 先後表示
             //----------
-            this.lblPside = new Shape_LblBoxImpl("#PsideLabel","－－", 350, 145);
+            this.lblPside = new Shape_LblBoxImpl("#PsideLabel", "－－", 350, 145);
         }
 
 
@@ -358,10 +357,10 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C081____Canvas
             //----------
             // 駒置き、駒袋
             //----------
-            for (int i = 0; i < this.KomadaiArr.Length;i++ )
+            for (int i = 0; i < this.KomadaiArr.Length; i++)
             {
                 Shape_PnlKomadai k = this.KomadaiArr[i];
-                k.Paint( e.Graphics);
+                k.Paint(e.Graphics);
             }
 
             //----------

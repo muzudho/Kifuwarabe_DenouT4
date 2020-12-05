@@ -1,5 +1,5 @@
-﻿using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
-using System;
+﻿using System;
+using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___510_Form
 {

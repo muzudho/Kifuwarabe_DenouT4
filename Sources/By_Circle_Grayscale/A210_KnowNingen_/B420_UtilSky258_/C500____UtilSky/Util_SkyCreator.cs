@@ -1,12 +1,12 @@
-﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
+﻿using System.Diagnostics;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
 {
@@ -245,7 +245,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
             newSky.PutOverwriteOrAdd_Busstop(finger, Conv_Busstop.ToBusstop(Playerside.P2, Masu_Honshogi.Query_Basho(Masu_Honshogi.nfukuro39), Komasyurui14.H01_Fu_____));// Kh185.n001_歩
             finger++;
 
-            newSky.PutOverwriteOrAdd_Busstop(finger, Conv_Busstop.ToBusstop(Playerside.P2,Masu_Honshogi.Query_Basho( Masu_Honshogi.nfukuro40), Komasyurui14.H01_Fu_____));// Kh185.n001_歩
+            newSky.PutOverwriteOrAdd_Busstop(finger, Conv_Busstop.ToBusstop(Playerside.P2, Masu_Honshogi.Query_Basho(Masu_Honshogi.nfukuro40), Komasyurui14.H01_Fu_____));// Kh185.n001_歩
             finger++;
 
             // 以上、全40駒。

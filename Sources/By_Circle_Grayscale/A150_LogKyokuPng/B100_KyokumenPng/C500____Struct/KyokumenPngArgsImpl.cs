@@ -53,7 +53,7 @@ namespace Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500____Struct
             int dstMasu_orMinusOne,
             KyokumenPngArgs_FoodOrDropKoma foodKoma,
             KyokumenPngArgs_FoodOrDropKoma dropKoma,
-            string outFile,  
+            string outFile,
             KyokumenPngEnvironment reportEnvironment)
         {
             this.ro_Kyokumen1 = ro_Kyokumen1;

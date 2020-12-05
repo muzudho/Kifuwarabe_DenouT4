@@ -1,9 +1,8 @@
-﻿using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
-using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 
@@ -56,24 +55,24 @@ namespace Grayscale.A210_KnowNingen_.B350_SfenTransla.C250____Struct
             }
             else if (Conv_Masu.OnSenteKomadai(masuNumber))
             {
-                if (this.motiBlack.ContainsKey(Conv_Busstop.ToKomasyurui( koma)))
+                if (this.motiBlack.ContainsKey(Conv_Busstop.ToKomasyurui(koma)))
                 {
-                    this.motiBlack[Conv_Busstop.ToKomasyurui( koma)] = this.motiBlack[Conv_Busstop.ToKomasyurui( koma)];
+                    this.motiBlack[Conv_Busstop.ToKomasyurui(koma)] = this.motiBlack[Conv_Busstop.ToKomasyurui(koma)];
                 }
                 else
                 {
-                    this.motiBlack.Add(Conv_Busstop.ToKomasyurui( koma), 0);
+                    this.motiBlack.Add(Conv_Busstop.ToKomasyurui(koma), 0);
                 }
             }
             else if (Conv_Masu.OnGoteKomadai(masuNumber))
             {
-                if (this.motiWhite.ContainsKey(Conv_Busstop.ToKomasyurui( koma)))
+                if (this.motiWhite.ContainsKey(Conv_Busstop.ToKomasyurui(koma)))
                 {
-                    this.motiWhite[Conv_Busstop.ToKomasyurui( koma)] = this.motiWhite[Conv_Busstop.ToKomasyurui( koma)];
+                    this.motiWhite[Conv_Busstop.ToKomasyurui(koma)] = this.motiWhite[Conv_Busstop.ToKomasyurui(koma)];
                 }
                 else
                 {
-                    this.motiWhite.Add(Conv_Busstop.ToKomasyurui( koma), 0);
+                    this.motiWhite.Add(Conv_Busstop.ToKomasyurui(koma), 0);
                 }
             }
         }
@@ -110,7 +109,7 @@ namespace Grayscale.A210_KnowNingen_.B350_SfenTransla.C250____Struct
             // 1段目
             {
                 //マス番号は、72,63,54,45,36,27,18,9,0。
-                sb.Append( this.CreateDanString(72));
+                sb.Append(this.CreateDanString(72));
             }
             sb.Append("/");
 

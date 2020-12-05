@@ -8,10 +8,10 @@ namespace Grayscale.A060_Application.B410_Collection_.C500____Struct
     /// 
     /// 例：どの駒が、どんな手を指せるか。TODO: 要素数40の配列でもいい気がする。
     /// </summary>
-    public class List_OneAndMulti<T1,T2>
+    public class List_OneAndMulti<T1, T2>
     {
 
-        public List<Couple<T1,T2>> Items { get; set; }
+        public List<Couple<T1, T2>> Items { get; set; }
 
         public List_OneAndMulti()
         {

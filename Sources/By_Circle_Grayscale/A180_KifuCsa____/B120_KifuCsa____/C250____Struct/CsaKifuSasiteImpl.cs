@@ -1,5 +1,5 @@
-﻿using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C___250_Struct;
-using System.Text;
+﻿using System.Text;
+using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C___250_Struct;
 
 namespace Grayscale.A180_KifuCsa____.B120_KifuCsa____.C250____Struct
 {

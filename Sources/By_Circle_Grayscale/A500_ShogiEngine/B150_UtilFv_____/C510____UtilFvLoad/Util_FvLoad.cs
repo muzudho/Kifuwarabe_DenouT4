@@ -1,4 +1,8 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Text;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
@@ -10,10 +14,6 @@ using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct;
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad
@@ -22,8 +22,8 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad
     {
         private class PP_P1Item
         {
-            public string Filepath{get;set;}
-            public int P1_base{get;set;}
+            public string Filepath { get; set; }
+            public int P1_base { get; set; }
             public PP_P1Item(string filepath, int p1_base)
             {
                 this.Filepath = filepath;
@@ -74,10 +74,10 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad
                 string filepath = filepath_komawari_base;
                 if (!Util_FeatureVectorInput.Make_FromFile_Komawari(fv, filepath))
                 {
-                    sb_result.Append( "ファイルオープン失敗 Fv[" + filepath + "]。");
+                    sb_result.Append("ファイルオープン失敗 Fv[" + filepath + "]。");
                     goto gt_EndMethod;
                 }
-                sb_result.Append( "開fv。");
+                sb_result.Append("開fv。");
             }
 
             {//スケール
@@ -94,30 +94,30 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad
                 string filepath = Path.GetDirectoryName(filepath_komawari_base) + "/fv_01_KK.csv";//komawari.csvと同じフォルダー
                 if (!Util_FeatureVectorInput.Make_FromFile_KK(fv, filepath, errH))
                 {
-                    sb_result.Append( "ファイルオープン失敗 KK[" + filepath + "]。");
+                    sb_result.Append("ファイルオープン失敗 KK[" + filepath + "]。");
                     goto gt_EndMethod;
                 }
-                sb_result.Append( "開KK。");
+                sb_result.Append("開KK。");
             }
 
             {//1pKP
                 string filepath = Path.GetDirectoryName(filepath_komawari_base) + "/fv_02_1pKP.csv";
                 if (!Util_FeatureVectorInput.Make_FromFile_KP(fv, filepath, Playerside.P1, errH))
                 {
-                    sb_result.Append( "ファイルオープン失敗 1pKP[" + filepath + "]。");
+                    sb_result.Append("ファイルオープン失敗 1pKP[" + filepath + "]。");
                     goto gt_EndMethod;
                 }
-                sb_result.Append( "開1pKP。");
+                sb_result.Append("開1pKP。");
             }
 
             {//2pKP
                 string filepath = Path.GetDirectoryName(filepath_komawari_base) + "/fv_03_2pKP.csv";
                 if (!Util_FeatureVectorInput.Make_FromFile_KP(fv, filepath, Playerside.P2, errH))
                 {
-                    sb_result.Append( "ファイルオープン失敗 2pKP[" + filepath + "]。");
+                    sb_result.Append("ファイルオープン失敗 2pKP[" + filepath + "]。");
                     goto gt_EndMethod;
                 }
-                sb_result.Append( "開2pKP。");
+                sb_result.Append("開2pKP。");
             }
 
             {//盤上の駒
@@ -217,7 +217,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad
             return sb_result.ToString();
         }
 
-        
+
 
     }
 }

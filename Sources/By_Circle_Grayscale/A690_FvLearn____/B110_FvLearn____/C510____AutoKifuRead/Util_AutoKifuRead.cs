@@ -1,6 +1,6 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System.Windows.Forms;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C508____AutoSasiteRush;
-using System.Windows.Forms;
 
 namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C510____AutoKifuRead
 {
@@ -31,7 +31,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C510____AutoKifuRead
                 renzokuTe = 1;
             }
 
-            while(true)//無限ループ
+            while (true)//無限ループ
             {// 棋譜ループ
 
 

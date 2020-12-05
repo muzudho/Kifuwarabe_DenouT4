@@ -1,15 +1,15 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using System.Runtime.CompilerServices;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
-using System;
-using System.Runtime.CompilerServices;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 {
@@ -76,12 +76,12 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     earth1.Clear();
 
                     // 棋譜を空っぽにします。
-                    Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(kifu1_mutable, result.NewSky,logger);
+                    Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(kifu1_mutable, result.NewSky, logger);
 
                     earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
                 }
 
-                if (null!=result.Out_newNode_OrNull)
+                if (null != result.Out_newNode_OrNull)
                 {
                     Util_IttesasuRoutine.BeforeUpdateKifuTree(
                         earth1,
@@ -95,7 +95,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 }
                 this.State = nextState;
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "棋譜解析中☆");
                 throw ex;
             }
@@ -184,7 +185,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                     ;
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "棋譜解析中☆");
                 throw ex;
             }

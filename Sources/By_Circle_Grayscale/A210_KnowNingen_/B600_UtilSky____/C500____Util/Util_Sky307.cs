@@ -1,27 +1,25 @@
-﻿using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct;
+﻿using System.Diagnostics;
+using System.Text;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct;
 using Grayscale.A210_KnowNingen_.B130_Json_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B130_Json_______.C500____Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B350_SfenTransla.C500____Util;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C505____ConvLogJson;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using System.Diagnostics;
-using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B600_UtilSky____.C500____Util
 {
     public abstract class Util_Sky307
     {
 
-        public static SfenstringImpl ExportSfen(Playerside psideA, Sky positionA,KwLogger errH)
+        public static SfenstringImpl ExportSfen(Playerside psideA, Sky positionA, KwLogger errH)
         {
             Debug.Assert(positionA.Count == 40, "sky.Starlights.Count=[" + positionA.Count + "]");//将棋の駒の数
 
@@ -105,7 +103,7 @@ namespace Grayscale.A210_KnowNingen_.B600_UtilSky____.C500____Util
                 if (Conv_Busstop.ToOkiba(koma) == Okiba.Gote_Komadai)
                 {
                     // 後手持ち駒
-                    sb.AppendLine("    { act:\"drawImg\", img:\"" + Util_Converter_LogGraphicEx.PsideKs14_ToString(Conv_Busstop.ToPlayerside( koma), Conv_Busstop.ToKomasyurui( koma), "") + "\", masu: " + hMasu_gote + " },");//FIXME: \記号が入ってなければいいが☆
+                    sb.AppendLine("    { act:\"drawImg\", img:\"" + Util_Converter_LogGraphicEx.PsideKs14_ToString(Conv_Busstop.ToPlayerside(koma), Conv_Busstop.ToKomasyurui(koma), "") + "\", masu: " + hMasu_gote + " },");//FIXME: \記号が入ってなければいいが☆
                     hMasu_gote++;
                 }
                 else if (Conv_Busstop.ToOkiba(koma) == Okiba.Sente_Komadai)
@@ -117,7 +115,7 @@ namespace Grayscale.A210_KnowNingen_.B600_UtilSky____.C500____Util
                 else if (Conv_Busstop.ToOkiba(koma) == Okiba.ShogiBan)
                 {
                     // 盤上
-                    sb.AppendLine("    { act:\"drawImg\", img:\"" + Util_Converter_LogGraphicEx.PsideKs14_ToString(Conv_Busstop.ToPlayerside(koma), Conv_Busstop.ToKomasyurui(koma), "") + "\", masu: " + Conv_Masu.ToMasuHandle( Conv_Busstop.ToMasu( koma)) + " },");//FIXME: \記号が入ってなければいいが☆
+                    sb.AppendLine("    { act:\"drawImg\", img:\"" + Util_Converter_LogGraphicEx.PsideKs14_ToString(Conv_Busstop.ToPlayerside(koma), Conv_Busstop.ToKomasyurui(koma), "") + "\", masu: " + Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu(koma)) + " },");//FIXME: \記号が入ってなければいいが☆
                 }
 
                 hKoma++;

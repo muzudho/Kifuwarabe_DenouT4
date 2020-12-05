@@ -1,6 +1,10 @@
 ﻿// アルファ法のデバッグ出力をする場合。
 //#define DEBUG_ALPHA_METHOD
 
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Text;
 using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
@@ -18,10 +22,6 @@ using Grayscale.A500_ShogiEngine.B210_timeMan____.C___500_struct__;
 using Grayscale.A500_ShogiEngine.B220_Tansaku____.C___500_Tansaku;
 using Grayscale.A500_ShogiEngine.B220_Tansaku____.C500____Struct;
 using Grayscale.A500_ShogiEngine.B240_TansaFukasa.C___500_Struct;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
 
 #if DEBUG
 // using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
@@ -569,7 +569,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
 
 
                         // 自分を親要素につなげたあとで、子を検索するぜ☆（＾～＾）
-                        kifu1.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(iNod_child, kifu1, positionA,logger));
+                        kifu1.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(iNod_child, kifu1, positionA, logger));
 
                         exceptionArea = 44012;
 
@@ -611,7 +611,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         //*/
 
                         kifu1.MoveEx_SetCurrent(
-                            TreeImpl.OnUndoCurrentMove(kifu1, ittemodosuResult.SyuryoSky,logger, "WAAA_Yomu_Loop20000")
+                            TreeImpl.OnUndoCurrentMove(kifu1, ittemodosuResult.SyuryoSky, logger, "WAAA_Yomu_Loop20000")
                         );
 
                         exceptionArea = 7000;
@@ -671,7 +671,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         StringBuilder sb = new StringBuilder();
 
                         int i = 0;
-                        foreach(Move entry2 in movelist2)
+                        foreach (Move entry2 in movelist2)
                         {
                             sb.Append(Conv_Move.ToSfen(entry2));
                             sb.Append(",");
@@ -685,7 +685,7 @@ namespace Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500____Struct
                         logger.DonimoNaranAkirameta(ex, "棋譜ツリーで例外です(A)。exceptionArea=" + exceptionArea
                             + " entry.Key=" + Conv_Move.ToSfen(iMov_child_variable)
                             //+ " node_yomi.CountAllNodes=" + node_yomi_KAIZOMAE.CountAllNodes()
-                            + " 指し手候補="+sb.ToString());
+                            + " 指し手候補=" + sb.ToString());
                         throw ex;
 
                     }

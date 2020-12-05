@@ -1,4 +1,5 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System.IO;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
@@ -12,7 +13,6 @@ using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using System.IO;
 
 #if DEBUG
 using System;

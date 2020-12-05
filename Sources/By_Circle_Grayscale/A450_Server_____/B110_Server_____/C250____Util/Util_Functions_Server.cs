@@ -1,4 +1,7 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B210_Tushin_____.C500____Util;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
@@ -22,9 +25,6 @@ using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser;
 using Grayscale.A210_KnowNingen_.B820_KyokuParser.C___500_Parser;
 using Grayscale.A210_KnowNingen_.B830_ConvStartpo.C500____Converter;
-using System;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
@@ -102,7 +102,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             bool successful = false;
             KifuParserA_Impl kifuParserA_Impl = new KifuParserA_Impl();
             KifuParserA_Result result = new KifuParserA_ResultImpl();
-            KifuParserA_Genjo genjo = new KifuParserA_GenjoImpl( inputLine);
+            KifuParserA_Genjo genjo = new KifuParserA_GenjoImpl(inputLine);
 
             try
             {
@@ -264,7 +264,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
                     MoveEx curNode1 = new MoveExImpl(parsedKyokumen.NewMove);
 
-                    Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(kifu1, parsedKyokumen.NewSky,logger);
+                    Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(kifu1, parsedKyokumen.NewSky, logger);
                     curNode1 = kifu1.MoveEx_Current;
 
                     Util_Functions_Server.AfterSetCurNode_Srv(
@@ -282,7 +282,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             }
             catch (Exception ex)
             {
-                Util_Message.Show(ex.GetType().Name+"："+ ex.Message);
+                Util_Message.Show(ex.GetType().Name + "：" + ex.Message);
                 toBreak = true;
                 successful = false;
             }
@@ -356,7 +356,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
                 );
 
             kifu1_mutable.MoveEx_SetCurrent(
-                TreeImpl.OnUndoCurrentMove(kifu1_mutable, ittemodosuResult.SyuryoSky,logger, "Makimodosi_Srv30000")
+                TreeImpl.OnUndoCurrentMove(kifu1_mutable, ittemodosuResult.SyuryoSky, logger, "Makimodosi_Srv30000")
             );
 
             movedKoma = ittemodosuResult.FigMovedKoma;
@@ -395,7 +395,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
             )
         {
 
-            if(""==inputLine)
+            if ("" == inputLine)
             {
                 goto gt_EndMethod;
             }
@@ -443,7 +443,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
 
             // 取られることになる駒のボタン
-            btnKoma_Food_Koma = Util_Sky_FingersQuery.InMasuNow_Old(model_Manual.GuiSky, Conv_Busstop.ToMasu( foodee_koma)).ToFirst();
+            btnKoma_Food_Koma = Util_Sky_FingersQuery.InMasuNow_Old(model_Manual.GuiSky, Conv_Busstop.ToMasu(foodee_koma)).ToFirst();
             if (Fingers.Error_1 == btnKoma_Food_Koma)
             {
                 koma_Food_after = Busstop.Empty;
@@ -466,7 +466,7 @@ namespace Grayscale.A450_Server_____.B110_Server_____.C250____Util
 
             // その駒は、駒置き場に移動させます。
             SyElement akiMasu;
-            switch (Conv_Busstop.ToPlayerside( foodee_koma))
+            switch (Conv_Busstop.ToPlayerside(foodee_koma))
             {
                 case Playerside.P2:
 

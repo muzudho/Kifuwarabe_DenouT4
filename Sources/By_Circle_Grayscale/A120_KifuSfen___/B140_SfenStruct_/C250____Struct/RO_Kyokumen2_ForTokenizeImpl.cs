@@ -1,6 +1,6 @@
-﻿using Grayscale.A120_KifuSfen___.B120_ConvSujiDan.C500____Converter;
+﻿using System;
+using Grayscale.A120_KifuSfen___.B120_ConvSujiDan.C500____Converter;
 using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
-using System;
 
 namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct
 {
@@ -22,7 +22,8 @@ namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct
         /// [121～160] 後手駒台
         /// [161～200] 駒袋
         /// </summary>
-        public string[] Masu201 { get { return masu201; } } private string[] masu201;
+        public string[] Masu201 { get { return masu201; } }
+        private string[] masu201;
         public string AsMasu(int masuHandle)
         {
             return this.masu201[masuHandle];
@@ -30,7 +31,7 @@ namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct
 
         public string GetKomaAs(int suji, int dan)
         {
-            return this.Masu201[ Conv_SujiDan.ToMasu(suji, dan)];
+            return this.Masu201[Conv_SujiDan.ToMasu(suji, dan)];
         }
 
         public void Foreach_Masu201(DELEGATE_Masu201 delegate_method)
@@ -64,48 +65,57 @@ namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct
         /// <summary>
         /// 駒袋 王
         /// </summary>
-        public int FukuroK { get { return fukuroK; } } private int fukuroK;
+        public int FukuroK { get { return fukuroK; } }
+        private int fukuroK;
 
         /// <summary>
         /// 駒袋 飛
         /// </summary>
-        public int FukuroR { get { return fukuroR; } } private int fukuroR;
+        public int FukuroR { get { return fukuroR; } }
+        private int fukuroR;
 
         /// <summary>
         /// 駒袋 角
         /// </summary>
-        public int FukuroB { get { return fukuroB; } } private int fukuroB;
+        public int FukuroB { get { return fukuroB; } }
+        private int fukuroB;
 
         /// <summary>
         /// 駒袋 金
         /// </summary>
-        public int FukuroG { get { return fukuroG; } } private int fukuroG;
+        public int FukuroG { get { return fukuroG; } }
+        private int fukuroG;
 
         /// <summary>
         /// 駒袋 銀
         /// </summary>
-        public int FukuroS { get { return fukuroS; } } private int fukuroS;
+        public int FukuroS { get { return fukuroS; } }
+        private int fukuroS;
 
         /// <summary>
         /// 駒袋 桂
         /// </summary>
-        public int FukuroN { get { return fukuroN; } } private int fukuroN;
+        public int FukuroN { get { return fukuroN; } }
+        private int fukuroN;
 
         /// <summary>
         /// 駒袋 香
         /// </summary>
-        public int FukuroL { get { return fukuroL; } } private int fukuroL;
+        public int FukuroL { get { return fukuroL; } }
+        private int fukuroL;
 
         /// <summary>
         /// 駒袋 歩
         /// </summary>
-        public int FukuroP { get { return fukuroP; } } private int fukuroP;
+        public int FukuroP { get { return fukuroP; } }
+        private int fukuroP;
 
 
         /// <summary>
         /// 先後。
         /// </summary>
-        public bool PsideIsBlack { get { return psideIsBlack; } } private bool psideIsBlack;
+        public bool PsideIsBlack { get { return psideIsBlack; } }
+        private bool psideIsBlack;
 
 
 
@@ -115,7 +125,8 @@ namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct
         /// 手目済
         /// ------------------------------------------------------------------------------------------------------------------------
         /// </summary>
-        public int Temezumi { get { return this.temezumi; } }private int temezumi;
+        public int Temezumi { get { return this.temezumi; } }
+        private int temezumi;
 
 
         #endregion
@@ -178,7 +189,7 @@ namespace Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct
             {
                 for (int dan = 1; dan < 10; dan++)
                 {
-                    ro_Kyokumen1.Ban[suji,dan] = this.GetKomaAs(suji, dan);
+                    ro_Kyokumen1.Ban[suji, dan] = this.GetKomaAs(suji, dan);
                 }
             }
 

@@ -1,6 +1,6 @@
-﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C___510_Komanokiki;
+﻿using System.Collections.Generic;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C___510_Komanokiki;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using System.Collections.Generic;
 
 namespace Grayscale.A210_KnowNingen_.B170_WordShogi__.C510____Komanokiki
 {

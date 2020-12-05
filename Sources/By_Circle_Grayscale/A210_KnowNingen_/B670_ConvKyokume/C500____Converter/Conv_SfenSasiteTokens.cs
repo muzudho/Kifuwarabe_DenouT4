@@ -1,4 +1,6 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using System.Text;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A060_Application.B510_Conv_Sy____.C500____Converter;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
@@ -16,8 +18,6 @@ using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B350_SfenTransla.C500____Util;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B600_UtilSky____.C500____Util;
-using System;
-using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
@@ -51,7 +51,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
             )
         {
             move = Move.Empty;
-            
+
             //kifu.AssertPside(kifu.CurNode, "str1=" + str1, errH);
             //Playerside pside1 = positionA.KaisiPside;
 
@@ -121,10 +121,10 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                         logger);
                     if (Fingers.Error_1 == koma)
                     {
-                        string message = "Conv_SfenSasiteTokens#ToMove：["+Conv_Playerside.ToLog_Kanji(psideA)+"]駒台から種類[" + uttaSyurui + "]の駒を掴もうとしましたが、エラーでした。\n"+
-                            Conv_Shogiban.ToLog( Conv_Sky.ToShogiban(psideA,positionA,logger))+"\n"+
-                            "hint=["+hint+"]\n"+
-                            "str1=["+ str1+"]\n"+
+                        string message = "Conv_SfenSasiteTokens#ToMove：[" + Conv_Playerside.ToLog_Kanji(psideA) + "]駒台から種類[" + uttaSyurui + "]の駒を掴もうとしましたが、エラーでした。\n" +
+                            Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(psideA, positionA, logger)) + "\n" +
+                            "hint=[" + hint + "]\n" +
+                            "str1=[" + str1 + "]\n" +
                             "str2=[" + str2 + "]\n" +
                             "str3=[" + str3 + "]\n" +
                             "str4=[" + str4 + "]\n" +
@@ -141,7 +141,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 else
                 {
                     //>>>>> 打ではないとき
-                    SyElement masu1 = Conv_Masu.ToMasu_FromBanjoSujiDan( srcSuji, srcDan);
+                    SyElement masu1 = Conv_Masu.ToMasu_FromBanjoSujiDan(srcSuji, srcDan);
                     Fingers komas1 = Util_Sky_FingersQuery.InMasuNow_Old(//これが空っぽになるときがある。
                         positionA, masu1
                         );
@@ -161,7 +161,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                         sb.Append("]筋、[");
                         sb.Append(srcDan);
                         sb.AppendLine("]段 にある駒を掴めと指示がありましたが、");
-                        sb.AppendLine("将棋盤データの[" + Conv_Sy.Query_Word( masu1.Bitfield) + "]マスには、（駒が全て駒袋に入っているのか）駒がありませんでした。");
+                        sb.AppendLine("将棋盤データの[" + Conv_Sy.Query_Word(masu1.Bitfield) + "]マスには、（駒が全て駒袋に入っているのか）駒がありませんでした。");
                         sb.AppendLine();
 
                         sb.AppendLine("hint=[" + hint + "]");
@@ -191,7 +191,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                         // どんな局面なのか？
                         {
                             sb.AppendLine("局面=sfen " + Util_StartposExporter.ToSfenstring(
-                                Conv_Sky.ToShogiban(psideA, positionA,logger), true));
+                                Conv_Sky.ToShogiban(psideA, positionA, logger), true));
                         }
 
                         sb.Append(Util_Sky307.Json_1Sky(positionA, "エラー駒になったとき",
@@ -239,7 +239,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                     positionA.AssertFinger(srcKoma);
                     Busstop dstKoma = positionA.BusstopIndexOf(srcKoma);
 
-                    srcMasu = Conv_Busstop.ToMasu( dstKoma);
+                    srcMasu = Conv_Busstop.ToMasu(dstKoma);
                 }
                 else
                 {
@@ -275,7 +275,7 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                 // 棋譜
                 move = Conv_Move.ToMove(
                     srcMasu,//FIXME:升ハンドルにしたい
-                    Conv_Masu.ToMasu_FromBanjoSujiDan( suji, dan),//符号は将棋盤の升目です。 FIXME:升ハンドルにしたい
+                    Conv_Masu.ToMasu_FromBanjoSujiDan(suji, dan),//符号は将棋盤の升目です。 FIXME:升ハンドルにしたい
                     srcSyurui,//dstSyurui
                     Komasyurui14.H00_Null___,//符号からは、取った駒は分からない
                     promotion,
@@ -284,7 +284,8 @@ namespace Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter
                     false
                 );
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "moves解析中☆　str1=「" + str1 + "」　str2=「" + str2 + "」　str3=「" + str3 + "」　str4=「" + str4 + "」　strNari=「" + strNari + "」　");
                 throw ex;
             }

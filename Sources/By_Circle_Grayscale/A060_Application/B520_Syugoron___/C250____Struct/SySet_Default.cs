@@ -1,6 +1,6 @@
-﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 
 namespace Grayscale.A060_Application.B520_Syugoron___.C250____Struct
 {
@@ -18,7 +18,8 @@ namespace Grayscale.A060_Application.B520_Syugoron___.C250____Struct
 
         #region プロパティ
 
-        public string Word { get { return this.word; } }        private string word;
+        public string Word { get { return this.word; } }
+        private string word;
 
         /// <summary>
         /// 枡。
@@ -67,7 +68,7 @@ namespace Grayscale.A060_Application.B520_Syugoron___.C250____Struct
             get
             {
                 // 順序を保たなくても構わない、全要素
-                
+
 
                 // 全要素
                 HashSet<SySet<T1>> supersets2 = new HashSet<SySet<T1>>();
@@ -232,10 +233,10 @@ namespace Grayscale.A060_Application.B520_Syugoron___.C250____Struct
         {
             //if (Okiba.ShogiBan == Converter04.Masu_ToOkiba(masu))
             //{
-                if (!this.elements_.Contains(element))//マス番号の重複を除外
-                {
-                    this.elements_.Add(element);
-                }
+            if (!this.elements_.Contains(element))//マス番号の重複を除外
+            {
+                this.elements_.Add(element);
+            }
             //}
         }
 
@@ -299,7 +300,7 @@ namespace Grayscale.A060_Application.B520_Syugoron___.C250____Struct
             {
                 foreach (T1 element in b.Elements)
                 {
-                    c.Minus_Closed(element,dlgt_equals);
+                    c.Minus_Closed(element, dlgt_equals);
                 }
             }
 
@@ -342,7 +343,7 @@ namespace Grayscale.A060_Application.B520_Syugoron___.C250____Struct
                             goto gt_Next;
                         }
 
-                        this.Minus_Closed(element,dlgt_equals);
+                        this.Minus_Closed(element, dlgt_equals);
 
                     gt_Next:
                         index++;
@@ -380,7 +381,7 @@ namespace Grayscale.A060_Application.B520_Syugoron___.C250____Struct
         {
             StringBuilder sb = new StringBuilder();
 
-            foreach(T1 element in this.Elements)
+            foreach (T1 element in this.Elements)
             {
                 sb.Append(element.ToString());
                 sb.Append(" ");

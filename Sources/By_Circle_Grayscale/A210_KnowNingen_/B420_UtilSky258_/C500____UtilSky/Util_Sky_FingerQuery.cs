@@ -44,7 +44,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
                 int suji2;
                 int dan1;
                 int dan2;
-                Conv_Masu.ToSuji_FromBanjoMasu(Conv_Busstop.ToMasu( koma), out suji1);
+                Conv_Masu.ToSuji_FromBanjoMasu(Conv_Busstop.ToMasu(koma), out suji1);
                 Conv_Masu.ToSuji_FromBanjoMasu(masu, out suji2);
                 Conv_Masu.ToDan_FromBanjoMasu(Conv_Busstop.ToMasu(koma), out dan1);
                 Conv_Masu.ToDan_FromBanjoMasu(masu, out dan2);

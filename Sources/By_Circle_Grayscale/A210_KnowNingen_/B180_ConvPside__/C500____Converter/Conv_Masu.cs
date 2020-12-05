@@ -1,4 +1,6 @@
-﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+﻿using System.Diagnostics;
+using System.Text;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
 using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C___250_Masu;
@@ -11,8 +13,6 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using System.Diagnostics;
-using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
 namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter
@@ -84,7 +84,7 @@ namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter
                 !Conv_Masu.Yuko(masuHandle)
             )
             {
-                masu = Masu_Honshogi.Query_Basho( Masu_Honshogi.nError);
+                masu = Masu_Honshogi.Query_Basho(Masu_Honshogi.nError);
             }
             else
             {
@@ -514,7 +514,7 @@ namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter
                     goto gt_EndMethod;
             }
 
-            gt_EndMethod:
+        gt_EndMethod:
             return successful;
         }
         /// <summary>
@@ -542,7 +542,7 @@ namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter
                     goto gt_EndMethod;
             }
 
-            gt_EndMethod:
+        gt_EndMethod:
             return successful;
         }
 
@@ -604,7 +604,7 @@ namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter
                     goto gt_EndMethod;
             }
 
-            gt_EndMethod:
+        gt_EndMethod:
             return successful;
         }
 
@@ -671,14 +671,14 @@ namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter
             Okiba okiba = Conv_Masu.ToOkiba(Conv_Masu.ToMasuHandle(masu));
             sb.Append("okiba=" + Conv_Okiba.ToLog(okiba));
 
-            if (okiba==Okiba.ShogiBan)
+            if (okiba == Okiba.ShogiBan)
             {
                 int suji;
                 if (!Conv_Masu.ToSuji_FromBanjoMasu(masu, out suji))
                 {
                     suji = -1;
                 }
-                sb.Append(" suji="+suji);
+                sb.Append(" suji=" + suji);
 
                 int dan;
                 if (!Conv_Masu.ToDan_FromBanjoMasu(masu, out dan))

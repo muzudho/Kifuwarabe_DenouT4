@@ -1,20 +1,13 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct;
-using Grayscale.A210_KnowNingen_.B310_Shogiban___.C500____Util;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C499____UtilFv;
-using System.Collections.Generic;
-using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using System;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 // using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 #if DEBUG || LEARN
@@ -73,7 +66,7 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
             int nextIndex = 0;
             int[] komokuArray_unsorted = new int[54];//昇順でなくても構わないアルゴリズムにすること。
 
-            for (int i=0; i < Finger_Honshogi.Items_KomaOnly.Length; i++)// 全駒
+            for (int i = 0; i < Finger_Honshogi.Items_KomaOnly.Length; i++)// 全駒
             {
                 positionA.AssertFinger(Finger_Honshogi.Items_KomaOnly[i]);
                 Busstop koma = positionA.BusstopIndexOf(Finger_Honshogi.Items_KomaOnly[i]);
@@ -90,9 +83,9 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu
                 }
             }
             // 持ち駒：先後×７種類
-            for(int iPside=0; iPside<Array_Playerside.Items_PlayerOnly.Length; iPside++)
+            for (int iPside = 0; iPside < Array_Playerside.Items_PlayerOnly.Length; iPside++)
             {
-                for (int iKomasyurui = 0; iKomasyurui < Array_Komasyurui.MotiKoma7Syurui.Length; iKomasyurui++ )
+                for (int iKomasyurui = 0; iKomasyurui < Array_Komasyurui.MotiKoma7Syurui.Length; iKomasyurui++)
                 {
                     komokuArray_unsorted[nextIndex] = Util_FvParamIndex.ParamIndex_Moti(positionA, Array_Playerside.Items_PlayerOnly[iPside], Array_Komasyurui.MotiKoma7Syurui[iKomasyurui]);
                     nextIndex++;

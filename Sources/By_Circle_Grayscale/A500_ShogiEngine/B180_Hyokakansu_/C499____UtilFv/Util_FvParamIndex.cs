@@ -1,15 +1,15 @@
-﻿using Grayscale.A060_Application.B110_Log________.C500____Struct;
+﻿using System.Diagnostics;
+using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct;
-using System.Diagnostics;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 
 
@@ -86,7 +86,7 @@ namespace Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C499____UtilFv
             int koumokuP;
 
             // 駒Ｐのマス番号
-            int p_masuHandle = Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu( p_koma));
+            int p_masuHandle = Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu(p_koma));
 
             int index_playerside = Util_FvParamIndex.paramIndex_Playerside[(int)Conv_Busstop.ToPlayerside(p_koma)];
             int index_komasyurui = Util_FvParamIndex.paramIndex_KomaSyrui_Banjo[(int)Conv_Busstop.ToKomasyurui(p_koma)];

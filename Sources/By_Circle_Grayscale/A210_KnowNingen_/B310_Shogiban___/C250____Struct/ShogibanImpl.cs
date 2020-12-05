@@ -1,14 +1,14 @@
-﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct
 {
@@ -58,7 +58,7 @@ namespace Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct
                 if (this.BanjoKomas.ContainsKey(masuHandle))
                 {
                     // FIXME: エラー☆（＾▽＾）
-                    string message = "[重複]masu=" + Conv_Masu.ToLog(masu)+ " busstop="+ Conv_Busstop.ToLog(koma);
+                    string message = "[重複]masu=" + Conv_Masu.ToLog(masu) + " busstop=" + Conv_Busstop.ToLog(koma);
                     if (this.ErrorMessage.ContainsKey(masuHandle))
                     {
                         this.ErrorMessage.Add(masuHandle,
@@ -79,8 +79,8 @@ namespace Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct
             catch (Exception ex)
             {
                 errH.DonimoNaranAkirameta(ex,
-                    "将棋盤ログを作っているとき☆（＾▽＾）\n"+
-                    " masu="+Conv_Masu.ToLog(masu) +"\n"+
+                    "将棋盤ログを作っているとき☆（＾▽＾）\n" +
+                    " masu=" + Conv_Masu.ToLog(masu) + "\n" +
                     " busstop=" + Conv_Busstop.ToLog(koma)
                     );
                 throw ex;

@@ -1,18 +1,17 @@
-﻿using Grayscale.A000_Platform___.B011_Csv________.C500____Parser;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Windows.Forms;
+using Grayscale.A000_Platform___.B011_Csv________.C500____Parser;
 using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B610_ConstShogi_.C250____Const;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct;
 using Grayscale.A500_ShogiEngine.B140_Conv_FvKoumoku.C500____Converter;
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Windows.Forms;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 
 #if DEBUG
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C480____UtilFvEdit;
@@ -37,9 +36,9 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
 
             if (!File.Exists(filepath2))
             {
-                MessageBox.Show("Make_FromFile_Komawari: ファイルがありません。\n"+
+                MessageBox.Show("Make_FromFile_Komawari: ファイルがありません。\n" +
                     "filepath2=[" + filepath2 + "]\n" +
-                    "Application.StartupPath=[" + Application.StartupPath+"]"
+                    "Application.StartupPath=[" + Application.StartupPath + "]"
                     , "情報");
                 goto gt_EndMethod;
             }
@@ -111,12 +110,12 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
                 ;
             }
 
-//#if DEBUG
-//            MessageBox.Show(
-//                "rowVersion=[" + rowVersion + "]\n" +
-//                    "rowKomawari=[" + rowKomawari + "]\n"
-//            , "デバッグ");
-//#endif
+            //#if DEBUG
+            //            MessageBox.Show(
+            //                "rowVersion=[" + rowVersion + "]\n" +
+            //                    "rowKomawari=[" + rowKomawari + "]\n"
+            //            , "デバッグ");
+            //#endif
             successful = true;
         gt_EndMethod:
             return successful;
@@ -185,7 +184,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
                                         // [2]列目が値。
                                         float value_NikomaKankeiPp = 0.4649f;//ダミー
                                         float.TryParse(row[2], out value_NikomaKankeiPp);
-                                        fv.SetBairitu_NikomaKankeiPp( value_NikomaKankeiPp);
+                                        fv.SetBairitu_NikomaKankeiPp(value_NikomaKankeiPp);
                                     }
                                     break;
                                 default: break;
@@ -281,7 +280,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
 
             if (!File.Exists(filepath2))
             {
-                MessageBox.Show("Make_FromFile_KK: ファイルがありません。\n"+
+                MessageBox.Show("Make_FromFile_KK: ファイルがありません。\n" +
                     "filepath2=[" + filepath2 + "]\n" +
                                     "Application.StartupPath=[" + Application.StartupPath + "]"
                 , "情報");
@@ -330,8 +329,8 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
                                 int k2suji = 9 - (int)(col % 9);
 
                                 // 升番号
-                                int k1 = Conv_Masu.ToMasuHandle_FromBanjoSujiDan( k1suji, k1dan);
-                                int k2 = Conv_Masu.ToMasuHandle_FromBanjoSujiDan( k2suji, k2dan);
+                                int k1 = Conv_Masu.ToMasuHandle_FromBanjoSujiDan(k1suji, k1dan);
+                                int k2 = Conv_Masu.ToMasuHandle_FromBanjoSujiDan(k2suji, k2dan);
 
                                 int p1;
                                 Conv_FvKoumoku522.Converter_K1_to_P(Playerside.P1, k1dan, k1suji, out p1);
@@ -342,7 +341,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
                                 if (Const_FeatureVectorFormat.PARAMETER_INDEX_INPUT)
                                 {
                                     // これは、評価値の代わりにインデックスを入れています。
-                                    fv.NikomaKankeiPp_ForMemory[p1, p2] = k1*10000+k2;
+                                    fv.NikomaKankeiPp_ForMemory[p1, p2] = k1 * 10000 + k2;
                                 }
                                 else
                                 {
@@ -404,7 +403,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
 
             if (!File.Exists(filepath2))
             {
-                MessageBox.Show("Make_FromFile_KP: ファイルがありません。\n"+
+                MessageBox.Show("Make_FromFile_KP: ファイルがありません。\n" +
                     "filepath2=[" + filepath2 + "]\n" +
                                         "Application.StartupPath=[" + Application.StartupPath + "]"
                 , "情報");
@@ -473,7 +472,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
                                 // 升番号。
                                 int k1;
                                 Conv_FvKoumoku522.Converter_K1_to_P(k_pside, kDan, kSuji, out k1);
-                                int p2 = Conv_Masu.ToMasuHandle_FromBanjoSujiDan( pSuji, pDan);
+                                int p2 = Conv_Masu.ToMasuHandle_FromBanjoSujiDan(pSuji, pDan);
 
                                 if (Const_FeatureVectorFormat.PARAMETER_INDEX_INPUT)
                                 {
@@ -659,7 +658,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
 
             if (!File.Exists(filepath2))
             {
-                MessageBox.Show("Make_FromFile_PP_Banjo: ファイルがありません。\n"+
+                MessageBox.Show("Make_FromFile_PP_Banjo: ファイルがありません。\n" +
                     "filepath2=[" + filepath2 + "]\n" +
                                         "Application.StartupPath=[" + Application.StartupPath + "]"
                 , "情報");
@@ -731,8 +730,8 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
 
 
                                 // 大テーブル升と、小テーブル升。
-                                int p1 = p1_base + Conv_Masu.ToMasuHandle_FromBanjoSujiDan( largeSuji, largeDan);
-                                int p2 = p2_base + Conv_Masu.ToMasuHandle_FromBanjoSujiDan( smallSuji, smallDan);
+                                int p1 = p1_base + Conv_Masu.ToMasuHandle_FromBanjoSujiDan(largeSuji, largeDan);
+                                int p2 = p2_base + Conv_Masu.ToMasuHandle_FromBanjoSujiDan(smallSuji, smallDan);
 
                                 if (Const_FeatureVectorFormat.PARAMETER_INDEX_INPUT)
                                 {
@@ -829,7 +828,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
 
                                 //　小テーブル升は、P1項目。
                                 //p1_base + 
-                                int p1 = Conv_Masu.ToMasuHandle_FromBanjoSujiDan( smallSuji, smallDan);
+                                int p1 = Conv_Masu.ToMasuHandle_FromBanjoSujiDan(smallSuji, smallDan);
 
                                 if (Const_FeatureVectorFormat.PARAMETER_INDEX_INPUT)
                                 {
@@ -911,7 +910,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
 
             if (!File.Exists(filepath2))
             {
-                MessageBox.Show("Make_FromFile_PP_Moti19Mai: ファイルがありません。\n"+
+                MessageBox.Show("Make_FromFile_PP_Moti19Mai: ファイルがありません。\n" +
                     "filepath2=[" + filepath2 + "]\n" +
                                         "Application.StartupPath=[" + Application.StartupPath + "]"
                 , "情報");
@@ -945,7 +944,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
                         break;
 
                     default:
-                        if(
+                        if (
                             row.Count == ConstShogi.SUJI_SIZE * 10 // 将棋盤が１０枚並んでいるエリア
                             || row.Count == ConstShogi.SUJI_SIZE * 9 // 将棋盤が９枚並んでいるエリア
                             )
@@ -996,7 +995,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
                                 int largeFuMaisu = (largeDan - 1) * 10 + largeCol;//上段１０列、下段９列。0～18。
 
                                 int p1 = p1_base + largeFuMaisu;
-                                int p2 = p2_base + Conv_Masu.ToMasuHandle_FromBanjoSujiDan( smallSuji, smallDan);
+                                int p2 = p2_base + Conv_Masu.ToMasuHandle_FromBanjoSujiDan(smallSuji, smallDan);
                                 if (Const_FeatureVectorFormat.PARAMETER_INDEX_INPUT)
                                 {
                                     // これは、評価値の代わりにインデックスを入れています。
@@ -1169,7 +1168,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
 
             if (!File.Exists(filepath2))
             {
-                MessageBox.Show("Make_FromFile_PP_Moti3or5Mai: ファイルがありません。\n"+
+                MessageBox.Show("Make_FromFile_PP_Moti3or5Mai: ファイルがありません。\n" +
                     "filepath2=[" + filepath2 + "]\n" +
                                         "Application.StartupPath=[" + Application.StartupPath + "]"
                 , "情報");
@@ -1240,7 +1239,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
                                 int smallSuji = 9 - (int)(col % 9);
 
                                 int p1 = p1_base + largeCol_motiMaisu;
-                                int p2 = p2_base + Conv_Masu.ToMasuHandle_FromBanjoSujiDan( smallSuji, smallDan);
+                                int p2 = p2_base + Conv_Masu.ToMasuHandle_FromBanjoSujiDan(smallSuji, smallDan);
                                 if (Const_FeatureVectorFormat.PARAMETER_INDEX_INPUT)
                                 {
                                     // これは、評価値の代わりにインデックスを入れています。

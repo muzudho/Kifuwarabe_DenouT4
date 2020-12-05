@@ -1,13 +1,11 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System.Windows.Forms;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
 using Grayscale.A060_Application.B310_Settei_____.L510____Xml;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A480_ServerAims_.B110_AimsServer_.C500____Server;
-using System.Windows.Forms;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.P489_Form_______
 {
@@ -21,7 +19,7 @@ namespace Grayscale.P489_Form_______
 
 
             string filepath = Const_Filepath.m_AIMS_TO_CONFIG + "data_settei.xml";
-            MessageBox.Show("設定ファイルパス＝["+filepath+"]");
+            MessageBox.Show("設定ファイルパス＝[" + filepath + "]");
 
             //
             // 設定XMLファイル

@@ -8,12 +8,6 @@ namespace Grayscale.A000_Platform___.B011_Csv________.C250____Parser
     /// </summary>
     public abstract class CsvLineParserImpl
     {
-
-
-
-        #region アクション
-        //────────────────────────────────────────
-
         public static List<string> UnescapeLineToFieldList(string source, char chDelimiter)
         {
             int length = source.Length;
@@ -21,7 +15,7 @@ namespace Grayscale.A000_Platform___.B011_Csv________.C250____Parser
             char ch;
 
             // 空か。
-            if(source.Length<1)
+            if (source.Length < 1)
             {
                 goto gt_EndMethod;
             }
@@ -32,14 +26,14 @@ namespace Grayscale.A000_Platform___.B011_Csv________.C250____Parser
             //１セル分の文字列
             StringBuilder cell = new StringBuilder();
             int index = 0;
-            while(index < length)
+            while (index < length)
             {
                 cell.Length = 0;
                 ch = source[index];
 
                 //ystem.C onsole.WriteLine("（２）index[" + index + "] ch[" + ch + "]");
 
-                if(','==ch)
+                if (',' == ch)
                 {
                     // 空を追加して次へ。
                     index++;
@@ -127,7 +121,7 @@ namespace Grayscale.A000_Platform___.B011_Csv________.C250____Parser
 
                     // 1文字目が「"」でないなら、「,」が出てくるか、次がなくなるまでそのまま出力。
                     // フォーマットチェックは行わない。
-                    while(index < length)
+                    while (index < length)
                     {
                         ch = source[index];
 
@@ -165,7 +159,7 @@ namespace Grayscale.A000_Platform___.B011_Csv________.C250____Parser
                 list_Destination.Add(cell.ToString());
             }
 
-            //ystem.C onsole.WriteLine("（２１）index[" + index + "] ");
+        //ystem.C onsole.WriteLine("（２１）index[" + index + "] ");
 
 
         gt_EndMethod:
@@ -190,7 +184,7 @@ namespace Grayscale.A000_Platform___.B011_Csv________.C250____Parser
 
             StringBuilder s = new StringBuilder();
 
-            for (int index = 0; index < length; )
+            for (int index = 0; index < length;)
             {
                 ch = source[index];
                 if (',' == ch)
@@ -222,11 +216,5 @@ namespace Grayscale.A000_Platform___.B011_Csv________.C250____Parser
 
             return s.ToString();
         }
-
-        //────────────────────────────────────────
-        #endregion
-
-
-
     }
 }

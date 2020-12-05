@@ -1,4 +1,6 @@
-﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+﻿using System.Diagnostics;
+using System.Text;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
 using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct;
 using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C___250_Struct;
@@ -11,8 +13,6 @@ using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using System.Diagnostics;
-using System.Text;
 
 namespace Grayscale.A210_KnowNingen_.B800_ConvCsa____.C500____Converter
 {
@@ -31,7 +31,7 @@ namespace Grayscale.A210_KnowNingen_.B800_ConvCsa____.C500____Converter
             int.TryParse(csa.SourceMasu[0].ToString(), out suji);
             int.TryParse(csa.SourceMasu[1].ToString(), out dan);
 
-            return Conv_Masu.ToMasu_FromBanjoSujiDan( suji, dan);
+            return Conv_Masu.ToMasu_FromBanjoSujiDan(suji, dan);
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Grayscale.A210_KnowNingen_.B800_ConvCsa____.C500____Converter
             int.TryParse(csa.DestinationMasu[0].ToString(), out suji);
             int.TryParse(csa.DestinationMasu[1].ToString(), out dan);
 
-            return Conv_Masu.ToMasu_FromBanjoSujiDan( suji, dan);
+            return Conv_Masu.ToMasu_FromBanjoSujiDan(suji, dan);
         }
 
 
@@ -90,7 +90,7 @@ namespace Grayscale.A210_KnowNingen_.B800_ConvCsa____.C500____Converter
         {
             Playerside result;
 
-            switch(csa.Sengo)
+            switch (csa.Sengo)
             {
                 case "+": result = Playerside.P1; break;
                 case "-": result = Playerside.P2; break;
@@ -170,7 +170,7 @@ namespace Grayscale.A210_KnowNingen_.B800_ConvCsa____.C500____Converter
             // 「成り」をしたのかどうかを、調べます。
             //
             {
-                if (null!=ittemae_Sky_orNull && "00" != csa.SourceMasu)
+                if (null != ittemae_Sky_orNull && "00" != csa.SourceMasu)
                 {
                     // ルート局面ではなく、かつ、打ではないとき。
 
@@ -180,11 +180,11 @@ namespace Grayscale.A210_KnowNingen_.B800_ConvCsa____.C500____Converter
                     //    System.Console.WriteLine("[" + finger + "] " + koma.Masu.Word + "　" + koma.Pside + "　" + KomaSyurui14Array.Ichimoji[(int)koma.Syurui]);
                     //});
 
-                    SyElement srcMasu = Conv_Masu.ToMasu_FromBanjoSujiDan(srcSuji,srcDan);
+                    SyElement srcMasu = Conv_Masu.ToMasu_FromBanjoSujiDan(srcSuji, srcDan);
                     Busstop srcKoma = Util_Sky_KomaQuery.InMasuNow(ittemae_Sky_orNull, srcMasu);
-                    Debug.Assert(Busstop.Empty!= srcKoma,"元位置の駒を取得できなかった。1");
+                    Debug.Assert(Busstop.Empty != srcKoma, "元位置の駒を取得できなかった。1");
 
-                    if (!Util_Komasyurui14.IsNari(Conv_Busstop.ToKomasyurui( srcKoma)) && nari)//移動元で「成り」でなかった駒が、移動後に「成駒」になっていた場合。
+                    if (!Util_Komasyurui14.IsNari(Conv_Busstop.ToKomasyurui(srcKoma)) && nari)//移動元で「成り」でなかった駒が、移動後に「成駒」になっていた場合。
                     {
                         sb.Append("+");
                     }

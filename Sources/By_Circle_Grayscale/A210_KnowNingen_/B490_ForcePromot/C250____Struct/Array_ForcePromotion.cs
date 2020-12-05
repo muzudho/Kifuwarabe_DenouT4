@@ -1,14 +1,12 @@
-﻿using Grayscale.A060_Application.B110_Log________.C500____Struct;
-using Grayscale.A000_Platform___.B011_Csv________.C500____Parser;
-using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
-using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
-using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C250____Word;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Grayscale.A000_Platform___.B011_Csv________.C500____Parser;
+using Grayscale.A060_Application.B110_Log________.C500____Struct;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C250____Word;
 
 namespace Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct
 {
@@ -66,7 +64,7 @@ namespace Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct
             foreach (List<string> row in rows)
             {
                 // 偶数行はコメントなので無視します。
-                if(rowCount%2==0)
+                if (rowCount % 2 == 0)
                 {
                     goto gt_NextRow;
                 }
@@ -81,10 +79,10 @@ namespace Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct
                     );
 
                 int masuHandle = 0;
-                foreach(string column in row)
+                foreach (string column in row)
                 {
                     // 空っぽの列は無視します。
-                    if(""==column)
+                    if ("" == column)
                     {
                         goto gt_NextColumn;
                     }
@@ -93,7 +91,7 @@ namespace Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct
 
                     // 数値型のはずです。
                     int haiyakuHandle_target;
-                    if(!int.TryParse(column, out haiyakuHandle_target))
+                    if (!int.TryParse(column, out haiyakuHandle_target))
                     {
                         string message = "エラー。\n path=[" + path + "]\n" +
                         "「強制転成表」に、int型数値でないものが指定されていました。\n" +
@@ -104,7 +102,7 @@ namespace Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct
                         throw ex;
                     }
 
-                    map2.Add(masuHandle, Array_Komahaiyaku185.Items[ haiyakuHandle_target]);
+                    map2.Add(masuHandle, Array_Komahaiyaku185.Items[haiyakuHandle_target]);
 
                 gt_NextColumn:
                     masuHandle++;
@@ -187,7 +185,7 @@ namespace Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct
 
                 sb.Append("<table>");
                 // ９一～１一、９二～１二、…９九～１九の順だぜ☆
-                for (int dan = 1; dan <= 9; dan++ )
+                for (int dan = 1; dan <= 9; dan++)
                 {
                     sb.AppendLine("<tr>");
 
@@ -195,7 +193,7 @@ namespace Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct
                     for (int suji = 9; suji >= 1; suji--)
                     {
 
-                        SyElement masu = Conv_Masu.ToMasu_FromBanjoSujiDan( suji, dan);
+                        SyElement masu = Conv_Masu.ToMasu_FromBanjoSujiDan(suji, dan);
 
                         sb.Append("<td>");
 
@@ -211,7 +209,7 @@ namespace Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct
                             sb.Append("<img src=\"../Engine01_Config/img/train");
 
 
-                            if (haiyakuHandle<10)
+                            if (haiyakuHandle < 10)
                             {
                                 sb.Append("00");
                             }

@@ -1,5 +1,5 @@
-﻿using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
-using System.Text;
+﻿using System.Text;
+using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
 
 namespace Grayscale.A120_KifuSfen___.B180_FormatSfen_.C260____Format
 {
@@ -17,7 +17,7 @@ namespace Grayscale.A120_KifuSfen___.B180_FormatSfen_.C260____Format
                 for (int suji = 9; suji >= 1; suji--)
                 {
                     // 将棋盤上のどこかにある駒？
-                    string koma0 = ro_kyokumen1.Ban[suji,dan];
+                    string koma0 = ro_kyokumen1.Ban[suji, dan];
 
                     if ("" != koma0)
                     {

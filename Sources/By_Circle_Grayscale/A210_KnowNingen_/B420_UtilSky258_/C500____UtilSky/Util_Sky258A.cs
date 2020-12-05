@@ -1,4 +1,7 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B410_Collection_.C500____Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
@@ -6,15 +9,11 @@ using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C250____Word;
 using Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table;
 using Grayscale.A210_KnowNingen_.B390_KomahaiyaEx.C500____Util;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using System;
-using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using System.Collections.Generic;
 
 namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
 {
@@ -140,7 +139,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
 
 
         }
-        
+
 
 
 
@@ -154,9 +153,9 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
             Finger finger,
             SySet<SyElement> masus)
         {
-            if ((int)finger<0)
+            if ((int)finger < 0)
             {
-                throw new ApplicationException("fingerに負数が指定されましたが、間違いです(A)。 finger="+ finger);
+                throw new ApplicationException("fingerに負数が指定されましたが、間違いです(A)。 finger=" + finger);
             }
             else
             if (komabetuMasus.Items.ContainsKey(finger))
@@ -195,7 +194,7 @@ namespace Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky
                 if ((int)figKoma < 0)
                 {
                     throw new ApplicationException("駒のハンドルが負数でしたが、間違いです(B)。figKoma=" + (int)figKoma +
-                        " move=" + Convert.ToString((int)move,2)+
+                        " move=" + Convert.ToString((int)move, 2) +
                         "\n Log=" + Conv_Move.ToLog(move));
                 }
 

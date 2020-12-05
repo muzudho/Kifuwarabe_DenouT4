@@ -1,6 +1,6 @@
-﻿using Grayscale.A060_Application.B410_Collection_.C500____Struct;
+﻿using System.Collections.Generic;
+using Grayscale.A060_Application.B410_Collection_.C500____Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using System.Collections.Generic;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter

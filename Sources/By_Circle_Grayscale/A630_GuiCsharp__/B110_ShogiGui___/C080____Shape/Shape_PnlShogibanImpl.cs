@@ -1,4 +1,6 @@
-﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+﻿using System.Collections.Generic;
+using System.Drawing;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C250____Struct;
 using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
@@ -6,8 +8,6 @@ using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___080_Shape;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___492_Widgets;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
-using System.Collections.Generic;
-using System.Drawing;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
 {
@@ -63,7 +63,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
         /// <summary>
         /// 枡毎の、利いている駒ハンドルのリスト。
         /// </summary>
-        public Dictionary<int,List<int>> HMasu_KikiKomaList
+        public Dictionary<int, List<int>> HMasu_KikiKomaList
         {
             get;
             set;

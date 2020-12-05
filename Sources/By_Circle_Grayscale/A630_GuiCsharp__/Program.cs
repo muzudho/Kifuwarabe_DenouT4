@@ -1,13 +1,13 @@
 ﻿// 進行が停止するテストを含むデバッグモードです。
 #define DEBUG_STOPPABLE
 
+using System;
+using System.Windows.Forms;
 using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C492____Widgets;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C500____GUI;
-using System;
-using System.Windows.Forms;
 
 namespace Grayscale.P699_Form_______
 {

@@ -1,14 +1,13 @@
-﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 
 namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
 {
@@ -110,7 +109,8 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
         {
             return this.m_kaisiPside_;
         }
-        public Playerside GetKaisiPside(Move move) {
+        public Playerside GetKaisiPside(Move move)
+        {
             return this.m_kaisiPside_;
         }
         private Playerside m_kaisiPside_;
@@ -172,7 +172,7 @@ namespace Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct
             {
                 int maisu = this.m_busstops_.Count;
 
-                for (int iMoti=0; iMoti<(int)Pieces.Num; iMoti++)
+                for (int iMoti = 0; iMoti < (int)Pieces.Num; iMoti++)
                 {
                     maisu += this.MotiSu[iMoti];
                 }

@@ -1,16 +1,14 @@
-﻿using Grayscale.A060_Application.B110_Log________.C500____Struct;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using Grayscale.A000_Platform___.B011_Csv________.C250____Parser;
+using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
-using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C250____Word;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Windows.Forms;
 
 #if DEBUG
 using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
@@ -62,7 +60,7 @@ namespace Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table
             }
             else if (B180_ConvPside__.C500____Converter.Conv_Masu.OnKomadai(masuHandle))
             {
-                switch(syurui)
+                switch (syurui)
                 {
                     case Komasyurui14.H01_Fu_____: result = Komahaiyaku185.n164_歩打; break;
                     case Komasyurui14.H02_Kyo____: result = Komahaiyaku185.n165_香打; break;
@@ -298,7 +296,7 @@ namespace Grayscale.A210_KnowNingen_.B300_KomahaiyaTr.C500____Table
                     for (int suji = 9; suji >= 1; suji--)
                     {
 
-                        SyElement masu = Conv_Masu.ToMasu_FromBanjoSujiDan( suji, dan);
+                        SyElement masu = Conv_Masu.ToMasu_FromBanjoSujiDan(suji, dan);
 
                         sb.Append("<td>");
 

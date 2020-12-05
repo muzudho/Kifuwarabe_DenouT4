@@ -1,5 +1,5 @@
-﻿using Grayscale.A210_KnowNingen_.B130_Json_______.C___500_Struct;
-using System.Text;
+﻿using System.Text;
+using Grayscale.A210_KnowNingen_.B130_Json_______.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B130_Json_______.C500____Struct
 {

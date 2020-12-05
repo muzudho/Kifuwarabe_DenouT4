@@ -13,7 +13,7 @@ namespace Grayscale.A210_KnowNingen_.B630_Sennitite__.C500____Struct
         /// </summary>
         private SennititeConfirmer source;
 
-        public SennititeConfirmerImpl( SennititeConfirmer src )
+        public SennititeConfirmerImpl(SennititeConfirmer src)
         {
             this.source = src;
         }

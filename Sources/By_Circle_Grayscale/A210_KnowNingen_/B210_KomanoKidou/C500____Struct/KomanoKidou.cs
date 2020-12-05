@@ -1,10 +1,8 @@
-﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+﻿using System.Collections.Generic;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
-using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
-using System.Collections.Generic;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 
 namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
@@ -299,7 +297,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 {
                     for (int dan = 8; dan >= 1; dan--)
                     {
-                        SyElement masu = Conv_Masu.ToMasu_FromBanjoSujiDan( suji, dan);
+                        SyElement masu = Conv_Masu.ToMasu_FromBanjoSujiDan(suji, dan);
                         dst.AddElement(masu);
                     }
                 }
@@ -333,7 +331,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 {
                     for (int dan = 2; dan <= 9; dan++)
                     {
-                        SyElement masu = Conv_Masu.ToMasu_FromBanjoSujiDan( suji, dan);
+                        SyElement masu = Conv_Masu.ToMasu_FromBanjoSujiDan(suji, dan);
                         dst.AddElement(masu);
                     }
                 }
@@ -385,7 +383,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 {
                     for (int dan = 7; dan >= 1; dan--)
                     {
-                        SyElement masu = Conv_Masu.ToMasu_FromBanjoSujiDan( suji, dan);
+                        SyElement masu = Conv_Masu.ToMasu_FromBanjoSujiDan(suji, dan);
                         dst.AddElement(masu);
                     }
                 }
@@ -419,7 +417,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 {
                     for (int dan = 3; dan <= 9; dan++)
                     {
-                        SyElement masu = Conv_Masu.ToMasu_FromBanjoSujiDan( suji, dan);
+                        SyElement masu = Conv_Masu.ToMasu_FromBanjoSujiDan(suji, dan);
                         dst.AddElement(masu);
                     }
                 }
@@ -468,22 +466,22 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
 
             if (Playerside.P2 == pside)
             {
-                for (int suji = 9; suji >= 1; suji-- )
+                for (int suji = 9; suji >= 1; suji--)
                 {
                     for (int dan = 9; dan >= 1; dan--)
                     {
-                        SyElement masu = Conv_Masu.ToMasu_FromBanjoSujiDan( suji, dan);
+                        SyElement masu = Conv_Masu.ToMasu_FromBanjoSujiDan(suji, dan);
                         dst.AddElement(masu);
                     }
                 }
             }
             else
             {
-                for (int suji = 1; suji <=9; suji++)
+                for (int suji = 1; suji <= 9; suji++)
                 {
                     for (int dan = 1; dan <= 9; dan++)
                     {
-                        SyElement masu = Conv_Masu.ToMasu_FromBanjoSujiDan( suji, dan);
+                        SyElement masu = Conv_Masu.ToMasu_FromBanjoSujiDan(suji, dan);
                         dst.AddElement(masu);
                     }
                 }
@@ -561,7 +559,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
             //  │  │  │  │  │至│  │  │  │  │
             //  └─┴─┴─┴─┴─┴─┴─┴─┴─┘
 
-            SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, pside, Hogaku.上);
+            SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, pside, Hogaku.上);
             if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
             {
                 srcA = KomanoKidou.Create_Masus_DirectedSegment(masu, pside, Hogaku.上, 8);
@@ -637,7 +635,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
             //　│至│  │  │  │  │  │  │  │  │
             //　└─┴─┴─┴─┴─┴─┴─┴─┴─┘
 
-            SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, pside, Hogaku.昇);
+            SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, pside, Hogaku.昇);
             if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
             {
                 srcB = KomanoKidou.Create_Masus_DirectedSegment(masu, pside, Hogaku.昇, 8);
@@ -712,7 +710,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
             //  │  │  │  │  │  │  │  │  │  │
             //  └─┴─┴─┴─┴─┴─┴─┴─┴─┘
 
-            SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, pside, Hogaku.射);
+            SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, pside, Hogaku.射);
             if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
             {
                 srcC = KomanoKidou.Create_Masus_DirectedSegment(masu, pside, Hogaku.射, 8);
@@ -786,7 +784,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
             //　│  │  │  │  │  │  │  │  │D7│
             //　└─┴─┴─┴─┴─┴─┴─┴─┴─┘Ｄ
 
-            SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, pside, Hogaku.沈);
+            SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, pside, Hogaku.沈);
             if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
             {
                 srcD = KomanoKidou.Create_Masus_DirectedSegment(masu, pside, Hogaku.沈, 8);
@@ -862,7 +860,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
             //  └─┴─┴─┴─┴─┴─┴─┴─┴─┘
             //　                  Ｅ
 
-            SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, pside, Hogaku.引);
+            SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, pside, Hogaku.引);
             if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
             {
                 srcE = KomanoKidou.Create_Masus_DirectedSegment(masu, pside, Hogaku.引, 8);
@@ -936,7 +934,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
             //　│F7│  │  │  │  │  │  │  │  │
             //Ｆ└─┴─┴─┴─┴─┴─┴─┴─┴─┘
 
-            SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, pside, Hogaku.降);
+            SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, pside, Hogaku.降);
             if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
             {
                 srcF = KomanoKidou.Create_Masus_DirectedSegment(masu, pside, Hogaku.降, 8);
@@ -1010,7 +1008,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
             //  │  │  │  │  │  │  │  │  │  │
             //  └─┴─┴─┴─┴─┴─┴─┴─┴─┘
 
-            SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, pside, Hogaku.滑);
+            SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, pside, Hogaku.滑);
             if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
             {
                 srcG = KomanoKidou.Create_Masus_DirectedSegment(masu, pside, Hogaku.滑, 8);
@@ -1084,7 +1082,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
             //　│  │  │  │  │  │  │  │  │至│
             //　└─┴─┴─┴─┴─┴─┴─┴─┴─┘
 
-            SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, pside, Hogaku.浮);
+            SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, pside, Hogaku.浮);
             if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
             {
                 srcH = KomanoKidou.Create_Masus_DirectedSegment(masu, pside, Hogaku.浮, 8);
@@ -1123,7 +1121,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 //│  │Ａ│  │
                 //└─┴─┴─┘
 
-                SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, 0, 1);
+                SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, 0, 1);
                 if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
                 {
                     srcA.AddElement(masu);
@@ -1142,7 +1140,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 //│  │  │  │
                 //└─┴─┴─┘
 
-                SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, 0, -1);
+                SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, 0, -1);
                 if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
                 {
                     srcA.AddElement(masu);
@@ -1178,7 +1176,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 //│Ｂ│  │  │
                 //└─┴─┴─┘
 
-                SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, 1, 1);
+                SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, 1, 1);
                 if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
                 {
                     srcB.AddElement(masu);
@@ -1197,7 +1195,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 //│　│  │  │
                 //└─┴─┴─┘
 
-                SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, -1, -1);
+                SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, -1, -1);
                 if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
                 {
                     srcB.AddElement(masu);
@@ -1233,7 +1231,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 //│　│  │  │
                 //└─┴─┴─┘
 
-                SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, 1, 0);
+                SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, 1, 0);
                 if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
                 {
                     srcC.AddElement(masu);
@@ -1252,7 +1250,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 //│　│  │  │
                 //└─┴─┴─┘
 
-                SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, -1, 0);
+                SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, -1, 0);
                 if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
                 {
                     srcC.AddElement(masu);
@@ -1288,7 +1286,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 //│　│  │  │
                 //└─┴─┴─┘
 
-                SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, pside, Hogaku.沈);
+                SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, pside, Hogaku.沈);
                 if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
                 {
                     srcD.AddElement(masu);
@@ -1307,7 +1305,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 //│　│  │Ｄ│
                 //└─┴─┴─┘
 
-                SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, pside, Hogaku.沈);
+                SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, pside, Hogaku.沈);
                 if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
                 {
                     srcD.AddElement(masu);
@@ -1344,7 +1342,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 //│　│  │  │
                 //└─┴─┴─┘
 
-                SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, 0, -1);
+                SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, 0, -1);
                 if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
                 {
                     srcE.AddElement(masu);
@@ -1363,7 +1361,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 //│　│Ｅ│  │
                 //└─┴─┴─┘
 
-                SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, 0, 1);
+                SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, 0, 1);
                 if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
                 {
                     srcE.AddElement(masu);
@@ -1400,7 +1398,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 //  │  │  │  │
                 //  └─┴─┴─┘
 
-                SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, -1, -1);
+                SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, -1, -1);
                 if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
                 {
                     srcF.AddElement(masu);
@@ -1419,7 +1417,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 //  │Ｆ│  │  │
                 //  └─┴─┴─┘
 
-                SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, 1, 1);
+                SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, 1, 1);
                 if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
                 {
                     srcF.AddElement(masu);
@@ -1455,7 +1453,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 //  │  │  │  │
                 //  └─┴─┴─┘
 
-                SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, -1, 0);
+                SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, -1, 0);
                 if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
                 {
                     srcG.AddElement(masu);
@@ -1474,7 +1472,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 //  │  │  │  │
                 //  └─┴─┴─┘
 
-                SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, 1, 0);
+                SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, 1, 0);
                 if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
                 {
                     srcG.AddElement(masu);
@@ -1510,7 +1508,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 //  │  │  │Ｈ│
                 //  └─┴─┴─┘
 
-                SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, -1, 1);
+                SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, -1, 1);
                 if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
                 {
                     srcH.AddElement(masu);
@@ -1529,7 +1527,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 //  │  │  │  │
                 //  └─┴─┴─┘
 
-                SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, 1, -1);
+                SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, 1, -1);
                 if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
                 {
                     srcH.AddElement(masu);
@@ -1569,7 +1567,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 //│　│  │  │
                 //└─┘　└─┘
 
-                SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, 1, -2);
+                SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, 1, -2);
                 if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
                 {
                     srcI.AddElement(masu);
@@ -1592,7 +1590,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 //│  │　│Ｉ│
                 //└─┘　└─┘
 
-                SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, -1, 2);
+                SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, -1, 2);
                 if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
                 {
                     srcI.AddElement(masu);
@@ -1635,7 +1633,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 //----------
                 // 競合駒マス(pre masu)
                 //----------
-                SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, -1, -2);
+                SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, -1, -2);
                 if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
                 {
                     srcJ.AddElement(masu);
@@ -1658,7 +1656,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 //│Ｊ│　│  │
                 //└─┘　└─┘
 
-                SyElement masu = Conv_Masu.BanjoOffset( masu_itaru, 1, 2);
+                SyElement masu = Conv_Masu.BanjoOffset(masu_itaru, 1, 2);
                 if (Okiba.ShogiBan == Conv_Masu.ToOkiba(masu))
                 {
                     srcJ.AddElement(masu);
@@ -1683,9 +1681,9 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
             )
         {
 
-            SySet_DirectedSegment<SyElement> thisObj = new SySet_DirectedSegment<SyElement>("有向線分",pside, muki, new List<SyElement>());
+            SySet_DirectedSegment<SyElement> thisObj = new SySet_DirectedSegment<SyElement>("有向線分", pside, muki, new List<SyElement>());
 
-            if (Masu_Honshogi.IsErrorBasho( masuOrigin))
+            if (Masu_Honshogi.IsErrorBasho(masuOrigin))
             {
                 goto gt_EndMethod;
             }
@@ -1721,7 +1719,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 for (int i = 0; i < nagasa - 1; i++)//長さは、原点を含んだ長さのはず。原点はもう追加済みなので-1します。
                 {
                     // 遷移
-                    masu1 = (SyElement)Conv_Masu.BanjoOffset( masu1, dSuji, dDan);
+                    masu1 = (SyElement)Conv_Masu.BanjoOffset(masu1, dSuji, dDan);
 
                     if (Okiba.ShogiBan != Conv_Masu.ToOkiba(masu1))
                     {

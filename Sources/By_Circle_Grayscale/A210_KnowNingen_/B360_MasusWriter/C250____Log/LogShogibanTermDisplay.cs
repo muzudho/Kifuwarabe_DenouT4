@@ -1,9 +1,9 @@
-﻿using Grayscale.A060_Application.B410_Collection_.C500____Struct;
+﻿using System.Collections.Generic;
+using System.Text;
+using Grayscale.A060_Application.B410_Collection_.C500____Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C___250_Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
-using System.Collections.Generic;
-using System.Text;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C250____Writer
@@ -19,7 +19,7 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C250____Writer
             kamd.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
             {
                 sb.AppendLine("entry.Key=" + key);
-                sb.AppendLine( LogShogibanTermDisplay.Masus_ToTerm(value) );
+                sb.AppendLine(LogShogibanTermDisplay.Masus_ToTerm(value));
                 sb.AppendLine("  ");//空行
             });
 
@@ -45,7 +45,7 @@ namespace Grayscale.A210_KnowNingen_.B360_MasusWriter.C250____Writer
 
             // 表示テキスト
             Dictionary<int, string> hyoji = new Dictionary<int, string>();
-            for (int masuNumber = Masu_Honshogi.nban11_１一; masuNumber <= Masu_Honshogi.nban99_９九; masuNumber++ )
+            for (int masuNumber = Masu_Honshogi.nban11_１一; masuNumber <= Masu_Honshogi.nban99_９九; masuNumber++)
             {
                 if (kaisu.ContainsKey(masuNumber))
                 {

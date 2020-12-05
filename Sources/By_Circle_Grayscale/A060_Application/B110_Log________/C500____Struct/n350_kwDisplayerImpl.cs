@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 
 namespace Grayscale.A060_Application.B110_Log________.C500____Struct
 {

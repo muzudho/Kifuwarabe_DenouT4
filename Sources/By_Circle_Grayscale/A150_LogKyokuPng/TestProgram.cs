@@ -1,8 +1,8 @@
-﻿using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C___500_Struct;
+﻿using System;
+using System.Collections.Generic;
+using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C___500_Struct;
 using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500____Struct;
 using Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C500____UtilWriter;
-using System;
-using System.Collections.Generic;
 
 namespace Grayscale.P159_Form_______
 {
@@ -13,7 +13,7 @@ namespace Grayscale.P159_Form_______
         {
             string[] args = Environment.GetCommandLineArgs();
 
-            foreach(string arg in args)
+            foreach (string arg in args)
             {
                 string name;
                 string value;

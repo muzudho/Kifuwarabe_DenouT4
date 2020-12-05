@@ -1,5 +1,5 @@
-﻿using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C___250_Struct;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C___250_Struct;
 
 namespace Grayscale.A180_KifuCsa____.B120_KifuCsa____.C250____Struct
 {
@@ -49,7 +49,7 @@ namespace Grayscale.A180_KifuCsa____.B120_KifuCsa____.C250____Struct
         {
             this.Player1Name = "";
             this.Player2Name = "";
-            this.Shogiban = new string[10,10];
+            this.Shogiban = new string[10, 10];
             this.FirstSengo = "+";
             this.SasiteList = new List<CsaKifuSasite>();
             this.FinishedStatus = "";

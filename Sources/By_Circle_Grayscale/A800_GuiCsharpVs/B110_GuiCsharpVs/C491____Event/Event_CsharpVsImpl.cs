@@ -67,7 +67,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C491____Event
                     MainGui_Csharp shogiGui = (MainGui_Csharp)obj_shogiGui2;
                     Uc_Form1Mainable ui_PnlMain = ((Form1_Shogi)shogiGui.OwnerForm).Uc_Form1Main;
 
-                    ui_PnlMain.MainGui.Do_ComputerSente( errH);
+                    ui_PnlMain.MainGui.Do_ComputerSente(errH);
                 };
             }
             return Event_CsharpVsImpl.instance;

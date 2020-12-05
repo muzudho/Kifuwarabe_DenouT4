@@ -1,5 +1,5 @@
-﻿using Grayscale.A210_KnowNingen_.B130_Json_______.C___500_Struct;
-using System.Text;
+﻿using System.Text;
+using Grayscale.A210_KnowNingen_.B130_Json_______.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B130_Json_______.C500____Struct
 {
@@ -14,7 +14,7 @@ namespace Grayscale.A210_KnowNingen_.B130_Json_______.C500____Struct
         public Json_Prop(string name, string value)
         {
             this.Name = name;
-            this.Value = new Json_Str( value);
+            this.Value = new Json_Str(value);
         }
 
         public Json_Prop(string name, Json_Val value)
@@ -26,7 +26,7 @@ namespace Grayscale.A210_KnowNingen_.B130_Json_______.C500____Struct
         public Json_Prop(string name, int value)
         {
             this.Name = name;
-            this.Value = new Json_Str( value.ToString());
+            this.Value = new Json_Str(value.ToString());
         }
 
         public override string ToString()
@@ -46,12 +46,12 @@ namespace Grayscale.A210_KnowNingen_.B130_Json_______.C500____Struct
                 // 数字
                 sb.Append(value2.ToString());
             }
-            else if(
+            else if (
                 this.Value is Json_Str// 文字
                 || this.Value is Json_Arr// 配列
                 || this.Value is Json_Obj// オブジェクト
                 )
-            {                
+            {
                 sb.Append(this.Value.ToString());
             }
             else

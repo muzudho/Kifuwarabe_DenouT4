@@ -69,7 +69,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
         {
             this.widgetName = widgetName;
             this.Visible = true;
-            this.bounds = new Rectangle(x,y,width,height);
+            this.bounds = new Rectangle(x, y, width, height);
         }
 
 

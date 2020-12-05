@@ -1,5 +1,4 @@
 ﻿using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
 using Grayscale.A210_KnowNingen_.B630_Sennitite__.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___240_Shogisasi;

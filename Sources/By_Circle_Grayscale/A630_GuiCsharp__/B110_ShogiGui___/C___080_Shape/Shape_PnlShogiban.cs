@@ -1,13 +1,13 @@
-﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___080_Shape
 {
     public interface Shape_PnlShogiban
     {
 
-        
+
         /// <summary>
         /// ************************************************************************************************************************
         /// 筋を指定すると、ｘ座標を返します。
@@ -17,7 +17,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___080_Shape
         /// <returns></returns>
         int SujiToX(int suji);
 
-                
+
         /// <summary>
         /// ************************************************************************************************************************
         /// 将棋盤の描画はここに書きます。
@@ -39,7 +39,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___080_Shape
         Dictionary<int, List<int>> HMasu_KikiKomaList { get; set; }
 
 
-        
+
         /// <summary>
         /// ************************************************************************************************************************
         /// 段を指定すると、ｙ座標を返します。

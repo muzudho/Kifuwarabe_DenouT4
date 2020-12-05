@@ -30,7 +30,7 @@
         /// <summary>
         /// 筋
         /// </summary>
-        Suji = 4*0,
+        Suji = 4 * 0,
 
         /// <summary>
         /// 段

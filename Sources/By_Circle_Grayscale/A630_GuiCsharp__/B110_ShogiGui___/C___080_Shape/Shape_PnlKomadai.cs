@@ -5,7 +5,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___080_Shape
     public interface Shape_PnlKomadai : Shape
     {
 
-        
+
         /// <summary>
         /// ************************************************************************************************************************
         /// 段を指定すると、ｙ座標を返します。
@@ -24,7 +24,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___080_Shape
         /// <returns></returns>
         int SujiToX(int suji);
 
-        
+
         /// <summary>
         /// ************************************************************************************************************************
         /// 駒台の描画は、ここに書きます。

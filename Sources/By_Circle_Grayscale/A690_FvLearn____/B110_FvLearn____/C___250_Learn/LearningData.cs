@@ -1,12 +1,11 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C___250_Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
-using System.Collections.Generic;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
@@ -82,7 +81,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
         /// <returns></returns>
         string DumpToAllGohosyu(Sky src_Sky);
 
-        
+
         /// <summary>
         /// 評価値を算出します。
         /// </summary>
@@ -91,7 +90,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn
             Sky positionA
             );
 
-        
+
         /// <summary>
         /// 合法手一覧を作成したい。
         /// </summary>

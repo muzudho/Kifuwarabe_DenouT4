@@ -1,6 +1,6 @@
-﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+﻿using System.Text;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct;
-using System.Text;
 
 namespace Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C500____Util
 {

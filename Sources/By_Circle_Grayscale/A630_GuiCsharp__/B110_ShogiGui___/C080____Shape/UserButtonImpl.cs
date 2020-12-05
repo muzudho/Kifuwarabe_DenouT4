@@ -1,8 +1,8 @@
-﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+﻿using System.Drawing;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___491_Event;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___492_Widgets;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
-using System.Drawing;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
 {
@@ -30,7 +30,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
         public string Type { get; set; }
         public string Name { get; set; }
 
-        public Color BackColor {
+        public Color BackColor
+        {
             get
             {
                 return this.this_object.BackColor;
@@ -47,11 +48,12 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
         }
 
 
-        public DELEGATE_MouseHitEvent Delegate_MouseHitEvent{get;set;}
+        public DELEGATE_MouseHitEvent Delegate_MouseHitEvent { get; set; }
 
         public bool IsLight_OnFlowB_1TumamitaiKoma { get; set; }
 
-        public Rectangle Bounds {
+        public Rectangle Bounds
+        {
             get
             {
                 return this.this_object.Bounds;
@@ -59,7 +61,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
         }
         public void SetBounds(Rectangle rect)
         {
-            this.this_object.SetBounds( rect);
+            this.this_object.SetBounds(rect);
         }
 
         public string Text
@@ -70,7 +72,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
             }
             set
             {
-            this.this_object.Text = value;
+                this.this_object.Text = value;
             }
         }
 
@@ -113,7 +115,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
             return this.this_object.HitByMouse(x, y);
         }
 
-        
+
         /// <summary>
         /// ************************************************************************************************************************
         /// マウスが重なった駒は、光フラグを立てます。
@@ -143,7 +145,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
             }
         }
 
-        
+
         /// <summary>
         /// ************************************************************************************************************************
         /// 動かしたい駒の解除
@@ -168,7 +170,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
             }
         }
 
-        public Okiba Okiba{get;set;}
+        public Okiba Okiba { get; set; }
         public int Suji { get; set; }
         public int Dan { get; set; }
         public int MasuHandle { get; set; }

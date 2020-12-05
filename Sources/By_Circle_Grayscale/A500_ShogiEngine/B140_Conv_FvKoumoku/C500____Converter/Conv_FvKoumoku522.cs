@@ -1,7 +1,7 @@
-﻿using Grayscale.A120_KifuSfen___.B120_ConvSujiDan.C500____Converter;
+﻿using System;
+using Grayscale.A120_KifuSfen___.B120_ConvSujiDan.C500____Converter;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
-using System;
 
 namespace Grayscale.A500_ShogiEngine.B140_Conv_FvKoumoku.C500____Converter
 {
@@ -15,7 +15,7 @@ namespace Grayscale.A500_ShogiEngine.B140_Conv_FvKoumoku.C500____Converter
         /// <param name="player2dan"></param>
         /// <param name="player1suji"></param>
         /// <param name="player2suji"></param>
-        public  static void Converter_KK_to_PP(int player1dan, int player2dan, int player1suji, int player2suji, out int p1, out int p2)
+        public static void Converter_KK_to_PP(int player1dan, int player2dan, int player1suji, int player2suji, out int p1, out int p2)
         {
             p1 = Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Oh__ + Conv_SujiDan.ToMasu(player1suji, player1dan);
             p2 = Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Oh__ + Conv_SujiDan.ToMasu(player2suji, player2dan);

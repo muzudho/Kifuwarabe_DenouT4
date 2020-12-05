@@ -1,6 +1,6 @@
-﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 
 
 namespace Grayscale.A060_Application.B520_Syugoron___.C250____Struct
@@ -68,7 +68,7 @@ namespace Grayscale.A060_Application.B520_Syugoron___.C250____Struct
             sb.Append("{");
 
             bool first = true;
-            foreach(KeyValuePair<string,SySet<T1>> entry in this.dictionary)
+            foreach (KeyValuePair<string, SySet<T1>> entry in this.dictionary)
             {
                 if (first)
                 {

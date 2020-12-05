@@ -1,6 +1,6 @@
-﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+﻿using System.Collections.Generic;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using System.Collections.Generic;
 
 namespace Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct
 {
@@ -77,7 +77,7 @@ namespace Grayscale.A210_KnowNingen_.B250_Log_Kaisetu.C250____Struct
         /// <summary>
         /// 指し手。
         /// </summary>
-        public Move Move{get;set;}
+        public Move Move { get; set; }
 
         /// <summary>
         /// 説明文章（１行）。

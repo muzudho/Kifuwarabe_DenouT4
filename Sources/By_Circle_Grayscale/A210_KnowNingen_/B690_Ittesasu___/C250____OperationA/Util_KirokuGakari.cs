@@ -1,5 +1,6 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+﻿using System.Text;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
@@ -10,9 +11,6 @@ using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500____Converter;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using System.Text;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
 {
@@ -63,7 +61,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                 earth1.Clear();
 
                 // 棋譜を空っぽにします。
-                Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(saifuKifu2, positionInit,logger);
+                Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(saifuKifu2, positionInit, logger);
 
                 saifuEarth2.SetProperty(
                     Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面 // FIXME:平手とは限らないのでは？
@@ -101,7 +99,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA
                     Conv_Sky.ToKyokumenHash(saifu_PositionA),
                     hint + "/AppendChild_And_ChangeCurrentToChild");
 
-                saifuKifu2.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(saifu_newChild, saifuKifu2, saifu_PositionA,logger));
+                saifuKifu2.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(saifu_newChild, saifuKifu2, saifu_PositionA, logger));
 
                 // 後手の符号がまだ含まれていない。
                 string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(

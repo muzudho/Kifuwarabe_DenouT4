@@ -1,8 +1,8 @@
-﻿using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
+﻿using System.Text;
+using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
-using System.Text;
 
 namespace Grayscale.A210_KnowNingen_.B350_SfenTransla.C500____Util
 {
@@ -20,56 +20,56 @@ namespace Grayscale.A210_KnowNingen_.B350_SfenTransla.C500____Util
             // 1段目
             {
                 //マス番号は、72,63,54,45,36,27,18,9,0。
-                sb.Append(Conv_Shogiban.ToStartposDanString(72,shogiban));
+                sb.Append(Conv_Shogiban.ToStartposDanString(72, shogiban));
             }
             sb.Append("/");
 
             // 2段目
             {
                 //マス番号は、73,64,55,46,37,28,19,10,1。
-                sb.Append(Conv_Shogiban.ToStartposDanString(73,shogiban));
+                sb.Append(Conv_Shogiban.ToStartposDanString(73, shogiban));
             }
             sb.Append("/");
 
             // 3段目
             {
-                sb.Append(Conv_Shogiban.ToStartposDanString(74,shogiban));
+                sb.Append(Conv_Shogiban.ToStartposDanString(74, shogiban));
             }
             sb.Append("/");
 
             // 4段目
             {
-                sb.Append(Conv_Shogiban.ToStartposDanString(75,shogiban));
+                sb.Append(Conv_Shogiban.ToStartposDanString(75, shogiban));
             }
             sb.Append("/");
 
             // 5段目
             {
-                sb.Append(Conv_Shogiban.ToStartposDanString(76,shogiban));
+                sb.Append(Conv_Shogiban.ToStartposDanString(76, shogiban));
             }
             sb.Append("/");
 
             // 6段目
             {
-                sb.Append(Conv_Shogiban.ToStartposDanString(77,shogiban));
+                sb.Append(Conv_Shogiban.ToStartposDanString(77, shogiban));
             }
             sb.Append("/");
 
             // 7段目
             {
-                sb.Append(Conv_Shogiban.ToStartposDanString(78,shogiban));
+                sb.Append(Conv_Shogiban.ToStartposDanString(78, shogiban));
             }
             sb.Append("/");
 
             // 8段目
             {
-                sb.Append(Conv_Shogiban.ToStartposDanString(79,shogiban));
+                sb.Append(Conv_Shogiban.ToStartposDanString(79, shogiban));
             }
             sb.Append("/");
 
             // 9段目
             {
-                sb.Append(Conv_Shogiban.ToStartposDanString(80,shogiban));
+                sb.Append(Conv_Shogiban.ToStartposDanString(80, shogiban));
             }
 
             // 先後

@@ -1,10 +1,10 @@
-﻿using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat
 {
@@ -118,7 +118,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat
                 List<PpItem_P2> p2List = new List<PpItem_P2>();
 
                 // pieceの 1Pと2P
-                for ( int piecePlayer = 1; piecePlayer < 3; piecePlayer++)
+                for (int piecePlayer = 1; piecePlayer < 3; piecePlayer++)
                 {
                     int koumokuIndex;
                     if (piecePlayer == 1)
@@ -250,13 +250,13 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat
                     //----------------------------------------
                     for (int p1Suji = 9; p1Suji > 0; p1Suji--)
                     {
-                        if(p1Suji!=9)
+                        if (p1Suji != 9)
                         {
                             // 表の横の隙間
                             sb.Append("    ");
                         }
                         // 大テーブル升は、P1。
-                        int p1Masu = Conv_Masu.ToMasuHandle_FromBanjoSujiDan( p1Suji, p1Dan);
+                        int p1Masu = Conv_Masu.ToMasuHandle_FromBanjoSujiDan(p1Suji, p1Dan);
 
                         //----------------------------------------
                         // p2 が ９筋～１筋
@@ -264,13 +264,13 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat
                         for (int p2Suji = 9; p2Suji > 0; p2Suji--)
                         {
                             // 小テーブル升は、P2。
-                            int p2Masu = Conv_Masu.ToMasuHandle_FromBanjoSujiDan( p2Suji, p2Dan);
+                            int p2Masu = Conv_Masu.ToMasuHandle_FromBanjoSujiDan(p2Suji, p2Dan);
 
                             int p1 = p1_base + p1Masu;
                             int p2 = p2Item.P2_base + p2Masu;
                             if (Const_FeatureVectorFormat.PARAMETER_INDEX_OUTPUT)
                             {
-                                sb.Append(string.Format("{0,4}_{1,4}", p1,p2));
+                                sb.Append(string.Format("{0,4}_{1,4}", p1, p2));
                             }
                             else
                             {
@@ -326,13 +326,13 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat
                 for (int p1Suji = 9; p1Suji > 0; p1Suji--)
                 {
                     // 任意駒の升
-                    int nMasu = Conv_Masu.ToMasuHandle_FromBanjoSujiDan( p1Suji, p1Dan);
+                    int nMasu = Conv_Masu.ToMasuHandle_FromBanjoSujiDan(p1Suji, p1Dan);
 
                     int p1 = p1_base + nMasu;
                     int p2 = p2Item.P2_base;
                     if (Const_FeatureVectorFormat.PARAMETER_INDEX_OUTPUT)
                     {
-                        sb.Append(string.Format("{0,4}_{1,4}", p1,p2));
+                        sb.Append(string.Format("{0,4}_{1,4}", p1, p2));
                     }
                     else
                     {

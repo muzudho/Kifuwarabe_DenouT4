@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace A030_Collection_
+﻿namespace A030_Collection_
 {
     class Program
     {

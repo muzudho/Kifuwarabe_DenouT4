@@ -1,11 +1,11 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System.Windows.Forms;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C450____Tyoseiryo;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C470____StartZero;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C480____Functions;
-using System.Windows.Forms;
 
 #if DEBUG
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
@@ -109,11 +109,11 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C506____AutoSasiteSort
                 }
 
             }// 指し手順位更新ループ
-            //----------------------------------------
-            // 連打終わり
-            //----------------------------------------
+             //----------------------------------------
+             // 連打終わり
+             //----------------------------------------
 
-            gt_EndMethod:
+        gt_EndMethod:
             ;
         }
 

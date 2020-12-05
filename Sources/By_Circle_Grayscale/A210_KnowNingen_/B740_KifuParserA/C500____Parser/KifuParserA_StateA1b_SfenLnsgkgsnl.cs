@@ -1,11 +1,11 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B520_SeizaStartp.C500____Struct;
 using Grayscale.A210_KnowNingen_.B740_KifuParserA.C___500_Parser;
-using System;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
 {
@@ -85,7 +85,8 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C500____Parser
                 }
 
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "SFEN解析中☆");
                 throw ex;
             }

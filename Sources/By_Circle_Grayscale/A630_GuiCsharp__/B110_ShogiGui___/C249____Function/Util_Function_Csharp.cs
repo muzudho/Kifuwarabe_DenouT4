@@ -1,11 +1,11 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System.Drawing;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
-using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
@@ -18,9 +18,7 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___499_Repaint;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C060____TextBoxListener;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C101____Conv;
-using System.Drawing;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
 {
@@ -40,7 +38,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function
             mainGui.Link_Server.Earth.Clear();
 
             // 棋譜を空っぽにします。
-            Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(mainGui.Link_Server.KifuTree, positionA,logger);
+            Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(mainGui.Link_Server.KifuTree, positionA, logger);
 
             mainGui.Link_Server.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
 

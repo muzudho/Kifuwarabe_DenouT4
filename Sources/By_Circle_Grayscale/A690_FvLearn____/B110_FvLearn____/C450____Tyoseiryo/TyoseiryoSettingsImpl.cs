@@ -1,5 +1,5 @@
-﻿using Grayscale.A690_FvLearn____.B110_FvLearn____.C___450_Tyoseiryo;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Grayscale.A690_FvLearn____.B110_FvLearn____.C___450_Tyoseiryo;
 
 namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C450____Tyoseiryo
 {

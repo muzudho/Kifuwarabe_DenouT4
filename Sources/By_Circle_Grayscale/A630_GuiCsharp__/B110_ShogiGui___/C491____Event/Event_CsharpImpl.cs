@@ -2,6 +2,7 @@
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
@@ -18,7 +19,6 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
 {
@@ -307,13 +307,13 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
                     MainGui_Csharp shogibanGui2 = (MainGui_Csharp)obj_shogiGui2;
 
-                    
+
                     Util_KifuTree282.Clear_SetStartpos_KokokaraSaifu(
 
                         shogibanGui2.Link_Server.Earth,
                         shogibanGui2.Link_Server.KifuTree.PositionA,
                         shogibanGui2.Link_Server.KifuTree,
-                        
+
                         shogibanGui2.Link_Server.KifuTree.PositionA.GetKaisiPside(),
                         logger
                         );
@@ -412,7 +412,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
         /// <summary>
         /// [成る]ボタンのイベント。
         /// </summary>
-        public DELEGATE_MouseHitEvent Delegate_BtnNaru { get{return this.delegate_BtnNaru;} }
+        public DELEGATE_MouseHitEvent Delegate_BtnNaru { get { return this.delegate_BtnNaru; } }
         private DELEGATE_MouseHitEvent delegate_BtnNaru;
 
         /// <summary>
@@ -542,7 +542,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C491____Event
                     Conv_Busstop.ToMasu(mainGui.SkyWrapper_Gui.GuiSky.BusstopIndexOf(btnTumandeiruKoma.Finger)),
                     Conv_Busstop.ToKomasyurui(mainGui.Shape_PnlTaikyoku.MouseBusstopOrNull2),
                     Conv_Busstop.ToKomasyurui(mainGui.SkyWrapper_Gui.GuiSky.BusstopIndexOf(btnTumandeiruKoma.Finger)),//これで成りかどうか判定
-                    mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma != Busstop.Empty ? Conv_Busstop.ToKomasyurui( mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma) : Komasyurui14.H00_Null___,
+                    mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma != Busstop.Empty ? Conv_Busstop.ToKomasyurui(mainGui.Shape_PnlTaikyoku.MousePos_FoodKoma) : Komasyurui14.H00_Null___,
                     Conv_Busstop.ToPlayerside(mainGui.Shape_PnlTaikyoku.MouseBusstopOrNull2),
                     false
                     );// 選択している駒の元の場所と、移動先

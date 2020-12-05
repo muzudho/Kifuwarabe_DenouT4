@@ -1,6 +1,13 @@
 ﻿// noop 可
 //#define NOOPABLE
 
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A060_Application.B210_Tushin_____.C500____Util;
@@ -32,13 +39,6 @@ using Grayscale.A500_ShogiEngine.B260_UtilClient_.C500____Util;
 using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi;
 using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C125____AjimiEngine;
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
@@ -287,7 +287,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
 
 
 
-        private PhaseResult_Usi_Loop1 OnUsiReceived_AtLoop1Body (string line)
+        private PhaseResult_Usi_Loop1 OnUsiReceived_AtLoop1Body(string line)
         {
             //------------------------------------------------------------
             // あなたは USI ですか？
@@ -1039,7 +1039,7 @@ namespace Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe
                                         this.Logger)
                                         );
 
-                                    this.Kifu_AtLoop2.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(this.Kifu_AtLoop2.MoveEx_Current, this.Kifu_AtLoop2, this.Kifu_AtLoop2.PositionA,this.Logger));
+                                    this.Kifu_AtLoop2.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(this.Kifu_AtLoop2.MoveEx_Current, this.Kifu_AtLoop2, this.Kifu_AtLoop2.PositionA, this.Logger));
                                 }
 
 

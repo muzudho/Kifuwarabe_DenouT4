@@ -42,7 +42,7 @@ namespace Grayscale.A060_Application.B410_Collection_.C500____Struct
         /// </summary>
         private Dictionary<T1, T2> items;
 
-        public Dictionary<T1, T2> Items { get{return this.items;} }
+        public Dictionary<T1, T2> Items { get { return this.items; } }
 
         /// <summary>
         /// 差替え。

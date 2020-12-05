@@ -1,14 +1,11 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+﻿using System;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A450_Server_____.B110_Server_____.C498____Server;
 using Grayscale.A480_ServerAims_.B110_AimsServer_.C___060_Phase;
 using Grayscale.A480_ServerAims_.B110_AimsServer_.C___070_ServerBase;
 using Grayscale.A480_ServerAims_.B110_AimsServer_.C060____Phase;
 using Grayscale.A480_ServerAims_.B110_AimsServer_.C125____Receiver;
-using System;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C500____Server
 {
@@ -62,7 +59,7 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C500____Server
 
             while (true)
             {
-                switch(phase_AimsServer)
+                switch (phase_AimsServer)
                 {
                     case Phase_AimsServer._01_Server_Booted:
                         {
@@ -163,10 +160,10 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C500____Server
                                 //------------------------------------------------------------
 
                                 // 将棋エンジンへ：　「私は将棋サーバーですが、USIプロトコルのponderコマンドには対応していませんので、送ってこないでください」
-                                this.EngineClient.ShogiEngineProcessWrapper.Send_Setoption("setoption name USI_Ponder value false",errH);
+                                this.EngineClient.ShogiEngineProcessWrapper.Send_Setoption("setoption name USI_Ponder value false", errH);
 
                                 // 将棋エンジンへ：　「私は将棋サーバーです。noop コマンドを送ってくれば、すぐに ok コマンドを返します。1分間を空けてください」
-                                this.EngineClient.ShogiEngineProcessWrapper.Send_Setoption("setoption name noopable value true",errH);
+                                this.EngineClient.ShogiEngineProcessWrapper.Send_Setoption("setoption name noopable value true", errH);
 
                                 //------------------------------------------------------------
                                 // 将棋エンジンへ：　「準備はいいですか？」
@@ -184,7 +181,7 @@ namespace Grayscale.A480_ServerAims_.B110_AimsServer_.C500____Server
                 }
 
 
-                switch(phaseResult)
+                switch (phaseResult)
                 {
                     case PhaseResult_AimsServer.Break:
                         goto gt_EndLoop;

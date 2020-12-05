@@ -1,12 +1,12 @@
-﻿using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using System;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+﻿using System;
 using System.Collections.Generic;
 using Grayscale.A060_Application.B110_Log________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 
 #if DEBUG
 using System.Diagnostics;
@@ -40,10 +40,10 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
         public void LogPv(string message, KwLogger logger)
         {
             int index = 0;
-            logger.AppendLine("┌──────────┐"+message);
-            foreach(Move move in this.m_pv_)
+            logger.AppendLine("┌──────────┐" + message);
+            foreach (Move move in this.m_pv_)
             {
-                logger.AppendLine("("+ index+")" +Conv_Move.ToLog(move));
+                logger.AppendLine("(" + index + ")" + Conv_Move.ToLog(move));
                 index++;
             }
             logger.AppendLine("└──────────┘");
@@ -77,20 +77,20 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
                 this.LogPv("RemoveLastPv後", logger);
             }
         }
-        public void Pv_ClearAll( KwLogger logger)
+        public void Pv_ClearAll(KwLogger logger)
         {
             this.m_pv_.Clear();
             this.m_pv_.Add(Move.Empty);
             this.LogPv("ClearAll後", logger);
         }
-        public void Pv_Append(Move tail,KwLogger logger)
+        public void Pv_Append(Move tail, KwLogger logger)
         {
             this.m_pv_.Add(tail);
             this.LogPv("Append後", logger);
         }
         public Move Pv_GetLatest()
         {
-            if (0<this.m_pv_.Count)
+            if (0 < this.m_pv_.Count)
             {
                 return this.m_pv_[this.m_pv_.Count - 1];
             }
@@ -141,7 +141,7 @@ namespace Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct
             tree.MoveEx_SetCurrent(new MoveExImpl());
 
             Playerside rootPside = Playerside.P2;
-            if (1<((TreeImpl)tree).m_pv_.Count)
+            if (1 < ((TreeImpl)tree).m_pv_.Count)
             {
                 rootPside = Conv_Playerside.Reverse(Conv_Move.ToPlayerside(((TreeImpl)tree).m_pv_[1]));
             }

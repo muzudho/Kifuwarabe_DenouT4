@@ -1,6 +1,6 @@
-﻿using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using System;
+﻿using System;
 using System.Text;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;

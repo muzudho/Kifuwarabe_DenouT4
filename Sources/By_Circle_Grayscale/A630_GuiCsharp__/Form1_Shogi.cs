@@ -1,10 +1,10 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using System.Reflection;
+using System.Windows.Forms;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___510_Form;
-using System;
-using System.Reflection;
-using System.Windows.Forms;
 
 namespace Grayscale.P699_Form_______
 {
@@ -42,7 +42,7 @@ namespace Grayscale.P699_Form_______
         {
             this.owner = owner;
             InitializeComponent();
-            this.uc_Form1Main.SetMainGui( this.owner);
+            this.uc_Form1Main.SetMainGui(this.owner);
 
             //----------------------------------------
             // 別窓を開きます。
@@ -70,7 +70,7 @@ namespace Grayscale.P699_Form_______
             Version version = Assembly.GetExecutingAssembly().GetName().Version;
             this.Text = String.Format("{0} {1}.{2}.{3}", this.Text, version.Major, version.Minor.ToString("00"), version.Build);
 
-            if(null!=this.Delegate_Form1_Load)
+            if (null != this.Delegate_Form1_Load)
             {
                 this.Delegate_Form1_Load(this.Uc_Form1Main.MainGui, sender, e);
             }

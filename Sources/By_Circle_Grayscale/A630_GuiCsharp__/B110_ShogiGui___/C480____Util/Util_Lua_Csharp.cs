@@ -1,4 +1,5 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
@@ -17,7 +18,6 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C125____Scene;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed;
 using NLua;
-using System;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
 {
@@ -146,7 +146,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
 
             // 先手
             figKoma = (int)Finger_Honshogi.SenteOh;
-            newSky.PutOverwriteOrAdd_Busstop(figKoma, Conv_Busstop.ToBusstop(Playerside.P1, Masu_Honshogi.Query_Basho( Masu_Honshogi.nfukuro01), Komasyurui14.H06_Gyoku__)); //先手王
+            newSky.PutOverwriteOrAdd_Busstop(figKoma, Conv_Busstop.ToBusstop(Playerside.P1, Masu_Honshogi.Query_Basho(Masu_Honshogi.nfukuro01), Komasyurui14.H06_Gyoku__)); //先手王
             figKoma = (int)Finger_Honshogi.GoteOh;
             newSky.PutOverwriteOrAdd_Busstop(figKoma, Conv_Busstop.ToBusstop(Playerside.P2, Masu_Honshogi.Query_Basho(Masu_Honshogi.nfukuro02), Komasyurui14.H06_Gyoku__)); //後手王
 
@@ -241,7 +241,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C480____Util
 
                 string jsaFugoStr;
 
-                Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(mainGui.Link_Server.KifuTree, newSky,logger);
+                Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(mainGui.Link_Server.KifuTree, newSky, logger);
 
 
                 Util_Functions_Server.AfterSetCurNode_Srv(

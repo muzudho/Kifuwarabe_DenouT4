@@ -1,23 +1,21 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using System.Diagnostics;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
-using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct;
+using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C250____OperationA;
-using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
-using System;
-using Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 {
@@ -76,7 +74,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 {
                     logger.DonimoNaranAkirameta(
                         "戻せる駒が無かった☆ hint:" + hint + "\n" +
-                        Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA,logger), positionA, moved)
+                        Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logger), positionA, moved)
                         );
                     goto gt_EndMethod;
                 }
@@ -162,7 +160,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
                 exception_area = 700021;
 
-                gt_EndMethod:
+            gt_EndMethod:
                 if (log)
                 {
 
@@ -172,7 +170,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 
                     exception_area = 700041;
 
-                    ShogibanImpl shogiban = Conv_Sky.ToShogiban(psideA, positionA,logger);
+                    ShogibanImpl shogiban = Conv_Sky.ToShogiban(psideA, positionA, logger);
 
                     exception_area = 700051;
 
@@ -191,7 +189,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             }
             catch (Exception ex)
             {
-                logger.DonimoNaranAkirameta(ex, "駒を戻しているとき☆ hint=" + hint + " exception_area="+ exception_area);
+                logger.DonimoNaranAkirameta(ex, "駒を戻しているとき☆ hint=" + hint + " exception_area=" + exception_area);
                 throw ex;
             }
         }
@@ -225,7 +223,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 Conv_Move.ToDstMasu(moved),//[巻戻し]のときは、先位置が　駒の居場所。
                 errH
                 );
-            Debug.Assert(figMovedKoma != Fingers.Error_1, "駒を動かせなかった？ Dst="+ Conv_Masu.ToLog_FromBanjo(Conv_Move.ToDstMasu(moved)));
+            Debug.Assert(figMovedKoma != Fingers.Error_1, "駒を動かせなかった？ Dst=" + Conv_Masu.ToLog_FromBanjo(Conv_Move.ToDstMasu(moved)));
         }
 
         /// <summary>
@@ -250,7 +248,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 // 打なら
 
                 // 駒台の空いている場所
-                
+
                 masu = Util_IttesasuRoutine.GetKomadaiKomabukuroSpace(Conv_Playerside.ToKomadai(pside), positionA);
                 // 必ず空いている場所があるものとします。
             }

@@ -1,4 +1,6 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using System.Diagnostics;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A060_Application.B210_Tushin_____.C500____Util;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
@@ -8,8 +10,6 @@ using Grayscale.A450_Server_____.B110_Server_____.C___125_Receiver;
 using Grayscale.A450_Server_____.B110_Server_____.C___496_EngineWrapper;
 using Grayscale.A450_Server_____.B110_Server_____.C___497_EngineClient;
 using Grayscale.A450_Server_____.B110_Server_____.C496____EngineWrapper;
-using System;
-using System.Diagnostics;
 
 namespace Grayscale.A450_Server_____.B110_Server_____.C497____EngineClient
 {

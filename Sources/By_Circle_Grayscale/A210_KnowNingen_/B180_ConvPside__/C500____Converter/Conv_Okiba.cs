@@ -1,7 +1,6 @@
 ﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using System.Text;
 
 namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter
 {
@@ -64,7 +63,7 @@ namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter
             switch (okiba)
             {
                 case Okiba.ShogiBan:
-                    firstMasu = Masu_Honshogi.Query_Basho( Masu_Honshogi.nban11_１一);//[0]
+                    firstMasu = Masu_Honshogi.Query_Basho(Masu_Honshogi.nban11_１一);//[0]
                     break;
 
                 case Okiba.Sente_Komadai:

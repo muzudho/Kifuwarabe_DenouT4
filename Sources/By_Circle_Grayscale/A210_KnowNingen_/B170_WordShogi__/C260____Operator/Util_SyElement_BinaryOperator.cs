@@ -15,7 +15,7 @@ namespace Grayscale.A210_KnowNingen_.B170_WordShogi__.C260____Operator
                 return Util_SyElement_BinaryOperator.dlgt_Equals_MasuNumber;
             }
         }
-        private static DLGT_SyElement_BynaryOperate dlgt_Equals_MasuNumber = delegate(SyElement operand1, SyElement operand2)
+        private static DLGT_SyElement_BynaryOperate dlgt_Equals_MasuNumber = delegate (SyElement operand1, SyElement operand2)
         {
             bool result;
 
@@ -27,7 +27,7 @@ namespace Grayscale.A210_KnowNingen_.B170_WordShogi__.C260____Operator
             }
 
             // 片方だけが null なら、等価ではないものとします。
-            if(operand1==null || operand2==null)
+            if (operand1 == null || operand2 == null)
             {
                 result = false;
                 goto gt_EndMethod;

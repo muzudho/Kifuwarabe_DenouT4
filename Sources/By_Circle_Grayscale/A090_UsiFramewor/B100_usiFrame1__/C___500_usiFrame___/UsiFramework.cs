@@ -1,5 +1,4 @@
-﻿using System;
-using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___250_UsiLoop;
+﻿using Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___250_UsiLoop;
 
 namespace Grayscale.A090_UsiFramewor.B100_usiFrame1__.C___500_usiFrame___
 {

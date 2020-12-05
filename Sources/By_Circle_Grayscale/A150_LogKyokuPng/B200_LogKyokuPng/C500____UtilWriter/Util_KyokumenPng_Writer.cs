@@ -1,4 +1,8 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System.Drawing;
+using System.IO;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
 using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C250____Struct;
@@ -6,10 +10,6 @@ using Grayscale.A120_KifuSfen___.B160_ConvSfen___.C500____Converter;
 using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C___500_Struct;
 using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C500____Struct;
 using Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C250____UtilPaint;
-using System.Drawing;
-using System.IO;
-using System.Runtime.InteropServices;
-using System.Windows.Forms;
 
 namespace Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C500____UtilWriter
 {

@@ -1,15 +1,12 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System.Collections.Generic;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B550_JsaFugo____.C250____Struct;
 using Grayscale.A210_KnowNingen_.B550_JsaFugo____.C500____Util;
 using Grayscale.A210_KnowNingen_.B560_JsaFugoWrit.C500____Writer;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
-using System.Collections.Generic;
 
 namespace Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500____Converter
 {

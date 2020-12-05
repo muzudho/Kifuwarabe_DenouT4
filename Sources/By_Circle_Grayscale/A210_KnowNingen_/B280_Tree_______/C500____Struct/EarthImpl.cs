@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+﻿using System.Collections.Generic;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B630_Sennitite__.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B630_Sennitite__.C500____Struct;
-using System;
-using System.Collections.Generic;
 
 #if DEBUG
 using System.Diagnostics;

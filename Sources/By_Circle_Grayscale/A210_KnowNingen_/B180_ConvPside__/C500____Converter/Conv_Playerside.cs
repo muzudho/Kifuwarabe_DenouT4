@@ -8,7 +8,7 @@ namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter
         public static Okiba ToKomadai(Playerside pside)
         {
             Okiba result;
-            switch(pside)
+            switch (pside)
             {
                 case Playerside.P1: result = Okiba.Sente_Komadai; break;
                 case Playerside.P2: result = Okiba.Gote_Komadai; break;
@@ -20,7 +20,7 @@ namespace Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter
         public static Playerside Reverse(Playerside pside)
         {
             Playerside result;
-            switch(pside)
+            switch (pside)
             {
                 case Playerside.P1: result = Playerside.P2; break;
                 case Playerside.P2: result = Playerside.P1; break;

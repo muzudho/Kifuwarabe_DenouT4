@@ -1,4 +1,6 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using System.Collections.Generic;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B410_Collection_.C500____Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C___510_Komanokiki;
@@ -7,19 +9,15 @@ using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct;
+using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct;
-using Grayscale.A210_KnowNingen_.B310_Shogiban___.C500____Util;
 using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B430_Play_______.C500____Query;
 using Grayscale.A210_KnowNingen_.B470_ConvKiki___.C500____Converter;
-using System;
-using System.Collections.Generic;
-using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
 
@@ -76,7 +74,7 @@ namespace Grayscale.A210_KnowNingen_.B440_Utifudume__.C500____Util
             // 相手の玉頭の升。
             SyElement masu_gyokutou = null;
             {
-                SySet<SyElement> sySet = KomanoKidou.DstIppo_上(pside_aite, Conv_Busstop.ToMasu( king_aite));
+                SySet<SyElement> sySet = KomanoKidou.DstIppo_上(pside_aite, Conv_Busstop.ToMasu(king_aite));
                 foreach (SyElement element2 in sySet.Elements)//最初の１件を取る。
                 {
                     masu_gyokutou = element2;

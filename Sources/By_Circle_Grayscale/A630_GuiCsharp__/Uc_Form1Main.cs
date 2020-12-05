@@ -1,12 +1,16 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using System.Text;
+using System.Windows.Forms;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A060_Application.B310_Settei_____.C500____Struct;
 using Grayscale.A060_Application.B310_Settei_____.L510____Xml;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
-using Grayscale.A210_KnowNingen_.B200_ConvMasu___.C500____Conv;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
@@ -23,13 +27,7 @@ using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C081____Canvas;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C125____Scene;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C250____Timed;
-using System;
-using System.Text;
-using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 #if DEBUG
 // using Grayscale.A060_Application.B110_Log________.C___500_Struct;
@@ -148,7 +146,7 @@ namespace Grayscale.P699_Form_______
                 this.MainGui.Link_Server.Earth.Clear();
 
                 // 棋譜を空っぽにします。
-                Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(this.MainGui.Link_Server.KifuTree, positionInit,logger);
+                Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(this.MainGui.Link_Server.KifuTree, positionInit, logger);
 
                 this.MainGui.Link_Server.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
 
@@ -401,7 +399,7 @@ namespace Grayscale.P699_Form_______
             {
                 // 指定のテキストを後ろに足します。
                 form2.AppendInputareaText(mainGui.RepaintRequest.NyuryokuTextTail);
-                mainGui.RepaintRequest.SetNyuryokuTextTail( "");//要求の解除
+                mainGui.RepaintRequest.SetNyuryokuTextTail("");//要求の解除
             }
 
             //------------------------------
@@ -576,7 +574,7 @@ namespace Grayscale.P699_Form_______
                             && dan2 == dan
                         )
                         {
-                            if (Playerside.P2 == Conv_Busstop.ToPlayerside( koma2))
+                            if (Playerside.P2 == Conv_Busstop.ToPlayerside(koma2))
                             {
                                 sb.Append("<td><span class=\"koma2x\">");
                                 sb.Append(Util_Komasyurui14.Fugo[(int)Conv_Busstop.ToKomasyurui(koma2)]);

@@ -1,8 +1,8 @@
-﻿using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C250____Word;
-using Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C250____Word;
+using Grayscale.A210_KnowNingen_.B490_ForcePromot.C250____Struct;
 
 namespace Grayscale.A210_KnowNingen_.B490_ForcePromot.C500____Util
 {
@@ -19,7 +19,7 @@ namespace Grayscale.A210_KnowNingen_.B490_ForcePromot.C500____Util
         /// <param name="currentHaiyaku"></param>
         /// <param name="masuHandle"></param>
         /// <returns>転生しないなら　未設定　を返します。</returns>
-        public static Komahaiyaku185 MasuHandleTo_ForcePromotionHaiyaku(Komahaiyaku185 currentHaiyaku, int masuHandle,string hint)
+        public static Komahaiyaku185 MasuHandleTo_ForcePromotionHaiyaku(Komahaiyaku185 currentHaiyaku, int masuHandle, string hint)
         {
             Komahaiyaku185 result;
 

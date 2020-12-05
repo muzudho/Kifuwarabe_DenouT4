@@ -1,7 +1,7 @@
-﻿using Grayscale.A060_Application.B610_ConstShogi_.C250____Const;
-using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C___500_Struct;
-using System.Drawing;
+﻿using System.Drawing;
+using Grayscale.A060_Application.B610_ConstShogi_.C250____Const;
 using Grayscale.A120_KifuSfen___.B140_SfenStruct_.C___250_Struct;
+using Grayscale.A150_LogKyokuPng.B100_KyokumenPng.C___500_Struct;
 
 namespace Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C250____UtilPaint
 {
@@ -50,7 +50,7 @@ namespace Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C250____UtilPaint
             //----------------------------------------
             // 動かした先の升を黒く塗る
             //----------------------------------------
-            if (0 <= args.DstMasu_orMinusOne && args.DstMasu_orMinusOne<=80)
+            if (0 <= args.DstMasu_orMinusOne && args.DstMasu_orMinusOne <= 80)
             {
                 // 盤上に塗りつぶし矩形
                 g.FillRectangle(Brushes.Black, Util_KyokumenPngPainter.GetBanjoRectangle(args.DstMasu_orMinusOne, bOx, bOy, args));
@@ -90,7 +90,7 @@ namespace Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C250____UtilPaint
                 {
                     for (int dan = 1; dan < 10; dan++)
                     {
-                        string sign = args.Ro_Kyokumen1.Ban[suji,dan];
+                        string sign = args.Ro_Kyokumen1.Ban[suji, dan];
                         if ("" != sign)
                         {
                             Point pt = Util_KyokumenPngPainter.CropXyBySign(sign, args);
@@ -106,7 +106,7 @@ namespace Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C250____UtilPaint
 
             // 後手の持駒 （飛,角,金,銀,桂,香,歩）
             {
-                string[] signs = new string[] { "","","r", "b", "g", "s", "n", "l", "p" };
+                string[] signs = new string[] { "", "", "r", "b", "g", "s", "n", "l", "p" };
                 int ox = 0;
                 int oy = 0;
                 for (int iMoti = (int)Pieces.StartGote; iMoti < (int)Pieces.NumGote; iMoti++)
@@ -155,7 +155,7 @@ namespace Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C250____UtilPaint
 
             // 先手の持駒 （飛,角,金,銀,桂,香,歩）
             {
-                string[] signs = new string[] { "","","R", "B", "G", "S", "N", "L", "P" };
+                string[] signs = new string[] { "", "", "R", "B", "G", "S", "N", "L", "P" };
                 int ox = (args.Env.KmW + 2 * args.Env.SjW) + 9 * args.Env.KmW + BN_BRD_R_W;
                 int oy = (9 * args.Env.KmW + BN_BRD_B_W) - 7 * args.Env.KmH;
                 for (int iMoti = (int)Pieces.StartSente; iMoti < (int)Pieces.NumSente; iMoti++)
@@ -168,7 +168,7 @@ namespace Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C250____UtilPaint
                     if (0 < maisu)
                     {
                         g.DrawImage(Image.FromFile(args.Env.ImgFolder + args.Env.KmFile),
-                            new Rectangle(ox, (iMoti- (int)PieceTypes.Start) * args.Env.KmH + oy, args.Env.KmW, args.Env.KmH),//dst
+                            new Rectangle(ox, (iMoti - (int)PieceTypes.Start) * args.Env.KmH + oy, args.Env.KmW, args.Env.KmH),//dst
                             new Rectangle(pt.X, pt.Y, args.Env.KmW, args.Env.KmH),//src
                             GraphicsUnit.Pixel
                             );//駒
@@ -205,9 +205,9 @@ namespace Grayscale.A150_LogKyokuPng.B200_LogKyokuPng.C250____UtilPaint
             if (99 < args.Ro_Kyokumen1.Temezumi)// 3桁以上のとき
             {
                 x = 0.0f;
-                
+
             }
-            else if (9<args.Ro_Kyokumen1.Temezumi)// 2桁のとき
+            else if (9 < args.Ro_Kyokumen1.Temezumi)// 2桁のとき
             {
                 x = 9.0f;
             }

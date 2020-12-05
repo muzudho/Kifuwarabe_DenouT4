@@ -15,7 +15,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C250____Args
         /// <summary>
         /// 千日手になるかどうかの判定だけを行うクラスです。
         /// </summary>
-        public SennititeConfirmer SennititeConfirmer { get{return this.sennititeConfirmer;} }
+        public SennititeConfirmer SennititeConfirmer { get { return this.sennititeConfirmer; } }
         private SennititeConfirmer sennititeConfirmer;
 
         public FeatureVector FeatureVector { get { return this.featureVector; } }

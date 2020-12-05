@@ -1,4 +1,5 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B110_Log________.C500____Struct;
 using Grayscale.A120_KifuSfen___.B160_ConvSfen___.C500____Converter;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
@@ -6,7 +7,6 @@ using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
-using System;
 
 namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C400____Conv
 {
@@ -104,14 +104,15 @@ namespace Grayscale.A210_KnowNingen_.B740_KifuParserA.C400____Conv
                             string message = "（＾△＾）「" + sfenMove1 + "」！？　次の一手が読めない☆";
                             errH.AppendLine(message);
                             errH.Flush(LogTypes.Error);
-                            
+
                             Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(message);
                             goto gt_EndMethod;
                         }
 
                     }
                 }
-                catch (Exception ex) {
+                catch (Exception ex)
+                {
                     Util_Loggers.ProcessNone_ERROR.DonimoNaranAkirameta(ex, "moves解析中☆");
                     throw ex;
                 }

@@ -1,4 +1,5 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System.Diagnostics;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C250____Struct;
 using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
@@ -14,7 +15,6 @@ using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
 using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using System.Diagnostics;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
@@ -50,8 +50,8 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
             KwLogger errH
             )
         {
-            
-            
+
+
 
             //------------------------------
             // 符号確定
@@ -942,7 +942,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 }
             }
 
-            gt_EndSyurui:
+        gt_EndSyurui:
 
 
             int srcMasuHandle1;
@@ -956,7 +956,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 src_Sky.AssertFinger(foundKoma);
                 Busstop koma = src_Sky.BusstopIndexOf(foundKoma);
 
-                srcMasuHandle1 = Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu( koma));
+                srcMasuHandle1 = Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu(koma));
             }
             else
             {
@@ -997,7 +997,7 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                 src_Sky.AssertFinger(hitKoma);
                 Busstop koma = src_Sky.BusstopIndexOf(hitKoma);
 
-                srcMasuHandle1 = Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu( koma));
+                srcMasuHandle1 = Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu(koma));
             }
 
 

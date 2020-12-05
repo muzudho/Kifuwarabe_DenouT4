@@ -1,6 +1,6 @@
-﻿using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
+using Grayscale.A060_Application.B620_ConvText___.C500____Converter;
 
 
 namespace Grayscale.A780_SgSyugoTest.B110_SgSyugoTest.C500____ShogiSyugoronTest
@@ -74,9 +74,9 @@ namespace Grayscale.A780_SgSyugoTest.B110_SgSyugoTest.C500____ShogiSyugoronTest
             }
 
             int prmIx = 0;
-            foreach(string prm in prmList)
+            foreach (string prm in prmList)
             {
-                switch(prmIx)
+                switch (prmIx)
                 {
                     case 0:
                         {
@@ -177,7 +177,7 @@ namespace Grayscale.A780_SgSyugoTest.B110_SgSyugoTest.C500____ShogiSyugoronTest
             bool first = true;
             suji++;
             dan--;
-            while (suji <= 9 && 0<dan)//本将棋盤という前提がある
+            while (suji <= 9 && 0 < dan)//本将棋盤という前提がある
             {
                 if (first)
                 {

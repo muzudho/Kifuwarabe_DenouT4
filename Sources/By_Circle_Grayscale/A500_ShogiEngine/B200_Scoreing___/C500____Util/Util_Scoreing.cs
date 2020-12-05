@@ -1,4 +1,5 @@
-﻿using Grayscale.A000_Platform___.B021_Random_____.C500____Struct;
+﻿using System;
+using Grayscale.A000_Platform___.B021_Random_____.C500____Struct;
 using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
@@ -9,7 +10,6 @@ using Grayscale.A210_KnowNingen_.B320_ConvWords__.C500____Converter;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C___500_Hyokakansu;
 using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C510____HyokakansuColl;
 using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
-using System;
 // using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 
 #if DEBUG || LEARN
@@ -33,7 +33,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
             Playerside pside// このノードが、どちらの手番か。
             )
         {
-            
+
 
             float alphabeta_worstScore;// プレイヤー1ならmax値、プレイヤー2ならmin値。
             switch (pside)
@@ -183,12 +183,12 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
                     if (result_moveEx_best.Score < mov4.Score)
                     {
                         result_moveEx_best.SetScore(mov4.Score);
-                        result_moveEx_best.SetMove( mov4.Move);
+                        result_moveEx_best.SetMove(mov4.Move);
                     }
                     //----------------------------------------
                     // アルファー・カット
                     //----------------------------------------
-                    if (1<yomiDeep && parentsiblingBestScore < result_moveEx_best.Score)
+                    if (1 < yomiDeep && parentsiblingBestScore < result_moveEx_best.Score)
                     {
                         // 親の兄が既に見つけている数字より　大きな数字を見つけた場合
                         alpha_cut = true;//探索を打ち切り
@@ -199,7 +199,7 @@ namespace Grayscale.A500_ShogiEngine.B200_Scoreing___.C500____Util
                     if (mov4.Score < result_moveEx_best.Score)
                     {
                         result_moveEx_best.SetScore(mov4.Score);
-                        result_moveEx_best.SetMove( mov4.Move);
+                        result_moveEx_best.SetMove(mov4.Move);
                     }
                     //----------------------------------------
                     // アルファー・カット

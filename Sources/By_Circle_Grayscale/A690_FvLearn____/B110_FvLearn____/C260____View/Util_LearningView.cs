@@ -1,4 +1,8 @@
-﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Windows.Forms;
+using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A180_KifuCsa____.B120_KifuCsa____.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
@@ -14,18 +18,13 @@ using Grayscale.A210_KnowNingen_.B420_UtilSky258_.C500____UtilSky;
 using Grayscale.A210_KnowNingen_.B570_ConvJsa____.C500____Converter;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C___250_OperationA;
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB;
 using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA;
+using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB;
 using Grayscale.A210_KnowNingen_.B800_ConvCsa____.C500____Converter;
 using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Forms;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.A210_KnowNingen_.B690_Ittesasu___.C510____OperationB;
 
 #if DEBUG || LEARN
 using Grayscale.A210_KnowNingen_.B620_KyokumHyoka.C___250_Struct;
@@ -117,12 +116,12 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                     );
 
                     nextMove = Conv_Move.ToMove(
-                        Conv_Busstop.ToMasu( srcKoma),// 移動元
+                        Conv_Busstop.ToMasu(srcKoma),// 移動元
                         Conv_Busstop.ToMasu(busstop),// 移動先
-                        Conv_Busstop.ToKomasyurui( srcKoma),
+                        Conv_Busstop.ToKomasyurui(srcKoma),
                         Conv_Busstop.ToKomasyurui(busstop),//これで成りかどうか判定
                         foodKomasyurui,////取った駒
-                        Conv_Busstop.ToPlayerside( srcKoma),
+                        Conv_Busstop.ToPlayerside(srcKoma),
                         false
                     );
                 }
@@ -163,8 +162,8 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 else
                 {
                 */
-                    // FIXME: 未テスト。
-                    move = Conv_Move.ToMove_ByCsa(csaSasite, kifu1.PositionA);
+                // FIXME: 未テスト。
+                move = Conv_Move.ToMove_ByCsa(csaSasite, kifu1.PositionA);
                 //}
                 HonpuSasiteListItemImpl listItem = new HonpuSasiteListItemImpl(csaSasite, move);
                 uc_Main.LstSasite.Items.Add(listItem);
@@ -282,7 +281,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
                 });
 
 
-                
+
                 uc_Main.LstGohosyu.Items.Clear();
                 uc_Main.LstGohosyu.Items.AddRange(list.ToArray());
                 //foreach (GohosyuListItem item in list)
@@ -400,7 +399,7 @@ namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View
             // 合法手表示の更新を要求します。 
             isRequestShowGohosyu = true;
             // 局面PNG画像を更新を要求。
-            isRequestChangeKyokumenPng = true;            
+            isRequestChangeKyokumenPng = true;
 
             //
             // リストの頭１個を除外します。

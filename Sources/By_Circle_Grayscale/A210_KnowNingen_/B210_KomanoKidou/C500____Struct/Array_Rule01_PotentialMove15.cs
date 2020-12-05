@@ -65,7 +65,7 @@ namespace Grayscale.A210_KnowNingen_.B210_KomanoKidou.C500____Struct
                 //----------------------------------------
                 dst.AddSupersets(KomanoKidou.DstIppo_上(pside, masu_ji));
             }
-            else if( (Okiba.Sente_Komadai|Okiba.Gote_Komadai).HasFlag(
+            else if ((Okiba.Sente_Komadai | Okiba.Gote_Komadai).HasFlag(
                 Conv_Masu.ToOkiba(masu_ji)))
             {
                 //----------------------------------------

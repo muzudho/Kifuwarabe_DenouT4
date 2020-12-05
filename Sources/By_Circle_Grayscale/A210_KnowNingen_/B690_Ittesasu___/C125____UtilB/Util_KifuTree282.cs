@@ -1,12 +1,10 @@
 ﻿using Grayscale.A060_Application.B110_Log________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
 using Grayscale.A210_KnowNingen_.B280_Tree_______.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 using Grayscale.A210_KnowNingen_.B640_KifuTree___.C250____Struct;
 using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
-using System.Collections.Generic;
-using Grayscale.A210_KnowNingen_.B280_Tree_______.C500____Struct;
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C125____UtilB
 {

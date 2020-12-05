@@ -1,10 +1,8 @@
-﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+﻿using System.IO;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C___500_Struct;
 using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500____Struct;
 using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat;
-using System.IO;
-using System.Text;
-using System.Windows.Forms;
 
 namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
 {
@@ -32,7 +30,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
 
         public static void Write_KK(FeatureVector fv, string directory)
         {
-            string filepathW = Path.Combine( directory, "fv_01_KK.csv");
+            string filepathW = Path.Combine(directory, "fv_01_KK.csv");
             File.WriteAllText(filepathW, Format_FeatureVector_KK.Format_KK(fv));
 
             //StringBuilder sb = new StringBuilder();
@@ -44,8 +42,8 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
         {
             //StringBuilder sb = new StringBuilder();
 
-            string filepathW1 = Path.Combine( directory, "fv_02_1pKP.csv");
-            string filepathW2 = Path.Combine( directory, "fv_03_2pKP.csv");
+            string filepathW1 = Path.Combine(directory, "fv_02_1pKP.csv");
+            string filepathW2 = Path.Combine(directory, "fv_03_2pKP.csv");
             //----------------------------------------
             // 1P玉
             //----------------------------------------
@@ -163,7 +161,7 @@ namespace Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo
         /// </summary>
         /// <param name="fv"></param>
         /// <param name="directory"></param>
-        public static void Write_PP_3Mai(FeatureVector fv,string directory)
+        public static void Write_PP_3Mai(FeatureVector fv, string directory)
         {
             //StringBuilder sb = new StringBuilder();
 

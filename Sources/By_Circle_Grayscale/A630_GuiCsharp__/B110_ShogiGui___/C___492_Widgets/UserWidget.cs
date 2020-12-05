@@ -1,6 +1,6 @@
-﻿using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
+﻿using System.Drawing;
+using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___491_Event;
-using System.Drawing;
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___492_Widgets
 {
@@ -73,7 +73,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___492_Widgets
         /// <param name="y"></param>
         bool HitByMouse(int x, int y);
 
-        
+
         /// <summary>
         /// ************************************************************************************************************************
         /// マウスが重なった駒は、光フラグを立てます。
@@ -90,7 +90,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___492_Widgets
         /// </summary>
         bool Light { get; set; }
 
-        
+
         /// <summary>
         /// ************************************************************************************************************************
         /// 動かしたい駒の解除

@@ -1,8 +1,8 @@
-﻿using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
+﻿using System.Drawing;
+using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C250____Masu;
 using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___080_Shape;
-using System.Drawing;
 
 
 namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
@@ -143,7 +143,8 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
             //----------
             // 升番号
             //----------
-            if(false){
+            if (false)
+            {
                 string text = Conv_Masu.ToMasuHandle(this.Zahyo).ToString();
 
                 float fontHeight = 13.0f;
@@ -185,7 +186,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
         /// <param name="y"></param>
         public void LightByMouse(int x, int y)
         {
-            if (this.HitByMouse(x,y)) // マウスが重なっているなら
+            if (this.HitByMouse(x, y)) // マウスが重なっているなら
             {
                 this.Light = true;
             }
@@ -209,7 +210,7 @@ namespace Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape
         {
             bool changed = false;
 
-            if ( this.HitByMouse(x, y)) // マウスが重なっているなら
+            if (this.HitByMouse(x, y)) // マウスが重なっているなら
             {
                 if (this.SelectFirstTouch)
                 {

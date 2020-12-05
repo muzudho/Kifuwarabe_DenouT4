@@ -2,18 +2,14 @@
 using Grayscale.A060_Application.B520_Syugoron___.C___250_Struct;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C___250_Masu;
 using Grayscale.A210_KnowNingen_.B170_WordShogi__.C500____Word;
-using Grayscale.A210_KnowNingen_.B180_ConvPside__.C500____Converter;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C250____Word;
 using Grayscale.A210_KnowNingen_.B190_Komasyurui_.C500____Util;
-using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
-using Grayscale.A210_KnowNingen_.B290_Komahaiyaku.C500____Util;
-using Grayscale.A210_KnowNingen_.B310_Shogiban___.C250____Struct;
-using Grayscale.A210_KnowNingen_.B310_Shogiban___.C500____Util;
-using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
-using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Grayscale.A210_KnowNingen_.B240_Move_______.C___500_Struct;
-using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
 using Grayscale.A210_KnowNingen_.B270_Sky________.C___500_Struct;
+using Grayscale.A210_KnowNingen_.B270_Sky________.C500____Struct;
+using Grayscale.A210_KnowNingen_.B410_SeizaFinger.C250____Struct;
+using Grayscale.A210_KnowNingen_.B670_ConvKyokume.C500____Converter;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
 {
@@ -50,10 +46,10 @@ namespace Grayscale.A210_KnowNingen_.B690_Ittesasu___.C500____UtilA
                     src_Sky.AssertFinger(koma1);
                     Busstop koma2 = src_Sky.BusstopIndexOf(koma1);
 
-                    if (pside == Conv_Busstop.ToPlayerside( koma2)
+                    if (pside == Conv_Busstop.ToPlayerside(koma2)
                         && Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma2)
                         && Util_Komasyurui14.Matches(syurui, Conv_Busstop.ToKomasyurui(koma2))
-                        && masu1 == Conv_Busstop.ToMasu( koma2)
+                        && masu1 == Conv_Busstop.ToMasu(koma2)
                         )
                     {
                         // 候補マスにいた
