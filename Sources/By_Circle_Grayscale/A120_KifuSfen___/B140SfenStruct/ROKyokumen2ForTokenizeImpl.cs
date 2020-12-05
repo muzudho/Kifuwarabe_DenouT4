@@ -166,6 +166,10 @@ namespace Grayscale.A120KifuSfen.B140SfenStruct.C250Struct
             this.temezumi = temezumi;
         }
 
+        void ArrayCopy(int[] srcNumOfHand)
+        {
+            Array.Copy(srcNumOfHand, this.m_motiSu_, srcNumOfHand.Length);
+        }
 
         public RO_Kyokumen1_ForFormat ToKyokumen1()
         {
@@ -179,7 +183,7 @@ namespace Grayscale.A120KifuSfen.B140SfenStruct.C250Struct
                 }
             }
 
-            Array.Copy(this.MotiSu, ro_Kyokumen1.MotiSu, this.MotiSu.Length);
+            this.ArrayCopy(this.MotiSu); // Array.Copy(this.MotiSu, ro_Kyokumen1.MotiSu, this.MotiSu.Length);
 
             return ro_Kyokumen1;
         }
