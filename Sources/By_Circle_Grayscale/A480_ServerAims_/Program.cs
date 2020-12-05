@@ -5,7 +5,7 @@ using Grayscale.A060Application.B310Settei.C500Struct;
 using Grayscale.A060Application.B310Settei.L510Xml;
 using Grayscale.A210KnowNingen.B270Sky.C500Struct;
 using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
-using Grayscale.A480_ServerAims_.B110_AimsServer_.C500____Server;
+using Grayscale.A480ServerAims.B110AimsServer.C500Server;
 
 namespace Grayscale.P489_Form_______
 {

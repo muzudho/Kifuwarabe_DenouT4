@@ -8,9 +8,9 @@ using Grayscale.A210KnowNingen.B280Tree.C500Struct;
 using Grayscale.A210KnowNingen.B280Tree.C500Struct;
 using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
 using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
-using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___240_Shogisasi;
-using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi;
-using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe;
+using Grayscale.A500ShogiEngine.B200Scoreing.C240Shogisasi;
+using Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi;
+using Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe;
 
 namespace P930_SampleGame
 {

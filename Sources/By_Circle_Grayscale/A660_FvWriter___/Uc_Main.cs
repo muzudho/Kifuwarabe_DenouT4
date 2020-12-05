@@ -8,11 +8,11 @@ using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B310Settei.C500Struct;
 using Grayscale.A180KifuCsa.B120KifuCsa.C250Struct;
 using Grayscale.A180KifuCsa.B120KifuCsa.C250Struct;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
-using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C480____UtilFvEdit;
-using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C490____UtilFvFormat;
-using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C491____UtilFvIo;
+using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
+using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
+using Grayscale.A500ShogiEngine.B523UtilFv.C480UtilFvEdit;
+using Grayscale.A500ShogiEngine.B523UtilFv.C490UtilFvFormat;
+using Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo;
 
 namespace Grayscale.P720_FvWriter___
 {

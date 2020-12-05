@@ -8,8 +8,8 @@ using Grayscale.A210KnowNingen.B240Move.C500Struct;
 using Grayscale.A210KnowNingen.B270Sky.C500Struct;
 using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
 using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
-using Grayscale.A500_ShogiEngine.B160_ConvFv_____.C500Converter;
+using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
+using Grayscale.A500ShogiEngine.B160ConvFv.C500Converter;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C___400_54List;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 

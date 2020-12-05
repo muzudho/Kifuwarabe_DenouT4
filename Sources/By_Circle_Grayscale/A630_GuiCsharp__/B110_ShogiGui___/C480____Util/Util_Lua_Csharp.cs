@@ -12,7 +12,7 @@ using Grayscale.A210KnowNingen.B280Tree.C500Struct;
 using Grayscale.A210KnowNingen.B410SeizaFinger.C250Struct;
 using Grayscale.A210KnowNingen.B640_KifuTree___.C250Struct;
 using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
-using Grayscale.A450_Server_____.B110_Server_____.C250____Util;
+using Grayscale.A450Server.B110Server.C250Util;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___499_Repaint;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C125____Scene;

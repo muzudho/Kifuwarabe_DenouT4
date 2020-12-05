@@ -24,16 +24,16 @@ using Grayscale.A210KnowNingen.B380Michi.C500Word;
 using Grayscale.A210KnowNingen.B390KomahaiyaEx.C500Util;
 using Grayscale.A210KnowNingen.B490ForcePromot.C250Struct;
 using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
-using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu;
-using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___240_Shogisasi;
-using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
-using Grayscale.A500_ShogiEngine.B200_Scoreing___.C250____Args;
-using Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500Struct;
-using Grayscale.A500_ShogiEngine.B240_TansaFukasa.C500Struct;
-using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi;
-using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe;
+using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
+using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
+using Grayscale.A500ShogiEngine.B180Hyokakansu.C500Hyokakansu;
+using Grayscale.A500ShogiEngine.B200Scoreing.C240Shogisasi;
+using Grayscale.A500ShogiEngine.B200Scoreing.C250Args;
+using Grayscale.A500ShogiEngine.B200Scoreing.C250Args;
+using Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct;
+using Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct;
+using Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi;
+using Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 

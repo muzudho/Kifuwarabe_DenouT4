@@ -99,9 +99,9 @@
       <Project>{2cfb37ae-2d9e-4478-abd8-1eaaaf98f223}</Project>
       <Name>A210KnowNingen</Name>
     </ProjectReference>
-    <ProjectReference Include="..\A450_Server_____\A450_Server_____.csproj">
+    <ProjectReference Include="..\A450_Server_____\A450Server.csproj">
       <Project>{70aef273-46c9-4e60-ac97-8aeada3ed5f7}</Project>
-      <Name>A450_Server_____</Name>
+      <Name>A450Server</Name>
     </ProjectReference>
     <ProjectReference Include="..\A630_GuiCsharp__\A630_GuiCsharp__.csproj">
       <Project>{9593acc7-348b-4868-892c-7bafbf925b9d}</Project>

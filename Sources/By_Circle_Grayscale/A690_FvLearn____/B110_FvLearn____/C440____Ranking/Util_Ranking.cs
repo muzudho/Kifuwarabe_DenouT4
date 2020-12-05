@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
+using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
+using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 
 namespace Grayscale.A690_FvLearn____.B110_FvLearn____.C440____Ranking
 {

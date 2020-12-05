@@ -1,5 +1,5 @@
 ﻿using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A450_Server_____.B110_Server_____.C250____Util;
+using Grayscale.A450Server.B110Server.C250Util;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___500_Gui;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C080____Shape;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C249____Function;

@@ -8,20 +8,20 @@ using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B240Move.C500Struct;
 using Grayscale.A210KnowNingen.B270Sky.C500Struct;
 using Grayscale.A210KnowNingen.B280Tree.C500Struct;
-using Grayscale.A240_KifuTreeLog.B110_KifuTreeLog.C500Struct;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
-using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
-using Grayscale.A500_ShogiEngine.B200_Scoreing___.C250____Args;
-using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C100____Shogisasi;
-using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe;
-using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad;
+using Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct;
+using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
+using Grayscale.A500ShogiEngine.B200Scoreing.C250Args;
+using Grayscale.A500ShogiEngine.B200Scoreing.C250Args;
+using Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi;
+using Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe;
+using Grayscale.A500ShogiEngine.B523UtilFv.C510UtilFvLoad;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C260____View;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C420____Inspection;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C470____StartZero;
 
 #if DEBUG || LEARN
-using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C480____UtilFvEdit;
+using Grayscale.A500ShogiEngine.B523UtilFv.C480UtilFvEdit;
 using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 #endif
 

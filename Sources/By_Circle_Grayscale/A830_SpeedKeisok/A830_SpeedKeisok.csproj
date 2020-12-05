@@ -114,9 +114,9 @@
       <Project>{2cfb37ae-2d9e-4478-abd8-1eaaaf98f223}</Project>
       <Name>A210KnowNingen</Name>
     </ProjectReference>
-    <ProjectReference Include="..\A500_ShogiEngine\A500_ShogiEngine.csproj">
+    <ProjectReference Include="..\A500_ShogiEngine\A500ShogiEngine.csproj">
       <Project>{e96a7341-b8e6-4979-8b2a-94ff2818962c}</Project>
-      <Name>A500_ShogiEngine</Name>
+      <Name>A500ShogiEngine</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

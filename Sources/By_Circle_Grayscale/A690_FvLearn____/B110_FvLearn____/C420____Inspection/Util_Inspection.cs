@@ -1,6 +1,6 @@
 ﻿using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
+using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
+using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 
 #if DEBUG
 // using Grayscale.A060Application.B110Log.C500Struct;

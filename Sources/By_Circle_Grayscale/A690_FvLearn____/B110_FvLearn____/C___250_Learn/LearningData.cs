@@ -4,8 +4,8 @@ using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B240Move.C500Struct;
 using Grayscale.A210KnowNingen.B270Sky.C500Struct;
 using Grayscale.A210KnowNingen.B280Tree.C500Struct;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
-using Grayscale.A500_ShogiEngine.B200_Scoreing___.C___250_Args;
+using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
+using Grayscale.A500ShogiEngine.B200Scoreing.C250Args;
 
 #if DEBUG || LEARN
 using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;

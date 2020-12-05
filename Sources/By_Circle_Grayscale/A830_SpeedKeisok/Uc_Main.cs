@@ -8,11 +8,11 @@ using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A210KnowNingen.B270Sky.C500Struct;
 using Grayscale.A210KnowNingen.B280Tree.C500Struct;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
-using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C___500_Hyokakansu;
-using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu;
-using Grayscale.A500_ShogiEngine.B523_UtilFv_____.C510____UtilFvLoad;
+using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
+using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
+using Grayscale.A500ShogiEngine.B180Hyokakansu.C500Hyokakansu;
+using Grayscale.A500ShogiEngine.B180Hyokakansu.C500Hyokakansu;
+using Grayscale.A500ShogiEngine.B523UtilFv.C510UtilFvLoad;
 
 #if DEBUG || LEARN
 using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
@@ -62,7 +62,7 @@ namespace Grayscale.P910_SpeedKeisok
             InitializeComponent();
         }
 
-        private KeisokuResult Keisoku(Hyokakansu handan1, ISky positionA)
+        private KeisokuResult Keisoku(IHyokakansu handan1, ISky positionA)
         {
             Stopwatch watch = new Stopwatch();
             watch.Start();

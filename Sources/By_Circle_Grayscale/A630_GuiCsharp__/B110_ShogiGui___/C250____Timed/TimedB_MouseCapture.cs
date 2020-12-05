@@ -16,7 +16,7 @@ using Grayscale.A210KnowNingen.B280Tree.C500Struct;
 using Grayscale.A210KnowNingen.B320ConvWords.C500Converter;
 using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
 using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
-using Grayscale.A450_Server_____.B110_Server_____.C250____Util;
+using Grayscale.A450Server.B110Server.C250Util;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___080_Shape;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___125_Scene;
 using Grayscale.A630_GuiCsharp__.B110_ShogiGui___.C___492_Widgets;

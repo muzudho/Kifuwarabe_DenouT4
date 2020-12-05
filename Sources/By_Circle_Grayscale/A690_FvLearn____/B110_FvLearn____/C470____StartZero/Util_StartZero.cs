@@ -1,8 +1,8 @@
 ﻿using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A210KnowNingen.B270Sky.C500Struct;
 using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
-using Grayscale.A500_ShogiEngine.B130_FeatureVect.C500Struct;
-using Grayscale.A500_ShogiEngine.B180_Hyokakansu_.C500____Hyokakansu;
+using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
+using Grayscale.A500ShogiEngine.B180Hyokakansu.C500Hyokakansu;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C___400_54List;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C400____54List;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C430____Zooming;

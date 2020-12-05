@@ -2,7 +2,7 @@
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C500UsiFrame;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___;
-using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe;
+using Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe;
 
 namespace Grayscale.P580_Form_______
 {

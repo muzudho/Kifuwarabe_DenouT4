@@ -21,7 +21,7 @@ using Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA;
 using Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA;
 using Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB;
 using Grayscale.A210KnowNingen.B800ConvCsa.C500Converter;
-using Grayscale.A500_ShogiEngine.B280_KifuWarabe_.C500____KifuWarabe;
+using Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C___250_Learn;
 using Grayscale.A690_FvLearn____.B110_FvLearn____.C250____Learn;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
