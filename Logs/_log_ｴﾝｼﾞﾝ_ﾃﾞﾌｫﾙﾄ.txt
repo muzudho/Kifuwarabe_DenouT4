@@ -1,0 +1,1 @@
+Error:エラー：Program「大外枠でキャッチ」：DirectoryNotFoundException パス 'C:\Users\むずでょ\Documents\GitHub\kifuwarabe-collection\Kifuwarabe_DenouT4\Engine01_Logs' の一部が見つかりませんでした。

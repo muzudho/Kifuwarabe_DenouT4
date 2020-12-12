@@ -100,7 +100,7 @@ namespace Grayscale.A060Application.B110Log.C500Struct
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
 
-            ErrorControllerReference.ProcessNoneDefault = new LoggerImpl(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("DataDirectory"),$"default_({System.Diagnostics.Process.GetCurrentProcess()})"), ".txt", false, false, false, null);
+            ErrorControllerReference.ProcessNoneDefault = new LoggerImpl(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("DataDirectory"), $"default_({System.Diagnostics.Process.GetCurrentProcess()})"), ".txt", false, false, false, null);
             ErrorControllerReference.ProcessNoneError = new LoggerImpl(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("N01ProcessNoneErrorLog")), ".txt", true, false, false, null);
             ErrorControllerReference.PeocessNoneSennitite = new LoggerImpl(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("N02PeocessNoneSennititeLog")), ".txt", true, false, false, null);
             ErrorControllerReference.ProcessServerDefault = new LoggerImpl(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("N03ProcessServerDefaultLog")), ".txt", true, false, false, null);
@@ -131,15 +131,19 @@ namespace Grayscale.A060Application.B110Log.C500Struct
         /// </summary>
         public static void RemoveAllLogFiles()
         {
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+            var logsDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("LogsDirectory"));
+
             try
             {
-                string[] paths = Directory.GetFiles(Path.Combine(Application.StartupPath, "../../Engine01_Logs/"));
+                string[] paths = Directory.GetFiles(logsDirectory);
                 foreach (string path in paths)
                 {
                     string name = Path.GetFileName(path);
                     if (name.StartsWith("_log_"))
                     {
-                        string fullpath = Path.Combine(Application.StartupPath, "../../Engine01_Logs/", name);
+                        string fullpath = Path.Combine(logsDirectory, name);
                         //MessageBox.Show("fullpath=[" + fullpath + "]", "ログ・ファイルの削除");
                         System.IO.File.Delete(fullpath);
                     }

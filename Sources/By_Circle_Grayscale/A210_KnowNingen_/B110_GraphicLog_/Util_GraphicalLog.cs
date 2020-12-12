@@ -37,6 +37,7 @@ namespace Grayscale.A210KnowNingen.B110GraphicLog.C500Util
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
             var dataDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("DataDirectory"));
+            var logsDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("LogsDirectory"));
 
             StringBuilder sb = new StringBuilder();
 
@@ -83,7 +84,7 @@ namespace Grayscale.A210KnowNingen.B110GraphicLog.C500Util
             sb.AppendLine("</body>");
             sb.AppendLine("</html>");
 
-            File.WriteAllText("../../Engine01_Logs/_log" + Util_GraphicalLog.LogFileCounter + "_" + fileNameMemo + ".html", sb.ToString());
+            File.WriteAllText(Path.Combine(logsDirectory, $"_log{Util_GraphicalLog.LogFileCounter}_{fileNameMemo}.html"), sb.ToString());
             Util_GraphicalLog.LogFileCounter++;
 
         gt_EndMethod:
