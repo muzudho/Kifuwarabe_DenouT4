@@ -9,6 +9,7 @@ using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
 using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
 using Grayscale.A210KnowNingen.B290_Komahaiyaku.C250Word;
+using Nett;
 
 #if DEBUG
 using Grayscale.A060Application.B310Settei.C500Struct;
@@ -261,6 +262,9 @@ namespace Grayscale.A210KnowNingen.B300_KomahaiyaTr.C500Table
         /// <returns></returns>
         public static string Format_LogHtml()
         {
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine("<html>");
@@ -280,6 +284,8 @@ namespace Grayscale.A210KnowNingen.B300_KomahaiyaTr.C500Table
             sb.AppendLine("    </style>");
             sb.AppendLine("</head>");
             sb.AppendLine("<body>");
+
+            var dataDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("DataDirectory"));
 
             foreach (KeyValuePair<Komasyurui14, Komahaiyaku185[]> entry1 in Data_KomahaiyakuTransition.Map)
             {
@@ -306,8 +312,10 @@ namespace Grayscale.A210KnowNingen.B300_KomahaiyaTr.C500Table
                         Komahaiyaku185 kh184 = entry1.Value[Conv_Masu.ToMasuHandle(masu)];
                         int haiyakuHandle = (int)kh184;
 
-
-                        sb.Append("<img src=\"../../Engine01_Config/img/train");
+                        // ここでは、末尾のスラッシュは削除してほしい☆（＾～＾）
+                        var path1 = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("ImgDirectory"));
+                        path1 = path1.EndsWith("/") ? path1.Substring(0, path1.Length - 1) : path1;
+                        sb.Append($"<img src=\"{path1}/train");
 
 
                         if (haiyakuHandle < 10)

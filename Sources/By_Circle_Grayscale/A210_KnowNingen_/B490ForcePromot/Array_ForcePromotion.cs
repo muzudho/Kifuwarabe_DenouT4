@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using Grayscale.A000Platform.B011Csv.C500Parser;
 using Grayscale.A060Application.B110Log.C500Struct;
@@ -7,6 +8,7 @@ using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
 using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
 using Grayscale.A210KnowNingen.B290_Komahaiyaku.C250Word;
+using Nett;
 
 namespace Grayscale.A210KnowNingen.B490ForcePromot.C250Struct
 {
@@ -156,6 +158,12 @@ namespace Grayscale.A210KnowNingen.B490ForcePromot.C250Struct
         /// <returns></returns>
         public static string LogHtml()
         {
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+
+            var imgDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("ImgDirectory"));
+            imgDirectory = imgDirectory.EndsWith("/") ? imgDirectory.Substring(0, imgDirectory.Length - 1) : imgDirectory;
+
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine("<html>");
@@ -206,7 +214,7 @@ namespace Grayscale.A210KnowNingen.B490ForcePromot.C250Struct
                             int haiyakuHandle = (int)kh184;
 
 
-                            sb.Append("<img src=\"../Engine01_Config/img/train");
+                            sb.Append($"<img src=\"{imgDirectory}/train");
 
 
                             if (haiyakuHandle < 10)

@@ -1,6 +1,8 @@
 ﻿using System;
 using Grayscale.A000Platform.B021Random.C500Struct;
 using NLua;
+using Nett;
+using System.IO;
 
 namespace Grayscale.A500ShogiEngine.B180Hyokakansu.C060UtilLua
 {
@@ -21,6 +23,9 @@ namespace Grayscale.A500ShogiEngine.B180Hyokakansu.C060UtilLua
         public static void Perform(string luaFuncName)
         {
             //System.Windows.Forms.MessageBox.Show("[" + luaFuncName + "]呼び出し");
+
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
 
             using (Util_Lua_KifuWarabe.lua = new Lua())
             // 要設定 プラットフォームターゲット x64。32bit/64bit混在できない。
@@ -48,7 +53,7 @@ namespace Grayscale.A500ShogiEngine.B180Hyokakansu.C060UtilLua
 
                     //----------------------------------------------------------------------------------------------------
 
-                    string file = "../../Engine01_Config/lua/KifuWarabe/data_score.lua";
+                    string file = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("DataScoreLua"));
                     //System.Windows.Forms.MessageBox.Show("[" + file + "]ファイル読込み");
 
                     Util_Lua_KifuWarabe.lua.DoFile(file);// KifuNarabeVS の、bin/Release等に入れ忘れていないこと。

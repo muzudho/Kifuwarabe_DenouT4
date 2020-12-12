@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
@@ -25,6 +26,7 @@ using Grayscale.A630GuiCsharp.B110ShogiGui.C499Repaint;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C510Form;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Nett;
 
 #if DEBUG
 // using Grayscale.A060Application.B110Log.C500Struct;
@@ -102,11 +104,14 @@ namespace Grayscale.P699Form
 
             UcForm2Main uc_Form2Main = ((Form1Shogi)this.ParentForm).Form2_Console.Uc_Form2Main;
 
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+
             //
             // 設定XMLファイル
             //
             {
-                this.setteiXmlFile = new SetteiXmlFile("../../Engine01_Config/data_settei.xml");
+                this.setteiXmlFile = new SetteiXmlFile(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("DataSetteiXml")));
                 if (!this.SetteiXmlFile.Exists())
                 {
                     // ファイルが存在しませんでした。

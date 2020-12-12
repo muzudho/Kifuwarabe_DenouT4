@@ -3,6 +3,7 @@
 using Grayscale.A060Application.B310Settei.C500Struct;
 using System.IO;
 using System.Text;
+using Nett;
 #endif
 
 
@@ -33,6 +34,10 @@ namespace Grayscale.A210KnowNingen.B110GraphicLog.C500Util
                 goto gt_EndMethod;
             }
 
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+            var dataDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("DataDirectory"));
+
             StringBuilder sb = new StringBuilder();
 
 
@@ -42,7 +47,7 @@ namespace Grayscale.A210KnowNingen.B110GraphicLog.C500Util
             sb.AppendLine("    <meta charset=\"UTF-8\">");
             sb.AppendLine("    <title>グラフィカル局面ログ</title>");
             sb.AppendLine("    ");
-            sb.AppendLine("    <script type=\"text/javascript\" src=\"../Engine01_Config/graphicalKyokumenLog.js\">");
+            sb.AppendLine($"    <script type=\"text/javascript\" src=\"{Path.Combine(dataDirectory, "graphicalKyokumenLog.js")}\">");
             sb.AppendLine("    </script>");
             sb.AppendLine("");
             sb.AppendLine("    <script type=\"text/javascript\">");

@@ -15,6 +15,8 @@ using Grayscale.A630GuiCsharp.B110ShogiGui.C250Timed;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C499Repaint;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui;
 using NLua;
+using Nett;
+using System.IO;
 
 namespace Grayscale.A630GuiCsharp.B110ShogiGui.C480Util
 {
@@ -31,6 +33,8 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C480Util
         /// <param name="luaFuncName">実行したいLua関数の名前。</param>
         public static void Perform(string luaFuncName)
         {
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
 
             using (Util_Lua_Csharp.lua = new Lua())
             {
@@ -81,7 +85,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C480Util
 
                 //----------------------------------------------------------------------------------------------------
 
-                Util_Lua_Csharp.lua.DoFile("../../Engine01_Config/lua/KifuNarabe/data_gui.lua");//固定
+                Util_Lua_Csharp.lua.DoFile(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("NarabeDataGuiLua")));//固定
                 Util_Lua_Csharp.lua.GetFunction(luaFuncName).Call();
 
                 // FIXME:Close()でエラーが起こってしまう。

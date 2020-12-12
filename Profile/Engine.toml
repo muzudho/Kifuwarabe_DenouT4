@@ -8,11 +8,16 @@ Author = "Satoshi TAKAHASHI"
 
 [Resources]
 
+# `Engine01_Config` は `Data` に名称変更。
+
 DataDirectory = "../../Engine01_Config/"
 ImgGkLogDirectory = "../../Engine01_Config/img/gkLog/"
 KifuTreeLogDirectory = "../../Engine01_Logs/_log_KifuTreeLog/"
 ImgMobilityDirectory = "../../Engine01_Config/img/mobility/"
 ImgKomaDirectory = "../../Engine01_Config/img/koma/"
+# HTMLに埋め込むパスは、末尾の / の有無の調整がむずかしい☆（＾～＾）　プログラム側で一手間かけること☆（＾～＾）
+# path = path.EndsWith("/") ? path.Substring(0, path.Length - 1) : path;
+ImgDirectory = "../../Engine01_Config/img"
 
 Michi187 = "./Data/data_michi187.csv"
 Haiyaku185 = "../../Engine01_Config/data_haiyaku185_UTF-8.csv"
@@ -27,6 +32,10 @@ Vs03Widgets = "../../Engine01_Config/data_widgets_03_vs.csv"
 
 DataSetteiCsv = "../../Engine01_Config/data_settei.csv"
 DataSetteiVsCsv = "../../Engine01_Config/data_settei_vs.csv"
+AimsDataSetteiXml = "./CSharp/Engine01_Config/data_settei.xml"
+DataScoreLua = "../../Engine01_Config/lua/KifuWarabe/data_score.lua"
+NarabeDataGuiLua = "../../Engine01_Config/lua/KifuNarabe/data_gui.lua"
+DataSetteiXml = "../../Engine01_Config/data_settei.xml"
 
 # テキストファイル
 
