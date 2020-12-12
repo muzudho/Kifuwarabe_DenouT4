@@ -812,7 +812,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
 
                 // どうにもできないので  ログだけ取って無視します。
                 ErrorControllerReference.ProcessEngineDefault.DonimoNaranAkirameta("Program「go ponder」：" + ex.GetType().Name + "：" + ex.Message);
-                throw ;
+                throw;
             }
 
             return PhaseResultUsiLoop2.None;
@@ -1354,9 +1354,12 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
 
         private PhaseResultUsiLoop2 OnLogdaseReceived_AtLoop2Body(string line)
         {
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+
             StringBuilder sb = new StringBuilder();
             sb.Append("ログ出せ機能は廃止だぜ～☆（＾▽＾）");
-            File.WriteAllText("../../Engine01_Logs/_log_ログ出せ命令.txt", sb.ToString());
+            File.WriteAllText(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("LogDaseMeirei")), sb.ToString());
 
             return PhaseResultUsiLoop2.None;
         }

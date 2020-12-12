@@ -157,6 +157,8 @@ namespace Grayscale.A210KnowNingen.B300_KomahaiyaTr.C500Table
 
 #if DEBUG
             // デバッグ出力
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
             {
                 StringBuilder sb = new StringBuilder();
 
@@ -172,7 +174,7 @@ namespace Grayscale.A210KnowNingen.B300_KomahaiyaTr.C500Table
                     sb.AppendLine();
                 }
 
-                string filepath_HaiyakuLoad1 = Path.Combine(Application.StartupPath, "../../Engine01_Logs/_log_配役転換表Load(1)_データ行のみ.txt");
+                string filepath_HaiyakuLoad1 = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("HaiyakuTenkanhyoLoad1DataOnly"));
                 File.WriteAllText(filepath_HaiyakuLoad1, sb.ToString());
             }
 #endif
@@ -244,7 +246,7 @@ namespace Grayscale.A210KnowNingen.B300_KomahaiyaTr.C500Table
 
 #if DEBUG
             {
-                string filepath_HaiyakuLoad2 = Path.Combine(Application.StartupPath, "../../Engine01_Logs/_log_配役転換表Load(2).txt");
+                string filepath_HaiyakuLoad2 = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("HaiyakuTenkanhyoLoad2"));
                 File.WriteAllText(filepath_HaiyakuLoad2, sbLog.ToString());
             }
 #endif

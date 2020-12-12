@@ -3,6 +3,7 @@ using System.IO;
 using System.Text;
 using Grayscale.A210KnowNingen.B290_Komahaiyaku.C250Word;
 using Grayscale.A210KnowNingen.B490ForcePromot.C250Struct;
+using Nett;
 
 namespace Grayscale.A210KnowNingen.B490ForcePromot.C500Util
 {
@@ -23,6 +24,9 @@ namespace Grayscale.A210KnowNingen.B490ForcePromot.C500Util
         {
             Komahaiyaku185 result;
 
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+
             Dictionary<int, Komahaiyaku185> map2 = Array_ForcePromotion.HaiyakuMap[currentHaiyaku];
 
             if (
@@ -41,9 +45,10 @@ namespace Grayscale.A210KnowNingen.B490ForcePromot.C500Util
             {
                 StringBuilder sbLog = new StringBuilder();
 
-                if (File.Exists("#強制転成デバッグ.txt"))
+                var filename = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("KyouseiTenseiDebug"));
+                if (File.Exists(filename))
                 {
-                    sbLog.Append(File.ReadAllText("#強制転成デバッグ.txt"));
+                    sbLog.Append(File.ReadAllText(filename));
                 }
 
                 sbLog.AppendLine();
@@ -51,7 +56,7 @@ namespace Grayscale.A210KnowNingen.B490ForcePromot.C500Util
                 sbLog.AppendLine("　現在の配役=[" + currentHaiyaku + "]");
                 sbLog.AppendLine("　masuHandle=[" + masuHandle + "]");
                 sbLog.AppendLine("　強制転成後の配役=[" + result + "]");
-                File.WriteAllText("#強制転成デバッグ.txt", sbLog.ToString());
+                File.WriteAllText(filename, sbLog.ToString());
             }
 
 

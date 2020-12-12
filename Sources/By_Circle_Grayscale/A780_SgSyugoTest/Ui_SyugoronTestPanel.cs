@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using Grayscale.A060Application.B510ConvSy.C500Converter;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
+using Nett;
 
 namespace Grayscale.A780SgSyugoTest
 {
@@ -216,8 +217,11 @@ namespace Grayscale.A780SgSyugoTest
 
         private void Ui_Main_Load(object sender, EventArgs e)
         {
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+
             // UTF-8
-            string path = Application.StartupPath + "\\dictionary.txt";
+            string path = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("SyugoronDictionaryText"));
             //MessageBox.Show(path);
             if (File.Exists(path))
             {
@@ -286,8 +290,12 @@ namespace Grayscale.A780SgSyugoTest
         /// <param name="e"></param>
         private void btnOverwrite_Click(object sender, EventArgs e)
         {
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+
             // UTF-8
-            string path = Application.StartupPath + "\\dictionary.txt";
+            string path = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("SyugoronDictionaryText"));
+
             //MessageBox.Show(path);
             if (File.Exists(path))
             {

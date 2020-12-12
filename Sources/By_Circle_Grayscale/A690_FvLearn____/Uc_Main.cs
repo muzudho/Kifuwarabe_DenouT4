@@ -15,6 +15,7 @@ using Grayscale.A690FvLearn.B110FvLearn.C490____StopLearning;
 using Grayscale.A690FvLearn.B110FvLearn.C508____AutoSasiteRush;
 using Grayscale.A690FvLearn.B110FvLearn.C510____AutoKifuRead;
 using Grayscale.A690FvLearn.B110FvLearn.C600Operation;
+using Nett;
 
 namespace Grayscale.A690FvLearn
 {
@@ -100,8 +101,11 @@ namespace Grayscale.A690FvLearn
 
         public UcMain()
         {
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+
             this.LearningData = new LearningDataImpl();
-            this.stopLearning = new StopLearningImpl(Path.Combine(Application.StartupPath, "Stop_learning.txt"));
+            this.stopLearning = new StopLearningImpl(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("StopLearningFlag")));
             this.tyoseiryoSettings = new TyoseiryoSettingsImpl();
 
             //
@@ -179,6 +183,9 @@ namespace Grayscale.A690FvLearn
         /// <param name="e"></param>
         private void Uc_Main_Load(object sender, EventArgs e)
         {
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+
             this.LearningData.AtBegin(this);
 
             // フォームの初期化が終わった後で。
@@ -189,7 +196,7 @@ namespace Grayscale.A690FvLearn
 
             // ファイル読込
             {
-                string path = Path.Combine(Application.StartupPath, "Search_kifu_folder.txt");
+                string path = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("SearchKifuFolderText"));
                 if (File.Exists(path))
                 {
                     this.search_kifu_folder_lines = File.ReadAllLines(path, Encoding.UTF8);
