@@ -27,7 +27,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(fvDirectory, "Engine.toml"));
 
-            string filepathW = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Fv00ScaleInFvDir"));
+            string filepathW = Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>("Fv00ScaleInFvDir"));
             File.WriteAllText(filepathW, Format_FeatureVector_Scale.Format_Text(fv));
         }
 

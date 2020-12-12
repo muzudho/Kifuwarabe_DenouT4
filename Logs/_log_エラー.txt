@@ -1,1 +1,0 @@
-Error:DirectoryNotFoundException パス 'C:\Users\むずでょ\Documents\GitHub\kifuwarabe-collection\Kifuwarabe_DenouT4\Engine01_Logs' の一部が見つかりませんでした。：ﾛｸﾞﾌｧｲﾙ削除中☆
