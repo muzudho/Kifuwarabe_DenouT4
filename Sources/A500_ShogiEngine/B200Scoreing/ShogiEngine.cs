@@ -30,12 +30,12 @@ namespace Grayscale.A500ShogiEngine.B200Scoreing.C005UsiLoop
         /// <summary>
         /// 棋譜です。
         /// </summary>
-        Tree Kifu_AtLoop2 { get; }
+        Tree Kifu { get; }
 
         /// <summary>
         /// 「go ponder」の属性一覧です。
         /// </summary>
-        bool GoPonderNow { get; set; }
+        bool GoPonder { get; set; }
 
         /// <summary>
         /// USIの２番目のループで保持される、「gameover」の一覧です。
@@ -45,7 +45,7 @@ namespace Grayscale.A500ShogiEngine.B200Scoreing.C005UsiLoop
         /// <summary>
         /// 「go」の属性一覧です。
         /// </summary>
-        Dictionary<string, string> GoProperties_AtLoop2 { get; set; }
+        Dictionary<string, string> GoProperties { get; set; }
 
     }
 }

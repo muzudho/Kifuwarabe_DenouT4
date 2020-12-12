@@ -1,4 +1,5 @@
-﻿using Grayscale.A090UsiFramewor.B100UsiFrame1.C250UsiLoop;
+﻿using System;
+using Grayscale.A090UsiFramewor.B100UsiFrame1.C250UsiLoop;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C500UsiFrame;
 
 namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
@@ -60,7 +61,6 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
         public Func01 OnApplicationBegin { get; set; }
         private void executeInAllBody()
         {
-            #region ↑詳説
             // 
             // 図.
             // 
@@ -69,12 +69,10 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
             //     プログラムの終了：  この中の最終行を終えたとき、
             //                         または途中で Environment.Exit(0); が呼ばれたときに終わります。
             //                         また、コンソールウィンドウの[×]ボタンを押して強制終了されたときも  ぶつ切り  で突然終わります。
-            #endregion
 
             //************************************************************************************************************************
             // ループ（全体）
             //************************************************************************************************************************
-            #region ↓詳説
             //
             // 図.
             //
@@ -90,7 +88,6 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
             //
             // 無限ループの中に、２つの無限ループが入っています。
             //
-            #endregion
 
             while (true)//全体ループ
             {
@@ -153,6 +150,7 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
             {
                 string line = this.OnCommandlineAtLoop1();
 
+                // (2020-12-13 sun) ノン・ブロッキングなら このコードが意味あったんだが☆（＾～＾）
                 if (null == line)//次の行が無ければヌル。
                 {
                     // メッセージは届いていませんでした。
@@ -169,7 +167,9 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
                     }
 #endif
 
-                    goto gt_NextTime1;
+                    // 将棋サーバーに向かってメッセージを送り出します。
+                    // Console.WriteLine("ループ１でメッセージは無かったぜ☆（＾～＾）"); // TODO (2020-12-13 sun) 消す。
+                    continue;
                 }
 
 
@@ -211,9 +211,6 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
                     default:
                         break;
                 }
-
-            gt_NextTime1:
-                ;
             }
 
         end_loop1:
@@ -249,6 +246,7 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
 
                     string line = this.OnCommandlineAtLoop2();
 
+                    // (2020-12-13 sun) ノン・ブロッキングなら このコードが意味あったんだが☆（＾～＾）
                     if (null == line)//次の行が無ければヌル。
                     {
                         // メッセージは届いていませんでした。
@@ -268,7 +266,8 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
                         }
 #endif
 
-                        goto gt_NextLine_loop2;
+                        // Console.WriteLine("ループ２でメッセージは無かったぜ☆（＾～＾）"); // TODO (2020-12-13 sun) 消す。
+                        continue;
                     }
 
 
@@ -295,9 +294,6 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
                         // ログだけ取って、スルーします。
                         #endregion
                     }
-
-                gt_NextLine_loop2:
-                    ;
                 }
 
 

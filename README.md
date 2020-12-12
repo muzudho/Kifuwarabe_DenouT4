@@ -19,3 +19,32 @@
 
 Debug でも Release でもなく、 LEARN モードでしか動かない☆（＾～＾）？  
 将棋所の連続対局で ２局目の isready に反応しない☆（＾～＾）？  
+
+## Debug
+
+`go` に返信しない？  
+
+```plain
+>2:usi
+<2:option name 子 type check default true
+<2:option name USI type spin default 2 min 1 max 13
+<2:option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
+<2:option name 卯 type button default うさぎ
+<2:option name 辰 type string default DRAGON
+<2:option name 巳 type filename default スネーク.html
+<2:id name Kifuwaragyoku Bld4
+<2:id author Satoshi TAKAHASHI
+<2:usiok
+>2:setoption name USI_Ponder value true
+>2:setoption name USI_Hash value 256
+>2:setoption name 子 value true
+>2:setoption name USI value 2
+>2:setoption name 寅 value tiger
+>2:setoption name 辰 value DRAGON
+>2:setoption name 巳 value スネーク.html
+>2:isready
+<2:readyok
+>2:usinewgame
+>2:position startpos moves 2g2f
+>2:go btime 298000 wtime 300000 binc 2000 winc 2000
+```

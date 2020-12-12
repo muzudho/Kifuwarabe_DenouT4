@@ -7,10 +7,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B210Tushin.C500Util;
-using Grayscale.A060Application.B310Settei.C500Struct;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C250UsiLoop;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C490Option;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C500UsiFrame;//FIXME:
@@ -99,29 +97,29 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             ISky positionInit = UtilSkyCreator.New_Hirate();// きふわらべ起動時
             {
                 // FIXME:平手とは限らないが、平手という前提で作っておく。
-                this.m_earth_AtLoop2_ = new EarthImpl();
-                this.m_kifu_AtLoop2_ = new TreeImpl(positionInit);
-                this.Earth_AtLoop2.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
+                this.m_earth_ = new EarthImpl();
+                this.m_kifu_ = new TreeImpl(positionInit);
+                this.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
 
-                this.m_kifu_AtLoop2_.PositionA.AssertFinger((Finger)0);
+                this.m_kifu_.PositionA.AssertFinger((Finger)0);
                 Debug.Assert(!Conv_Masu.OnKomabukuro(
                     Conv_Masu.ToMasuHandle(
-                        Conv_Busstop.ToMasu(this.m_kifu_AtLoop2_.PositionA.BusstopIndexOf((Finger)0))
+                        Conv_Busstop.ToMasu(this.m_kifu_.PositionA.BusstopIndexOf((Finger)0))
                         )
                     ), "駒が駒袋にあった。");
             }
 
             // goの属性一覧
             {
-                this.GoProperties_AtLoop2 = new Dictionary<string, string>();
-                this.GoProperties_AtLoop2["btime"] = "";
-                this.GoProperties_AtLoop2["wtime"] = "";
-                this.GoProperties_AtLoop2["byoyomi"] = "";
+                this.GoProperties = new Dictionary<string, string>();
+                this.GoProperties["btime"] = "";
+                this.GoProperties["wtime"] = "";
+                this.GoProperties["byoyomi"] = "";
             }
 
             // go ponderの属性一覧
             {
-                this.GoPonderNow = false;   // go ponderを将棋所に伝えたなら真
+                this.GoPonder = false;   // go ponderを将棋所に伝えたなら真
             }
 
             // gameoverの属性一覧
@@ -180,8 +178,9 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
 
         /// <summary>
         /// 棋譜です。
+        /// Loop2で使います。
         /// </summary>
-        public Tree Kifu_AtLoop2 { get { return this.m_kifu_AtLoop2_; } }
+        public Tree Kifu { get { return this.m_kifu_; } }
         /*
         public Sky PositionA { get {
                 return this.Kifu_AtLoop2.CurNode1.GetNodeValue();
@@ -195,31 +194,34 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
         /// <param name="kifu"></param>
         public void SetKifu(Tree kifu)
         {
-            this.m_kifu_AtLoop2_ = kifu;
+            this.m_kifu_ = kifu;
             //this.m_positionA_ = kifu.GetSky();
         }
         //private Sky m_positionA_;
-        private Tree m_kifu_AtLoop2_;
+        private Tree m_kifu_;
 
-        public Earth Earth_AtLoop2 { get { return this.m_earth_AtLoop2_; } }
-        public void SetEarth_AtLoop2(Earth earth1)
+        /// <summary>
+        /// Loop2で使います。
+        /// </summary>
+        public Earth Earth { get { return this.m_earth_; } }
+        public void SetEarth(Earth earth1)
         {
-            this.m_earth_AtLoop2_ = earth1;
+            this.m_earth_ = earth1;
         }
-        private Earth m_earth_AtLoop2_;
+        private Earth m_earth_;
 
 
         /// <summary>
         /// 「go」の属性一覧です。
         /// </summary>
-        public Dictionary<string, string> GoProperties_AtLoop2 { get; set; }
+        public Dictionary<string, string> GoProperties { get; set; }
 
 
         /// <summary>
         /// 「go ponder」の属性一覧です。
         /// Loop2で呼ばれます。
         /// </summary>
-        public bool GoPonderNow { get; set; }
+        public bool GoPonder { get; set; }
 
 
         /// <summary>
@@ -235,10 +237,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
         public void Send(string line)
         {
             // 将棋サーバーに向かってメッセージを送り出します。
-            if (0 < line.Length)
-            {
-                Util_Message.Upload(line);
-            }
+            Util_Message.Upload(line);
 
 #if DEBUG
             // 送信記録をつけます。
@@ -734,8 +733,8 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 kifuParserA.Execute_All_CurrentMutable(
                     ref result,
 
-                    this.Earth_AtLoop2,
-                    this.Kifu_AtLoop2,
+                    this.Earth,
+                    this.Kifu,
 
                     genjo,
                     logger
@@ -746,8 +745,8 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                     // その解析結果をどう使うかは、委譲します。
                     Util_InClient.OnChangeSky_Im_Client(
 
-                        this.Earth_AtLoop2,
-                        this.Kifu_AtLoop2,
+                        this.Earth,
+                        this.Kifu,
 
                         genjo,
                         logger
@@ -894,15 +893,15 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
 
                 if (m.Success)
                 {
-                    this.GoProperties_AtLoop2["btime"] = (string)m.Groups[1].Value;
-                    this.GoProperties_AtLoop2["wtime"] = (string)m.Groups[2].Value;
-                    this.GoProperties_AtLoop2["byoyomi"] = (string)m.Groups[3].Value;
+                    this.GoProperties["btime"] = (string)m.Groups[1].Value;
+                    this.GoProperties["wtime"] = (string)m.Groups[2].Value;
+                    this.GoProperties["byoyomi"] = (string)m.Groups[3].Value;
                 }
                 else
                 {
-                    this.GoProperties_AtLoop2["btime"] = "";
-                    this.GoProperties_AtLoop2["wtime"] = "";
-                    this.GoProperties_AtLoop2["byoyomi"] = "";
+                    this.GoProperties["btime"] = "";
+                    this.GoProperties["wtime"] = "";
+                    this.GoProperties["byoyomi"] = "";
                 }
 
 
@@ -913,8 +912,8 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
 
                 // ┏━━━━プログラム━━━━┓
 
-                MoveEx curNode1 = this.Kifu_AtLoop2.MoveEx_Current;
-                ISky positionA = this.Kifu_AtLoop2.PositionA;
+                MoveEx curNode1 = this.Kifu.MoveEx_Current;
+                ISky positionA = this.Kifu.PositionA;
                 int latestTemezumi = positionA.Temezumi;//現・手目済// curNode1.GetNodeValue()
 
                 //#if DEBUG
@@ -1033,15 +1032,15 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                                         searchedPv,
                                         isHonshogi,
 
-                                        this.Earth_AtLoop2,
-                                        this.Kifu_AtLoop2,// ツリーを伸ばしているぜ☆（＾～＾）
-                                        this.Kifu_AtLoop2.PositionA.GetKaisiPside(),
-                                        this.Kifu_AtLoop2.PositionA,//.CurNode1.GetNodeValue(),
+                                        this.Earth,
+                                        this.Kifu,// ツリーを伸ばしているぜ☆（＾～＾）
+                                        this.Kifu.PositionA.GetKaisiPside(),
+                                        this.Kifu.PositionA,//.CurNode1.GetNodeValue(),
 
                                         this.Logger)
                                         );
 
-                                    this.Kifu_AtLoop2.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(this.Kifu_AtLoop2.MoveEx_Current, this.Kifu_AtLoop2, this.Kifu_AtLoop2.PositionA, this.Logger));
+                                    this.Kifu.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(this.Kifu.MoveEx_Current, this.Kifu, this.Kifu.PositionA, this.Logger));
                                 }
 
 
@@ -1099,7 +1098,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                                 //----------------------------------------
                                 {
                                     int hyojiScore = (int)bestScore;
-                                    if (this.Kifu_AtLoop2.PositionA.GetKaisiPside() == Playerside.P2)
+                                    if (this.Kifu.PositionA.GetKaisiPside() == Playerside.P2)
                                     {
                                         // 符号を逆転
                                         hyojiScore = -hyojiScore;
@@ -1107,31 +1106,25 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
 
                                     // infostring
                                     StringBuilder sb = new StringBuilder();
-                                    sb.Append("info time ");
-                                    sb.Append(this.Shogisasi.TimeManager.Stopwatch.ElapsedMilliseconds);
-                                    sb.Append(" depth ");
-                                    sb.Append(searchedMaxDepth);
-                                    sb.Append(" nodes ");
-                                    sb.Append(searchedNodes);
-                                    sb.Append(" score cp ");
-                                    sb.Append(hyojiScore.ToString());
-                                    sb.Append(" pv ");//+ " pv 3a3b L*4h 4c4d"
-                                    foreach (string sfen in searchedPv)
+                                    sb.Append($"info time {this.Shogisasi.TimeManager.Stopwatch.ElapsedMilliseconds} depth {searchedMaxDepth} nodes {searchedNodes} score cp {hyojiScore.ToString()} pv ");
+                                    //+ " pv 3a3b L*4h 4c4d"
+                                    foreach (string sfen1 in searchedPv)
                                     {
-                                        if ("" != sfen)
+                                        // (2020-12-13 sun)余計な空白を付けていたので削ったが、もう少し すっきり書きたいぜ☆（＾～＾）
+                                        if (sfen1 != null)
                                         {
-                                            sb.Append(sfen);
-                                            sb.Append(" ");
+                                            var sfen2 = sfen1.Trim();
+                                            if ("" != sfen2)
+                                            {
+                                                sb.Append($"{sfen2} ");
+                                            }
                                         }
                                     }
-                                    this.Send(sb.ToString());//FIXME:                                                                                           
+                                    this.Send(sb.ToString().TrimEnd());//FIXME:
                                 }
 
-
-                                //----------------------------------------
                                 // 指し手を送ります。
-                                //----------------------------------------
-                                this.Send("bestmove " + sfenText);
+                                this.Send($"bestmove {sfenText}");
                             }
                             else // 指し手がないときは、SFENが書けない☆　投了だぜ☆
                             {
@@ -1238,7 +1231,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 //
                 // stop するのは思考です。  stop を受け取ったら  すぐに最善手を指してください。
 
-                if (this.GoPonderNow)
+                if (this.GoPonder)
                 {
                     //------------------------------------------------------------
                     // 将棋エンジン「（予想手が間違っていたって？）  △９二香 を指そうと思っていたんだが」

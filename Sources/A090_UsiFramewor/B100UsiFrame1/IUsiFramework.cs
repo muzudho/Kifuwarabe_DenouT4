@@ -9,20 +9,14 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500UsiFrame
 
     public interface IUsiFramework
     {
-        #region 実行
         /// <summary>
         /// 実行します。
         /// </summary>
         void Execute();
-        #endregion
 
-        #region アプリケーション・フェーズ
         Func01 OnApplicationBegin { get; set; }
         Func01 OnApplicationEnd { get; set; }
 
-        #endregion
-
-        #region 準備フェーズ
         Func01 OnLoop1Begin { get; set; }
         Func01 OnLoop1End { get; set; }
 
@@ -32,9 +26,7 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500UsiFrame
         Func04 OnUsinewgame { get; set; }
         Func04 OnQuit { get; set; }
         Func05 OnCommandlineAtLoop1 { get; set; }
-        #endregion
 
-        #region 対局中フェーズ
         Func01 OnLoop2Begin { get; set; }
         Func01 OnLoop2End { get; set; }
 
@@ -50,6 +42,5 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500UsiFrame
         Func02 OnStop { get; set; }
         Func02 OnGameover { get; set; }
         Func02 OnLogDase { get; set; }
-        #endregion
     }
 }
