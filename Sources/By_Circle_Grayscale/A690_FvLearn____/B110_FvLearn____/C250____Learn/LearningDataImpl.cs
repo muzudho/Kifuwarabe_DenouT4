@@ -30,6 +30,7 @@ using Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi;
 using Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe;
 using Grayscale.A690FvLearn.B110FvLearn.C___250_Learn;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Nett;
 
 #if DEBUG
 // using Grayscale.A060Application.B310Settei.C500Struct;
@@ -100,8 +101,11 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
         /// </summary>
         public void AtBegin(UcMain uc_Main)
         {
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+
             // データの読取「道」
-            if (Michi187Array.Load("../../Engine01_Config/data_michi187.csv"))
+            if (Michi187Array.Load(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Michi187"))))
             {
             }
 
