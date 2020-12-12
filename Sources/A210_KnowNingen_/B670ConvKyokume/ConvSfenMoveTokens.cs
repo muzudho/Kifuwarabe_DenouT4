@@ -24,11 +24,11 @@ using System.Diagnostics;
 
 namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
 {
-    public abstract class ConvSfenSasiteTokens
+    public abstract class ConvSfenMoveTokens
     {
         /// <summary>
         /// ************************************************************************************************************************
-        /// 符号１「7g7f」を元に、sasite を作ります。
+        /// 符号１「7g7f」を元に、move を作ります。
         /// ************************************************************************************************************************
         /// 
         /// ＜[再生]、[コマ送り]で呼び出されます＞
@@ -119,7 +119,7 @@ namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
                         logger);
                     if (Fingers.Error_1 == koma)
                     {
-                        string message = "Conv_SfenSasiteTokens#ToMove：[" + Conv_Playerside.ToLog_Kanji(psideA) + "]駒台から種類[" + uttaSyurui + "]の駒を掴もうとしましたが、エラーでした。\n" +
+                        string message = "Conv_SfenMoveTokens#ToMove：[" + Conv_Playerside.ToLog_Kanji(psideA) + "]駒台から種類[" + uttaSyurui + "]の駒を掴もうとしましたが、エラーでした。\n" +
                             Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(psideA, positionA, logger)) + "\n" +
                             "hint=[" + hint + "]\n" +
                             "str1=[" + str1 + "]\n" +

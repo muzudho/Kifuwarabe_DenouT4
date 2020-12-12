@@ -26,7 +26,7 @@ namespace Grayscale.A210KnowNingen.B550JsaFugo.C500Util
         ///         “同”表記に「置き換えない」バージョンです。
         /// 
         /// </summary>
-        /// <param name="sasite"></param>
+        /// <param name="move"></param>
         /// <param name="previousKomaP"></param>
         /// <returns></returns>
         public static string ToString_NoUseDou(

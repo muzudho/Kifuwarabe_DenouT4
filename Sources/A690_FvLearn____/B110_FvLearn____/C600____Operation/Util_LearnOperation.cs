@@ -150,7 +150,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
         /// FIXME: 未実装
         /// 指し手の順位上げ。
         /// </summary>
-        public static void Do_RankUpSasite(
+        public static void DoRankUpMove(
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
             UcMain uc_Main, ILogger errH)
@@ -176,7 +176,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
         /// FIXME: 未実装
         /// 指し手の順位下げ。
         /// </summary>
-        public static void Do_RankDownSasite(
+        public static void DoRankDownMove(
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
             UcMain uc_Main, ILogger errH)

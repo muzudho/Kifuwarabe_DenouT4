@@ -35,7 +35,7 @@ namespace Grayscale.A180KifuCsa.B120KifuCsa.C250Struct
         /// <summary>
         /// 指し手データ。
         /// </summary>
-        List<CsaKifuSasite> SasiteList { get; set; }
+        List<CsaKifuMove> MoveList { get; set; }
 
         /// <summary>
         /// 対局終了の仕方の分類。

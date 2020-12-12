@@ -47,7 +47,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C400Conv
                         )
                     {
 
-                        ConvSfenSasiteTokens.ToMove(
+                        ConvSfenMoveTokens.ToMove(
                             isHonshogi,
                             str1,  //123456789 か、 PLNSGKRB
                             str2,  //abcdefghi か、 *

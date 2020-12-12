@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A690FvLearn.B110FvLearn.C508____AutoSasiteRush;
+using Grayscale.A690FvLearn.B110FvLearn.C508AutoMoveRush;
 
 namespace Grayscale.A690FvLearn.B110FvLearn.C510____AutoKifuRead
 {
@@ -39,7 +39,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C510____AutoKifuRead
                 //----------------------------------------
                 // 繰り返し、指し手を進めます。
                 //----------------------------------------
-                Util_AutoSasiteRush.Do_SasiteRush(
+                UtilAutoMoveRush.DoMoveRush(
                     out isEndKifuread,
                     ref isRequest_ShowGohosyu,
                     ref isRequest_ChangeKyokumenPng,

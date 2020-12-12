@@ -104,12 +104,12 @@
     <Compile Include="B110_FvLearn____\C490____StopLearning\StopLearningImpl.cs" />
     <Compile Include="B110_FvLearn____\C506____AutoSortingRush\Util_AutoSortingRush.cs" />
     <Compile Include="B110_FvLearn____\C510____AutoKifuRead\Util_AutoKifuRead.cs" />
-    <Compile Include="B110_FvLearn____\C508____AutoSasiteRush\Util_AutoSasiteRush.cs" />
+    <Compile Include="B110_FvLearn____\C508____AutoSasiteRush\UtilAutoMoveRush.cs" />
     <Compile Include="B110_FvLearn____\C600____Operation\Util_LearnOperation.cs" />
     <Compile Include="B110_FvLearn____\C___250_Learn\LearningData.cs" />
     <Compile Include="B110_FvLearn____\C250____Learn\GohosyuListItem.cs" />
     <Compile Include="B110_FvLearn____\C250____Learn\LearningDataImpl.cs" />
-    <Compile Include="B110_FvLearn____\C250____Learn\HonpuSasiteListItemImpl.cs" />
+    <Compile Include="B110_FvLearn____\C250____Learn\HonpuMoveListItemImpl.cs" />
     <Compile Include="B110_FvLearn____\C___400_54List\N40t14List.cs" />
     <Compile Include="B110_FvLearn____\C___400_54List\N54List.cs" />
     <Compile Include="B110_FvLearn____\C___450_Tyoseiryo\TyoseiryoSettings.cs" />

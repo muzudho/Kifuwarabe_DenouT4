@@ -62,7 +62,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
             try
             {
                 List<Move> inputMovelist;
-                ConvStarbetuSasites.ToNextNodes_AsHubNode(
+                ConvStarbetuMoves.ToNextNodes_AsHubNode(
                     out inputMovelist,
                     genTeban_komabetuAllMoves1,
                     positionA,
@@ -95,7 +95,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
                 exception_area = 30000;
 
                 // 「指し手一覧」を、「星別の全指し手」に分けます。
-                Maps_OneAndMulti<Finger, Move> starbetuAllSasites2 = Util_Sky258A.SplitSasite_ByStar(positionA,
+                Maps_OneAndMulti<Finger, Move> starbetuAllMoves2 = Util_Sky258A.SplitMoveByStar(positionA,
                     restMovelist,//hubNode1.ToMovelist(),
                     logger);
 
@@ -104,7 +104,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
                 //
                 // 「星別の指し手一覧」を、「星別の進むマス一覧」になるよう、データ構造を変換します。
                 //
-                foreach (KeyValuePair<Finger, List<Move>> entry in starbetuAllSasites2.Items)
+                foreach (KeyValuePair<Finger, List<Move>> entry in starbetuAllMoves2.Items)
                 {
                     Finger finger = entry.Key;
                     List<Move> moveList = entry.Value;
@@ -451,7 +451,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
                     masus_seme_BANJO,
                     masus_kurau_BANJO,
                     src_Sky,
-                    //Conv_Sasite.Sasite_To_KsString_ForLog(sasite_forLog, pside_genTeban3),
+                    //Conv_Move.Move_To_KsString_ForLog(Move_forLog, pside_genTeban3),
                     errH
                     );// 利きを調べる側の利き（戦駒）
 

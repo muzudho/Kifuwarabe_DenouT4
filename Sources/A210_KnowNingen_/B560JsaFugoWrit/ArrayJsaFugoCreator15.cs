@@ -89,7 +89,7 @@ namespace Grayscale.A210KnowNingen.B560_JsaFugoWrit.C500Writer
         /// <summary>
         /// 歩のJ符号を作ります。
         /// </summary>
-        /// <param name="sasite">移動先、移動元、両方のマス番号</param>
+        /// <param name="move">移動先、移動元、両方のマス番号</param>
         /// <returns></returns>
         public static JsaFugoImpl CreateFu(Move move, ISky src_Sky, ILogger errH)
         {

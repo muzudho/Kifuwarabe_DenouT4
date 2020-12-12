@@ -1050,7 +1050,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                                 //StringBuilder sb = new StringBuilder();
                                 //for (int iMultiPV = 0; iMultiPV < 5; iMultiPV++)
                                 //{
-                                //    string sfenText = Util_Sky.ToSfenSasiteText(bestSasiteList[iMultiPV]);
+                                //    string sfenText = Util_Sky.ToSfenMoveText(bestMoveList[iMultiPV]);
                                 //    sb.AppendLine("[" + iMultiPV + "]" + sfenText);
                                 //}
                                 //System.Windows.Forms.MessageBox.Show(sb.ToString());
@@ -1481,7 +1481,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             //
             {
                 // 出力先
-                string fileName = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("ChokkinNoSasitePngFilename"));
+                string fileName = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("ChokkinNoMovePngFilename"));
 
                 SyElement srcMasu = ConvMove.ToSrcMasu(move_forLog);
                 SyElement dstMasu = ConvMove.ToDstMasu(move_forLog);

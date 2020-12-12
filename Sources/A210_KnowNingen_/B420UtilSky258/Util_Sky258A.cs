@@ -176,7 +176,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
         /// <param name="hubNode">指し手一覧</param>
         /// <param name="logger"></param>
         /// <returns>駒毎の、全指し手</returns>
-        public static Maps_OneAndMulti<Finger, Move> SplitSasite_ByStar(
+        public static Maps_OneAndMulti<Finger, Move> SplitMoveByStar(
             ISky positionA,
             List<Move> siblingMoves,
             ILogger logger

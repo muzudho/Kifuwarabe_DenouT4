@@ -71,9 +71,9 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="B120KifuCsa\CsaKifu.cs" />
-    <Compile Include="B120KifuCsa\CsaKifuSasite.cs" />
+    <Compile Include="B120KifuCsa\CsaKifuMove.cs" />
     <Compile Include="B120KifuCsa\CsaKifuImpl.cs" />
-    <Compile Include="B120KifuCsa\CsaKifuSasiteImpl.cs" />
+    <Compile Include="B120KifuCsa\CsaKifuMoveImpl.cs" />
     <Compile Include="B120KifuCsa\Util_Csa.cs" />
     <Compile Include="B120KifuCsa\Word_Csa.cs" />
     <Compile Include="B120KifuCsa\CsaKifuWriterImpl.cs" />

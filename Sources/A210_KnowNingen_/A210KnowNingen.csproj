@@ -129,7 +129,7 @@
     <Compile Include="B620KyokumHyoka\HyokakansuName.cs" />
     <Compile Include="B670ConvKyokume\ConvKifuNode.cs" />
     <Compile Include="B690Ittesasu\Conv_JsaFugoText.cs" />
-    <Compile Include="B670ConvKyokume\ConvSfenSasiteTokens.cs" />
+    <Compile Include="B670ConvKyokume\ConvSfenMoveTokens.cs" />
     <Compile Include="B690Ittesasu\UtilIttemodosuRoutine.cs" />
     <Compile Include="B770ConvSasu\Conv_KomabetuSusumeruMasus.cs" />
     <Compile Include="Form1.cs">
@@ -208,7 +208,7 @@
     <Compile Include="B690Ittesasu\UtilKirokuGakari.cs" />
     <Compile Include="B570ConvJsa\Conv_SasiteStr_Jsa.cs" />
     <Compile Include="B690Ittesasu\IttemodosuResultImpl.cs" />
-    <Compile Include="B770ConvSasu\ConvStarbetuSasites.cs" />
+    <Compile Include="B770ConvSasu\ConvStarbetuMoves.cs" />
     <Compile Include="B690Ittesasu\Util_IttesasuSuperRoutine.cs" />
     <Compile Include="B730UtilSasuEx\Util_SasuEx.cs" />
     <Compile Include="B740KifuParserA\IKifuParserA.cs" />

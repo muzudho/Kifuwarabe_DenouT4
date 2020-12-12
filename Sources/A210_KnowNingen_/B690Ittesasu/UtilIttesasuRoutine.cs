@@ -61,7 +61,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
                 //------------------------------
                 // 動かす駒を移動先へ。
                 //------------------------------
-                //Debug.Assert(null != ittesasuArg.KorekaranoSasite, "これからの指し手がヌルでした。");
+                //Debug.Assert(null != ittesasuArg.KorekaranoMove, "これからの指し手がヌルでした。");
                 Finger figMovedKoma;
                 UtilIttesasuRoutine.Do24_UgokasuKoma_IdoSakiHe(
                     out figMovedKoma,
@@ -234,7 +234,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
         /// 動かす駒を移動先へ。
         /// </summary>
         /// <param name="figMovedKoma"></param>
-        /// <param name="sasite">棋譜に記録するために「指す前／指した後」を含めた手。</param>
+        /// <param name="move">棋譜に記録するために「指す前／指した後」を含めた手。</param>
         /// <param name="obsoluted_kifu_mutable"></param>
         /// <param name="isMakimodosi"></param>
         private static void Do24_UgokasuKoma_IdoSakiHe(
@@ -260,8 +260,8 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
                 // 進むとき
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-                //Debug.Assert(null != sasite, "Sasu24_UgokasuKoma_IdoSakiHe: 指し手がヌルでした。");
-                if (UtilSkyBoolQuery.IsDaAction(move))// 多分、ここで sasite がヌルになるエラーがある☆
+                //Debug.Assert(null != move, "Sasu24_UgokasuKoma_IdoSakiHe: 指し手がヌルでした。");
+                if (UtilSkyBoolQuery.IsDaAction(move))// 多分、ここで move がヌルになるエラーがある☆
                 {
                     //----------
                     // 駒台から “打”
@@ -317,7 +317,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
         /// [巻戻し]時の、駒台にもどる動きを吸収。
         /// </summary>
         /// <param name="syurui2"></param>
-        /// <param name="sasite">棋譜に記録するために「指す前／指した後」を含めた手。</param>
+        /// <param name="move">棋譜に記録するために「指す前／指した後」を含めた手。</param>
         /// <param name="kifu"></param>
         /// <param name="isMakimodosi"></param>
         /// <returns></returns>

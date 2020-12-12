@@ -59,7 +59,7 @@ namespace Grayscale.A210KnowNingen.B460KyokumMoves.C250Log
 
         public void Log1(Playerside pside_genTeban3)
         {
-            this.BrdMove.Caption = "移動可能_" + Conv_Sasite.Sasite_To_KsString_ForLog(this.Move, pside_genTeban3);
+            this.BrdMove.Caption = "移動可能_" + Conv_Move.Move_To_KsString_ForLog(this.Move, pside_genTeban3);
             this.BrdMove.Temezumi = this.Temezumi_yomiCur;
             this.BrdMove.YomikaisiTemezumi = this.YomikaisiTemezumi;
             this.BrdMove.GenTeban = pside_genTeban3;// 現手番

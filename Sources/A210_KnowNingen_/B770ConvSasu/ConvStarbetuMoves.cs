@@ -12,7 +12,7 @@ namespace Grayscale.A210KnowNingen.B770ConvSasu.C500Converter
     /// <summary>
     /// 星別指し手ユーティリティー。
     /// </summary>
-    public abstract class ConvStarbetuSasites
+    public abstract class ConvStarbetuMoves
     {
 
         /// <summary>

@@ -1,7 +1,7 @@
 ﻿
 namespace Grayscale.A180KifuCsa.B120KifuCsa.C250Struct
 {
-    public interface CsaKifuSasite
+    public interface CsaKifuMove
     {
         /// <summary>
         /// 先手なら「+」、後手なら「-」。

@@ -3,7 +3,7 @@ using Grayscale.A180KifuCsa.B120KifuCsa.C250Struct;
 
 namespace Grayscale.A180KifuCsa.B120KifuCsa.C250Struct
 {
-    public class CsaKifuSasiteImpl : CsaKifuSasite
+    public class CsaKifuMoveImpl : CsaKifuMove
     {
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace Grayscale.A180KifuCsa.B120KifuCsa.C250Struct
         /// </summary>
         public int OptionTemezumi { get; set; }
 
-        public CsaKifuSasiteImpl()
+        public CsaKifuMoveImpl()
         {
             this.Sengo = "";
             this.SourceMasu = "";

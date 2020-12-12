@@ -46,15 +46,15 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C260View
             //
             // まず、リストを空っぽにします。
             //
-            uc_Main.LstSasite.Items.Clear();
+            uc_Main.LstMove.Items.Clear();
 
             Earth earth1 = new EarthImpl();
             ISky positionA = UtilSkyCreator.New_Hirate();//日本の符号読取時
             Tree kifu1 = new TreeImpl(positionA);
             //kifu1.AssertPside(kifu1.CurNode, "ShowSasiteList",errH);
 
-            List<CsaKifuSasite> sasiteList = learningData.CsaKifu.SasiteList;
-            foreach (CsaKifuSasite csaSasite in sasiteList)
+            List<CsaKifuMove> sasiteList = learningData.CsaKifu.MoveList;
+            foreach (CsaKifuMove csaSasite in sasiteList)
             {
                 // 開始局面
                 ISky kaisi_Sky = positionA;
@@ -163,8 +163,8 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C260View
                 // FIXME: 未テスト。
                 move = ConvMove.ToMove_ByCsa(csaSasite, kifu1.PositionA);
                 //}
-                HonpuSasiteListItemImpl listItem = new HonpuSasiteListItemImpl(csaSasite, move);
-                uc_Main.LstSasite.Items.Add(listItem);
+                HonpuMoveListItemImpl listItem = new HonpuMoveListItemImpl(csaSasite, move);
+                uc_Main.LstMove.Items.Add(listItem);
             }
         }
 
@@ -309,7 +309,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C260View
             //
             // リストの先頭の項目を取得したい。
             //
-            if (uc_Main.LstSasite.Items.Count < 1)
+            if (uc_Main.LstMove.Items.Count < 1)
             {
                 goto gt_EndMethod;
             }
@@ -317,7 +317,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C260View
 
 
             // リストボックスの先頭から指し手をSFEN形式で１つ取得。
-            HonpuSasiteListItemImpl item = (HonpuSasiteListItemImpl)uc_Main.LstSasite.Items[0];
+            HonpuMoveListItemImpl item = (HonpuMoveListItemImpl)uc_Main.LstMove.Items[0];
             Move move = item.Move;
             if (null != logger.KwDisplayerOrNull.OnAppendLog)
             {
@@ -402,7 +402,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C260View
             //
             // リストの頭１個を除外します。
             //
-            uc_Main.LstSasite.Items.RemoveAt(0);
+            uc_Main.LstMove.Items.RemoveAt(0);
 
 #if DEBUG
             sw1.Stop();
@@ -415,7 +415,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C260View
             //----------------------------------------
             // ボタン表示の回復
             //----------------------------------------
-            if (0 < uc_Main.LstSasite.Items.Count)
+            if (0 < uc_Main.LstMove.Items.Count)
             {
                 uc_Main.BtnUpdateKyokumenHyoka.Enabled = true;//[局面評価更新]ボタン連打防止解除。
             }

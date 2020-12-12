@@ -196,7 +196,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
         /// 動かす駒を移動先へ。
         /// </summary>
         /// <param name="figMovedKoma"></param>
-        /// <param name="sasite">棋譜に記録するために「指す前／指した後」を含めた手。</param>
+        /// <param name="move">棋譜に記録するために「指す前／指した後」を含めた手。</param>
         /// <param name="obsoluted_kifu_mutable"></param>
         /// <param name="isMakimodosi"></param>
         private static void Undo25_UgokasuKoma(
@@ -228,20 +228,20 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
         /// [巻戻し]時の、駒台にもどる動きを吸収。
         /// </summary>
         /// <param name="syurui2"></param>
-        /// <param name="sasite">棋譜に記録するために「指す前／指した後」を含めた手。</param>
+        /// <param name="move">棋譜に記録するために「指す前／指した後」を含めた手。</param>
         /// <param name="kifu"></param>
         /// <param name="isMakimodosi"></param>
         /// <returns></returns>
         private static Busstop Undo37_KomaOnModosisakiMasu(
             Komasyurui14 syurui2,
-            Move moved,
+            Move move,
             ISky positionA
             )
         {
-            Playerside pside = ConvMove.ToPlayerside(moved);
+            Playerside pside = ConvMove.ToPlayerside(move);
 
             SyElement masu;
-            if (ConvMove.ToDrop(moved))
+            if (ConvMove.ToDrop(move))
             {
                 // 打なら
 
@@ -254,7 +254,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
             {
                 // 打以外なら
                 // 戻し先
-                SyElement srcMasu = ConvMove.ToSrcMasu(moved, positionA);
+                SyElement srcMasu = ConvMove.ToSrcMasu(move, positionA);
 
                 if (
                     Okiba.Gote_Komadai == Conv_Masu.ToOkiba(srcMasu)
@@ -288,7 +288,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
         /// <summary>
         /// あれば、取られていた駒を取得
         /// </summary>
-        /// <param name="sasite"></param>
+        /// <param name="move"></param>
         /// <param name="kaisi_Sky"></param>
         /// <param name="out_figFoodKoma"></param>
         /// <param name="errH"></param>
@@ -335,7 +335,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
         /// <summary>
         /// 巻き戻しなら、非成りに戻します。
         /// </summary>
-        /// <param name="sasite">棋譜に記録するために「指す前／指した後」を含めた手。</param>
+        /// <param name="move">棋譜に記録するために「指す前／指した後」を含めた手。</param>
         /// <param name="isBack"></param>
         /// <returns></returns>
         private static Komasyurui14 Do30_MakimodosiNara_HinariNiModosu(
@@ -353,7 +353,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
                 Komasyurui14 dstKs = ConvMove.ToDstKomasyurui(move);
 
 
-                if (UtilSkyBoolQuery.IsNatta_Sasite(move))
+                if (UtilSkyBoolQuery.IsNattaMove(move))
                 {
                     // 正順で成ったのなら、巻戻しでは「非成」に戻します。
                     syurui2 = Util_Komasyurui14.NarazuCaseHandle(dstKs);

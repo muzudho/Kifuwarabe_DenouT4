@@ -279,7 +279,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
         /// 成った
         /// </summary>
         /// <returns></returns>
-        public static bool IsNatta_Sasite(Move move)
+        public static bool IsNattaMove(Move move)
         {
             // 元種類が不成、現種類が成　の場合のみ真。
             bool natta = true;

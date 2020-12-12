@@ -7,21 +7,21 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
     /// <summary>
     /// 本譜指し手リストの項目。
     /// </summary>
-    public class HonpuSasiteListItemImpl
+    public class HonpuMoveListItemImpl
     {
         /// <summary>
         /// CSA棋譜 の指し手
         /// </summary>
-        private CsaKifuSasite CsaSasite { get; set; }
+        private CsaKifuMove MoveAsCsa { get; set; }
 
         /// <summary>
         /// 指し手（SFEN符号に変換できるもの）
         /// </summary>
         public Move Move { get; set; }
 
-        public HonpuSasiteListItemImpl(CsaKifuSasite sasite, Move move)
+        public HonpuMoveListItemImpl(CsaKifuMove moveAsCsa, Move move)
         {
-            this.CsaSasite = sasite;
+            this.MoveAsCsa = moveAsCsa;
             this.Move = move;// 
         }
 
@@ -32,17 +32,17 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(this.CsaSasite.OptionTemezumi);
+            sb.Append(this.MoveAsCsa.OptionTemezumi);
             sb.Append("手目 ");
-            sb.Append(this.CsaSasite.DestinationMasu);
+            sb.Append(this.MoveAsCsa.DestinationMasu);
             sb.Append(" ");
-            sb.Append(this.CsaSasite.Second);
+            sb.Append(this.MoveAsCsa.Second);
             sb.Append(" ");
-            sb.Append(this.CsaSasite.Sengo);
+            sb.Append(this.MoveAsCsa.Sengo);
             sb.Append(" ");
-            sb.Append(this.CsaSasite.SourceMasu);
+            sb.Append(this.MoveAsCsa.SourceMasu);
             sb.Append(" ");
-            sb.Append(this.CsaSasite.Syurui);
+            sb.Append(this.MoveAsCsa.Syurui);
             sb.Append(" ");
             sb.Append(this.Move);
 

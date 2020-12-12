@@ -39,9 +39,9 @@ namespace Grayscale.A180KifuCsa.B120KifuCsa.C500Writer
             sb.AppendLine(data.FirstSengo);
 
             sb.AppendLine("┏━━━━━━━━━━┓指し手のリスト");
-            foreach (CsaKifuSasite sasite in data.SasiteList)
+            foreach (CsaKifuMove move in data.MoveList)
             {
-                sb.AppendLine(sasite.ToStringForDebug());
+                sb.AppendLine(move.ToStringForDebug());
             }
             sb.AppendLine("┗━━━━━━━━━━┛");
 

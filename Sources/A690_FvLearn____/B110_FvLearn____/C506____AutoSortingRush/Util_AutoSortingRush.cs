@@ -12,7 +12,7 @@ using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 // using Grayscale.A060Application.B110Log.C500Struct;
 #endif
 
-namespace Grayscale.A690FvLearn.B110FvLearn.C506____AutoSasiteSort
+namespace Grayscale.A690FvLearn.B110FvLearn.C506AutoMoveSort
 {
     public abstract class Util_AutoSortingRush
     {
@@ -30,7 +30,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C506____AutoSasiteSort
         /// <param name="move1"></param>
         /// <param name="uc_Main"></param>
         /// <param name="errH"></param>
-        public static void Do_SortSasiteRush(
+        public static void DoSortMoveRush(
             out int out_pushCount,
             out bool out_isEndAutoLearn,
             ref bool ref_isRequest_ShowGohosyu,

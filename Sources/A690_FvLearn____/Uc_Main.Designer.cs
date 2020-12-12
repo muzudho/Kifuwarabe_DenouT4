@@ -36,7 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtKifuFilepath = new System.Windows.Forms.TextBox();
-            this.lstSasite = new System.Windows.Forms.ListBox();
+            this.lstMove = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtFvFilepath = new System.Windows.Forms.TextBox();
@@ -152,12 +152,12 @@
             // 
             // lstSasite
             // 
-            this.lstSasite.FormattingEnabled = true;
-            this.lstSasite.ItemHeight = 12;
-            this.lstSasite.Location = new System.Drawing.Point(293, 154);
-            this.lstSasite.Name = "lstSasite";
-            this.lstSasite.Size = new System.Drawing.Size(226, 184);
-            this.lstSasite.TabIndex = 9;
+            this.lstMove.FormattingEnabled = true;
+            this.lstMove.ItemHeight = 12;
+            this.lstMove.Location = new System.Drawing.Point(293, 154);
+            this.lstMove.Name = "lstSasite";
+            this.lstMove.Size = new System.Drawing.Size(226, 184);
+            this.lstMove.TabIndex = 9;
             // 
             // label5
             // 
@@ -350,7 +350,7 @@
             this.btnSasiteRankDown.TabIndex = 31;
             this.btnSasiteRankDown.Text = "指し手の順位下げ";
             this.btnSasiteRankDown.UseVisualStyleBackColor = true;
-            this.btnSasiteRankDown.Click += new System.EventHandler(this.btnSasiteRankDown_Click);
+            this.btnSasiteRankDown.Click += new System.EventHandler(this.btnMoveRankDown_Click);
             // 
             // label12
             // 
@@ -378,7 +378,7 @@
             this.btnSasiteRankUp.TabIndex = 34;
             this.btnSasiteRankUp.Text = "指し手の順位上げ";
             this.btnSasiteRankUp.UseVisualStyleBackColor = true;
-            this.btnSasiteRankUp.Click += new System.EventHandler(this.btnSasiteRankUp_Click);
+            this.btnSasiteRankUp.Click += new System.EventHandler(this.btnMoveRankUp_Click);
             // 
             // label13
             // 
@@ -702,7 +702,7 @@
             this.Controls.Add(this.txtFvFilepath);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.lstSasite);
+            this.Controls.Add(this.lstMove);
             this.Controls.Add(this.txtKifuFilepath);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -728,7 +728,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtKifuFilepath;
-        private System.Windows.Forms.ListBox lstSasite;
+        private System.Windows.Forms.ListBox lstMove;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtFvFilepath;

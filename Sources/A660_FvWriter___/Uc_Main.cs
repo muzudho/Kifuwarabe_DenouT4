@@ -86,8 +86,8 @@ namespace Grayscale.P720FvWriter
             CsaKifu csaKifu = Util_Csa.ReadFile(this.txtKifuFilepath.Text);
 
             StringBuilder sb = new StringBuilder();
-            List<CsaKifuSasite> sasiteList = csaKifu.SasiteList;
-            foreach (CsaKifuSasite csaSasite in sasiteList)
+            List<CsaKifuMove> sasiteList = csaKifu.MoveList;
+            foreach (CsaKifuMove csaSasite in sasiteList)
             {
                 sb.Append(csaSasite.OptionTemezumi);
                 sb.Append("手目 ");
