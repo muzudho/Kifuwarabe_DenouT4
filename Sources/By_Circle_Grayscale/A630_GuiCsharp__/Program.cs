@@ -29,8 +29,8 @@ namespace Grayscale.P699Form
             //↑ [STAThread]指定のあるメソッドで フォームを作成してください。
 
             mainGui.Load_AsStart(errH);
-            mainGui.WidgetLoaders.Add(new WidgetsLoader_CsharpImpl(Const_Filepath.m_EXE_TO_CONFIG + "data_widgets_01_shogiban.csv", mainGui));
-            mainGui.WidgetLoaders.Add(new WidgetsLoader_CsharpImpl(Const_Filepath.m_EXE_TO_CONFIG + "data_widgets_02_console.csv", mainGui));
+            mainGui.WidgetLoaders.Add(new WidgetsLoader_CsharpImpl("../../Engine01_Config/data_widgets_01_shogiban.csv", mainGui));
+            mainGui.WidgetLoaders.Add(new WidgetsLoader_CsharpImpl("../../Engine01_Config/data_widgets_02_console.csv", mainGui));
             mainGui.LaunchForm_AsBody(errH);
         }
 

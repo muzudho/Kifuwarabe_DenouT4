@@ -27,7 +27,7 @@ namespace Grayscale.P720FvWriter
 
         private void btnMakeRandom_Click(object sender, EventArgs e)
         {
-            string filepath = Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG + "fv_00_Komawari(sample).csv";
+            string filepath = Application.StartupPath + "/../../Engine01_Config/fv_00_Komawari(sample).csv";
 
             FeatureVector fv = new FeatureVectorImpl();
             Util_FeatureVectorEdit.Make_Random(fv);
@@ -41,9 +41,9 @@ namespace Grayscale.P720FvWriter
         {
             ILogger errH = ErrorControllerReference.ProcessTestProgramDefault;
 
-            string filepathR = Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG + "fv_00_Komawari.csv";
-            string filepathR_KK = Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG + "fv_01_KK.csv";
-            string filepathW = Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG + "fv_2(sample).csv";
+            string filepathR = Application.StartupPath + "/../../Engine01_Config/fv_00_Komawari.csv";
+            string filepathR_KK = Application.StartupPath + "/../../Engine01_Config/fv_01_KK.csv";
+            string filepathW = Application.StartupPath + "/../../Engine01_Config/fv_2(sample).csv";
 
             FeatureVector fv = new FeatureVectorImpl();
 
@@ -127,12 +127,12 @@ namespace Grayscale.P720FvWriter
         /// <param name="e"></param>
         private void btn_HyoHenkeiFvKK_Click(object sender, EventArgs e)
         {
-            string filepathR = Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG + "fv/fv_00_Komawari.csv";
+            string filepathR = Application.StartupPath + "/../../Engine01_Config/fv/fv_00_Komawari.csv";
 
             FeatureVector fv = new FeatureVectorImpl();
             Util_FeatureVectorInput.Make_FromFile_Komawari(fv, filepathR);
 
-            UtilFeatureVectorOutput.Write_KK(fv, Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG);
+            UtilFeatureVectorOutput.Write_KK(fv, Application.StartupPath + "/../../Engine01_Config/");
         }
 
         /// <summary>
@@ -142,11 +142,11 @@ namespace Grayscale.P720FvWriter
         /// <param name="e"></param>
         private void btn_1pKP_Write_Click(object sender, EventArgs e)
         {
-            string filepathR = Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG + "fv/fv_00_Komawari.csv";
+            string filepathR = Application.StartupPath + "/../../Engine01_Config/fv/fv_00_Komawari.csv";
             FeatureVector fv = new FeatureVectorImpl();
             Util_FeatureVectorInput.Make_FromFile_Komawari(fv, filepathR);
 
-            UtilFeatureVectorOutput.Write_KP(fv, Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG);
+            UtilFeatureVectorOutput.Write_KP(fv, Application.StartupPath + "/../../Engine01_Config/");
         }
 
         /// <summary>
@@ -156,14 +156,14 @@ namespace Grayscale.P720FvWriter
         /// <param name="e"></param>
         private void btnWriteFvPp_Click(object sender, EventArgs e)
         {
-            string filepathR = Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG + "fv/fv_00_Komawari.csv";
+            string filepathR = Application.StartupPath + "/../../Engine01_Config/fv/fv_00_Komawari.csv";
             FeatureVector fv = new FeatureVectorImpl();
             Util_FeatureVectorInput.Make_FromFile_Komawari(fv, filepathR);
 
-            UtilFeatureVectorOutput.Write_PP_Banjo(fv, Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG);
-            UtilFeatureVectorOutput.Write_PP_19Mai(fv, Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG);
-            UtilFeatureVectorOutput.Write_PP_5Mai(fv, Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG);
-            UtilFeatureVectorOutput.Write_PP_3Mai(fv, Application.StartupPath + "/" + Const_Filepath.m_EXE_TO_CONFIG);
+            UtilFeatureVectorOutput.Write_PP_Banjo(fv, Application.StartupPath + "/../../Engine01_Config/");
+            UtilFeatureVectorOutput.Write_PP_19Mai(fv, Application.StartupPath + "/../../Engine01_Config/");
+            UtilFeatureVectorOutput.Write_PP_5Mai(fv, Application.StartupPath + "/../../Engine01_Config/");
+            UtilFeatureVectorOutput.Write_PP_3Mai(fv, Application.StartupPath + "/../../Engine01_Config/");
         }
 
         /// <summary>
@@ -173,7 +173,7 @@ namespace Grayscale.P720FvWriter
         /// <param name="e"></param>
         private void btnWriteFvScale_Click(object sender, EventArgs e)
         {
-            string filepathW = Path.Combine(Application.StartupPath, Const_Filepath.m_EXE_TO_CONFIG, Const_Filepath.m_CONFIG_TO_FV, "fv_00_Scale.csv");
+            string filepathW = Path.Combine(Application.StartupPath, "../../Engine01_Config/fv/fv_00_Scale.csv");
             MessageBox.Show("filepathW=[" + filepathW + "]", "fv_00_Scale.csv書き出し。");
 
             FeatureVector fv = new FeatureVectorImpl();

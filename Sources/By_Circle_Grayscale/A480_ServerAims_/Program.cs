@@ -17,7 +17,7 @@ namespace Grayscale.P489Form
             MessageBox.Show("AIMSサーバー");
 
 
-            string filepath = Const_Filepath.m_AIMS_TO_CONFIG + "data_settei.xml";
+            string filepath = "./CSharp/Engine01_Config/data_settei.xml";
             MessageBox.Show("設定ファイルパス＝[" + filepath + "]");
 
             //

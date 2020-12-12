@@ -106,7 +106,7 @@ namespace Grayscale.P699Form
             // 設定XMLファイル
             //
             {
-                this.setteiXmlFile = new SetteiXmlFile(Const_Filepath.m_EXE_TO_CONFIG + "data_settei.xml");
+                this.setteiXmlFile = new SetteiXmlFile("../../Engine01_Config/data_settei.xml");
                 if (!this.SetteiXmlFile.Exists())
                 {
                     // ファイルが存在しませんでした。

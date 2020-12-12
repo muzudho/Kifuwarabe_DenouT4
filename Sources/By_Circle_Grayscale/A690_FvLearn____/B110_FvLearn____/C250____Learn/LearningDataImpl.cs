@@ -64,8 +64,8 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
         static LearningDataImpl()
         {
             LearningDataImpl.REPORT_ENVIRONMENT = new KyokumenPngEnvironmentImpl(
-                        Const_Filepath.m_EXE_TO_LOGGINGS,
-                        Const_Filepath.m_EXE_TO_CONFIG + "img/gkLog/",
+                        "../../Engine01_Logs/",
+                        "../../Engine01_Config/img/gkLog/",
                         "koma1.png",//argsDic["kmFile"],
                         "suji1.png",//argsDic["sjFile"],
                         "20",//argsDic["kmW"],
@@ -101,31 +101,31 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
         public void AtBegin(UcMain uc_Main)
         {
             // データの読取「道」
-            if (Michi187Array.Load(Const_Filepath.m_EXE_TO_CONFIG + "data_michi187.csv"))
+            if (Michi187Array.Load("../../Engine01_Config/data_michi187.csv"))
             {
             }
 
             // データの読取「配役」
-            Util_Array_KomahaiyakuEx184.Load(Const_Filepath.m_EXE_TO_CONFIG + "data_haiyaku185_UTF-8.csv", Encoding.UTF8);
+            Util_Array_KomahaiyakuEx184.Load("../../Engine01_Config/data_haiyaku185_UTF-8.csv", Encoding.UTF8);
 
             // データの読取「強制転成表」　※駒配役を生成した後で。
-            Array_ForcePromotion.Load(Const_Filepath.m_EXE_TO_CONFIG + "data_forcePromotion_UTF-8.csv", Encoding.UTF8);
+            Array_ForcePromotion.Load("../../Engine01_Config/data_forcePromotion_UTF-8.csv", Encoding.UTF8);
 #if DEBUG
             {
-                File.WriteAllText(Const_Filepath.m_EXE_TO_LOGGINGS + "_log_強制転成表.html", Array_ForcePromotion.LogHtml());
+                File.WriteAllText("../../Engine01_Logs/_log_強制転成表.html", Array_ForcePromotion.LogHtml());
             }
 #endif
 
             // データの読取「配役転換表」
-            Data_KomahaiyakuTransition.Load(Const_Filepath.m_EXE_TO_CONFIG + "data_syuruiToHaiyaku.csv", Encoding.UTF8);
+            Data_KomahaiyakuTransition.Load("../../Engine01_Config/data_syuruiToHaiyaku.csv", Encoding.UTF8);
 #if DEBUG
             {
-                File.WriteAllText(Const_Filepath.m_EXE_TO_LOGGINGS + "_log_配役転換表.html", Data_KomahaiyakuTransition.Format_LogHtml());
+                File.WriteAllText("../../Engine01_Logs/_log_配役転換表.html", Data_KomahaiyakuTransition.Format_LogHtml());
             }
 #endif
 
             // ファイルへのパス。
-            uc_Main.TxtFvFilepath.Text = Path.GetFullPath(Const_Filepath.m_EXE_TO_CONFIG + "fv/fv_00_Komawari.csv");
+            uc_Main.TxtFvFilepath.Text = Path.GetFullPath("../../Engine01_Config/fv/fv_00_Komawari.csv");
             uc_Main.TxtStatus1.Text = "開くボタンで開いてください。";
         }
         /// <summary>
@@ -143,7 +143,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
                 positionA,
                 ErrorControllerReference.ProcessLearnerDefault
                 );
-            uc_Main.PctKyokumen.ImageLocation = Const_Filepath.m_EXE_TO_LOGGINGS + "_log_学習局面.png";
+            uc_Main.PctKyokumen.ImageLocation = "../../Engine01_Logs/_log_学習局面.png";
         }
 
         /// <summary>

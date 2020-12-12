@@ -165,7 +165,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C080Shape
                 // 駒画像
                 //----------
                 StringBuilder sb = new StringBuilder();
-                sb.Append(Const_Filepath.m_EXE_TO_CONFIG + "img/koma/");
+                sb.Append("../../Engine01_Config/img/koma/");
                 sb.Append(Conv_Komasyurui.ToStr_ImageName(Conv_Busstop.ToKomasyurui(koma)));
                 sb.Append(".png");
                 Image img = Image.FromFile(sb.ToString());
@@ -187,7 +187,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C080Shape
                 // 配役画像
                 //----------
                 StringBuilder sb = new StringBuilder();
-                sb.Append(Const_Filepath.m_EXE_TO_CONFIG + "img/mobility/");
+                sb.Append("../../Engine01_Config/img/mobility/");
                 sb.Append((int)
                     Data_KomahaiyakuTransition.ToHaiyaku(Conv_Busstop.ToKomasyurui(koma), Conv_Busstop.ToMasu(koma), Conv_Busstop.ToPlayerside(koma))
                     //koma.Haiyaku

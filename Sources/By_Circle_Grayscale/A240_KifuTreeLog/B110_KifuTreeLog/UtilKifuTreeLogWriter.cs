@@ -37,7 +37,7 @@ namespace Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct
         static UtilKifuTreeLogWriter()
         {
             UtilKifuTreeLogWriter.REPORT_ENVIRONMENT = new KyokumenPngEnvironmentImpl(
-                        Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS, "_log_KifuTreeLog/"),//argsDic["outFolder"],
+                        "../../Engine01_Logs/_log_KifuTreeLog/",//argsDic["outFolder"],
                         "../../Engine01_Config/img/gkLog/",//argsDic["imgFolder"],
                         "koma1.png",//argsDic["kmFile"],
                         "suji1.png",//argsDic["sjFile"],

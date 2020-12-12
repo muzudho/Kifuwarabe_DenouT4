@@ -1356,7 +1356,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("ログ出せ機能は廃止だぜ～☆（＾▽＾）");
-            File.WriteAllText(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS, "_log_ログ出せ命令.txt"), sb.ToString());
+            File.WriteAllText("../../Engine01_Logs/_log_ログ出せ命令.txt", sb.ToString());
 
             return PhaseResultUsiLoop2.None;
         }
@@ -1535,7 +1535,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 //------------------------------------------------------------------------------------------------------------------------
                 {
                     this.Shogisasi = new ShogisasiImpl(this);
-                    Util_FvLoad.OpenFv(this.Shogisasi.FeatureVector, Const_Filepath.m_EXE_TO_CONFIG + "fv/fv_00_Komawari.csv", this.Logger);
+                    Util_FvLoad.OpenFv(this.Shogisasi.FeatureVector, "../../Engine01_Config/fv/fv_00_Komawari.csv", this.Logger);
                 }
 
 
@@ -1544,8 +1544,8 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 // ファイル読込み
                 //------------------------------------------------------------------------------------------------------------------------
                 {
-                    string dataFolder = Path.Combine(Application.StartupPath, Const_Filepath.m_EXE_TO_CONFIG);
-                    string logsFolder = Path.Combine(Application.StartupPath, Const_Filepath.m_EXE_TO_LOGGINGS);
+                    string dataFolder = Path.Combine(Application.StartupPath, "../../Engine01_Config/");
+                    string logsFolder = Path.Combine(Application.StartupPath, "../../Engine01_Logs/");
 
                     // データの読取「道」
                     string filepath_Michi = Path.Combine(dataFolder, "data_michi187.csv");

@@ -78,7 +78,7 @@ namespace Grayscale.A210KnowNingen.B110GraphicLog.C500Util
             sb.AppendLine("</body>");
             sb.AppendLine("</html>");
 
-            File.WriteAllText(Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log") + Util_GraphicalLog.LogFileCounter + "_" + fileNameMemo + ".html", sb.ToString());
+            File.WriteAllText("../../Engine01_Logs/_log" + Util_GraphicalLog.LogFileCounter + "_" + fileNameMemo + ".html", sb.ToString());
             Util_GraphicalLog.LogFileCounter++;
 
         gt_EndMethod:

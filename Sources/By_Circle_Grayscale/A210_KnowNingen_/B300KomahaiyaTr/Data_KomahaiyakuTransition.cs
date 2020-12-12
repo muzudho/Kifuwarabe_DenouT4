@@ -172,7 +172,7 @@ namespace Grayscale.A210KnowNingen.B300_KomahaiyaTr.C500Table
                     sb.AppendLine();
                 }
 
-                string filepath_HaiyakuLoad1 = Path.Combine(Application.StartupPath, Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_配役転換表Load(1)_データ行のみ.txt"));
+                string filepath_HaiyakuLoad1 = Path.Combine(Application.StartupPath, "../../Engine01_Logs/_log_配役転換表Load(1)_データ行のみ.txt");
                 File.WriteAllText(filepath_HaiyakuLoad1, sb.ToString());
             }
 #endif
@@ -244,7 +244,7 @@ namespace Grayscale.A210KnowNingen.B300_KomahaiyaTr.C500Table
 
 #if DEBUG
             {
-                string filepath_HaiyakuLoad2 = Path.Combine(Application.StartupPath, Path.Combine(Const_Filepath.m_EXE_TO_LOGGINGS,"_log_配役転換表Load(2).txt"));
+                string filepath_HaiyakuLoad2 = Path.Combine(Application.StartupPath, "../../Engine01_Logs/_log_配役転換表Load(2).txt");
                 File.WriteAllText(filepath_HaiyakuLoad2, sbLog.ToString());
             }
 #endif

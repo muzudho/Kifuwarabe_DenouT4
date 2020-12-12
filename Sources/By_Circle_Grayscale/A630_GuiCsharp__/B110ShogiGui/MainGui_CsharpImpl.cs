@@ -295,7 +295,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
         {
             try
             {
-                string filepath2 = Path.Combine(Path.Combine(Application.StartupPath, Const_Filepath.m_EXE_TO_CONFIG), "data_style.txt");
+                string filepath2 = Path.Combine(Path.Combine(Application.StartupPath, "../../Engine01_Config/"), "data_style.txt");
 #if DEBUG
                 MessageBox.Show("独自スタイルシート　filepath2=" + filepath2);
 #endif
@@ -370,7 +370,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
                 errH.Flush(LogTypes.Plain);
 #endif
 
-                this.Data_Settei_Csv.Read_Add(Const_Filepath.m_EXE_TO_CONFIG + "data_settei.csv", Encoding.UTF8);
+                this.Data_Settei_Csv.Read_Add("../../Engine01_Config/data_settei.csv", Encoding.UTF8);
                 this.Data_Settei_Csv.DebugOut();
 
                 //----------
