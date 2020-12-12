@@ -35,12 +35,12 @@ namespace Grayscale.A500ShogiEngine.B200Scoreing.C005UsiLoop
         /// <summary>
         /// 「go ponder」の属性一覧です。
         /// </summary>
-        bool GoPonderNow_AtLoop2 { get; set; }
+        bool GoPonderNow { get; set; }
 
         /// <summary>
         /// USIの２番目のループで保持される、「gameover」の一覧です。
         /// </summary>
-        Dictionary<string, string> GameoverProperties_AtLoop2 { get; set; }
+        Dictionary<string, string> GameoverProperties { get; set; }
 
         /// <summary>
         /// 「go」の属性一覧です。

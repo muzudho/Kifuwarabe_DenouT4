@@ -9,23 +9,23 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
         {
             this.OnApplicationBegin = this.m_nullFunc01;
             this.OnApplicationEnd = this.m_nullFunc01;
-            this.OnCommandlineRead_AtLoop1Body = this.m_nullFunc05;
-            this.OnCommandlineRead_AtLoop2Body = this.m_nullFunc05;
-            this.OnGameoverReceived_AtLoop2Body = this.m_nullFunc02;
-            this.OnGoponderReceived_AtLoop2Body = this.m_nullFunc02;
-            this.OnGoReceived_AtLoop2Body = this.m_nullFunc02;
-            this.OnIsreadyReceived_AtLoop1Body = this.m_nullFunc04;
-            this.OnLogdaseReceived_AtLoop2Body = this.m_nullFunc02;
+            this.OnCommandlineAtLoop1 = this.m_nullFunc05;
+            this.OnCommandlineAtLoop2 = this.m_nullFunc05;
+            this.OnGameover = this.m_nullFunc02;
+            this.OnGoponder = this.m_nullFunc02;
+            this.OnGo = this.m_nullFunc02;
+            this.OnIsready = this.m_nullFunc04;
+            this.OnLogDase = this.m_nullFunc02;
             this.OnLoop1Begin = this.m_nullFunc01;
             this.OnLoop1End = this.m_nullFunc01;
             this.OnLoop2Begin = this.m_nullFunc01;
             this.OnLoop2End = this.m_nullFunc01;
-            this.OnPositionReceived_AtLoop2Body = this.m_nullFunc02;
-            this.OnQuitReceived_AtLoop1Body = this.m_nullFunc04;
-            this.OnSetoptionReceived_AtLoop1Body = this.m_nullFunc04;
-            this.OnStopReceived_AtLoop2Body = this.m_nullFunc02;
-            this.OnUsinewgameReceived_AtLoop1Body = this.m_nullFunc04;
-            this.OnUsiReceived_AtLoop1Body = this.m_nullFunc04;
+            this.OnPosition = this.m_nullFunc02;
+            this.OnQuit = this.m_nullFunc04;
+            this.OnSetoption = this.m_nullFunc04;
+            this.OnStop = this.m_nullFunc02;
+            this.OnUsinewgame = this.m_nullFunc04;
+            this.OnUsi = this.m_nullFunc04;
         }
 
         public Func01 m_nullFunc01 = delegate ()
@@ -151,7 +151,7 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
 
             while (true)
             {
-                string line = this.OnCommandlineRead_AtLoop1Body();
+                string line = this.OnCommandlineAtLoop1();
 
                 if (null == line)//次の行が無ければヌル。
                 {
@@ -180,17 +180,16 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
 
 
 
-                if ("usi" == line) { result_Usi_Loop1 = this.OnUsiReceived_AtLoop1Body(line); }
-                else if (line.StartsWith("setoption")) { result_Usi_Loop1 = this.OnSetoptionReceived_AtLoop1Body(line); }
-                else if ("isready" == line) { result_Usi_Loop1 = this.OnIsreadyReceived_AtLoop1Body(line); }
-                else if ("usinewgame" == line) { result_Usi_Loop1 = this.OnUsinewgameReceived_AtLoop1Body(line); }
-                else if ("quit" == line) { result_Usi_Loop1 = this.OnQuitReceived_AtLoop1Body(line); }
+                if ("usi" == line) { result_Usi_Loop1 = this.OnUsi(line); }
+                else if (line.StartsWith("setoption")) { result_Usi_Loop1 = this.OnSetoption(line); }
+                else if ("isready" == line) { result_Usi_Loop1 = this.OnIsready(line); }
+                else if ("usinewgame" == line) { result_Usi_Loop1 = this.OnUsinewgame(line); }
+                else if ("quit" == line) { result_Usi_Loop1 = this.OnQuit(line); }
                 else
                 {
                     //------------------------------------------------------------
                     // ○△□×！？
                     //------------------------------------------------------------
-                    #region ↓詳説
                     //
                     // ／(＾×＾)＼
                     //
@@ -199,7 +198,6 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
                     // USIプロトコルの独習を進め、対応／未対応を選んでください。
                     //
                     // ログだけ取って、スルーします。
-                    #endregion
                 }
 
                 switch (result_Usi_Loop1)
@@ -249,7 +247,7 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
                 {
                     result_Usi_Loop2 = PhaseResultUsiLoop2.None;
 
-                    string line = this.OnCommandlineRead_AtLoop2Body();
+                    string line = this.OnCommandlineAtLoop2();
 
                     if (null == line)//次の行が無ければヌル。
                     {
@@ -275,12 +273,12 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
 
 
 
-                    if (line.StartsWith("position")) { result_Usi_Loop2 = this.OnPositionReceived_AtLoop2Body(line); }
-                    else if (line.StartsWith("go ponder")) { result_Usi_Loop2 = this.OnGoponderReceived_AtLoop2Body(line); }
-                    else if (line.StartsWith("go")) { result_Usi_Loop2 = this.OnGoReceived_AtLoop2Body(line); }// 「go ponder」「go mate」「go infinite」とは区別します。
-                    else if (line.StartsWith("stop")) { result_Usi_Loop2 = this.OnStopReceived_AtLoop2Body(line); }
-                    else if (line.StartsWith("gameover")) { result_Usi_Loop2 = this.OnGameoverReceived_AtLoop2Body(line); }
-                    else if ("logdase" == line) { result_Usi_Loop2 = this.OnLogdaseReceived_AtLoop2Body(line); }//独自拡張
+                    if (line.StartsWith("position")) { result_Usi_Loop2 = this.OnPosition(line); }
+                    else if (line.StartsWith("go ponder")) { result_Usi_Loop2 = this.OnGoponder(line); }
+                    else if (line.StartsWith("go")) { result_Usi_Loop2 = this.OnGo(line); }// 「go ponder」「go mate」「go infinite」とは区別します。
+                    else if (line.StartsWith("stop")) { result_Usi_Loop2 = this.OnStop(line); }
+                    else if (line.StartsWith("gameover")) { result_Usi_Loop2 = this.OnGameover(line); }
+                    else if ("logdase" == line) { result_Usi_Loop2 = this.OnLogDase(line); }//独自拡張
                     else
                     {
                         //------------------------------------------------------------
@@ -319,32 +317,76 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
             ;
         }
 
+        /// <summary>
+        /// Loop2のEnd部で呼ばれます。
+        /// </summary>
         public Func01 OnLoop2End { get; set; }
 
+        /// <summary>
+        /// Loop2のBody部で呼ばれます。
+        /// </summary>
+        public Func05 OnCommandlineAtLoop2 { get; set; }
 
+        /// <summary>
+        /// Loop2のBody部で呼ばれます。
+        /// </summary>
+        public Func02 OnPosition { get; set; }
 
-        public Func05 OnCommandlineRead_AtLoop2Body { get; set; }
-        public Func02 OnPositionReceived_AtLoop2Body { get; set; }
-        public Func02 OnGoponderReceived_AtLoop2Body { get; set; }
+        /// <summary>
+        /// Loop2のBody部で呼ばれます。
+        /// </summary>
+        public Func02 OnGoponder { get; set; }
 
         /// <summary>
         /// 「go ponder」「go mate」「go infinite」とは区別します。
+        /// Loop2のBody部で呼ばれます。
         /// </summary>
-        public Func02 OnGoReceived_AtLoop2Body { get; set; }
+        public Func02 OnGo { get; set; }
 
-        public Func02 OnStopReceived_AtLoop2Body { get; set; }
-        public Func02 OnGameoverReceived_AtLoop2Body { get; set; }
+        /// <summary>
+        /// Loop2のBody部で呼ばれます。
+        /// </summary>
+        public Func02 OnStop { get; set; }
+
+        /// <summary>
+        /// Loop2のBody部で呼ばれます。
+        /// </summary>
+        public Func02 OnGameover { get; set; }
 
         /// <summary>
         /// 独自コマンド「ログ出せ」
+        /// Loop2のBody部で呼ばれます。
         /// </summary>
-        public Func02 OnLogdaseReceived_AtLoop2Body { get; set; }
+        public Func02 OnLogDase { get; set; }
 
-        public Func04 OnUsiReceived_AtLoop1Body { get; set; }
-        public Func04 OnSetoptionReceived_AtLoop1Body { get; set; }
-        public Func04 OnIsreadyReceived_AtLoop1Body { get; set; }
-        public Func04 OnUsinewgameReceived_AtLoop1Body { get; set; }
-        public Func04 OnQuitReceived_AtLoop1Body { get; set; }
-        public Func05 OnCommandlineRead_AtLoop1Body { get; set; }
+        /// <summary>
+        /// Loop1のBody部で呼ばれます。
+        /// </summary>
+        public Func04 OnUsi { get; set; }
+
+        /// <summary>
+        /// Loop1のBody部で呼ばれます。
+        /// </summary>
+        public Func04 OnSetoption { get; set; }
+
+        /// <summary>
+        /// Loop1のBody部で呼ばれます。
+        /// </summary>
+        public Func04 OnIsready { get; set; }
+
+        /// <summary>
+        /// Loop1のBody部で呼ばれます。
+        /// </summary>
+        public Func04 OnUsinewgame { get; set; }
+
+        /// <summary>
+        /// Loop1のBody部で呼ばれます。
+        /// </summary>
+        public Func04 OnQuit { get; set; }
+
+        /// <summary>
+        /// Loop1のBody部で呼ばれます。
+        /// </summary>
+        public Func05 OnCommandlineAtLoop1 { get; set; }
     }
 }

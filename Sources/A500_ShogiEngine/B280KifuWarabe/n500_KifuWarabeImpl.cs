@@ -50,11 +50,8 @@ using Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct;
 
 namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
 {
-
     public class KifuWarabeImpl : ShogiEngine
     {
-
-        #region コンストラクター
         /// <summary>
         /// コンストラクター
         /// </summary>
@@ -71,12 +68,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             this.EngineOptions.AddOption(EngineOptionNames.NOOPABLE, new EngineOptionBoolImpl());// 独自実装のコマンドなので、ＯＦＦにしておきます。
             this.EngineOptions.AddOption(EngineOptionNames.THINKING_MILLI_SECOND, new EngineOptionNumberImpl(30000));//30秒//90000//60000//8000//4000
 
-
-
-
-
-
-            #region ↓詳説  ＜n手目＞
             //
             // 図.
             //
@@ -103,7 +94,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             //      │    │                          │            │2           │自分が指したときにはカウントを変えません。                              │
             //      └──┴─────────────┴──────┴──────┴────────────────────────────────────┘
             //
-            #endregion
 
             // 棋譜
             ISky positionInit = UtilSkyCreator.New_Hirate();// きふわらべ起動時
@@ -131,13 +121,13 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
 
             // go ponderの属性一覧
             {
-                this.GoPonderNow_AtLoop2 = false;   // go ponderを将棋所に伝えたなら真
+                this.GoPonderNow = false;   // go ponderを将棋所に伝えたなら真
             }
 
             // gameoverの属性一覧
             {
-                this.GameoverProperties_AtLoop2 = new Dictionary<string, string>();
-                this.GameoverProperties_AtLoop2["gameover"] = "";
+                this.GameoverProperties = new Dictionary<string, string>();
+                this.GameoverProperties["gameover"] = "";
             }
 
 
@@ -145,34 +135,30 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             usiFramework.OnApplicationBegin = this.OnApplicationBegin;
 
             // 準備時
-            usiFramework.OnUsiReceived_AtLoop1Body = this.OnUsiReceived_AtLoop1Body;
-            usiFramework.OnSetoptionReceived_AtLoop1Body = this.OnSetoptionReceived_AtLoop1Body;
-            usiFramework.OnIsreadyReceived_AtLoop1Body = this.OnIsreadyReceived_AtLoop1Body;
-            usiFramework.OnUsinewgameReceived_AtLoop1Body = this.OnUsinewgameReceived_AtLoop1Body;
-            usiFramework.OnQuitReceived_AtLoop1Body = this.OnQuitReceived_AtLoop1Body;
-            usiFramework.OnCommandlineRead_AtLoop1Body = this.OnCommandlineRead_AtLoop1Body;
+            usiFramework.OnUsi = this.OnUsi;
+            usiFramework.OnSetoption = this.OnSetoption;
+            usiFramework.OnIsready = this.OnIsready;
+            usiFramework.OnUsinewgame = this.OnUsinewgame;
+            usiFramework.OnQuit = this.OnQuit;
+            usiFramework.OnCommandlineAtLoop1 = this.OnCommandlineAtLoop1;
 
             // 対局開始時
             usiFramework.OnLoop2Begin = this.OnLoop2Begin;
             // 対局中
-            usiFramework.OnCommandlineRead_AtLoop2Body = this.OnCommandlineRead_AtLoop2Body;
+            usiFramework.OnCommandlineAtLoop2 = this.OnCommandlineAtLoop2;
 
-            usiFramework.OnPositionReceived_AtLoop2Body = this.OnPositionReceived_AtLoop2Body;
-            usiFramework.OnGoponderReceived_AtLoop2Body = this.OnGoponderReceived_AtLoop2Body;
-            usiFramework.OnGoReceived_AtLoop2Body = this.OnGoReceived_AtLoop2Body;
-            usiFramework.OnStopReceived_AtLoop2Body = this.OnStopReceived_AtLoop2Body;
-            usiFramework.OnGameoverReceived_AtLoop2Body = this.OnGameoverReceived_AtLoop2Body;
-            usiFramework.OnLogdaseReceived_AtLoop2Body = this.OnLogdaseReceived_AtLoop2Body;
+            usiFramework.OnPosition = this.OnPositionAtLoop2;
+            usiFramework.OnGoponder = this.OnGoponderAtLoop2;
+            usiFramework.OnGo = this.OnGo;
+            usiFramework.OnStop = this.OnStop;
+            usiFramework.OnGameover = this.OnGameover;
+            usiFramework.OnLogDase = this.OnLogDase;
             // 対局終了時
             usiFramework.OnLoop2End = this.OnLoop2End;
             // アプリケーション終了時
             usiFramework.OnApplicationEnd = this.OnApplicationEnd;
         }
-        #endregion
 
-
-
-        #region プロパティー
         public ILogger Logger { get; set; }
 
         /// <summary>
@@ -202,7 +188,12 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 //return this.m_positionA_;
             } }
         */
-        public void SetKifu_AtLoop2(Tree kifu)
+
+        /// <summary>
+        /// Loop2で呼ばれます。
+        /// </summary>
+        /// <param name="kifu"></param>
+        public void SetKifu(Tree kifu)
         {
             this.m_kifu_AtLoop2_ = kifu;
             //this.m_positionA_ = kifu.GetSky();
@@ -226,19 +217,17 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
 
         /// <summary>
         /// 「go ponder」の属性一覧です。
+        /// Loop2で呼ばれます。
         /// </summary>
-        public bool GoPonderNow_AtLoop2 { get; set; }
+        public bool GoPonderNow { get; set; }
 
 
         /// <summary>
         /// USIの２番目のループで保持される、「gameover」の一覧です。
+        /// Loop2で呼ばれます。
         /// </summary>
-        public Dictionary<string, string> GameoverProperties_AtLoop2 { get; set; }
+        public Dictionary<string, string> GameoverProperties { get; set; }
 
-        #endregion
-
-
-        #region 送信
         /// <summary>
         /// 送信
         /// </summary>
@@ -246,7 +235,10 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
         public void Send(string line)
         {
             // 将棋サーバーに向かってメッセージを送り出します。
-            Util_Message.Upload(line);
+            if (0 < line.Length)
+            {
+                Util_Message.Upload(line);
+            }
 
 #if DEBUG
             // 送信記録をつけます。
@@ -254,18 +246,13 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             Util_Loggers.ProcessEngine_NETWORK.Flush(LogTypes.ToServer);
 #endif
         }
-        #endregion
 
-
-
-
-
-
-
-
-
-
-        private PhaseResultUsiLoop1 OnUsiReceived_AtLoop1Body(string line)
+        /// <summary>
+        /// Loop1のBody部で呼び出されます。
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
+        private PhaseResultUsiLoop1 OnUsi(string line)
         {
             //------------------------------------------------------------
             // あなたは USI ですか？
@@ -353,8 +340,12 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             return PhaseResultUsiLoop1.None;
         }
 
-
-        private PhaseResultUsiLoop1 OnSetoptionReceived_AtLoop1Body(string line)
+        /// <summary>
+        /// Loop1のBody部で呼び出されます。
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
+        private PhaseResultUsiLoop1 OnSetoption(string line)
         {
             //------------------------------------------------------------
             // 設定してください
@@ -440,8 +431,12 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             return PhaseResultUsiLoop1.None;
         }
 
-
-        private PhaseResultUsiLoop1 OnIsreadyReceived_AtLoop1Body(string line)
+        /// <summary>
+        /// Loop1のBody部で呼び出されます。
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
+        private PhaseResultUsiLoop1 OnIsready(string line)
         {
             //------------------------------------------------------------
             // それでは定刻になりましたので……
@@ -491,7 +486,12 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             return PhaseResultUsiLoop1.None;
         }
 
-        private PhaseResultUsiLoop1 OnUsinewgameReceived_AtLoop1Body(string line)
+        /// <summary>
+        /// Loop1のBody部で呼び出されます。
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
+        private PhaseResultUsiLoop1 OnUsinewgame(string line)
         {
             //------------------------------------------------------------
             // 対局時計が ポチッ とされました
@@ -515,7 +515,12 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             return PhaseResultUsiLoop1.Break;
         }
 
-        private PhaseResultUsiLoop1 OnQuitReceived_AtLoop1Body(string line)
+        /// <summary>
+        /// Loop1のBody部で呼び出されます。
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
+        private PhaseResultUsiLoop1 OnQuit(string line)
         {
             //------------------------------------------------------------
             // おつかれさまでした
@@ -560,8 +565,11 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             return PhaseResultUsiLoop1.Quit;
         }
 
-
-        private string OnCommandlineRead_AtLoop1Body()
+        /// <summary>
+        /// Loop1のBody部で呼び出されます。
+        /// </summary>
+        /// <returns></returns>
+        private string OnCommandlineAtLoop1()
         {
             // 将棋サーバーから何かメッセージが届いていないか、見てみます。
             string line = Util_Message.Download_Nonstop();
@@ -582,8 +590,11 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             this.Shogisasi.OnTaikyokuKaisi();//対局開始時の処理。
         }
 
-
-        private string OnCommandlineRead_AtLoop2Body()
+        /// <summary>
+        /// Loop2のBody部で呼び出されます。
+        /// </summary>
+        /// <returns></returns>
+        private string OnCommandlineAtLoop2()
         {
             //ノンストップ版
             //string line = TimeoutReader.ReadLine(1000);//指定ミリ秒だけブロック
@@ -608,7 +619,12 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             return line;
         }
 
-        private PhaseResultUsiLoop2 OnPositionReceived_AtLoop2Body(string line)
+        /// <summary>
+        /// Loop2のBody部で呼び出されます。
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
+        private PhaseResultUsiLoop2 OnPositionAtLoop2(string line)
         {
             ILogger logger = ErrorControllerReference.ProcessEngineDefault;
 
@@ -766,7 +782,12 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             return PhaseResultUsiLoop2.None;
         }
 
-        private PhaseResultUsiLoop2 OnGoponderReceived_AtLoop2Body(string line)
+        /// <summary>
+        /// Loop2のBody部で呼び出されます。
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
+        private PhaseResultUsiLoop2 OnGoponderAtLoop2(string line)
         {
             try
             {
@@ -818,7 +839,12 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             return PhaseResultUsiLoop2.None;
         }
 
-        private PhaseResultUsiLoop2 OnGoReceived_AtLoop2Body(string line)
+        /// <summary>
+        /// Loop2のBody部で呼び出されます。
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
+        private PhaseResultUsiLoop2 OnGo(string line)
         {
             int exceptionArea = 0;
 
@@ -829,7 +855,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 //------------------------------------------------------------
                 // あなたの手番です
                 //------------------------------------------------------------
-                #region ↓詳説
                 //
                 // 図.
                 //
@@ -841,13 +866,11 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 //
                 // もう指していいときに、将棋所から送られてくる文字が go です。
                 //
-                #endregion
 
 
                 //------------------------------------------------------------
                 // 先手 3:00  後手 0:00  記録係「50秒ぉ～」
                 //------------------------------------------------------------
-                #region ↓詳説
                 //
                 // 上図のメッセージのままだと使いにくいので、
                 // あとで使いやすいように Key と Value の表に分けて持ち直します。
@@ -866,7 +889,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 //      └──────┴──────┘
                 //      単位はミリ秒ですので、599000 は 59.9秒 です。
                 //
-                #endregion
                 Regex regex = new Regex(@"go btime (\d+) wtime (\d+) byoyomi (\d+)", RegexOptions.Singleline);
                 Match m = regex.Match(line);
 
@@ -960,7 +982,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                             //------------------------------------------------------------
                             // 投了
                             //------------------------------------------------------------
-                            #region ↓詳説
                             //
                             // 図.
                             //
@@ -973,7 +994,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
 
                             // この将棋エンジンは、後手とします。
                             // ２０手目、投了  を決め打ちで返します。
-                            #endregion
                             this.Send("bestmove resign");//投了
                         }
                         break;
@@ -1185,8 +1205,12 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             return PhaseResultUsiLoop2.None;
         }
 
-
-        private PhaseResultUsiLoop2 OnStopReceived_AtLoop2Body(string line)
+        /// <summary>
+        /// Loop2のBody部で呼び出されます。
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
+        private PhaseResultUsiLoop2 OnStop(string line)
         {
             try
             {
@@ -1194,7 +1218,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 //------------------------------------------------------------
                 // あなたの手番です  （すぐ指してください！）
                 //------------------------------------------------------------
-                #region ↓詳説
                 //
                 // 図.
                 //
@@ -1214,14 +1237,12 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 //  （２）「急いで指すボタン」が押されたときなどに送られてくるようです？
                 //
                 // stop するのは思考です。  stop を受け取ったら  すぐに最善手を指してください。
-                #endregion
 
-                if (this.GoPonderNow_AtLoop2)
+                if (this.GoPonderNow)
                 {
                     //------------------------------------------------------------
                     // 将棋エンジン「（予想手が間違っていたって？）  △９二香 を指そうと思っていたんだが」
                     //------------------------------------------------------------
-                    #region ↓詳説
                     //
                     // 図.
                     //
@@ -1249,7 +1270,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                     //          将棋エンジン「本当の指し手」
                     //
                     //      という流れと思います。
-                    #endregion
                     // この指し手は、無視されます。（無視されますが、送る必要があります）
                     this.Send("bestmove 9a9b");
                 }
@@ -1288,15 +1308,18 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             return PhaseResultUsiLoop2.None;
         }
 
-
-        private PhaseResultUsiLoop2 OnGameoverReceived_AtLoop2Body(string line)
+        /// <summary>
+        /// Loop2のBody部で呼び出されます。
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
+        private PhaseResultUsiLoop2 OnGameover(string line)
         {
             try
             {
                 //------------------------------------------------------------
                 // 対局が終わりました
                 //------------------------------------------------------------
-                #region ↓詳説
                 //
                 // 図.
                 //
@@ -1308,12 +1331,10 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 //
 
                 // 対局が終わったときに送られてくる文字が gameover です。
-                #endregion
 
                 //------------------------------------------------------------
                 // 「あ、勝ちました」「あ、引き分けました」「あ、負けました」
                 //------------------------------------------------------------
-                #region ↓詳説
                 //
                 // 上図のメッセージのままだと使いにくいので、
                 // あとで使いやすいように Key と Value の表に分けて持ち直します。
@@ -1327,17 +1348,16 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 //      │gameover    │lose        │
                 //      └──────┴──────┘
                 //
-                #endregion
                 Regex regex = new Regex(@"gameover (.)", RegexOptions.Singleline);
                 Match m = regex.Match(line);
 
                 if (m.Success)
                 {
-                    this.GameoverProperties_AtLoop2["gameover"] = (string)m.Groups[1].Value;
+                    this.GameoverProperties["gameover"] = (string)m.Groups[1].Value;
                 }
                 else
                 {
-                    this.GameoverProperties_AtLoop2["gameover"] = "";
+                    this.GameoverProperties["gameover"] = "";
                 }
 
 
@@ -1352,7 +1372,12 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             }
         }
 
-        private PhaseResultUsiLoop2 OnLogdaseReceived_AtLoop2Body(string line)
+        /// <summary>
+        /// Loop2のBody部で呼び出されます。
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
+        private PhaseResultUsiLoop2 OnLogDase(string line)
         {
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
@@ -1369,7 +1394,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             //-------------------+----------------------------------------------------------------------------------------------------
             // スナップショット  |
             //-------------------+----------------------------------------------------------------------------------------------------
-            #region ↓詳説
             // 対局後のタイミングで、データの中身を確認しておきます。
             // Key と Value の表の形をしています。（順不同）
             //
@@ -1410,7 +1434,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             //      │gameover    │lose        │
             //      └──────┴──────┘
             //
-            #endregion
 #if DEBUG
             Util_Loggers.ProcessEngine_DEFAULT.AppendLine("KifuParserA_Impl.LOGGING_BY_ENGINE, 確認 setoptionDictionary");
             Util_Loggers.ProcessEngine_DEFAULT.AppendLine(this.EngineOptions.ToString());
@@ -1511,7 +1534,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
 #endif
 
 
-        #region 処理の流れ
         public void OnApplicationBegin()
         {
             int exception_area = 0;
@@ -1525,7 +1547,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 // ログファイル削除  |
                 //-------------------+----------------------------------------------------------------------------------------------------
                 {
-                    #region ↓詳説
                     //
                     // 図.
                     //
@@ -1533,7 +1554,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                     //          ├─ Engine.KifuWarabe.exe
                     //          └─ log.txt               ←これを削除
                     //
-                    #endregion
                     ErrorControllerReference.RemoveAllLogFiles();
                 }
 
@@ -1589,7 +1609,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 //-------------+----------------------------------------------------------------------------------------------------------
                 // ログ書込み  |  ＜この将棋エンジン＞  製品名、バージョン番号
                 //-------------+----------------------------------------------------------------------------------------------------------
-                #region ↓詳説
                 //
                 // 図.
                 //
@@ -1605,7 +1624,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 //
                 // バージョン番号を「1.00.0」形式（メジャー番号.マイナー番号.ビルド番号)で書くのは作者の趣味です。
                 //
-                #endregion
                 {
                     string versionStr;
 
@@ -1638,7 +1656,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
         public void OnApplicationEnd()
         {
         }
-        #endregion
 
     }
 }

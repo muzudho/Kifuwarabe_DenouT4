@@ -26,30 +26,30 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500UsiFrame
         Func01 OnLoop1Begin { get; set; }
         Func01 OnLoop1End { get; set; }
 
-        Func04 OnUsiReceived_AtLoop1Body { get; set; }
-        Func04 OnSetoptionReceived_AtLoop1Body { get; set; }
-        Func04 OnIsreadyReceived_AtLoop1Body { get; set; }
-        Func04 OnUsinewgameReceived_AtLoop1Body { get; set; }
-        Func04 OnQuitReceived_AtLoop1Body { get; set; }
-        Func05 OnCommandlineRead_AtLoop1Body { get; set; }
+        Func04 OnUsi { get; set; }
+        Func04 OnSetoption { get; set; }
+        Func04 OnIsready { get; set; }
+        Func04 OnUsinewgame { get; set; }
+        Func04 OnQuit { get; set; }
+        Func05 OnCommandlineAtLoop1 { get; set; }
         #endregion
 
         #region 対局中フェーズ
         Func01 OnLoop2Begin { get; set; }
         Func01 OnLoop2End { get; set; }
 
-        Func05 OnCommandlineRead_AtLoop2Body { get; set; }
-        Func02 OnPositionReceived_AtLoop2Body { get; set; }
-        Func02 OnGoponderReceived_AtLoop2Body { get; set; }
+        Func05 OnCommandlineAtLoop2 { get; set; }
+        Func02 OnPosition { get; set; }
+        Func02 OnGoponder { get; set; }
 
         /// <summary>
         /// 「go ponder」「go mate」「go infinite」とは区別します。
         /// </summary>
-        Func02 OnGoReceived_AtLoop2Body { get; set; }
+        Func02 OnGo { get; set; }
 
-        Func02 OnStopReceived_AtLoop2Body { get; set; }
-        Func02 OnGameoverReceived_AtLoop2Body { get; set; }
-        Func02 OnLogdaseReceived_AtLoop2Body { get; set; }
+        Func02 OnStop { get; set; }
+        Func02 OnGameover { get; set; }
+        Func02 OnLogDase { get; set; }
         #endregion
     }
 }
