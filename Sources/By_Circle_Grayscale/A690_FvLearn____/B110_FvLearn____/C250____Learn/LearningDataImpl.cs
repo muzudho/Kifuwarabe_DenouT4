@@ -64,11 +64,14 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
         public static KyokumenPngEnvironment REPORT_ENVIRONMENT;
         static LearningDataImpl()
         {
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+
             LearningDataImpl.REPORT_ENVIRONMENT = new KyokumenPngEnvironmentImpl(
-                        "../../Engine01_Logs/",
-                        "../../Engine01_Config/img/gkLog/",
-                        "koma1.png",//argsDic["kmFile"],
-                        "suji1.png",//argsDic["sjFile"],
+                        toml.Get<TomlTable>("Resources").Get<string>("DataDirectory"),
+                        toml.Get<TomlTable>("Resources").Get<string>("ImgGkLogDirectory"),
+                        toml.Get<TomlTable>("Resources").Get<string>("Koma1PngFilename"),//argsDic["kmFile"],
+                        toml.Get<TomlTable>("Resources").Get<string>("Suji1PngFilename"),//argsDic["sjFile"],
                         "20",//argsDic["kmW"],
                         "20",//argsDic["kmH"],
                         "8",//argsDic["sjW"],
@@ -291,6 +294,9 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
             ILogger errH
             )
         {
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+
             int srcMasu_orMinusOne = -1;
             int dstMasu_orMinusOne = -1;
 
@@ -334,7 +340,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
                 foodKoma,
                 ConvMove.ToSfen(move),
                 "",
-                "_log_学習局面.png",
+                toml.Get<TomlTable>("Resources").Get<string>("LearningPositionLogPngFilename"),
                 LearningDataImpl.REPORT_ENVIRONMENT,
                 errH
                 );

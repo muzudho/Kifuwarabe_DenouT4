@@ -8,7 +8,11 @@ Author = "Satoshi TAKAHASHI"
 
 [Resources]
 
-DataDirectory = "/../../Engine01_Config/"
+DataDirectory = "../../Engine01_Config/"
+ImgGkLogDirectory = "../../Engine01_Config/img/gkLog/"
+KifuTreeLogDirectory = "../../Engine01_Logs/_log_KifuTreeLog/"
+ImgMobilityDirectory = "../../Engine01_Config/img/mobility/"
+ImgKomaDirectory = "../../Engine01_Config/img/koma/"
 
 Michi187 = "./Data/data_michi187.csv"
 Haiyaku185 = "../../Engine01_Config/data_haiyaku185_UTF-8.csv"
@@ -33,7 +37,19 @@ HaiyakuTenkanhyoLoad2 = "../../Engine01_Logs/_log_配役転換表Load(2).txt"
 
 # 画像
 
+# var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+# var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+# Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("xxxxxxxxxxxxxxxx"))
+
 LearningPositionLogPng = "../../Engine01_Logs/_log_学習局面.png"
+LearningPositionLogPngFilename = "_log_学習局面.png"
+ChokkinNoSasitePngFilename = "_log_直近の指し手.png"
+Koma1PngFilename = "koma1.png"
+Suji1PngFilename = "suji1.png"
+
+N1PngFilename = "1.png" # 出力ファイル
+N2PngFilename = "2.png" # 駒画像へのパス。
+N3PngFilename = "3.png" # 数字・小
 
 # Fv
 
@@ -82,10 +98,6 @@ Fv31pp2pInFvDir = "fv_31_pp_2pMotiKaku.csv"
 
 # 拡張子を付けないログファイル
 
-# var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-# var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
-# Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("xxxxxxxxxxxxxxxx"))
-
 N01ProcessNoneErrorLog = "../../Engine01_Logs/_log_エラー"
 N02PeocessNoneSennititeLog = "../../Engine01_Logs/_log_Default_千日手判定"
 N03ProcessServerDefaultLog = "../../Engine01_Logs/_log_ｻｰﾊﾞｰ_ﾃﾞﾌｫﾙﾄ"
@@ -109,4 +121,5 @@ KyouseiTenseiDebug = "../../Engine01_Logs/#強制転成デバッグ.txt"
 StopLearningFlag = "./Stop_learning.txt"
 SearchKifuFolderText = "./Search_kifu_folder.txt"
 SyugoronDictionaryText = "./dictionary.txt"
+
 

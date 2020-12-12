@@ -15,6 +15,8 @@ using Grayscale.A630GuiCsharp.B110ShogiGui.C080Shape;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui;
 using Grayscale.B110ShogiGui;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Nett;
+using System.IO;
 
 namespace Grayscale.A630GuiCsharp.B110ShogiGui.C080Shape
 {
@@ -159,13 +161,16 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C080Shape
             mainGui.SkyWrapper_Gui.GuiSky.AssertFinger(this.Finger);
             Busstop koma = mainGui.SkyWrapper_Gui.GuiSky.BusstopIndexOf(this.Finger);
 
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+
             if (ShogiGuiDebugOptions.KomaImage)
             {
                 //----------
                 // 駒画像
                 //----------
                 StringBuilder sb = new StringBuilder();
-                sb.Append("../../Engine01_Config/img/koma/");
+                sb.Append(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("ImgKomaDirectory")));
                 sb.Append(Conv_Komasyurui.ToStr_ImageName(Conv_Busstop.ToKomasyurui(koma)));
                 sb.Append(".png");
                 Image img = Image.FromFile(sb.ToString());
@@ -187,7 +192,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C080Shape
                 // 配役画像
                 //----------
                 StringBuilder sb = new StringBuilder();
-                sb.Append("../../Engine01_Config/img/mobility/");
+                sb.Append(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("ImgMobilityDirectory")));
                 sb.Append((int)
                     Data_KomahaiyakuTransition.ToHaiyaku(Conv_Busstop.ToKomasyurui(koma), Conv_Busstop.ToMasu(koma), Conv_Busstop.ToPlayerside(koma))
                     //koma.Haiyaku

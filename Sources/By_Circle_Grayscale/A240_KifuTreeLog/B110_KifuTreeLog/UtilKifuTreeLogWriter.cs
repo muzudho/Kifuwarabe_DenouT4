@@ -13,6 +13,7 @@ using Grayscale.A210KnowNingen.B270Sky.C500Struct;
 using Grayscale.A210KnowNingen.B280Tree.C500Struct;
 using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 using Grayscale.A120KifuSfen;
+using Nett;
 
 #if DEBUG
 using System;
@@ -32,15 +33,17 @@ namespace Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct
     /// </summary>
     public abstract class UtilKifuTreeLogWriter
     {
-
         public static KyokumenPngEnvironment REPORT_ENVIRONMENT;
         static UtilKifuTreeLogWriter()
         {
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+
             UtilKifuTreeLogWriter.REPORT_ENVIRONMENT = new KyokumenPngEnvironmentImpl(
-                        "../../Engine01_Logs/_log_KifuTreeLog/",//argsDic["outFolder"],
-                        "../../Engine01_Config/img/gkLog/",//argsDic["imgFolder"],
-                        "koma1.png",//argsDic["kmFile"],
-                        "suji1.png",//argsDic["sjFile"],
+                        Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("KifuTreeLogDirectory")),//argsDic["outFolder"],
+                        Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("ImgGkLogDirectory")),//argsDic["imgFolder"],
+                        toml.Get<TomlTable>("Resources").Get<string>("Koma1PngFilename"),//argsDic["kmFile"],
+                        toml.Get<TomlTable>("Resources").Get<string>("Suji1PngFilename"),//argsDic["sjFile"],
                         "20",//argsDic["kmW"],
                         "20",//argsDic["kmH"],
                         "8",//argsDic["sjW"],
@@ -170,7 +173,7 @@ namespace Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct
             {
 
                 // 出力先
-                fileName = Conv_Filepath.ToEscape("_log_" + ((int)moveEx.Score) + "点_" + logFileCounter + "_" + nodePath + ".png");
+                fileName = Conv_Filepath.ToEscape($"_log_{(int)moveEx.Score}点_{logFileCounter}_{nodePath}.png");
                 relFolder = Conv_Filepath.ToEscape(relFolder);
                 //
                 // 画像ﾛｸﾞ

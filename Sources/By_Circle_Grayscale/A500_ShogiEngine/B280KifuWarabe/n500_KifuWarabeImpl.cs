@@ -1450,6 +1450,9 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
         }
         private void Log2_Png_Tyokkin_AtLoop2(string line, Move move_forLog, Sky sky, KwLogger errH)
         {
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+
             //OwataMinister.WARABE_ENGINE.Logger.WriteLine_AddMemo(
             //    Util_Sky307.Json_1Sky(this.Kifu.CurNode.Value.ToKyokumenConst, "現局面になっているのかなんだぜ☆？　line=[" + line + "]　棋譜＝" + KirokuGakari.ToJsaKifuText(this.Kifu, OwataMinister.WARABE_ENGINE),
             //        "PgCS",
@@ -1462,7 +1465,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             //
             {
                 // 出力先
-                string fileName = "_log_直近の指し手.png";
+                string fileName = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("ChokkinNoSasitePngFilename"));
 
                 SyElement srcMasu = Conv_Move.ToSrcMasu(move_forLog);
                 SyElement dstMasu = Conv_Move.ToDstMasu(move_forLog);

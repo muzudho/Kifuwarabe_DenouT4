@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using Grayscale.A150LogKyokuPng.B100KyokumenPng.C500Struct;
 using Grayscale.A150LogKyokuPng.B200LogKyokuPng.C500UtilWriter;
+using Nett;
 
 namespace Grayscale.P159_Form_______
 {
@@ -76,16 +78,19 @@ namespace Grayscale.P159_Form_______
             // --end
             //
 
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+
             // ヌル防止のための初期値
             Dictionary<string, string> argsDic = new Dictionary<string, string>();
             argsDic.Add("position", "position startpos moves");
             argsDic.Add("outFolder", "./");//出力フォルダー "../../ログ/"
-            argsDic.Add("outFile", "1.png");//出力ファイル
+            argsDic.Add("outFile", toml.Get<TomlTable>("Resources").Get<string>("N1PngFilename"));//出力ファイル
             argsDic.Add("imgFolder", ".");//画像フォルダーへのパス image path
-            argsDic.Add("kmFile", "2.png");//駒画像へのパス。
+            argsDic.Add("kmFile", toml.Get<TomlTable>("Resources").Get<string>("N2PngFilename"));//駒画像へのパス。
             argsDic.Add("kmW", "1");//駒の横幅。koma width
             argsDic.Add("kmH", "1");
-            argsDic.Add("sjFile", "3.png");//数字・小
+            argsDic.Add("sjFile", toml.Get<TomlTable>("Resources").Get<string>("N3PngFilename"));//数字・小
             argsDic.Add("sjW", "1");//数字の横幅。suji width
             argsDic.Add("sjH", "1");
             TestProgram.AppendCommandline(argsDic);
