@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\Microsoft.CodeAnalysis.NetAnalyzers.5.0.1\build\Microsoft.CodeAnalysis.NetAnalyzers.props" Condition="Exists('..\..\packages\Microsoft.CodeAnalysis.NetAnalyzers.5.0.1\build\Microsoft.CodeAnalysis.NetAnalyzers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2CFB37AE-2D9E-4478-ABD8-1EAAAF98F223}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Grayscale.A210_KnowNingen_</RootNamespace>
+    <AssemblyName>Grayscale.A210_KnowNingen_</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\BuildsOfAnothers\Debug\A210_KnowNingen_\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\BuildsOfAnothers\Release\A210_KnowNingen_\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'LEARN|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\BuildsOfAnothers\Learn\A210_KnowNingen_\</OutputPath>
+    <DefineConstants>TRACE;LEARN</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Nett, Version=0.15.0.0, Culture=neutral, PublicKeyToken=605dcfe7a1d3365b, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Nett.0.15.0\lib\net40\Nett.dll</HintPath>
+    </Reference>
+    <Reference Include="ProjectDark.KWSupport">
+      <HintPath>..\..\Resources\Lib_Circle_ProjectDark\ProjectDark.KWSupport.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="B170WordShogi\Util_SyElement_BinaryOperator.cs" />
+    <Compile Include="B170WordShogi\INewBasho.cs" />
+    <Compile Include="B180ConvPside\Conv_Masu.cs" />
+    <Compile Include="B240Move\n1_BusstopShift.cs" />
+    <Compile Include="B240Move\n2_BusstopMask.cs" />
+    <Compile Include="B240Move\n3_Busstop.cs" />
+    <Compile Include="B280Tree\EarthImpl.cs" />
+    <Compile Include="B280Tree\Util_Tree.cs" />
+    <Compile Include="B280Tree\Earth.cs" />
+    <Compile Include="B280Tree\MoveNodeType.cs" />
+    <Compile Include="B310Shogiban\ShogibanImpl.cs" />
+    <Compile Include="B420UtilSky258\UtilSkyBoolQuery.cs" />
+    <Compile Include="B430Play\QuerySkyFingers.cs" />
+    <Compile Include="B320ConvWords\ConvFingers.cs" />
+    <Compile Include="B320ConvWords\Conv_KomabetuMasus268.cs" />
+    <Compile Include="B320ConvWords\Conv_Komasyurui.cs" />
+    <Compile Include="B320ConvWords\Conv_NariNarazu.cs" />
+    <Compile Include="B320ConvWords\Conv_AgaruHiku.cs" />
+    <Compile Include="B320ConvWords\Conv_DaHyoji.cs" />
+    <Compile Include="B320ConvWords\Conv_MigiHidari.cs" />
+    <Compile Include="B320ConvWords\Conv_Sasite.cs" />
+    <Compile Include="B170WordShogi\Array_Playerside.cs" />
+    <Compile Include="B180ConvPside\Conv_Playerside.cs" />
+    <Compile Include="B190Komasyurui\Array_Komasyurui.cs" />
+    <Compile Include="B320ConvWords\Conv_Sky.cs" />
+    <Compile Include="B440Utifudume\Util_Utifudume.cs" />
+    <Compile Include="B470ConvKiki\Util_SkyPside.cs" />
+    <Compile Include="B280Tree\MoveExImpl.cs" />
+    <Compile Include="B280Tree\MoveEx.cs" />
+    <Compile Include="B650PnlTaikyoku\SkyWrapper_GuiImpl.cs" />
+    <Compile Include="B650PnlTaikyoku\SkyWrapper_Gui.cs" />
+    <Compile Include="B240Move\n1_MoveShift.cs" />
+    <Compile Include="B240Move\n3_Move.cs" />
+    <Compile Include="B240Move\n2_MoveMask.cs" />
+    <Compile Include="B670ConvKyokume\Conv_Busstop.cs" />
+    <Compile Include="B670ConvKyokume\ConvMove.cs" />
+    <Compile Include="B740KifuParserA\ConvStringMove.cs" />
+    <Compile Include="B800ConvCsa\Util_CsaSasite.cs" />
+    <Compile Include="B250LogKaisetu\Util_LogWriter022_Json.cs" />
+    <Compile Include="B290Komahaiyaku\Array_Komahaiyaku185.cs" />
+    <Compile Include="B420UtilSky258\Util_Fingers_KomasyuruiQuery.cs" />
+    <Compile Include="B420UtilSky258\UtilSkyFingerQuery.cs" />
+    <Compile Include="B420UtilSky258\UtilSkyFingersQueryEx.cs" />
+    <Compile Include="B420UtilSky258\UtilSkyFingersQueryFx.cs" />
+    <Compile Include="B420UtilSky258\UtilSkyKomaQuery.cs" />
+    <Compile Include="B420UtilSky258\UtilSkySyugoQuery.cs" />
+    <Compile Include="B320ConvWords\Conv_String268.cs" />
+    <Compile Include="B170WordShogi\MasubetuKikisuImpl.cs" />
+    <Compile Include="B170WordShogi\IMasubetuKikisu.cs" />
+    <Compile Include="B480UtilSasu\Util_Sasu269.cs" />
+    <Compile Include="B180ConvPside\Conv_Okiba.cs" />
+    <Compile Include="B420UtilSky258\UtilSkyFingersQuery.cs" />
+    <Compile Include="B420UtilSky258\UtilSkyCreator.cs" />
+    <Compile Include="B550JsaFugo\Util_Translator_JsaFugo.cs" />
+    <Compile Include="B810LogGraphiEx\Conv_KaisetuBoards.cs" />
+    <Compile Include="B220ZobrishHash\Util_ZobristHashing.cs" />
+    <Compile Include="B630Sennitite\SennititeConfirmerImpl.cs" />
+    <Compile Include="B630Sennitite\SennititeConfirmer.cs" />
+    <Compile Include="B600UtilSky\Conv_Starlight.cs" />
+    <Compile Include="B620KyokumHyoka\HyokakansuName.cs" />
+    <Compile Include="B670ConvKyokume\ConvKifuNode.cs" />
+    <Compile Include="B690Ittesasu\Conv_JsaFugoText.cs" />
+    <Compile Include="B670ConvKyokume\ConvSfenSasiteTokens.cs" />
+    <Compile Include="B690Ittesasu\UtilIttemodosuRoutine.cs" />
+    <Compile Include="B770ConvSasu\Conv_KomabetuSusumeruMasus.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="B130Json\IJsonVal.cs" />
+    <Compile Include="B130Json\Json_Arr.cs" />
+    <Compile Include="B130Json\Json_Obj.cs" />
+    <Compile Include="B130Json\Json_Prop.cs" />
+    <Compile Include="B130Json\Json_Str.cs" />
+    <Compile Include="B150KifuJsa\AgaruHiku.cs" />
+    <Compile Include="B150KifuJsa\DaHyoji.cs" />
+    <Compile Include="B150KifuJsa\MigiHidari.cs" />
+    <Compile Include="B150KifuJsa\NariFunari.cs" />
+    <Compile Include="B170WordShogi\Hogaku.cs" />
+    <Compile Include="B170WordShogi\Okiba.cs" />
+    <Compile Include="B170WordShogi\Playerside.cs" />
+    <Compile Include="B250LogKaisetu\KaisetuBoard.cs" />
+    <Compile Include="B250LogKaisetu\KaisetuBoards.cs" />
+    <Compile Include="B270Sky\ISky.cs" />
+    <Compile Include="B270Sky\Fingers.cs" />
+    <Compile Include="B270Sky\SkyImpl.cs" />
+    <Compile Include="B280Tree\Tree.cs" />
+    <Compile Include="B280Tree\TreeImpl.cs" />
+    <Compile Include="B190Komasyurui\Util_Komasyurui14.cs" />
+    <Compile Include="B190Komasyurui\Komasyurui14.cs" />
+    <Compile Include="B170WordShogi\BashoImpl.cs" />
+    <Compile Include="B170WordShogi\Masu_Honshogi.cs" />
+    <Compile Include="B200ConvMasu\Conv_Muki.cs" />
+    <Compile Include="B290Komahaiyaku\Util_Komahaiyaku184.cs" />
+    <Compile Include="B290Komahaiyaku\Komahaiyaku185.cs" />
+    <Compile Include="B300KomahaiyaTr\Data_KomahaiyakuTransition.cs" />
+    <Compile Include="B320ConvWords\Conv_Shogiban.cs" />
+    <Compile Include="B310Shogiban\Util_Koma.cs" />
+    <Compile Include="B350SfenTransla\StartposBuilder1.cs" />
+    <Compile Include="B350SfenTransla\Util_StartposExporter.cs" />
+    <Compile Include="B360MasusWriter\LogShogibanTermDisplay.cs" />
+    <Compile Include="B360MasusWriter\UtilMasus.cs" />
+    <Compile Include="B360MasusWriter\WriterMasus.cs" />
+    <Compile Include="B380Michi\Michi187Array.cs" />
+    <Compile Include="B390KomahaiyaEx\Util_KomahaiyakuEx184.cs" />
+    <Compile Include="B390KomahaiyaEx\Util_Array_KomahaiyakuEx184.cs" />
+    <Compile Include="B400KifuwKuukan\KifuwarabeKuukan24.cs" />
+    <Compile Include="B410SeizaFinger\Finger_Honshogi.cs" />
+    <Compile Include="B410SeizaFinger\Util_Finger.cs" />
+    <Compile Include="B420UtilSky258\Util_Sky258A.cs" />
+    <Compile Include="B550JsaFugo\JsaFugoImpl.cs" />
+    <Compile Include="B210KomanoKidou\KomanoKidou.cs" />
+    <Compile Include="B210KomanoKidou\Array_Rule01_PotentialMove15.cs" />
+    <Compile Include="B490ForcePromot\Array_ForcePromotion.cs" />
+    <Compile Include="B490ForcePromot\Util_ForcePromotion.cs" />
+    <Compile Include="B560JsaFugoWrit\ArrayJsaFugoCreator15.cs" />
+    <Compile Include="B420UtilSky258\Util_Converter_LogGraphicEx.cs" />
+    <Compile Include="B110_GraphicLog_\Util_GraphicalLog.cs" />
+    <Compile Include="B420UtilSky258\Util_FormatJson_LogGraphicEx.cs" />
+    <Compile Include="B500CollectOpeA\UtilKomabetuMasubetuMasus.cs" />
+    <Compile Include="B500CollectOpeA\Util_KomabetuMasus.cs" />
+    <Compile Include="B510KifuReaderB\IKifuReaderBState.cs" />
+    <Compile Include="B510KifuReaderB\KifuReaderB_Impl.cs" />
+    <Compile Include="B510KifuReaderB\KifuReaderB_StateB0.cs" />
+    <Compile Include="B520SeizaStartp\StartposImporter.cs" />
+    <Compile Include="B600UtilSky\UtilSky307.cs" />
+    <Compile Include="B610NodeWriter\NodeWriterImpl.cs" />
+    <Compile Include="B420UtilSky258\UtilSkyCountQuery.cs" />
+    <Compile Include="B690Ittesasu\Util_KifuTree282.cs" />
+    <Compile Include="B280Tree\Word_KifuTree.cs" />
+    <Compile Include="B690Ittesasu\IIttesasuResult.cs" />
+    <Compile Include="B690Ittesasu\IIttemodosuResult.cs" />
+    <Compile Include="B690Ittesasu\IttesasuResultImpl.cs" />
+    <Compile Include="B690Ittesasu\UtilIttesasuRoutine.cs" />
+    <Compile Include="B690Ittesasu\ConvJsaFugoTokens.cs" />
+    <Compile Include="B690Ittesasu\Query341OnSky.cs" />
+    <Compile Include="B690Ittesasu\UtilKirokuGakari.cs" />
+    <Compile Include="B570ConvJsa\Conv_SasiteStr_Jsa.cs" />
+    <Compile Include="B690Ittesasu\IttemodosuResultImpl.cs" />
+    <Compile Include="B770ConvSasu\ConvStarbetuSasites.cs" />
+    <Compile Include="B690Ittesasu\Util_IttesasuSuperRoutine.cs" />
+    <Compile Include="B730UtilSasuEx\Util_SasuEx.cs" />
+    <Compile Include="B740KifuParserA\IKifuParserA.cs" />
+    <Compile Include="B740KifuParserA\IKifuParserAGenjo.cs" />
+    <Compile Include="B740KifuParserA\IKifuParserAResult.cs" />
+    <Compile Include="B740KifuParserA\IKifuParserAState.cs" />
+    <Compile Include="B740KifuParserA\KifuParserA_GenjoImpl.cs" />
+    <Compile Include="B740KifuParserA\KifuParserAImpl.cs" />
+    <Compile Include="B740KifuParserA\KifuParserA_ResultImpl.cs" />
+    <Compile Include="B740KifuParserA\KifuParserAStateA0Document.cs" />
+    <Compile Include="B740KifuParserA\KifuParserA_StateA1aSfenStartpos.cs" />
+    <Compile Include="B740KifuParserA\KifuParserAStateA1bSfenLnsgkgsnl.cs" />
+    <Compile Include="B740KifuParserA\KifuParserAStateA1SfenPosition.cs" />
+    <Compile Include="B740KifuParserA\KifuParserAStateA2SfenMoves.cs" />
+    <Compile Include="B450Play2\Play.cs" />
+    <Compile Include="B430Play\Play_KomaAndMove.cs" />
+    <Compile Include="B430Play\Query_FingersMasusSky.cs" />
+    <Compile Include="B770ConvSasu\Conv_Movelist1.cs" />
+    <Compile Include="B780LegalMove\Util_LegalMove.cs" />
+    <Compile Include="B460KyokumMoves\MmLogGenjo.cs" />
+    <Compile Include="B460KyokumMoves\MmLogGenjoImpl.cs" />
+    <Compile Include="B460KyokumMoves\Util_KyokumenMoves.cs" />
+    <Compile Include="B630Sennitite\SennititeCounterImpl.cs" />
+    <Compile Include="B630Sennitite\SennititeCounter.cs" />
+    <Compile Include="B820KyokuParser\MotiItemImpl.cs" />
+    <Compile Include="B820KyokuParser\ParsedKyokumenImpl.cs" />
+    <Compile Include="B820KyokuParser\MotiItem.cs" />
+    <Compile Include="B820KyokuParser\ParsedKyokumen.cs" />
+    <Compile Include="B830ConvStartpo\Conv_StartposImporter.cs" />
+    <Compile Include="HumanKnowsDebugOptions.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="B100_／／人間ライブラリー\" />
+    <Folder Include="B120_／／↓データ格納記法（JSON）\" />
+    <Folder Include="B140_／／↓日本将棋連盟式符号（上引寄、等）\" />
+    <Folder Include="B160_／／↓きふわらべ式将棋符号\" />
+    <Folder Include="B230_／／↓きふわらべ独自局面データ（P217～P239）\" />
+    <Folder Include="B330_／／↑きふわらべ独自局面データ\" />
+    <Folder Include="B340_／／↓細々（P241～P259）\" />
+    <Folder Include="B530_／／↑細々\" />
+    <Folder Include="B540_／／↓日本将棋連盟の符号\" />
+    <Folder Include="B580_／／↑日本将棋連盟の符号\" />
+    <Folder Include="B590_／／↓細々\" />
+    <Folder Include="B660_／／↑細々\" />
+    <Folder Include="B680_／／↓★一手指すルーチン\" />
+    <Folder Include="B700_／／↑一手指すルーチン\" />
+    <Folder Include="B710_／／↓SFEN棋譜指示実行\" />
+    <Folder Include="B750_／／↑SFEN棋譜指示実行\" />
+    <Folder Include="B760_／／↓合法手まとめルーチン\" />
+    <Folder Include="B790_／／↑合法手まとめルーチン\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\A000_Platform___\A000Platform.csproj">
+      <Project>{147b11e0-827b-4d3f-844c-adf2beafa53f}</Project>
+      <Name>A000Platform</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\A060_Application\A060Application.csproj">
+      <Project>{8ac05075-a6ef-4779-b18c-3d0e801a4bcd}</Project>
+      <Name>A060Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\A120_KifuSfen___\A120KifuSfen.csproj">
+      <Project>{b0982362-ab7f-45a6-af5f-c9fdfa49f9dd}</Project>
+      <Name>A120KifuSfen</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\A180_KifuCsa____\A180KifuCsa.csproj">
+      <Project>{abed6201-9999-44cd-a91b-4ca01cc89006}</Project>
+      <Name>A180KifuCsa</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\packages\Microsoft.CodeAnalysis.NetAnalyzers.5.0.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll" />
+    <Analyzer Include="..\..\packages\Microsoft.CodeAnalysis.NetAnalyzers.5.0.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.NetAnalyzers.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>このプロジェクトは、このコンピューター上にない NuGet パッケージを参照しています。それらのパッケージをダウンロードするには、[NuGet パッケージの復元] を使用します。詳細については、http://go.microsoft.com/fwlink/?LinkID=322105 を参照してください。見つからないファイルは {0} です。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Microsoft.CodeAnalysis.NetAnalyzers.5.0.1\build\Microsoft.CodeAnalysis.NetAnalyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.CodeAnalysis.NetAnalyzers.5.0.1\build\Microsoft.CodeAnalysis.NetAnalyzers.props'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.CodeAnalysis.NetAnalyzers.5.0.1\build\Microsoft.CodeAnalysis.NetAnalyzers.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.CodeAnalysis.NetAnalyzers.5.0.1\build\Microsoft.CodeAnalysis.NetAnalyzers.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\Microsoft.CodeAnalysis.NetAnalyzers.5.0.1\build\Microsoft.CodeAnalysis.NetAnalyzers.targets" Condition="Exists('..\..\packages\Microsoft.CodeAnalysis.NetAnalyzers.5.0.1\build\Microsoft.CodeAnalysis.NetAnalyzers.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
