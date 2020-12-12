@@ -1538,7 +1538,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 //------------------------------------------------------------------------------------------------------------------------
                 {
                     this.Shogisasi = new ShogisasiImpl(this);
-                    Util_FvLoad.OpenFv(this.Shogisasi.FeatureVector, "../../Engine01_Config/fv/fv_00_Komawari.csv", this.Logger);
+                    Util_FvLoad.OpenFv(this.Shogisasi.FeatureVector, Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Fv00Komawari")), this.Logger);
                 }
 
 
@@ -1553,27 +1553,27 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                     }
 
                     // データの読取「配役」
-                    string filepath_Haiyaku = Path.Combine(Application.StartupPath, "../../Engine01_Config/data_haiyaku185_UTF-8.csv");
+                    string filepath_Haiyaku = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Haiyaku185"));
                     Util_Array_KomahaiyakuEx184.Load(filepath_Haiyaku, Encoding.UTF8);
 
                     // データの読取「強制転成表」　※駒配役を生成した後で。
-                    string filepath_ForcePromotion = Path.Combine(Application.StartupPath, "../../Engine01_Config/data_forcePromotion_UTF-8.csv");
+                    string filepath_ForcePromotion = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("InputForcePromotion"));
                     Array_ForcePromotion.Load(filepath_ForcePromotion, Encoding.UTF8);
 
 #if DEBUG
                     {
-                        string filepath_LogKyosei = Path.Combine(Application.StartupPath, "../../Engine01_Logs/_log_強制転成表.html");
+                        string filepath_LogKyosei = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("OutputForcePromotion"));
                         File.WriteAllText(filepath_LogKyosei, Array_ForcePromotion.LogHtml());
                     }
 #endif
 
                     // データの読取「配役転換表」
-                    string filepath_HaiyakuTenkan = Path.Combine(Application.StartupPath, "../../Engine01_Config/data_syuruiToHaiyaku.csv");
+                    string filepath_HaiyakuTenkan = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("InputSyuruiToHaiyaku"));
                     Data_KomahaiyakuTransition.Load(filepath_HaiyakuTenkan, Encoding.UTF8);
 
 #if DEBUG
                     {
-                        string filepath_LogHaiyakuTenkan = Path.Combine(Application.StartupPath, "../../Engine01_Logs/_log_配役転換表.html");
+                        string filepath_LogHaiyakuTenkan = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("OutputSyuruiToHaiyaku");
                         File.WriteAllText(filepath_LogHaiyakuTenkan, Data_KomahaiyakuTransition.Format_LogHtml());
                     }
 #endif

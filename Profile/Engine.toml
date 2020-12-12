@@ -8,4 +8,71 @@ Author = "Satoshi TAKAHASHI"
 
 [Resources]
 
+# var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+# var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+# Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("xxxxxxxxxxxxxxxx"))
+
+DataDirectory = "/../../Engine01_Config/"
+
 Michi187 = "./Data/data_michi187.csv"
+Haiyaku185 = "../../Engine01_Config/data_haiyaku185_UTF-8.csv"
+InputForcePromotion = "../../Engine01_Config/data_forcePromotion_UTF-8.csv"
+OutputForcePromotion = "../../Engine01_Logs/_log_強制転成表.html"
+InputSyuruiToHaiyaku = "../../Engine01_Config/data_syuruiToHaiyaku.csv"
+OutputSyuruiToHaiyaku = "../../Engine01_Logs/_log_配役転換表.html"
+
+Shogiban01Widgets = "../../Engine01_Config/data_widgets_01_shogiban.csv"
+Console02Widgets = "../../Engine01_Config/data_widgets_02_console.csv"
+Vs03Widgets = "../../Engine01_Config/data_widgets_03_vs.csv"
+
+DataSetteiCsv = "../../Engine01_Config/data_settei.csv"
+DataSetteiVsCsv = "../../Engine01_Config/data_settei_vs.csv"
+
+# 画像
+
+LearningPositionLogPng = "../../Engine01_Logs/_log_学習局面.png"
+
+# Fv
+
+Fv00Komawari = "../../Engine01_Config/fv/fv_00_Komawari.csv"
+Fv00Scale = "../../Engine01_Config/fv/fv_00_Scale.csv"
+Fv01KK = "../../Engine01_Config/fv_01_KK.csv"
+Fv2Sample = "../../Engine01_Config/fv_2(sample).csv"
+
+Fv00ScaleInFvDir = "/fv_00_Scale.csv"
+Fv01KKInFvDir = "/fv_01_KK.csv"
+
+Fv02n1pKPInFvDir = "/fv_02_1pKP.csv"
+Fv03n2pKPInFvDir = "/fv_03_2pKP.csv"
+
+Fv04PP1pInFvDir = "/fv_04_PP_1p____Fu__.csv"
+Fv05PP1pInFvDir = "/fv_05_PP_1p____Kyo_.csv"
+Fv06pp1pInFvDir = "/fv_06_pp_1p____Kei_.csv"
+Fv07pp1pInFvDir = "/fv_07_pp_1p____Gin_.csv"
+Fv08pp1pInFvDir = "/fv_08_pp_1p____Kin_.csv"
+Fv09pp1pInFvDir = "/fv_09_pp_1p____Hi__.csv"
+Fv10pp1pInFvDir = "/fv_10_pp_1p____Kaku.csv"
+Fv18pp2pInFvDir = "/fv_18_pp_2p____Fu__.csv"
+Fv19pp2pInFvDir = "/fv_19_pp_2p____Kyo_.csv"
+Fv20pp2pInFvDir = "/fv_20_pp_2p____Kei_.csv"
+Fv21pp2pInFvDir = "/fv_21_pp_2p____Gin_.csv"
+Fv22pp2pInFvDir = "/fv_22_pp_2p____Kin_.csv"
+Fv23pp2pInFvDir = "/fv_23_pp_2p____Hi__.csv"
+Fv24pp2pInFvDir = "/fv_24_pp_2p____Kaku.csv"
+
+Fv11PP1pInFvDir = "fv_11_PP_1pMotiFu__.csv"
+Fv25pp2pInFvDir = "fv_25_pp_2pMotiFu__.csv"
+
+Fv12PP1pInFvDir = "fv_12_PP_1pMotiKyo_.csv"
+Fv13pp1pInFvDir = "fv_13_pp_1pMotiKei_.csv"
+Fv14pp1pInFvDir = "fv_14_pp_1pMotiGin_.csv"
+Fv15pp1pInFvDir = "fv_15_pp_1pMotiKin_.csv"
+Fv26pp2pInFvDir = "fv_26_pp_2pMotiKyo_.csv"
+Fv27pp2pInFvDir = "fv_27_pp_2pMotiKei_.csv"
+Fv28pp2pInFvDir = "fv_28_pp_2pMotiGin_.csv"
+Fv29pp2pInFvDir = "fv_29_pp_2pMotiKin_.csv"
+
+Fv16pp1pInFvDir = "fv_16_pp_1pMotiHi__.csv"
+Fv17pp1pInFvDir = "fv_17_pp_1pMotiKaku.csv"
+Fv30pp2pInFvDir = "fv_30_pp_2pMotiHi__.csv"
+Fv31pp2pInFvDir = "fv_31_pp_2pMotiKaku.csv"

@@ -2,11 +2,13 @@
 #define DEBUG_STOPPABLE
 
 using System;
+using System.IO;
 using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A060Application.B310Settei.C500Struct;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C492Widgets;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI;
+using Nett;
 
 namespace Grayscale.P699Form
 {
@@ -22,6 +24,9 @@ namespace Grayscale.P699Form
             ILogger errH = ErrorControllerReference.ProcessGuiDefault;
             MainGui_CsharpImpl mainGui = new MainGui_CsharpImpl();//new ShogiEngineVsClientImpl(this)
 
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+
             //↓ [STAThread]指定のあるメソッドで フォームを作成してください。
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -29,8 +34,8 @@ namespace Grayscale.P699Form
             //↑ [STAThread]指定のあるメソッドで フォームを作成してください。
 
             mainGui.Load_AsStart(errH);
-            mainGui.WidgetLoaders.Add(new WidgetsLoader_CsharpImpl("../../Engine01_Config/data_widgets_01_shogiban.csv", mainGui));
-            mainGui.WidgetLoaders.Add(new WidgetsLoader_CsharpImpl("../../Engine01_Config/data_widgets_02_console.csv", mainGui));
+            mainGui.WidgetLoaders.Add(new WidgetsLoader_CsharpImpl(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Shogiban01Widgets")), mainGui));
+            mainGui.WidgetLoaders.Add(new WidgetsLoader_CsharpImpl(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Console02Widgets")), mainGui));
             mainGui.LaunchForm_AsBody(errH);
         }
 

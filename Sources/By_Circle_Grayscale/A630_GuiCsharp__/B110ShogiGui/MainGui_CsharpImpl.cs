@@ -27,6 +27,7 @@ using Grayscale.A630GuiCsharp.B110ShogiGui.C499Repaint;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C510Form;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Nett;
 
 #if DEBUG
 // using Grayscale.A060Application.B110Log.C500Struct;
@@ -357,6 +358,9 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
         /// </summary>
         public virtual void Load_AsStart(ILogger errH)
         {
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+
             //
             // 既存のログファイルを削除したい。
             //
@@ -370,7 +374,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
                 errH.Flush(LogTypes.Plain);
 #endif
 
-                this.Data_Settei_Csv.Read_Add("../../Engine01_Config/data_settei.csv", Encoding.UTF8);
+                this.Data_Settei_Csv.Read_Add(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("DataSetteiCsv")), Encoding.UTF8);
                 this.Data_Settei_Csv.DebugOut();
 
                 //----------

@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 using Grayscale.A060Application.B110Log.C500Struct;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B280Tree.C500Struct;
@@ -6,6 +7,7 @@ using Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI;
 using Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C492Widget;
+using Nett;
 
 namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500Gui
 {
@@ -88,9 +90,12 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500Gui
         {
             base.Load_AsStart(errH);
 
-            this.Data_Settei_Csv.Read_Add("../../Engine01_Config/data_settei_vs.csv", Encoding.UTF8);
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+
+            this.Data_Settei_Csv.Read_Add(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("DataSetteiVsCsv")), Encoding.UTF8);
             this.Data_Settei_Csv.DebugOut();
-            this.WidgetLoaders.Add(new WidgetsLoader_CsharpVsImpl("../../Engine01_Config/data_widgets_03_vs.csv", this));
+            this.WidgetLoaders.Add(new WidgetsLoader_CsharpVsImpl(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Vs03Widgets")), this));
         }
 
     }
