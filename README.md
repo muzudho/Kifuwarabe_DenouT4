@@ -11,7 +11,9 @@
 | 設定ファイル1           | `Kifuwarabe_DenouT4/Engine01_Binaries/A500_ShogiEngine/Grayscale.A500_ShogiEngine.exe.config` |
 | 設定ファイル2           | `Kifuwarabe_DenouT4/Profile/Engine.toml`                                                      |
 
-設定ファイル1 の `Grayscale.A500_ShogiEngine.exe.config` の中にある `Profile` のパスを、 設定ファイル2 の親ディレクトリー `Profile` に合わせてください。  
+* `Kifuwarabe_WCSC25` のトップ・ディレクトリーに `Logs` ディレクトリーを作成してください。
+* `Kifuwaragyoku.sln` を `Release` モードで ビルドしてください。
+* 設定ファイル1 の `Grayscale.A500_ShogiEngine.exe.config` の中にある `Profile` のパスを、 設定ファイル2 の親ディレクトリー `Profile` に合わせてください。  
 
 ## Manual
 
