@@ -38,8 +38,8 @@ namespace Grayscale.A210KnowNingen.B460KyokumMoves.C250Log
         public Move Move { get { return this.m_move_; } }
         private Move m_move_;
 
-        public KwLogger ErrH { get { return this.errH; } }
-        private KwLogger errH;
+        public ILogger ErrH { get { return this.errH; } }
+        private ILogger errH;
 
 
         public MmLogGenjoImpl(
@@ -47,7 +47,7 @@ namespace Grayscale.A210KnowNingen.B460KyokumMoves.C250Log
             KaisetuBoard brdMove,
             int temezumi_yomiCur,
             Move move,
-            KwLogger errH
+            ILogger errH
             )
         {
             this.BrdMove = brdMove;
@@ -82,7 +82,7 @@ namespace Grayscale.A210KnowNingen.B460KyokumMoves.C250Log
 
 
         public void Log3(
-            Sky src_Sky,
+            ISky src_Sky,
             Playerside tebanKurau,//手番（喰らう側）
             Playerside tebanSeme,//手番（利きを調べる側）
             Fingers fingers_kurau_IKUSA,//戦駒（喰らう側）
@@ -138,7 +138,7 @@ namespace Grayscale.A210KnowNingen.B460KyokumMoves.C250Log
         }
 
         public void Log4(
-            Sky src_Sky,
+            ISky src_Sky,
             Playerside tebanSeme,//手番（利きを調べる側）
             Maps_OneAndOne<Finger, SySet<SyElement>> kmMove_seme_IKUSA
         )

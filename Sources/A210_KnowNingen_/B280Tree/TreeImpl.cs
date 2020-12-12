@@ -51,7 +51,7 @@ namespace Grayscale.A210KnowNingen.B280Tree.C500Struct
             //this.LogPvList(this, logger);
         }
         /*
-        public void LogPvList(Tree kifu1, KwLogger logger)
+        public void LogPvList(Tree kifu1, ILogger logger)
         {
             List<Move> pvList = kifu1.ToPvList();
 
@@ -62,9 +62,9 @@ namespace Grayscale.A210KnowNingen.B280Tree.C500Struct
                 {
                     break;
                 }
-                logger.AppendLine("[" + Conv_Move.ToLog(
+                logger.AppendLine("[" + ConvMove.ToLog(
                     index < pvList.Count ? pvList[index] : Move.Empty
-                    ) + "] [" + Conv_Move.ToLog(kifu1.GetPv(index)) + "]");
+                    ) + "] [" + ConvMove.ToLog(kifu1.GetPv(index)) + "]");
             }
             logger.AppendLine("└──────────┘");
         }

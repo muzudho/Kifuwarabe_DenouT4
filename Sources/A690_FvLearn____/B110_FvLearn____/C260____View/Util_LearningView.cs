@@ -319,9 +319,9 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C260View
             // リストボックスの先頭から指し手をSFEN形式で１つ取得。
             HonpuSasiteListItemImpl item = (HonpuSasiteListItemImpl)uc_Main.LstSasite.Items[0];
             Move move = item.Move;
-            if (null != logger.KwDisplayer_OrNull.OnAppendLog)
+            if (null != logger.KwDisplayerOrNull.OnAppendLog)
             {
-                logger.KwDisplayer_OrNull.OnAppendLog("sfen=" + ConvMove.ToSfen(move) + Environment.NewLine);
+                logger.KwDisplayerOrNull.OnAppendLog("sfen=" + ConvMove.ToSfen(move) + Environment.NewLine);
             }
 
             //
@@ -335,7 +335,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C260View
             //
             Move nextMove;
             {
-                nextMove = Move.Empty;// Conv_Move.GetErrorMove();
+                nextMove = Move.Empty;// ConvMove.GetErrorMove();
                 StringBuilder sb = new StringBuilder();
                 sb.Append("指し手[" + ConvMove.ToSfen(move) + "]はありませんでした。\n" + learningData.DumpToAllGohosyu(learningData.PositionA));
 
@@ -369,7 +369,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C260View
             //----------------------------------------
             // カレント・ノードより古い、以前読んだ手を削除したい。
             //----------------------------------------
-            System.Console.WriteLine("カレント・ノード＝" + Conv_Move.ToSfen( learningData.GetMove()));
+            System.Console.WriteLine("カレント・ノード＝" + ConvMove.ToSfen( learningData.GetMove()));
             int result_removedCount = Util_KifuTree282.IzennoHenkaCutter(
                 learningData.KifuA, errH);
             System.Console.WriteLine("削除した要素数＝" + result_removedCount);

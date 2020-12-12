@@ -700,10 +700,10 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
 #if DEBUG
         public static void Log1(
             Tansaku_Genjo genjo,
-            Sky src_Sky,
+            ISky src_Sky,
             out MmLogGenjoImpl out_mm_log,
             out KaisetuBoard out_logBrd_move1,
-            KwLogger errH
+            ILogger errH
         )
         {
             Move move_forLog = Move.Empty;//ログ出力しないことにした☆（＞＿＜）
@@ -729,15 +729,15 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
             Tansaku_Genjo genjo,
             MoveEx node_yomi,
             KaisetuBoard logBrd_move1,
-            KwLogger errH
+            ILogger errH
         )
         {
             try
             {
                 logBrd_move1.Move = node_yomi.Key;
 
-                SyElement srcMasu = Conv_Move.ToSrcMasu(logBrd_move1.Move);
-                SyElement dstMasu = Conv_Move.ToDstMasu(logBrd_move1.Move);
+                SyElement srcMasu = ConvMove.ToSrcMasu(logBrd_move1.Move);
+                SyElement dstMasu = ConvMove.ToDstMasu(logBrd_move1.Move);
 
                 // ログ試し
                 logBrd_move1.Arrow.Add(new Gkl_Arrow(Conv_Masu.ToMasuHandle(srcMasu),

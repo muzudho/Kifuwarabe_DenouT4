@@ -77,7 +77,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
                         genjo.InputLine,
                         moveA,
 
-                        //Conv_Move.ToPlayerside(move1),
+                        //ConvMove.ToPlayerside(move1),
                         positionA.GetKaisiPside(),
 
                         positionA,

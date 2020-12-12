@@ -177,7 +177,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
         /// <returns>スプライト番号。なければエラー番号。</returns>
         public static Fingers InMasuNow_New(ISky positionA, Move move, ILogger logger)
         {
-            //Komasyurui14 ks14_move = Conv_Move.ToSrcKomasyurui(move);
+            //Komasyurui14 ks14_move = ConvMove.ToSrcKomasyurui(move);
             bool drop = ConvMove.ToDrop(move);
 
             // １個入る。
@@ -190,7 +190,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
                 //────────────────────────────────────────
                 Playerside pside = ConvMove.ToPlayerside(move);
                 Okiba okiba = Conv_Okiba.FromPside(pside);
-                //Komasyurui14 ks14 = Conv_Move.ToDstKomasyurui(move);
+                //Komasyurui14 ks14 = ConvMove.ToDstKomasyurui(move);
                 Komasyurui14 ks14 = ConvMove.ToSrcKomasyurui(move);
 
                 Finger found2 = UtilSkyFingerQuery.InOkibaSyuruiNow_IgnoreCase(

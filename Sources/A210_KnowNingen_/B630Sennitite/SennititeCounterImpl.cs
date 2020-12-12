@@ -183,8 +183,8 @@ namespace Grayscale.A210KnowNingen.B630Sennitite.C500Struct
         //    //----------------------------------------
         //    // 初手から、全ノードを取得
         //    //----------------------------------------
-        //    Node<Move, Sky> node1 = kifuTree.GetRoot();
-        //    List<Node<Move, Sky>> nodeList = new List<Node<Move, Sky>>();
+        //    Node<Move, ISky> node1 = kifuTree.GetRoot();
+        //    List<Node<Move, ISky>> nodeList = new List<Node<Move, ISky>>();
         //    this.Recursive(node1, nodeList);
 
         //    //----------------------------------------
@@ -194,9 +194,9 @@ namespace Grayscale.A210KnowNingen.B630Sennitite.C500Struct
 
         //}
 
-        //private void Recursive(Node<Move, Sky> node1, List<Node<Move, Sky>> nodeList)
+        //private void Recursive(Node<Move, ISky> node1, List<Node<Move, ISky>> nodeList)
         //{
-        //    node1.Foreach_ChildNodes((string key2, Node<Move, Sky> node2, ref bool toBreak2) =>
+        //    node1.Foreach_ChildNodes((string key2, Node<Move, ISky> node2, ref bool toBreak2) =>
         //    {
         //        nodeList.Add(node2);
         //        this.Recursive(node2, nodeList);

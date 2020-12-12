@@ -50,7 +50,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
             {
                 Move move1 = item.Move;
 #if DEBUG
-                string sfen = Conv_Move.ToSfen(item.Move);
+                string sfen = ConvMove.ToSfen(item.Move);
                 logger.AppendLine("sfen=" + sfen);
                 logger.Flush(LogTypes.Plain);
 #endif

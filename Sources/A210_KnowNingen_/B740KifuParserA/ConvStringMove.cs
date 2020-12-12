@@ -57,7 +57,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C400Conv
                             out nextMove,
 
                             pside,
-                            //Conv_Playerside.Reverse( Conv_Move.ToPlayerside(previous_Move)),
+                            //Conv_Playerside.Reverse( ConvMove.ToPlayerside(previous_Move)),
                             //previous_Sky.KaisiPside,
 
                             previous_Sky,

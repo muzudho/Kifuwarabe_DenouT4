@@ -21,7 +21,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C125UtilB
         /// </summary>
         public static int IzennoHenkaCutter(
             Tree kifu1,
-            KwLogger errH
+            ILogger errH
             )
         {
             int result_removedCount = 0;

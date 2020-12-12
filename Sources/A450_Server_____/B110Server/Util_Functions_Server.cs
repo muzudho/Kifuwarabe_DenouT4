@@ -94,7 +94,7 @@ namespace Grayscale.A450Server.B110Server.C250Util
             [CallerLineNumber] int sourceLineNumber = 0
             )
         {
-            //KwLogger errH = OwataMinister.SERVER_KIFU_YOMITORI;
+            //ILogger errH = OwataMinister.SERVER_KIFU_YOMITORI;
 
             bool successful = false;
             KifuParserAImpl kifuParserA_Impl = new KifuParserAImpl();

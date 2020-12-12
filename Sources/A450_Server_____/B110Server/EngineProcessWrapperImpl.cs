@@ -71,7 +71,7 @@ namespace Grayscale.A450Server.B110Server.C496EngineWrapper
         /// </summary>
         private void Download(string message, ILogger errH)
         {
-            //KwLogger errH = OwataMinister.SERVER_NETWORK;
+            //ILogger errH = OwataMinister.SERVER_NETWORK;
 
             this.ShogiEngine.StandardInput.WriteLine(message);
 

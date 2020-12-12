@@ -61,7 +61,7 @@ namespace Grayscale.A210KnowNingen.B770ConvSasu.C500Converter
 
                     Okiba srcOkiba = Conv_Busstop.ToOkiba(srcStar);//Moveは置き場情報を欠損している。
                     if (Okiba.ShogiBan == srcOkiba)
-                    //if(Conv_Move.ToDrop(move))
+                    //if(ConvMove.ToDrop(move))
                     {
                         // 将棋盤上の駒だけが、「成り」ができるぜ☆（＾～＾）
                         SyElement srcMasu = ConvMove.ToSrcMasu(move, positionA);

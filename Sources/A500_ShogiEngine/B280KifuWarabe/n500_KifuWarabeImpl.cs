@@ -182,7 +182,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
         /// </summary>
         public Tree Kifu { get { return this.m_kifu_; } }
         /*
-        public Sky PositionA { get {
+        public ISky PositionA { get {
                 return this.Kifu_AtLoop2.CurNode1.GetNodeValue();
                 //return this.m_positionA_;
             } }
@@ -197,7 +197,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             this.m_kifu_ = kifu;
             //this.m_positionA_ = kifu.GetSky();
         }
-        //private Sky m_positionA_;
+        //private ISky m_positionA_;
         private Tree m_kifu_;
 
         /// <summary>
@@ -1464,7 +1464,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             Util_Loggers.ProcessEngine_DEFAULT.AppendLine(message);
             Util_Loggers.ProcessEngine_DEFAULT.Flush(LogTypes.Plain);
         }
-        private void Log2_Png_Tyokkin_AtLoop2(string line, Move move_forLog, Sky sky, KwLogger errH)
+        private void Log2_Png_Tyokkin_AtLoop2(string line, Move move_forLog, ISky sky, ILogger errH)
         {
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
@@ -1483,9 +1483,9 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 // 出力先
                 string fileName = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("ChokkinNoSasitePngFilename"));
 
-                SyElement srcMasu = Conv_Move.ToSrcMasu(move_forLog);
-                SyElement dstMasu = Conv_Move.ToDstMasu(move_forLog);
-                Komasyurui14 captured = Conv_Move.ToCaptured(move_forLog);
+                SyElement srcMasu = ConvMove.ToSrcMasu(move_forLog);
+                SyElement dstMasu = ConvMove.ToDstMasu(move_forLog);
+                Komasyurui14 captured = ConvMove.ToCaptured(move_forLog);
                 int srcMasuNum = Conv_Masu.ToMasuHandle(srcMasu);
                 int dstMasuNum = Conv_Masu.ToMasuHandle(dstMasu);
 
@@ -1512,14 +1512,14 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
 
                 // 直近の指し手。
                 Util_KyokumenPng_Writer.Write1(
-                    Conv_KifuNode.ToRO_Kyokumen1(sky, errH),
+                    ConvKifuNode.ToRO_Kyokumen1(sky, errH),
                     srcMasuNum,
                     dstMasuNum,
                     foodKoma,
-                    Conv_Move.ToSfen(move_forLog),
+                    ConvMove.ToSfen(move_forLog),
                     "",
                     fileName,
-                    Util_KifuTreeLogWriter.REPORT_ENVIRONMENT,
+                    UtilKifuTreeLogWriter.REPORT_ENVIRONMENT,
                     errH
                     );
             }

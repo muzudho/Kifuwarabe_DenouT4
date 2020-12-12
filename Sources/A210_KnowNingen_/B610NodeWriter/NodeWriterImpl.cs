@@ -13,7 +13,7 @@ namespace Grayscale.A210KnowNingen.B610NodeWriter.C500Writer
         {
             Json_Obj obj = new Json_Obj();
 
-            //Sky sky1 = node.Value as Sky;
+            //ISky sky1 = node.Value as ISky;
             if (null != sky1)
             {
                 // TODO: ログが大きくなるので、１行で出力したあとに改行にします。
@@ -23,7 +23,7 @@ namespace Grayscale.A210KnowNingen.B610NodeWriter.C500Writer
             }
             else
             {
-                Debug.Fail("this.Value as Sky じゃなかった。");
+                Debug.Fail("this.Value as ISky じゃなかった。");
             }
 
             return obj;

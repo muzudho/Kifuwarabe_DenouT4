@@ -111,11 +111,11 @@ namespace Grayscale.A690FvLearn
             //
             // イベントハンドラー登録
             //
-            ErrorControllerReference.ProcessLearnerDefault.KwDisplayer_OrNull.OnAppendLog = (string log) =>
+            ErrorControllerReference.ProcessLearnerDefault.KwDisplayerOrNull.OnAppendLog = (string log) =>
             {
                 this.txtIttesasuLog.Text += log;
             };
-            ErrorControllerReference.ProcessLearnerDefault.KwDisplayer_OrNull.OnClearLog = () =>
+            ErrorControllerReference.ProcessLearnerDefault.KwDisplayerOrNull.OnClearLog = () =>
             {
                 this.txtIttesasuLog.Text = "";
             };

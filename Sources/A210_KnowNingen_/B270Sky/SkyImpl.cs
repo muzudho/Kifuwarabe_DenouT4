@@ -118,7 +118,7 @@ namespace Grayscale.A210KnowNingen.B270Sky.C500Struct
         public void SetKaisiPside( Move move)//Playerside pside,
         {
             //this.m_kaisiPside_ = pside;
-            this.m_kaisiPside_ = Conv_Move.ToPlayerside(move);
+            this.m_kaisiPside_ = ConvMove.ToPlayerside(move);
         }
         */
         public void SetKaisiPside(Playerside pside)

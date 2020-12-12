@@ -55,7 +55,7 @@ namespace Grayscale.A210KnowNingen.B830ConvStartpo.C500Converter
                 ISky newSky = startposImporter.ToSky();
                 newSky.SetKaisiPside(parsedKyokumen.FirstPside);
                 newSky.SetTemezumi(startposImporter.RO_SfenStartpos.Temezumi);// FIXME: 将棋所だと常に 1 かも？？
-                parsedKyokumen.NewMove = Move.Empty;// Conv_Move.GetErrorMove();//ルートなので
+                parsedKyokumen.NewMove = Move.Empty;// ConvMove.GetErrorMove();//ルートなので
                 parsedKyokumen.NewSky = newSky;
             }
 

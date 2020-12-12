@@ -25,7 +25,7 @@ namespace Grayscale.A500ShogiEngine.B200Scoreing.C061Util
             Tree kifu1,
             KyokumenPngEnvironment reportEnvironment,
             KaisetuBoards logF_kiki,
-            KwLogger errH
+            ILogger errH
             )
         {
             //

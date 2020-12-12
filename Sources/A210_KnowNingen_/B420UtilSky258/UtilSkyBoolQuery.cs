@@ -143,7 +143,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
         {
             bool result;
 
-            SyElement dstMasu = Conv_Move.ToDstMasu(move);
+            SyElement dstMasu = ConvMove.ToDstMasu(move);
 
             result = (Okiba.Sente_Komadai | Okiba.Gote_Komadai).HasFlag(
                 Conv_Masu.ToOkiba(dstMasu)//FIXME: 駒台の筋段は設定できないのでは？

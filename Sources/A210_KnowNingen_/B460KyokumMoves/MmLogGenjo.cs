@@ -27,7 +27,7 @@ namespace Grayscale.A210KnowNingen.B460KyokumMoves.C250Log
 
         Move Move { get; }
 
-        KwLogger ErrH { get; }
+        ILogger ErrH { get; }
 
         void Log1(Playerside pside_genTeban3);
 
@@ -37,7 +37,7 @@ namespace Grayscale.A210KnowNingen.B460KyokumMoves.C250Log
         );
 
         void Log3(
-            Sky src_Sky,
+            ISky src_Sky,
             Playerside tebanKurau,//手番（喰らう側）
             Playerside tebanSeme,//手番（利きを調べる側）
             Fingers fingers_kurau_IKUSA,//戦駒（喰らう側）
@@ -47,7 +47,7 @@ namespace Grayscale.A210KnowNingen.B460KyokumMoves.C250Log
         );
 
         void Log4(
-            Sky src_Sky,
+            ISky src_Sky,
             Playerside tebanSeme,//手番（利きを調べる側）
             Maps_OneAndOne<Finger, SySet<SyElement>> kmMove_seme_IKUSA
         );

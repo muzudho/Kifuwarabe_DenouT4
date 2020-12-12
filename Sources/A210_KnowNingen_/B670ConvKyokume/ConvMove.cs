@@ -577,7 +577,7 @@ namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
         {
             // 打と分かっていれば、成りはないぜ☆（＾▽＾）
 
-            return Conv_Move.ToMove(
+            return ConvMove.ToMove(
                 Masu_Honshogi.Query_ErrorMasu(),//元位置は指定なしだぜ☆（＾▽＾）
                 dstMasu,
                 srcKs,
@@ -899,7 +899,7 @@ namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
             else
             {
                 srcMasuB = ConvMove.ToSrcMasu(move);
-                //srcMasuB = Conv_Masu.ToMasu((int)Conv_Move.ToSrcMasu(move));
+                //srcMasuB = Conv_Masu.ToMasu((int)ConvMove.ToSrcMasu(move));
                 sb.Append(" src=");
                 sb.Append(Conv_Masu.ToBanjoArabiaAndKanji_FromMasu(srcMasuB));
             }

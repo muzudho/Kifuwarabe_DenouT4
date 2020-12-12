@@ -72,7 +72,7 @@ namespace Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct
                 // 既存の棋譜ツリー・ログを空に。
                 //----------------------------------------
                 {
-                    string rootFolder = Path.Combine(Util_KifuTreeLogWriter.REPORT_ENVIRONMENT.OutFolder, Conv_Move.KIFU_TREE_LOG_ROOT_FOLDER);
+                    string rootFolder = Path.Combine(Util_KifuTreeLogWriter.REPORT_ENVIRONMENT.OutFolder, ConvMove.KIFU_TREE_LOG_ROOT_FOLDER);
                     if (Directory.Exists(rootFolder))
                     {
                         try
@@ -96,11 +96,11 @@ namespace Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct
                 StringBuilder sb_folder = new StringBuilder();
                 Util_Tree.ForeachHonpu2(kifu.CurNode, (int temezumi2, Move move, ref bool toBreak) =>
                 {
-                    sb_folder.Append(Conv_Move.ToSfen_ForFilename(move) + "/");
+                    sb_folder.Append(ConvMove.ToSfen_ForFilename(move) + "/");
                 });
                 //sb_folder.Append( Conv_SasiteStr_Sfen.ToSasiteStr_Sfen_ForFilename(kifu.CurNode.Key) + "/");
 
-                string sasiteText1 = Conv_Move.ToSfen(kifu.CurNode.Key);
+                string sasiteText1 = ConvMove.ToSfen(kifu.CurNode.Key);
                 MoveEx kifuNode1 = kifu.CurNode;
 
                 /*

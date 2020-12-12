@@ -31,11 +31,11 @@ namespace Grayscale.A060Application.B110Log.C500Struct
             this.print_TimeStamp = print_TimeStamp;
             this.EnableConsole = enableConsole;
             this.m_buffer_ = new StringBuilder();
-            this.KwDisplayer_OrNull = kwDisplayer_OrNull;
+            this.KwDisplayerOrNull = kwDisplayer_OrNull;
         }
 
 
-        public IErrorController KwDisplayer_OrNull { get; set; }
+        public IErrorController KwDisplayerOrNull { get; set; }
 
 
         private StringBuilder m_buffer_;

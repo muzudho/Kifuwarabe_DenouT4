@@ -9,7 +9,7 @@ namespace Grayscale.A060Application.B110Log.C500Struct
     {
 
 
-        IErrorController KwDisplayer_OrNull { get; set; }
+        IErrorController KwDisplayerOrNull { get; set; }
 
 
         /// <summary>

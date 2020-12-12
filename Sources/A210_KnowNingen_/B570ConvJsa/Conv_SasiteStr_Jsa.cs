@@ -16,7 +16,7 @@ namespace Grayscale.A210KnowNingen.B570ConvJsa.C500Converter
         /// 「▲７六歩」といった符号にして返します。
         /// </summary>
         /// <param name="node">keyで指し手の指定、かつ、１つ前のノードに移動するのに使います。</param>
-        /// <param name="Sky">現局面です。</param>
+        /// <param name="ISky">現局面です。</param>
         /// <param name="errH"></param>
         /// <returns></returns>
         public static string ToSasiteStr_Jsa(

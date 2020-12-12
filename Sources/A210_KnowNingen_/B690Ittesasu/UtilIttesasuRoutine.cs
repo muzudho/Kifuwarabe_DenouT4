@@ -89,7 +89,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
 
 
                 exceptionArea = 1070;
-                // Sky 局面データは、この関数の途中で何回か変更されます。ローカル変数に退避しておくと、同期が取れなくなります。
+                // ISky 局面データは、この関数の途中で何回か変更されます。ローカル変数に退避しておくと、同期が取れなくなります。
 
                 //------------------------------------------------------------
                 // 駒を取る
@@ -366,9 +366,9 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
                 susunda_Sky_orNull_before.AssertFinger(out_figFoodKoma);
                 out_food_koma = susunda_Sky_orNull_before.BusstopIndexOf(out_figFoodKoma);
 #if DEBUG
-                if (null != errH.KwDisplayer_OrNull.Dlgt_OnLog1Append_or_Null)
+                if (null != errH.KwDisplayerOrNull.OnAppendLog)
                 {
-                    errH.KwDisplayer_OrNull.Dlgt_OnLog1Append_or_Null("駒取った=" + Conv_Busstop.ToKomasyurui( out_food_koma) + Environment.NewLine);
+                    errH.KwDisplayerOrNull.OnAppendLog("駒取った=" + Conv_Busstop.ToKomasyurui( out_food_koma) + Environment.NewLine);
                 }
 #endif
                 //
