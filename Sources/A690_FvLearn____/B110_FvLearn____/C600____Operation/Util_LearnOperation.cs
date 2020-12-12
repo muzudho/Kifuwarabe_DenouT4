@@ -1,4 +1,14 @@
-﻿using System.IO;
+﻿#if DEBUG
+using Grayscale.A210KnowNingen.B250LogKaisetu.C250Struct;
+using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
+// using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.A500ShogiEngine.B523UtilFv.C480UtilFvEdit;
+using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
+#elif LEARN
+using Grayscale.A500ShogiEngine.B523UtilFv.C480UtilFvEdit;
+using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
+#else
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using Grayscale.A060Application.B110Log.C500Struct;
@@ -17,16 +27,6 @@ using Grayscale.A690FvLearn.B110FvLearn.C250Learn;
 using Grayscale.A690FvLearn.B110FvLearn.C260View;
 using Grayscale.A690FvLearn.B110FvLearn.C420Inspection;
 using Grayscale.A690FvLearn.B110FvLearn.C470____StartZero;
-
-#if DEBUG || LEARN
-using Grayscale.A500ShogiEngine.B523UtilFv.C480UtilFvEdit;
-using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
-#endif
-
-#if DEBUG
-using Grayscale.A210KnowNingen.B250LogKaisetu.C250Struct;
-using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
-// using Grayscale.A060Application.B110Log.C500Struct;
 #endif
 
 namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
@@ -41,7 +41,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
         /// </summary>
         /// <param name="uc_Main"></param>
         /// <param name="tyoseiryo"></param>
-        public static void A_RankUp_SelectedSasite(UcMain uc_Main, float tyoseiryo, ILogger logger)
+        public static void ARankUpSelectedMove(UcMain uc_Main, float tyoseiryo, ILogger logger)
         {
             //----------------------------------------
             // 選択したノードを参考に、減点を行う。
@@ -164,7 +164,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
                 chosei_bairitu *= -1; //後手はマイナスの方が有利。
             }
 
-            Util_LearnOperation.A_RankUp_SelectedSasite(uc_Main, chosei_bairitu, errH);
+            Util_LearnOperation.ARankUpSelectedMove(uc_Main, chosei_bairitu, errH);
 
             // 現局面の合法手表示の更新を要求
             isRequest_ShowGohosyu = true;
@@ -191,7 +191,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
                 badScore *= -1; //後手はプラスの方が不利。
             }
 
-            Util_LearnOperation.A_RankUp_SelectedSasite(uc_Main, badScore, errH);
+            Util_LearnOperation.ARankUpSelectedMove(uc_Main, badScore, errH);
 
             // 現局面の合法手表示の更新を要求
             isRequest_ShowGohosyu = true;
@@ -271,7 +271,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
         {
             uc_Main.LearningData.ReadKifu(uc_Main);
 
-            UtilLearningView.ShowSasiteList(uc_Main.LearningData, uc_Main, errH);
+            UtilLearningView.ShowMoveList(uc_Main.LearningData, uc_Main, errH);
         }
 
 

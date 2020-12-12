@@ -18,7 +18,7 @@ namespace Grayscale.A210KnowNingen.B770ConvSasu.C500Converter
         /// <param name="komaBETUSusumeruMasus">駒別の進める升</param>
         /// <param name="siteiNode">指定ノード</param>
         /// <returns></returns>
-        public static Maps_OneAndMulti<Finger, Move> ToKomaBETUAllSasites(
+        public static Maps_OneAndMulti<Finger, Move> ToKomaBETUAllMoves(
             List_OneAndMulti<Finger, SySet<SyElement>> komaBETUSusumeruMasus,
             ISky positionA
             )
@@ -69,7 +69,7 @@ namespace Grayscale.A210KnowNingen.B770ConvSasu.C500Converter
                         Komasyurui14 srcKs = ConvMove.ToSrcKomasyurui(move);
                         Komasyurui14 dstKs = ConvMove.ToDstKomasyurui(move);
                         Playerside pside = ConvMove.ToPlayerside(move);
-                        Util_Sasu269.Add_KomaBETUAllNariSasites(
+                        Util_Sasu269.AddKomaBETUAllNariMoves(
                             result_komabetuAllMoves,
                             figKoma,//動かす駒
                             srcMasu,

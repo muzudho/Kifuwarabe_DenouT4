@@ -147,10 +147,10 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                 //                System.Console.WriteLine("komaBETUSusumeruMasusの全要素＝" + Util_List_OneAndMultiEx<Finger, SySet<SyElement>>.CountAllElements(komaBETUSusumeruMasus));
                 //#endif
                 //#if DEBUG
-                //                string jsaSasiteStr = Util_Translator_Sasite.ToSasite(genjo.Node_yomiNext, genjo.Node_yomiNext.Value, errH);
-                //                System.Console.WriteLine("[" + jsaSasiteStr + "]の駒別置ける升 調べ\n" + Util_List_OneAndMultiEx<Finger, SySet<SyElement>>.Dump(komaBETUSusumeruMasus, genjo.Node_yomiNext.Value.ToKyokumenConst));
+                //                string jsaMoveStr = Util_Translator_Move.ToMove(genjo.Node_yomiNext, genjo.Node_yomiNext.Value, errH);
+                //                System.Console.WriteLine("[" + jsaMoveStr + "]の駒別置ける升 調べ\n" + Util_List_OneAndMultiEx<Finger, SySet<SyElement>>.Dump(komaBETUSusumeruMasus, genjo.Node_yomiNext.Value.ToKyokumenConst));
                 //#endif
-                //Sasiteseisei_FukasaYusen_Routine.Log2(genjo, logBrd_move1, errH);//ログ試し
+                //Moveseisei_FukasaYusen_Routine.Log2(genjo, logBrd_move1, errH);//ログ試し
 
                 exceptionArea = 29000;
 
@@ -169,11 +169,11 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                     //----------------------------------------
                     // 指定局面での全ての指し手。
                     //----------------------------------------
-                    Maps_OneAndMulti<Finger, Move> komaBETUAllSasites = Conv_KomabetuSusumeruMasus.ToKomaBETUAllSasites(
+                    Maps_OneAndMulti<Finger, Move> komaBETUAllMoves = Conv_KomabetuSusumeruMasus.ToKomaBETUAllMoves(
                         komaBETUSusumeruMasus, positionA);
                     if (test)
                     {
-                        foreach (Finger fig in komaBETUAllSasites.Items.Keys)
+                        foreach (Finger fig in komaBETUAllMoves.Items.Keys)
                         {
                             if (fig == Fingers.Error_1)
                             {
@@ -183,7 +183,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                     }
 
                     //#if DEBUG
-                    //                    System.Console.WriteLine("komaBETUAllSasitesの全要素＝" + Util_Maps_OneAndMultiEx<Finger, SySet<SyElement>>.CountAllElements(komaBETUAllSasites));
+                    //                    System.Console.WriteLine("komaBETUAllMovesの全要素＝" + Util_Maps_OneAndMultiEx<Finger, SySet<SyElement>>.CountAllElements(komaBETUAllMoves));
                     //#endif
 
 
@@ -194,7 +194,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                     Maps_OneAndOne<Finger, SySet<SyElement>> starbetuSusumuMasus = Util_LegalMove.LA_RemoveMate(
                         genjo.YomikaisiTemezumi,
                         genjo.Args.IsHonshogi,
-                        komaBETUAllSasites,//駒別の全ての指し手
+                        komaBETUAllMoves,//駒別の全ての指し手
                         psideA,
                         positionA,
 #if DEBUG
@@ -222,7 +222,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                     // 成りの指し手を作成します。（拡張）
                     //----------------------------------------
                     //成りの手
-                    List<Move> b_movelist = Util_SasuEx.CreateNariSasite(positionA,
+                    List<Move> b_movelist = Util_SasuEx.CreateNariMove(positionA,
                         movelist,
                         logger);
 

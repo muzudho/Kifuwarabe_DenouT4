@@ -100,7 +100,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA
                 saifuKifu2.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(saifu_newChild, saifuKifu2, saifu_PositionA, logger));
 
                 // 後手の符号がまだ含まれていない。
-                string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
+                string jsaFugoStr = ConvMoveStrJsa.ToMoveStrJsa(
                     saifu_newChild.Move,
                     saifuKifu2.Pv_ToList(),
                     saifu_PositionA,

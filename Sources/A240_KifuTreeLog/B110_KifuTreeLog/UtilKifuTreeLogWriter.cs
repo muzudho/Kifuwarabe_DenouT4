@@ -98,16 +98,16 @@ namespace Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct
                 {
                     sb_folder.Append(ConvMove.ToSfen_ForFilename(move) + "/");
                 });
-                //sb_folder.Append( Conv_SasiteStr_Sfen.ToSasiteStr_Sfen_ForFilename(kifu.CurNode.Key) + "/");
+                //sb_folder.Append( Conv_MoveStr_Sfen.ToMoveStr_Sfen_ForFilename(kifu.CurNode.Key) + "/");
 
-                string sasiteText1 = ConvMove.ToSfen(kifu.CurNode.Key);
+                string moveText1 = ConvMove.ToSfen(kifu.CurNode.Key);
                 MoveEx kifuNode1 = kifu.CurNode;
 
                 /*
                 // 評価明細のログ出力。
                 Util_KifuTreeLogWriter.AA_Write_ForeachLeafs_ForDebug(
                     ref logFileCounter,
-                    sasiteText1,
+                    moveText1,
                     kifuNode1,
                     kifu,
                     sb_folder.ToString(),

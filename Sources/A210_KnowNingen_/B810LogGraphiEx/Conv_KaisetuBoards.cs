@@ -18,7 +18,7 @@ namespace Grayscale.A210KnowNingen.B810LogGraphiEx.C500Util
             foreach (KaisetuBoard board1 in boards1.boards)
             {
                 // 指し手。分かれば。
-                string moveStr = Conv_Sasite.Sasite_To_KsString_ForLog(board1.Move, board1.GenTeban);
+                string moveStr = AbstractConvMove.ChangeMoveToKsStringForLog(board1.Move, board1.GenTeban);
 
                 //string oldCaption = boardLog1.Caption;
                 //boardLog1.Caption += "_" + moveStr;

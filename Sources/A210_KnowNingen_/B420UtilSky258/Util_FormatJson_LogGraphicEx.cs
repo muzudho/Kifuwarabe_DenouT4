@@ -20,10 +20,10 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C510UtilLogJson
         /// </summary>
         /// <param name="enableLog"></param>
         /// <param name="src_Sky_base"></param>
-        /// <param name="km_sasite"></param>
+        /// <param name="km_move"></param>
         /// <param name="comment"></param>
         /// <returns></returns>
-        public static string JsonKyokumens_MultiKomabetuMasus(bool enableLog, ISky src_Sky_base, Maps_OneAndOne<Finger, SySet<SyElement>> km_sasite, string comment)
+        public static string JsonKyokumens_MultiKomabetuMasus(bool enableLog, ISky src_Sky_base, Maps_OneAndOne<Finger, SySet<SyElement>> km_move, string comment)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -32,7 +32,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C510UtilLogJson
                 goto gt_EndMethod;
             }
 
-            km_sasite.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
+            km_move.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
             {
                 // 駒１つ
                 src_Sky_base.AssertFinger(key);

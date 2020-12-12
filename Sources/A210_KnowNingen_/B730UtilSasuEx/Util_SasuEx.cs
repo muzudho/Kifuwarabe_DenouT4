@@ -25,9 +25,9 @@ namespace Grayscale.A210KnowNingen.B730UtilSasuEx.C500Util
         /// これが通称【水際のいんちきプログラム】なんだぜ☆
         /// 必要により、【成り】の指し手を追加するぜ☆
         /// </summary>
-        public static List<Move> CreateNariSasite(
+        public static List<Move> CreateNariMove(
             ISky positionA,
-            List<Move> a_sasitebetuEntry,
+            List<Move> a_moveBetuEntry,
             ILogger errH
             )
         {
@@ -38,9 +38,9 @@ namespace Grayscale.A210KnowNingen.B730UtilSasuEx.C500Util
 
             try
             {
-                Dictionary<string, Move> newSasiteList = new Dictionary<string, Move>();
+                Dictionary<string, Move> newMoveList = new Dictionary<string, Move>();
 
-                foreach (Move move1 in a_sasitebetuEntry)
+                foreach (Move move1 in a_moveBetuEntry)
                 {
                     // ・移動元の駒
                     SyElement srcMasu = ConvMove.ToSrcMasu(move1, positionA);
@@ -73,10 +73,10 @@ namespace Grayscale.A210KnowNingen.B730UtilSasuEx.C500Util
                         );
 
                         // TODO: 一段目の香車のように、既に駒は成っている場合があります。無い指し手だけ追加するようにします。
-                        string sasiteStr = ConvMove.ToSfen(move);//重複防止用のキー
-                        if (!newSasiteList.ContainsKey(sasiteStr))
+                        string moveStr = ConvMove.ToSfen(move);//重複防止用のキー
+                        if (!newMoveList.ContainsKey(moveStr))
                         {
-                            newSasiteList.Add(sasiteStr, move);
+                            newMoveList.Add(moveStr, move);
                         }
                     }
 
@@ -86,7 +86,7 @@ namespace Grayscale.A210KnowNingen.B730UtilSasuEx.C500Util
 
 
                 // 新しく作った【成り】の指し手を追加します。
-                foreach (Move newMove in newSasiteList.Values)
+                foreach (Move newMove in newMoveList.Values)
                 {
                     // 指す前の駒
                     SyElement srcMasu = ConvMove.ToSrcMasu(newMove, positionA);
@@ -109,7 +109,7 @@ namespace Grayscale.A210KnowNingen.B730UtilSasuEx.C500Util
                         // 既存の指し手
                         StringBuilder sb = new StringBuilder();
                         {
-                            foreach (Move entry in a_sasitebetuEntry)
+                            foreach (Move entry in a_moveBetuEntry)
                             {
                                 sb.Append("「");
                                 sb.Append(ConvMove.ToSfen(entry));
@@ -126,7 +126,7 @@ namespace Grayscale.A210KnowNingen.B730UtilSasuEx.C500Util
             }
             catch (Exception ex)
             {
-                throw new Exception("Convert04.cs#AddNariSasiteでｴﾗｰ。:" + ex.GetType().Name + ":" + ex.Message);
+                throw new Exception("Convert04.cs#AddNariMoveでｴﾗｰ。:" + ex.GetType().Name + ":" + ex.Message);
             }
 
             return result_komabetuEntry;

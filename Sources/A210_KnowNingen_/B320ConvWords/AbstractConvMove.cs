@@ -6,9 +6,9 @@ using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 
 namespace Grayscale.A210KnowNingen.B320ConvWords.C500Converter
 {
-    public abstract class Conv_Sasite
+    public abstract class AbstractConvMove
     {
-        public static string Sasite_To_KsString_ForLog(Move move, Playerside pside_genTeban)
+        public static string ChangeMoveToKsStringForLog(Move move, Playerside pside_genTeban)
         {
             string result;
 

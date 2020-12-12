@@ -78,7 +78,7 @@ namespace Grayscale.A150LogKyokuPng.B200LogKyokuPng.C500UtilWriter
             int srcMasu_orMinusOne,
             int dstMasu_orMinusOne,
             KyokumenPngArgs_FoodOrDropKoma foodKoma,
-            string sfenSasiteStr_orEmpty,
+            string sfenMoveStrOrEmpty,
             string appendFilepath,
             string outFile,
             KyokumenPngEnvironment reportEnvironment,
@@ -94,7 +94,7 @@ namespace Grayscale.A150LogKyokuPng.B200LogKyokuPng.C500UtilWriter
             KyokumenPngArgs_FoodOrDropKoma dropKoma;
             {
                 dropKoma = KyokumenPngArgs_FoodOrDropKoma.UNKNOWN;
-                if ("" != sfenSasiteStr_orEmpty)
+                if ("" != sfenMoveStrOrEmpty)
                 {
                     string moji1;
                     string moji2;
@@ -103,7 +103,7 @@ namespace Grayscale.A150LogKyokuPng.B200LogKyokuPng.C500UtilWriter
                     string moji5;
                     string rest;
                     SfenConf.ToTokens_FromMove(
-                        sfenSasiteStr_orEmpty,
+                        sfenMoveStrOrEmpty,
                         out moji1,
                         out moji2,
                         out moji3,

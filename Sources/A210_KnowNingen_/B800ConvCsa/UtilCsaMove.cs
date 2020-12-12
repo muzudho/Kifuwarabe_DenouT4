@@ -15,7 +15,7 @@ using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 
 namespace Grayscale.A210KnowNingen.B800ConvCsa.C500Converter
 {
-    public abstract class Util_CsaSasite
+    public abstract class UtilCsaMove
     {
 
         /// <summary>

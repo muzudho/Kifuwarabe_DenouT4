@@ -58,12 +58,12 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C125UtilB
                     //----------------------------------------
                     // 本譜の手はスキップ
                     //----------------------------------------
-                    //System.Console.WriteLine("残すsasiteStr=[" + sasiteStr + "] key1=[" + key1 + "] ★");
+                    //System.Console.WriteLine("残すmoveStr=[" + moveStr + "] key1=[" + key1 + "] ★");
                     goto gt_Next1;
                 }
                 //else
                 //{
-                //    System.Console.WriteLine("残すsasiteStr=[" + sasiteStr + "] key1=[" + key1 + "]");
+                //    System.Console.WriteLine("残すmoveStr=[" + moveStr + "] key1=[" + key1 + "]");
                 //}
 
                 //----------------------------------------

@@ -300,7 +300,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                     ////
                     //Util_GraphicalLog.WriteHtml5(
                     //    true,//enableLog,
-                    //    "SasiteRoutine#Yomi_NextNodes(00)新ログ",
+                    //    "MoveRoutine#Yomi_NextNodes(00)新ログ",
                     //    "[" + Util_GraphicalLog.BoardFileLog_ToJsonStr(genjo.Args.LogF_moveKiki) + "]"
                     //);
 

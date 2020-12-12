@@ -87,7 +87,7 @@
     <Compile Include="B320ConvWords\Conv_AgaruHiku.cs" />
     <Compile Include="B320ConvWords\Conv_DaHyoji.cs" />
     <Compile Include="B320ConvWords\Conv_MigiHidari.cs" />
-    <Compile Include="B320ConvWords\Conv_Sasite.cs" />
+    <Compile Include="B320ConvWords\AbstractConvMove.cs" />
     <Compile Include="B170WordShogi\Array_Playerside.cs" />
     <Compile Include="B180ConvPside\Conv_Playerside.cs" />
     <Compile Include="B190Komasyurui\Array_Komasyurui.cs" />
@@ -104,7 +104,7 @@
     <Compile Include="B670ConvKyokume\Conv_Busstop.cs" />
     <Compile Include="B670ConvKyokume\ConvMove.cs" />
     <Compile Include="B740KifuParserA\ConvStringMove.cs" />
-    <Compile Include="B800ConvCsa\Util_CsaSasite.cs" />
+    <Compile Include="B800ConvCsa\UtilCsaMove.cs" />
     <Compile Include="B250LogKaisetu\Util_LogWriter022_Json.cs" />
     <Compile Include="B290Komahaiyaku\Array_Komahaiyaku185.cs" />
     <Compile Include="B420UtilSky258\Util_Fingers_KomasyuruiQuery.cs" />
@@ -206,7 +206,7 @@
     <Compile Include="B690Ittesasu\ConvJsaFugoTokens.cs" />
     <Compile Include="B690Ittesasu\Query341OnSky.cs" />
     <Compile Include="B690Ittesasu\UtilKirokuGakari.cs" />
-    <Compile Include="B570ConvJsa\Conv_SasiteStr_Jsa.cs" />
+    <Compile Include="B570ConvJsa\ConvMoveStrJsa.cs" />
     <Compile Include="B690Ittesasu\IttemodosuResultImpl.cs" />
     <Compile Include="B770ConvSasu\ConvStarbetuMoves.cs" />
     <Compile Include="B690Ittesasu\Util_IttesasuSuperRoutine.cs" />

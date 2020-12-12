@@ -10,7 +10,7 @@ using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 
 namespace Grayscale.A210KnowNingen.B570ConvJsa.C500Converter
 {
-    public abstract class Conv_SasiteStr_Jsa
+    public abstract class ConvMoveStrJsa
     {
         /// <summary>
         /// 「▲７六歩」といった符号にして返します。
@@ -19,7 +19,7 @@ namespace Grayscale.A210KnowNingen.B570ConvJsa.C500Converter
         /// <param name="ISky">現局面です。</param>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static string ToSasiteStr_Jsa(
+        public static string ToMoveStrJsa(
             Move move,
             List<Move> honpuList,
             ISky positionA,

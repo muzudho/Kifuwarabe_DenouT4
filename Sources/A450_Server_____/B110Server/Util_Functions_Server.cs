@@ -57,7 +57,7 @@ namespace Grayscale.A450Server.B110Server.C250Util
         {
             model_Manual.SetGuiSky(positionA);
 
-            jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
+            jsaFugoStr = ConvMoveStrJsa.ToMoveStrJsa(
                 move,
                 kifu1.Pv_ToList(),
                 positionA,
@@ -330,7 +330,7 @@ namespace Grayscale.A450Server.B110Server.C250Util
             // 符号
             //------------------------------
             // [巻戻し]ボタン
-            jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
+            jsaFugoStr = ConvMoveStrJsa.ToMoveStrJsa(
                 curNode1.Move,
                 kifu1_mutable.Pv_ToList(),
                 positionA,

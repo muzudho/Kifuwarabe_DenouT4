@@ -49,7 +49,7 @@ namespace Grayscale.A210KnowNingen.B480UtilSasu.C500Util
         ///// <summary>
         ///// 変換『「指し手→局面」のコレクション』→『「駒、指し手」のペアのリスト』
         ///// </summary>
-        //public static List<Couple<Finger,Masu>> SasitebetuSky_ToKamList(
+        //public static List<Couple<Finger,Masu>> MovebetuSky_ToKamList(
         //    SkyConst src_Sky_genzai,
         //    Dictionary<ShootingStarlightable, SkyBuffer> ss,
         //    LarabeLoggerTag logTag
@@ -190,7 +190,7 @@ namespace Grayscale.A210KnowNingen.B480UtilSasu.C500Util
         /// これが通称【水際のいんちきプログラム】なんだぜ☆
         /// 必要により、【成り】の指し手を追加します。
         /// </summary>
-        public static void Add_KomaBETUAllNariSasites(
+        public static void AddKomaBETUAllNariMoves(
             Maps_OneAndMulti<Finger, Move> komaBETUAllMoves,
             Finger figKoma,
             SyElement srcMasu,
@@ -238,7 +238,7 @@ namespace Grayscale.A210KnowNingen.B480UtilSasu.C500Util
             }
             catch (Exception ex)
             {
-                throw new Exception("Convert04.cs#AddNariSasiteでｴﾗｰ。:" + ex.GetType().Name + ":" + ex.Message);
+                throw new Exception("Convert04.cs#AddNariMoveでｴﾗｰ。:" + ex.GetType().Name + ":" + ex.Message);
             }
         }
 

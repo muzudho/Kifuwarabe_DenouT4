@@ -132,7 +132,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C249Function
             //------------------------------
             {
                 // [コマ送り][再生]ボタン
-                string jsaFugoStr = Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
+                string jsaFugoStr = ConvMoveStrJsa.ToMoveStrJsa(
                     node6.Move,
                     kifu1.Pv_ToList(),
                     positionA, logger);

@@ -1,4 +1,11 @@
-﻿using System;
+﻿#if DEBUG
+using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
+using System.Diagnostics;
+#elif LEARN
+using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
+using System.Diagnostics;
+#else
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
@@ -23,10 +30,6 @@ using Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe;
 using Grayscale.A690FvLearn.B110FvLearn.C___250_Learn;
 using Grayscale.A690FvLearn.B110FvLearn.C250Learn;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-
-#if DEBUG || LEARN
-using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
-using System.Diagnostics;
 #endif
 
 namespace Grayscale.A690FvLearn.B110FvLearn.C260View
@@ -38,7 +41,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C260View
         /// 指し手一覧を、リストボックスに表示します。
         /// </summary>
         /// <param name="uc_Main"></param>
-        public static void ShowSasiteList(
+        public static void ShowMoveList(
             LearningData learningData,
             UcMain uc_Main,
             ILogger logger)
@@ -51,28 +54,28 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C260View
             Earth earth1 = new EarthImpl();
             ISky positionA = UtilSkyCreator.New_Hirate();//日本の符号読取時
             Tree kifu1 = new TreeImpl(positionA);
-            //kifu1.AssertPside(kifu1.CurNode, "ShowSasiteList",errH);
+            //kifu1.AssertPside(kifu1.CurNode, "ShowMoveList",errH);
 
-            List<CsaKifuMove> sasiteList = learningData.CsaKifu.MoveList;
-            foreach (CsaKifuMove csaSasite in sasiteList)
+            List<CsaKifuMove> moveList = learningData.CsaKifu.MoveList;
+            foreach (CsaKifuMove moveAsCsa in moveList)
             {
                 // 開始局面
                 ISky kaisi_Sky = positionA;
 
                 //
-                // csaSasite を データ指し手 に変換するには？
+                // csaMove を データ指し手 に変換するには？
                 //
                 Move nextMove;
                 {
-                    Playerside pside = Util_CsaSasite.ToPside(csaSasite);
+                    Playerside pside = UtilCsaMove.ToPside(moveAsCsa);
 
                     // 元位置
-                    SyElement srcMasu = Util_CsaSasite.ToSrcMasu(csaSasite);
+                    SyElement srcMasu = UtilCsaMove.ToSrcMasu(moveAsCsa);
                     Finger figSrcKoma;
                     if (Masu_Honshogi.IsErrorBasho(srcMasu))// 駒台の "00" かも。
                     {
                         //駒台の駒。
-                        Komasyurui14 utuKomasyurui = Util_Komasyurui14.NarazuCaseHandle(Util_CsaSasite.ToKomasyurui(csaSasite));// 打つ駒の種類。
+                        Komasyurui14 utuKomasyurui = Util_Komasyurui14.NarazuCaseHandle(UtilCsaMove.ToKomasyurui(moveAsCsa));// 打つ駒の種類。
 
                         Okiba komadai;
                         switch (pside)
@@ -93,7 +96,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C260View
                     Busstop srcKoma = kaisi_Sky.BusstopIndexOf(figSrcKoma);
 
                     // 先位置
-                    SyElement dstMasu = Util_CsaSasite.ToDstMasu(csaSasite);
+                    SyElement dstMasu = UtilCsaMove.ToDstMasu(moveAsCsa);
                     Finger figFoodKoma = UtilSkyFingerQuery.InMasuNow_FilteringBanjo(kaisi_Sky, pside, dstMasu, logger);
                     Komasyurui14 foodKomasyurui;
                     if (figFoodKoma == Fingers.Error_1)
@@ -110,7 +113,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C260View
                     Busstop busstop = Conv_Busstop.ToBusstop(
                         pside,
                         dstMasu,
-                        Util_CsaSasite.ToKomasyurui(csaSasite)
+                        UtilCsaMove.ToKomasyurui(moveAsCsa)
                     );
 
                     nextMove = ConvMove.ToMove(
@@ -161,9 +164,9 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C260View
                 {
                 */
                 // FIXME: 未テスト。
-                move = ConvMove.ToMove_ByCsa(csaSasite, kifu1.PositionA);
+                move = ConvMove.ToMove_ByCsa(moveAsCsa, kifu1.PositionA);
                 //}
-                HonpuMoveListItemImpl listItem = new HonpuMoveListItemImpl(csaSasite, move);
+                HonpuMoveListItemImpl listItem = new HonpuMoveListItemImpl(moveAsCsa, move);
                 uc_Main.LstMove.Items.Add(listItem);
             }
         }
@@ -232,7 +235,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C260View
                     GohosyuListItem item = new GohosyuListItem(
                         itemNumber,
                         moveB,
-                        Conv_SasiteStr_Jsa.ToSasiteStr_Jsa(
+                        ConvMoveStrJsa.ToMoveStrJsa(
                             moveB,
                             pvList,
                             positionA, logger)
