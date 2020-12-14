@@ -81,63 +81,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="B110ShogiGui\AspectOriented_TextBox.cs" />
-    <Compile Include="ShogiGuiDebugOptions.cs" />
     <Compile Include="Form2_Console.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form2_Console.Designer.cs">
       <DependentUpon>Form2_Console.cs</DependentUpon>
     </Compile>
-    <Compile Include="B110ShogiGui\ShapeCanvasImpl.cs" />
-    <Compile Include="B110ShogiGui\Conv_Koma_InGui.cs" />
-    <Compile Include="B110ShogiGui\Util_Function_Csharp.cs" />
-    <Compile Include="B110ShogiGui\SubGuiImpl.cs" />
-    <Compile Include="B110ShogiGui\Event_CsharpImpl.cs" />
-    <Compile Include="B110ShogiGui\ShogibanGuiEvent.cs" />
-    <Compile Include="B110ShogiGui\IShape.cs" />
-    <Compile Include="B110ShogiGui\Shape_BtnKoma.cs" />
-    <Compile Include="B110ShogiGui\Shape_BtnMasu.cs" />
-    <Compile Include="B110ShogiGui\Shape_PnlKomadai.cs" />
-    <Compile Include="B110ShogiGui\Shape_PnlShogiban.cs" />
-    <Compile Include="B110ShogiGui\ShapePnlTaikyoku.cs" />
-    <Compile Include="B110ShogiGui\Shape_Canvas.cs" />
-    <Compile Include="B110ShogiGui\Timed.cs" />
-    <Compile Include="B110ShogiGui\SubGui.cs" />
-    <Compile Include="B110ShogiGui\RepaintRequest.cs" />
-    <Compile Include="B110ShogiGui\RepaintRequestGedanTxt.cs" />
-    <Compile Include="B110ShogiGui\TextboxListener.cs" />
-    <Compile Include="B110ShogiGui\Shape_Abstract.cs" />
-    <Compile Include="B110ShogiGui\Shape_BtnKomaImpl.cs" />
-    <Compile Include="B110ShogiGui\SyuturyokuKirikae.cs" />
-    <Compile Include="B110ShogiGui\Util_Menace.cs" />
-    <Compile Include="B110ShogiGui\MouseEventState.cs" />
-    <Compile Include="B110ShogiGui\MouseEventStateName.cs" />
-    <Compile Include="B110ShogiGui\SaiseiEventState.cs" />
-    <Compile Include="B110ShogiGui\SaiseiEventStateName.cs" />
-    <Compile Include="B110ShogiGui\SceneName.cs" />
-    <Compile Include="B110ShogiGui\RepaintRequestImpl.cs" />
-    <Compile Include="B110ShogiGui\UserButtonImpl.cs" />
-    <Compile Include="B110ShogiGui\UserWidget_MasuImpl.cs" />
-    <Compile Include="B110ShogiGui\Shape_BtnBoxImpl.cs" />
-    <Compile Include="B110ShogiGui\Shape_BtnMasuImpl.cs" />
-    <Compile Include="B110ShogiGui\ShapePnlTaikyokuImpl.cs" />
-    <Compile Include="B110ShogiGui\ShapePnlShogibanImpl.cs" />
-    <Compile Include="B110ShogiGui\Shape_PnlKomadaiImpl.cs" />
-    <Compile Include="B110ShogiGui\Shape_LblBoxImpl.cs" />
-    <Compile Include="B110ShogiGui\TimedA_EngineCapture.cs" />
-    <Compile Include="B110ShogiGui\TimedAbstract.cs" />
-    <Compile Include="B110ShogiGui\TimedBMouseCapture.cs" />
-    <Compile Include="B110ShogiGui\TimedC_SaiseiCapture.cs" />
-    <Compile Include="B110ShogiGui\MainGui_CsharpImpl.cs" />
-    <Compile Include="B110ShogiGui\Util_Lua_Csharp.cs" />
-    <Compile Include="B110ShogiGui\WidgetsLoader_CsharpImpl.cs" />
-    <Compile Include="B110ShogiGui\UserWidget.cs" />
-    <Compile Include="B110ShogiGui\MainGui_Csharp.cs" />
-    <Compile Include="B110ShogiGui\WidgetsLoader.cs" />
-    <Compile Include="B110ShogiGui\Form1_Mutex.cs" />
-    <Compile Include="B110ShogiGui\Form1Shogiable.cs" />
-    <Compile Include="B110ShogiGui\UcForm1Mainable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Uc_Form2Main.cs">
       <SubType>UserControl</SubType>
@@ -197,9 +146,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\A000_Platform___\Entities.csproj">
       <Project>{147b11e0-827b-4d3f-844c-adf2beafa53f}</Project>
       <Name>Entities</Name>
@@ -209,9 +155,7 @@
       <Name>UseCase</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="B100_／／将棋ＧＵＩ\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Analyzer Include="..\..\packages\Microsoft.CodeAnalysis.NetAnalyzers.5.0.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll" />
     <Analyzer Include="..\..\packages\Microsoft.CodeAnalysis.NetAnalyzers.5.0.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.NetAnalyzers.dll" />

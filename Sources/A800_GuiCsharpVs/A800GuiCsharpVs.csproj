@@ -103,9 +103,9 @@
       <Project>{dbea8b61-6f05-49a0-9ccb-6fcf2976bd17}</Project>
       <Name>UseCase</Name>
     </ProjectReference>
-    <ProjectReference Include="..\A630_GuiCsharp__\A630GuiCsharp.csproj">
+    <ProjectReference Include="..\A630_GuiCsharp__\GuiOfCsharp.csproj">
       <Project>{9593acc7-348b-4868-892c-7bafbf925b9d}</Project>
-      <Name>A630GuiCsharp</Name>
+      <Name>GuiOfCsharp</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -50,8 +50,14 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DynamicJson">
+      <HintPath>..\..\References\NeueCC\DynamicJson.dll</HintPath>
+    </Reference>
     <Reference Include="Nett, Version=0.15.0.0, Culture=neutral, PublicKeyToken=605dcfe7a1d3365b, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Nett.0.15.0\lib\net40\Nett.dll</HintPath>
+    </Reference>
+    <Reference Include="NLua">
+      <HintPath>..\..\References\NLua\NLua.dll</HintPath>
     </Reference>
     <Reference Include="ProjectDark.KWSupport, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -60,6 +66,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -85,11 +92,63 @@
     <Compile Include="A480ServerAims\B110AimsServer\AimsServerImpl.cs" />
     <Compile Include="A480ServerAims\B110AimsServer\Receiver_ForAims.cs" />
     <Compile Include="A480ServerAims\ProgramOfAims.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\AspectOriented_TextBox.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\Conv_Koma_InGui.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\Event_CsharpImpl.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\Form1Shogiable.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\Form1_Mutex.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\IShape.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\MainGui_Csharp.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\MainGui_CsharpImpl.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\MouseEventState.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\MouseEventStateName.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\RepaintRequest.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\RepaintRequestGedanTxt.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\RepaintRequestImpl.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\SaiseiEventState.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\SaiseiEventStateName.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\SceneName.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\ShapeCanvasImpl.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\ShapePnlShogibanImpl.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\ShapePnlTaikyoku.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\ShapePnlTaikyokuImpl.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\Shape_Abstract.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\Shape_BtnBoxImpl.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\Shape_BtnKoma.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\Shape_BtnKomaImpl.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\Shape_BtnMasu.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\Shape_BtnMasuImpl.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\Shape_Canvas.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\Shape_LblBoxImpl.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\Shape_PnlKomadai.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\Shape_PnlKomadaiImpl.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\Shape_PnlShogiban.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\ShogibanGuiEvent.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\SubGui.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\SubGuiImpl.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\SyuturyokuKirikae.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\TextboxListener.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\Timed.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\TimedAbstract.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\TimedA_EngineCapture.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\TimedBMouseCapture.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\TimedC_SaiseiCapture.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\UcForm1Mainable.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\UserButtonImpl.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\UserWidget.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\UserWidget_MasuImpl.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\Util_Function_Csharp.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\Util_Lua_Csharp.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\Util_Menace.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\WidgetsLoader.cs" />
+    <Compile Include="A630GuiCsharp\B110ShogiGui\WidgetsLoader_CsharpImpl.cs" />
+    <Compile Include="A630GuiCsharp\ShogiGuiDebugOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="A450Server\B100_／／将棋サーバー\" />
     <Folder Include="A480ServerAims\B100_／／AIMSサーバー\" />
+    <Folder Include="A630GuiCsharp\B100_／／将棋ＧＵＩ\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\A000_Platform___\Entities.csproj">

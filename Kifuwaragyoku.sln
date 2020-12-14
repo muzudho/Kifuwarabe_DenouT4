@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCase", "Sources\A480_Ser
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "Sources\A500_ShogiEngine\Engine.csproj", "{E96A7341-B8E6-4979-8B2A-94FF2818962C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A630GuiCsharp", "Sources\A630_GuiCsharp__\A630GuiCsharp.csproj", "{9593ACC7-348B-4868-892C-7BAFBF925B9D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfCsharp", "Sources\A630_GuiCsharp__\GuiOfCsharp.csproj", "{9593ACC7-348B-4868-892C-7BAFBF925B9D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A660FvWriter", "Sources\A660_FvWriter___\A660FvWriter.csproj", "{7CDE26A7-4404-41D0-A1A3-32132B23FBDB}"
 EndProject

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using Grayscale.A060Application.B110Log.C500Struct;
-using Grayscale.A060Application.B310Settei.C500Struct;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B190Komasyurui.C500Util;
 using Grayscale.A210KnowNingen.B240Move.C500Struct;
@@ -11,12 +11,10 @@ using Grayscale.A210KnowNingen.B290_Komahaiyaku.C500Util;
 using Grayscale.A210KnowNingen.B300_KomahaiyaTr.C500Table;
 using Grayscale.A210KnowNingen.B320ConvWords.C500Converter;
 using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
-using Grayscale.A630GuiCsharp.B110ShogiGui.C080Shape;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui;
 using Grayscale.B110ShogiGui;
-using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Nett;
-using System.IO;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.A630GuiCsharp.B110ShogiGui.C080Shape
 {
