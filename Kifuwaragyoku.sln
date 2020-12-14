@@ -15,25 +15,25 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "Sources\A500_Shog
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfCsharp", "Sources\A630_GuiCsharp__\GuiOfCsharp.csproj", "{9593ACC7-348B-4868-892C-7BAFBF925B9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A660FvWriter", "Sources\A660_FvWriter___\A660FvWriter.csproj", "{7CDE26A7-4404-41D0-A1A3-32132B23FBDB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfFvWriter", "Sources\A660_FvWriter___\GuiOfFvWriter.csproj", "{7CDE26A7-4404-41D0-A1A3-32132B23FBDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A690FvLearn", "Sources\A690_FvLearn____\A690FvLearn.csproj", "{974BA7C3-37B5-4575-9349-9E44CFECF2D6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfFvLearn", "Sources\A690_FvLearn____\GuiOfFvLearn.csproj", "{974BA7C3-37B5-4575-9349-9E44CFECF2D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A720SigmoidTest", "Sources\A720_SigmoidTest\A720SigmoidTest.csproj", "{77E59B81-8B78-45D3-98E4-1BF2269B08A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiOfSigmoidTest", "Sources\A720_SigmoidTest\UiOfSigmoidTest.csproj", "{77E59B81-8B78-45D3-98E4-1BF2269B08A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A750LuaTest", "Sources\A750_LuaTest____\A750LuaTest.csproj", "{B2DE7E01-2844-483A-B18F-4A6250FFEDF2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfLuaTest", "Sources\A750_LuaTest____\GuiOfLuaTest.csproj", "{B2DE7E01-2844-483A-B18F-4A6250FFEDF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A780SgSyugoTest", "Sources\A780_SgSyugoTest\A780SgSyugoTest.csproj", "{52C00B8B-9FDD-4F0F-9570-6641EF65086E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfSgSyugoTest", "Sources\A780_SgSyugoTest\GuiOfSgSyugoTest.csproj", "{52C00B8B-9FDD-4F0F-9570-6641EF65086E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A800GuiCsharpVs", "Sources\A800_GuiCsharpVs\A800GuiCsharpVs.csproj", "{F021F9E5-8184-4B45-83AC-117CEF77F77A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfCsharpVs", "Sources\A800_GuiCsharpVs\GuiOfCsharpVs.csproj", "{F021F9E5-8184-4B45-83AC-117CEF77F77A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A830SpeedKeisok", "Sources\A830_SpeedKeisok\A830SpeedKeisok.csproj", "{9508AF0C-DE28-4762-A2CC-7674F60B68C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfSpeedKeisok", "Sources\A830_SpeedKeisok\GuiOfSpeedKeisok.csproj", "{9508AF0C-DE28-4762-A2CC-7674F60B68C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A860UtifuduTest", "Sources\A860_UtifuduTest\A860UtifuduTest.csproj", "{0E4A4B25-BF5A-47B5-8AAD-6DA1993673ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfUtifuduTest", "Sources\A860_UtifuduTest\GuiOfUtifuduTest.csproj", "{0E4A4B25-BF5A-47B5-8AAD-6DA1993673ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A890SampleGame", "Sources\A890_SampleGame\A890SampleGame.csproj", "{FC876110-BD0B-483D-8A64-350582B529F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiOfSampleGame", "Sources\A890_SampleGame\UiOfSampleGame.csproj", "{FC876110-BD0B-483D-8A64-350582B529F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A950UnitTest", "Sources\A950_UnitTest___\A950UnitTest.csproj", "{12A201DF-1210-4EEC-93C2-5D38D01FF097}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiOfUnitTest", "Sources\A950_UnitTest___\UiOfUnitTest.csproj", "{12A201DF-1210-4EEC-93C2-5D38D01FF097}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
