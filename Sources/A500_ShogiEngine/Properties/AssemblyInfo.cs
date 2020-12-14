@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("将棋の思考エンジン きふわらべです。（電王Ｔ４）")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ぐれーすけーる")]
-[assembly: AssemblyProduct("Kifuwaragyoku Bld2")]
+[assembly: AssemblyProduct("Kifuwaragyoku")]
 [assembly: AssemblyCopyright("Copyright © ぐれーすけーる 2014-2015")]
 [assembly: AssemblyTrademark("きふわらべ")]
 [assembly: AssemblyCulture("")]
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 // すべての値を指定するか、下のように '*' を使ってビルドおよびリビジョン番号を 
 // 既定値にすることができます:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.18.0.0")]
-[assembly: AssemblyFileVersion("1.18.0.0")]
+[assembly: AssemblyVersion("2.0.1.0")]
+[assembly: AssemblyFileVersion("2.0.1.0")]
