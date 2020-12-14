@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DBEA8B61-6F05-49A0-9CCB-6FCF2976BD17}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Grayscale</RootNamespace>
     <AssemblyName>Grayscale.A480_ServerAims_</AssemblyName>
@@ -46,9 +46,16 @@
     <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Nett, Version=0.15.0.0, Culture=neutral, PublicKeyToken=605dcfe7a1d3365b, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Nett.0.15.0\lib\net40\Nett.dll</HintPath>
+    </Reference>
+    <Reference Include="ProjectDark.KWSupport, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\References\CircleProjectDark\ProjectDark.KWSupport.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -62,34 +69,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="B110AimsServer\Receiver_ForAimsImpl.cs" />
-    <Compile Include="B110AimsServer\PhaseResult_AimsServer.cs" />
-    <Compile Include="B110AimsServer\AimsServerBase.cs" />
-    <Compile Include="B110AimsServer\Phase_AimsServer.cs" />
-    <Compile Include="B110AimsServer\AimsServerImpl.cs" />
-    <Compile Include="B110AimsServer\Receiver_ForAims.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="A450Server\B110Server\EngineClient.cs" />
+    <Compile Include="A450Server\B110Server\EngineClientImpl.cs" />
+    <Compile Include="A450Server\B110Server\EngineProcessWrapper.cs" />
+    <Compile Include="A450Server\B110Server\EngineProcessWrapperImpl.cs" />
+    <Compile Include="A450Server\B110Server\IReceiver.cs" />
+    <Compile Include="A450Server\B110Server\ReceiverForCsharpVsImpl.cs" />
+    <Compile Include="A450Server\B110Server\Server.cs" />
+    <Compile Include="A450Server\B110Server\Server_Impl.cs" />
+    <Compile Include="A450Server\B110Server\Util_Functions_Server.cs" />
+    <Compile Include="A480ServerAims\B110AimsServer\Receiver_ForAimsImpl.cs" />
+    <Compile Include="A480ServerAims\B110AimsServer\PhaseResult_AimsServer.cs" />
+    <Compile Include="A480ServerAims\B110AimsServer\AimsServerBase.cs" />
+    <Compile Include="A480ServerAims\B110AimsServer\Phase_AimsServer.cs" />
+    <Compile Include="A480ServerAims\B110AimsServer\AimsServerImpl.cs" />
+    <Compile Include="A480ServerAims\B110AimsServer\Receiver_ForAims.cs" />
+    <Compile Include="A480ServerAims\ProgramOfAims.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="B100_／／AIMSサーバー\" />
+    <Folder Include="A450Server\B100_／／将棋サーバー\" />
+    <Folder Include="A480ServerAims\B100_／／AIMSサーバー\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\A000_Platform___\Entities.csproj">
       <Project>{147b11e0-827b-4d3f-844c-adf2beafa53f}</Project>
       <Name>Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\A210_KnowNingen_\A210KnowNingen.csproj">
-      <Project>{2cfb37ae-2d9e-4478-abd8-1eaaaf98f223}</Project>
-      <Name>A210KnowNingen</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\A450_Server_____\A450Server.csproj">
-      <Project>{70aef273-46c9-4e60-ac97-8aeada3ed5f7}</Project>
-      <Name>A450Server</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

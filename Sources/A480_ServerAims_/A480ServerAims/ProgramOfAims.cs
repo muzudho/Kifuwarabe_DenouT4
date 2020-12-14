@@ -13,7 +13,7 @@ namespace Grayscale.P489Form
     class Program
     {
 
-        static void Main(string[] args)
+        static void MainOfAims(string[] args)
         {
             ILogger errH = ErrorControllerReference.ProcessAimsDefault;
             MessageBox.Show("AIMSサーバー");

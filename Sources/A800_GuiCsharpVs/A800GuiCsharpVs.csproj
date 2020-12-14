@@ -99,13 +99,9 @@
       <Project>{147b11e0-827b-4d3f-844c-adf2beafa53f}</Project>
       <Name>Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\A210_KnowNingen_\A210KnowNingen.csproj">
-      <Project>{2cfb37ae-2d9e-4478-abd8-1eaaaf98f223}</Project>
-      <Name>A210KnowNingen</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\A450_Server_____\A450Server.csproj">
-      <Project>{70aef273-46c9-4e60-ac97-8aeada3ed5f7}</Project>
-      <Name>A450Server</Name>
+    <ProjectReference Include="..\A480_ServerAims_\UseCase.csproj">
+      <Project>{dbea8b61-6f05-49a0-9ccb-6fcf2976bd17}</Project>
+      <Name>UseCase</Name>
     </ProjectReference>
     <ProjectReference Include="..\A630_GuiCsharp__\A630GuiCsharp.csproj">
       <Project>{9593acc7-348b-4868-892c-7bafbf925b9d}</Project>

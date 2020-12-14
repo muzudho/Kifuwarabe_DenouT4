@@ -66,34 +66,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="B110Server\Util_Functions_Server.cs" />
-    <Compile Include="B110Server\ReceiverForCsharpVsImpl.cs" />
-    <Compile Include="B110Server\EngineProcessWrapperImpl.cs" />
-    <Compile Include="B110Server\Server_Impl.cs" />
-    <Compile Include="B110Server\EngineClientImpl.cs" />
-    <Compile Include="B110Server\IReceiver.cs" />
-    <Compile Include="B110Server\EngineProcessWrapper.cs" />
-    <Compile Include="B110Server\EngineClient.cs" />
-    <Compile Include="B110Server\Server.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\A000_Platform___\Entities.csproj">
       <Project>{147b11e0-827b-4d3f-844c-adf2beafa53f}</Project>
       <Name>Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\A210_KnowNingen_\A210KnowNingen.csproj">
-      <Project>{2cfb37ae-2d9e-4478-abd8-1eaaaf98f223}</Project>
-      <Name>A210KnowNingen</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="B100_／／将棋サーバー\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Analyzer Include="..\..\packages\Microsoft.CodeAnalysis.NetAnalyzers.5.0.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll" />
     <Analyzer Include="..\..\packages\Microsoft.CodeAnalysis.NetAnalyzers.5.0.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.NetAnalyzers.dll" />
