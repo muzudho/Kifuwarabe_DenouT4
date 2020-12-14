@@ -143,6 +143,25 @@
     <Compile Include="A090UsiFramewor\B100UsiFrame1\PhaseResult_UsiLoop1.cs" />
     <Compile Include="A090UsiFramewor\B100UsiFrame1\PhaseResult_UsiLoop2.cs" />
     <Compile Include="A090UsiFramewor\B100UsiFrame1\UsiFrameworkImpl.cs" />
+    <Compile Include="A120KifuSfen\ISfenFormat2.cs" />
+    <Compile Include="A120KifuSfen\ISfenPosition1.cs" />
+    <Compile Include="A120KifuSfen\Piece.cs" />
+    <Compile Include="A120KifuSfen\PieceType.cs" />
+    <Compile Include="A120KifuSfen\SfenConf.cs" />
+    <Compile Include="A120KifuSfen\SfenFormat2Impl.cs" />
+    <Compile Include="A120KifuSfen\SfenFormat2Reference.cs" />
+    <Compile Include="A120KifuSfen\SfenPosition1Impl.cs" />
+    <Compile Include="A120KifuSfen\SfenString.cs" />
+    <Compile Include="A120KifuSfen\SfenStringImpl.cs" />
+    <Compile Include="A120KifuSfen\SfenWord.cs" />
+    <Compile Include="A120KifuSfen\Square.cs" />
+    <Compile Include="A150LogKyokuPng\B100KyokumenPng\KyokumenPngArgs.cs" />
+    <Compile Include="A150LogKyokuPng\B100KyokumenPng\KyokumenPngArgsImpl.cs" />
+    <Compile Include="A150LogKyokuPng\B100KyokumenPng\KyokumenPngArgs_FoodOrDropKoma.cs" />
+    <Compile Include="A150LogKyokuPng\B100KyokumenPng\KyokumenPngEnvironment.cs" />
+    <Compile Include="A150LogKyokuPng\B100KyokumenPng\KyokumenPngEnvironmentImpl.cs" />
+    <Compile Include="A150LogKyokuPng\B200LogKyokuPng\Util_KyokumenPngPainter.cs" />
+    <Compile Include="A150LogKyokuPng\B200LogKyokuPng\Util_KyokumenPng_Writer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -174,6 +193,7 @@
     <Folder Include="A060Application\B400_／／コレクションクラス\" />
     <Folder Include="A060Application\B500_／／↓集合論\" />
     <Folder Include="A060Application\B600_／／↓将棋定数と変換器\" />
+    <Folder Include="A120KifuSfen\／／SFEN棋譜\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

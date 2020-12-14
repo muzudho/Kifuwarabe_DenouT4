@@ -158,13 +158,9 @@
       <Project>{147b11e0-827b-4d3f-844c-adf2beafa53f}</Project>
       <Name>Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\A120_KifuSfen___\A120KifuSfen.csproj">
-      <Project>{b0982362-ab7f-45a6-af5f-c9fdfa49f9dd}</Project>
-      <Name>A120KifuSfen</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\A150_LogKyokuPng\A150LogKyokuPng.csproj">
+    <ProjectReference Include="..\A150_LogKyokuPng\UiOfKyokuPngLog.csproj">
       <Project>{6f26bae0-8e17-4fda-a242-d1d7c4db2507}</Project>
-      <Name>A150LogKyokuPng</Name>
+      <Name>UiOfKyokuPngLog</Name>
     </ProjectReference>
     <ProjectReference Include="..\A180_KifuCsa____\A180KifuCsa.csproj">
       <Project>{abed6201-9999-44cd-a91b-4ca01cc89006}</Project>

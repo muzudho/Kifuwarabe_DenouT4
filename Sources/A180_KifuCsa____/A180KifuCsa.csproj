@@ -70,13 +70,13 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="B120KifuCsa\CsaKifu.cs" />
-    <Compile Include="B120KifuCsa\CsaKifuMove.cs" />
-    <Compile Include="B120KifuCsa\CsaKifuImpl.cs" />
-    <Compile Include="B120KifuCsa\CsaKifuMoveImpl.cs" />
-    <Compile Include="B120KifuCsa\Util_Csa.cs" />
-    <Compile Include="B120KifuCsa\Word_Csa.cs" />
-    <Compile Include="B120KifuCsa\CsaKifuWriterImpl.cs" />
+    <Compile Include="A180KifuCsa\B120KifuCsa\CsaKifu.cs" />
+    <Compile Include="A180KifuCsa\B120KifuCsa\CsaKifuMove.cs" />
+    <Compile Include="A180KifuCsa\B120KifuCsa\CsaKifuImpl.cs" />
+    <Compile Include="A180KifuCsa\B120KifuCsa\CsaKifuMoveImpl.cs" />
+    <Compile Include="A180KifuCsa\B120KifuCsa\Util_Csa.cs" />
+    <Compile Include="A180KifuCsa\B120KifuCsa\Word_Csa.cs" />
+    <Compile Include="A180KifuCsa\B120KifuCsa\CsaKifuWriterImpl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Uc_Main.cs">
@@ -116,7 +116,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="B100_／／CSA棋譜\" />
+    <Folder Include="A180KifuCsa\B100_／／CSA棋譜\" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\packages\Microsoft.CodeAnalysis.NetAnalyzers.5.0.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll" />
