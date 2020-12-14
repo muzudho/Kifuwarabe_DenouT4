@@ -126,17 +126,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\A000_Platform___\A000Platform.csproj">
+    <ProjectReference Include="..\A000_Platform___\Entities.csproj">
       <Project>{147b11e0-827b-4d3f-844c-adf2beafa53f}</Project>
-      <Name>A000Platform</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\A060_Application\A060Application.csproj">
-      <Project>{8ac05075-a6ef-4779-b18c-3d0e801a4bcd}</Project>
-      <Name>A060Application</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\A090_UsiFramewor\A090UsiFramewor.csproj">
-      <Project>{eaae7f89-1539-4aff-bac6-5e9004ad427e}</Project>
-      <Name>A090UsiFramewor</Name>
+      <Name>Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\A120_KifuSfen___\A120KifuSfen.csproj">
       <Project>{b0982362-ab7f-45a6-af5f-c9fdfa49f9dd}</Project>

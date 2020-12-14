@@ -60,13 +60,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\A000_Platform___\A000Platform.csproj">
+    <ProjectReference Include="..\A000_Platform___\Entities.csproj">
       <Project>{147b11e0-827b-4d3f-844c-adf2beafa53f}</Project>
-      <Name>A000Platform</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\A060_Application\A060Application.csproj">
-      <Project>{8ac05075-a6ef-4779-b18c-3d0e801a4bcd}</Project>
-      <Name>A060Application</Name>
+      <Name>Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\A210_KnowNingen_\A210KnowNingen.csproj">
       <Project>{2cfb37ae-2d9e-4478-abd8-1eaaaf98f223}</Project>

@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{147B11E0-827B-4D3F-844C-ADF2BEAFA53F}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Grayscale.A000_Platform___</RootNamespace>
     <AssemblyName>Grayscale.A000_Platform___</AssemblyName>
@@ -61,11 +61,18 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Nett, Version=0.15.0.0, Culture=neutral, PublicKeyToken=605dcfe7a1d3365b, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Nett.0.15.0\lib\net40\Nett.dll</HintPath>
     </Reference>
+    <Reference Include="ProjectDark.KWSupport">
+      <HintPath>..\..\References\CircleProjectDark\ProjectDark.KWSupport.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
@@ -78,12 +85,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="B011Csv\CsvLineParserImpl.cs" />
-    <Compile Include="B011Csv\Util_Csv.cs" />
-    <Compile Include="B021Random\KwRandom.cs" />
-    <Compile Include="B021Random\KwShuffle.cs" />
-    <Compile Include="B025Machine\MachineImpl.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="A000Platform\B011Csv\CsvLineParserImpl.cs" />
+    <Compile Include="A000Platform\B011Csv\Util_Csv.cs" />
+    <Compile Include="A000Platform\B021Random\KwRandom.cs" />
+    <Compile Include="A000Platform\B021Random\KwShuffle.cs" />
+    <Compile Include="A000Platform\B025Machine\MachineImpl.cs" />
+    <Compile Include="A060Application\B110Log\ErrorControllerImpl.cs" />
+    <Compile Include="A060Application\B110Log\IErrorController.cs" />
+    <Compile Include="A060Application\B110Log\ILogger.cs" />
+    <Compile Include="A060Application\B110Log\LoggerImpl.cs" />
+    <Compile Include="A060Application\B110Log\LogTypes.cs" />
+    <Compile Include="A060Application\B110Log\n500_util_Loggers.cs" />
+    <Compile Include="A060Application\B210Tushin\Util_Message.cs" />
+    <Compile Include="A060Application\B310_Settei_____\Data_Settei_Csv.cs" />
+    <Compile Include="A060Application\B310_Settei_____\SetteiXmlFile.cs" />
+    <Compile Include="A060Application\B410Collection\Couple.cs" />
+    <Compile Include="A060Application\B410Collection\List_OneAndMulti.cs" />
+    <Compile Include="A060Application\B410Collection\Maps_OneAndMulti.cs" />
+    <Compile Include="A060Application\B410Collection\Maps_OneAndMultiAndMulti.cs" />
+    <Compile Include="A060Application\B410Collection\Maps_OneAndOne.cs" />
+    <Compile Include="A060Application\B510_Conv_Sy\Conv_Sy.cs" />
+    <Compile Include="A060Application\B520_Syugoron___\SyElement.cs" />
+    <Compile Include="A060Application\B520_Syugoron___\SyElement_Default.cs" />
+    <Compile Include="A060Application\B520_Syugoron___\SyFuncDictionary.cs" />
+    <Compile Include="A060Application\B520_Syugoron___\SySet.cs" />
+    <Compile Include="A060Application\B520_Syugoron___\SySet_Default.cs" />
+    <Compile Include="A060Application\B520_Syugoron___\SySet_DirectedSegment.cs" />
+    <Compile Include="A060Application\B520_Syugoron___\SySet_Ordered.cs" />
+    <Compile Include="A060Application\B520_Syugoron___\SyWordDictionary.cs" />
+    <Compile Include="A060Application\B520_Syugoron___\Util_SySet.cs" />
+    <Compile Include="A060Application\B530_UtilSyColle\Util_List_OneAndMulti.cs" />
+    <Compile Include="A060Application\B610_ConstShogi_\ConstShogi.cs" />
+    <Compile Include="A060Application\B620_ConvText___\Conv_Alphabet.cs" />
+    <Compile Include="A060Application\B620_ConvText___\Conv_Filepath.cs" />
+    <Compile Include="A060Application\B620_ConvText___\Conv_Int.cs" />
+    <Compile Include="A060Application\B620_ConvText___\Conv_Suji.cs" />
+    <Compile Include="A060Application\B620_ConvText___\TextConst.cs" />
+    <Compile Include="A090UsiFramewor\B100UsiFrame1\EngineOptionBoolImpl.cs" />
+    <Compile Include="A090UsiFramewor\B100UsiFrame1\EngineOptionButtonImpl.cs" />
+    <Compile Include="A090UsiFramewor\B100UsiFrame1\EngineOptionComboImpl.cs" />
+    <Compile Include="A090UsiFramewor\B100UsiFrame1\EngineOptionFilenameImpl.cs" />
+    <Compile Include="A090UsiFramewor\B100UsiFrame1\EngineOptionNames.cs" />
+    <Compile Include="A090UsiFramewor\B100UsiFrame1\EngineOptionNumberImpl.cs" />
+    <Compile Include="A090UsiFramewor\B100UsiFrame1\EngineOptions.cs" />
+    <Compile Include="A090UsiFramewor\B100UsiFrame1\EngineOptionsImpl.cs" />
+    <Compile Include="A090UsiFramewor\B100UsiFrame1\EngineOptionSpinImpl.cs" />
+    <Compile Include="A090UsiFramewor\B100UsiFrame1\EngineOptionStringImpl.cs" />
+    <Compile Include="A090UsiFramewor\B100UsiFrame1\IEngineOption.cs" />
+    <Compile Include="A090UsiFramewor\B100UsiFrame1\IEngineOptionBool.cs" />
+    <Compile Include="A090UsiFramewor\B100UsiFrame1\IEngineOptionButton.cs" />
+    <Compile Include="A090UsiFramewor\B100UsiFrame1\IEngineOptionCombo.cs" />
+    <Compile Include="A090UsiFramewor\B100UsiFrame1\IEngineOptionFilename.cs" />
+    <Compile Include="A090UsiFramewor\B100UsiFrame1\IEngineOptionNumber.cs" />
+    <Compile Include="A090UsiFramewor\B100UsiFrame1\IEngineOptionSpin.cs" />
+    <Compile Include="A090UsiFramewor\B100UsiFrame1\IEngineOptionString.cs" />
+    <Compile Include="A090UsiFramewor\B100UsiFrame1\IUsiFramework.cs" />
+    <Compile Include="A090UsiFramewor\B100UsiFrame1\PhaseResult_UsiLoop1.cs" />
+    <Compile Include="A090UsiFramewor\B100UsiFrame1\PhaseResult_UsiLoop2.cs" />
+    <Compile Include="A090UsiFramewor\B100UsiFrame1\UsiFrameworkImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -95,8 +154,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="App.config" />
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -108,9 +165,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="B000_／／環境\" />
-    <Folder Include="B010_／／↓CSV\" />
-    <Folder Include="B020_／／↓ランダム値生成\" />
+    <Folder Include="A000Platform\B000_／／環境\" />
+    <Folder Include="A000Platform\B010_／／↓CSV\" />
+    <Folder Include="A000Platform\B020_／／↓ランダム値生成\" />
+    <Folder Include="A060Application\B100_／／↓ログ、異常系処理等\" />
+    <Folder Include="A060Application\B200_／／↓通信\" />
+    <Folder Include="A060Application\B300_／／↓設定ファイル\" />
+    <Folder Include="A060Application\B400_／／コレクションクラス\" />
+    <Folder Include="A060Application\B500_／／↓集合論\" />
+    <Folder Include="A060Application\B600_／／↓将棋定数と変換器\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

@@ -52,34 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="B100UsiFrame1\PhaseResult_UsiLoop1.cs" />
-    <Compile Include="B100UsiFrame1\PhaseResult_UsiLoop2.cs" />
-    <Compile Include="B100UsiFrame1\EngineOptionsImpl.cs" />
-    <Compile Include="B100UsiFrame1\EngineOptionBoolImpl.cs" />
-    <Compile Include="B100UsiFrame1\EngineOptionButtonImpl.cs" />
-    <Compile Include="B100UsiFrame1\EngineOptionComboImpl.cs" />
-    <Compile Include="B100UsiFrame1\EngineOptionFilenameImpl.cs" />
-    <Compile Include="B100UsiFrame1\EngineOptionNumberImpl.cs" />
-    <Compile Include="B100UsiFrame1\EngineOptionSpinImpl.cs" />
-    <Compile Include="B100UsiFrame1\EngineOptionStringImpl.cs" />
-    <Compile Include="B100UsiFrame1\IEngineOption.cs" />
-    <Compile Include="B100UsiFrame1\EngineOptionNames.cs" />
-    <Compile Include="B100UsiFrame1\EngineOptions.cs" />
-    <Compile Include="B100UsiFrame1\IEngineOptionBool.cs" />
-    <Compile Include="B100UsiFrame1\IEngineOptionButton.cs" />
-    <Compile Include="B100UsiFrame1\IEngineOptionCombo.cs" />
-    <Compile Include="B100UsiFrame1\IEngineOptionFilename.cs" />
-    <Compile Include="B100UsiFrame1\IEngineOptionNumber.cs" />
-    <Compile Include="B100UsiFrame1\IEngineOptionSpin.cs" />
-    <Compile Include="B100UsiFrame1\IEngineOptionString.cs" />
-    <Compile Include="B100UsiFrame1\IUsiFramework.cs" />
-    <Compile Include="B100UsiFrame1\UsiFrameworkImpl.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\packages\Microsoft.CodeAnalysis.NetAnalyzers.5.0.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll" />
