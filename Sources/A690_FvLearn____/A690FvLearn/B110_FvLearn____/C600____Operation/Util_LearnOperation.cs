@@ -120,7 +120,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
             // TODO:本譜のネクスト・ノードは？
             int searchedMaxDepth = 0;
             ulong searchedNodes = 0;
-            string[] searchedPv = new string[KifuWarabeImpl.SEARCHED_PV_LENGTH];
+            string[] searchedPv = new string[ProgramSupport.SEARCHED_PV_LENGTH];
             uc_Main.LearningData.Aa_Yomi(
                 ref searchedMaxDepth,
                 ref searchedNodes,
@@ -298,7 +298,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
             // 合法手を調べます。
             int searchedMaxDepth = 0;
             ulong searchedNodes = 0;
-            string[] searchedPv = new string[KifuWarabeImpl.SEARCHED_PV_LENGTH];
+            string[] searchedPv = new string[ProgramSupport.SEARCHED_PV_LENGTH];
             uc_Main.LearningData.Aa_Yomi(
                 ref searchedMaxDepth,
                 ref searchedNodes,
@@ -347,7 +347,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
                 args = new EvaluationArgsImpl(
                     uc_Main.LearningData.Earth.GetSennititeCounter(),
                     new FeatureVectorImpl(),
-                    new ShogisasiImpl(new KifuWarabeImpl(new UsiFrameworkImpl())),
+                    new ShogisasiImpl(new ProgramSupport(new UsiFrameworkImpl())),
                     UtilKifuTreeLogWriter.REPORT_ENVIRONMENT
 #if DEBUG
                     ,
@@ -359,7 +359,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
             // 合法手を数えたい。
             int searchedMaxDepth = 0;
             ulong searchedNodes = 0;
-            string[] searchedPv = new string[KifuWarabeImpl.SEARCHED_PV_LENGTH];
+            string[] searchedPv = new string[ProgramSupport.SEARCHED_PV_LENGTH];
             uc_Main.LearningData.Aaa_CreateNextNodes_Gohosyu(
                 ref searchedMaxDepth,
                 ref searchedNodes,

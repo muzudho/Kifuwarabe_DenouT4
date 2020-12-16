@@ -48,12 +48,12 @@ using Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct;
 
 namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
 {
-    public class KifuWarabeImpl : ShogiEngine
+    public class ProgramSupport : ShogiEngine
     {
         /// <summary>
         /// コンストラクター
         /// </summary>
-        public KifuWarabeImpl(IUsiFramework usiFramework)
+        public ProgramSupport(IUsiFramework usiFramework)
         {
             this.Logger = ErrorControllerReference.ProcessEngineDefault;
 
@@ -1015,7 +1015,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                             //
                             int searchedMaxDepth = 0;
                             ulong searchedNodes = 0;
-                            string[] searchedPv = new string[KifuWarabeImpl.SEARCHED_PV_LENGTH];
+                            string[] searchedPv = new string[ProgramSupport.SEARCHED_PV_LENGTH];
                             int multiPV_Count = 1;// 2;
                             {
                                 // 最善手、次善手、三次善手、四次善手、五次善手

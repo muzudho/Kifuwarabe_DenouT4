@@ -22,7 +22,7 @@ namespace Grayscale.P580_Form_______
             IUsiFramework usiFramework = new UsiFrameworkImpl();
 
             // 将棋エンジン　きふわらべ
-            KifuWarabeImpl kifuWarabe = new KifuWarabeImpl(usiFramework);
+            ProgramSupport programSupport = new ProgramSupport(usiFramework);
 
             try
             {

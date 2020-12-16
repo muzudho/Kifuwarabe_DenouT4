@@ -383,7 +383,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C260View
             ////----------------------------------------
             int searchedMaxDepth = 0;
             ulong searchedNodes = 0;
-            string[] searchedPv = new string[KifuWarabeImpl.SEARCHED_PV_LENGTH];
+            string[] searchedPv = new string[ProgramSupport.SEARCHED_PV_LENGTH];
             learningData.Aa_Yomi(
                 ref searchedMaxDepth,
                 ref searchedNodes,

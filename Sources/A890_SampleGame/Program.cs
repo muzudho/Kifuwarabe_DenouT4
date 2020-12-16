@@ -24,7 +24,7 @@ namespace P930_SampleGame
 
 
             // 将棋エンジン　きふわらべ
-            KifuWarabeImpl kifuWarabe = new KifuWarabeImpl(new UsiFrameworkImpl());
+            ProgramSupport kifuWarabe = new ProgramSupport(new UsiFrameworkImpl());
             kifuWarabe.OnApplicationBegin();
 
 
@@ -38,7 +38,7 @@ namespace P930_SampleGame
 
             int searchedMaxDepth = 0;
             ulong searchedNodes = 0;
-            string[] searchedPv = new string[KifuWarabeImpl.SEARCHED_PV_LENGTH];
+            string[] searchedPv = new string[ProgramSupport.SEARCHED_PV_LENGTH];
             MoveEx bestmoveNode = shogisasi.WA_Bestmove(
                 ref searchedMaxDepth,
                 ref searchedNodes,

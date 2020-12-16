@@ -71,6 +71,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="B100UsiFrame1\EngineOptionBoolImpl.cs" />
+    <Compile Include="B100UsiFrame1\EngineOptionButtonImpl.cs" />
+    <Compile Include="B100UsiFrame1\EngineOptionComboImpl.cs" />
+    <Compile Include="B100UsiFrame1\EngineOptionFilenameImpl.cs" />
+    <Compile Include="B100UsiFrame1\EngineOptionNames.cs" />
+    <Compile Include="B100UsiFrame1\EngineOptionNumberImpl.cs" />
+    <Compile Include="B100UsiFrame1\EngineOptions.cs" />
+    <Compile Include="B100UsiFrame1\EngineOptionsImpl.cs" />
+    <Compile Include="B100UsiFrame1\EngineOptionSpinImpl.cs" />
+    <Compile Include="B100UsiFrame1\EngineOptionStringImpl.cs" />
+    <Compile Include="B100UsiFrame1\IEngineOption.cs" />
+    <Compile Include="B100UsiFrame1\IEngineOptionBool.cs" />
+    <Compile Include="B100UsiFrame1\IEngineOptionButton.cs" />
+    <Compile Include="B100UsiFrame1\IEngineOptionCombo.cs" />
+    <Compile Include="B100UsiFrame1\IEngineOptionFilename.cs" />
+    <Compile Include="B100UsiFrame1\IEngineOptionNumber.cs" />
+    <Compile Include="B100UsiFrame1\IEngineOptionSpin.cs" />
+    <Compile Include="B100UsiFrame1\IEngineOptionString.cs" />
+    <Compile Include="B100UsiFrame1\IUsiFramework.cs" />
+    <Compile Include="B100UsiFrame1\PhaseResult_UsiLoop1.cs" />
+    <Compile Include="B100UsiFrame1\PhaseResult_UsiLoop2.cs" />
+    <Compile Include="B100UsiFrame1\UsiFrameworkImpl.cs" />
     <Compile Include="B140ConvFvKoumoku\Conv_FvKoumoku522.cs" />
     <Compile Include="B150UtilFv\Util_FeatureVectorEdit.cs" />
     <Compile Include="B150UtilFv\Format_FeatureVector_Scale.cs" />
@@ -116,7 +138,7 @@
     <Compile Include="B280KifuWarabe\Result_KingState.cs" />
     <Compile Include="B280KifuWarabe\NoopPhase.cs" />
     <Compile Include="B280KifuWarabe\NoopTimerImpl.cs" />
-    <Compile Include="B280KifuWarabe\n500_KifuWarabeImpl.cs" />
+    <Compile Include="ProgramSupport.cs" />
     <Compile Include="B200Scoreing\ShogiEngine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
