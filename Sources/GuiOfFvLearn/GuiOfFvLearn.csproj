@@ -5,13 +5,28 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9508AF0C-DE28-4762-A2CC-7674F60B68C7}</ProjectGuid>
+    <ProjectGuid>{974BA7C3-37B5-4575-9349-9E44CFECF2D6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Grayscale</RootNamespace>
-    <AssemblyName>Grayscale.A830_SpeedKeisok</AssemblyName>
+    <AssemblyName>Grayscale.A690_FvLearn____</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -21,7 +36,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\BuildsOfAnothers\Debug\A830_SpeedKeisok\</OutputPath>
+    <OutputPath>..\..\BuildsOfAnothers\Debug\A690_FvLearn____\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -30,7 +45,7 @@
     <PlatformTarget>x64</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\BuildsOfAnothers\Release\A830_SpeedKeisok\</OutputPath>
+    <OutputPath>..\..\BuildsOfAnothers\Release\A690_FvLearn____\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -38,7 +53,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'LEARN|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\..\BuildsOfAnothers\Learn\A830_SpeedKeisok\</OutputPath>
+    <OutputPath>..\..\BuildsOfAnothers\Learn\A690_FvLearn____\</OutputPath>
     <DefineConstants>TRACE;LEARN</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
@@ -50,7 +65,11 @@
     <Reference Include="Nett, Version=0.15.0.0, Culture=neutral, PublicKeyToken=605dcfe7a1d3365b, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Nett.0.15.0\lib\net40\Nett.dll</HintPath>
     </Reference>
+    <Reference Include="ProjectDark.KWSupport">
+      <HintPath>..\..\Resources\Lib_Circle_ProjectDark\ProjectDark.KWSupport.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
@@ -69,6 +88,32 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="A690FvLearn\B110_FvLearn____\C260____View\Util_LearningView.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C400____54List\N40t14ListImpl.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C400____54List\N54ListImpl.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C400____54List\Util_40t14List.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C400____54List\Util_54List.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C420____Inspection\Util_Inspection.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C430____Zooming\UtilZooming.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C440____Ranking\UtilRanking.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C450____Tyoseiryo\TyoseiryoSettingsImpl.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C450____Tyoseiryo\Util_Tyoseiryo.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C460____Scoreing\Util_FvScoreing.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C470____StartZero\Util_StartZero.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C480____Functions\UtilLearnFunctions.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C490____StopLearning\StopLearningImpl.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C506____AutoSortingRush\Util_AutoSortingRush.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C510____AutoKifuRead\Util_AutoKifuRead.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C508____AutoSasiteRush\UtilAutoMoveRush.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C600____Operation\Util_LearnOperation.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C___250_Learn\LearningData.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C250____Learn\GohosyuListItem.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C250____Learn\LearningDataImpl.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C250____Learn\HonpuMoveListItemImpl.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C___400_54List\N40t14List.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C___400_54List\N54List.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C___450_Tyoseiryo\TyoseiryoSettings.cs" />
+    <Compile Include="A690FvLearn\B110_FvLearn____\C___490_StopLearning\StopLearning.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Uc_Main.cs">
@@ -79,7 +124,6 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -93,6 +137,7 @@
     </Compile>
     <EmbeddedResource Include="Uc_Main.resx">
       <DependentUpon>Uc_Main.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -109,14 +154,43 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\A000_Platform___\Entities.csproj">
+    <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{147b11e0-827b-4d3f-844c-adf2beafa53f}</Project>
       <Name>Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\A500_ShogiEngine\Engine.csproj">
+    <ProjectReference Include="..\UiOfKyokuPngLog\UiOfKyokuPngLog.csproj">
+      <Project>{6f26bae0-8e17-4fda-a242-d1d7c4db2507}</Project>
+      <Name>UiOfKyokuPngLog</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GuiOfKifuCsa\GuiOfKifuCsa.csproj">
+      <Project>{abed6201-9999-44cd-a91b-4ca01cc89006}</Project>
+      <Name>GuiOfKifuCsa</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Engine\Engine.csproj">
       <Project>{e96a7341-b8e6-4979-8b2a-94ff2818962c}</Project>
       <Name>Engine</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UseCases\UseCases.csproj">
+      <Project>{dbea8b61-6f05-49a0-9ccb-6fcf2976bd17}</Project>
+      <Name>UseCases</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 および x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\packages\Microsoft.CodeAnalysis.NetAnalyzers.5.0.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll" />

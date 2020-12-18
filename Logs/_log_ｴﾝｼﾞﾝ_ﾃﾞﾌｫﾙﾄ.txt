@@ -10383,3 +10383,3451 @@ go btime 312000 wtime 311000 binc 2000 winc 2000
 └──┴──┴──┴──┴──┴──┴──┴──┴──┘
 
 
+>     ┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=８四 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=８四 srcKs=王 dstKs=王 captured=×
+└──────────┘
+position startpos moves 7g7f 8b4b 3i4h 4c4d 5i6h 5a6b 4i5h 6b5a 6h7h 5a5b 3g3f 5b4c 4h3g 4c5d 7f7e 5d6e 8h6f 6e7f 3f3e 7f8e 8i7g 8e9e 9g9f 9e9d 9f9e
+>     ┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+go btime 313000 wtime 312000 binc 2000 winc 2000
+サーバーから受信した局面☆（＾▽＾）
+
+┌──┬──┬──┬──┬──┬──┬──┬──┬──┐
+│香▽│桂▽│銀▽│金▽│　　│金▽│銀▽│桂▽│香▽│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│　　│　　│　　│　　│飛▽│　　│角▽│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│歩▽│歩▽│歩▽│歩▽│歩▽│　　│歩▽│歩▽│歩▽│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│王▽│　　│　　│　　│　　│歩▽│　　│　　│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│▲歩│　　│▲歩│　　│　　│　　│▲歩│　　│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│　　│　　│▲角│　　│　　│　　│　　│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│▲歩│▲桂│▲歩│▲歩│▲歩│▲銀│▲歩│▲歩│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│　　│▲王│　　│▲金│　　│　　│▲飛│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│▲香│　　│▲銀│▲金│　　│　　│　　│▲桂│▲香│
+└──┴──┴──┴──┴──┴──┴──┴──┴──┘
+
+
+>     ┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+└──────────┘
+position startpos moves 7g7f 8b4b 3i4h 4c4d 5i6h 5a6b 4i5h 6b5a 6h7h 5a5b 3g3f 5b4c 4h3g 4c5d 7f7e 5d6e 8h6f 6e7f 3f3e 7f8e 8i7g 8e9e 9g9f 9e9d 9f9e 9d8d 8g8f
+>     ┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+go btime 314000 wtime 313000 binc 2000 winc 2000
+サーバーから受信した局面☆（＾▽＾）
+
+┌──┬──┬──┬──┬──┬──┬──┬──┬──┐
+│香▽│桂▽│銀▽│金▽│　　│金▽│銀▽│桂▽│香▽│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│　　│　　│　　│　　│飛▽│　　│角▽│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│歩▽│歩▽│歩▽│歩▽│歩▽│　　│歩▽│歩▽│歩▽│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│王▽│　　│　　│　　│歩▽│　　│　　│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│▲歩│　　│▲歩│　　│　　│　　│▲歩│　　│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│▲歩│　　│▲角│　　│　　│　　│　　│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│　　│▲桂│▲歩│▲歩│▲歩│▲銀│▲歩│▲歩│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│　　│▲王│　　│▲金│　　│　　│▲飛│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│▲香│　　│▲銀│▲金│　　│　　│　　│▲桂│▲香│
+└──┴──┴──┴──┴──┴──┴──┴──┴──┘
+
+
+>     ┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=４二 dst=４三 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=４二 dst=５二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=４二 dst=６二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=４二 dst=７二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=４二 dst=８二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=４二 dst=９二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=４二 dst=３二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=４一 dst=５二 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=４一 dst=５一 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=４一 dst=３二 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=６一 dst=６二 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=６一 dst=７二 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=６一 dst=５一 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=６一 dst=５二 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=３一 dst=３二 srcKs=銀 dstKs=銀 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=７一 dst=７二 srcKs=銀 dstKs=銀 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=７一 dst=８二 srcKs=銀 dstKs=銀 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=７一 dst=６二 srcKs=銀 dstKs=銀 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=１一 dst=１二 srcKs=香 dstKs=香 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=９一 dst=９二 srcKs=香 dstKs=香 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=１三 dst=１四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=２三 dst=２四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=３三 dst=３四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=４四 dst=４五 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=５三 dst=５四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=６三 dst=６四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=７三 dst=７四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=９三 dst=９四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐RemoveLastPv後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=９三 dst=９四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+position startpos moves 7g7f 8b4b 3i4h 4c4d 5i6h 5a6b 4i5h 6b5a 6h7h 5a5b 3g3f 5b4c 4h3g 4c5d 7f7e 5d6e 8h6f 6e7f 3f3e 7f8e 8i7g 8e9e 9g9f 9e9d 9f9e 9d8d 8g8f 3c3d 8f8e
+>     ┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=３三 dst=３四 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=３三 dst=３四 srcKs=歩 dstKs=歩 captured=×
+(29)pside=先手 src=８六 dst=８五 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+go btime 315000 wtime 314000 binc 2000 winc 2000
+サーバーから受信した局面☆（＾▽＾）
+
+┌──┬──┬──┬──┬──┬──┬──┬──┬──┐
+│香▽│桂▽│銀▽│金▽│　　│金▽│銀▽│桂▽│香▽│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│　　│　　│　　│　　│飛▽│　　│角▽│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│歩▽│歩▽│歩▽│歩▽│歩▽│　　│　　│歩▽│歩▽│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│王▽│　　│　　│　　│歩▽│歩▽│　　│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│▲歩│▲歩│▲歩│　　│　　│　　│▲歩│　　│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│　　│　　│▲角│　　│　　│　　│　　│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│　　│▲桂│▲歩│▲歩│▲歩│▲銀│▲歩│▲歩│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│　　│　　│▲王│　　│▲金│　　│　　│▲飛│　　│
+├──┼──┼──┼──┼──┼──┼──┼──┼──┤
+│▲香│　　│▲銀│▲金│　　│　　│　　│▲桂│▲香│
+└──┴──┴──┴──┴──┴──┴──┴──┴──┘
+
+
+>     ┌──────────┐Append後
+(0)EMPTY
+(1)pside=先手 src=７七 dst=７六 srcKs=歩 dstKs=歩 captured=×
+(2)pside=後手 src=８二 dst=４二 srcKs=飛 dstKs=飛 captured=×
+(3)pside=先手 src=３九 dst=４八 srcKs=銀 dstKs=銀 captured=×
+(4)pside=後手 src=４三 dst=４四 srcKs=歩 dstKs=歩 captured=×
+(5)pside=先手 src=５九 dst=６八 srcKs=王 dstKs=王 captured=×
+(6)pside=後手 src=５一 dst=６二 srcKs=王 dstKs=王 captured=×
+(7)pside=先手 src=４九 dst=５八 srcKs=金 dstKs=金 captured=×
+(8)pside=後手 src=６二 dst=５一 srcKs=王 dstKs=王 captured=×
+(9)pside=先手 src=６八 dst=７八 srcKs=王 dstKs=王 captured=×
+(10)pside=後手 src=５一 dst=５二 srcKs=王 dstKs=王 captured=×
+(11)pside=先手 src=３七 dst=３六 srcKs=歩 dstKs=歩 captured=×
+(12)pside=後手 src=５二 dst=４三 srcKs=王 dstKs=王 captured=×
+(13)pside=先手 src=４八 dst=３七 srcKs=銀 dstKs=銀 captured=×
+(14)pside=後手 src=４三 dst=５四 srcKs=王 dstKs=王 captured=×
+(15)pside=先手 src=７六 dst=７五 srcKs=歩 dstKs=歩 captured=×
+(16)pside=後手 src=５四 dst=６五 srcKs=王 dstKs=王 captured=×
+(17)pside=先手 src=８八 dst=６六 srcKs=角 dstKs=角 captured=×
+(18)pside=後手 src=６五 dst=７六 srcKs=王 dstKs=王 captured=×
+(19)pside=先手 src=３六 dst=３五 srcKs=歩 dstKs=歩 captured=×
+(20)pside=後手 src=７六 dst=８五 srcKs=王 dstKs=王 captured=×
+(21)pside=先手 src=８九 dst=７七 srcKs=桂 dstKs=桂 captured=×
+(22)pside=後手 src=８五 dst=９五 srcKs=王 dstKs=王 captured=×
+(23)pside=先手 src=９七 dst=９六 srcKs=歩 dstKs=歩 captured=×
+(24)pside=後手 src=９五 dst=９四 srcKs=王 dstKs=王 captured=×
+(25)pside=先手 src=９六 dst=９五 srcKs=歩 dstKs=歩 captured=×
+(26)pside=後手 src=９四 dst=８四 srcKs=王 dstKs=王 captured=×
+(27)pside=先手 src=８七 dst=８六 srcKs=歩 dstKs=歩 captured=×
+(28)pside=後手 src=３三 dst=３四 srcKs=歩 dstKs=歩 captured=×
+(29)pside=先手 src=８六 dst=８五 srcKs=歩 dstKs=歩 captured=×
+(30)pside=先手 src=８六 dst=８五 srcKs=歩 dstKs=歩 captured=×
+└──────────┘
+gameover lose
