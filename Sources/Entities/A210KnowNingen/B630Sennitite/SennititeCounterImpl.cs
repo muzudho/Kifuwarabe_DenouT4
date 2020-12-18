@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
-using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities;
 
 namespace Grayscale.A210KnowNingen.B630Sennitite.C500Struct
 {

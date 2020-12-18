@@ -1,10 +1,10 @@
 ﻿using System.Diagnostics;
-using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.A450Server.B110Server.C125Receiver;
 using Grayscale.A450Server.B110Server.C498Server;
 
 #if DEBUG
-using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities;
 #endif
 
 namespace Grayscale.A450Server.B110Server.C497EngineClient

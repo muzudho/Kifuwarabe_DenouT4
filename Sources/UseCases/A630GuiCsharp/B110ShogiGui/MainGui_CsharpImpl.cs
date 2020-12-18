@@ -5,7 +5,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using Codeplex.Data;//DynamicJson
-using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.A060Application.B310Settei.C500Struct;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B240Move.C500Struct;
@@ -30,7 +30,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Nett;
 
 #if DEBUG
-// using Grayscale.A060Application.B110Log.C500Struct;
+// using Grayscale.Kifuwaragyoku.Entities;
 #endif
 
 namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI

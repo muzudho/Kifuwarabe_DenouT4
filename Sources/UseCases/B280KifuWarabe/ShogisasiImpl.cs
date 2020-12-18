@@ -1,5 +1,5 @@
 ﻿using System;
-using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C490Option;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B270Sky.C500Struct;

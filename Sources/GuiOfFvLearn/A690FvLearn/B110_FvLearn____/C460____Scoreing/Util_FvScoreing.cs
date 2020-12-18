@@ -1,4 +1,4 @@
-﻿using Grayscale.A060Application.B110Log.C500Struct;
+﻿using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.A210KnowNingen.B270Sky.C500Struct;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 using Grayscale.A690FvLearn.B110FvLearn.C___400_54List;

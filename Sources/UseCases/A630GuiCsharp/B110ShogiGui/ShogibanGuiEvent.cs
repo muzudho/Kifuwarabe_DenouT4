@@ -1,4 +1,4 @@
-﻿using Grayscale.A060Application.B110Log.C500Struct;
+﻿using Grayscale.Kifuwaragyoku.Entities;
 
 /// <summary>
 /// この名前空間は、デリゲートを定義しているだけ。

@@ -1,5 +1,5 @@
 ﻿using System.Windows.Forms;
-using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.A690FvLearn.B110FvLearn.C508AutoMoveRush;
 
 namespace Grayscale.A690FvLearn.B110FvLearn.C510____AutoKifuRead

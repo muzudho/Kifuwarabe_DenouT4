@@ -1,4 +1,4 @@
-﻿namespace Grayscale.A060Application.B110Log.C500Struct
+﻿namespace Grayscale.Kifuwaragyoku.Entities
 {
 
     /// <summary>

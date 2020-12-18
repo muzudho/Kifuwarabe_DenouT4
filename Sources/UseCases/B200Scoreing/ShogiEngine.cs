@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C490Option;
 using Grayscale.A210KnowNingen.B280Tree.C500Struct;
 using Grayscale.A500ShogiEngine.B200Scoreing.C240Shogisasi;

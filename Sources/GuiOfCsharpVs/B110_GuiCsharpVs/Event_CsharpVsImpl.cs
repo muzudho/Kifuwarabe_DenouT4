@@ -1,4 +1,4 @@
-﻿using Grayscale.A060Application.B110Log.C500Struct;
+﻿using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C080Shape;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C491Event;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui;

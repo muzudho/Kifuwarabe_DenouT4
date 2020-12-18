@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Windows.Forms;
-using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C510Form;
 

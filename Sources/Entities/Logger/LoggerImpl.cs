@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Grayscale.A060Application.B110Log.C500Struct
+namespace Grayscale.Kifuwaragyoku.Entities
 {
 
 

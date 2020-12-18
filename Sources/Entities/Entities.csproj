@@ -8,8 +8,8 @@
     <ProjectGuid>{147B11E0-827B-4D3F-844C-ADF2BEAFA53F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Grayscale.A000_Platform___</RootNamespace>
-    <AssemblyName>Grayscale.A000_Platform___</AssemblyName>
+    <RootNamespace>Grayscale.Kifuwaragyoku.Entities</RootNamespace>
+    <AssemblyName>Grayscale.Kifuwaragyoku.Entities</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <PublishUrl>publish\</PublishUrl>
@@ -90,12 +90,12 @@
     <Compile Include="A000Platform\B021Random\KwRandom.cs" />
     <Compile Include="A000Platform\B021Random\KwShuffle.cs" />
     <Compile Include="A000Platform\B025Machine\MachineImpl.cs" />
-    <Compile Include="A060Application\B110Log\ErrorControllerImpl.cs" />
-    <Compile Include="A060Application\B110Log\IErrorController.cs" />
-    <Compile Include="A060Application\B110Log\ILogger.cs" />
-    <Compile Include="A060Application\B110Log\LoggerImpl.cs" />
-    <Compile Include="A060Application\B110Log\LogTypes.cs" />
-    <Compile Include="A060Application\B110Log\n500_util_Loggers.cs" />
+    <Compile Include="Logger\ErrorControllerImpl.cs" />
+    <Compile Include="Logger\IErrorController.cs" />
+    <Compile Include="Logger\ILogger.cs" />
+    <Compile Include="Logger\LoggerImpl.cs" />
+    <Compile Include="Logger\LogTypes.cs" />
+    <Compile Include="Logger\n500_util_Loggers.cs" />
     <Compile Include="A060Application\B210Tushin\Util_Message.cs" />
     <Compile Include="A060Application\B310_Settei_____\Data_Settei_Csv.cs" />
     <Compile Include="A060Application\B310_Settei_____\SetteiXmlFile.cs" />

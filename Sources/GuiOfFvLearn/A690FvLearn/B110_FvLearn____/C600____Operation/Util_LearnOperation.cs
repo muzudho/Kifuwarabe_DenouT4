@@ -1,7 +1,7 @@
 ﻿#if DEBUG
 using Grayscale.A210KnowNingen.B250LogKaisetu.C250Struct;
 using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
-// using Grayscale.A060Application.B110Log.C500Struct;
+// using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.A500ShogiEngine.B523UtilFv.C480UtilFvEdit;
 using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 #elif LEARN
@@ -11,7 +11,7 @@ using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B240Move.C500Struct;

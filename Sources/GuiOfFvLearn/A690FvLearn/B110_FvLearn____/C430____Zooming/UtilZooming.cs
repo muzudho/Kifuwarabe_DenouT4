@@ -1,9 +1,9 @@
-﻿using Grayscale.A060Application.B110Log.C500Struct;
+﻿using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 using Grayscale.A690FvLearn.B110FvLearn.C420Inspection;
 
 #if DEBUG
-// using Grayscale.A060Application.B110Log.C500Struct;
+// using Grayscale.Kifuwaragyoku.Entities;
 #endif
 
 namespace Grayscale.A690FvLearn.B110FvLearn.C430Zooming

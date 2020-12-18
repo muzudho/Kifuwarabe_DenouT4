@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.A060Application.B310Settei.C500Struct;
 using Grayscale.A180KifuCsa.B120KifuCsa.C250Struct;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;

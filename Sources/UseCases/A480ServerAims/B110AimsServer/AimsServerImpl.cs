@@ -1,5 +1,5 @@
 ﻿using System;
-using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.A210KnowNingen.B270Sky.C500Struct;
 using Grayscale.A450Server.B110Server.C498Server;
 using Grayscale.A480ServerAims.B110AimsServer.C060Phase;

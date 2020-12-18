@@ -1,10 +1,8 @@
 ﻿using System;
 using System.IO;
-using System.Windows.Forms;
-using Grayscale.A060Application.B310Settei.C500Struct;//FIXME:
 using Nett;
 
-namespace Grayscale.A060Application.B110Log.C500Struct
+namespace Grayscale.Kifuwaragyoku.Entities
 {
     /// <summary>
     /// ロガー、エラー・ハンドラーを集中管理します。

@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
-using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A180KifuCsa.B120KifuCsa.C250Struct;
 using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;

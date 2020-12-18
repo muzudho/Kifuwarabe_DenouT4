@@ -1,5 +1,5 @@
 ﻿using System.Windows.Forms;
-using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.A210KnowNingen.B240Move.C500Struct;
 using Grayscale.A690FvLearn.B110FvLearn.C250Learn;
 using Grayscale.A690FvLearn.B110FvLearn.C260View;

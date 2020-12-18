@@ -1,6 +1,4 @@
-﻿using Grayscale.A060Application.B110Log.C500Struct;
-
-namespace Grayscale.A060Application.B110Log.C500Struct
+﻿namespace Grayscale.Kifuwaragyoku.Entities
 {
     public class ErrorControllerImpl : IErrorController
     {

@@ -1,5 +1,5 @@
 ﻿using System.Drawing;
-using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C125Scene;
 
 

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.P699Form;
 
 namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500Gui

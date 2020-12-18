@@ -1,10 +1,10 @@
 ﻿using System.Diagnostics;
-using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C490Option;
 using Grayscale.A500ShogiEngine.B200Scoreing.C005UsiLoop;
 
 #if DEBUG
-// using Grayscale.A060Application.B110Log.C500Struct;
+// using Grayscale.Kifuwaragyoku.Entities;
 #endif
 
 namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C249Noop

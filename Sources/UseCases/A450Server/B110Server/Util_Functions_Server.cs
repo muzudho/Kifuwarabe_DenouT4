@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.A060Application.B210Tushin.C500Util;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
@@ -25,7 +25,7 @@ using Grayscale.A210KnowNingen.B830ConvStartpo.C500Converter;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
-using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities;
 #endif
 
 namespace Grayscale.A450Server.B110Server.C250Util

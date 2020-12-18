@@ -1,5 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
-using Grayscale.A060Application.B110Log.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.A210KnowNingen.B280Tree.C500Struct;
 
 namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
