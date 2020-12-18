@@ -57,7 +57,7 @@ namespace Grayscale.A150LogKyokuPng.B200LogKyokuPng.C500UtilWriter
                 relFolder,
                 outFile,
                 reportEnvironment,
-                ErrorControllerReference.ProcessTestProgramDefault
+                LogTags.ProcessTestProgramDefault
                 );
 
         gt_EndMethod:
@@ -82,7 +82,7 @@ namespace Grayscale.A150LogKyokuPng.B200LogKyokuPng.C500UtilWriter
             string appendFilepath,
             string outFile,
             KyokumenPngEnvironment reportEnvironment,
-            ILogger errH
+            ILogTag logTag
             )
         {
             bool successful = true;
@@ -110,7 +110,7 @@ namespace Grayscale.A150LogKyokuPng.B200LogKyokuPng.C500UtilWriter
                         out moji4,
                         out moji5,
                         out rest,
-                        errH
+                        logTag
                         );
                     //System.Console.WriteLine("moji1=[" + moji1 + "] moji2=[" + moji2 + "] moji3=[" + moji3 + "] moji4=[" + moji4 + "] moji5=[" + moji5 + "] rest=[" + rest + "]");
 

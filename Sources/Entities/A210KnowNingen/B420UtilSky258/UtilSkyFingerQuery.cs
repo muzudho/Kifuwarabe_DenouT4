@@ -30,7 +30,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
         /// <param name="masu">筋、段</param>
         /// <param name="uc_Main">メインパネル</param>
         /// <returns>駒。無ければヌル。</returns>
-        public static Finger InBanjoMasuNow(ISky src_Sky, Playerside pside, SyElement masu, ILogger errH)
+        public static Finger InBanjoMasuNow(ISky src_Sky, Playerside pside, SyElement masu, ILogTag errH)
         {
             Finger foundKoma = Fingers.Error_1;
 
@@ -73,7 +73,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
         /// <param name="komasyurui"></param>
         /// <param name="uc_Main"></param>
         /// <returns>無ければ -1</returns>
-        public static Finger InOkibaSyuruiNow_IgnoreCase(ISky positionA, Okiba okiba, Komasyurui14 komasyurui, ILogger errH)
+        public static Finger InOkibaSyuruiNow_IgnoreCase(ISky positionA, Okiba okiba, Komasyurui14 komasyurui, ILogTag errH)
         {
             Finger found = Fingers.Error_1;
 
@@ -108,7 +108,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
         /// <param name="masu">筋、段</param>
         /// <param name="uc_Main">メインパネル</param>
         /// <returns>駒。無ければヌル。</returns>
-        public static Finger InMasuNow_FilteringBanjo(ISky positionA, Playerside pside, SyElement masu, ILogger logger)
+        public static Finger InMasuNow_FilteringBanjo(ISky positionA, Playerside pside, SyElement masu, ILogTag logger)
         {
             Finger foundKoma = Fingers.Error_1;
 

@@ -51,7 +51,7 @@ namespace Grayscale.A450Server.B110Server.C497EngineClient
         /// <param name="e"></param>
         public virtual void OnListenUpload_Async(object sender, DataReceivedEventArgs e)
         {
-            ILogger errH = ErrorControllerReference.ProcessServerNetworkAsync;
+            ILogTag logTag = LogTags.ProcessServerNetworkAsync;
 
             string line = e.Data;
 
@@ -78,7 +78,7 @@ namespace Grayscale.A450Server.B110Server.C497EngineClient
                     // すぐに返すと受け取れないので、数秒開けます。
                     System.Threading.Thread.Sleep(3000);
 
-                    ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Noop_from_server(errH);
+                    ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Noop_from_server(logTag);
                 }
                 else if (line.StartsWith("option"))
                 {
@@ -91,15 +91,15 @@ namespace Grayscale.A450Server.B110Server.C497EngineClient
                     //------------------------------------------------------------
 
                     // 「私は将棋サーバーですが、USIプロトコルのponderコマンドには対応していませんので、送ってこないでください」
-                    ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Setoption("setoption name USI_Ponder value false", errH);
+                    ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Setoption("setoption name USI_Ponder value false", logTag);
 
                     // 将棋エンジンへ：　「私は将棋サーバーです。noop コマンドを送ってくれば、すぐに ok コマンドを返します。1分間を空けてください」
-                    ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Setoption("setoption name noopable value true", errH);
+                    ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Setoption("setoption name noopable value true", logTag);
 
                     //------------------------------------------------------------
                     // 「準備はいいですか？」
                     //------------------------------------------------------------
-                    ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Isready(errH);
+                    ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Isready(logTag);
                 }
                 else if ("readyok" == line)
                 {
@@ -107,7 +107,7 @@ namespace Grayscale.A450Server.B110Server.C497EngineClient
                     //------------------------------------------------------------
                     // 対局開始！
                     //------------------------------------------------------------
-                    ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Usinewgame(errH);
+                    ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Usinewgame(logTag);
 
                 }
                 else if (line.StartsWith("info"))
@@ -121,12 +121,12 @@ namespace Grayscale.A450Server.B110Server.C497EngineClient
                     //------------------------------------------------------------
                     // あなたの負けです☆
                     //------------------------------------------------------------
-                    ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Gameover_lose(errH);
+                    ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Gameover_lose(logTag);
 
                     //------------------------------------------------------------
                     // 将棋エンジンを終了してください☆
                     //------------------------------------------------------------
-                    ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Quit(errH);
+                    ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Quit(logTag);
                 }
                 else if (line.StartsWith("bestmove"))
                 {

@@ -40,7 +40,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C081Canvas
             ISky positionA,//shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue()
             MainGui_Csharp shogibanGui,
             string windowName,
-            ILogger errH
+            ILogTag errH
             )
         {
             //----------------------------------------

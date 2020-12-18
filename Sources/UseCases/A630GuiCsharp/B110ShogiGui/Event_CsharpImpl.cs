@@ -43,7 +43,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogger errH2
+                    , ILogTag errH2
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -64,7 +64,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogger errH
+                    , ILogTag errH
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -85,7 +85,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogger errH
+                    , ILogTag errH
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -103,7 +103,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogger errH
+                    , ILogTag errH
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -121,7 +121,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogger errH
+                    , ILogTag errH
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -153,7 +153,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogger logger
+                    , ILogTag logger
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -191,7 +191,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogger errH
+                    , ILogTag errH
                     ) =>
                 {
                     MainGui_Csharp shogibanGui2 = (MainGui_Csharp)obj_shogiGui2;
@@ -207,7 +207,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogger errH
+                    , ILogTag errH
                     ) =>
                 {
                     MainGui_Csharp shogibanGui2 = (MainGui_Csharp)obj_shogiGui2;
@@ -235,7 +235,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogger errH2
+                    , ILogTag errH2
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -264,7 +264,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
                         object obj_shogiGui2
                         , object userWidget2 // UerWidget
                         , object btnKoma_Selected2
-                        , ILogger errH2
+                        , ILogTag errH2
                         ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -282,7 +282,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogger errH2
+                    , ILogTag errH2
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -298,7 +298,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogger logger
+                    , ILogTag logger
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -324,7 +324,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogger errH2
+                    , ILogTag errH2
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -340,7 +340,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogger errH2
+                    , ILogTag errH2
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -502,7 +502,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
         private void After_NaruNaranai_ButtonPushed(
             MainGui_Csharp mainGui
             , Shape_BtnKoma btnTumandeiruKoma
-            , ILogger logger
+            , ILogTag logger
         )
         {
 

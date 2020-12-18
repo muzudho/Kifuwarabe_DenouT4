@@ -37,7 +37,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
             ISky src_Sky,
             Playerside tebanSeme,
             Playerside tebanKurau,
-            ILogger errH_OrNull
+            ILogTag errH_OrNull
         )
         {
             Fingers fs_banjoSeme_temp = new Fingers();// （１）盤上駒_攻め手
@@ -128,7 +128,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
             out Fingers fingers_moti1p,// 持駒 1P
             out Fingers fingers_moti2p,// 持駒 2=
             ISky src_Sky,
-            ILogger errH_OrNull
+            ILogTag errH_OrNull
         )
         {
             Fingers fingers_moti1p_temp = new Fingers();// （３）持ち駒_攻め手

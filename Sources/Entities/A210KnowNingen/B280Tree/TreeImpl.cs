@@ -37,16 +37,16 @@ namespace Grayscale.A210KnowNingen.B280Tree.C500Struct
 
         #region PV関連
 
-        public void LogPv(string message, ILogger logger)
+        public void LogPv(string message, ILogTag logTag)
         {
             int index = 0;
-            logger.AppendLine("┌──────────┐" + message);
+            Logger.AppendLine(logTag,"┌──────────┐" + message);
             foreach (Move move in this.m_pv_)
             {
-                logger.AppendLine("(" + index + ")" + ConvMove.ToLog(move));
+                Logger.AppendLine(logTag,"(" + index + ")" + ConvMove.ToLog(move));
                 index++;
             }
-            logger.AppendLine("└──────────┘");
+            Logger.AppendLine(logTag,"└──────────┘");
 
             //this.LogPvList(this, logger);
         }
@@ -69,7 +69,7 @@ namespace Grayscale.A210KnowNingen.B280Tree.C500Struct
             logger.AppendLine("└──────────┘");
         }
         */
-        public void Pv_RemoveLast(ILogger logger)
+        public void Pv_RemoveLast(ILogTag logger)
         {
             if (1 < this.m_pv_.Count)//[0]はルート☆（*＾～＾*）
             {
@@ -77,13 +77,13 @@ namespace Grayscale.A210KnowNingen.B280Tree.C500Struct
                 this.LogPv("RemoveLastPv後", logger);
             }
         }
-        public void Pv_ClearAll(ILogger logger)
+        public void Pv_ClearAll(ILogTag logger)
         {
             this.m_pv_.Clear();
             this.m_pv_.Add(Move.Empty);
             this.LogPv("ClearAll後", logger);
         }
-        public void Pv_Append(Move tail, ILogger logger)
+        public void Pv_Append(Move tail, ILogTag logger)
         {
             this.m_pv_.Add(tail);
             this.LogPv("Append後", logger);
@@ -136,7 +136,7 @@ namespace Grayscale.A210KnowNingen.B280Tree.C500Struct
         private MoveEx m_moveEx_;
 
 
-        public static Playerside MoveEx_ClearAllCurrent(Tree tree, ISky positionA, ILogger logger)
+        public static Playerside MoveEx_ClearAllCurrent(Tree tree, ISky positionA, ILogTag logger)
         {
             tree.MoveEx_SetCurrent(new MoveExImpl());
 
@@ -167,7 +167,7 @@ namespace Grayscale.A210KnowNingen.B280Tree.C500Struct
         #endregion
 
 
-        public static MoveEx OnDoCurrentMove(MoveEx curNode, Tree kifu1, ISky positionA, ILogger logger)
+        public static MoveEx OnDoCurrentMove(MoveEx curNode, Tree kifu1, ISky positionA, ILogTag logger)
         {
             kifu1.MoveEx_SetCurrent(curNode);
             kifu1.Pv_Append(curNode.Move, logger);
@@ -175,7 +175,7 @@ namespace Grayscale.A210KnowNingen.B280Tree.C500Struct
             kifu1.SetPositionA(positionA);
             return kifu1.MoveEx_Current;
         }
-        public static MoveEx OnUndoCurrentMove(Tree kifu1, ISky positionA, ILogger logger, string hint)
+        public static MoveEx OnUndoCurrentMove(Tree kifu1, ISky positionA, ILogTag logger, string hint)
         {
             if (kifu1.Pv_IsRoot())
             {

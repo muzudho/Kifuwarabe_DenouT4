@@ -18,10 +18,10 @@ namespace Grayscale.A950UnitTest
     {
         static void Main(string[] args)
         {
-            ILogger logger = ErrorControllerReference.ProcessUnitTestDefault;
+            ILogTag logTag = LogTags.ProcessUnitTestDefault;
 
-            logger.AppendLine("テストＡ");
-            logger.Flush(LogTypes.Plain);
+            Logger.AppendLine(logTag,"テストＡ");
+            Logger.Flush(logTag, LogTypes.Plain);
             MachineImpl.GetInstance().ReadKey();
 
 
@@ -30,9 +30,9 @@ namespace Grayscale.A950UnitTest
             Playerside psideA_init = Playerside.P1;
 
             // 盤面をログ出力したいぜ☆
-            logger.AppendLine("初期局面");
-            logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(psideA_init, positionA, logger)));
-            logger.Flush(LogTypes.Plain);
+            Logger.AppendLine(logTag, "初期局面");
+            Logger.AppendLine(logTag, Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(psideA_init, positionA, logTag)));
+            Logger.Flush(logTag, LogTypes.Plain);
             MachineImpl.GetInstance().ReadKey();
 
 
@@ -46,8 +46,8 @@ namespace Grayscale.A950UnitTest
             //────────────────────────────────────────
             // 分解しながら、局面を進めるぜ☆（＾▽＾）
             //────────────────────────────────────────
-            logger.AppendLine("commandLine=" + commandLine);
-            logger.Flush(LogTypes.Plain);
+            Logger.AppendLine(logTag, "commandLine=" + commandLine);
+            Logger.Flush(logTag, LogTypes.Plain);
 
             List<Move> pv = new List<Move>();
             pv.Add(Move.Empty);// 「同」（※同歩など）を調べるために１つ前を見にくるので、空を入れておく。
@@ -59,7 +59,7 @@ namespace Grayscale.A950UnitTest
                     Move moveA = ConvStringMove.ToMove(
                         out rest, commandLine, pv[pv.Count - 1],
                         positionA.GetKaisiPside(),
-                        positionA, logger);
+                        positionA, logTag);
                     Move moveB;
                     commandLine = rest.Trim();
 
@@ -69,21 +69,21 @@ namespace Grayscale.A950UnitTest
                         UtilIttesasuRoutine.DoMove_Normal(out syuryoResult,
                             ref moveB,// 駒を取った場合、moveは更新される。
                             positionA,
-                            logger);
+                            logTag);
                         positionA = syuryoResult.SyuryoKyokumenW;
 
                         // 盤面をログ出力したいぜ☆
-                        logger.AppendLine("sfen=[" + ConvMove.ToSfen(moveB) + "] captured=[" + Conv_Komasyurui.ToStr_Ichimoji(ConvMove.ToCaptured(moveB)) + "]");
-                        logger.AppendLine(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(
+                        Logger.AppendLine(logTag, "sfen=[" + ConvMove.ToSfen(moveB) + "] captured=[" + Conv_Komasyurui.ToStr_Ichimoji(ConvMove.ToCaptured(moveB)) + "]");
+                        Logger.AppendLine(logTag, Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(
                             ConvMove.ToPlayerside(moveB),
-                            positionA, logger)
+                            positionA, logTag)
                             , positionA, moveB));
-                        logger.Flush(LogTypes.Plain);
+                        Logger.Flush(logTag, LogTypes.Plain);
 
                         while (true)
                         {
-                            logger.AppendLine("[n]next [d]debug");
-                            logger.Flush(LogTypes.Plain);
+                            Logger.AppendLine(logTag, "[n]next [d]debug");
+                            Logger.Flush(logTag, LogTypes.Plain);
                             char key = MachineImpl.GetInstance().ReadKey();
                             switch (key)
                             {
@@ -97,8 +97,8 @@ namespace Grayscale.A950UnitTest
                     }
                     pv.Add(moveB);
 
-                    logger.AppendLine("commandLine=" + commandLine);
-                    logger.Flush(LogTypes.Plain);
+                    Logger.AppendLine(logTag, "commandLine=" + commandLine);
+                    Logger.Flush(logTag, LogTypes.Plain);
                 }
             }
 
@@ -109,10 +109,10 @@ namespace Grayscale.A950UnitTest
                 int i = 0;
                 foreach (Move move in pv)
                 {
-                    logger.AppendLine("[" + i + "]" + ConvMove.ToLog(move));
+                    Logger.AppendLine(logTag, "[" + i + "]" + ConvMove.ToLog(move));
                     i++;
                 }
-                logger.Flush(LogTypes.Plain);
+                Logger.Flush(logTag, LogTypes.Plain);
             }
 
             //────────────────────────────────────────
@@ -130,22 +130,22 @@ namespace Grayscale.A950UnitTest
                         ConvMove.ToPlayerside(move1),
                         positionA,
                         "G900",
-                        logger
+                        logTag
                         );
                     positionA = syuryoResult2.SyuryoSky;
                     Debug.Assert(null != positionA, "局面がヌル");
 
                     // 盤面をログ出力したいぜ☆
-                    logger.AppendLine("back sfen=[" + ConvMove.ToSfen(move1) + "] captured=[" + Conv_Komasyurui.ToStr_Ichimoji(ConvMove.ToCaptured(move1)) + "]");
-                    logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(
+                    Logger.AppendLine(logTag, "back sfen=[" + ConvMove.ToSfen(move1) + "] captured=[" + Conv_Komasyurui.ToStr_Ichimoji(ConvMove.ToCaptured(move1)) + "]");
+                    Logger.AppendLine(logTag, Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(
                         ConvMove.ToPlayerside(move1),
-                        positionA, logger)));
-                    logger.Flush(LogTypes.Plain);
+                        positionA, logTag)));
+                    Logger.Flush(logTag, LogTypes.Plain);
 
                     while (true)
                     {
-                        logger.AppendLine("[b]back [d]debug");
-                        logger.Flush(LogTypes.Plain);
+                        Logger.AppendLine(logTag, "[b]back [d]debug");
+                        Logger.Flush(logTag, LogTypes.Plain);
                         char key = MachineImpl.GetInstance().ReadKey();
                         switch (key)
                         {

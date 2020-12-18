@@ -179,7 +179,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
         public static Maps_OneAndMulti<Finger, Move> SplitMoveByStar(
             ISky positionA,
             List<Move> siblingMoves,
-            ILogger logger
+            ILogTag logger
             )
         {
             Maps_OneAndMulti<Finger, Move> enable_moveMap = new Maps_OneAndMulti<Finger, Move>();

@@ -40,7 +40,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA
             Tree kifu1,
 
             string hint,
-            ILogger logger
+            ILogTag logger
             )
         {
             StringBuilder sb = new StringBuilder();

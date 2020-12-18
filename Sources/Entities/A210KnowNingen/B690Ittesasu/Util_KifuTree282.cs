@@ -99,7 +99,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C125UtilB
             Earth earth1,
             ISky positionA,//kifu1.GetRoot().GetNodeValue()
             Tree kifu1,
-            Playerside pside, ILogger logger)
+            Playerside pside, ILogTag logger)
         {
 
             //------------------------------------------------------------

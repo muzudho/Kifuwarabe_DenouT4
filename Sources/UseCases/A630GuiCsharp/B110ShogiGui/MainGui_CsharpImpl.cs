@@ -149,7 +149,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
                 return this.flowB;
             }
         }
-        public void SetFlowB(SceneName name1, ILogger errH)
+        public void SetFlowB(SceneName name1, ILogTag errH)
         {
             this.flowB = name1;
 
@@ -220,14 +220,14 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
         /// 将棋エンジンを起動します。
         /// ************************************************************************************************************************
         /// </summary>
-        public virtual void Start_ShogiEngine(string shogiEngineFilePath, ILogger errH)
+        public virtual void Start_ShogiEngine(string shogiEngineFilePath, ILogTag errH)
         {
         }
 
         /// <summary>
         /// コンピューターの先手
         /// </summary>
-        public virtual void Do_ComputerSente(ILogger errH)
+        public virtual void Do_ComputerSente(ILogTag errH)
         {
         }
 
@@ -241,7 +241,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
             Tree kifu1,
 
             Playerside pside,
-            ILogger errH)
+            ILogTag errH)
         {
         }
 
@@ -249,7 +249,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
         /// </summary>
-        public virtual void Shutdown(ILogger errH)
+        public virtual void Shutdown(ILogTag errH)
         {
         }
 
@@ -257,14 +257,14 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
         /// <summary>
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
-        public virtual void Logdase(ILogger errH)
+        public virtual void Logdase(ILogTag errH)
         {
         }
 
 
 
         private int noopSend_counter;
-        public void Timer_Tick(ILogger errH)
+        public void Timer_Tick(ILogTag errH)
         {
             if (this.server.EngineClient.ShogiEngineProcessWrapper.IsLive_ShogiEngine())
             {
@@ -359,7 +359,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
         /// <summary>
         /// このアプリケーションソフトの開始時の処理。
         /// </summary>
-        public virtual void Load_AsStart(ILogger errH)
+        public virtual void Load_AsStart(ILogTag errH)
         {
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
@@ -426,7 +426,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
             this.WidgetLoaders.Add(new WidgetsLoader_CsharpImpl(filepath_widgets02, this));
         }
 
-        public void LaunchForm_AsBody(ILogger errH)
+        public void LaunchForm_AsBody(ILogTag errH)
         {
             ((Form1Shogiable)this.OwnerForm).Delegate_Form1_Load = (MainGui_Csharp shogiGui, object sender, EventArgs e) =>
             {
@@ -468,7 +468,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI
         }
 
 
-        public void Response(string mutexString, ILogger errH)
+        public void Response(string mutexString, ILogTag errH)
         {
             UcForm1Mainable uc_Form1Main = ((Form1Shogiable)this.OwnerForm).Uc_Form1Main;
 

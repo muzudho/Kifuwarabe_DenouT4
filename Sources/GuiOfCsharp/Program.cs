@@ -21,7 +21,7 @@ namespace Grayscale.P699Form
         [STAThread]
         static void Main()
         {
-            ILogger errH = ErrorControllerReference.ProcessGuiDefault;
+            ILogTag logTag = LogTags.ProcessGuiDefault;
             MainGui_CsharpImpl mainGui = new MainGui_CsharpImpl();//new ShogiEngineVsClientImpl(this)
 
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
@@ -33,10 +33,10 @@ namespace Grayscale.P699Form
             mainGui.OwnerForm = new Form1Shogi(mainGui);
             //↑ [STAThread]指定のあるメソッドで フォームを作成してください。
 
-            mainGui.Load_AsStart(errH);
+            mainGui.Load_AsStart(logTag);
             mainGui.WidgetLoaders.Add(new WidgetsLoader_CsharpImpl(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Shogiban01Widgets")), mainGui));
             mainGui.WidgetLoaders.Add(new WidgetsLoader_CsharpImpl(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Console02Widgets")), mainGui));
-            mainGui.LaunchForm_AsBody(errH);
+            mainGui.LaunchForm_AsBody(logTag);
         }
 
     }

@@ -23,7 +23,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C081Canvas
             ISky positionA,
             MainGui_Csharp shogiGui,
             string windowName,
-            ILogger errH
+            ILogTag errH
         );
 
     }

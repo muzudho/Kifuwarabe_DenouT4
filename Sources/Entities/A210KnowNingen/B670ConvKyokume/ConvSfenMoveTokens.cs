@@ -45,7 +45,7 @@ namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
             Playerside psideA,
             ISky positionA,
             string hint,
-            ILogger logger
+            ILogTag logger
             )
         {
             move = Move.Empty;
@@ -129,7 +129,7 @@ namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
                             "strNari=[" + strNari + "]\n" +
                             "";
                         Exception ex1 = new Exception(message);
-                        ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex1, "moves解析中☆");
+                        Logger.Panic(LogTags.ProcessNoneError,ex1, "moves解析中☆");
                         throw ex1;
                     }
 
@@ -197,7 +197,7 @@ namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
                             positionA.Temezumi));
 
                         Exception ex1 = new Exception(sb.ToString());
-                        ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex1, "SFEN解析中の失敗");
+                        Logger.Panic(LogTags.ProcessNoneError,ex1, "SFEN解析中の失敗");
                         throw ex1;
                     }
                 }
@@ -284,7 +284,7 @@ namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
             }
             catch (Exception ex)
             {
-                ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "moves解析中☆　str1=「" + str1 + "」　str2=「" + str2 + "」　str3=「" + str3 + "」　str4=「" + str4 + "」　strNari=「" + strNari + "」　");
+                Logger.Panic(LogTags.ProcessNoneError,ex, "moves解析中☆　str1=「" + str1 + "」　str2=「" + str2 + "」　str3=「" + str3 + "」　str4=「" + str4 + "」　strNari=「" + strNari + "」　");
                 throw;
             }
         }

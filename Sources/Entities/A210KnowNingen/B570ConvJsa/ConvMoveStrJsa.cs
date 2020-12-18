@@ -23,7 +23,7 @@ namespace Grayscale.A210KnowNingen.B570ConvJsa.C500Converter
             Move move,
             List<Move> honpuList,
             ISky positionA,
-            ILogger errH
+            ILogTag errH
             )
         {
             Komasyurui14 ks = ConvMove.ToSrcKomasyurui(move);

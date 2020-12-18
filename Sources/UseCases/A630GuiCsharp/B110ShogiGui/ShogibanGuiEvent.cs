@@ -13,6 +13,6 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
          object obj_shogiGui //ShogiGui
         , object userWidget // UerWidget
         , object shape_BtnKoma_Selected //Shape_BtnKoma
-        , ILogger errH2
+        , ILogTag errH2
     );
 }

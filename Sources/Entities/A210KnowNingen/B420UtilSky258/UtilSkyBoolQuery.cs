@@ -22,7 +22,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
         /// </summary>
         /// <param name="masus"></param>
         /// <returns></returns>
-        public static bool ExistsIn(Move move, SySet<SyElement> masus, ISky positionA, ILogger errH)
+        public static bool ExistsIn(Move move, SySet<SyElement> masus, ISky positionA, ILogTag errH)
         {
             bool matched = false;
 
@@ -218,7 +218,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
             }
             catch (Exception ex)
             {
-                ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "IsDaAction:");// exceptionArea=" + exceptionArea
+                Logger.Panic(LogTags.ProcessNoneError, ex, "IsDaAction:");// exceptionArea=" + exceptionArea
                 throw;
             }
 

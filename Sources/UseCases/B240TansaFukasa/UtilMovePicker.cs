@@ -44,7 +44,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
 
             ref int searchedMaxDepth,
             out int out_yomiDeep,
-            ILogger errH
+            ILogTag errH
             )
         {
             List<Move> result_movelist = UtilMovePicker.WAAAA_Create_ChildNodes(
@@ -83,7 +83,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
             Playerside psideA,
             ISky positionA,
             //Move move_ForLog,
-            ILogger logger
+            ILogTag logTag
             )
         {
             int exceptionArea = 0;
@@ -138,7 +138,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                     {
                         if (couple.A == Fingers.Error_1)
                         {
-                            logger.DonimoNaranAkirameta("カップルリストに駒番号が入っていないデータが含まれているぜ☆（＾～＾）");
+                            Logger.Panic(logTag,"カップルリストに駒番号が入っていないデータが含まれているぜ☆（＾～＾）");
                         }
                     }
                 }
@@ -177,7 +177,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                         {
                             if (fig == Fingers.Error_1)
                             {
-                                logger.DonimoNaranAkirameta("駒番号が入っていないデータが含まれているぜ☆（＾～＾）");
+                                Logger.Panic(logTag,"駒番号が入っていないデータが含まれているぜ☆（＾～＾）");
                             }
                         }
                     }
@@ -201,7 +201,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                         genjo.Args.LogF_moveKiki,//利き用
 #endif
                         "読みNextルーチン",
-                        logger);
+                        logTag);
 
                     exceptionArea = 40000;
 
@@ -213,7 +213,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                         starbetuSusumuMasus,
                         psideA,
                         positionA,
-                        logger
+                        logTag
                     );
 
                     exceptionArea = 42000;
@@ -224,7 +224,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                     //成りの手
                     List<Move> b_movelist = Util_SasuEx.CreateNariMove(positionA,
                         movelist,
-                        logger);
+                        logTag);
 
                     exceptionArea = 44000;
 
@@ -254,7 +254,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                         komaBETUSusumeruMasus,
                         psideA,
                         positionA,
-                        logger
+                        logTag
                         );
 
                     //#if DEBUG
@@ -268,7 +268,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
             }
             catch (Exception ex)
             {
-                logger.DonimoNaranAkirameta(ex, "探索深さルーチンでエラー☆ exceptionArea=" + exceptionArea);
+                Logger.Panic(logTag,ex, "探索深さルーチンでエラー☆ exceptionArea=" + exceptionArea);
                 throw ;
             }
 

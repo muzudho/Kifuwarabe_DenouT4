@@ -25,7 +25,7 @@ namespace Grayscale.A210KnowNingen.B770ConvSasu.C500Converter
             out List<Move> out_inputMovelist,
             Maps_OneAndMulti<Finger, Move> komabetuAllMoves,
             ISky src_Sky,
-            ILogger logger
+            ILogTag logTag
             )
         {
             out_inputMovelist = new List<Move>();
@@ -40,7 +40,7 @@ namespace Grayscale.A210KnowNingen.B770ConvSasu.C500Converter
 
                 if (figKoma == Fingers.Error_1)
                 {
-                    logger.DonimoNaranAkirameta("駒番号が記載されていない駒があるぜ☆（＾～＾）");
+                    Logger.Panic(logTag,"駒番号が記載されていない駒があるぜ☆（＾～＾）");
                     continue;
                 }
 

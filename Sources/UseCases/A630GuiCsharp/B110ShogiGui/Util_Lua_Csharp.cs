@@ -25,7 +25,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C480Util
         private static Lua lua;
 
         public static MainGui_Csharp ShogiGui { get; set; }
-        public static ILogger ErrH { get; set; }
+        public static ILogTag ErrH { get; set; }
 
         /// <summary>
         /// 
@@ -134,7 +134,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C480Util
         /// </summary>
         public static void ClearKifu(MainGui_Csharp mainGui, RepaintRequest repaintRequest)
         {
-            ILogger logger = ErrorControllerReference.ProcessNoneError;
+            ILogTag logTags = LogTags.ProcessNoneError;
 
             mainGui.Link_Server.Earth.Clear();
 
@@ -242,7 +242,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C480Util
 
                 string jsaFugoStr;
 
-                Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(mainGui.Link_Server.KifuTree, newSky, logger);
+                Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(mainGui.Link_Server.KifuTree, newSky, logTags);
 
 
                 Util_Functions_Server.AfterSetCurNode_Srv(
@@ -252,7 +252,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C480Util
                     newSky,
                     out jsaFugoStr,
                     mainGui.Link_Server.KifuTree,
-                    logger);
+                    logTags);
                 repaintRequest.SetFlag_RefreshRequest();
 
                 mainGui.Link_Server.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "9/9/9/9/9/9/9/9/9 b K1R1B1G2S2N2L2P9 k1r1b1g2s2n2l2p9 1");

@@ -44,7 +44,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C250Timed
         public Queue<MouseEventState> MouseEventQueue { get; set; }
 
 
-        public static void Check_MouseoverKomaKiki(object obj_shogiGui, Finger finger, ILogger logger)
+        public static void Check_MouseoverKomaKiki(object obj_shogiGui, Finger finger, ILogTag logger)
         {
             MainGui_Csharp shogiGui = (MainGui_Csharp)obj_shogiGui;
 
@@ -84,7 +84,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C250Timed
         }
 
 
-        public override void Step(ILogger logger)
+        public override void Step(ILogTag logger)
         {
             // 入っているマウス操作イベントのうち、マウスムーブは　１つに　集約　します。
             bool bMouseMove_SceneB_1TumamitaiKoma = false;

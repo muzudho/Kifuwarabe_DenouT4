@@ -58,7 +58,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C___250_Learn
         void WritePng(
             Move move,
             ISky positionA,
-            ILogger errH);
+            ILogTag errH);
 
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C___250_Learn
             ISky positionA,
             string[] searchedPv,
             EvaluationArgs args,
-            ILogger errH);
+            ILogTag errH);
 
         /// <summary>
         /// 全合法手をダンプ。デバッグ用途。
@@ -100,7 +100,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C___250_Learn
             Tree kifu1,
             ISky positionA,
             string[] searchedPv,
-            ILogger errH);
+            ILogTag errH);
 
     }
 }

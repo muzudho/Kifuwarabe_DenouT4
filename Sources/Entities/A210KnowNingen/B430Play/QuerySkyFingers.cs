@@ -23,7 +23,7 @@ namespace Grayscale.A210KnowNingen.B430Play.C250Calc
         public static Maps_OneAndOne<Finger, SySet<SyElement>> Get_PotentialMoves(
             ISky src_Sky,
             Fingers fingers,
-            ILogger errH_orNull
+            ILogTag errH_orNull
             )
         {
             Maps_OneAndOne<Finger, SySet<SyElement>> kiki_fMs = new Maps_OneAndOne<Finger, SySet<SyElement>>();// 「どの駒を、どこに進める」の一覧

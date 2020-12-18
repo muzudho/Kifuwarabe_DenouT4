@@ -17,7 +17,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C400Conv
             Move previous_Move,  // 「同」を調べるためのもの。
             Playerside pside,
             ISky previous_Sky,
-            ILogger errH
+            ILogTag errH
             )
         {
             bool isHonshogi = true;
@@ -101,10 +101,10 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C400Conv
                             //「6g6f」形式でもなかった☆
 
                             string message = "（＾△＾）「" + sfenMove1 + "」！？　次の一手が読めない☆";
-                            errH.AppendLine(message);
-                            errH.Flush(LogTypes.Error);
+                            Logger.AppendLine(errH,message);
+                            Logger.Flush(errH,LogTypes.Error);
 
-                            ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(message);
+                            Logger.Panic(LogTags.ProcessNoneError,message);
                             goto gt_EndMethod;
                         }
 
@@ -112,7 +112,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C400Conv
                 }
                 catch (Exception ex)
                 {
-                    ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "moves解析中☆");
+                    Logger.Panic(LogTags.ProcessNoneError,ex, "moves解析中☆");
                     throw;
                 }
             }

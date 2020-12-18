@@ -28,8 +28,8 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C125Scene
         private Point mouseLocation;
 
 
-        public ILogger Flg_logTag { get { return this.flg_logTag; } }
-        private ILogger flg_logTag;
+        public ILogTag Flg_logTag { get { return this.flg_logTag; } }
+        private ILogTag flg_logTag;
 
         public MouseEventState()
         {
@@ -39,7 +39,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C125Scene
             this.flg_logTag = null;
         }
 
-        public MouseEventState(SceneName name1, string windowName, MouseEventStateName name2, Point mouseLocation, ILogger logTag)
+        public MouseEventState(SceneName name1, string windowName, MouseEventStateName name2, Point mouseLocation, ILogTag logTag)
         {
             this.name1 = name1;
             this.windowName = windowName;

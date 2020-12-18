@@ -19,7 +19,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
             out IKifuParserAState nextState,
             IKifuParserA owner,
             IKifuParserAGenjo genjo,
-            ILogger errH
+            ILogTag errH
             );
 
     }

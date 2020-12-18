@@ -52,7 +52,7 @@ namespace Grayscale.A450Server.B110Server.C250Util
             ISky positionA,
             out string jsaFugoStr,
             Tree kifu1,
-            ILogger logger
+            ILogTag logger
             )
         {
             model_Manual.SetGuiSky(positionA);
@@ -88,7 +88,7 @@ namespace Grayscale.A450Server.B110Server.C250Util
             SkyWrapper_Gui model_Manual,
             out bool toBreak,
             string hint,
-            ILogger logger,
+            ILogTag logger,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
@@ -305,7 +305,7 @@ namespace Grayscale.A450Server.B110Server.C250Util
             out string jsaFugoStr,
             MoveEx curNode1,//削るノード
             Tree kifu1_mutable,
-            ILogger logger
+            ILogTag logger
             )
         {
             bool successful = false;
@@ -385,7 +385,7 @@ namespace Grayscale.A450Server.B110Server.C250Util
             Tree kifu1,
 
             SkyWrapper_Gui model_Manual,
-            ILogger errH,
+            ILogTag errH,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
@@ -431,7 +431,7 @@ namespace Grayscale.A450Server.B110Server.C250Util
             Finger fig_btnTumandeiruKoma,
             Busstop foodee_koma,//取られる対象の駒
             SkyWrapper_Gui model_Manual,
-            ILogger errH
+            ILogTag errH
             )
         {
 

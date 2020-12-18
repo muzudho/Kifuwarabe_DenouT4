@@ -48,7 +48,7 @@ namespace Grayscale.A210KnowNingen.B310Shogiban.C250Struct
         public Playerside KaisiPside { get; set; }
 
 
-        public void AddKoma(SyElement masu, Busstop koma, ILogger errH)
+        public void AddKoma(SyElement masu, Busstop koma, ILogTag logTag)
         {
             Debug.Assert(!this.ContainsBanjoKoma(Conv_Masu.ToMasuHandle(masu)), "既に駒がある枡に、駒を置こうとしています。[" + Conv_Masu.ToMasuHandle(masu) + "]");
 
@@ -78,7 +78,7 @@ namespace Grayscale.A210KnowNingen.B310Shogiban.C250Struct
             }
             catch (Exception ex)
             {
-                errH.DonimoNaranAkirameta(ex,
+                Logger.Panic(logTag,ex,
                     "将棋盤ログを作っているとき☆（＾▽＾）\n" +
                     " masu=" + Conv_Masu.ToLog(masu) + "\n" +
                     " busstop=" + Conv_Busstop.ToLog(koma)

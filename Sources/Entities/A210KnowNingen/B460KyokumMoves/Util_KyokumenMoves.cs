@@ -89,7 +89,7 @@ namespace Grayscale.A210KnowNingen.B460KyokumMoves.C500Util
 #endif
             )
         {
-            ILogger errH = null;
+            ILogTag errH = null;
 #if DEBUG
                     if (mmLog_orNull != null)
                     {
@@ -220,7 +220,7 @@ namespace Grayscale.A210KnowNingen.B460KyokumMoves.C500Util
                     if (null != mmLog_orNull)
                     {
                         // どうにもできないので  ログだけ取って無視します。
-                        mmLog_orNull.ErrH.DonimoNaranAkirameta(ex,msg);
+                        mmLog_orNull.ErrH.Panic(ex,msg);
                     }
 #endif
 
@@ -247,7 +247,7 @@ namespace Grayscale.A210KnowNingen.B460KyokumMoves.C500Util
             SySet<SyElement> masus_aite_onBanjo,
             Playerside psideA,
             ISky positionA,
-            ILogger errH_orNull
+            ILogTag errH_orNull
             )
         {
             // 持ち駒を置けない升

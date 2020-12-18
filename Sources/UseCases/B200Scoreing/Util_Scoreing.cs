@@ -223,7 +223,7 @@ namespace Grayscale.A500ShogiEngine.B200Scoreing.C500Util
             ISky positionA,
 
             EvaluationArgs args,
-            ILogger errH
+            ILogTag errH
             )
         {
             float score = 0.0f;

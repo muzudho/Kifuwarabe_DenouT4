@@ -39,7 +39,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
             Earth earth1,
             Tree kifu1_mutable,
             IKifuParserAGenjo genjo,
-            ILogger logger
+            ILogTag logger
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -94,7 +94,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
             }
             catch (Exception ex)
             {
-                ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "棋譜解析中☆");
+                Logger.Panic(LogTags.ProcessNoneError, ex, "棋譜解析中☆");
                 throw;
             }
 
@@ -112,7 +112,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
             Earth earth1,
             Tree kifu1_mutable,
             IKifuParserAGenjo genjo,
-            ILogger logger
+            ILogTag logger
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -184,7 +184,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
             }
             catch (Exception ex)
             {
-                ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "棋譜解析中☆");
+                Logger.Panic(LogTags.ProcessNoneError,ex, "棋譜解析中☆");
                 throw;
             }
         }

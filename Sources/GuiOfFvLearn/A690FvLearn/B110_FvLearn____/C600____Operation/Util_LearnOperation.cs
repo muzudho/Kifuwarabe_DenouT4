@@ -41,7 +41,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
         /// </summary>
         /// <param name="uc_Main"></param>
         /// <param name="tyoseiryo"></param>
-        public static void ARankUpSelectedMove(UcMain uc_Main, float tyoseiryo, ILogger logger)
+        public static void ARankUpSelectedMove(UcMain uc_Main, float tyoseiryo, ILogTag logger)
         {
             //----------------------------------------
             // 選択したノードを参考に、減点を行う。
@@ -127,14 +127,14 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
                 uc_Main.LearningData.KifuA,
                 uc_Main.LearningData.PositionA,
                 searchedPv,
-                ErrorControllerReference.ProcessLearnerDefault);
+                LogTags.ProcessLearnerDefault);
         }
 
 
         /// <summary>
         /// 初期局面の評価値を 0 点にするようにFVを調整します。
         /// </summary>
-        public static void Do_ZeroStart(ref bool isRequest_ShowGohosyu, UcMain uc_Main, ILogger errH)
+        public static void Do_ZeroStart(ref bool isRequest_ShowGohosyu, UcMain uc_Main, ILogTag errH)
         {
             bool isRequestDoEvents = false;
             Util_StartZero.Adjust_HirateSyokiKyokumen_0ten_AndFvParamRange(ref isRequestDoEvents, uc_Main.LearningData.Fv, errH);
@@ -153,7 +153,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
         public static void DoRankUpMove(
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
-            UcMain uc_Main, ILogger errH)
+            UcMain uc_Main, ILogTag errH)
         {
             // 評価値変化量
             float chosei_bairitu;
@@ -179,7 +179,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
         public static void DoRankDownMove(
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
-            UcMain uc_Main, ILogger errH)
+            UcMain uc_Main, ILogTag errH)
         {
             // 評価値変化量
             float badScore;
@@ -214,7 +214,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
             uc_Main.TxtNikomaHyokati.Text = "";
         }
 
-        public static void Do_OpenFvCsv(UcMain uc_Main, ILogger errH)
+        public static void Do_OpenFvCsv(UcMain uc_Main, ILogTag errH)
         {
             if ("" != uc_Main.TxtFvFilepath.Text)
             {
@@ -267,7 +267,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
 
 
 
-        public static void Load_CsaKifu(UcMain uc_Main, ILogger errH)
+        public static void Load_CsaKifu(UcMain uc_Main, ILogTag errH)
         {
             uc_Main.LearningData.ReadKifu(uc_Main);
 
@@ -279,7 +279,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
             string kifuFilepath,
-            UcMain uc_Main, ILogger errH)
+            UcMain uc_Main, ILogTag errH)
         {
             uc_Main.TxtKifuFilepath.Text = kifuFilepath;
 
@@ -310,7 +310,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
             UtilLearningView.Aa_ShowNode2(
                 uc_Main.LearningData,
                 uc_Main.LearningData.PositionA,
-                uc_Main, ErrorControllerReference.ProcessLearnerDefault);
+                uc_Main, LogTags.ProcessLearnerDefault);
 
             //gt_EndMethod:
             //    ;
@@ -323,7 +323,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
             UcMain uc_Main,
-            ILogger errH)
+            ILogTag errH)
         {
             ISky positionA;
             Tree newKifu1_Hirate;

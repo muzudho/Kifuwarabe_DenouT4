@@ -13,7 +13,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500Gui
         [STAThread]
         static void Main()
         {
-            ILogger errH = ErrorControllerReference.ProcessGuiDefault;
+            ILogTag logTag = LogTags.ProcessGuiDefault;
             MainGui_CsharpVsImpl mainGuiVs = new MainGui_CsharpVsImpl();
 
             //↓ [STAThread]指定のあるメソッドで フォームを作成してください。
@@ -22,8 +22,8 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500Gui
             mainGuiVs.OwnerForm = new Form1Shogi(mainGuiVs);
             //↑ [STAThread]指定のあるメソッドで フォームを作成してください。
 
-            mainGuiVs.Load_AsStart(errH);
-            mainGuiVs.LaunchForm_AsBody(errH);
+            mainGuiVs.Load_AsStart(logTag);
+            mainGuiVs.LaunchForm_AsBody(logTag);
 
         }
     }

@@ -45,7 +45,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
             out IKifuParserAState nextState,
             IKifuParserA owner,
             IKifuParserAGenjo genjo,
-            ILogger errH
+            ILogTag logTag
             )
         {
             out_moveNodeType = MoveNodeType.None;
@@ -54,8 +54,8 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
             try
             {
 
-                errH.AppendLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　さて、どんな内容なんだぜ☆？");
-                errH.Flush(LogTypes.Error);
+                Logger.AppendLine(logTag, "（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　さて、どんな内容なんだぜ☆？");
+                Logger.Flush(logTag, LogTypes.Error);
 
                 StartposImporter startposImporter1;
                 string restText;
@@ -66,8 +66,8 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
                     out restText
                     );
                 genjo.StartposImporter_OrNull = startposImporter1;
-                errH.AppendLine("（＾△＾）restText=「" + restText + "」 successful=【" + successful + "】");
-                errH.Flush(LogTypes.Error);
+                Logger.AppendLine(logTag, "（＾△＾）restText=「" + restText + "」 successful=【" + successful + "】");
+                Logger.Flush(logTag, LogTypes.Error);
 
                 if (successful)
                 {
@@ -85,7 +85,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
             }
             catch (Exception ex)
             {
-                ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "SFEN解析中☆");
+                Logger.Panic(LogTags.ProcessNoneError, ex, "SFEN解析中☆");
                 throw;
             }
 

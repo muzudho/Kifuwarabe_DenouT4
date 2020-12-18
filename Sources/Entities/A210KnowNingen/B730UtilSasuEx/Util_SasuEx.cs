@@ -28,7 +28,7 @@ namespace Grayscale.A210KnowNingen.B730UtilSasuEx.C500Util
         public static List<Move> CreateNariMove(
             ISky positionA,
             List<Move> a_moveBetuEntry,
-            ILogger errH
+            ILogTag errH
             )
         {
             //----------------------------------------
@@ -118,7 +118,7 @@ namespace Grayscale.A210KnowNingen.B730UtilSasuEx.C500Util
                         }
 
                         //>>>>> エラーが起こりました。
-                        errH.DonimoNaranAkirameta(ex, "新しく作った「成りの指し手」を既存ノードに追加していた時です。：追加したい指し手=「" + ConvMove.ToSfen(newMove) + "」既存の手=" + sb.ToString());
+                        Logger.Panic(errH,ex, "新しく作った「成りの指し手」を既存ノードに追加していた時です。：追加したい指し手=「" + ConvMove.ToSfen(newMove) + "」既存の手=" + sb.ToString());
                         throw;
                     }
 

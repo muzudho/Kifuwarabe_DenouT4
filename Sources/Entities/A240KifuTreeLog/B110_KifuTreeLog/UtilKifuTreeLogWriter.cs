@@ -60,7 +60,7 @@ namespace Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct
         public static void A_Write_KifuTreeLog(
             KaisetuBoards logF_kiki,
             Tree kifu,
-            ILogger errH
+            ILogTag errH
             )
         {
 #if DEBUG
@@ -147,7 +147,7 @@ namespace Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct
                 }
             }
             catch (Exception ex) {
-                errH.DonimoNaranAkirameta(ex, "局面評価明細を出力しようとしたときです。");
+                errH.Panic(ex, "局面評価明細を出力しようとしたときです。");
                 throw;
             }
 #endif
@@ -164,7 +164,7 @@ namespace Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct
             Tree kifu,
             string relFolder,
             KyokumenPngEnvironment reportEnvironment,
-            ILogger errH
+            ILogTag logTag
             )
         {
             string fileName = "";
@@ -218,7 +218,7 @@ namespace Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct
 
                     // 評価明細に添付
                     Util_KyokumenPng_Writer.Write1(
-                        ConvKifuNode.ToRO_Kyokumen1(positionA, errH),
+                        ConvKifuNode.ToRO_Kyokumen1(positionA, logTag),
                         srcMasu_orMinusOne,
                         dstMasu_orMinusOne,
                         foodKoma,
@@ -226,14 +226,14 @@ namespace Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct
                         relFolder,
                         fileName,
                         reportEnvironment,
-                        errH
+                        logTag
                         );
                     logFileCounter++;
                 }
             }
             catch (System.Exception ex)
             {
-                errH.DonimoNaranAkirameta(ex, "盤１個分のログを出力しようとしていたときです。\n fileName=[" + fileName + "]\n relFolder=[" + relFolder + "]");
+                Logger.Panic(logTag,ex, "盤１個分のログを出力しようとしていたときです。\n fileName=[" + fileName + "]\n relFolder=[" + relFolder + "]");
                 throw;
             }
         }

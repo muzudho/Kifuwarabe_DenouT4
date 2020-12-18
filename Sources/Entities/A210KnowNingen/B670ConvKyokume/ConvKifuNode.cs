@@ -19,7 +19,7 @@ namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
         /// </summary>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static ISfenPosition1 ToRO_Kyokumen1(ISky src_Sky, ILogger errH)
+        public static ISfenPosition1 ToRO_Kyokumen1(ISky src_Sky, ILogTag errH)
         {
             ISfenPosition1 ro_Kyokumen1 = new SfenPosition1Impl();
 
@@ -68,7 +68,7 @@ namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
         /// <param name="pside"></param>
         /// <param name="errH"></param>
         /// <returns></returns>
-        public static string ToSfenstring(ISky src_Sky, Playerside pside, ILogger errH)
+        public static string ToSfenstring(ISky src_Sky, Playerside pside, ILogTag errH)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("sfen ");

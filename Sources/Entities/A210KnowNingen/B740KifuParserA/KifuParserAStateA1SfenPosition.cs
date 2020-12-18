@@ -42,7 +42,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
             out IKifuParserAState nextState,
             IKifuParserA owner,
             IKifuParserAGenjo genjo,
-            ILogger errH
+            ILogTag errH
             )
         {
             out_moveNodeType = MoveNodeType.None;
@@ -73,8 +73,8 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
                 else
                 {
                     //#if DEBUG
-                    errH.AppendLine("（＾△＾）ここはスルーして次に状態遷移するんだぜ☆\n「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】");//　：　局面の指定のようなんだぜ☆　対応していない☆？
-                    errH.Flush(LogTypes.Error);
+                    Logger.AppendLine(errH,"（＾△＾）ここはスルーして次に状態遷移するんだぜ☆\n「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】");//　：　局面の指定のようなんだぜ☆　対応していない☆？
+                    Logger.Flush(errH,LogTypes.Error);
                     //errH.AppendLine_Error("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　局面の指定のようなんだぜ☆　対応していない☆？");
                     //#endif
                     nextState = KifuParserAStateA1bSfenLnsgkgsnl.GetInstance();
@@ -82,7 +82,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
             }
             catch (Exception ex)
             {
-                ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "positionの解析中。");
+                Logger.Panic(LogTags.ProcessNoneError,ex, "positionの解析中。");
                 throw;
             }
 

@@ -21,7 +21,7 @@ namespace Grayscale.A210KnowNingen.B560_JsaFugoWrit.C500Writer
     /// </summary>
     public abstract class ArrayJsaFugoCreator15
     {
-        public delegate JsaFugoImpl DELEGATE_CreateJFugo(Move move, ISky kWrap, ILogger errH);
+        public delegate JsaFugoImpl DELEGATE_CreateJFugo(Move move, ISky kWrap, ILogTag errH);
 
         public static DELEGATE_CreateJFugo[] ItemMethods
         {
@@ -56,7 +56,7 @@ namespace Grayscale.A210KnowNingen.B560_JsaFugoWrit.C500Writer
         }
 
 
-        public static JsaFugoImpl CreateNullKoma(Move move, ISky kWrap, ILogger errH)
+        public static JsaFugoImpl CreateNullKoma(Move move, ISky kWrap, ILogTag errH)
         {
             JsaFugoImpl result;
 
@@ -91,7 +91,7 @@ namespace Grayscale.A210KnowNingen.B560_JsaFugoWrit.C500Writer
         /// </summary>
         /// <param name="move">移動先、移動元、両方のマス番号</param>
         /// <returns></returns>
-        public static JsaFugoImpl CreateFu(Move move, ISky src_Sky, ILogger errH)
+        public static JsaFugoImpl CreateFu(Move move, ISky src_Sky, ILogTag errH)
         {
             JsaFugoImpl result;
 
@@ -187,7 +187,7 @@ namespace Grayscale.A210KnowNingen.B560_JsaFugoWrit.C500Writer
             return result;
         }
 
-        public static JsaFugoImpl CreateKyo(Move move, ISky src_Sky, ILogger errH)
+        public static JsaFugoImpl CreateKyo(Move move, ISky src_Sky, ILogTag errH)
         {
             JsaFugoImpl fugo;
 
@@ -296,7 +296,7 @@ namespace Grayscale.A210KnowNingen.B560_JsaFugoWrit.C500Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateKei(Move move, ISky src_Sky, ILogger errH)
+        public static JsaFugoImpl CreateKei(Move move, ISky src_Sky, ILogTag errH)
         {
             JsaFugoImpl fugo;
 
@@ -409,7 +409,7 @@ namespace Grayscale.A210KnowNingen.B560_JsaFugoWrit.C500Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateGin(Move move, ISky src_Sky, ILogger errH)
+        public static JsaFugoImpl CreateGin(Move move, ISky src_Sky, ILogTag errH)
         {
             JsaFugoImpl fugo;
 
@@ -579,7 +579,7 @@ namespace Grayscale.A210KnowNingen.B560_JsaFugoWrit.C500Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateKin(Move move, ISky kWrap, ILogger errH)
+        public static JsaFugoImpl CreateKin(Move move, ISky kWrap, ILogTag errH)
         {
             JsaFugoImpl fugo;
 
@@ -607,7 +607,7 @@ namespace Grayscale.A210KnowNingen.B560_JsaFugoWrit.C500Writer
             Move move,//移動先、移動元、両方のマス番号
             ISky src_Sky,
             out MigiHidari migiHidari, out AgaruHiku agaruHiku, out NariNarazu nari, out DaHyoji daHyoji,
-            ILogger errH
+            ILogTag errH
             )
         {
             Playerside pside = ConvMove.ToPlayerside(move);
@@ -765,7 +765,7 @@ namespace Grayscale.A210KnowNingen.B560_JsaFugoWrit.C500Writer
             nari = NariNarazu.CTRL_SONOMAMA;
         }
 
-        public static JsaFugoImpl CreateOh(Move move, ISky copy_Sky, ILogger errH)
+        public static JsaFugoImpl CreateOh(Move move, ISky copy_Sky, ILogTag errH)
         {
             JsaFugoImpl fugo;
 
@@ -810,7 +810,7 @@ namespace Grayscale.A210KnowNingen.B560_JsaFugoWrit.C500Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateHisya(Move move, ISky src_Sky, ILogger errH)
+        public static JsaFugoImpl CreateHisya(Move move, ISky src_Sky, ILogTag errH)
         {
             JsaFugoImpl fugo;
 
@@ -977,7 +977,7 @@ namespace Grayscale.A210KnowNingen.B560_JsaFugoWrit.C500Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateKaku(Move move, ISky src_Sky, ILogger errH)
+        public static JsaFugoImpl CreateKaku(Move move, ISky src_Sky, ILogTag errH)
         {
             JsaFugoImpl fugo;
 
@@ -1143,7 +1143,7 @@ namespace Grayscale.A210KnowNingen.B560_JsaFugoWrit.C500Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateRyu(Move move, ISky src_Sky, ILogger errH)
+        public static JsaFugoImpl CreateRyu(Move move, ISky src_Sky, ILogTag errH)
         {
             JsaFugoImpl fugo;
 
@@ -1337,7 +1337,7 @@ namespace Grayscale.A210KnowNingen.B560_JsaFugoWrit.C500Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateUma(Move move, ISky src_Sky, ILogger errH)
+        public static JsaFugoImpl CreateUma(Move move, ISky src_Sky, ILogTag errH)
         {
             JsaFugoImpl fugo;
 
@@ -1532,7 +1532,7 @@ namespace Grayscale.A210KnowNingen.B560_JsaFugoWrit.C500Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateTokin(Move move, ISky kWrap, ILogger errH)
+        public static JsaFugoImpl CreateTokin(Move move, ISky kWrap, ILogTag errH)
         {
             JsaFugoImpl fugo;
 
@@ -1556,7 +1556,7 @@ namespace Grayscale.A210KnowNingen.B560_JsaFugoWrit.C500Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateNariKyo(Move move, ISky kWrap, ILogger errH)
+        public static JsaFugoImpl CreateNariKyo(Move move, ISky kWrap, ILogTag errH)
         {
             MigiHidari migiHidari;
             AgaruHiku agaruHiku;
@@ -1580,7 +1580,7 @@ namespace Grayscale.A210KnowNingen.B560_JsaFugoWrit.C500Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateNariKei(Move move, ISky kWrap, ILogger errH)
+        public static JsaFugoImpl CreateNariKei(Move move, ISky kWrap, ILogTag errH)
         {
             JsaFugoImpl fugo;
 
@@ -1604,7 +1604,7 @@ namespace Grayscale.A210KnowNingen.B560_JsaFugoWrit.C500Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateNariGin(Move move, ISky kWrap, ILogger errH)
+        public static JsaFugoImpl CreateNariGin(Move move, ISky kWrap, ILogTag errH)
         {
             JsaFugoImpl fugo;
 
@@ -1628,7 +1628,7 @@ namespace Grayscale.A210KnowNingen.B560_JsaFugoWrit.C500Writer
             return fugo;
         }
 
-        public static JsaFugoImpl CreateErrorKoma(Move move, ISky copy_Sky, ILogger errH)
+        public static JsaFugoImpl CreateErrorKoma(Move move, ISky copy_Sky, ILogTag errH)
         {
             JsaFugoImpl fugo;
 

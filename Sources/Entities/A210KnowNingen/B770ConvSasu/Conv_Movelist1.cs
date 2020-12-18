@@ -24,7 +24,7 @@ namespace Grayscale.A210KnowNingen.B770ConvSasu.C500Converter
             Maps_OneAndOne<Finger, SySet<SyElement>> komabetuSusumuMasus,
             Playerside psideA,
             ISky positionA,
-            ILogger errH
+            ILogTag errH
         )
         {
             List<Move> result_movelist = new List<Move>();
@@ -64,7 +64,7 @@ namespace Grayscale.A210KnowNingen.B770ConvSasu.C500Converter
             List_OneAndMulti<Finger, SySet<SyElement>> komaMasus,
             Playerside psideA,
             ISky positionA,
-            ILogger errH
+            ILogTag errH
             )
         {
             List<Move> movelist = new List<Move>();

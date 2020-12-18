@@ -28,7 +28,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C249Function
         /// </summary>
         public static void Perform_SyokiHaichi_CurrentMutable(
             MainGui_Csharp mainGui,
-            ILogger logger
+            ILogTag logger
             )
         {
             MoveEx newNode = new MoveExImpl();
@@ -77,7 +77,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C249Function
             Finger foodKoma,
             string fugoJStr,
             string backedInputText,
-            ILogger errH)
+            ILogTag errH)
         {
             //------------------------------
             // チェンジターン
@@ -124,7 +124,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C249Function
             ISky positionA,// = shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue();
             MainGui_Csharp shogiGui,
             Tree kifu1,
-            ILogger logger
+            ILogTag logger
             )
         {
             //------------------------------
@@ -234,7 +234,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C249Function
         public static void Redraw_KomaLocation(
             Finger figKoma,
             MainGui_Csharp mainGui,
-            ILogger errH
+            ILogTag errH
             )
         {
             mainGui.SkyWrapper_Gui.GuiSky.AssertFinger(figKoma);

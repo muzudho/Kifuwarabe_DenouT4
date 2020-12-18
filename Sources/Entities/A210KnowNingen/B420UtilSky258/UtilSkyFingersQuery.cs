@@ -58,7 +58,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
         /// <param name="syurui"></param>
         /// <param name="hKomas"></param>
         /// <returns></returns>
-        public static Fingers InKomasyuruiNow(ISky src_Sky, Komasyurui14 syurui, ILogger errH)
+        public static Fingers InKomasyuruiNow(ISky src_Sky, Komasyurui14 syurui, ILogTag errH)
         {
             Fingers figKomas = new Fingers();
 
@@ -175,7 +175,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
         /// <returns>スプライト番号。なければエラー番号。</returns>
-        public static Fingers InMasuNow_New(ISky positionA, Move move, ILogger logger)
+        public static Fingers InMasuNow_New(ISky positionA, Move move, ILogTag logger)
         {
             //Komasyurui14 ks14_move = ConvMove.ToSrcKomasyurui(move);
             bool drop = ConvMove.ToDrop(move);
@@ -284,7 +284,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
         /// <param name="kifu"></param>
         /// <param name="okiba"></param>
         /// <returns></returns>
-        public static Fingers InOkibaNow(ISky src_Sky, Okiba okiba, ILogger errH)
+        public static Fingers InOkibaNow(ISky src_Sky, Okiba okiba, ILogTag errH)
         {
             Fingers komas = new Fingers();
 
@@ -310,7 +310,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
         /// <param name="pside"></param>
         /// <param name="hKomas"></param>
         /// <returns></returns>
-        public static Fingers InPsideNow(ISky src_Sky, Playerside pside, ILogger errH)
+        public static Fingers InPsideNow(ISky src_Sky, Playerside pside, ILogTag errH)
         {
             Fingers fingers = new Fingers();
 

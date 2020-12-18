@@ -30,7 +30,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogger errH) =>
+                    , ILogTag errH) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
                     // ここに処理を書く
@@ -43,7 +43,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogger errH) =>
+                    , ILogTag errH) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
                     MainGui_Csharp shogiGui = (MainGui_Csharp)obj_shogiGui2;
@@ -59,7 +59,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogger errH) =>
+                    , ILogTag errH) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
                     // ここに処理を書く

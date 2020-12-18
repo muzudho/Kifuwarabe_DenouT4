@@ -18,7 +18,7 @@ namespace Grayscale.A210KnowNingen.B600UtilSky.C500Util
     public abstract class UtilSky307
     {
 
-        public static SfenStringImpl ExportSfen(Playerside psideA, ISky positionA, ILogger errH)
+        public static SfenStringImpl ExportSfen(Playerside psideA, ISky positionA, ILogTag errH)
         {
             Debug.Assert(positionA.Count == 40, "sky.Starlights.Count=[" + positionA.Count + "]");//将棋の駒の数
 
@@ -27,7 +27,7 @@ namespace Grayscale.A210KnowNingen.B600UtilSky.C500Util
         }
 
         public static SfenStringImpl ExportSfen_ForDebug(
-            Playerside psideA, ISky positionA, bool psideIsBlack, ILogger logger)
+            Playerside psideA, ISky positionA, bool psideIsBlack, ILogTag logger)
         {
             return new SfenStringImpl("sfen " + Util_StartposExporter.ToSfenstring(
                 Conv_Sky.ToShogiban(psideA, positionA, logger), true));

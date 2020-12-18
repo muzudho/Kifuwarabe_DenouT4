@@ -28,7 +28,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C250Timed
         }
 
 
-        public override void Step(ILogger errH)
+        public override void Step(ILogTag errH)
         {
             // 将棋エンジンからの入力が、input99 に溜まるものとします。
             if (0 < this.mainGui.ConsoleWindowGui.InputString99.Length)

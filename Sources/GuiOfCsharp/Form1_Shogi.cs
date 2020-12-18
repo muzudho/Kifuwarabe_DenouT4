@@ -84,14 +84,14 @@ namespace Grayscale.P699Form
         /// <param name="e"></param>
         private void Ui_Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ILogger errH = ErrorControllerReference.ProcessGuiDefault;
-            this.owner.Shutdown(errH);
+            ILogTag logTag = LogTags.ProcessGuiDefault;
+            this.owner.Shutdown(logTag);
         }
 
         private void Ui_Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ILogger errH = ErrorControllerReference.ProcessGuiDefault;
-            this.owner.Shutdown(errH);
+            ILogTag logTag = LogTags.ProcessGuiDefault;
+            this.owner.Shutdown(logTag);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB
             ref ISky positionA,//指定局面
             ref Move move,//TODO:取った駒があると、上書きされる
             string hint,
-            ILogger logger
+            ILogTag logTag
             )
         {
             bool successful = true;
@@ -29,14 +29,14 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB
             //*
             if (log)
             {
-                logger.AppendLine("進める前 " + hint);
-                logger.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logger), positionA, move));
-                logger.Flush(LogTypes.Plain);
+                Logger.AppendLine(logTag,"進める前 " + hint);
+                Logger.Append(logTag,Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logTag), positionA, move));
+                Logger.Flush(logTag,LogTypes.Plain);
             }
             //*/
 
             // 動かす駒
-            Fingers fingers = UtilSkyFingersQuery.InMasuNow_New(positionA, move, logger);
+            Fingers fingers = UtilSkyFingersQuery.InMasuNow_New(positionA, move, logTag);
 
             if (fingers.Count < 1)
             {
@@ -57,14 +57,14 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB
 
                         ConvMove.ToDstMasu(move),//移動先升
                         ConvMove.ToPromotion(move),//成るか。
-                        logger
+                        logTag
                     );
 
                 if (log)
                 {
-                    logger.AppendLine("進めた後 " + hint);
-                    logger.Append(Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logger), positionA, move));
-                    logger.Flush(LogTypes.Plain);
+                    Logger.AppendLine(logTag,"進めた後 " + hint);
+                    Logger.Append(logTag,Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logTag), positionA, move));
+                    Logger.Flush(logTag,LogTypes.Plain);
                 }
             }
 
@@ -87,7 +87,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB
             Finger figKoma,//動かす駒
             SyElement dstMasu,//移動先マス
             bool toNaru,//成るなら真
-            ILogger errH
+            ILogTag errH
             )
         {
             // 移動先に相手の駒がないか、確認します。

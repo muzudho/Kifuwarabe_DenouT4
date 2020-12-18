@@ -31,7 +31,7 @@ namespace Grayscale.A060Application.B620ConvText.C500Converter
                 case '9': alphabet = "i"; break;
                 default:
                     Exception ex1 = new Exception("筋[" + suji + "]をアルファベットに変えることはできませんでした。");
-                    ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex1, "筋をアルファベットに変換中☆");
+                    Logger.Panic(LogTags.ProcessNoneError,ex1, "筋をアルファベットに変換中☆");
                     throw ex1;
             }
 

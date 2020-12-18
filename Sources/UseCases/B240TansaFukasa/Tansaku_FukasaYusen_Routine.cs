@@ -44,7 +44,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
             int temezumi,
             bool isHonshogi,
             Mode_Tansaku mode_Tansaku,
-            ILogger errH
+            ILogTag errH
             )
         {
             // TODO:ここではログを出力せずに、ツリーの先端で出力したい。
@@ -205,7 +205,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
             bool isHonshogi,
             Mode_Tansaku mode_Tansaku,
             EvaluationArgs args,
-            ILogger errH
+            ILogTag errH
             )
         {
             int temezumi = positionA.Temezumi;
@@ -322,14 +322,14 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                             Debug.Fail(message);
 
                             // どうにもできないので  ログだけ取って、上に投げます。
-                            errH.AppendLine(message);
-                            errH.Flush(LogTypes.Error);
+                            Logger.AppendLine(errH,message);
+                            Logger.Flush(errH,LogTypes.Error);
                             throw ;
                         }
 #if DEBUG
                     case 20:
                         {
-                            errH.DonimoNaranAkirameta(ex, "棋譜ツリーの読みの後半９０です。");
+                            errH.Panic(ex, "棋譜ツリーの読みの後半９０です。");
                             throw;
                         }
 #endif
@@ -375,7 +375,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
             ISky positionA,
 
             EvaluationArgs args,
-            ILogger errH
+            ILogTag errH
             )
         {
             float score = 0.0f;
@@ -430,7 +430,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
         /// <param name="genjo"></param>
         /// <param name="alphabeta_otherBranchDecidedValue"></param>
         /// <param name="args"></param>
-        /// <param name="logger"></param>
+        /// <param name="logTag"></param>
         /// <returns>子の中で最善の点</returns>
         private static MoveEx WAAA_Yomu_Loop(
             ref int searchedMaxDepth,
@@ -447,7 +447,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
 
             int movelist_count,
             EvaluationArgs args,
-            ILogger logger
+            ILogTag logTag
             )
         {
             int exceptionArea = 0;
@@ -475,7 +475,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
 
                     ref searchedMaxDepth,
                     out yomiDeep2,
-                    logger
+                    logTag
                     );
 
                 // 空っぽにして用意しておくぜ☆
@@ -513,7 +513,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                             positionA,//改造前
 
                             args,
-                            logger
+                            logTag
                             );
 
                         //result_movEx3 = new MoveExImpl(nod1.Key, this_score);
@@ -558,7 +558,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                             ref positionA,//指定局面
                             ref iMov_child_variable,
                             "C100",
-                            logger
+                            logTag
                         );
                         //Playerside psideB = positionA.GetKaisiPside();//反転している☆（*＾～＾*）？
                         iNod_child.SetMove(iMov_child_variable);
@@ -567,7 +567,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
 
 
                         // 自分を親要素につなげたあとで、子を検索するぜ☆（＾～＾）
-                        kifu1.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(iNod_child, kifu1, positionA, logger));
+                        kifu1.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(iNod_child, kifu1, positionA, logTag));
 
                         exceptionArea = 44012;
 
@@ -589,7 +589,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
 
                             movelist2.Count,
                             args,
-                            logger);
+                            logTag);
 
                         exceptionArea = 6000;
 
@@ -603,13 +603,13 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                             ConvMove.ToPlayerside(iMov_child_variable),
                             positionA,
                             "C900",
-                            logger
+                            logTag
                             );
                         positionA = ittemodosuResult.SyuryoSky;
                         //*/
 
                         kifu1.MoveEx_SetCurrent(
-                            TreeImpl.OnUndoCurrentMove(kifu1, ittemodosuResult.SyuryoSky, logger, "WAAA_Yomu_Loop20000")
+                            TreeImpl.OnUndoCurrentMove(kifu1, ittemodosuResult.SyuryoSky, logTag, "WAAA_Yomu_Loop20000")
                         );
 
                         exceptionArea = 7000;
@@ -680,7 +680,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                             i++;
                         }
 
-                        logger.DonimoNaranAkirameta(ex, "棋譜ツリーで例外です(A)。exceptionArea=" + exceptionArea
+                        Logger.Panic(logTag,ex, "棋譜ツリーで例外です(A)。exceptionArea=" + exceptionArea
                             + " entry.Key=" + ConvMove.ToSfen(iMov_child_variable)
                             //+ " node_yomi.CountAllNodes=" + node_yomi_KAIZOMAE.CountAllNodes()
                             + " 指し手候補=" + sb.ToString());
@@ -691,7 +691,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
             }
             catch (Exception ex)
             {
-                logger.DonimoNaranAkirameta(ex, "棋譜ツリーで例外です(B)。exceptionArea=" + exceptionArea);
+                Logger.Panic(logTag,ex, "棋譜ツリーで例外です(B)。exceptionArea=" + exceptionArea);
                 throw;
             }
 
@@ -721,7 +721,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
             }
             catch (Exception ex)
             {
-                errH.DonimoNaranAkirameta(ex, "棋譜ツリーの読みループの作成次ノードの前半２０です。");
+                errH.Panic(ex, "棋譜ツリーの読みループの作成次ノードの前半２０です。");
                 throw;
             }
         }
@@ -746,7 +746,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
             }
             catch (Exception ex)
             {
-                errH.DonimoNaranAkirameta(ex, "棋譜ツリーの読みループの作成次ノードの前半４０です。");
+                errH.Panic(ex, "棋譜ツリーの読みループの作成次ノードの前半４０です。");
                 throw;
             }
         }

@@ -7,35 +7,6 @@ namespace Grayscale.Kifuwaragyoku.Entities.Logging
     /// </summary>
     public interface ILogger
     {
-
-
-        IErrorController KwDisplayerOrNull { get; set; }
-
-
-        /// <summary>
-        /// ファイル名
-        /// </summary>
-        string FileName { get; }
-        /// <summary>
-        /// 拡張子抜きファイル名（without extension）
-        /// </summary>
-        string FileNameWoe { get; }
-        /// <summary>
-        /// 拡張子
-        /// </summary>
-        string Extension { get; }
-
-        /// <summary>
-        /// ログ出力の有無。
-        /// </summary>
-        bool Enable { get; }
-
-        /// <summary>
-        /// タイムスタンプを出力するか。
-        /// </summary>
-        bool Print_TimeStamp { get; }
-
-
         /// <summary>
         /// ログを蓄えます。改行なし。
         /// </summary>
@@ -59,7 +30,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Logging
         /// 例外が発生したが、対応できないのでログだけ出して例外をさらに上へ投げ返すとき。
         /// </summary>
         /// <param name="okottaBasho"></param>
-        void DonimoNaranAkirameta(string okottaBasho);
+        void Panic(string okottaBasho);
         void ShowDialog(string okottaBasho);
 
 
@@ -69,7 +40,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Logging
         /// 例外が発生したが、対応できないのでログだけ出して例外をさらに上へ投げ返すとき。
         /// </summary>
         /// <param name="okottaBasho"></param>
-        void DonimoNaranAkirameta(Exception ex, string okottaBasho);
+        void Panic(Exception ex, string okottaBasho);
 
     }
 }

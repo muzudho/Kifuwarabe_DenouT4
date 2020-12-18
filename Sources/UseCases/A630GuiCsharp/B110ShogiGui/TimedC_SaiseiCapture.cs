@@ -34,7 +34,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C250Timed
             this.SaiseiEventQueue = new Queue<SaiseiEventState>();
         }
 
-        public override void Step(ILogger errH)
+        public override void Step(ILogTag errH)
         {
 
             // 入っているマウス操作イベントは、全部捨てていきます。

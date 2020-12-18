@@ -42,7 +42,7 @@ namespace Grayscale.P720FvWriter
 
         private void btnRead_Click(object sender, EventArgs e)
         {
-            ILogger errH = ErrorControllerReference.ProcessTestProgramDefault;
+            ILogTag logTag = LogTags.ProcessTestProgramDefault;
 
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
@@ -57,7 +57,7 @@ namespace Grayscale.P720FvWriter
             {
             }
 
-            if (Util_FeatureVectorInput.Make_FromFile_KK(fv, filepathR_KK, errH))
+            if (Util_FeatureVectorInput.Make_FromFile_KK(fv, filepathR_KK, logTag))
             {
             }
 

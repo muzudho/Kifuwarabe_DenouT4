@@ -49,7 +49,7 @@ namespace Grayscale.A120KifuSfen
         /// <param name="moji4"></param>
         /// <param name="moji5"></param>
         /// <param name="rest">残りの文字。</param>
-        /// <param name="errH"></param>
+        /// <param name="logTag"></param>
         /// <returns></returns>
         public static bool ToTokens_FromMove(
             string inputLine,
@@ -59,7 +59,7 @@ namespace Grayscale.A120KifuSfen
             out string moji4,
             out string moji5,
             out string rest,
-            ILogger errH
+            ILogTag logTag
             )
         {
             bool successful = false;
@@ -112,7 +112,7 @@ namespace Grayscale.A120KifuSfen
                     }
                     catch (Exception ex)
                     {
-                        ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "moves解析中☆");
+                        Logger.Panic(LogTags.ProcessNoneError, ex, "moves解析中☆");
                         throw;
                     }
                 }
@@ -122,7 +122,7 @@ namespace Grayscale.A120KifuSfen
             }
             catch (Exception ex)
             {
-                ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "moves解析中☆");
+                Logger.Panic(LogTags.ProcessNoneError, ex, "moves解析中☆");
                 throw;
             }
 

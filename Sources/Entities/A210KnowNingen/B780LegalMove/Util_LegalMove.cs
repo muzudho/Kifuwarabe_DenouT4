@@ -41,7 +41,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
         /// </summary>
         /// <param name="km_available">自軍の各駒の移動できる升セット</param>
         /// <param name="sbGohosyu"></param>
-        /// <param name="logger"></param>
+        /// <param name="logTag"></param>
         public static Maps_OneAndOne<Finger, SySet<SyElement>> LA_RemoveMate(
             int yomikaisiTemezumi,
             bool isHonshogi,
@@ -54,7 +54,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
 #endif
 
             string hint,
-            ILogger logger)
+            ILogTag logTag)
         {
             Maps_OneAndOne<Finger, SySet<SyElement>> starbetuSusumuMasus = new Maps_OneAndOne<Finger, SySet<SyElement>>();// 「どの星を、どこに進める」の一覧
 
@@ -66,7 +66,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
                     out inputMovelist,
                     genTeban_komabetuAllMoves1,
                     positionA,
-                    logger
+                    logTag
                     );// ハブ・ノード自身はダミーノードなんだが、子ノードに、次のノードが入っている。
 
                 exception_area = 20000;
@@ -85,7 +85,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
 #if DEBUG
                     logF_kiki,
 #endif
-                    logger);
+                    logTag);
                 }
                 else
                 {
@@ -97,7 +97,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
                 // 「指し手一覧」を、「星別の全指し手」に分けます。
                 Maps_OneAndMulti<Finger, Move> starbetuAllMoves2 = Util_Sky258A.SplitMoveByStar(positionA,
                     restMovelist,//hubNode1.ToMovelist(),
-                    logger);
+                    logTag);
 
                 exception_area = 40000;
 
@@ -123,7 +123,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
                     }
                     catch (Exception ex2)
                     {
-                        logger.DonimoNaranAkirameta(ex2, "ポテンシャルムーブを調べているときだぜ☆（＾▽＾）");
+                        Logger.Panic(logTag, ex2, "ポテンシャルムーブを調べているときだぜ☆（＾▽＾）");
                         throw;
                     }
 
@@ -148,7 +148,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
             }
             catch (Exception ex)
             {
-                logger.DonimoNaranAkirameta(ex, "王手回避漏れを除外しているときだぜ☆（＾▽＾） exception_area=" + exception_area);
+                Logger.Panic(logTag, ex, "王手回避漏れを除外しているときだぜ☆（＾▽＾） exception_area=" + exception_area);
                 throw;
             }
 
@@ -169,7 +169,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
             KaisetuBoards logF_kiki,
 #endif
 
-            ILogger errH
+            ILogTag logTag
             )
         {
             // 残す指し手☆
@@ -186,7 +186,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
                         ref positionA,//指定局面
                         ref moveB,
                         "A100_IfMate",
-                        errH
+                        logTag
                     );
                     if (!successful)
                     {
@@ -206,7 +206,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
                     logF_kiki,
 #endif
                         moveB,
-                        errH
+                        logTag
                         );
 
                     exception_area = 40000;
@@ -226,13 +226,13 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
                         ConvMove.ToPlayerside(moveB),
                         positionA,
                         "A900_IfMate",
-                        errH
+                        logTag
                         );
                     positionA = ittemodosuResult.SyuryoSky;
                 }
                 catch (Exception ex)
                 {
-                    errH.DonimoNaranAkirameta(ex,
+                    Logger.Panic(logTag,ex,
                         "ノードを削除しているときだぜ☆（＾▽＾） exception_area=" + exception_area +
                         "\nmove=" + ConvMove.ToLog(moveB));
                     throw;
@@ -261,7 +261,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
             KaisetuBoards logF_kiki,
 #endif
             Move move_forLog,
-            ILogger errH
+            ILogTag errH
             )
         {
             bool isHonshogi = true;
@@ -347,7 +347,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
             string logBrd_caption,
             int temezumi_yomiCur_forLog,
             Move move_forLog,
-            ILogger errH
+            ILogTag logTag
             )
         {
 #if DEBUG
@@ -405,7 +405,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
                         src_Sky,
                         tebanSeme,
                         tebanKurau,
-                        errH
+                        logTag
                     );
 
 
@@ -452,7 +452,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
                     masus_kurau_BANJO,
                     src_Sky,
                     //Conv_Move.Move_To_KsString_ForLog(Move_forLog, pside_genTeban3),
-                    errH
+                    logTag
                     );// 利きを調べる側の利き（戦駒）
 
                 // 盤上駒の利き
@@ -482,7 +482,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
                 }
                 catch (Exception ex)
                 {
-                    errH.DonimoNaranAkirameta(ex, "ランダムチョイス(50)");
+                    Logger.Panic(logTag,ex, "ランダムチョイス(50)");
                     throw;
                 }
 

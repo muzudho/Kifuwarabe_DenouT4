@@ -30,7 +30,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
         /// <param name="ittesasuArg"></param>
         /// <param name="ittesasu_mutable"></param>
         /// <param name="syuryoResult"></param>
-        /// <param name="errH"></param>
+        /// <param name="logTag"></param>
         /// <param name="memberName"></param>
         /// <param name="sourceFilePath"></param>
         /// <param name="sourceLineNumber"></param>
@@ -38,7 +38,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
             out IIttesasuResult syuryoResult,
             ref Move move1,//このメソッド実行後、取った駒を上書きされることがあるぜ☆（＾▽＾）
             ISky positionA,// 一手指し、開始局面。
-            ILogger errH,
+            ILogTag logTag,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
@@ -67,7 +67,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
                     out figMovedKoma,
                     move1,
                     positionA,
-                    errH
+                    logTag
                     //hint
                     );
                 syuryoResult.FigMovedKoma = figMovedKoma; //動かした駒更新
@@ -106,7 +106,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
                         out food_koma,
                         out food_pside,
                         out food_akiMasu,
-                        errH
+                        logTag
                         );
 
                     if (Fingers.Error_1 != figFoodKoma)
@@ -173,8 +173,8 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
 
                 // どうにもできないので  ログだけ取って無視します。
                 string message = "Util_IttesasuRoutine#Execute（B）： exceptionArea=" + exceptionArea + "\n" + ex.GetType().Name + "：" + ex.Message;
-                errH.AppendLine(message);
-                errH.Flush(LogTypes.Error);
+                Logger.AppendLine(logTag,message);
+                Logger.Flush(logTag,LogTypes.Error);
                 throw;
             }
 
@@ -214,7 +214,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
             Tree kifu1,
             Move move,
             ISky positionA,
-            ILogger logger
+            ILogTag logger
             )
         {
             MoveEx newNodeB = new MoveExImpl(move);
@@ -241,7 +241,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
             out Finger figMovedKoma,
             Move move,
             ISky positionA,
-            ILogger logger,
+            ILogTag logTag,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
@@ -268,7 +268,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
                     //----------
                     exceptionArea = 99002000;
 
-                    Fingers fingers = UtilSkyFingersQuery.InMasuNow_New(positionA, move, logger);
+                    Fingers fingers = UtilSkyFingersQuery.InMasuNow_New(positionA, move, logTag);
                     if (fingers.Count < 1)
                     {
                         string message = "Util_IttesasuRoutine#Do24:指し手に該当する駒が無かったぜ☆（＾～＾）" +
@@ -294,7 +294,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
                         positionA,
                         pside,
                         srcMasu,// 将棋盤上と確定している☆（＾▽＾）
-                        logger
+                        logTag
                         );
                     Debug.Assert(figMovedKoma != Fingers.Error_1, "駒を動かせなかった？13");
                 }
@@ -304,7 +304,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
                 //>>>>> エラーが起こりました。
 
                 // どうにもできないので  ログだけ取って無視します。
-                logger.DonimoNaranAkirameta(ex, "Util_IttesasuRoutine#Sasu24_UgokasuKoma_IdoSakiHe： exceptionArea=" + exceptionArea + "\n"
+                Logger.Panic(logTag,ex, "Util_IttesasuRoutine#Sasu24_UgokasuKoma_IdoSakiHe： exceptionArea=" + exceptionArea + "\n"
                     //+"hint=["+hint+"]"
                     );
                 throw;
@@ -347,7 +347,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
             out Busstop out_food_koma,
             out Playerside pside,
             out SyElement akiMasu,
-            ILogger errH
+            ILogTag errH
             )
         {
             //----------

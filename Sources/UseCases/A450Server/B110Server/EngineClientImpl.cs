@@ -90,7 +90,7 @@ namespace Grayscale.A450Server.B110Server.C497EngineClient
                 //------------------------------
                 // ログファイルを削除します。
                 //------------------------------
-                ErrorControllerReference.RemoveAllLogFiles();
+                Logger.RemoveAllLogFiles();
 
 
                 ProcessStartInfo startInfo = new ProcessStartInfo();
@@ -129,8 +129,8 @@ namespace Grayscale.A450Server.B110Server.C497EngineClient
         /// <param name="e"></param>
         private void OnExited(object sender, System.EventArgs e)
         {
-            ILogger errH = ErrorControllerReference.ProcessEngineDefault;
-            this.ShogiEngineProcessWrapper.Send_Shutdown(errH);
+            ILogTag logTag = LogTags.ProcessEngineDefault;
+            this.ShogiEngineProcessWrapper.Send_Shutdown(logTag);
         }
 
         /// <summary>
@@ -145,7 +145,7 @@ namespace Grayscale.A450Server.B110Server.C497EngineClient
             Tree kifu1,
 
             Playerside kaisiPside,
-            ILogger errH)
+            ILogTag errH)
         {
             if (!this.ShogiEngineProcessWrapper.IsLive_ShogiEngine())
             {
@@ -186,7 +186,7 @@ namespace Grayscale.A450Server.B110Server.C497EngineClient
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
         /// </summary>
-        public void Send_Shutdown(ILogger errH)
+        public void Send_Shutdown(ILogTag errH)
         {
             this.ShogiEngineProcessWrapper.Send_Shutdown(errH);
         }
@@ -194,7 +194,7 @@ namespace Grayscale.A450Server.B110Server.C497EngineClient
         /// <summary>
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
-        public void Send_Logdase(ILogger errH)
+        public void Send_Logdase(ILogTag errH)
         {
             this.ShogiEngineProcessWrapper.Send_Logdase(errH);
         }

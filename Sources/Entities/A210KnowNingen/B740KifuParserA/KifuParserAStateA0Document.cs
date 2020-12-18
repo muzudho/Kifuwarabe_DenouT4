@@ -48,7 +48,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
             out IKifuParserAState nextState,
             IKifuParserA owner,
             IKifuParserAGenjo genjo,
-            ILogger errH
+            ILogTag errH
             )
         {
             out_moveNodeType = MoveNodeType.None;
@@ -82,8 +82,8 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
                 else if ("" == genjo.InputLine)
                 {
                     // 異常時。
-                    errH.AppendLine("＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない2☆！　終わるぜ☆");
-                    errH.Flush(LogTypes.Error);
+                    Logger.AppendLine(errH,"＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない2☆！　終わるぜ☆");
+                    Logger.Flush(errH,LogTypes.Error);
                     genjo.ToBreak_Abnormal();
                 }
                 else
@@ -99,7 +99,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
             }
             catch (Exception ex)
             {
-                ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex, "棋譜ドキュメント解析中☆");
+                Logger.Panic(LogTags.ProcessNoneError,ex, "棋譜ドキュメント解析中☆");
                 throw;
             }
 

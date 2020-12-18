@@ -31,14 +31,14 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
         /// <param name="kaisi_Temezumi"></param>
         /// <param name="moved"></param>
         /// <param name="kaisiKyokumenW"></param>
-        /// <param name="logger"></param>
+        /// <param name="logTag"></param>
         public static void UndoMove(
             out IIttemodosuResult ittemodosuResult,
             Move moved,
             Playerside psideA,
             ISky positionA,
             string hint,
-            ILogger logger
+            ILogTag logTag
             )
         {
             long exception_area = 1000140;
@@ -47,9 +47,9 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
                 bool log = false;
                 if (log)
                 {
-                    logger.AppendLine("戻す前 " + hint);
-                    logger.Append(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(psideA, positionA, logger)));
-                    logger.Flush(LogTypes.Plain);
+                    Logger.AppendLine(logTag,"戻す前 " + hint);
+                    Logger.Append(logTag, Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(psideA, positionA, logTag)));
+                    Logger.Flush(logTag, LogTypes.Plain);
                 }
 
                 ittemodosuResult = new IttemodosuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
@@ -62,7 +62,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
                     out figMovedKoma,
                     moved,
                     positionA,
-                    logger
+                    logTag
                     );
                 ittemodosuResult.FigMovedKoma = figMovedKoma; //動かした駒更新
 
@@ -70,9 +70,9 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
 
                 if (Fingers.Error_1 == figMovedKoma)
                 {
-                    logger.DonimoNaranAkirameta(
+                    Logger.Panic(logTag,
                         "戻せる駒が無かった☆ hint:" + hint + "\n" +
-                        Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logger), positionA, moved)
+                        Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logTag), positionA, moved)
                         );
                     goto gt_EndMethod;
                 }
@@ -101,7 +101,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
                     out figFoodKoma,//変更される場合あり。
                     moved,
                     positionA,//巻き戻しのとき
-                    logger
+                    logTag
                     );
                 ittemodosuResult.FigFoodKoma = figFoodKoma; //取られていた駒更新
 
@@ -164,15 +164,15 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
 
                     exception_area = 700031;
 
-                    logger.AppendLine("戻した後 " + hint);
+                    Logger.AppendLine(logTag,"戻した後 " + hint);
 
                     exception_area = 700041;
 
-                    ShogibanImpl shogiban = Conv_Sky.ToShogiban(psideA, positionA, logger);
+                    ShogibanImpl shogiban = Conv_Sky.ToShogiban(psideA, positionA, logTag);
 
                     exception_area = 700051;
 
-                    logger.Append(
+                    Logger.Append(logTag,
                         Conv_Shogiban.ToLog_Type2(
                             shogiban,
                             positionA, moved)
@@ -180,14 +180,14 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
 
                     exception_area = 700051;
 
-                    logger.Flush(LogTypes.Plain);
+                    Logger.Flush(logTag, LogTypes.Plain);
 
                     exception_area = 700061;
                 }
             }
             catch (Exception ex)
             {
-                logger.DonimoNaranAkirameta(ex, "駒を戻しているとき☆ hint=" + hint + " exception_area=" + exception_area);
+                Logger.Panic(logTag, ex, "駒を戻しているとき☆ hint=" + hint + " exception_area=" + exception_area);
                 throw;
             }
         }
@@ -203,7 +203,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
             out Finger figMovedKoma,
             Move moved,
             ISky positionA,
-            ILogger errH
+            ILogTag errH
             )
         {
             //------------------------------------------------------------
@@ -296,7 +296,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
             out Finger out_figFoodKoma,
             Move move,
             ISky kaisi_Sky,//巻き戻しのとき
-            ILogger errH
+            ILogTag errH
         )
         {
             Komasyurui14 captured = ConvMove.ToCaptured(move);

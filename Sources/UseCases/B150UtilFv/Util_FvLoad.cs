@@ -65,7 +65,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C510UtilFvLoad
         /// <param name="rv_orNull">学習でしか使いません。</param>
         /// <param name="fv_komawari_filepath"></param>
         /// <returns></returns>
-        public static string OpenFv(FeatureVector fv, string fv_komawari_filepath, ILogger errH)
+        public static string OpenFv(FeatureVector fv, string fv_komawari_filepath, ILogTag errH)
         {
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));

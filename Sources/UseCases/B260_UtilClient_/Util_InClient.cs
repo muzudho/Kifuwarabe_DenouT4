@@ -27,11 +27,11 @@ namespace Grayscale.A500ShogiEngine.B260UtilClient.C500Util
             Tree kifu1,
 
             IKifuParserAGenjo genjo,
-            ILogger logger
+            ILogTag logTag
             )
         {
-            logger.AppendLine("（＾△＾）「" + genjo.InputLine + "」Util_InClient　：　クライアントの委譲メソッドｷﾀｰ☆");
-            logger.Flush(LogTypes.Error);
+            Logger.AppendLine(logTag,"（＾△＾）「" + genjo.InputLine + "」Util_InClient　：　クライアントの委譲メソッドｷﾀｰ☆");
+            Logger.Flush(logTag, LogTypes.Error);
 
 
             string old_inputLine = genjo.InputLine;//退避
@@ -43,8 +43,8 @@ namespace Grayscale.A500ShogiEngine.B260UtilClient.C500Util
                 out ro_Kyokumen2_ForTokenize
                 );
 
-            logger.AppendLine("（＾△＾）old_inputLine=「" + old_inputLine + "」 rest=「" + rest + "」 Util_InClient　：　ﾊﾊｯ☆");
-            logger.Flush(LogTypes.Error);
+            Logger.AppendLine(logTag, "（＾△＾）old_inputLine=「" + old_inputLine + "」 rest=「" + rest + "」 Util_InClient　：　ﾊﾊｯ☆");
+            Logger.Flush(logTag, LogTypes.Error);
 
             //string old_inputLine = genjo.InputLine;
             //genjo.InputLine = "";
@@ -57,7 +57,7 @@ namespace Grayscale.A500ShogiEngine.B260UtilClient.C500Util
                 earth1.Clear();
 
                 // 棋譜を空っぽにします。
-                Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(kifu1, null, logger);
+                Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(kifu1, null, logTag);
 
                 // 文字列から、指定局面を作成します。
                 earth1.SetProperty(Word_KifuTree.PropName_Startpos, old_inputLine);//指定の初期局面

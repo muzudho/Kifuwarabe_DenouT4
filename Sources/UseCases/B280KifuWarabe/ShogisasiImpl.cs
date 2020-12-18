@@ -73,7 +73,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi
             Playerside psideA,
             ISky positionA,
 
-            ILogger errH
+            ILogTag logTag
             )
         {
             MoveEx bestNode = null;
@@ -115,11 +115,11 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi
                     positionA,
 
                     isHonshogi, Mode_Tansaku.Shogi_ENgine,
-                    args, errH);
+                    args, logTag);
             }
             catch (Exception ex)
             {
-                errH.DonimoNaranAkirameta(ex, "棋譜ツリーを作っていたときです。");
+                Logger.Panic(logTag,ex, "棋譜ツリーを作っていたときです。");
                 throw;
             }
 

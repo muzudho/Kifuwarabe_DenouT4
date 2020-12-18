@@ -41,7 +41,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
         public static void CountMoti(
             ISky src_Sky,
             out int[] motiSu,
-            ILogger errH
+            ILogTag errH
         )
         {
             motiSu = new int[(int)Piece.Num];

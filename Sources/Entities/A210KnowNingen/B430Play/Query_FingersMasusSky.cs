@@ -31,7 +31,7 @@ namespace Grayscale.A210KnowNingen.B430Play.C500Query
             SySet<SyElement> masus_mikata_Banjo,
             SySet<SyElement> masus_aite_Banjo,
             ISky src_Sky,
-            ILogger errH_orNull
+            ILogTag errH_orNull
             )
         {
             // 利きを調べる側の利き（戦駒）

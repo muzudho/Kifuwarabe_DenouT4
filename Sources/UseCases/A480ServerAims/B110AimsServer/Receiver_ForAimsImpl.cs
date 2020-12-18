@@ -38,7 +38,7 @@ namespace Grayscale.A480ServerAims.B110AimsServer.C125Receiver
         /// <param name="e"></param>
         public override void OnListenUpload_Async(object sender, DataReceivedEventArgs e)
         {
-            ILogger errH = ErrorControllerReference.ProcessAimsDefault;
+            ILogTag logTag = LogTags.ProcessAimsDefault;
 
             string line = e.Data;
 
@@ -96,7 +96,7 @@ namespace Grayscale.A480ServerAims.B110AimsServer.C125Receiver
                                 // 対局開始！
                                 //------------------------------------------------------------
                                 Console.Out.WriteLine("usinewgame");
-                                ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Usinewgame(errH);
+                                ((EngineClient)this.Owner_EngineClient).ShogiEngineProcessWrapper.Send_Usinewgame(logTag);
 
                                 // FIXME:平手とは限らないが、平手という前提で、毎回一から作りなおします。
                                 ISky positionInit = UtilSkyCreator.New_Hirate();
@@ -120,7 +120,7 @@ namespace Grayscale.A480ServerAims.B110AimsServer.C125Receiver
                                     UtilKirokuGakari.ToSfen_PositionCommand(
                                         this.Owner_AimsServer.Earth,
                                         this.Owner_AimsServer.KifuTree//.CurrentNode//エンドノード
-                                        ), errH
+                                        ), logTag
                                 );
 
                                 // AIMS GUIに対して

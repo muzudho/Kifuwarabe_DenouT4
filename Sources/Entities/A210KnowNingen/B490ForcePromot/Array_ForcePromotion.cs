@@ -100,7 +100,7 @@ namespace Grayscale.A210KnowNingen.B490ForcePromot.C250Struct
                         "rowCount=[" + rowCount + "]\n" +
                         "masuHandle=[" + masuHandle + "]\n";
                         Exception ex1 = new Exception(message);
-                        ErrorControllerReference.ProcessNoneError.DonimoNaranAkirameta(ex1, "強制昇格中☆");
+                        Logger.Panic(LogTags.ProcessNoneError, ex1, "強制昇格中☆");
                         throw ex1;
                     }
 

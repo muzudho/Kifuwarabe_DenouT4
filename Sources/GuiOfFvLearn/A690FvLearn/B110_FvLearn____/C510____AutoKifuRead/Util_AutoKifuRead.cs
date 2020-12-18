@@ -21,7 +21,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C510____AutoKifuRead
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
             UcMain uc_Main,
-            ILogger errH)
+            ILogTag errH)
         {
 
             int renzokuTe;

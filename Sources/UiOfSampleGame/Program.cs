@@ -20,7 +20,7 @@ namespace P930_SampleGame
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            ILogger errH = ErrorControllerReference.ProcessEngineDefault;
+            ILogTag logTag = LogTags.ProcessEngineDefault;
 
 
             // 将棋エンジン　きふわらべ
@@ -50,7 +50,7 @@ namespace P930_SampleGame
                 positionA.GetKaisiPside(),
                 positionA,
 
-                errH);
+                logTag);
 
             Move move = bestmoveNode.Move;
             string sfenText = ConvMove.ToSfen(move);

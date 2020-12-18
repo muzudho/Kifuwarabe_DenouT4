@@ -263,7 +263,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
         /// ファイルから読み込みます。
         /// </summary>
         /// <param name="filepath1"></param>
-        public static bool Make_FromFile_KK(FeatureVector fv, string filepath1, ILogger errH)
+        public static bool Make_FromFile_KK(FeatureVector fv, string filepath1, ILogTag errH)
         {
             bool successful = false;
 
@@ -386,7 +386,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
         /// <param name="filepath1"></param>
         /// <param name="kingPlayer">1 or 2</param>
         /// <returns></returns>
-        public static bool Make_FromFile_KP(FeatureVector fv, string filepath1, Playerside k_pside, ILogger errH)
+        public static bool Make_FromFile_KP(FeatureVector fv, string filepath1, Playerside k_pside, ILogTag errH)
         {
             bool successful = false;
 
@@ -641,7 +641,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
         /// </summary>
         /// <param name="filepath1"></param>
         /// <returns></returns>
-        public static bool Make_FromFile_PP_Banjo(FeatureVector fv, string filepath1, int p1_base, ILogger errH)
+        public static bool Make_FromFile_PP_Banjo(FeatureVector fv, string filepath1, int p1_base, ILogTag errH)
         {
             bool successful = false;
 
@@ -891,7 +891,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
         /// <param name="fv"></param>
         /// <param name="filepath1"></param>
         /// <returns></returns>
-        public static bool Make_FromFile_PP_Moti19Mai(FeatureVector fv, string filepath1, int p1_base, ILogger errH)
+        public static bool Make_FromFile_PP_Moti19Mai(FeatureVector fv, string filepath1, int p1_base, ILogTag errH)
         {
             bool successful = false;
             string filepath2 = Path.Combine(Application.StartupPath, filepath1);
@@ -1150,7 +1150,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
         /// <param name="fv"></param>
         /// <param name="filepath1"></param>
         /// <returns></returns>
-        public static bool Make_FromFile_PP_Moti3or5Mai(FeatureVector fv, string filepath1, int p1_base, int p1Koumoku3or5Length, ILogger errH)
+        public static bool Make_FromFile_PP_Moti3or5Mai(FeatureVector fv, string filepath1, int p1_base, int p1Koumoku3or5Length, ILogTag errH)
         {
 
             bool successful = false;

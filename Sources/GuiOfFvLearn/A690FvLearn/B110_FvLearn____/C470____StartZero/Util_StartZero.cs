@@ -64,7 +64,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C470____StartZero
         /// </summary>
         public static void Adjust_HirateSyokiKyokumen_0ten_AndFvParamRange(
             ref bool ref_isRequestDoEvents,
-            FeatureVector fv, ILogger errH)
+            FeatureVector fv, ILogTag errH)
         {
             if (null == Util_StartZero.src_Sky_hirateSyokikyokumen)
             {

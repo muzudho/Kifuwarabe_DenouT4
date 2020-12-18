@@ -34,7 +34,7 @@ namespace Grayscale.P580_Form_______
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                ErrorControllerReference.ProcessEngineDefault.DonimoNaranAkirameta("Program「大外枠でキャッチ」：" + ex.GetType().Name + " " + ex.Message);
+                Logger.Panic(LogTags.ProcessEngineDefault,"Program「大外枠でキャッチ」：" + ex.GetType().Name + " " + ex.Message);
                 //throw;//追加
             }
         }

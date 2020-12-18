@@ -45,7 +45,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
             out Move move,
             Move src_Move,// 「同」を調べるためだけに使う☆
             ISky src_Sky,// = kifu.CurNode.Value.Kyokumen;
-            ILogger errH
+            ILogTag errH
             )
         {
 

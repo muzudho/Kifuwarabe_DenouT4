@@ -43,9 +43,6 @@ namespace Grayscale.P699Form
     [Serializable]
     public partial class UcForm1Main : UserControl, UcForm1Mainable
     {
-
-        #region プロパティー類
-
         public MainGui_Csharp MainGui { get { return this.mainGui; } }
         public void SetMainGui(MainGui_Csharp mainGui)
         {
@@ -68,8 +65,6 @@ namespace Grayscale.P699Form
 
         private const int NSQUARE = 9 * 9;
 
-        #endregion
-
 
         /// <summary>
         /// ************************************************************************************************************************
@@ -84,9 +79,9 @@ namespace Grayscale.P699Form
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            ILogger errH = ErrorControllerReference.ProcessGuiDefault;
+            ILogTag logTag = LogTags.ProcessGuiDefault;
 
-            this.MainGui.Timer_Tick(errH);
+            this.MainGui.Timer_Tick(logTag);
         }
 
 
@@ -100,7 +95,7 @@ namespace Grayscale.P699Form
         /// <param name="e"></param>
         private void Uc_Form1Main_Load(object sender, EventArgs e)
         {
-            ILogger logger = ErrorControllerReference.ProcessGuiDefault;
+            ILogTag logTag = LogTags.ProcessGuiDefault;
 
             UcForm2Main uc_Form2Main = ((Form1Shogi)this.ParentForm).Form2_Console.Uc_Form2Main;
 
@@ -148,7 +143,7 @@ namespace Grayscale.P699Form
                 this.MainGui.Link_Server.Earth.Clear();
 
                 // 棋譜を空っぽにします。
-                Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(this.MainGui.Link_Server.KifuTree, positionInit, logger);
+                Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(this.MainGui.Link_Server.KifuTree, positionInit, logTag);
 
                 this.MainGui.Link_Server.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
 
@@ -192,7 +187,7 @@ namespace Grayscale.P699Form
 
 
 
-            this.MainGui.Response("Launch", logger);
+            this.MainGui.Response("Launch", logTag);
 
             // これで、最初に見える画面の準備は終えました。
             // あとは、操作者の入力を待ちます。
@@ -221,7 +216,7 @@ namespace Grayscale.P699Form
                 e,
                 this.MainGui.Link_Server.KifuTree.PositionA.GetKaisiPside(),
                 this.MainGui.Link_Server.KifuTree.PositionA,
-                this.MainGui, ShapeCanvasImpl.WINDOW_NAME_SHOGIBAN, ErrorControllerReference.ProcessGuiPaint);
+                this.MainGui, ShapeCanvasImpl.WINDOW_NAME_SHOGIBAN, LogTags.ProcessGuiPaint);
 
         gt_EndMethod:
             ;
@@ -239,7 +234,7 @@ namespace Grayscale.P699Form
         /// <param name="e"></param>
         private void Uc_Form1Main_MouseMove(object sender, MouseEventArgs e)
         {
-            ILogger errH = ErrorControllerReference.ProcessGuiDefault;
+            ILogTag logTag = LogTags.ProcessGuiDefault;
 
             if (null != this.MainGui.Shape_PnlTaikyoku)
             {
@@ -250,13 +245,13 @@ namespace Grayscale.P699Form
                 {
                     TimedBMouseCapture timeB = ((TimedBMouseCapture)this.MainGui.TimedB_MouseCapture);
                     timeB.MouseEventQueue.Enqueue(
-                        new MouseEventState(this.MainGui.Scene, ShapeCanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.MouseMove, e.Location, errH));
+                        new MouseEventState(this.MainGui.Scene, ShapeCanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.MouseMove, e.Location, logTag));
                 }
 
                 //------------------------------
                 // このメインパネルの反応
                 //------------------------------
-                this.MainGui.Response("MouseOperation", errH);
+                this.MainGui.Response("MouseOperation", logTag);
             }
         }
 
@@ -272,7 +267,7 @@ namespace Grayscale.P699Form
         /// <param name="e"></param>
         private void Uc_Form1Main_MouseDown(object sender, MouseEventArgs e)
         {
-            ILogger errH = ErrorControllerReference.ProcessGuiDefault;
+            ILogTag logTag = LogTags.ProcessGuiDefault;
 
             if (null == this.MainGui.Shape_PnlTaikyoku)
             {
@@ -290,7 +285,7 @@ namespace Grayscale.P699Form
                 //------------------------------------------------------------
                 TimedBMouseCapture timeB = ((TimedBMouseCapture)this.MainGui.TimedB_MouseCapture);
                 timeB.MouseEventQueue.Enqueue(
-                    new MouseEventState(this.MainGui.Scene, ShapeCanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.MouseLeftButtonDown, e.Location, errH));
+                    new MouseEventState(this.MainGui.Scene, ShapeCanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.MouseLeftButtonDown, e.Location, logTag));
             }
             else if (e.Button == MouseButtons.Right)
             {
@@ -299,13 +294,13 @@ namespace Grayscale.P699Form
                 //------------------------------------------------------------
                 TimedBMouseCapture timeB = ((TimedBMouseCapture)this.MainGui.TimedB_MouseCapture);
                 timeB.MouseEventQueue.Enqueue(
-                    new MouseEventState(this.MainGui.Scene, ShapeCanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.MouseRightButtonDown, e.Location, errH));
+                    new MouseEventState(this.MainGui.Scene, ShapeCanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.MouseRightButtonDown, e.Location, logTag));
 
 
                 //------------------------------
                 // このメインパネルの反応
                 //------------------------------
-                this.MainGui.Response("MouseOperation", errH);
+                this.MainGui.Response("MouseOperation", logTag);
 
             }
             else
@@ -313,7 +308,7 @@ namespace Grayscale.P699Form
                 //------------------------------
                 // このメインパネルの反応
                 //------------------------------
-                this.MainGui.Response("MouseOperation", errH);
+                this.MainGui.Response("MouseOperation", logTag);
             }
 
         gt_EndMethod:
@@ -329,7 +324,7 @@ namespace Grayscale.P699Form
         /// <param name="e"></param>
         private void Uc_Form1Main_MouseUp(object sender, MouseEventArgs e)
         {
-            ILogger errH = ErrorControllerReference.ProcessGuiDefault;
+            ILogTag logTag = LogTags.ProcessGuiDefault;
 
             // このメインパネルに、何かして欲しいという要求は、ここに入れられます。
             this.MainGui.RepaintRequest = new RepaintRequestImpl();
@@ -344,7 +339,7 @@ namespace Grayscale.P699Form
                 //------------------------------------------------------------
                 TimedBMouseCapture timeB = ((TimedBMouseCapture)this.MainGui.TimedB_MouseCapture);
                 timeB.MouseEventQueue.Enqueue(
-                    new MouseEventState(this.MainGui.Scene, ShapeCanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.MouseLeftButtonUp, e.Location, errH));
+                    new MouseEventState(this.MainGui.Scene, ShapeCanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.MouseLeftButtonUp, e.Location, logTag));
             }
             else if (e.Button == MouseButtons.Right)
             {
@@ -353,7 +348,7 @@ namespace Grayscale.P699Form
                 //------------------------------------------------------------
                 TimedBMouseCapture timeB = ((TimedBMouseCapture)this.MainGui.TimedB_MouseCapture);
                 timeB.MouseEventQueue.Enqueue(
-                    new MouseEventState(this.MainGui.Scene, ShapeCanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.MouseRightButtonUp, e.Location, errH));
+                    new MouseEventState(this.MainGui.Scene, ShapeCanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.MouseRightButtonUp, e.Location, logTag));
             }
         }
 
@@ -372,7 +367,7 @@ namespace Grayscale.P699Form
         /// </summary>
         /// <param name="response"></param>
         public void Solute_RepaintRequest(
-            Form1_Mutex mutex, MainGui_Csharp mainGui, ILogger errH)
+            Form1_Mutex mutex, MainGui_Csharp mainGui, ILogTag errH)
         {
             UcForm2Main form2 = ((Form1Shogi)this.ParentForm).Form2_Console.Uc_Form2Main;
 

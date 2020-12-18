@@ -14,7 +14,7 @@ namespace Grayscale.A210KnowNingen.B320ConvWords.C500Converter
 {
     public abstract class Conv_Sky
     {
-        public static ShogibanImpl ToShogiban(Playerside pside, ISky src_Sky, ILogger logger)
+        public static ShogibanImpl ToShogiban(Playerside pside, ISky src_Sky, ILogTag logger)
         {
             ShogibanImpl shogiban = new ShogibanImpl();
 

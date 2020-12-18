@@ -158,19 +158,19 @@ namespace Grayscale.A210KnowNingen.B630Sennitite.C500Struct
 
             if (processName == "Grayscale.P800_ShogiGuiVs.vshost")
             {
-                ErrorControllerReference.ProcessGuiSennitite.AppendLine(text);
-                ErrorControllerReference.ProcessGuiSennitite.Flush(LogTypes.Plain);
+                Logger.AppendLine(LogTags.ProcessGuiSennitite, text);
+                Logger.Flush(LogTags.ProcessGuiSennitite, LogTypes.Plain);
             }
             else if (processName == "Grayscale.P500_ShogiEngine_KifuWarabe")
             {
-                ErrorControllerReference.ProcessEngineSennitite.AppendLine(text);
-                ErrorControllerReference.ProcessEngineSennitite.Flush(LogTypes.Plain);
+                Logger.AppendLine(LogTags.ProcessGuiSennitite, text);
+                Logger.Flush(LogTags.ProcessGuiSennitite, LogTypes.Plain);
             }
             else
             {
                 // 名称変更したことを忘れていた場合は、デフォルトの書き出し先へ退避。
-                ErrorControllerReference.PeocessNoneSennitite.AppendLine(text);
-                ErrorControllerReference.PeocessNoneSennitite.Flush(LogTypes.Plain);
+                Logger.AppendLine(LogTags.ProcessGuiSennitite, text);
+                Logger.Flush(LogTags.ProcessGuiSennitite, LogTypes.Plain);
             }
         }
 

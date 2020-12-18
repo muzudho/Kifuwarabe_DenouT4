@@ -43,7 +43,7 @@ namespace Grayscale.A500ShogiEngine.B180Hyokakansu.C500Hyokakansu
             Playerside psideA,
             ISky positionA,
             FeatureVector fv,
-            ILogger errH
+            ILogTag errH
             )
         {
             float out_score = 0.0f;            // -999～999(*bairitu) が 40×40個ほど足し合わせた数になるはず。

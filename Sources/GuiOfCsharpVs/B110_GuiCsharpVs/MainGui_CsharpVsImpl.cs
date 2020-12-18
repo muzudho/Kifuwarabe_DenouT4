@@ -33,7 +33,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500Gui
             Tree kifu1,
 
             Playerside pside,//endNode.GetNodeValue().KaisiPside,
-            ILogger errH)
+            ILogTag errH)
         {
             this.Link_Server.EngineClient.OnChangedTurn(
                 this.Link_Server.Earth,
@@ -45,7 +45,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500Gui
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
         /// </summary>
-        public override void Shutdown(ILogger errH)
+        public override void Shutdown(ILogTag errH)
         {
             this.Link_Server.EngineClient.Send_Shutdown(errH);
         }
@@ -53,7 +53,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500Gui
         /// <summary>
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
-        public override void Logdase(ILogger errH)
+        public override void Logdase(ILogTag errH)
         {
             this.Link_Server.EngineClient.Send_Logdase(errH);
         }
@@ -63,7 +63,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500Gui
         /// 将棋エンジンを起動します。
         /// ************************************************************************************************************************
         /// </summary>
-        public override void Start_ShogiEngine(string shogiEngineFilePath, ILogger errH)
+        public override void Start_ShogiEngine(string shogiEngineFilePath, ILogTag errH)
         {
             this.Link_Server.EngineClient.Start(shogiEngineFilePath);
             this.Link_Server.EngineClient.ShogiEngineProcessWrapper.Send_Usi(errH);
@@ -72,7 +72,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500Gui
         /// <summary>
         /// コンピューターの先手
         /// </summary>
-        public override void Do_ComputerSente(ILogger errH)
+        public override void Do_ComputerSente(ILogTag errH)
         {
             this.Link_Server.EngineClient.ShogiEngineProcessWrapper.Send_Position(
                 UtilKirokuGakari.ToSfen_PositionCommand(
@@ -86,7 +86,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500Gui
         /// <summary>
         /// このアプリケーションソフトの開始時の処理。
         /// </summary>
-        public new void Load_AsStart(ILogger errH)
+        public new void Load_AsStart(ILogTag errH)
         {
             base.Load_AsStart(errH);
 

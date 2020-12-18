@@ -152,7 +152,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
             this.WritePng(
                 move,
                 positionA,
-                ErrorControllerReference.ProcessLearnerDefault
+                LogTags.ProcessLearnerDefault
                 );
             uc_Main.PctKyokumen.ImageLocation = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("LearningPositionLogPng"));
         }
@@ -199,7 +199,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
             Tree kifu1,
             ISky positionA,
             string[] searchedPv,
-            ILogger errH)
+            ILogTag errH)
         {
             //----------------------------------------
             // 合法手のNextNodesを作成します。
@@ -291,7 +291,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
         public void WritePng(
             Move move,
             ISky positionA,
-            ILogger errH
+            ILogTag errH
             )
         {
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
@@ -358,7 +358,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
             ISky positionA,
             string[] searchedPv,
             EvaluationArgs args,
-            ILogger logger)
+            ILogTag logTag)
         {
             try
             {
@@ -375,13 +375,12 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
                     psideA,//positionA.GetKaisiPside(),
                     positionA,
 
-
                     isHonshogi, Mode_Tansaku.Learning,
-                    args, logger);
+                    args, logTag);
             }
             catch (Exception ex)
             {
-                logger.DonimoNaranAkirameta(ex, "棋譜ツリーを作っていたときです。");
+                Logger.Panic(logTag,ex, "棋譜ツリーを作っていたときです。");
                 throw;
             }
         }
@@ -403,7 +402,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
                     psideA,
                     positionA,
                     this.Fv, //参照してもらうだけ。
-                    ErrorControllerReference.ProcessLearnerDefault
+                    LogTags.ProcessLearnerDefault
                 );
             }
             //----------------------------------------
@@ -415,7 +414,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
                     psideA,
                     positionA,
                     this.Fv, //参照してもらうだけ。
-                    ErrorControllerReference.ProcessLearnerDefault
+                    LogTags.ProcessLearnerDefault
                 );
             }
         }

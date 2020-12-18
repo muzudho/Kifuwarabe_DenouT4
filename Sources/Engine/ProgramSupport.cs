@@ -55,7 +55,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
         /// </summary>
         public ProgramSupport(IUsiFramework usiFramework)
         {
-            this.Logger = ErrorControllerReference.ProcessEngineDefault;
+            this.LogTag = LogTags.ProcessEngineDefault;
 
             //-------------+----------------------------------------------------------------------------------------------------------
             // データ設計  |
@@ -157,7 +157,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             usiFramework.OnApplicationEnd = this.OnApplicationEnd;
         }
 
-        public ILogger Logger { get; set; }
+        public ILogTag LogTag { get; set; }
 
         /// <summary>
         /// 読み筋を格納する配列の容量。
@@ -572,8 +572,8 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             if (null != line)
             {
                 // 通信ログは必ず取ります。
-                ErrorControllerReference.ProcessEngineNetwork.AppendLine(line);
-                ErrorControllerReference.ProcessEngineNetwork.Flush(LogTypes.ToClient);
+                Logger.AppendLine(LogTags.ProcessEngineNetwork,line);
+                Logger.Flush(LogTags.ProcessEngineNetwork,LogTypes.ToClient);
             }
 
             return line;
@@ -600,8 +600,8 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             if (null != line)
             {
                 // 通信ログは必ず取ります。
-                this.Logger.AppendLine(line);
-                this.Logger.Flush(LogTypes.ToClient);
+                Logger.AppendLine(this.LogTag, line);
+                Logger.Flush(this.LogTag, LogTypes.ToClient);
 
 #if NOOPABLE
                 if (this.owner.Option_enable_serverNoopable)
@@ -621,7 +621,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
         /// <returns></returns>
         private PhaseResultUsiLoop2 OnPositionAtLoop2(string line)
         {
-            ILogger logger = ErrorControllerReference.ProcessEngineDefault;
+            ILogTag logTag = LogTags.ProcessEngineDefault;
 
             try
             {
@@ -733,7 +733,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                     this.Kifu,
 
                     genjo,
-                    logger
+                    logTag
                     );
                 if (null != genjo.StartposImporter_OrNull)
                 {
@@ -745,7 +745,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                         this.Kifu,
 
                         genjo,
-                        logger
+                        logTag
                         );
                 }
 
@@ -770,7 +770,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             catch (Exception ex)
             {
                 // エラー：どうにもできないので  ログだけ取って無視します。
-                ErrorControllerReference.ProcessEngineDefault.DonimoNaranAkirameta("Program「position」：" + ex.GetType().Name + "：" + ex.Message);
+                Logger.Panic(LogTags.ProcessEngineDefault, "Program「position」：" + ex.GetType().Name + "：" + ex.Message);
                 throw;
             }
 
@@ -827,7 +827,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                ErrorControllerReference.ProcessEngineDefault.DonimoNaranAkirameta("Program「go ponder」：" + ex.GetType().Name + "：" + ex.Message);
+                Logger.Panic(LogTags.ProcessEngineDefault, "Program「go ponder」：" + ex.GetType().Name + "：" + ex.Message);
                 throw;
             }
 
@@ -920,11 +920,11 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 bool test = true;
                 if (test)
                 {
-                    this.Logger.AppendLine("サーバーから受信した局面☆（＾▽＾）");
-                    this.Logger.AppendLine(Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(
+                    Logger.AppendLine(this.LogTag,"サーバーから受信した局面☆（＾▽＾）");
+                    Logger.AppendLine(this.LogTag, Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(
                         ConvMove.ToPlayerside(curNode1.Move),
-                        positionA, Logger)));
-                    this.Logger.Flush(LogTypes.Plain);
+                        positionA, this.LogTag)));
+                    Logger.Flush(this.LogTag, LogTypes.Plain);
                 }
 
                 //errH2.Logger.WriteLine_AddMemo("将棋サーバー「" + latestTemezumi + "手目、きふわらべ　さんの手番ですよ！」　" + line);
@@ -1033,10 +1033,10 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                                         this.Kifu.PositionA.GetKaisiPside(),
                                         this.Kifu.PositionA,//.CurNode1.GetNodeValue(),
 
-                                        this.Logger)
+                                        this.LogTag)
                                         );
 
-                                    this.Kifu.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(this.Kifu.MoveEx_Current, this.Kifu, this.Kifu.PositionA, this.Logger));
+                                    this.Kifu.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(this.Kifu.MoveEx_Current, this.Kifu, this.Kifu.PositionA, this.LogTag));
                                 }
 
 
@@ -1156,22 +1156,22 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 {
                     case 2100:
                         {
-                            ErrorControllerReference.ProcessEngineDefault.DonimoNaranAkirameta(ex, "マルチＰＶから、ベスト指し手をチョイスしようとしたときの１０です。");
+                            Logger.Panic(LogTags.ProcessEngineDefault, ex, "マルチＰＶから、ベスト指し手をチョイスしようとしたときの１０です。");
                             throw;
                         }
                     case 2200:
                         {
-                            ErrorControllerReference.ProcessEngineDefault.DonimoNaranAkirameta(ex, "マルチＰＶから、ベスト指し手をチョイスしようとしたときの４０です。");
+                            Logger.Panic(LogTags.ProcessEngineDefault, ex, "マルチＰＶから、ベスト指し手をチョイスしようとしたときの４０です。");
                             throw;
                         }
                     case 2300:
                         {
-                            ErrorControllerReference.ProcessEngineDefault.DonimoNaranAkirameta(ex, "マルチＰＶから、ベスト指し手をチョイスしようとしたときの５０です。");
+                            Logger.Panic(LogTags.ProcessEngineDefault, ex, "マルチＰＶから、ベスト指し手をチョイスしようとしたときの５０です。");
                             throw;
                         }
                     case 2400:
                         {
-                            ErrorControllerReference.ProcessEngineDefault.DonimoNaranAkirameta(ex, "マルチＰＶから、ベスト指し手をチョイスしようとしたときの９０です。");
+                            Logger.Panic(LogTags.ProcessEngineDefault, ex, "マルチＰＶから、ベスト指し手をチョイスしようとしたときの９０です。");
                             throw;
                         }
                     default:
@@ -1180,7 +1180,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                             //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                             // どうにもできないので  ログだけ取って無視します。
-                            ErrorControllerReference.ProcessEngineDefault.DonimoNaranAkirameta("Program「go」：" + ex.GetType().Name + " " + ex.Message + "：goを受け取ったときです。：");
+                            Logger.Panic(LogTags.ProcessEngineDefault, "Program「go」：" + ex.GetType().Name + " " + ex.Message + "：goを受け取ったときです。：");
                             throw;//追加
                         }
                         //break;
@@ -1290,7 +1290,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                ErrorControllerReference.ProcessEngineDefault.DonimoNaranAkirameta("Program「stop」：" + ex.GetType().Name + " " + ex.Message);
+                Logger.Panic(LogTags.ProcessEngineDefault, "Program「stop」：" + ex.GetType().Name + " " + ex.Message);
                 throw;//追加
             }
 
@@ -1356,7 +1356,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             catch (Exception ex)
             {
                 // エラー続行
-                ErrorControllerReference.ProcessEngineDefault.DonimoNaranAkirameta(ex, "Program「gameover」：" + ex.GetType().Name + " " + ex.Message);
+                Logger.Panic(LogTags.ProcessEngineDefault, ex, "Program「gameover」：" + ex.GetType().Name + " " + ex.Message);
                 return PhaseResultUsiLoop2.None;
             }
         }
@@ -1543,7 +1543,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                     //          ├─ Engine.KifuWarabe.exe
                     //          └─ log.txt               ←これを削除
                     //
-                    ErrorControllerReference.RemoveAllLogFiles();
+                    Logger.RemoveAllLogFiles();
                 }
 
 
@@ -1553,7 +1553,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 //------------------------------------------------------------------------------------------------------------------------
                 {
                     this.Shogisasi = new ShogisasiImpl(this);
-                    Util_FvLoad.OpenFv(this.Shogisasi.FeatureVector, Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Fv00Komawari")), this.Logger);
+                    Util_FvLoad.OpenFv(this.Shogisasi.FeatureVector, Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Fv00Komawari")), this.LogTag);
                 }
 
 
@@ -1633,7 +1633,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 switch (exception_area)
                 {
                     case 1000:
-                        ErrorControllerReference.ProcessEngineDefault.DonimoNaranAkirameta("フィーチャーベクターCSVを読み込んでいるとき。" + ex.GetType().Name + "：" + ex.Message);
+                        Logger.Panic(LogTags.ProcessEngineDefault, "フィーチャーベクターCSVを読み込んでいるとき。" + ex.GetType().Name + "：" + ex.Message);
                         throw;
                         //break;
                 }

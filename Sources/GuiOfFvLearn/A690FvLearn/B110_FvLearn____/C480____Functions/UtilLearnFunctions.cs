@@ -27,7 +27,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C480Functions
         /// <summary>
         /// FVを、-999.0～999.0(*bairitu)に矯正。
         /// </summary>
-        public static void FvParamRange_PP(FeatureVector fv, ILogger errH)
+        public static void FvParamRange_PP(FeatureVector fv, ILogTag errH)
         {
             //--------------------------------------------------------------------------------
             // 変換前のデータを確認。 
@@ -49,7 +49,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C480Functions
         /// FVの保存。
         /// </summary>
         /// <param name="uc_Main"></param>
-        public static void Do_Save(UcMain uc_Main, ILogger errH)
+        public static void Do_Save(UcMain uc_Main, ILogTag errH)
         {
             FeatureVector fv = uc_Main.LearningData.Fv;
 
@@ -160,7 +160,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C480Functions
         public static void Do_RankUpHonpu(
             ref bool ref_isRequestShowGohosyu, UcMain uc_Main, Move move1, float tyoseiryo)
         {
-            ILogger logger = ErrorControllerReference.ProcessLearnerDefault;
+            ILogTag logTag = LogTags.ProcessLearnerDefault;
 
             //----------------------------------------
             // 1P は正の数がグッド、2P は負の数がグッド。
@@ -191,12 +191,12 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C480Functions
                     ref positionA,//指定局面
                     ref moveB,
                     "E100",
-                    logger
+                    logTag
                 );
 
 
                 // 盤上の駒、持駒を数えます。
-                N54List childNode_n54List = Util_54List.Calc_54List(positionA, logger);
+                N54List childNode_n54List = Util_54List.Calc_54List(positionA, logTag);
 
                 float real_tyoseiryo; //実際に調整した量。
                 Util_FvScoreing.UpdateKyokumenHyoka(
@@ -205,7 +205,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C480Functions
                     uc_Main.LearningData.Fv,
                     tyoseiryo_bad,
                     out real_tyoseiryo,
-                    logger
+                    logTag
                     );//相手が有利になる点
                 tyoseiryo_good += -real_tyoseiryo;
 
@@ -217,7 +217,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C480Functions
                     ConvMove.ToPlayerside(moveB),
                     positionA,
                     "E900",
-                    logger
+                    logTag
                     );
                 positionA = ittemodosuResult.SyuryoSky;
 

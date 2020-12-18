@@ -634,7 +634,7 @@ namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
             catch (Exception)
             {
                 drop = false;
-                //Util_OwataMinister.ERROR.Logger.DonimoNaranAkirameta(ex, "IsDaAction:");// exceptionArea=" + exceptionArea
+                //Util_OwataMinister.ERROR.Logger.Panic(ex, "IsDaAction:");// exceptionArea=" + exceptionArea
                 throw;
             }
 
