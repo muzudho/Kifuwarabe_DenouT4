@@ -152,10 +152,9 @@
     </ProjectReference>
     <ProjectReference Include="..\UseCases\UseCases.csproj">
       <Project>{dbea8b61-6f05-49a0-9ccb-6fcf2976bd17}</Project>
-      <Name>UseCase</Name>
+      <Name>UseCases</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Analyzer Include="..\..\packages\Microsoft.CodeAnalysis.NetAnalyzers.5.0.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll" />
     <Analyzer Include="..\..\packages\Microsoft.CodeAnalysis.NetAnalyzers.5.0.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.NetAnalyzers.dll" />

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
-using Grayscale.Kifuwaragyoku.Entities;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.A060Application.B210Tushin.C500Util;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B280Tree.C500Struct;

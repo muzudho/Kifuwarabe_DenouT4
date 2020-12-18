@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Grayscale.Kifuwaragyoku.Entities
+namespace Grayscale.Kifuwaragyoku.Entities.Logging
 {
     /// <summary>
     /// ロガー。

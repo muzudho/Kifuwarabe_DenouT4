@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using Grayscale.A000Platform.B021Random.C500Struct;
-using Grayscale.Kifuwaragyoku.Entities;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.A690FvLearn.B110FvLearn.C___250_Learn;
 using Grayscale.A690FvLearn.B110FvLearn.C___450_Tyoseiryo;
 using Grayscale.A690FvLearn.B110FvLearn.C___490_StopLearning;

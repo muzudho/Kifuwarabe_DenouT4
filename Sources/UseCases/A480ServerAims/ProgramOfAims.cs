@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using System.Windows.Forms;
-using Grayscale.Kifuwaragyoku.Entities;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.A060Application.B310Settei.C500Struct;
 using Grayscale.A060Application.B310Settei.L510Xml;
 using Grayscale.A210KnowNingen.B270Sky.C500Struct;

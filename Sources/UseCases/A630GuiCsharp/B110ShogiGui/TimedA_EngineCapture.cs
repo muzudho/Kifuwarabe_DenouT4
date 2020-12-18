@@ -1,11 +1,11 @@
-﻿using Grayscale.Kifuwaragyoku.Entities;
+﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.A450Server.B110Server.C250Util;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C080Shape;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C249Function;
 
 #if DEBUG
-// using Grayscale.Kifuwaragyoku.Entities;
+// using Grayscale.Kifuwaragyoku.Entities.Logging;
 #endif
 
 namespace Grayscale.A630GuiCsharp.B110ShogiGui.C250Timed

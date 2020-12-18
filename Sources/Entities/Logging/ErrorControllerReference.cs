@@ -2,14 +2,14 @@
 using System.IO;
 using Nett;
 
-namespace Grayscale.Kifuwaragyoku.Entities
+namespace Grayscale.Kifuwaragyoku.Entities.Logging
 {
     /// <summary>
     /// ロガー、エラー・ハンドラーを集中管理します。
     /// </summary>
     public static class ErrorControllerReference
     {
-        public static readonly ILogger ProcessNoneDefault;
+        public static readonly ILogger Default;
 
         /// <summary>
         /// ログを出せなかったときなど、致命的なエラーにも利用。
@@ -98,7 +98,7 @@ namespace Grayscale.Kifuwaragyoku.Entities
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
 
-            ErrorControllerReference.ProcessNoneDefault = new LoggerImpl(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("DataDirectory"), $"default_({System.Diagnostics.Process.GetCurrentProcess()})"), ".txt", false, false, false, null);
+            ErrorControllerReference.Default = new LoggerImpl(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("DataDirectory"), $"default_({System.Diagnostics.Process.GetCurrentProcess()})"), ".txt", false, false, false, null);
             ErrorControllerReference.ProcessNoneError = new LoggerImpl(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("N01ProcessNoneErrorLog")), ".txt", true, false, false, null);
             ErrorControllerReference.PeocessNoneSennitite = new LoggerImpl(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("N02PeocessNoneSennititeLog")), ".txt", true, false, false, null);
             ErrorControllerReference.ProcessServerDefault = new LoggerImpl(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("N03ProcessServerDefaultLog")), ".txt", true, false, false, null);

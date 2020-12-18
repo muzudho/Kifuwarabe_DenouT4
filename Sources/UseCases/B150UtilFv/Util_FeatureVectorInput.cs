@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using Grayscale.A000Platform.B011Csv.C500Parser;
-using Grayscale.Kifuwaragyoku.Entities;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.A060Application.B610_ConstShogi_.C250Const;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
@@ -14,7 +14,7 @@ using Grayscale.A500ShogiEngine.B523UtilFv.C490UtilFvFormat;
 
 #if DEBUG
 using Grayscale.A500ShogiEngine.B523UtilFv.C480UtilFvEdit;
-// using Grayscale.Kifuwaragyoku.Entities;
+// using Grayscale.Kifuwaragyoku.Entities.Logging;
 #endif
 
 namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo

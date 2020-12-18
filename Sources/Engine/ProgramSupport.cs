@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
-using Grayscale.Kifuwaragyoku.Entities;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.A060Application.B210Tushin.C500Util;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C250UsiLoop;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C490Option;
@@ -43,7 +43,7 @@ using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
 using Grayscale.A210KnowNingen.B190Komasyurui.C500Util;
 using Grayscale.A150LogKyokuPng.B200LogKyokuPng.C500UtilWriter;
 using Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct;
-// using Grayscale.Kifuwaragyoku.Entities;
+// using Grayscale.Kifuwaragyoku.Entities.Logging;
 #endif
 
 namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe

@@ -1,4 +1,4 @@
-﻿using Grayscale.Kifuwaragyoku.Entities;
+﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.A120KifuSfen;
 using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
 using Grayscale.A210KnowNingen.B190Komasyurui.C500Util;

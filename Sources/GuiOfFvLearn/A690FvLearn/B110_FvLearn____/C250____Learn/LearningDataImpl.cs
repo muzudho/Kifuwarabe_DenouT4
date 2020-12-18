@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-using Grayscale.Kifuwaragyoku.Entities;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.A060Application.B310Settei.C500Struct;
 using Grayscale.A060Application.B510ConvSy.C500Converter;
 using Grayscale.A060Application.B520Syugoron.C250Struct;

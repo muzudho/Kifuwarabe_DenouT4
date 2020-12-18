@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using Grayscale.Kifuwaragyoku.Entities;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.A060Application.B310Settei.C500Struct;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A060Application.B620ConvText.C500Converter;
@@ -20,7 +20,7 @@ using System;
 using System.Diagnostics;
 using Grayscale.A210KnowNingen.B110GraphicLog.C500Util;
 using Grayscale.A210KnowNingen.B810LogGraphiEx.C500Util;
-using Grayscale.Kifuwaragyoku.Entities;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 using System.Text;
 using Grayscale.A210KnowNingen.B280Tree.C500Struct;
 #endif

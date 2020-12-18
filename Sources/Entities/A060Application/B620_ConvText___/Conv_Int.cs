@@ -1,5 +1,5 @@
 ﻿using System;
-using Grayscale.Kifuwaragyoku.Entities;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.A060Application.B620ConvText.C250Const;
 
 namespace Grayscale.A060Application.B620ConvText.C500Converter

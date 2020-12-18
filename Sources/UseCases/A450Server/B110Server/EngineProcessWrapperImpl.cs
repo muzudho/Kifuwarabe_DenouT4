@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics;
-using Grayscale.Kifuwaragyoku.Entities;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.A450Server.B110Server.C496EngineWrapper;
 
 namespace Grayscale.A450Server.B110Server.C496EngineWrapper

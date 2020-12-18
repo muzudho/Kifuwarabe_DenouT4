@@ -4,7 +4,7 @@
 using System;
 using System.IO;
 using System.Windows.Forms;
-using Grayscale.Kifuwaragyoku.Entities;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.A060Application.B310Settei.C500Struct;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C492Widgets;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C500GUI;

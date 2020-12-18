@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 using System.Windows.Forms;
-using Grayscale.Kifuwaragyoku.Entities;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C080Shape;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C081Canvas;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C100Widgets;

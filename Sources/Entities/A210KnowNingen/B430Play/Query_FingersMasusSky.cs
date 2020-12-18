@@ -1,4 +1,4 @@
-﻿using Grayscale.Kifuwaragyoku.Entities;
+﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.A060Application.B410Collection.C500Struct;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A210KnowNingen.B270Sky.C500Struct;

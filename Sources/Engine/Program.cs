@@ -1,5 +1,5 @@
 ﻿using System;
-using Grayscale.Kifuwaragyoku.Entities;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C500UsiFrame;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___;
 using Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe;

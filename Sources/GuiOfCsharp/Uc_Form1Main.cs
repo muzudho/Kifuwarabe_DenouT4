@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using Grayscale.Kifuwaragyoku.Entities;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.A060Application.B310Settei.C500Struct;
 using Grayscale.A060Application.B310Settei.L510Xml;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
@@ -29,7 +29,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Nett;
 
 #if DEBUG
-// using Grayscale.Kifuwaragyoku.Entities;
+// using Grayscale.Kifuwaragyoku.Entities.Logging;
 #endif
 
 namespace Grayscale.P699Form

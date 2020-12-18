@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Grayscale.Kifuwaragyoku.Entities
+namespace Grayscale.Kifuwaragyoku.Entities.Logging
 {
 
 

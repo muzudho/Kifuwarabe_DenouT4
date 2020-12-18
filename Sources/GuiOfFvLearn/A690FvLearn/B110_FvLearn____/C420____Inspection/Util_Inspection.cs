@@ -1,8 +1,8 @@
-﻿using Grayscale.Kifuwaragyoku.Entities;
+﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 
 #if DEBUG
-// using Grayscale.Kifuwaragyoku.Entities;
+// using Grayscale.Kifuwaragyoku.Entities.Logging;
 #endif
 
 namespace Grayscale.A690FvLearn.B110FvLearn.C420Inspection
