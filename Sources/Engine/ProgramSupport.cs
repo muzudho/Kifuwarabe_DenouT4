@@ -55,7 +55,6 @@ using Nett;
             usiFramework.OnCommandlineAtLoop1 = this.OnCommandlineAtLoop1;
 
             // 対局中
-            usiFramework.OnGameover = this.OnGameover;
             usiFramework.OnLogDase = this.OnLogDase;
             // 対局終了時
             usiFramework.OnLoop2End = this.OnLoop2End;
@@ -91,70 +90,6 @@ using Nett;
             }
 
             return line;
-        }
-
-        /// <summary>
-        /// Loop2のBody部で呼び出されます。
-        /// </summary>
-        /// <param name="line"></param>
-        /// <returns></returns>
-        private PhaseResultUsiLoop2 OnGameover(string line)
-        {
-            try
-            {
-                //------------------------------------------------------------
-                // 対局が終わりました
-                //------------------------------------------------------------
-                //
-                // 図.
-                //
-                //      log.txt
-                //      ┌────────────────────────────────────────
-                //      ～
-                //      │2014/08/02 3:08:34> gameover lose
-                //      │
-                //
-
-                // 対局が終わったときに送られてくる文字が gameover です。
-
-                //------------------------------------------------------------
-                // 「あ、勝ちました」「あ、引き分けました」「あ、負けました」
-                //------------------------------------------------------------
-                //
-                // 上図のメッセージのままだと使いにくいので、
-                // あとで使いやすいように Key と Value の表に分けて持ち直します。
-                //
-                // 図.
-                //
-                //      gameoverDictionary
-                //      ┌──────┬──────┐
-                //      │Key         │Value       │
-                //      ┝━━━━━━┿━━━━━━┥
-                //      │gameover    │lose        │
-                //      └──────┴──────┘
-                //
-                Regex regex = new Regex(@"gameover (.)", RegexOptions.Singleline);
-                Match m = regex.Match(line);
-
-                if (m.Success)
-                {
-                    this.GameoverProperties["gameover"] = (string)m.Groups[1].Value;
-                }
-                else
-                {
-                    this.GameoverProperties["gameover"] = "";
-                }
-
-
-                // 無限ループ（２つ目）を抜けます。無限ループ（１つ目）に戻ります。
-                return PhaseResultUsiLoop2.Break;
-            }
-            catch (Exception ex)
-            {
-                // エラー続行
-                Logger.Panic(LogTags.ProcessEngineDefault, ex, "Program「gameover」：" + ex.GetType().Name + " " + ex.Message);
-                return PhaseResultUsiLoop2.None;
-            }
         }
 
         /// <summary>

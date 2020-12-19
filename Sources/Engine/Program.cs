@@ -440,7 +440,47 @@ namespace Grayscale.P580_Form_______
                             }
                             else if (line.StartsWith("gameover"))
                             {
-                                result_Usi_Loop2 = usiFramework.OnGameover(line);
+                                //------------------------------------------------------------
+                                // 対局が終わりました
+                                //------------------------------------------------------------
+                                //
+                                // 図.
+                                //
+                                //      log.txt
+                                //      ┌────────────────────────────────────────
+                                //      ～
+                                //      │2014/08/02 3:08:34> gameover lose
+                                //      │
+                                //
+
+                                // 対局が終わったときに送られてくる文字が gameover です。
+
+                                //------------------------------------------------------------
+                                // 「あ、勝ちました」「あ、引き分けました」「あ、負けました」
+                                //------------------------------------------------------------
+                                //
+                                // 上図のメッセージのままだと使いにくいので、
+                                // あとで使いやすいように Key と Value の表に分けて持ち直します。
+                                //
+                                // 図.
+                                //
+                                //      gameoverDictionary
+                                //      ┌──────┬──────┐
+                                //      │Key         │Value       │
+                                //      ┝━━━━━━┿━━━━━━┥
+                                //      │gameover    │lose        │
+                                //      └──────┴──────┘
+                                //
+                                Regex regex = new Regex(@"gameover (.)", RegexOptions.Singleline);
+                                Match m = regex.Match(line);
+
+                                if (m.Success)
+                                {
+                                    playing.GameOver((string)m.Groups[1].Value);
+                                }
+
+                                // 無限ループ（２つ目）を抜けます。無限ループ（１つ目）に戻ります。
+                                result_Usi_Loop2 = PhaseResultUsiLoop2.Break;
                             }
                             else if ("logdase" == line) { result_Usi_Loop2 = usiFramework.OnLogDase(line); }//独自拡張
                             else

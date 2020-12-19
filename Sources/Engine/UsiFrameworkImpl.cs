@@ -10,7 +10,6 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
         {
             this.OnApplicationBegin = this.m_nullFunc01;
             this.OnCommandlineAtLoop1 = this.m_nullFunc05;
-            this.OnGameover = this.m_nullFunc02;
             this.OnLogDase = this.m_nullFunc02;
             this.OnLoop2End = this.m_nullFunc01;
         }
@@ -34,11 +33,6 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
         /// Loop2のEnd部で呼ばれます。
         /// </summary>
         public Func01 OnLoop2End { get; set; }
-
-        /// <summary>
-        /// Loop2のBody部で呼ばれます。
-        /// </summary>
-        public Func02 OnGameover { get; set; }
 
         /// <summary>
         /// 独自コマンド「ログ出せ」

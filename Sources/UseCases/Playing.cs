@@ -936,5 +936,10 @@ namespace Grayscale.Kifuwaragyoku.UseCases
             }
         }
 
+        public void GameOver(string value)
+        {
+
+        }
+
     }
 }
