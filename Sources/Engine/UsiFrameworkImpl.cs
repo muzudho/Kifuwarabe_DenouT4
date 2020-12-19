@@ -9,9 +9,7 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
         public UsiFrameworkImpl()
         {
             this.OnApplicationBegin = this.m_nullFunc01;
-            this.OnCommandlineAtLoop1 = this.m_nullFunc05;
             this.OnLogDase = this.m_nullFunc02;
-            this.OnLoop2End = this.m_nullFunc01;
         }
 
         public Func01 m_nullFunc01 = delegate ()
@@ -30,19 +28,9 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
         public Func01 OnApplicationBegin { get; set; }
 
         /// <summary>
-        /// Loop2のEnd部で呼ばれます。
-        /// </summary>
-        public Func01 OnLoop2End { get; set; }
-
-        /// <summary>
         /// 独自コマンド「ログ出せ」
         /// Loop2のBody部で呼ばれます。
         /// </summary>
         public Func02 OnLogDase { get; set; }
-
-        /// <summary>
-        /// Loop1のBody部で呼ばれます。
-        /// </summary>
-        public Func05 OnCommandlineAtLoop1 { get; set; }
     }
 }
