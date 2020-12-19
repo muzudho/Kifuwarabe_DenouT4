@@ -2,6 +2,7 @@
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C490Option;
 using Grayscale.A500ShogiEngine.B200Scoreing.C005UsiLoop;
+using Grayscale.Kifuwaragyoku.UseCases;
 
 #if DEBUG
 // using Grayscale.Kifuwaragyoku.Entities.Logging;
@@ -68,7 +69,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C249Noop
                             logTag.Flush(LogTypes.Plain);
 #endif
                             // まだ noop を投げていないなら
-                            owner.Send("noop");// サーバーが生きていれば、"ok" と返してくるはず。（独自実装）
+                            Playing.Send("noop");// サーバーが生きていれば、"ok" と返してくるはず。（独自実装）
                             this.noopPhase = NoopPhase.NoopThrew;
                             this.sw_forNoop.Restart();//時間計測をリセット。
                         }

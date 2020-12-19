@@ -17,7 +17,6 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
             this.OnGo = this.m_nullFunc02;
             this.OnIsready = this.m_nullFunc04;
             this.OnLogDase = this.m_nullFunc02;
-            this.OnLoop1End = this.m_nullFunc01;
             this.OnLoop2Begin = this.m_nullFunc01;
             this.OnLoop2End = this.m_nullFunc01;
             this.OnPosition = this.m_nullFunc02;
@@ -47,9 +46,6 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
 
         public Func01 OnApplicationBegin { get; set; }
         public Func01 OnApplicationEnd { get; set; }
-
-        public Func01 OnLoop1End { get; set; }
-
         public Func01 OnLoop2Begin { get; set; }
 
         /// <summary>

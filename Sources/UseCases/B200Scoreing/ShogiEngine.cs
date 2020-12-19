@@ -9,12 +9,6 @@ namespace Grayscale.A500ShogiEngine.B200Scoreing.C005UsiLoop
     public interface ShogiEngine
     {
         /// <summary>
-        /// 送信
-        /// </summary>
-        /// <param name="line">メッセージ</param>
-        void Send(string line);
-
-        /// <summary>
         /// USI「setoption」コマンドのリストです。
         /// </summary>
         EngineOptions EngineOptions { get; set; }

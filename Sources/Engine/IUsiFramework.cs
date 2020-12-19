@@ -11,9 +11,6 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500UsiFrame
     {
         Func01 OnApplicationBegin { get; set; }
         Func01 OnApplicationEnd { get; set; }
-
-        Func01 OnLoop1End { get; set; }
-
         Func04 OnUsi { get; set; }
         Func04 OnSetoption { get; set; }
         Func04 OnIsready { get; set; }

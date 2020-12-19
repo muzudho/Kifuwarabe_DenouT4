@@ -35,6 +35,7 @@ using Grayscale.A500ShogiEngine.B280KifuWarabe.C125AjimiEngine;
 using Grayscale.A500ShogiEngine.B523UtilFv.C510UtilFvLoad;
 using Nett;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.Kifuwaragyoku.UseCases;
 
 #if DEBUG
 using Grayscale.A060Application.B520Syugoron.C250Struct;
@@ -131,7 +132,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             usiFramework.OnApplicationBegin = this.OnApplicationBegin;
 
             // 準備時
-            usiFramework.OnUsi = this.OnUsi;
             usiFramework.OnSetoption = this.OnSetoption;
             usiFramework.OnIsready = this.OnIsready;
             usiFramework.OnUsinewgame = this.OnUsinewgame;
@@ -225,111 +225,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
         /// Loop2で呼ばれます。
         /// </summary>
         public Dictionary<string, string> GameoverProperties { get; set; }
-
-        /// <summary>
-        /// 送信
-        /// </summary>
-        /// <param name="line">メッセージ</param>
-        public void Send(string line)
-        {
-            // 将棋サーバーに向かってメッセージを送り出します。
-            Util_Message.Upload(line);
-
-#if DEBUG
-            // 送信記録をつけます。
-            Util_Loggers.ProcessEngine_NETWORK.AppendLine(line);
-            Util_Loggers.ProcessEngine_NETWORK.Flush(LogTypes.ToServer);
-#endif
-        }
-
-        /// <summary>
-        /// Loop1のBody部で呼び出されます。
-        /// </summary>
-        /// <param name="line"></param>
-        /// <returns></returns>
-        private PhaseResultUsiLoop1 OnUsi(string line)
-        {
-            //------------------------------------------------------------
-            // あなたは USI ですか？
-            //------------------------------------------------------------
-            //
-            // 図.
-            //
-            //      log.txt
-            //      ┌────────────────────────────────────────
-            //      ～
-            //      │2014/08/02 1:31:35> usi
-            //      │
-            //
-            //
-            // 将棋所で [対局(G)]-[エンジン管理...]-[追加...] でファイルを選んだときに、
-            // 送られてくる文字が usi です。
-
-
-            //------------------------------------------------------------
-            // エンジン設定ダイアログボックスを作ります
-            //------------------------------------------------------------
-            //
-            // 図.
-            //
-            //      log.txt
-            //      ┌────────────────────────────────────────
-            //      ～
-            //      │2014/08/02 23:40:15< option name 子 type check default true
-            //      │2014/08/02 23:40:15< option name USI type spin default 2 min 1 max 13
-            //      │2014/08/02 23:40:15< option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
-            //      │2014/08/02 23:40:15< option name 卯 type button default うさぎ
-            //      │2014/08/02 23:40:15< option name 辰 type string default DRAGON
-            //      │2014/08/02 23:40:15< option name 巳 type filename default スネーク.html
-            //      │
-            //
-            //
-            // 将棋所で [エンジン設定] ボタンを押したときに出てくるダイアログボックスに、
-            //      ・チェックボックス
-            //      ・スピン
-            //      ・コンボボックス
-            //      ・ボタン
-            //      ・テキストボックス
-            //      ・ファイル選択テキストボックス
-            // を置くことができます。
-            //
-            this.Send("option name 子 type check default true");
-            this.Send("option name USI type spin default 2 min 1 max 13");
-            this.Send("option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー");
-            this.Send("option name 卯 type button default うさぎ");
-            this.Send("option name 辰 type string default DRAGON");
-            this.Send("option name 巳 type filename default スネーク.html");
-
-
-            //------------------------------------------------------------
-            // USI です！！
-            //------------------------------------------------------------
-            //
-            // 図.
-            //
-            //      log.txt
-            //      ┌────────────────────────────────────────
-            //      ～
-            //      │2014/08/02 2:03:33< id name fugafuga 1.00.0
-            //      │2014/08/02 2:03:33< id author hogehoge
-            //      │2014/08/02 2:03:33< usiok
-            //      │
-            //
-            // プログラム名と、作者名を送り返す必要があります。
-            // オプションも送り返せば、受け取ってくれます。
-            // usi を受け取ってから、5秒以内に usiok を送り返して完了です。
-            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
-            var engineName = toml.Get<TomlTable>("Engine").Get<string>("Name");
-            Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
-            var engineAuthor = toml.Get<TomlTable>("Engine").Get<string>("Author");
-
-            this.Send($"id name {engineName} {version.Major}.{version.Minor}.{version.Build}");
-            this.Send($"id author {engineAuthor}");
-            this.Send("usiok");
-
-            return PhaseResultUsiLoop1.None;
-        }
 
         /// <summary>
         /// Loop1のBody部で呼び出されます。
@@ -459,7 +354,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             //------------------------------------------------------------
             // よろしくお願いします(^▽^)！
             //------------------------------------------------------------
-            #region ↓詳説
             //
             // 図.
             //
@@ -471,8 +365,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             //
             //
             // いつでも対局する準備が整っていましたら、 readyok を送り返します。
-            #endregion
-            this.Send("readyok");
+            Playing.Send("readyok");
 
             return PhaseResultUsiLoop1.None;
         }
@@ -985,7 +878,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
 
                             // この将棋エンジンは、後手とします。
                             // ２０手目、投了  を決め打ちで返します。
-                            this.Send("bestmove resign");//投了
+                            Playing.Send("bestmove resign");//投了
                         }
                         break;
                     default:// どちらの王さまも、まだまだ健在だぜ☆！
@@ -1112,11 +1005,11 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                                             }
                                         }
                                     }
-                                    this.Send(sb.ToString().TrimEnd());//FIXME:
+                                    Playing.Send(sb.ToString().TrimEnd());//FIXME:
                                 }
 
                                 // 指し手を送ります。
-                                this.Send($"bestmove {sfenText}");
+                                Playing.Send($"bestmove {sfenText}");
                             }
                             else // 指し手がないときは、SFENが書けない☆　投了だぜ☆
                             {
@@ -1127,7 +1020,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                                 //----------------------------------------
                                 // 投了ｗ！
                                 //----------------------------------------
-                                this.Send("bestmove resign");
+                                Playing.Send("bestmove resign");
                             }
 
 
@@ -1256,14 +1149,13 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                     //
                     //      という流れと思います。
                     // この指し手は、無視されます。（無視されますが、送る必要があります）
-                    this.Send("bestmove 9a9b");
+                    Playing.Send("bestmove 9a9b");
                 }
                 else
                 {
                     //------------------------------------------------------------
                     // じゃあ、△９二香で
                     //------------------------------------------------------------
-                    #region ↓詳説
                     //
                     // 図.
                     //
@@ -1275,8 +1167,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                     //
                     //
                     // 特に何もなく、すぐ指せというのですから、今考えている最善手をすぐに指します。
-                    #endregion
-                    this.Send("bestmove 9a9b");
+                    Playing.Send("bestmove 9a9b");
                 }
 
             }
