@@ -119,9 +119,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             }
 
             // 準備時
-            usiFramework.OnIsready = this.OnIsready;
-            usiFramework.OnUsinewgame = this.OnUsinewgame;
-            usiFramework.OnQuit = this.OnQuit;
             usiFramework.OnCommandlineAtLoop1 = this.OnCommandlineAtLoop1;
 
             // 対局開始時
@@ -137,8 +134,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             usiFramework.OnLogDase = this.OnLogDase;
             // 対局終了時
             usiFramework.OnLoop2End = this.OnLoop2End;
-            // アプリケーション終了時
-            usiFramework.OnApplicationEnd = this.OnApplicationEnd;
         }
 
         /// <summary>
@@ -206,138 +201,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
         /// Loop2で呼ばれます。
         /// </summary>
         public Dictionary<string, string> GameoverProperties { get; set; }
-
-        /// <summary>
-        /// Loop1のBody部で呼び出されます。
-        /// </summary>
-        /// <param name="line"></param>
-        /// <returns></returns>
-        private PhaseResultUsiLoop1 OnIsready(string line)
-        {
-            //------------------------------------------------------------
-            // それでは定刻になりましたので……
-            //------------------------------------------------------------
-            #region ↓詳説
-            //
-            // 図.
-            //
-            //      log.txt
-            //      ┌────────────────────────────────────────
-            //      ～
-            //      │2014/08/02 1:31:35> isready
-            //      │
-            //
-            //
-            // 対局開始前に、将棋所から送られてくる文字が isready です。
-            #endregion
-
-
-            //------------------------------------------------------------
-            // 将棋エンジン「おっおっ、設定を終わらせておかなければ（汗、汗…）」
-            //------------------------------------------------------------
-#if DEBUG
-            // ログ出力
-            Util_Loggers.ProcessEngine_DEFAULT.AppendLine(this.EngineOptions.ToString());
-            Util_Loggers.ProcessEngine_DEFAULT.Flush(LogTypes.Plain);
-#endif
-
-            //------------------------------------------------------------
-            // よろしくお願いします(^▽^)！
-            //------------------------------------------------------------
-            //
-            // 図.
-            //
-            //      log.txt
-            //      ┌────────────────────────────────────────
-            //      ～
-            //      │2014/08/02 2:03:33< readyok
-            //      │
-            //
-            //
-            // いつでも対局する準備が整っていましたら、 readyok を送り返します。
-            Playing.Send("readyok");
-
-            return PhaseResultUsiLoop1.None;
-        }
-
-        /// <summary>
-        /// Loop1のBody部で呼び出されます。
-        /// </summary>
-        /// <param name="line"></param>
-        /// <returns></returns>
-        private PhaseResultUsiLoop1 OnUsinewgame(string line)
-        {
-            //------------------------------------------------------------
-            // 対局時計が ポチッ とされました
-            //------------------------------------------------------------
-            #region ↓詳説
-            //
-            // 図.
-            //
-            //      log.txt
-            //      ┌────────────────────────────────────────
-            //      ～
-            //      │2014/08/02 2:03:33> usinewgame
-            //      │
-            //
-            //
-            // 対局が始まったときに送られてくる文字が usinewgame です。
-            #endregion
-
-
-            // 無限ループ（１つ目）を抜けます。無限ループ（２つ目）に進みます。
-            return PhaseResultUsiLoop1.Break;
-        }
-
-        /// <summary>
-        /// Loop1のBody部で呼び出されます。
-        /// </summary>
-        /// <param name="line"></param>
-        /// <returns></returns>
-        private PhaseResultUsiLoop1 OnQuit(string line)
-        {
-            //------------------------------------------------------------
-            // おつかれさまでした
-            //------------------------------------------------------------
-            #region ↓詳説
-            //
-            // 図.
-            //
-            //      log.txt
-            //      ┌────────────────────────────────────────
-            //      ～
-            //      │2014/08/02 1:31:38> quit
-            //      │
-            //
-            //
-            // 将棋エンジンを止めるときに送られてくる文字が quit です。
-            #endregion
-
-
-            //------------------------------------------------------------
-            // ﾉｼ
-            //------------------------------------------------------------
-            #region ↓詳説
-            //
-            // 図.
-            //
-            //      log.txt
-            //      ┌────────────────────────────────────────
-            //      ～
-            //      │2014/08/02 3:08:34> (^-^)ﾉｼ
-            //      │
-            //
-            //
-            #endregion
-#if DEBUG
-            Util_Loggers.ProcessEngine_DEFAULT.AppendLine("(^-^)ﾉｼ");
-            Util_Loggers.ProcessEngine_DEFAULT.Flush(LogTypes.Plain);
-#endif
-
-
-            // このプログラムを終了します。
-            return PhaseResultUsiLoop1.Quit;
-        }
 
         /// <summary>
         /// Loop1のBody部で呼び出されます。
@@ -1298,10 +1161,5 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             }
         }
 #endif
-
-        public void OnApplicationEnd()
-        {
-        }
-
     }
 }

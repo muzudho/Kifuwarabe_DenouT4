@@ -185,8 +185,6 @@ namespace Grayscale.P580_Form_______
             noopTimer._01_BeforeLoop();
 #endif
 
-                    PhaseResultUsiLoop1 result_Usi_Loop1 = PhaseResultUsiLoop1.None;
-
                     while (true)
                     {
                         string line = usiFramework.OnCommandlineAtLoop1();
@@ -225,7 +223,6 @@ namespace Grayscale.P580_Form_______
                             var engineAuthor = toml.Get<TomlTable>("Engine").Get<string>("Author");
 
                             playing.UsiOk($"{engineName} {version.Major}.{version.Minor}.{version.Build}", engineAuthor);
-                            result_Usi_Loop1 = PhaseResultUsiLoop1.None;
                         }
                         else if (line.StartsWith("setoption"))
                         {
@@ -289,28 +286,27 @@ namespace Grayscale.P580_Form_______
                             if (m.Success)
                             {
                                 // 項目を設定します。未定義の項目の場合、文字列型として新規追加します。
+                                // TODO パーサーを関数の中から こっちに出したいぜ☆（＾～＾）
                                 playing.AddOption_ByCommandline(line);
-                                /*
-                                string name = (string)m.Groups[1].Value;
-                                string value = "";
-
-                                if (3 <= m.Groups.Count)
-                                {
-                                    // 「value ★」も省略されずにありました。
-                                    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-                                    value = (string)m.Groups[2].Value;
-                                }
-
-                                // 項目を設定します。未定義の項目の場合、文字列型として新規追加します。
-                                owner.EngineOptions.ParseValue_AutoAdd(name, value);
-                                */
                             }
-
-                            result_Usi_Loop1 = PhaseResultUsiLoop1.None;
                         }
-                        else if ("isready" == line) { result_Usi_Loop1 = usiFramework.OnIsready(line); }
-                        else if ("usinewgame" == line) { result_Usi_Loop1 = usiFramework.OnUsinewgame(line); }
-                        else if ("quit" == line) { result_Usi_Loop1 = usiFramework.OnQuit(line); }
+                        else if ("isready" == line)
+                        {
+                            playing.ReadyOk();
+                        }
+                        else if ("usinewgame" == line)
+                        {
+                            playing.UsiNewGame();
+
+                            // 無限ループ（１つ目）を抜けます。無限ループ（２つ目）に進みます。
+                            break;
+                        }
+                        else if ("quit" == line)
+                        {
+                            playing.Quit();
+                            // このプログラムを終了します。
+                            return;
+                        }
                         else
                         {
                             //------------------------------------------------------------
@@ -325,35 +321,9 @@ namespace Grayscale.P580_Form_______
                             //
                             // ログだけ取って、スルーします。
                         }
-
-                        switch (result_Usi_Loop1)
-                        {
-                            case PhaseResultUsiLoop1.Break:
-                                goto end_loop1;
-
-                            case PhaseResultUsiLoop1.Quit:
-                                goto end_loop1;
-
-                            default:
-                                break;
-                        }
                     }
 
-                end_loop1:
-
-                    if (result_Usi_Loop1 == PhaseResultUsiLoop1.TimeoutShutdown)
-                    {
-                        //MessageBox.Show("ループ１で矯正終了するんだぜ☆！");
-                        return;//全体ループを抜けます。
-                    }
-                    else if (result_Usi_Loop1 == PhaseResultUsiLoop1.Quit)
-                    {
-                        return;//全体ループを抜けます。
-                    }
-
-                    //************************************************************************************************************************
                     // ループ（２つ目）
-                    //************************************************************************************************************************
                     usiFramework.OnLoop2Begin();
 
                     while (true)
@@ -370,9 +340,6 @@ namespace Grayscale.P580_Form_______
                     noopTimer._01_BeforeLoop();
                 }
 #endif
-
-
-
 
                         PhaseResultUsiLoop2 result_Usi_Loop2;
                         {
@@ -448,15 +415,7 @@ namespace Grayscale.P580_Form_______
 
                     usiFramework.OnLoop2End();
 
-                    if (result_Usi_Loop1 == PhaseResultUsiLoop1.TimeoutShutdown)
-                    {
-                        //MessageBox.Show("ループ２で矯正終了するんだぜ☆！");
-                        return;//全体ループを抜けます。
-                    }
                 }//全体ループ
-
-
-                usiFramework.OnApplicationEnd();
             }
             catch (Exception ex)
             {

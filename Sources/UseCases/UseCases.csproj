@@ -161,7 +161,6 @@
     <Compile Include="B100UsiFrame1\IEngineOptionNumber.cs" />
     <Compile Include="B100UsiFrame1\IEngineOptionSpin.cs" />
     <Compile Include="B100UsiFrame1\IEngineOptionString.cs" />
-    <Compile Include="B100UsiFrame1\PhaseResult_UsiLoop1.cs" />
     <Compile Include="B100UsiFrame1\PhaseResult_UsiLoop2.cs" />
     <Compile Include="B130FeatureVect\Const_NikomaKankeiP_Param.cs" />
     <Compile Include="B130FeatureVect\FeatureVector.cs" />

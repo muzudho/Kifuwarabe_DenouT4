@@ -62,7 +62,6 @@ namespace P930_SampleGame
             //bool isTimeoutShutdown_temp;
             //kifuWarabe.AtBody(out isTimeoutShutdown_temp, logTag);    // 将棋サーバーからのメッセージの受信や、
             // 思考は、ここで行っています。
-            kifuWarabe.OnApplicationEnd();
         }
     }
 }
