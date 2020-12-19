@@ -190,7 +190,6 @@
     <Compile Include="B200Scoreing\EvaluationArgs.cs" />
     <Compile Include="B200Scoreing\EvaluationArgsImpl.cs" />
     <Compile Include="B200Scoreing\PerformanceMetrics.cs" />
-    <Compile Include="B200Scoreing\ShogiEngine.cs" />
     <Compile Include="B200Scoreing\Shogisasi.cs" />
     <Compile Include="B200Scoreing\Util_Scoreing.cs" />
     <Compile Include="B210TimeMan\TimeManager.cs" />

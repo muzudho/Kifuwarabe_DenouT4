@@ -1,32 +1,20 @@
 ﻿using System;
-using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A090UsiFramewor.B100UsiFrame1.C500UsiFrame;
-using Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___;
-using Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe;
-using Grayscale.Kifuwaragyoku.UseCases;
-using Grayscale.A090UsiFramewor.B100UsiFrame1.C250UsiLoop;
-using Nett;
 using System.IO;
+using System.Text;
 using System.Text.RegularExpressions;
-using Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi;
-using Grayscale.A500ShogiEngine.B523UtilFv.C510UtilFvLoad;
+using Grayscale.A060Application.B210Tushin.C500Util;
+using Grayscale.A090UsiFramewor.B100UsiFrame1.C250UsiLoop;
+using Grayscale.A210KnowNingen.B300_KomahaiyaTr.C500Table;
 using Grayscale.A210KnowNingen.B380Michi.C500Word;
 using Grayscale.A210KnowNingen.B390KomahaiyaEx.C500Util;
-using System.Text;
 using Grayscale.A210KnowNingen.B490ForcePromot.C250Struct;
-using Grayscale.A210KnowNingen.B300_KomahaiyaTr.C500Table;
-using Grayscale.A500ShogiEngine.B260UtilClient.C500Util;
 using Grayscale.A210KnowNingen.B740KifuParserA.C500Parser;
-using Grayscale.A210KnowNingen.B280Tree.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B320ConvWords.C500Converter;
-using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
-using Grayscale.A500ShogiEngine.B280KifuWarabe.C125AjimiEngine;
-using Grayscale.A210KnowNingen.B410SeizaFinger.C250Struct;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using System.Collections.Generic;
-using Grayscale.A060Application.B210Tushin.C500Util;
+using Grayscale.A500ShogiEngine.B260UtilClient.C500Util;
+using Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi;
+using Grayscale.A500ShogiEngine.B523UtilFv.C510UtilFvLoad;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.UseCases;
+using Nett;
 
 namespace Grayscale.P580_Form_______
 {
@@ -42,13 +30,8 @@ namespace Grayscale.P580_Form_______
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            Playing playing = new Playing();
-
-            // USIフレームワーク
-            IUsiFramework usiFramework = new UsiFrameworkImpl();
-
             // 将棋エンジン　きふわらべ
-            ProgramSupport programSupport = new ProgramSupport(usiFramework);
+            Playing playing = new Playing();
 
             try
             {
@@ -73,7 +56,7 @@ namespace Grayscale.P580_Form_______
                 // 思考エンジンの、記憶を読み取ります。
                 //------------------------------------------------------------------------------------------------------------------------
                 {
-                    playing.Shogisasi = new ShogisasiImpl(playing, programSupport);
+                    playing.Shogisasi = new ShogisasiImpl(playing);
                     Util_FvLoad.OpenFv(
                         playing.Shogisasi.FeatureVector,
                         Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Fv00Komawari")), LogTags.ProcessEngineDefault);
@@ -364,7 +347,8 @@ namespace Grayscale.P580_Form_______
                                 //
                                 // “が”、まだ指してはいけません。
 #if DEBUG
-                this.Log1_AtLoop2("（＾△＾）positionきたｺﾚ！");
+            Util_Loggers.ProcessEngine_DEFAULT.AppendLine("（＾△＾）positionきたｺﾚ！");
+            Util_Loggers.ProcessEngine_DEFAULT.Flush(LogTypes.Plain);
 #endif
                                 // 入力行を解析します。
                                 IKifuParserAResult result = new KifuParserA_ResultImpl();
@@ -395,10 +379,68 @@ namespace Grayscale.P580_Form_______
 
 
 #if DEBUG
-                this.Log2_Png_Tyokkin_AtLoop2(line,
-                    result.Out_newNode_OrNull.Key,
-                    this.Kifu_AtLoop2.PositionA,
-                    logger);
+                                Move move_forLog = result.Out_newNode_OrNull.Key;
+                                ISky sky = this.Kifu_AtLoop2.PositionA;
+                                ILogger logTag = logger;
+        {
+            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+
+            //OwataMinister.WARABE_ENGINE.Logger.WriteLine_AddMemo(
+            //    Util_Sky307.Json_1Sky(this.Kifu.CurNode.Value.ToKyokumenConst, "現局面になっているのかなんだぜ☆？　line=[" + line + "]　棋譜＝" + KirokuGakari.ToJsaKifuText(this.Kifu, OwataMinister.WARABE_ENGINE),
+            //        "PgCS",
+            //        this.Kifu.CurNode.Value.ToKyokumenConst.Temezumi
+            //    )
+            //);
+
+            //
+            // 局面画像ﾛｸﾞ
+            //
+            {
+                // 出力先
+                string fileName = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("ChokkinNoMovePngFilename"));
+
+                SyElement srcMasu = ConvMove.ToSrcMasu(move_forLog);
+                SyElement dstMasu = ConvMove.ToDstMasu(move_forLog);
+                Komasyurui14 captured = ConvMove.ToCaptured(move_forLog);
+                int srcMasuNum = Conv_Masu.ToMasuHandle(srcMasu);
+                int dstMasuNum = Conv_Masu.ToMasuHandle(dstMasu);
+
+                KyokumenPngArgs_FoodOrDropKoma foodKoma;
+                if (Komasyurui14.H00_Null___ != captured)
+                {
+                    switch (Util_Komasyurui14.NarazuCaseHandle(captured))
+                    {
+                        case Komasyurui14.H00_Null___: foodKoma = KyokumenPngArgs_FoodOrDropKoma.NONE; break;
+                        case Komasyurui14.H01_Fu_____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.FU__; break;
+                        case Komasyurui14.H02_Kyo____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.KYO_; break;
+                        case Komasyurui14.H03_Kei____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.KEI_; break;
+                        case Komasyurui14.H04_Gin____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.GIN_; break;
+                        case Komasyurui14.H05_Kin____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.KIN_; break;
+                        case Komasyurui14.H07_Hisya__: foodKoma = KyokumenPngArgs_FoodOrDropKoma.HI__; break;
+                        case Komasyurui14.H08_Kaku___: foodKoma = KyokumenPngArgs_FoodOrDropKoma.KAKU; break;
+                        default: foodKoma = KyokumenPngArgs_FoodOrDropKoma.UNKNOWN; break;
+                    }
+                }
+                else
+                {
+                    foodKoma = KyokumenPngArgs_FoodOrDropKoma.NONE;
+                }
+
+                // 直近の指し手。
+                Util_KyokumenPng_Writer.Write1(
+                    ConvKifuNode.ToRO_Kyokumen1(sky, logTag),
+                    srcMasuNum,
+                    dstMasuNum,
+                    foodKoma,
+                    ConvMove.ToSfen(move_forLog),
+                    "",
+                    fileName,
+                    UtilKifuTreeLogWriter.REPORT_ENVIRONMENT,
+                    logTag
+                    );
+            }
+        }
 #endif
 
                                 //------------------------------------------------------------
@@ -488,7 +530,15 @@ namespace Grayscale.P580_Form_______
                                 // 無限ループ（２つ目）を抜けます。無限ループ（１つ目）に戻ります。
                                 result_Usi_Loop2 = PhaseResultUsiLoop2.Break;
                             }
-                            else if ("logdase" == line) { result_Usi_Loop2 = usiFramework.OnLogDase(line); }//独自拡張
+                            //独自拡張
+                            else if ("logdase" == line)
+                            {
+                                StringBuilder sb = new StringBuilder();
+                                sb.Append("ログ出せ機能は廃止だぜ～☆（＾▽＾）");
+                                File.WriteAllText(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("LogDaseMeirei")), sb.ToString());
+
+                                result_Usi_Loop2 = PhaseResultUsiLoop2.None;
+                            }
                             else
                             {
                                 //------------------------------------------------------------

@@ -1,4 +1,7 @@
-﻿using System;
+﻿namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi
+{
+#if DEBUG
+using System;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C490Option;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
@@ -13,13 +16,24 @@ using Grayscale.A500ShogiEngine.B210TimeMan.C500struct;
 using Grayscale.A500ShogiEngine.B210TimeMan.C500Struct;
 using Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct;
 using Grayscale.Kifuwaragyoku.UseCases;
-
-#if DEBUG
 using Grayscale.A210KnowNingen.B250LogKaisetu.C250Struct;
+#else
+    using System;
+    using Grayscale.A090UsiFramewor.B100UsiFrame1.C490Option;
+    using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+    using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+    using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+    using Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct;
+    using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
+    using Grayscale.A500ShogiEngine.B200Scoreing.C240Shogisasi;
+    using Grayscale.A500ShogiEngine.B200Scoreing.C250Args;
+    using Grayscale.A500ShogiEngine.B210TimeMan.C500struct;
+    using Grayscale.A500ShogiEngine.B210TimeMan.C500Struct;
+    using Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct;
+    using Grayscale.Kifuwaragyoku.Entities.Logging;
+    using Grayscale.Kifuwaragyoku.UseCases;
 #endif
 
-namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi
-{
     /// <summary>
     /// 将棋指しエンジン。
     /// 
@@ -27,9 +41,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi
     /// </summary>
     public class ShogisasiImpl : Shogisasi
     {
-        private ShogiEngine Owner { get { return this.owner; } }
-        private ShogiEngine owner;
-
         /// <summary>
         /// 右脳。
         /// </summary>
@@ -40,9 +51,8 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi
         /// </summary>
         public TimeManager TimeManager { get; set; }
 
-        public ShogisasiImpl(Playing playing, ShogiEngine owner)
+        public ShogisasiImpl(Playing playing)
         {
-            this.owner = owner;
             this.FeatureVector = new FeatureVectorImpl();
             this.TimeManager = new TimeManagerImpl(playing.EngineOptions.GetOption(EngineOptionNames.THINKING_MILLI_SECOND).GetNumber());
         }

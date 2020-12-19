@@ -11,8 +11,6 @@ using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___;
 using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 using Grayscale.A210KnowNingen.B240Move.C500Struct;
 using Grayscale.A210KnowNingen.B270Sky.C500Struct;
@@ -21,12 +19,12 @@ using Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 using Grayscale.A500ShogiEngine.B200Scoreing.C250Args;
 using Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi;
-using Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe;
 using Grayscale.A500ShogiEngine.B523UtilFv.C510UtilFvLoad;
 using Grayscale.A690FvLearn.B110FvLearn.C250Learn;
 using Grayscale.A690FvLearn.B110FvLearn.C260View;
 using Grayscale.A690FvLearn.B110FvLearn.C420Inspection;
 using Grayscale.A690FvLearn.B110FvLearn.C470____StartZero;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.Kifuwaragyoku.UseCases;
 #endif
 
@@ -348,7 +346,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
                 args = new EvaluationArgsImpl(
                     uc_Main.LearningData.Earth.GetSennititeCounter(),
                     new FeatureVectorImpl(),
-                    new ShogisasiImpl(new Playing(), new ProgramSupport(new UsiFrameworkImpl())),
+                    new ShogisasiImpl(new Playing()),
                     UtilKifuTreeLogWriter.REPORT_ENVIRONMENT
 #if DEBUG
                     ,

@@ -1,11 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A060Application.B310Settei.C500Struct;
 using Grayscale.A060Application.B510ConvSy.C500Converter;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___;
 using Grayscale.A150LogKyokuPng.B100KyokumenPng.C500Struct;
 using Grayscale.A150LogKyokuPng.B200LogKyokuPng.C500UtilWriter;
 using Grayscale.A180KifuCsa.B120KifuCsa.C250Struct;
@@ -27,11 +24,11 @@ using Grayscale.A500ShogiEngine.B200Scoreing.C240Shogisasi;
 using Grayscale.A500ShogiEngine.B200Scoreing.C250Args;
 using Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct;
 using Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi;
-using Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe;
 using Grayscale.A690FvLearn.B110FvLearn.C___250_Learn;
-using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Nett;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.Kifuwaragyoku.UseCases;
+using Nett;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
 // using Grayscale.A060Application.B310Settei.C500Struct;
@@ -60,7 +57,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
         /// 読み用。
         /// </summary>
         private FeatureVector featureVector_ForYomi = new FeatureVectorImpl();
-        private Shogisasi shogisasi_ForYomi = new ShogisasiImpl(new Playing(), new ProgramSupport(new UsiFrameworkImpl()));
+        private Shogisasi shogisasi_ForYomi = new ShogisasiImpl(new Playing());
 
         public static KyokumenPngEnvironment REPORT_ENVIRONMENT;
         static LearningDataImpl()

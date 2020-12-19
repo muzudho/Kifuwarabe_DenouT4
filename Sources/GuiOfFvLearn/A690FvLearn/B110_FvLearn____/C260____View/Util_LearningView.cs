@@ -5,11 +5,9 @@ using System.Diagnostics;
 using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
 using System.Diagnostics;
 #else
-using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
-using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.A060Application.B520Syugoron.C250Struct;
 using Grayscale.A180KifuCsa.B120KifuCsa.C250Struct;
 using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
@@ -26,11 +24,11 @@ using Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA;
 using Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA;
 using Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB;
 using Grayscale.A210KnowNingen.B800ConvCsa.C500Converter;
-using Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe;
 using Grayscale.A690FvLearn.B110FvLearn.C___250_Learn;
 using Grayscale.A690FvLearn.B110FvLearn.C250Learn;
-using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.Kifuwaragyoku.UseCases;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 #endif
 
 namespace Grayscale.A690FvLearn.B110FvLearn.C260View

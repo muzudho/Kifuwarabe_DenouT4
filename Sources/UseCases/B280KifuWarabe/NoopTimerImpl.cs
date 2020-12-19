@@ -1,15 +1,19 @@
-﻿using System.Diagnostics;
+﻿namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C249Noop
+{
+#if DEBUG
+using System.Diagnostics;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C490Option;
 using Grayscale.A500ShogiEngine.B200Scoreing.C005UsiLoop;
 using Grayscale.Kifuwaragyoku.UseCases;
-
-#if DEBUG
 // using Grayscale.Kifuwaragyoku.Entities.Logging;
+#else
+    using System.Diagnostics;
+    using Grayscale.A090UsiFramewor.B100UsiFrame1.C490Option;
+    using Grayscale.Kifuwaragyoku.Entities.Logging;
+    using Grayscale.Kifuwaragyoku.UseCases;
 #endif
 
-namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C249Noop
-{
     /// <summary>
     /// 
     /// </summary>
@@ -37,7 +41,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C249Noop
         /// </summary>
         /// <param name="owner"></param>
         /// <param name="isTimeoutShutdown"></param>
-        public void _02_AtEmptyMessage(Playing playing, ShogiEngine owner, out bool isTimeoutShutdown, ILogTag logTag)
+        public void _02_AtEmptyMessage(Playing playing, out bool isTimeoutShutdown, ILogTag logTag)
         {
             isTimeoutShutdown = false;
             //logTag.AppendLine_AddMemo("メッセージは届いていませんでした。this.sw_forNoop.Elapsed.Seconds=[" + this.sw_forNoop.Elapsed.Seconds + "]");
@@ -81,7 +85,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C249Noop
         /// <summary>
         /// 応答があったとき。
         /// </summary>
-        public void _03_AtResponsed(ShogiEngine owner, string command, ILogTag logTag)
+        public void _03_AtResponsed(string command, ILogTag logTag)
         {
             //System.Windows.Forms.MessageBox.Show("メッセージが届いています [" + line + "]");
 
