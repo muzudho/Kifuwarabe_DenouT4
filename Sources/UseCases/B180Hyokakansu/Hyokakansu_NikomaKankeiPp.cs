@@ -42,8 +42,7 @@ namespace Grayscale.A500ShogiEngine.B180Hyokakansu.C500Hyokakansu
         public override float Evaluate(
             Playerside psideA,
             ISky positionA,
-            FeatureVector fv,
-            ILogTag errH
+            FeatureVector fv
             )
         {
             float out_score = 0.0f;            // -999～999(*bairitu) が 40×40個ほど足し合わせた数になるはず。

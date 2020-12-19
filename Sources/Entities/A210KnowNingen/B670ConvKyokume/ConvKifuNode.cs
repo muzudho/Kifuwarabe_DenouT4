@@ -17,9 +17,9 @@ namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
         /// <summary>
         /// 表形式の局面データを出力します。SFENとの親和性高め。
         /// </summary>
-        /// <param name="errH"></param>
+        /// <param name="logTag"></param>
         /// <returns></returns>
-        public static ISfenPosition1 ToRO_Kyokumen1(ISky src_Sky, ILogTag errH)
+        public static ISfenPosition1 ToRO_Kyokumen1(ISky src_Sky, ILogTag logTag)
         {
             ISfenPosition1 ro_Kyokumen1 = new SfenPosition1Impl();
 
@@ -50,7 +50,7 @@ namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
             UtilSkyCountQuery.CountMoti(
                 src_Sky,
                 out motiSu,
-                errH
+                logTag
                 );
 
             Array.Copy(motiSu, ro_Kyokumen1.MotiSu, motiSu.Length);
@@ -66,9 +66,9 @@ namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
         /// 局面データから、SFEN文字列を作ります。
         /// </summary>
         /// <param name="pside"></param>
-        /// <param name="errH"></param>
+        /// <param name="logTag"></param>
         /// <returns></returns>
-        public static string ToSfenstring(ISky src_Sky, Playerside pside, ILogTag errH)
+        public static string ToSfenstring(ISky src_Sky, Playerside pside, ILogTag logTag)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("sfen ");
@@ -145,7 +145,7 @@ namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
                 UtilSkyCountQuery.CountMoti(
                     src_Sky,
                     out motiSu,
-                    errH
+                    logTag
                     );
 
                 if (0 == motiSu[(int)Piece.K] +

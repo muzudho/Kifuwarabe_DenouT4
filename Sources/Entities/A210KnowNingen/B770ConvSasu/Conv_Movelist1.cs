@@ -18,13 +18,13 @@ namespace Grayscale.A210KnowNingen.B770ConvSasu.C500Converter
         /// </summary>
         /// <param name="komabetuSusumuMasus"></param>
         /// <param name="positionA"></param>
-        /// <param name="errH"></param>
+        /// <param name="logTag"></param>
         /// <returns></returns>
         public static List<Move> ToMovelist_NonPromotion(
             Maps_OneAndOne<Finger, SySet<SyElement>> komabetuSusumuMasus,
             Playerside psideA,
             ISky positionA,
-            ILogTag errH
+            ILogTag logTag
         )
         {
             List<Move> result_movelist = new List<Move>();
@@ -64,7 +64,7 @@ namespace Grayscale.A210KnowNingen.B770ConvSasu.C500Converter
             List_OneAndMulti<Finger, SySet<SyElement>> komaMasus,
             Playerside psideA,
             ISky positionA,
-            ILogTag errH
+            ILogTag logTag
             )
         {
             List<Move> movelist = new List<Move>();

@@ -131,14 +131,14 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi
             Util_KifuTreeLogWriter.A_Write_KifuTreeLog(
                 logF_kiki,
                 kifu1,
-                errH
+                logTag
                 );
             //Util_LogWriter500_HyokaMeisai.Log_Html5(
             //    this,
             //    logF_kiki,
             //    kifu,
             //    playerInfo,
-            //    errH
+            //    logTag
             //    );
 #endif
 

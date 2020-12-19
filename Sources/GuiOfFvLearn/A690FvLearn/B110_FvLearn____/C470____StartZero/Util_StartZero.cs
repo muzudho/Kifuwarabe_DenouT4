@@ -64,7 +64,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C470____StartZero
         /// </summary>
         public static void Adjust_HirateSyokiKyokumen_0ten_AndFvParamRange(
             ref bool ref_isRequestDoEvents,
-            FeatureVector fv, ILogTag errH)
+            FeatureVector fv, ILogTag logTag)
         {
             if (null == Util_StartZero.src_Sky_hirateSyokikyokumen)
             {
@@ -77,7 +77,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C470____StartZero
                 //----------------------------------------
                 // ４０枚の駒、または１４種類の持駒。多くても５４要素。
                 //----------------------------------------
-                Util_StartZero.n54List_hirateSyokikyokumen = Util_54List.Calc_54List(Util_StartZero.src_Sky_hirateSyokikyokumen, errH);
+                Util_StartZero.n54List_hirateSyokikyokumen = Util_54List.Calc_54List(Util_StartZero.src_Sky_hirateSyokikyokumen, logTag);
             }
 
             Hyokakansu_NikomaKankeiPp kansu = new Hyokakansu_NikomaKankeiPp();
@@ -93,8 +93,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C470____StartZero
             float score = kansu.Evaluate(
                 Util_StartZero.src_Sky_hirateSyokikyokumen.GetKaisiPside(),
                 Util_StartZero.src_Sky_hirateSyokikyokumen,
-                fv,
-                errH
+                fv
                 );
 
             if (-100 <= score && score <= 100)
@@ -129,10 +128,10 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C470____StartZero
 
                 int changedCells;
                 Util_FvScoreing.Fill54x54_Add(out changedCells, chosei_offset, src_Sky_hirateSyokikyokumen, fv,
-                    Util_StartZero.n54List_hirateSyokikyokumen, errH);
+                    Util_StartZero.n54List_hirateSyokikyokumen, logTag);
 
                 // 順位を、点数に変換します。
-                UtilZooming.ZoomTo_FvParamRange(fv, errH);
+                UtilZooming.ZoomTo_FvParamRange(fv, logTag);
 
                 // フォームの更新を要求します。
                 ref_isRequestDoEvents = true;
@@ -146,8 +145,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C470____StartZero
                 score = kansu.Evaluate(
                     Util_StartZero.src_Sky_hirateSyokikyokumen.GetKaisiPside(),
                     Util_StartZero.src_Sky_hirateSyokikyokumen,
-                    fv,
-                    errH
+                    fv
                     );
 
                 if (-100 <= score && score <= 100)

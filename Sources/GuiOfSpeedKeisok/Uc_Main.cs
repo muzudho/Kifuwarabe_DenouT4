@@ -67,8 +67,7 @@ namespace Grayscale.P910SpeedKeisok
             float score_notUse = handan1.Evaluate(
                 positionA.GetKaisiPside(),
                 positionA,
-                this.FeatureVector,
-                LogTags.ProcessSpeedTestKeisoku
+                this.FeatureVector
                 );
 
             watch.Stop();
@@ -123,9 +122,6 @@ namespace Grayscale.P910SpeedKeisok
         /// <param name="e"></param>
         private void btnOpenFv_Click(object sender, EventArgs e)
         {
-            ILogTag logTag = LogTags.ProcessSpeedTestKeisoku;
-
-
             if ("" != this.txtFvFilepath.Text)
             {
                 this.openFileDialog1.InitialDirectory = Path.GetDirectoryName(this.txtFvFilepath.Text);
@@ -147,7 +143,7 @@ namespace Grayscale.P910SpeedKeisok
 
                     StringBuilder sb_result = new StringBuilder();
                     // フィーチャー・ベクターの外部ファイルを開きます。
-                    sb_result.Append(Util_FvLoad.OpenFv(this.FeatureVector, filepath_base, logTag));
+                    sb_result.Append(Util_FvLoad.OpenFv(this.FeatureVector, filepath_base, LogTags.ProcessSpeedTestKeisoku));
 
                     this.txtResult.Text = sb_result.ToString();
 

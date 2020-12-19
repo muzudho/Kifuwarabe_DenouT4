@@ -48,7 +48,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
             out IKifuParserAState nextState,
             IKifuParserA owner,
             IKifuParserAGenjo genjo,
-            ILogTag errH
+            ILogTag logTag
             )
         {
             out_moveNodeType = MoveNodeType.None;
@@ -70,8 +70,8 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
                     // 
 
 #if DEBUG
-                    errH.AppendLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... SFEN形式か...☆");
-                    errH.Flush(LogTypes.Plain);
+                    logTag.AppendLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... SFEN形式か...☆");
+                    logTag.Flush(LogTypes.Plain);
 #endif
                     genjo.InputLine = genjo.InputLine.Substring("position".Length);
                     genjo.InputLine = genjo.InputLine.Trim();
@@ -82,16 +82,16 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
                 else if ("" == genjo.InputLine)
                 {
                     // 異常時。
-                    Logger.AppendLine(errH,"＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない2☆！　終わるぜ☆");
-                    Logger.Flush(errH,LogTypes.Error);
+                    Logger.AppendLine(logTag,"＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない2☆！　終わるぜ☆");
+                    Logger.Flush(logTag,LogTypes.Error);
                     genjo.ToBreak_Abnormal();
                 }
                 else
                 {
 #if DEBUG
                     Playerside pside = positionA.GetKaisiPside();//.KaisiPside;
-                    errH.AppendLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... positionじゃなかったぜ☆　日本式か☆？　SFENでmovesを読んだあとのプログラムに合流させるぜ☆　：　先後＝[" + pside + "]");
-                    errH.Flush(LogTypes.Plain);
+                    logTag.AppendLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... positionじゃなかったぜ☆　日本式か☆？　SFENでmovesを読んだあとのプログラムに合流させるぜ☆　：　先後＝[" + pside + "]");
+                    logTag.Flush(LogTypes.Plain);
 #endif
                     nextState = KifuParserAStateA2SfenMoves.GetInstance();
                 }

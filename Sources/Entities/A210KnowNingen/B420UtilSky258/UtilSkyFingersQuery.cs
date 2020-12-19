@@ -58,7 +58,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
         /// <param name="syurui"></param>
         /// <param name="hKomas"></param>
         /// <returns></returns>
-        public static Fingers InKomasyuruiNow(ISky src_Sky, Komasyurui14 syurui, ILogTag errH)
+        public static Fingers InKomasyuruiNow(ISky src_Sky, Komasyurui14 syurui, ILogTag logTag)
         {
             Fingers figKomas = new Fingers();
 
@@ -284,7 +284,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
         /// <param name="kifu"></param>
         /// <param name="okiba"></param>
         /// <returns></returns>
-        public static Fingers InOkibaNow(ISky src_Sky, Okiba okiba, ILogTag errH)
+        public static Fingers InOkibaNow(ISky src_Sky, Okiba okiba, ILogTag logTag)
         {
             Fingers komas = new Fingers();
 
@@ -310,7 +310,7 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
         /// <param name="pside"></param>
         /// <param name="hKomas"></param>
         /// <returns></returns>
-        public static Fingers InPsideNow(ISky src_Sky, Playerside pside, ILogTag errH)
+        public static Fingers InPsideNow(ISky src_Sky, Playerside pside, ILogTag logTag)
         {
             Fingers fingers = new Fingers();
 

@@ -77,7 +77,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C249Function
             Finger foodKoma,
             string fugoJStr,
             string backedInputText,
-            ILogTag errH)
+            ILogTag logTag)
         {
             //------------------------------
             // チェンジターン
@@ -85,7 +85,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C249Function
             mainGui.ChangedTurn(
                 kifu1,// curNode1,
                 pside,// curNode1.GetNodeValue().KaisiPside,
-                errH);//[巻戻し]ボタンを押したあと
+                logTag);//[巻戻し]ボタンを押したあと
 
 
             //------------------------------
@@ -234,7 +234,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C249Function
         public static void Redraw_KomaLocation(
             Finger figKoma,
             MainGui_Csharp mainGui,
-            ILogTag errH
+            ILogTag logTag
             )
         {
             mainGui.SkyWrapper_Gui.GuiSky.AssertFinger(figKoma);

@@ -63,8 +63,8 @@ namespace Grayscale.A450Server.B110Server.C497EngineClient
             {
                 //>>>>>>>>>> メッセージを受け取りました。
 #if DEBUG
-                errH.AppendLine(line);
-                errH.Flush(LogTypes.ToServer);
+                logTag.AppendLine(line);
+                logTag.Flush(LogTypes.ToServer);
 #endif
 
                 if ("noop" == line)
@@ -138,8 +138,8 @@ namespace Grayscale.A450Server.B110Server.C497EngineClient
                         );
 
 #if DEBUG
-                    errH.AppendLine("USI受信：bestmove input99=[" + ((Server)((EngineClient)this.Owner_EngineClient).Owner_Server).InputString99 + "]");
-                    errH.Flush(LogTypes.Plain);
+                    logTag.AppendLine("USI受信：bestmove input99=[" + ((Server)((EngineClient)this.Owner_EngineClient).Owner_Server).InputString99 + "]");
+                    logTag.Flush(LogTypes.Plain);
 #endif
                 }
                 else

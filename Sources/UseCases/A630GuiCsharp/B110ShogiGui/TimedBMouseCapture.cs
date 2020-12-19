@@ -61,7 +61,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C250Timed
             ISky positionA = shogiGui.Link_Server.KifuTree.PositionA;
             Playerside psideA = positionA.GetKaisiPside();
 
-            //shogiGui.Model_PnlTaikyoku.Kifu.AssertPside(shogiGui.Model_PnlTaikyoku.Kifu.CurNode, "Check_MouseoverKomaKiki",errH);
+            //shogiGui.Model_PnlTaikyoku.Kifu.AssertPside(shogiGui.Model_PnlTaikyoku.Kifu.CurNode, "Check_MouseoverKomaKiki",logTag);
             SySet<SyElement> mikataZukei = UtilSkySyugoQuery.Masus_Now(
                 positionA, psideA
                 );

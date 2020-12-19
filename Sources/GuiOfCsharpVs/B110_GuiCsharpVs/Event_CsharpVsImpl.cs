@@ -30,7 +30,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogTag errH) =>
+                    , ILogTag logTag) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
                     // ここに処理を書く
@@ -43,13 +43,13 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogTag errH) =>
+                    , ILogTag logTag) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
                     MainGui_Csharp shogiGui = (MainGui_Csharp)obj_shogiGui2;
                     UcForm1Mainable ui_PnlMain = ((Form1Shogi)shogiGui.OwnerForm).Uc_Form1Main;
 
-                    ui_PnlMain.MainGui.Start_ShogiEngine(ui_PnlMain.SetteiXmlFile.ShogiEngineFilePath, errH);
+                    ui_PnlMain.MainGui.Start_ShogiEngine(ui_PnlMain.SetteiXmlFile.ShogiEngineFilePath, logTag);
                 };
 
                 //
@@ -59,7 +59,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogTag errH) =>
+                    , ILogTag logTag) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
                     // ここに処理を書く
@@ -67,7 +67,7 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C491Event
                     MainGui_Csharp shogiGui = (MainGui_Csharp)obj_shogiGui2;
                     UcForm1Mainable ui_PnlMain = ((Form1Shogi)shogiGui.OwnerForm).Uc_Form1Main;
 
-                    ui_PnlMain.MainGui.Do_ComputerSente(errH);
+                    ui_PnlMain.MainGui.Do_ComputerSente(logTag);
                 };
             }
             return Event_CsharpVsImpl.instance;

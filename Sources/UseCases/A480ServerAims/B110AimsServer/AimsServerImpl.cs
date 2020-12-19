@@ -52,7 +52,7 @@ namespace Grayscale.A480ServerAims.B110AimsServer.C500Server
         {
         }
 
-        public void AtBody(ILogTag errH)
+        public void AtBody(ILogTag logTag)
         {
             PhaseResult_AimsServer phaseResult = PhaseResult_AimsServer.None;
 
@@ -126,7 +126,7 @@ namespace Grayscale.A480ServerAims.B110AimsServer.C500Server
 
                                 // 将棋エンジンに usi コマンドを送るぜ☆
                                 //MessageBox.Show("サーバー「このあと、将棋エンジンにusiコマンドを送るぜ☆」");
-                                this.EngineClient.ShogiEngineProcessWrapper.Send_Usi(errH);
+                                this.EngineClient.ShogiEngineProcessWrapper.Send_Usi(logTag);
                             }
                             else
                             {
@@ -159,15 +159,15 @@ namespace Grayscale.A480ServerAims.B110AimsServer.C500Server
                                 //------------------------------------------------------------
 
                                 // 将棋エンジンへ：　「私は将棋サーバーですが、USIプロトコルのponderコマンドには対応していませんので、送ってこないでください」
-                                this.EngineClient.ShogiEngineProcessWrapper.Send_Setoption("setoption name USI_Ponder value false", errH);
+                                this.EngineClient.ShogiEngineProcessWrapper.Send_Setoption("setoption name USI_Ponder value false", logTag);
 
                                 // 将棋エンジンへ：　「私は将棋サーバーです。noop コマンドを送ってくれば、すぐに ok コマンドを返します。1分間を空けてください」
-                                this.EngineClient.ShogiEngineProcessWrapper.Send_Setoption("setoption name noopable value true", errH);
+                                this.EngineClient.ShogiEngineProcessWrapper.Send_Setoption("setoption name noopable value true", logTag);
 
                                 //------------------------------------------------------------
                                 // 将棋エンジンへ：　「準備はいいですか？」
                                 //------------------------------------------------------------
-                                this.EngineClient.ShogiEngineProcessWrapper.Send_Isready(errH);
+                                this.EngineClient.ShogiEngineProcessWrapper.Send_Isready(logTag);
 
                             }
                         }

@@ -17,7 +17,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C400Conv
             Move previous_Move,  // 「同」を調べるためのもの。
             Playerside pside,
             ISky previous_Sky,
-            ILogTag errH
+            ILogTag logTag
             )
         {
             bool isHonshogi = true;
@@ -41,7 +41,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C400Conv
                     string str9;
                     if (SfenConf.ToTokens_FromMove(
                         sfenMove2, out str1, out str2, out str3, out str4, out str5,
-                        out out_restString, errH)
+                        out out_restString, logTag)
                         &&
                         !(str1 == "" && str2 == "" && str3 == "" && str4 == "" && str5 == "")
                         )
@@ -62,7 +62,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C400Conv
 
                             previous_Sky,
                             "棋譜パーサーA_SFENパース1",
-                            errH
+                            logTag
                             );
                     }
                     else
@@ -74,7 +74,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C400Conv
                             sfenMove2,
                             out str1, out str2, out str3, out str4, out str5, out str6, out str7, out str8, out str9,
                             out out_restString,
-                            errH))
+                            logTag))
                         {
                             if (!(str1 == "" && str2 == "" && str3 == "" && str4 == "" && str5 == "" && str6 == "" && str7 == "" && str8 == "" && str9 == ""))
                             {
@@ -91,7 +91,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C400Conv
                                     out nextMove,
                                     previous_Move,
                                     previous_Sky,
-                                    errH
+                                    logTag
                                     );
                             }
 
@@ -101,8 +101,8 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C400Conv
                             //「6g6f」形式でもなかった☆
 
                             string message = "（＾△＾）「" + sfenMove1 + "」！？　次の一手が読めない☆";
-                            Logger.AppendLine(errH,message);
-                            Logger.Flush(errH,LogTypes.Error);
+                            Logger.AppendLine(logTag,message);
+                            Logger.Flush(logTag,LogTypes.Error);
 
                             Logger.Panic(LogTags.ProcessNoneError,message);
                             goto gt_EndMethod;

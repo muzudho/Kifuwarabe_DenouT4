@@ -60,14 +60,14 @@ namespace Grayscale.A450Server.B110Server.C497EngineClient
             this.ShogiEngineProcessWrapper = new EngineProcessWrapperImpl();
 
 #if DEBUG
-            this.ShogiEngineProcessWrapper.SetDelegate_ShogiServer_ToEngine( (string line, ILogger errH) =>
+            this.ShogiEngineProcessWrapper.SetDelegate_ShogiServer_ToEngine( (string line, ILogger logTag) =>
             {
                 //
                 // USIコマンドを将棋エンジンに送ったタイミングで、なにかすることがあれば、
                 // ここに書きます。
                 //
-                errH.AppendLine(line);
-                errH.Flush(LogTypes.ToClient);
+                logTag.AppendLine(line);
+                logTag.Flush(LogTypes.ToClient);
             });
 #endif
         }
@@ -145,7 +145,7 @@ namespace Grayscale.A450Server.B110Server.C497EngineClient
             Tree kifu1,
 
             Playerside kaisiPside,
-            ILogTag errH)
+            ILogTag logTag)
         {
             if (!this.ShogiEngineProcessWrapper.IsLive_ShogiEngine())
             {
@@ -169,9 +169,9 @@ namespace Grayscale.A450Server.B110Server.C497EngineClient
 
                             kifu1//endNode1//エンドノード
 
-                            ), errH);
+                            ), logTag);
 
-                    this.ShogiEngineProcessWrapper.Send_Go(errH);
+                    this.ShogiEngineProcessWrapper.Send_Go(logTag);
 
                     break;
                 default:
@@ -186,25 +186,25 @@ namespace Grayscale.A450Server.B110Server.C497EngineClient
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
         /// </summary>
-        public void Send_Shutdown(ILogTag errH)
+        public void Send_Shutdown(ILogTag logTag)
         {
-            this.ShogiEngineProcessWrapper.Send_Shutdown(errH);
+            this.ShogiEngineProcessWrapper.Send_Shutdown(logTag);
         }
 
         /// <summary>
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
-        public void Send_Logdase(ILogTag errH)
+        public void Send_Logdase(ILogTag logTag)
         {
-            this.ShogiEngineProcessWrapper.Send_Logdase(errH);
+            this.ShogiEngineProcessWrapper.Send_Logdase(logTag);
         }
 
         ///// <summary>
         ///// 将棋エンジンを先手にするために、go を出します。
         ///// </summary>
-        //public void Send_Go(ILogger errH)
+        //public void Send_Go(ILogger logTag)
         //{
-        //    this.ShogiEngineProcessWrapper.Send_Go(errH);
+        //    this.ShogiEngineProcessWrapper.Send_Go(logTag);
         //}
 
     }

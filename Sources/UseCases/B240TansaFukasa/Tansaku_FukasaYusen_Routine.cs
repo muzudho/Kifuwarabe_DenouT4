@@ -44,7 +44,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
             int temezumi,
             bool isHonshogi,
             Mode_Tansaku mode_Tansaku,
-            ILogTag errH
+            ILogTag logTag
             )
         {
             // TODO:ここではログを出力せずに、ツリーの先端で出力したい。
@@ -205,7 +205,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
             bool isHonshogi,
             Mode_Tansaku mode_Tansaku,
             EvaluationArgs args,
-            ILogTag errH
+            ILogTag logTag
             )
         {
             int temezumi = positionA.Temezumi;
@@ -216,7 +216,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                 exceptionArea = 10;
                 Tansaku_Genjo genjo = Tansaku_FukasaYusen_Routine.CreateGenjo(
                     temezumi,
-                    isHonshogi, mode_Tansaku, errH);
+                    isHonshogi, mode_Tansaku, logTag);
 
                 // 最初は投了からスタートだぜ☆（*＾～＾*）
                 MoveEx a_bestmoveEx_Children = new MoveExImpl(
@@ -240,7 +240,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
 
                     ref searchedMaxDepth,
                     out yomiDeep,
-                    errH
+                    logTag
                     );
 
                 if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(yomiDeep, wideCount2, movelist.Count, genjo, args.Shogisasi.TimeManager))
@@ -259,7 +259,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                         positionA,
 
                         args,
-                        errH
+                        logTag
                         );
 
                     a_bestmoveEx_Children = Util_Scoreing.GetHighScore(
@@ -287,7 +287,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
 
                         movelist.Count,
                         args,
-                        errH
+                        logTag
                         );
                 }
 
@@ -322,14 +322,14 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                             Debug.Fail(message);
 
                             // どうにもできないので  ログだけ取って、上に投げます。
-                            Logger.AppendLine(errH,message);
-                            Logger.Flush(errH,LogTypes.Error);
+                            Logger.AppendLine(logTag,message);
+                            Logger.Flush(logTag,LogTypes.Error);
                             throw ;
                         }
 #if DEBUG
                     case 20:
                         {
-                            errH.Panic(ex, "棋譜ツリーの読みの後半９０です。");
+                            logTag.Panic(ex, "棋譜ツリーの読みの後半９０です。");
                             throw;
                         }
 #endif
@@ -375,7 +375,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
             ISky positionA,
 
             EvaluationArgs args,
-            ILogTag errH
+            ILogTag logTag
             )
         {
             float score = 0.0f;
@@ -386,11 +386,11 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                 positionA,
 
                 args,
-                errH
+                logTag
                 );
 
 #if DEBUG_ALPHA_METHOD
-                    errH.AppendLine_AddMemo("1. 手(" + node_yomi.Value.ToKyokumenConst.Temezumi + ")読(" + yomiDeep + ") 兄弟最善=[" + a_siblingDecidedValue + "] 子ベスト=[" + a_childrenBest + "]");
+                    logTag.AppendLine_AddMemo("1. 手(" + node_yomi.Value.ToKyokumenConst.Temezumi + ")読(" + yomiDeep + ") 兄弟最善=[" + a_siblingDecidedValue + "] 子ベスト=[" + a_childrenBest + "]");
 #endif
 
 #if DEBUG
@@ -417,7 +417,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
             //                        kifu_forAssert,
             //                        reportEnvironment,
             //                        logF_kiki,
-            //                        errH
+            //                        logTag
             //                    );
             //#endif
 
@@ -648,12 +648,12 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                         wideCount1++;
 
 #if DEBUG_ALPHA_METHOD
-                errH.AppendLine_AddMemo("3. 手(" + node_yomi.Value.ToKyokumenConst.Temezumi + ")読(" + yomiDeep + ") 兄弟最善=[" + a_siblingDecidedValue + "] 子ベスト=[" + a_childrenBest + "] 自点=[" + a_myScore + "]");
+                logTag.AppendLine_AddMemo("3. 手(" + node_yomi.Value.ToKyokumenConst.Temezumi + ")読(" + yomiDeep + ") 兄弟最善=[" + a_siblingDecidedValue + "] 子ベスト=[" + a_childrenBest + "] 自点=[" + a_myScore + "]");
 #endif
                         if (alpha_cut)
                         {
 #if DEBUG_ALPHA_METHOD
-                    errH.AppendLine_AddMemo("アルファ・カット☆！");
+                    logTag.AppendLine_AddMemo("アルファ・カット☆！");
 #endif
                             //----------------------------------------
                             // 次の「子の弟」要素はもう読みません。
@@ -703,7 +703,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
             ISky src_Sky,
             out MmLogGenjoImpl out_mm_log,
             out KaisetuBoard out_logBrd_move1,
-            ILogger errH
+            ILogger logTag
         )
         {
             Move move_forLog = Move.Empty;//ログ出力しないことにした☆（＞＿＜）
@@ -716,12 +716,12 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                         out_logBrd_move1,//ログ？
                         src_Sky.Temezumi,//手済み
                         move_forLog,//指し手
-                        errH//ログ
+                        logTag//ログ
                     );
             }
             catch (Exception ex)
             {
-                errH.Panic(ex, "棋譜ツリーの読みループの作成次ノードの前半２０です。");
+                logTag.Panic(ex, "棋譜ツリーの読みループの作成次ノードの前半２０です。");
                 throw;
             }
         }
@@ -729,7 +729,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
             Tansaku_Genjo genjo,
             MoveEx node_yomi,
             KaisetuBoard logBrd_move1,
-            ILogger errH
+            ILogger logTag
         )
         {
             try
@@ -746,7 +746,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
             }
             catch (Exception ex)
             {
-                errH.Panic(ex, "棋譜ツリーの読みループの作成次ノードの前半４０です。");
+                logTag.Panic(ex, "棋譜ツリーの読みループの作成次ノードの前半４０です。");
                 throw;
             }
         }

@@ -17,13 +17,13 @@ namespace Grayscale.A210KnowNingen.B570ConvJsa.C500Converter
         /// </summary>
         /// <param name="node">keyで指し手の指定、かつ、１つ前のノードに移動するのに使います。</param>
         /// <param name="ISky">現局面です。</param>
-        /// <param name="errH"></param>
+        /// <param name="logTag"></param>
         /// <returns></returns>
         public static string ToMoveStrJsa(
             Move move,
             List<Move> honpuList,
             ISky positionA,
-            ILogTag errH
+            ILogTag logTag
             )
         {
             Komasyurui14 ks = ConvMove.ToSrcKomasyurui(move);
@@ -31,7 +31,7 @@ namespace Grayscale.A210KnowNingen.B570ConvJsa.C500Converter
             JsaFugoImpl jsaFugo = ArrayJsaFugoCreator15.ItemMethods[(int)ks](
                 move,
                 positionA,
-                errH);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
+                logTag);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
 
             return Util_Translator_JsaFugo.ToString_UseDou(jsaFugo, move, honpuList);
         }

@@ -1,4 +1,8 @@
-﻿using System;
+﻿namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
+{
+#if DEBUG
+using Grayscale.A500ShogiEngine.B523UtilFv.C480UtilFvEdit;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
@@ -11,14 +15,22 @@ using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 using Grayscale.A500ShogiEngine.B140ConvFvKoumoku.C500Converter;
 using Grayscale.A500ShogiEngine.B523UtilFv.C490UtilFvFormat;
-
-#if DEBUG
-using Grayscale.A500ShogiEngine.B523UtilFv.C480UtilFvEdit;
-// using Grayscale.Kifuwaragyoku.Entities.Logging;
+#else
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Windows.Forms;
+    using Grayscale.A000Platform.B011Csv.C500Parser;
+    using Grayscale.Kifuwaragyoku.Entities.Logging;
+    using Grayscale.A060Application.B610_ConstShogi_.C250Const;
+    using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+    using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
+    using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
+    using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
+    using Grayscale.A500ShogiEngine.B140ConvFvKoumoku.C500Converter;
+    using Grayscale.A500ShogiEngine.B523UtilFv.C490UtilFvFormat;
 #endif
 
-namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
-{
     public abstract class Util_FeatureVectorInput
     {
 
@@ -263,18 +275,18 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
         /// ファイルから読み込みます。
         /// </summary>
         /// <param name="filepath1"></param>
-        public static bool Make_FromFile_KK(FeatureVector fv, string filepath1, ILogTag errH)
+        public static bool Make_FromFile_KK(FeatureVector fv, string filepath1, ILogTag logTag)
         {
             bool successful = false;
 
             string filepath2 = Path.Combine(Application.StartupPath, filepath1);
 
 #if DEBUG
-            errH.AppendLine("----------------------------------------");
-            errH.AppendLine("FV 総合点（読込前）2");
-            errH.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
-            errH.AppendLine("----------------------------------------");
-            errH.Flush(LogTypes.Plain);
+            logTag.AppendLine("----------------------------------------");
+            logTag.AppendLine("FV 総合点（読込前）2");
+            logTag.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            logTag.AppendLine("----------------------------------------");
+            logTag.Flush(LogTypes.Plain);
 #endif
 
             if (!File.Exists(filepath2))
@@ -363,11 +375,11 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
             }
 
 #if DEBUG
-            errH.AppendLine("----------------------------------------");
-            errH.AppendLine("FV 総合点（読込後）4");
-            errH.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
-            errH.AppendLine("----------------------------------------");
-            errH.Flush(LogTypes.Plain);
+            logTag.AppendLine("----------------------------------------");
+            logTag.AppendLine("FV 総合点（読込後）4");
+            logTag.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            logTag.AppendLine("----------------------------------------");
+            logTag.Flush(LogTypes.Plain);
 
             //MessageBox.Show(
             //    "rowVersion=[" + rowVersion + "]\n" +
@@ -386,18 +398,18 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
         /// <param name="filepath1"></param>
         /// <param name="kingPlayer">1 or 2</param>
         /// <returns></returns>
-        public static bool Make_FromFile_KP(FeatureVector fv, string filepath1, Playerside k_pside, ILogTag errH)
+        public static bool Make_FromFile_KP(FeatureVector fv, string filepath1, Playerside k_pside, ILogTag logTag)
         {
             bool successful = false;
 
             string filepath2 = Path.Combine(Application.StartupPath, filepath1);
 
 #if DEBUG
-            errH.AppendLine("----------------------------------------");
-            errH.AppendLine("FV 総合点（読込前）6");
-            errH.AppendLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
-            errH.AppendLine("----------------------------------------");
-            errH.Flush(LogTypes.Plain);
+            logTag.AppendLine("----------------------------------------");
+            logTag.AppendLine("FV 総合点（読込前）6");
+            logTag.AppendLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            logTag.AppendLine("----------------------------------------");
+            logTag.Flush(LogTypes.Plain);
 #endif
 
             if (!File.Exists(filepath2))
@@ -602,11 +614,11 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
             }
 
 #if DEBUG
-            errH.AppendLine("----------------------------------------");
-            errH.AppendLine("FV 総合点（読込後）5");
-            errH.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
-            errH.AppendLine("----------------------------------------");
-            errH.Flush(LogTypes.Plain);
+            logTag.AppendLine("----------------------------------------");
+            logTag.AppendLine("FV 総合点（読込後）5");
+            logTag.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            logTag.AppendLine("----------------------------------------");
+            logTag.Flush(LogTypes.Plain);
 
             //MessageBox.Show(
             //    "rowVersion=[" + rowVersion + "]\n" +
@@ -641,18 +653,18 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
         /// </summary>
         /// <param name="filepath1"></param>
         /// <returns></returns>
-        public static bool Make_FromFile_PP_Banjo(FeatureVector fv, string filepath1, int p1_base, ILogTag errH)
+        public static bool Make_FromFile_PP_Banjo(FeatureVector fv, string filepath1, int p1_base, ILogTag logTag)
         {
             bool successful = false;
 
             string filepath2 = Path.Combine(Application.StartupPath, filepath1);
 
 #if DEBUG
-            errH.AppendLine("----------------------------------------");
-            errH.AppendLine("FV 総合点（読込前）3");
-            errH.AppendLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
-            errH.AppendLine("----------------------------------------");
-            errH.Flush(LogTypes.Plain);
+            logTag.AppendLine("----------------------------------------");
+            logTag.AppendLine("FV 総合点（読込前）3");
+            logTag.AppendLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            logTag.AppendLine("----------------------------------------");
+            logTag.Flush(LogTypes.Plain);
 #endif
 
             if (!File.Exists(filepath2))
@@ -863,11 +875,11 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
             }
 
 #if DEBUG
-            errH.AppendLine("----------------------------------------");
-            errH.AppendLine("FV 総合点（読込後）1");
-            errH.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
-            errH.AppendLine("----------------------------------------");
-            errH.Flush(LogTypes.Plain);
+            logTag.AppendLine("----------------------------------------");
+            logTag.AppendLine("FV 総合点（読込後）1");
+            logTag.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            logTag.AppendLine("----------------------------------------");
+            logTag.Flush(LogTypes.Plain);
 
             //MessageBox.Show(
             //    "rowVersion=[" + rowVersion + "]\n" +
@@ -891,7 +903,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
         /// <param name="fv"></param>
         /// <param name="filepath1"></param>
         /// <returns></returns>
-        public static bool Make_FromFile_PP_Moti19Mai(FeatureVector fv, string filepath1, int p1_base, ILogTag errH)
+        public static bool Make_FromFile_PP_Moti19Mai(FeatureVector fv, string filepath1, int p1_base, ILogTag logTag)
         {
             bool successful = false;
             string filepath2 = Path.Combine(Application.StartupPath, filepath1);
@@ -900,11 +912,11 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
 
 
 #if DEBUG
-            errH.AppendLine("----------------------------------------");
-            errH.AppendLine("FV 総合点（読込前）4");
-            errH.AppendLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
-            errH.AppendLine("----------------------------------------");
-            errH.Flush(LogTypes.Plain);
+            logTag.AppendLine("----------------------------------------");
+            logTag.AppendLine("FV 総合点（読込前）4");
+            logTag.AppendLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            logTag.AppendLine("----------------------------------------");
+            logTag.Flush(LogTypes.Plain);
 #endif
 
             if (!File.Exists(filepath2))
@@ -1127,11 +1139,11 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
             }
 
 #if DEBUG
-            errH.AppendLine("----------------------------------------");
-            errH.AppendLine("FV 総合点（読込後）2");
-            errH.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
-            errH.AppendLine("----------------------------------------");
-            errH.Flush(LogTypes.Plain);
+            logTag.AppendLine("----------------------------------------");
+            logTag.AppendLine("FV 総合点（読込後）2");
+            logTag.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            logTag.AppendLine("----------------------------------------");
+            logTag.Flush(LogTypes.Plain);
 
             //MessageBox.Show(
             //    "rowVersion=[" + rowVersion + "]\n" 
@@ -1150,7 +1162,7 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
         /// <param name="fv"></param>
         /// <param name="filepath1"></param>
         /// <returns></returns>
-        public static bool Make_FromFile_PP_Moti3or5Mai(FeatureVector fv, string filepath1, int p1_base, int p1Koumoku3or5Length, ILogTag errH)
+        public static bool Make_FromFile_PP_Moti3or5Mai(FeatureVector fv, string filepath1, int p1_base, int p1Koumoku3or5Length, ILogTag logTag)
         {
 
             bool successful = false;
@@ -1158,11 +1170,11 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
             string filepath2 = Path.Combine(Application.StartupPath, filepath1);
 
 #if DEBUG
-            errH.AppendLine("----------------------------------------");
-            errH.AppendLine("FV 総合点（読込前）5");
-            errH.AppendLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
-            errH.AppendLine("----------------------------------------");
-            errH.Flush(LogTypes.Plain);
+            logTag.AppendLine("----------------------------------------");
+            logTag.AppendLine("FV 総合点（読込前）5");
+            logTag.AppendLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            logTag.AppendLine("----------------------------------------");
+            logTag.Flush(LogTypes.Plain);
 #endif
 
             if (!File.Exists(filepath2))
@@ -1371,11 +1383,11 @@ namespace Grayscale.A500ShogiEngine.B523UtilFv.C491UtilFvIo
             }
 
 #if DEBUG
-            errH.AppendLine("----------------------------------------");
-            errH.AppendLine("FV 総合点（読込後）3");
-            errH.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
-            errH.AppendLine("----------------------------------------");
-            errH.Flush(LogTypes.Plain);
+            logTag.AppendLine("----------------------------------------");
+            logTag.AppendLine("FV 総合点（読込後）3");
+            logTag.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            logTag.AppendLine("----------------------------------------");
+            logTag.Flush(LogTypes.Plain);
 
             //MessageBox.Show(
             //    "rowVersion=[" + rowVersion + "]\n" 

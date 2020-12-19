@@ -60,7 +60,7 @@ namespace Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct
         public static void A_Write_KifuTreeLog(
             KaisetuBoards logF_kiki,
             Tree kifu,
-            ILogTag errH
+            ILogTag logTag
             )
         {
 #if DEBUG
@@ -112,7 +112,7 @@ namespace Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct
                     kifu,
                     sb_folder.ToString(),
                     Util_KifuTreeLogWriter.REPORT_ENVIRONMENT,
-                    errH
+                    logTag
                     );
                 */
             }
@@ -123,8 +123,8 @@ namespace Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct
                 Debug.Fail(message);
 
                 // どうにもできないので  ログだけ取って、上に投げます。
-                errH.AppendLine(message);
-                errH.Flush(LogTypes.Error);
+                logTag.AppendLine(message);
+                logTag.Flush(LogTypes.Error);
                 throw;
             }
 
@@ -147,7 +147,7 @@ namespace Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct
                 }
             }
             catch (Exception ex) {
-                errH.Panic(ex, "局面評価明細を出力しようとしたときです。");
+                logTag.Panic(ex, "局面評価明細を出力しようとしたときです。");
                 throw;
             }
 #endif

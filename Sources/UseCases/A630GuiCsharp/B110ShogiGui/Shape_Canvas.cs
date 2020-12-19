@@ -15,7 +15,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C081Canvas
         /// <param name="sender"></param>
         /// <param name="e"></param>
         /// <param name="shogiGui"></param>
-        /// <param name="errH"></param>
+        /// <param name="logTag"></param>
         void Paint(
             object sender,
             PaintEventArgs e,
@@ -23,7 +23,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C081Canvas
             ISky positionA,
             MainGui_Csharp shogiGui,
             string windowName,
-            ILogTag errH
+            ILogTag logTag
         );
 
     }

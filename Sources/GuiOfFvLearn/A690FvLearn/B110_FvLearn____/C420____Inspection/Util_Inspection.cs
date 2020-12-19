@@ -27,7 +27,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C420Inspection
         /// <summary>
         /// フィーチャー・ベクターの概要をデバッグ出力します。
         /// </summary>
-        public static void Inspection1(FeatureVector fv, ILogTag errH)
+        public static void Inspection1(FeatureVector fv, ILogTag logTag)
         {
             float negative_length;// 負の数の一番小さな値の絶対値。
             float positive_length;// 正の数の一番大きな値の絶対値。
@@ -92,17 +92,17 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C420Inspection
                 {
                     longest_positive = false;
                 }
-                errH.AppendLine("PP");
-                errH.AppendLine("----------------------------------------");
-                errH.AppendLine("begin");
-                errH.AppendLine("   negative_length =" + negative_length);
-                errH.AppendLine("   positive_length =" + positive_length);
-                errH.AppendLine("   longest_positive=" + longest_positive);
-                errH.AppendLine("   negative_average=" + (negative_items == 0 ? 0 : negative_total / negative_items));
-                errH.AppendLine("   positive_average=" + (positive_items == 0 ? 0 : positive_total / positive_items));
-                errH.AppendLine("   notZero         =" + notZero);
-                errH.AppendLine("----------------------------------------");
-                errH.Flush(LogTypes.Plain);
+                logTag.AppendLine("PP");
+                logTag.AppendLine("----------------------------------------");
+                logTag.AppendLine("begin");
+                logTag.AppendLine("   negative_length =" + negative_length);
+                logTag.AppendLine("   positive_length =" + positive_length);
+                logTag.AppendLine("   longest_positive=" + longest_positive);
+                logTag.AppendLine("   negative_average=" + (negative_items == 0 ? 0 : negative_total / negative_items));
+                logTag.AppendLine("   positive_average=" + (positive_items == 0 ? 0 : positive_total / positive_items));
+                logTag.AppendLine("   notZero         =" + notZero);
+                logTag.AppendLine("----------------------------------------");
+                logTag.Flush(LogTypes.Plain);
 #endif
             }
         }

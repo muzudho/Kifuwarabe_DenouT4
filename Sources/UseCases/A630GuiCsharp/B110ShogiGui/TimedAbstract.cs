@@ -6,7 +6,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C250Timed
     public abstract class TimedAbstract : Timed
     {
 
-        abstract public void Step(ILogTag errH);
+        abstract public void Step(ILogTag logTag);
 
     }
 }

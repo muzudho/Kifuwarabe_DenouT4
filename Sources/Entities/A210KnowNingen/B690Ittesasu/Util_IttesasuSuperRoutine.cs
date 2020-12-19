@@ -79,7 +79,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB
         /// <param name="figKoma"></param>
         /// <param name="dstMasu"></param>
         /// <param name="pside_genTeban"></param>
-        /// <param name="errH"></param>
+        /// <param name="logTag"></param>
         /// <returns></returns>
         public static void DoMove_Super2(
             ref ISky positionA,//指定局面
@@ -87,7 +87,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB
             Finger figKoma,//動かす駒
             SyElement dstMasu,//移動先マス
             bool toNaru,//成るなら真
-            ILogTag errH
+            ILogTag logTag
             )
         {
             // 移動先に相手の駒がないか、確認します。

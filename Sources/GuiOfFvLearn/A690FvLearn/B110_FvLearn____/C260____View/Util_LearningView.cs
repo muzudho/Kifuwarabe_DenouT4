@@ -54,7 +54,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C260View
             Earth earth1 = new EarthImpl();
             ISky positionA = UtilSkyCreator.New_Hirate();//日本の符号読取時
             Tree kifu1 = new TreeImpl(positionA);
-            //kifu1.AssertPside(kifu1.CurNode, "ShowMoveList",errH);
+            //kifu1.AssertPside(kifu1.CurNode, "ShowMoveList",logTag);
 
             List<CsaKifuMove> moveList = learningData.CsaKifu.MoveList;
             foreach (CsaKifuMove moveAsCsa in moveList)
@@ -180,7 +180,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C260View
         public static void Aa_ShowNode2(
             LearningData learningData,
             ISky positionA,
-            UcMain uc_Main, ILogTag errH)
+            UcMain uc_Main, ILogTag logTag)
         {
             // 手目済み
             uc_Main.TxtTemezumi.Text = positionA.Temezumi.ToString();
@@ -375,7 +375,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C260View
             //----------------------------------------
             System.Console.WriteLine("カレント・ノード＝" + ConvMove.ToSfen( learningData.GetMove()));
             int result_removedCount = Util_KifuTree282.IzennoHenkaCutter(
-                learningData.KifuA, errH);
+                learningData.KifuA, logTag);
             System.Console.WriteLine("削除した要素数＝" + result_removedCount);
             */
 

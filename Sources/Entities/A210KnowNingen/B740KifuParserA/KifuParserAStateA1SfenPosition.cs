@@ -42,7 +42,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
             out IKifuParserAState nextState,
             IKifuParserA owner,
             IKifuParserAGenjo genjo,
-            ILogTag errH
+            ILogTag logTag
             )
         {
             out_moveNodeType = MoveNodeType.None;
@@ -56,8 +56,8 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
                     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 #if DEBUG
-                    errH.AppendLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　平手のようなんだぜ☆");
-                    errH.Flush(LogTypes.Plain);
+                    logTag.AppendLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　平手のようなんだぜ☆");
+                    logTag.Flush(LogTypes.Plain);
 #endif
 
                     genjo.InputLine = genjo.InputLine.Substring("startpos".Length);
@@ -73,9 +73,9 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
                 else
                 {
                     //#if DEBUG
-                    Logger.AppendLine(errH,"（＾△＾）ここはスルーして次に状態遷移するんだぜ☆\n「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】");//　：　局面の指定のようなんだぜ☆　対応していない☆？
-                    Logger.Flush(errH,LogTypes.Error);
-                    //errH.AppendLine_Error("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　局面の指定のようなんだぜ☆　対応していない☆？");
+                    Logger.AppendLine(logTag,"（＾△＾）ここはスルーして次に状態遷移するんだぜ☆\n「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】");//　：　局面の指定のようなんだぜ☆　対応していない☆？
+                    Logger.Flush(logTag,LogTypes.Error);
+                    //logTag.AppendLine_Error("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　局面の指定のようなんだぜ☆　対応していない☆？");
                     //#endif
                     nextState = KifuParserAStateA1bSfenLnsgkgsnl.GetInstance();
                 }

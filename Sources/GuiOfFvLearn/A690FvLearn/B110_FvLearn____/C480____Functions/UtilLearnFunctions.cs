@@ -27,12 +27,12 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C480Functions
         /// <summary>
         /// FVを、-999.0～999.0(*bairitu)に矯正。
         /// </summary>
-        public static void FvParamRange_PP(FeatureVector fv, ILogTag errH)
+        public static void FvParamRange_PP(FeatureVector fv, ILogTag logTag)
         {
             //--------------------------------------------------------------------------------
             // 変換前のデータを確認。 
             //--------------------------------------------------------------------------------
-            UtilInspection.Inspection1(fv, errH);
+            UtilInspection.Inspection1(fv, logTag);
 
             //--------------------------------------------------------------------------------
             // 点数を、順位に変換します。
@@ -42,14 +42,14 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C480Functions
             //--------------------------------------------------------------------------------
             // トポロジー的に加工したあとのデータを確認。 
             //--------------------------------------------------------------------------------
-            UtilZooming.ZoomTo_FvParamRange(fv, errH);
+            UtilZooming.ZoomTo_FvParamRange(fv, logTag);
 
         }
         /// <summary>
         /// FVの保存。
         /// </summary>
         /// <param name="uc_Main"></param>
-        public static void Do_Save(UcMain uc_Main, ILogTag errH)
+        public static void Do_Save(UcMain uc_Main, ILogTag logTag)
         {
             FeatureVector fv = uc_Main.LearningData.Fv;
 
@@ -134,7 +134,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C480Functions
             //----------------------------------------
             // -999～999 に調整
             //----------------------------------------
-            UtilLearnFunctions.FvParamRange_PP(uc_Main.LearningData.Fv, errH);// 自動で -999～999(*bairitu) に矯正。
+            UtilLearnFunctions.FvParamRange_PP(uc_Main.LearningData.Fv, logTag);// 自動で -999～999(*bairitu) に矯正。
 
 
             // 駒割

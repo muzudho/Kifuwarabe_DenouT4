@@ -34,7 +34,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C250Timed
             this.SaiseiEventQueue = new Queue<SaiseiEventState>();
         }
 
-        public override void Step(ILogTag errH)
+        public override void Step(ILogTag logTag)
         {
 
             // 入っているマウス操作イベントは、全部捨てていきます。
@@ -78,7 +78,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C250Timed
                                     this.mainGui.SkyWrapper_Gui,
                                     out toBreak,
                                     "再生ボタン",
-                                    errH
+                                    logTag
                                     );
 
                                 //TimedC.Saisei_Step(restText, shogiGui, eventState.Flg_logTag);// 再描画（ループが１回も実行されなかったとき用）

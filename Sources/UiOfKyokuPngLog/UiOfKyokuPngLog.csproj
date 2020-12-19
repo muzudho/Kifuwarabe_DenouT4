@@ -8,8 +8,8 @@
     <ProjectGuid>{6F26BAE0-8E17-4FDA-A242-D1D7C4DB2507}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Grayscale</RootNamespace>
-    <AssemblyName>Grayscale.A150_LogKyokuPng</AssemblyName>
+    <RootNamespace>Grayscale.Kifuwaragyoku.UiOfKyokuPngLog</RootNamespace>
+    <AssemblyName>Grayscale.Kifuwaragyoku.UiOfKyokuPngLog</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

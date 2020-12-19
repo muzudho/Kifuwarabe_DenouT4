@@ -256,7 +256,7 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
                         if (this.owner.Option_enable_serverNoopable)
                         {
                             bool isTimeoutShutdown_temp;
-                            noopTimer._02_AtEmptyMessage(this.owner, out isTimeoutShutdown_temp,errH);
+                            noopTimer._02_AtEmptyMessage(this.owner, out isTimeoutShutdown_temp,logTag);
                             if (isTimeoutShutdown_temp)
                             {
                                 //MessageBox.Show("ループ２でタイムアウトだぜ☆！");

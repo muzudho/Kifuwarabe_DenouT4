@@ -8,8 +8,8 @@
     <ProjectGuid>{DBEA8B61-6F05-49A0-9CCB-6FCF2976BD17}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Grayscale</RootNamespace>
-    <AssemblyName>Grayscale.A480_ServerAims_</AssemblyName>
+    <RootNamespace>Grayscale.Kifuwaragyoku.UseCases</RootNamespace>
+    <AssemblyName>Grayscale.Kifuwaragyoku.UseCases</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

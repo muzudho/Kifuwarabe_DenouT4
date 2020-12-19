@@ -33,29 +33,29 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500Gui
             Tree kifu1,
 
             Playerside pside,//endNode.GetNodeValue().KaisiPside,
-            ILogTag errH)
+            ILogTag logTag)
         {
             this.Link_Server.EngineClient.OnChangedTurn(
                 this.Link_Server.Earth,
                 kifu1,// endNode,//エンドノード
                 pside,
-                errH);
+                logTag);
         }
 
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
         /// </summary>
-        public override void Shutdown(ILogTag errH)
+        public override void Shutdown(ILogTag logTag)
         {
-            this.Link_Server.EngineClient.Send_Shutdown(errH);
+            this.Link_Server.EngineClient.Send_Shutdown(logTag);
         }
 
         /// <summary>
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
-        public override void Logdase(ILogTag errH)
+        public override void Logdase(ILogTag logTag)
         {
-            this.Link_Server.EngineClient.Send_Logdase(errH);
+            this.Link_Server.EngineClient.Send_Logdase(logTag);
         }
 
         /// <summary>
@@ -63,32 +63,32 @@ namespace Grayscale.A800_GuiCsharpVs.B110_GuiCsharpVs.C500Gui
         /// 将棋エンジンを起動します。
         /// ************************************************************************************************************************
         /// </summary>
-        public override void Start_ShogiEngine(string shogiEngineFilePath, ILogTag errH)
+        public override void Start_ShogiEngine(string shogiEngineFilePath, ILogTag logTag)
         {
             this.Link_Server.EngineClient.Start(shogiEngineFilePath);
-            this.Link_Server.EngineClient.ShogiEngineProcessWrapper.Send_Usi(errH);
+            this.Link_Server.EngineClient.ShogiEngineProcessWrapper.Send_Usi(logTag);
         }
 
         /// <summary>
         /// コンピューターの先手
         /// </summary>
-        public override void Do_ComputerSente(ILogTag errH)
+        public override void Do_ComputerSente(ILogTag logTag)
         {
             this.Link_Server.EngineClient.ShogiEngineProcessWrapper.Send_Position(
                 UtilKirokuGakari.ToSfen_PositionCommand(
                     this.Link_Server.Earth,
                     this.Link_Server.KifuTree//.CurrentNode//エンドノード
-                    ), errH);
-            this.Link_Server.EngineClient.ShogiEngineProcessWrapper.Send_Go(errH);
+                    ), logTag);
+            this.Link_Server.EngineClient.ShogiEngineProcessWrapper.Send_Go(logTag);
         }
 
 
         /// <summary>
         /// このアプリケーションソフトの開始時の処理。
         /// </summary>
-        public new void Load_AsStart(ILogTag errH)
+        public new void Load_AsStart(ILogTag logTag)
         {
-            base.Load_AsStart(errH);
+            base.Load_AsStart(logTag);
 
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));

@@ -55,8 +55,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
         /// </summary>
         public ProgramSupport(IUsiFramework usiFramework)
         {
-            this.LogTag = LogTags.ProcessEngineDefault;
-
             //-------------+----------------------------------------------------------------------------------------------------------
             // データ設計  |
             //-------------+----------------------------------------------------------------------------------------------------------
@@ -156,8 +154,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             // アプリケーション終了時
             usiFramework.OnApplicationEnd = this.OnApplicationEnd;
         }
-
-        public ILogTag LogTag { get; set; }
 
         /// <summary>
         /// 読み筋を格納する配列の容量。
@@ -600,13 +596,13 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             if (null != line)
             {
                 // 通信ログは必ず取ります。
-                Logger.AppendLine(this.LogTag, line);
-                Logger.Flush(this.LogTag, LogTypes.ToClient);
+                Logger.AppendLine(LogTags.ProcessEngineDefault, line);
+                Logger.Flush(LogTags.ProcessEngineDefault, LogTypes.ToClient);
 
 #if NOOPABLE
                 if (this.owner.Option_enable_serverNoopable)
                 {
-                    noopTimer._03_AtResponsed(this.owner, line, errH);
+                    noopTimer._03_AtResponsed(this.owner, line, logTag);
                 }
 #endif
             }
@@ -920,11 +916,11 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 bool test = true;
                 if (test)
                 {
-                    Logger.AppendLine(this.LogTag,"サーバーから受信した局面☆（＾▽＾）");
-                    Logger.AppendLine(this.LogTag, Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(
+                    Logger.AppendLine(LogTags.ProcessEngineDefault,"サーバーから受信した局面☆（＾▽＾）");
+                    Logger.AppendLine(LogTags.ProcessEngineDefault, Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(
                         ConvMove.ToPlayerside(curNode1.Move),
-                        positionA, this.LogTag)));
-                    Logger.Flush(this.LogTag, LogTypes.Plain);
+                        positionA, LogTags.ProcessEngineDefault)));
+                    Logger.Flush(LogTags.ProcessEngineDefault, LogTypes.Plain);
                 }
 
                 //errH2.Logger.WriteLine_AddMemo("将棋サーバー「" + latestTemezumi + "手目、きふわらべ　さんの手番ですよ！」　" + line);
@@ -1033,10 +1029,10 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                                         this.Kifu.PositionA.GetKaisiPside(),
                                         this.Kifu.PositionA,//.CurNode1.GetNodeValue(),
 
-                                        this.LogTag)
+                                        LogTags.ProcessEngineDefault)
                                         );
 
-                                    this.Kifu.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(this.Kifu.MoveEx_Current, this.Kifu, this.Kifu.PositionA, this.LogTag));
+                                    this.Kifu.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(this.Kifu.MoveEx_Current, this.Kifu, this.Kifu.PositionA, LogTags.ProcessEngineDefault));
                                 }
 
 
@@ -1460,7 +1456,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             Util_Loggers.ProcessEngine_DEFAULT.AppendLine(message);
             Util_Loggers.ProcessEngine_DEFAULT.Flush(LogTypes.Plain);
         }
-        private void Log2_Png_Tyokkin_AtLoop2(string line, Move move_forLog, ISky sky, ILogger errH)
+        private void Log2_Png_Tyokkin_AtLoop2(string line, Move move_forLog, ISky sky, ILogger logTag)
         {
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
@@ -1508,7 +1504,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
 
                 // 直近の指し手。
                 Util_KyokumenPng_Writer.Write1(
-                    ConvKifuNode.ToRO_Kyokumen1(sky, errH),
+                    ConvKifuNode.ToRO_Kyokumen1(sky, logTag),
                     srcMasuNum,
                     dstMasuNum,
                     foodKoma,
@@ -1516,7 +1512,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                     "",
                     fileName,
                     UtilKifuTreeLogWriter.REPORT_ENVIRONMENT,
-                    errH
+                    logTag
                     );
             }
         }
@@ -1553,7 +1549,9 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 //------------------------------------------------------------------------------------------------------------------------
                 {
                     this.Shogisasi = new ShogisasiImpl(this);
-                    Util_FvLoad.OpenFv(this.Shogisasi.FeatureVector, Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Fv00Komawari")), this.LogTag);
+                    Util_FvLoad.OpenFv(
+                        this.Shogisasi.FeatureVector,
+                        Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Fv00Komawari")), LogTags.ProcessEngineDefault);
                 }
 
 

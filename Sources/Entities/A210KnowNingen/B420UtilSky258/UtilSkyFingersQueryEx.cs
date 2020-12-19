@@ -25,13 +25,13 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
         /// <returns></returns>
         public static void Fingers_EachSrcNow(
             out Fingers out_fingers, SySet<SyElement> srcList, ISky src_Sky, Playerside pside,
-            ILogTag errH)
+            ILogTag logTag)
         {
             out_fingers = new Fingers();
 
             foreach (SyElement masu in srcList.Elements)
             {
-                Finger finger = UtilSkyFingerQuery.InMasuNow_FilteringBanjo(src_Sky, pside, masu, errH);
+                Finger finger = UtilSkyFingerQuery.InMasuNow_FilteringBanjo(src_Sky, pside, masu, logTag);
                 if (Util_Finger.ForHonshogi(finger))
                 {
                     // 指定の升に駒がありました。

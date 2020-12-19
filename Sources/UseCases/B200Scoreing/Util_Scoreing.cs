@@ -223,7 +223,7 @@ namespace Grayscale.A500ShogiEngine.B200Scoreing.C500Util
             ISky positionA,
 
             EvaluationArgs args,
-            ILogTag errH
+            ILogTag logTag
             )
         {
             float score = 0.0f;
@@ -253,8 +253,7 @@ namespace Grayscale.A500ShogiEngine.B200Scoreing.C500Util
                 score += hyokakansu.Evaluate(
                     psideA,
                     positionA,//node_yomi_mutable_KAIZOMAE.Value.Kyokumen,
-                    args.FeatureVector,
-                    errH
+                    args.FeatureVector
                 );
             }
             else
@@ -262,8 +261,7 @@ namespace Grayscale.A500ShogiEngine.B200Scoreing.C500Util
                 score += UtilHyokakansuCollection.EvaluateAll_Normal(
                     psideA,
                     positionA,
-                    args.FeatureVector,
-                    errH
+                    args.FeatureVector
                     );
             }
 

@@ -35,7 +35,7 @@ namespace Grayscale.A500ShogiEngine.B200Scoreing.C240Shogisasi
         /// <param name="enableLog"></param>
         /// <param name="isHonshogi"></param>
         /// <param name="kifu1"></param>
-        /// <param name="errH"></param>
+        /// <param name="logTag"></param>
         /// <returns></returns>
         MoveEx WA_Bestmove(
             ref int searchedMaxDepth,
@@ -48,7 +48,7 @@ namespace Grayscale.A500ShogiEngine.B200Scoreing.C240Shogisasi
             Playerside psideA,
             ISky positionA,
 
-            ILogTag errH
+            ILogTag logTag
             );
 
     }

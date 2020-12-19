@@ -50,7 +50,7 @@ namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
         {
             move = Move.Empty;
 
-            //kifu.AssertPside(kifu.CurNode, "str1=" + str1, errH);
+            //kifu.AssertPside(kifu.CurNode, "str1=" + str1, logTag);
             //Playerside pside1 = positionA.KaisiPside;
 
 #if DEBUG

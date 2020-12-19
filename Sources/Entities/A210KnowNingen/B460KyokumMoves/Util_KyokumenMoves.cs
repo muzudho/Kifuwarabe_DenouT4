@@ -89,11 +89,11 @@ namespace Grayscale.A210KnowNingen.B460KyokumMoves.C500Util
 #endif
             )
         {
-            ILogTag errH = null;
+            ILogTag logTag = null;
 #if DEBUG
                     if (mmLog_orNull != null)
                     {
-                        errH = mmLog_orNull.ErrH;
+                        logTag = mmLog_orNull.ErrH;
                     }
 #endif
 
@@ -133,7 +133,7 @@ namespace Grayscale.A210KnowNingen.B460KyokumMoves.C500Util
                     UtilSkyFingersQueryFx.Split_BanjoSeme_BanjoKurau_MotiSeme_MotiKurau(
                         out fingers_seme_BANJO, out fingers_kurau_BANJO, out fingers_seme_MOTI,
                         out fingers_kurau_MOTI, positionA, tebanSeme, tebanKurau,
-                        errH);
+                        logTag);
                     //#if DEBUG
                     //                    System.Console.WriteLine("◇fingers_seme_BANJOの要素数=" + fingers_seme_BANJO.Count);
                     //                    System.Console.WriteLine("◇fingers_kurau_BANJOの要素数=" + fingers_kurau_BANJO.Count);
@@ -174,7 +174,7 @@ namespace Grayscale.A210KnowNingen.B460KyokumMoves.C500Util
                     masus_seme_BANJO,
                     masus_kurau_BANJO,
                     positionA,
-                    errH
+                    logTag
                     );// 盤上の駒の移動できる場所
 
                 //
@@ -188,7 +188,7 @@ namespace Grayscale.A210KnowNingen.B460KyokumMoves.C500Util
                     masus_kurau_BANJO,
                     psideA,
                     positionA,//これは、どの局面？
-                    errH
+                    logTag
                     );
                 //#if DEBUG
                 //                System.Console.WriteLine("sMsSusumeruMasus_seme_MOTIの要素数=" + Util_List_OneAndMultiEx<Finger, SySet<SyElement>>.CountAllElements(sMsSusumeruMasus_seme_MOTI));

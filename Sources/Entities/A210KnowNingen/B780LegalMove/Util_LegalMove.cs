@@ -261,7 +261,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
             KaisetuBoards logF_kiki,
 #endif
             Move move_forLog,
-            ILogTag errH
+            ILogTag logTag
             )
         {
             bool isHonshogi = true;
@@ -282,7 +282,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
                 "玉自殺ﾁｪｯｸ",
                 temezumi_yomiCur_forLog,
                 move_forLog,
-                errH);
+                logTag);
 
 
             // 現手番側が受け手に回ったとします。現手番の、王の座標

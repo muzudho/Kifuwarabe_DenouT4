@@ -263,9 +263,7 @@ namespace Grayscale.A690FvLearn
         /// <param name="e"></param>
         private void btnOpenFvCsv_Click(object sender, EventArgs e)
         {
-            ILogTag logTag = LogTags.ProcessLearnerDefault;
-
-            Util_LearnOperation.Do_OpenFvCsv(this, logTag);
+            Util_LearnOperation.Do_OpenFvCsv(this);
         }
 
         /// <summary>
@@ -516,7 +514,7 @@ namespace Grayscale.A690FvLearn
             out bool out_isEmptyKifu,
             ref bool ref_isRequest_ShowGohosyu,
             ref bool ref_isRequest_ChangeKyokumenPng,
-            ILogTag errH)
+            ILogTag logTag)
         {
             //
             // 前対局の情報のクリアー
@@ -534,7 +532,7 @@ namespace Grayscale.A690FvLearn
                     ref ref_isRequest_ShowGohosyu,
                     ref ref_isRequest_ChangeKyokumenPng,
                     kifuFilepath,
-                    this, errH);
+                    this, logTag);
                 out_isEmptyKifu = false;
             }
             else

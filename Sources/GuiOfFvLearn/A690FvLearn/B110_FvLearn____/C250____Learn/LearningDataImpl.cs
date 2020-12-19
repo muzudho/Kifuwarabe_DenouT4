@@ -199,7 +199,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
             Tree kifu1,
             ISky positionA,
             string[] searchedPv,
-            ILogTag errH)
+            ILogTag logTag)
         {
             //----------------------------------------
             // 合法手のNextNodesを作成します。
@@ -231,7 +231,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
                 positionA.GetKaisiPside(),
                 positionA,
                 searchedPv,
-                args, errH);
+                args, logTag);
 #if DEBUG
             sw2.Stop();
             Console.WriteLine("合法手作成　　　 　= {0}", sw2.Elapsed);
@@ -243,10 +243,10 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
             //// 内部データ
             ////
             //{
-            //    if (null != errH.Dlgt_OnNaibuDataClear_or_Null)
+            //    if (null != logTag.Dlgt_OnNaibuDataClear_or_Null)
             //    {
-            //        errH.Dlgt_OnNaibuDataClear_or_Null();
-            //        errH.Dlgt_OnNaibuDataAppend_or_Null(this.DumpToAllGohosyu(this.Kifu.CurNode.Value.ToKyokumenConst));
+            //        logTag.Dlgt_OnNaibuDataClear_or_Null();
+            //        logTag.Dlgt_OnNaibuDataAppend_or_Null(this.DumpToAllGohosyu(this.Kifu.CurNode.Value.ToKyokumenConst));
             //    }
             //}
         }
@@ -291,7 +291,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
         public void WritePng(
             Move move,
             ISky positionA,
-            ILogTag errH
+            ILogTag logTag
             )
         {
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
@@ -334,7 +334,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
 
             // 学習フォーム
             Util_KyokumenPng_Writer.Write1(
-                ConvKifuNode.ToRO_Kyokumen1(positionA, errH),
+                ConvKifuNode.ToRO_Kyokumen1(positionA, logTag),
                 srcMasu_orMinusOne,
                 dstMasu_orMinusOne,
                 foodKoma,
@@ -342,7 +342,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
                 "",
                 toml.Get<TomlTable>("Resources").Get<string>("LearningPositionLogPngFilename"),
                 LearningDataImpl.REPORT_ENVIRONMENT,
-                errH
+                logTag
                 );
         }
 
@@ -401,8 +401,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
                 float score_notUse = handan.Evaluate(
                     psideA,
                     positionA,
-                    this.Fv, //参照してもらうだけ。
-                    LogTags.ProcessLearnerDefault
+                    this.Fv //参照してもらうだけ。
                 );
             }
             //----------------------------------------
@@ -413,8 +412,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
                 float score_notUse = handan_pp.Evaluate(
                     psideA,
                     positionA,
-                    this.Fv, //参照してもらうだけ。
-                    LogTags.ProcessLearnerDefault
+                    this.Fv //参照してもらうだけ。
                 );
             }
         }

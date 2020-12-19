@@ -33,7 +33,7 @@ namespace Grayscale.A450Server.B110Server.C497EngineClient
         /// 手番が変わったときに、実行する処理をここに書いてください。
         /// </summary>
         /// <param name="kifu"></param>
-        /// <param name="errH"></param>
+        /// <param name="logTag"></param>
         void OnChangedTurn(
             Earth earth,
 
@@ -41,17 +41,17 @@ namespace Grayscale.A450Server.B110Server.C497EngineClient
             Tree kifu1,
 
             Playerside kaisiPside,
-            ILogTag errH);
+            ILogTag logTag);
 
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
         /// </summary>
-        void Send_Shutdown(ILogTag errH);
+        void Send_Shutdown(ILogTag logTag);
 
         /// <summary>
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
-        void Send_Logdase(ILogTag errH);
+        void Send_Logdase(ILogTag logTag);
 
     }
 }

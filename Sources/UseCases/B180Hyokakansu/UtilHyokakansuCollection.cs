@@ -40,12 +40,11 @@ namespace Grayscale.A500ShogiEngine.B180Hyokakansu.C510HyokakansuColl
         /// </summary>
         /// <param name="node_mutable_KAIZOMAE">この評価シートに明細項目を追加します。</param>
         /// <param name="fv"></param>
-        /// <param name="errH"></param>
+        /// <param name="logTag"></param>
         public static float EvaluateAll_Normal(
             Playerside psideA,
             ISky positionA,
-            FeatureVector fv,
-            ILogTag errH
+            FeatureVector fv
             )
         {
             float score = 0.0f;
@@ -56,8 +55,7 @@ namespace Grayscale.A500ShogiEngine.B180Hyokakansu.C510HyokakansuColl
                 score += hyokakansu.Evaluate(
                     psideA,
                     positionA,
-                    fv,
-                    errH
+                    fv
                 );
             }
 

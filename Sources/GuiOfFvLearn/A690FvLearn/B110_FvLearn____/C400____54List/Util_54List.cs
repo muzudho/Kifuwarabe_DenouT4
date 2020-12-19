@@ -18,7 +18,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C400____54List
     public class Util_54List
     {
 
-        private static void Error1(Busstop busstop, ILogTag errH)
+        private static void Error1(Busstop busstop, ILogTag logTag)
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("Util_54List#Error1：２駒関係FVの配列添え字がわからないぜ☆！処理は続けられない。");
@@ -26,7 +26,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C400____54List
             sb.AppendLine("koma1.Komasyurui=[" + Conv_Busstop.ToKomasyurui(busstop) + "]");
             sb.AppendLine("koma1.Masu=[" + Conv_Busstop.ToMasu(busstop) + "]");
             sb.AppendLine("Conv_Masu.ToOkiba(koma1.Masu)=[" + Conv_Busstop.ToOkiba(busstop) + "]");
-            Logger.Panic(errH,sb.ToString());
+            Logger.Panic(logTag,sb.ToString());
         }
 
 
@@ -36,7 +36,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C400____54List
         /// 盤上の40駒リスト。
         /// 駒台の14駒リスト。
         /// </summary>
-        public static N54List Calc_54List(ISky src_Sky, ILogTag errH)
+        public static N54List Calc_54List(ISky src_Sky, ILogTag logTag)
         {
             N54List result_n54List = new N54ListImpl();
 
@@ -67,7 +67,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C400____54List
                     if (FeatureVectorImpl.CHOSA_KOMOKU_ERROR == pIndex)
                     {
                         // p1 がエラーでは、処理は続けられない。
-                        Util_54List.Error1(busstop, errH);
+                        Util_54List.Error1(busstop, logTag);
                         goto gt_NextLoop_player1;
                     }
 
@@ -93,7 +93,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C400____54List
                     if (FeatureVectorImpl.CHOSA_KOMOKU_ERROR == pIndex)
                     {
                         // p1 がエラーでは、処理は続けられない。
-                        Util_54List.Error1(busstop, errH);
+                        Util_54List.Error1(busstop, logTag);
                         goto gt_NextLoop_player1;
                     }
 

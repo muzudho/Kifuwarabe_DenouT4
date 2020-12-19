@@ -64,7 +64,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogTag errH
+                    , ILogTag logTag
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -74,7 +74,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
                     ins.After_NaruNaranai_ButtonPushed(
                         shogibanGui2
                         , btnKoma_Selected
-                        , errH
+                        , logTag
                         );
                 };
 
@@ -85,14 +85,14 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogTag errH
+                    , ILogTag logTag
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
                     MainGui_Csharp shogibanGui2 = (MainGui_Csharp)obj_shogiGui2;
 
                     Util_Lua_Csharp.ShogiGui = shogibanGui2;
-                    Util_Lua_Csharp.ErrH = errH;
+                    Util_Lua_Csharp.ErrH = logTag;
                     Util_Lua_Csharp.Perform("click_clearButton");
                 };
 
@@ -103,14 +103,14 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogTag errH
+                    , ILogTag logTag
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
                     MainGui_Csharp shogibanGui2 = (MainGui_Csharp)obj_shogiGui2;
 
                     Util_Lua_Csharp.ShogiGui = shogibanGui2;
-                    Util_Lua_Csharp.ErrH = errH;
+                    Util_Lua_Csharp.ErrH = logTag;
                     Util_Lua_Csharp.Perform("click_playButton");
                 };
 
@@ -121,7 +121,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogTag errH
+                    , ILogTag logTag
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
@@ -135,15 +135,15 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
                         mainGui3.Link_Server.KifuTree,
 
                         mainGui3.SkyWrapper_Gui,
-                        errH
+                        logTag
                         );
                     Util_Function_Csharp.Komaokuri_Gui(restText,
                         mainGui3.Link_Server.KifuTree.MoveEx_Current,
                         mainGui3.Link_Server.KifuTree.PositionA,//.CurNode2ok.GetNodeValue()
                         mainGui3,
                         mainGui3.Link_Server.KifuTree,
-                        errH);
-                    Util_Menace.Menace(mainGui3, errH);// メナス
+                        logTag);
+                    Util_Menace.Menace(mainGui3, logTag);// メナス
                 };
 
                 //
@@ -191,13 +191,13 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogTag errH
+                    , ILogTag logTag
                     ) =>
                 {
                     MainGui_Csharp shogibanGui2 = (MainGui_Csharp)obj_shogiGui2;
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;
 
-                    shogibanGui2.Logdase(errH);
+                    shogibanGui2.Logdase(logTag);
                 };
 
                 //
@@ -207,7 +207,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C491Event
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    , ILogTag errH
+                    , ILogTag logTag
                     ) =>
                 {
                     MainGui_Csharp shogibanGui2 = (MainGui_Csharp)obj_shogiGui2;

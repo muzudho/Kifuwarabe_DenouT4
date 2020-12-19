@@ -25,7 +25,7 @@ namespace Grayscale.A500ShogiEngine.B200Scoreing.C061Util
             Tree kifu1,
             KyokumenPngEnvironment reportEnvironment,
             KaisetuBoards logF_kiki,
-            ILogger errH
+            ILogger logTag
             )
         {
             //
@@ -52,7 +52,7 @@ namespace Grayscale.A500ShogiEngine.B200Scoreing.C061Util
                         logBrd_move1,
                         0,//現在の手済み
                         niniNode.Key,
-                        errH
+                        logTag
                     )
 //#endif
                 );

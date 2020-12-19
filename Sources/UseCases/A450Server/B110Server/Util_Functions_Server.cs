@@ -94,7 +94,7 @@ namespace Grayscale.A450Server.B110Server.C250Util
             [CallerLineNumber] int sourceLineNumber = 0
             )
         {
-            //ILogger errH = OwataMinister.SERVER_KIFU_YOMITORI;
+            //ILogger logTag = OwataMinister.SERVER_KIFU_YOMITORI;
 
             bool successful = false;
             KifuParserAImpl kifuParserA_Impl = new KifuParserAImpl();
@@ -198,8 +198,8 @@ namespace Grayscale.A450Server.B110Server.C250Util
                 if (kifuParserA_Impl.State is KifuParserAStateA2SfenMoves)
                 {
 #if DEBUG
-                    errH.AppendLine("ﾂｷﾞﾊ　ｲｯﾃ　ｼｮﾘｼﾀｲ☆");
-                    errH.Flush(LogTypes.Plain);
+                    logTag.AppendLine("ﾂｷﾞﾊ　ｲｯﾃ　ｼｮﾘｼﾀｲ☆");
+                    logTag.Flush(LogTypes.Plain);
 #endif
 
                     inputLine = kifuParserA_Impl.Execute_Step_CurrentMutable(
@@ -385,7 +385,7 @@ namespace Grayscale.A450Server.B110Server.C250Util
             Tree kifu1,
 
             SkyWrapper_Gui model_Manual,
-            ILogTag errH,
+            ILogTag logTag,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
@@ -405,7 +405,7 @@ namespace Grayscale.A450Server.B110Server.C250Util
                 model_Manual,
                 out toBreak,
                 "hint",
-                errH
+                logTag
                 );
 
         gt_EndMethod:
@@ -431,7 +431,7 @@ namespace Grayscale.A450Server.B110Server.C250Util
             Finger fig_btnTumandeiruKoma,
             Busstop foodee_koma,//取られる対象の駒
             SkyWrapper_Gui model_Manual,
-            ILogTag errH
+            ILogTag logTag
             )
         {
 

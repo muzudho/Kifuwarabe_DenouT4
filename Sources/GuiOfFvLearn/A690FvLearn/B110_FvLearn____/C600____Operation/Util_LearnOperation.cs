@@ -58,11 +58,11 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
                 if (uc_Main.LearningData.ContainsKeyCurChildNode(move1, uc_Main.LearningData.KifuA, logger))
                 {
 #if DEBUG
-                    errH.AppendLine("----------------------------------------");
-                    errH.AppendLine("FV 総合点（読込前）1");
-                    errH.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(uc_Main.LearningData.Fv));
-                    errH.AppendLine("----------------------------------------");
-                    errH.Flush(LogTypes.Plain);
+                    logTag.AppendLine("----------------------------------------");
+                    logTag.AppendLine("FV 総合点（読込前）1");
+                    logTag.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(uc_Main.LearningData.Fv));
+                    logTag.AppendLine("----------------------------------------");
+                    logTag.Flush(LogTypes.Plain);
 #endif
 
                     Sky positionA = uc_Main.LearningData.PositionA;
@@ -99,11 +99,11 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
 
 
 #if DEBUG
-                    errH.AppendLine("----------------------------------------");
-                    errH.AppendLine("FV 総合点（読込後）6");
-                    errH.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(uc_Main.LearningData.Fv));
-                    errH.AppendLine("----------------------------------------");
-                    errH.Flush(LogTypes.Plain);
+                    logTag.AppendLine("----------------------------------------");
+                    logTag.AppendLine("FV 総合点（読込後）6");
+                    logTag.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(uc_Main.LearningData.Fv));
+                    logTag.AppendLine("----------------------------------------");
+                    logTag.Flush(LogTypes.Plain);
 #endif
                 }
                 */
@@ -134,13 +134,13 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
         /// <summary>
         /// 初期局面の評価値を 0 点にするようにFVを調整します。
         /// </summary>
-        public static void Do_ZeroStart(ref bool isRequest_ShowGohosyu, UcMain uc_Main, ILogTag errH)
+        public static void Do_ZeroStart(ref bool isRequest_ShowGohosyu, UcMain uc_Main, ILogTag logTag)
         {
             bool isRequestDoEvents = false;
-            Util_StartZero.Adjust_HirateSyokiKyokumen_0ten_AndFvParamRange(ref isRequestDoEvents, uc_Main.LearningData.Fv, errH);
+            Util_StartZero.Adjust_HirateSyokiKyokumen_0ten_AndFvParamRange(ref isRequestDoEvents, uc_Main.LearningData.Fv, logTag);
 
             //// 合法手一覧を作成
-            //uc_Main.LearningData.Aa_Yomi(uc_Main.LearningData.Kifu.CurNode.Key, errH);
+            //uc_Main.LearningData.Aa_Yomi(uc_Main.LearningData.Kifu.CurNode.Key, logTag);
 
             // 局面の合法手表示の更新を要求
             isRequest_ShowGohosyu = true;
@@ -153,7 +153,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
         public static void DoRankUpMove(
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
-            UcMain uc_Main, ILogTag errH)
+            UcMain uc_Main, ILogTag logTag)
         {
             // 評価値変化量
             float chosei_bairitu;
@@ -164,7 +164,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
                 chosei_bairitu *= -1; //後手はマイナスの方が有利。
             }
 
-            Util_LearnOperation.ARankUpSelectedMove(uc_Main, chosei_bairitu, errH);
+            Util_LearnOperation.ARankUpSelectedMove(uc_Main, chosei_bairitu, logTag);
 
             // 現局面の合法手表示の更新を要求
             isRequest_ShowGohosyu = true;
@@ -179,7 +179,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
         public static void DoRankDownMove(
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
-            UcMain uc_Main, ILogTag errH)
+            UcMain uc_Main, ILogTag logTag)
         {
             // 評価値変化量
             float badScore;
@@ -191,7 +191,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
                 badScore *= -1; //後手はプラスの方が不利。
             }
 
-            Util_LearnOperation.ARankUpSelectedMove(uc_Main, badScore, errH);
+            Util_LearnOperation.ARankUpSelectedMove(uc_Main, badScore, logTag);
 
             // 現局面の合法手表示の更新を要求
             isRequest_ShowGohosyu = true;
@@ -214,7 +214,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
             uc_Main.TxtNikomaHyokati.Text = "";
         }
 
-        public static void Do_OpenFvCsv(UcMain uc_Main, ILogTag errH)
+        public static void Do_OpenFvCsv(UcMain uc_Main)
         {
             if ("" != uc_Main.TxtFvFilepath.Text)
             {
@@ -235,7 +235,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
 
                     StringBuilder sb_result = new StringBuilder();
                     // フィーチャー・ベクターの外部ファイルを開きます。
-                    sb_result.Append(Util_FvLoad.OpenFv(uc_Main.LearningData.Fv, filepath_base, errH));
+                    sb_result.Append(Util_FvLoad.OpenFv(uc_Main.LearningData.Fv, filepath_base, LogTags.ProcessLearnerDefault));
                     uc_Main.TxtStatus1.Text = sb_result.ToString();
 
                     // うまくいっていれば、フィーチャー・ベクターのセットアップが終わっているはず。
@@ -267,11 +267,11 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
 
 
 
-        public static void Load_CsaKifu(UcMain uc_Main, ILogTag errH)
+        public static void Load_CsaKifu(UcMain uc_Main, ILogTag logTag)
         {
             uc_Main.LearningData.ReadKifu(uc_Main);
 
-            UtilLearningView.ShowMoveList(uc_Main.LearningData, uc_Main, errH);
+            UtilLearningView.ShowMoveList(uc_Main.LearningData, uc_Main, logTag);
         }
 
 
@@ -279,7 +279,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
             string kifuFilepath,
-            UcMain uc_Main, ILogTag errH)
+            UcMain uc_Main, ILogTag logTag)
         {
             uc_Main.TxtKifuFilepath.Text = kifuFilepath;
 
@@ -287,13 +287,13 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
             Util_LearnOperation.Setup_KifuTree(
                 ref isRequest_ShowGohosyu,
                 ref isRequest_ChangeKyokumenPng,
-                uc_Main, errH);
+                uc_Main, logTag);
 
             // 処理が重いので。
             Application.DoEvents();
 
             // CSA棋譜を読み込みます。
-            Util_LearnOperation.Load_CsaKifu(uc_Main, errH);
+            Util_LearnOperation.Load_CsaKifu(uc_Main, logTag);
 
             // 合法手を調べます。
             int searchedMaxDepth = 0;
@@ -305,7 +305,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
                 uc_Main.LearningData.KifuA,
                 uc_Main.LearningData.PositionA,
                 searchedPv,
-                errH);
+                logTag);
             // ノード情報の表示
             UtilLearningView.Aa_ShowNode2(
                 uc_Main.LearningData,
@@ -323,7 +323,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
             ref bool isRequest_ShowGohosyu,
             ref bool isRequest_ChangeKyokumenPng,
             UcMain uc_Main,
-            ILogTag errH)
+            ILogTag logTag)
         {
             ISky positionA;
             Tree newKifu1_Hirate;
@@ -367,7 +367,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
                 positionA.GetKaisiPside(),
                 positionA,
                 searchedPv,
-                args, errH);
+                args, logTag);
 
             // 現局面の合法手表示の更新を要求
             isRequest_ShowGohosyu = true;

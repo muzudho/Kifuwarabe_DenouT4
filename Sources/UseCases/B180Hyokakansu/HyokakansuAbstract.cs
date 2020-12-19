@@ -43,8 +43,7 @@ namespace Grayscale.A500ShogiEngine.B180Hyokakansu.C500Hyokakansu
         abstract public float Evaluate(
             Playerside psideA,
             ISky positionA,
-            FeatureVector featureVector,
-            ILogTag errH
+            FeatureVector featureVector
             );
 
     }

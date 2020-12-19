@@ -203,7 +203,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
             out Finger figMovedKoma,
             Move moved,
             ISky positionA,
-            ILogTag errH
+            ILogTag logTag
             )
         {
             //------------------------------------------------------------
@@ -219,7 +219,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
                 positionA,
                 ConvMove.ToPlayerside(moved),
                 ConvMove.ToDstMasu(moved),//[巻戻し]のときは、先位置が　駒の居場所。
-                errH
+                logTag
                 );
             Debug.Assert(figMovedKoma != Fingers.Error_1, "駒を動かせなかった？ Dst=" + Conv_Masu.ToLog_FromBanjo(ConvMove.ToDstMasu(moved)));
         }
@@ -291,12 +291,12 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
         /// <param name="move"></param>
         /// <param name="kaisi_Sky"></param>
         /// <param name="out_figFoodKoma"></param>
-        /// <param name="errH"></param>
+        /// <param name="logTag"></param>
         private static void Do62_TorareteitaKoma_ifExists(
             out Finger out_figFoodKoma,
             Move move,
             ISky kaisi_Sky,//巻き戻しのとき
-            ILogTag errH
+            ILogTag logTag
         )
         {
             Komasyurui14 captured = ConvMove.ToCaptured(move);
@@ -321,7 +321,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
 
                 // 取った駒は、種類が同じなら、駒台のどの駒でも同じです。
                 out_figFoodKoma = UtilSkyFingerQuery.InOkibaSyuruiNow_IgnoreCase(
-                    kaisi_Sky, okiba, captured, errH);
+                    kaisi_Sky, okiba, captured, logTag);
             }
             else
             {

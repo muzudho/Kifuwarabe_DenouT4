@@ -35,7 +35,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
         /// <param name="out_movelist"></param>
         /// <param name="out_yomiDeep"></param>
         /// <param name="out_a_childrenBest"></param>
-        /// <param name="errH"></param>
+        /// <param name="logTag"></param>
         public static List<Move> CreateMovelist_BeforeLoop(
             Tansaku_Genjo genjo,
 
@@ -44,7 +44,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
 
             ref int searchedMaxDepth,
             out int out_yomiDeep,
-            ILogTag errH
+            ILogTag logTag
             )
         {
             List<Move> result_movelist = UtilMovePicker.WAAAA_Create_ChildNodes(
@@ -52,7 +52,7 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                 psideA,//× Conv_Playerside.Reverse( psideA),
                 positionA,
                 //move_ForLog,//ログ用
-                errH);
+                logTag);
 
             out_yomiDeep = positionA.Temezumi - genjo.YomikaisiTemezumi + 1;
             if (searchedMaxDepth < out_yomiDeep - 1)//これから探索する分をマイナス1しているんだぜ☆（＾～＾）
@@ -147,10 +147,10 @@ namespace Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct
                 //                System.Console.WriteLine("komaBETUSusumeruMasusの全要素＝" + Util_List_OneAndMultiEx<Finger, SySet<SyElement>>.CountAllElements(komaBETUSusumeruMasus));
                 //#endif
                 //#if DEBUG
-                //                string jsaMoveStr = Util_Translator_Move.ToMove(genjo.Node_yomiNext, genjo.Node_yomiNext.Value, errH);
+                //                string jsaMoveStr = Util_Translator_Move.ToMove(genjo.Node_yomiNext, genjo.Node_yomiNext.Value, logTag);
                 //                System.Console.WriteLine("[" + jsaMoveStr + "]の駒別置ける升 調べ\n" + Util_List_OneAndMultiEx<Finger, SySet<SyElement>>.Dump(komaBETUSusumeruMasus, genjo.Node_yomiNext.Value.ToKyokumenConst));
                 //#endif
-                //Moveseisei_FukasaYusen_Routine.Log2(genjo, logBrd_move1, errH);//ログ試し
+                //Moveseisei_FukasaYusen_Routine.Log2(genjo, logBrd_move1, logTag);//ログ試し
 
                 exceptionArea = 29000;
 

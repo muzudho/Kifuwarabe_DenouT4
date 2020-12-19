@@ -367,7 +367,7 @@ namespace Grayscale.P699Form
         /// </summary>
         /// <param name="response"></param>
         public void Solute_RepaintRequest(
-            Form1_Mutex mutex, MainGui_Csharp mainGui, ILogTag errH)
+            Form1_Mutex mutex, MainGui_Csharp mainGui, ILogTag logTag)
         {
             UcForm2Main form2 = ((Form1Shogi)this.ParentForm).Form2_Console.Uc_Form2Main;
 
@@ -378,7 +378,7 @@ namespace Grayscale.P699Form
             {
                 this.MainGui.SkyWrapper_Gui.GuiSky.Foreach_Busstops((Finger finger, Busstop busstop, ref bool toBreak) =>
                 {
-                    Util_Function_Csharp.Redraw_KomaLocation(finger, this.MainGui, errH);
+                    Util_Function_Csharp.Redraw_KomaLocation(finger, this.MainGui, logTag);
                 });
             }
             mainGui.RepaintRequest.Clear_KomasRecalculateRequested();
@@ -410,8 +410,8 @@ namespace Grayscale.P699Form
                         form2.WriteLine_Syuturyoku("");
 
                         // ログ
-                        //errH.AppendLine_AddMemo( "");
-                        //errH.AppendLine_AddMemo( "");
+                        //logTag.AppendLine_AddMemo( "");
+                        //logTag.AppendLine_AddMemo( "");
                     }
                     break;
 
@@ -424,7 +424,7 @@ namespace Grayscale.P699Form
                                 form2.WriteLine_Syuturyoku(UtilKirokuGakari.ToJsaFugoListString(
                                     this.MainGui.Link_Server.Earth,
                                     this.MainGui.Link_Server.KifuTree,//.CurrentNode,
-                                    "Ui_PnlMain.Response", errH));
+                                    "Ui_PnlMain.Response", logTag));
                                 break;
                             case SyuturyokuKirikae.Sfen:
                                 form2.WriteLine_Syuturyoku(
@@ -440,8 +440,8 @@ namespace Grayscale.P699Form
 
 #if DEBUG
                         // ログ
-                        errH.AppendLine(form2.GetOutputareaText());
-                        errH.Flush(LogTypes.Plain);
+                        logTag.AppendLine(form2.GetOutputareaText());
+                        logTag.Flush(LogTypes.Plain);
 #endif
                     }
                     break;

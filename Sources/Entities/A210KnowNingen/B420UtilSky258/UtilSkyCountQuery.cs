@@ -37,18 +37,18 @@ namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
         /// <param name="mn"></param>
         /// <param name="ml"></param>
         /// <param name="mp"></param>
-        /// <param name="errH"></param>
+        /// <param name="logTag"></param>
         public static void CountMoti(
             ISky src_Sky,
             out int[] motiSu,
-            ILogTag errH
+            ILogTag logTag
         )
         {
             motiSu = new int[(int)Piece.Num];
 
             Fingers komas_moti1p;// 先手の持駒
             Fingers komas_moti2p;// 後手の持駒
-            UtilSkyFingersQueryFx.Split_Moti1p_Moti2p(out komas_moti1p, out komas_moti2p, src_Sky, errH);
+            UtilSkyFingersQueryFx.Split_Moti1p_Moti2p(out komas_moti1p, out komas_moti2p, src_Sky, logTag);
 
             foreach (Finger figKoma in komas_moti1p.Items)
             {

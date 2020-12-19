@@ -345,7 +345,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
             out Busstop out_food_koma,
             out Playerside pside,
             out SyElement akiMasu,
-            ILogTag errH
+            ILogTag logTag
             )
         {
             //----------
@@ -364,9 +364,9 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
                 susunda_Sky_orNull_before.AssertFinger(out_figFoodKoma);
                 out_food_koma = susunda_Sky_orNull_before.BusstopIndexOf(out_figFoodKoma);
 #if DEBUG
-                if (null != errH.KwDisplayerOrNull.OnAppendLog)
+                if (null != logTag.KwDisplayerOrNull.OnAppendLog)
                 {
-                    errH.KwDisplayerOrNull.OnAppendLog("駒取った=" + Conv_Busstop.ToKomasyurui( out_food_koma) + Environment.NewLine);
+                    logTag.KwDisplayerOrNull.OnAppendLog("駒取った=" + Conv_Busstop.ToKomasyurui( out_food_koma) + Environment.NewLine);
                 }
 #endif
                 //

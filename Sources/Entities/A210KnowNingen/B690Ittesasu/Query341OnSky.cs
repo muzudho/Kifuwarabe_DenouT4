@@ -29,7 +29,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
             SySet<SyElement> srcAll,
             ISky src_Sky,//KifuTree kifu,
             out Finger foundKoma,
-            ILogTag errH
+            ILogTag logTag
             )
         {
             //SkyConst src_Sky = kifu.CurNode.Value.ToKyokumenConst;

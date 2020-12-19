@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace P920UtifuduTest.Properties {
+namespace Grayscale.Kifuwaragyoku.GuiOfUtifuduTest.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

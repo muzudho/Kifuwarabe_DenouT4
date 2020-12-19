@@ -338,7 +338,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C081Canvas
             ISky positionA,
             MainGui_Csharp shogiGui,
             string windowName,
-            ILogTag errH
+            ILogTag logTag
             )
         {
             if (!this.Visible)
@@ -365,7 +365,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C081Canvas
             //----------
             foreach (Shape_BtnKomaImpl koma in this.Btn40Komas)
             {
-                koma.Paint(e.Graphics, shogiGui, errH);
+                koma.Paint(e.Graphics, shogiGui, logTag);
             }
 
             //----------
@@ -385,7 +385,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C081Canvas
             base.Paint(sender, e,
                 psideA,//shogiGui.Link_Server.KifuTree.PositionA.GetKaisiPside(),
                 shogiGui.Link_Server.KifuTree.PositionA,
-                shogiGui, windowName, errH);
+                shogiGui, windowName, logTag);
 
         gt_EndMethod:
             ;

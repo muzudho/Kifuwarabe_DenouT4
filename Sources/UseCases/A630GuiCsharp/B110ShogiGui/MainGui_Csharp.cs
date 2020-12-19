@@ -42,18 +42,18 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui
             Tree kifu1,
 
             Playerside pside,
-            ILogTag errH);
+            ILogTag logTag);
 
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
         /// </summary>
-        void Shutdown(ILogTag errH);
+        void Shutdown(ILogTag logTag);
 
 
         /// <summary>
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
-        void Logdase(ILogTag errH);
+        void Logdase(ILogTag logTag);
 
 
         /// <summary>
@@ -61,12 +61,12 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui
         /// 将棋エンジンを起動します。
         /// ************************************************************************************************************************
         /// </summary>
-        void Start_ShogiEngine(string shogiEngineFilePath, ILogTag errH);
+        void Start_ShogiEngine(string shogiEngineFilePath, ILogTag logTag);
 
         /// <summary>
         /// コンピューターの先手
         /// </summary>
-        void Do_ComputerSente(ILogTag errH);
+        void Do_ComputerSente(ILogTag logTag);
 
 
         Busstop GetKoma(Finger finger);
@@ -116,7 +116,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui
         Timed TimedA { get; set; }
         Timed TimedB_MouseCapture { get; set; }
         Timed TimedC { get; set; }
-        void Timer_Tick(ILogTag errH);
+        void Timer_Tick(ILogTag logTag);
 
         RepaintRequest RepaintRequest { get; set; }
 
@@ -143,7 +143,7 @@ namespace Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui
         void SetScene(SceneName scene);
 
 
-        void Response(string mutexString, ILogTag errH);
+        void Response(string mutexString, ILogTag logTag);
 
 
 

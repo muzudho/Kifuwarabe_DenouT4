@@ -8,8 +8,8 @@
     <ProjectGuid>{FC876110-BD0B-483D-8A64-350582B529F3}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>P930_SampleGame</RootNamespace>
-    <AssemblyName>P890_SampleGame</AssemblyName>
+    <RootNamespace>Grayscale.Kifuwaragyoku.UiOfSampleGame</RootNamespace>
+    <AssemblyName>Grayscale.Kifuwaragyoku.UiOfSampleGame</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

@@ -32,7 +32,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C508AutoMoveRush
             ref bool isRequest_ChangeKyokumenPng,
             int renzokuTe,
             UcMain uc_Main,
-            ILogTag errH)
+            ILogTag logTag)
         {
             out_isEndKifuread = false;
 
@@ -105,7 +105,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C508AutoMoveRush
                     loopLimit,
                     ref tyoseiryo,
                     move1,
-                    uc_Main, errH
+                    uc_Main, logTag
                     );
 
                 if (isEndAutoLearn)
@@ -123,13 +123,13 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C508AutoMoveRush
 
                 if (uc_Main.ChkStartZero.Checked)// 自動で、平手初期局面の点数を 0 点に近づけるよう調整します。
                 {
-                    Util_StartZero.Adjust_HirateSyokiKyokumen_0ten_AndFvParamRange(ref isRequestDoEvents, uc_Main.LearningData.Fv, errH);
+                    Util_StartZero.Adjust_HirateSyokiKyokumen_0ten_AndFvParamRange(ref isRequestDoEvents, uc_Main.LearningData.Fv, logTag);
                 }
 
                 if (uc_Main.ChkAutoParamRange.Checked)
                 {
                     //// 自動で -999～999 に矯正。
-                    UtilLearnFunctions.FvParamRange_PP(uc_Main.LearningData.Fv, errH);// 自動で -999～999(*bairitu) に矯正。
+                    UtilLearnFunctions.FvParamRange_PP(uc_Main.LearningData.Fv, logTag);// 自動で -999～999(*bairitu) に矯正。
 
                     // 合法手表示の更新を要求
                     isRequest_ShowGohosyu = true;
@@ -147,7 +147,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C508AutoMoveRush
                     UtilLearningView.Ittesasu_ByBtnClick(
                         ref isRequest_ShowGohosyu,
                         ref isRequest_ChangeKyokumenPng,
-                        uc_Main.LearningData, uc_Main, errH);
+                        uc_Main.LearningData, uc_Main, logTag);
 
                     // 局面PNG画像の更新を要求
                     //isRequest_ChangeKyokumenPng = true;
@@ -162,7 +162,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C508AutoMoveRush
                 if (isRequest_ShowGohosyu)
                 {
                     // 合法手一覧を更新
-                    UtilLearningView.Aa_ShowGohosyu2(uc_Main.LearningData, uc_Main, errH);
+                    UtilLearningView.Aa_ShowGohosyu2(uc_Main.LearningData, uc_Main, logTag);
                     isRequest_ShowGohosyu = false;
 
                     // 重い処理のあとは。
@@ -212,7 +212,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C508AutoMoveRush
                     uc_Main.ChkAutosave.Checked && uc_Main.LearningData.PositionA.Temezumi % 20 == 0
                 )
                 {
-                    UtilLearnFunctions.Do_Save(uc_Main, errH);
+                    UtilLearnFunctions.Do_Save(uc_Main, logTag);
                     isSaved = true;
                 }
 
@@ -232,7 +232,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C508AutoMoveRush
             {
                 if (!isSaved)
                 {
-                    UtilLearnFunctions.Do_Save(uc_Main, errH);
+                    UtilLearnFunctions.Do_Save(uc_Main, logTag);
                     isSaved = true;
                 }
             }
@@ -253,7 +253,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C508AutoMoveRush
                 uc_Main.SeikoIdo();
 
                 bool isEmptyKifu;
-                uc_Main.Do_NextKifuSet(out isEmptyKifu, ref isRequest_ShowGohosyu, ref isRequest_ChangeKyokumenPng, errH);
+                uc_Main.Do_NextKifuSet(out isEmptyKifu, ref isRequest_ShowGohosyu, ref isRequest_ChangeKyokumenPng, logTag);
 
                 if (isEmptyKifu)
                 {
@@ -265,8 +265,8 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C508AutoMoveRush
                 if (isRequest_ShowGohosyu)
                 {
                     // 合法手一覧を更新
-                    UtilLearnFunctions.FvParamRange_PP(uc_Main.LearningData.Fv, errH);// 自動で -999～999(*bairitu) に矯正。
-                    UtilLearningView.Aa_ShowGohosyu2(uc_Main.LearningData, uc_Main, errH);
+                    UtilLearnFunctions.FvParamRange_PP(uc_Main.LearningData.Fv, logTag);// 自動で -999～999(*bairitu) に矯正。
+                    UtilLearningView.Aa_ShowGohosyu2(uc_Main.LearningData, uc_Main, logTag);
                     isRequest_ShowGohosyu = false;
                 }
 

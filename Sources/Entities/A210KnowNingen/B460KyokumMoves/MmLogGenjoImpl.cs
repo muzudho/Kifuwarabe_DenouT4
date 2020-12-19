@@ -38,8 +38,8 @@ namespace Grayscale.A210KnowNingen.B460KyokumMoves.C250Log
         public Move Move { get { return this.m_move_; } }
         private Move m_move_;
 
-        public ILogger ErrH { get { return this.errH; } }
-        private ILogger errH;
+        public ILogger ErrH { get { return this.logTag; } }
+        private ILogger logTag;
 
 
         public MmLogGenjoImpl(
@@ -47,14 +47,14 @@ namespace Grayscale.A210KnowNingen.B460KyokumMoves.C250Log
             KaisetuBoard brdMove,
             int temezumi_yomiCur,
             Move move,
-            ILogger errH
+            ILogger logTag
             )
         {
             this.BrdMove = brdMove;
             this.yomikaisiTemezumi = yomikaisiTemezumi;
             this.temezumi_yomiCur = temezumi_yomiCur;
             this.m_move_ = move;
-            this.errH = errH;
+            this.logTag = logTag;
         }
 
         public void Log1(Playerside pside_genTeban3)
