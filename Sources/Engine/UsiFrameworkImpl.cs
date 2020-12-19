@@ -11,8 +11,6 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
             this.OnApplicationBegin = this.m_nullFunc01;
             this.OnCommandlineAtLoop1 = this.m_nullFunc05;
             this.OnGameover = this.m_nullFunc02;
-            this.OnGoponder = this.m_nullFunc02;
-            this.OnGo = this.m_nullFunc02;
             this.OnLogDase = this.m_nullFunc02;
             this.OnLoop2End = this.m_nullFunc01;
             this.OnStop = this.m_nullFunc02;
@@ -37,17 +35,6 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
         /// Loop2のEnd部で呼ばれます。
         /// </summary>
         public Func01 OnLoop2End { get; set; }
-
-        /// <summary>
-        /// Loop2のBody部で呼ばれます。
-        /// </summary>
-        public Func02 OnGoponder { get; set; }
-
-        /// <summary>
-        /// 「go ponder」「go mate」「go infinite」とは区別します。
-        /// Loop2のBody部で呼ばれます。
-        /// </summary>
-        public Func02 OnGo { get; set; }
 
         /// <summary>
         /// Loop2のBody部で呼ばれます。

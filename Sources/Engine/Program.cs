@@ -17,6 +17,15 @@ using Grayscale.A210KnowNingen.B490ForcePromot.C250Struct;
 using Grayscale.A210KnowNingen.B300_KomahaiyaTr.C500Table;
 using Grayscale.A500ShogiEngine.B260UtilClient.C500Util;
 using Grayscale.A210KnowNingen.B740KifuParserA.C500Parser;
+using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.A210KnowNingen.B320ConvWords.C500Converter;
+using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
+using Grayscale.A500ShogiEngine.B280KifuWarabe.C125AjimiEngine;
+using Grayscale.A210KnowNingen.B410SeizaFinger.C250Struct;
+using Grayscale.A210KnowNingen.B240Move.C500Struct;
+using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using System.Collections.Generic;
 
 namespace Grayscale.P580_Form_______
 {
@@ -63,9 +72,9 @@ namespace Grayscale.P580_Form_______
                 // 思考エンジンの、記憶を読み取ります。
                 //------------------------------------------------------------------------------------------------------------------------
                 {
-                    programSupport.Shogisasi = new ShogisasiImpl(playing, programSupport);
+                    playing.Shogisasi = new ShogisasiImpl(playing, programSupport);
                     Util_FvLoad.OpenFv(
-                        programSupport.Shogisasi.FeatureVector,
+                        playing.Shogisasi.FeatureVector,
                         Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Fv00Komawari")), LogTags.ProcessEngineDefault);
                 }
 
@@ -303,7 +312,7 @@ namespace Grayscale.P580_Form_______
                     }
 
                     // ループ（２つ目）
-                    programSupport.Shogisasi.OnTaikyokuKaisi();//対局開始時の処理。
+                    playing.Shogisasi.OnTaikyokuKaisi();//対局開始時の処理。
 
                     while (true)
                     {
@@ -344,94 +353,6 @@ namespace Grayscale.P580_Form_______
                             {
                                 ILogTag logTag = LogTags.ProcessEngineDefault;
 
-                                //------------------------------------------------------------
-                                // これが棋譜です
-                                //------------------------------------------------------------
-                                //
-                                // 図.
-                                //
-                                //      log.txt
-                                //      ┌────────────────────────────────────────
-                                //      ～
-                                //      │2014/08/02 2:03:35> position startpos moves 2g2f
-                                //      │
-                                //
-                                // ↑↓この将棋エンジンは後手で、平手初期局面から、先手が初手  ▲２六歩  を指されたことが分かります。
-                                //
-                                //        ９  ８  ７  ６  ５  ４  ３  ２  １                 ９  ８  ７  ６  ５  ４  ３  ２  １
-                                //      ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐             ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐
-                                //      │香│桂│銀│金│玉│金│銀│桂│香│一           │ｌ│ｎ│ｓ│ｇ│ｋ│ｇ│ｓ│ｎ│ｌ│ａ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │  │飛│  │  │  │  │  │角│  │二           │  │ｒ│  │  │  │  │  │ｂ│  │ｂ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │歩│歩│歩│歩│歩│歩│歩│歩│歩│三           │ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｃ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │  │  │  │  │  │  │  │  │  │四           │  │  │  │  │  │  │  │  │  │ｄ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │  │  │  │  │  │  │  │  │  │五           │  │  │  │  │  │  │  │  │  │ｅ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │  │  │  │  │  │  │  │歩│  │六           │  │  │  │  │  │  │  │Ｐ│  │ｆ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │歩│歩│歩│歩│歩│歩│歩│  │歩│七           │Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│  │Ｐ│ｇ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │  │角│  │  │  │  │  │飛│  │八           │  │Ｂ│  │  │  │  │  │Ｒ│  │ｈ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │香│桂│銀│金│玉│金│銀│桂│香│九           │Ｌ│Ｎ│Ｓ│Ｇ│Ｋ│Ｇ│Ｓ│Ｎ│Ｌ│ｉ
-                                //      └─┴─┴─┴─┴─┴─┴─┴─┴─┘             └─┴─┴─┴─┴─┴─┴─┴─┴─┘
-                                //
-                                // または
-                                //
-                                //      log.txt
-                                //      ┌────────────────────────────────────────
-                                //      ～
-                                //      │2014/08/02 2:03:35> position sfen lnsgkgsnl/9/ppppppppp/9/9/9/PPPPPPPPP/1B5R1/LNSGKGSNL w - 1 moves 5a6b 7g7f 3a3b
-                                //      │
-                                //
-                                // ↑↓将棋所のサンプルによると、“２枚落ち初期局面から△６二玉、▲７六歩、△３二銀と進んだ局面”とのことです。
-                                //
-                                //                                           ＜初期局面＞    ９  ８  ７  ６  ５  ４  ３  ２  １
-                                //                                                         ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐
-                                //                                                         │ｌ│ｎ│ｓ│ｇ│ｋ│ｇ│ｓ│ｎ│ｌ│ａ  ←lnsgkgsnl
-                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //                                                         │  │  │  │  │  │  │  │  │  │ｂ  ←9
-                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //                                                         │ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｃ  ←ppppppppp
-                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //                                                         │  │  │  │  │  │  │  │  │  │ｄ  ←9
-                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //                                                         │  │  │  │  │  │  │  │  │  │ｅ  ←9
-                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //                                                         │  │  │  │  │  │  │  │  │  │ｆ  ←9
-                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //                                                         │Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│ｇ  ←PPPPPPPPP
-                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //                                                         │  │Ｂ│  │  │  │  │  │Ｒ│  │ｈ  ←1B5R1
-                                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //                                                         │Ｌ│Ｎ│Ｓ│Ｇ│Ｋ│Ｇ│Ｓ│Ｎ│Ｌ│ｉ  ←LNSGKGSNL
-                                //                                                         └─┴─┴─┴─┴─┴─┴─┴─┴─┘
-                                //
-                                //        ９  ８  ７  ６  ５  ４  ３  ２  １   ＜３手目＞    ９  ８  ７  ６  ５  ４  ３  ２  １
-                                //      ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐             ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐
-                                //      │香│桂│銀│金│  │金│  │桂│香│一           │ｌ│ｎ│ｓ│ｇ│  │ｇ│  │ｎ│ｌ│ａ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │  │  │  │玉│  │  │銀│  │  │二           │  │  │  │ｋ│  │  │ｓ│  │  │ｂ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │歩│歩│歩│歩│歩│歩│歩│歩│歩│三           │ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｃ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │  │  │  │  │  │  │  │  │  │四           │  │  │  │  │  │  │  │  │  │ｄ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │  │  │  │  │  │  │  │  │  │五           │  │  │  │  │  │  │  │  │  │ｅ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │  │  │歩│  │  │  │  │  │  │六           │  │  │Ｐ│  │  │  │  │  │  │ｆ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │歩│歩│  │歩│歩│歩│歩│歩│歩│七           │Ｐ│Ｐ│  │Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│ｇ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │  │角│  │  │  │  │  │飛│  │八           │  │Ｂ│  │  │  │  │  │Ｒ│  │ｈ
-                                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                                //      │香│桂│銀│金│玉│金│銀│桂│香│九           │Ｌ│Ｎ│Ｓ│Ｇ│Ｋ│Ｇ│Ｓ│Ｎ│Ｌ│ｉ
-                                //      └─┴─┴─┴─┴─┴─┴─┴─┴─┘             └─┴─┴─┴─┴─┴─┴─┴─┴─┘
-                                //
-
                                 // 手番になったときに、“まず”、将棋所から送られてくる文字が position です。
                                 // このメッセージを読むと、駒の配置が分かります。
                                 //
@@ -446,8 +367,8 @@ namespace Grayscale.P580_Form_______
                                 kifuParserA.Execute_All_CurrentMutable(
                                     ref result,
 
-                                    programSupport.Earth,
-                                    programSupport.Kifu,
+                                    playing.Earth,
+                                    playing.Kifu,
 
                                     genjo,
                                     logTag
@@ -458,8 +379,8 @@ namespace Grayscale.P580_Form_______
                                     // その解析結果をどう使うかは、委譲します。
                                     Util_InClient.OnChangeSky_Im_Client(
 
-                                        programSupport.Earth,
-                                        programSupport.Kifu,
+                                        playing.Earth,
+                                        playing.Kifu,
 
                                         genjo,
                                         logTag
@@ -485,8 +406,33 @@ namespace Grayscale.P580_Form_______
 
                                 result_Usi_Loop2 = PhaseResultUsiLoop2.None;
                             }
-                            else if (line.StartsWith("go ponder")) { result_Usi_Loop2 = usiFramework.OnGoponder(line); }
-                            else if (line.StartsWith("go")) { result_Usi_Loop2 = usiFramework.OnGo(line); }// 「go ponder」「go mate」「go infinite」とは区別します。
+                            else if (line.StartsWith("go ponder"))
+                            {
+                                playing.GoPonder();
+                                result_Usi_Loop2 = PhaseResultUsiLoop2.None;
+                            }
+                            // 「go ponder」「go mate」「go infinite」とは区別します。
+                            else if (line.StartsWith("go"))
+                            {
+                                Regex regex = new Regex(@"go btime (\d+) wtime (\d+) byoyomi (\d+)", RegexOptions.Singleline);
+                                Match m = regex.Match(line);
+
+                                if (m.Success)
+                                {
+                                    playing.Go((string)m.Groups[1].Value, (string)m.Groups[2].Value, (string)m.Groups[3].Value, "", "");
+                                }
+                                else
+                                {
+                                    // (2020-12-16 wed) フィッシャー・クロック・ルールに対応☆（＾～＾）
+                                    regex = new Regex(@"go btime (\d+) wtime (\d+) binc (\d+) winc (\d+)", RegexOptions.Singleline);
+                                    m = regex.Match(line);
+
+                                    playing.Go((string)m.Groups[1].Value, (string)m.Groups[2].Value, "", (string)m.Groups[3].Value, (string)m.Groups[4].Value);
+                                }
+
+                                //throw new Exception("デバッグだぜ☆！　エラーはキャッチできたかな～☆？（＾▽＾）");
+                                result_Usi_Loop2 = PhaseResultUsiLoop2.None;
+                            }
                             else if (line.StartsWith("stop")) { result_Usi_Loop2 = usiFramework.OnStop(line); }
                             else if (line.StartsWith("gameover")) { result_Usi_Loop2 = usiFramework.OnGameover(line); }
                             else if ("logdase" == line) { result_Usi_Loop2 = usiFramework.OnLogDase(line); }//独自拡張

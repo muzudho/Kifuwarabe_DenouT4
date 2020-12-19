@@ -30,6 +30,7 @@ using Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe;
 using Grayscale.A690FvLearn.B110FvLearn.C___250_Learn;
 using Grayscale.A690FvLearn.B110FvLearn.C250Learn;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.Kifuwaragyoku.UseCases;
 #endif
 
 namespace Grayscale.A690FvLearn.B110FvLearn.C260View
@@ -384,7 +385,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C260View
             ////----------------------------------------
             int searchedMaxDepth = 0;
             ulong searchedNodes = 0;
-            string[] searchedPv = new string[ProgramSupport.SEARCHED_PV_LENGTH];
+            string[] searchedPv = new string[Playing.SEARCHED_PV_LENGTH];
             learningData.Aa_Yomi(
                 ref searchedMaxDepth,
                 ref searchedNodes,

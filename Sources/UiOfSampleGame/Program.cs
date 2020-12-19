@@ -40,7 +40,7 @@ namespace P930_SampleGame
 
             int searchedMaxDepth = 0;
             ulong searchedNodes = 0;
-            string[] searchedPv = new string[ProgramSupport.SEARCHED_PV_LENGTH];
+            string[] searchedPv = new string[Playing.SEARCHED_PV_LENGTH];
             MoveEx bestmoveNode = shogisasi.WA_Bestmove(
                 ref searchedMaxDepth,
                 ref searchedNodes,
