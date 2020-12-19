@@ -9,15 +9,9 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500UsiFrame
 
     public interface IUsiFramework
     {
-        /// <summary>
-        /// 実行します。
-        /// </summary>
-        void Execute();
-
         Func01 OnApplicationBegin { get; set; }
         Func01 OnApplicationEnd { get; set; }
 
-        Func01 OnLoop1Begin { get; set; }
         Func01 OnLoop1End { get; set; }
 
         Func04 OnUsi { get; set; }

@@ -209,6 +209,7 @@
     <Compile Include="B280KifuWarabe\Result_KingState.cs" />
     <Compile Include="B280KifuWarabe\ShogisasiImpl.cs" />
     <Compile Include="B280KifuWarabe\Util_LogBuilder510.cs" />
+    <Compile Include="Playing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
