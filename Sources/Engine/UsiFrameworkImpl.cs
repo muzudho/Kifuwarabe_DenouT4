@@ -13,7 +13,6 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
             this.OnGameover = this.m_nullFunc02;
             this.OnLogDase = this.m_nullFunc02;
             this.OnLoop2End = this.m_nullFunc01;
-            this.OnStop = this.m_nullFunc02;
         }
 
         public Func01 m_nullFunc01 = delegate ()
@@ -35,11 +34,6 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
         /// Loop2のEnd部で呼ばれます。
         /// </summary>
         public Func01 OnLoop2End { get; set; }
-
-        /// <summary>
-        /// Loop2のBody部で呼ばれます。
-        /// </summary>
-        public Func02 OnStop { get; set; }
 
         /// <summary>
         /// Loop2のBody部で呼ばれます。

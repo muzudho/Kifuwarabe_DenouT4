@@ -433,8 +433,15 @@ namespace Grayscale.P580_Form_______
                                 //throw new Exception("デバッグだぜ☆！　エラーはキャッチできたかな～☆？（＾▽＾）");
                                 result_Usi_Loop2 = PhaseResultUsiLoop2.None;
                             }
-                            else if (line.StartsWith("stop")) { result_Usi_Loop2 = usiFramework.OnStop(line); }
-                            else if (line.StartsWith("gameover")) { result_Usi_Loop2 = usiFramework.OnGameover(line); }
+                            else if (line.StartsWith("stop"))
+                            {
+                                playing.Stop();
+                                result_Usi_Loop2 = PhaseResultUsiLoop2.None;
+                            }
+                            else if (line.StartsWith("gameover"))
+                            {
+                                result_Usi_Loop2 = usiFramework.OnGameover(line);
+                            }
                             else if ("logdase" == line) { result_Usi_Loop2 = usiFramework.OnLogDase(line); }//独自拡張
                             else
                             {
