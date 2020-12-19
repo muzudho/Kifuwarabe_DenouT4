@@ -122,7 +122,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             usiFramework.OnCommandlineAtLoop1 = this.OnCommandlineAtLoop1;
 
             // 対局開始時
-            usiFramework.OnLoop2Begin = this.OnLoop2Begin;
             // 対局中
             usiFramework.OnCommandlineAtLoop2 = this.OnCommandlineAtLoop2;
 
@@ -219,12 +218,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             }
 
             return line;
-        }
-
-
-        private void OnLoop2Begin()
-        {
-            this.Shogisasi.OnTaikyokuKaisi();//対局開始時の処理。
         }
 
         /// <summary>

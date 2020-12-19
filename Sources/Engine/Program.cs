@@ -324,7 +324,7 @@ namespace Grayscale.P580_Form_______
                     }
 
                     // ループ（２つ目）
-                    usiFramework.OnLoop2Begin();
+                    programSupport.Shogisasi.OnTaikyokuKaisi();//対局開始時の処理。
 
                     while (true)
                     {

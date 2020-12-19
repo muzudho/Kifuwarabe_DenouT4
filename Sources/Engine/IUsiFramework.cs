@@ -10,7 +10,6 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500UsiFrame
     {
         Func05 OnCommandlineAtLoop1 { get; set; }
 
-        Func01 OnLoop2Begin { get; set; }
         Func01 OnLoop2End { get; set; }
 
         Func05 OnCommandlineAtLoop2 { get; set; }
