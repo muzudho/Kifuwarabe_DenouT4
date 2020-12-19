@@ -341,5 +341,10 @@ namespace Grayscale.Kifuwaragyoku.UseCases
 #endif
         }
 
+        public void Position()
+        {
+
+        }
+
     }
 }

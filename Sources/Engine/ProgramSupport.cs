@@ -121,10 +121,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             // 準備時
             usiFramework.OnCommandlineAtLoop1 = this.OnCommandlineAtLoop1;
 
-            // 対局開始時
             // 対局中
-
-            usiFramework.OnPosition = this.OnPositionAtLoop2;
             usiFramework.OnGoponder = this.OnGoponderAtLoop2;
             usiFramework.OnGo = this.OnGo;
             usiFramework.OnStop = this.OnStop;
@@ -212,174 +209,11 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             if (null != line)
             {
                 // 通信ログは必ず取ります。
-                Logger.AppendLine(LogTags.ProcessEngineNetwork,line);
-                Logger.Flush(LogTags.ProcessEngineNetwork,LogTypes.ToClient);
+                Logger.AppendLine(LogTags.ProcessEngineNetwork, line);
+                Logger.Flush(LogTags.ProcessEngineNetwork, LogTypes.ToClient);
             }
 
             return line;
-        }
-
-        /// <summary>
-        /// Loop2のBody部で呼び出されます。
-        /// </summary>
-        /// <param name="line"></param>
-        /// <returns></returns>
-        private PhaseResultUsiLoop2 OnPositionAtLoop2(string line)
-        {
-            ILogTag logTag = LogTags.ProcessEngineDefault;
-
-            try
-            {
-                //------------------------------------------------------------
-                // これが棋譜です
-                //------------------------------------------------------------
-                #region ↓詳説
-                //
-                // 図.
-                //
-                //      log.txt
-                //      ┌────────────────────────────────────────
-                //      ～
-                //      │2014/08/02 2:03:35> position startpos moves 2g2f
-                //      │
-                //
-                // ↑↓この将棋エンジンは後手で、平手初期局面から、先手が初手  ▲２六歩  を指されたことが分かります。
-                //
-                //        ９  ８  ７  ６  ５  ４  ３  ２  １                 ９  ８  ７  ６  ５  ４  ３  ２  １
-                //      ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐             ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐
-                //      │香│桂│銀│金│玉│金│銀│桂│香│一           │ｌ│ｎ│ｓ│ｇ│ｋ│ｇ│ｓ│ｎ│ｌ│ａ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │  │飛│  │  │  │  │  │角│  │二           │  │ｒ│  │  │  │  │  │ｂ│  │ｂ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │歩│歩│歩│歩│歩│歩│歩│歩│歩│三           │ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｃ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │  │  │  │  │  │  │  │  │  │四           │  │  │  │  │  │  │  │  │  │ｄ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │  │  │  │  │  │  │  │  │  │五           │  │  │  │  │  │  │  │  │  │ｅ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │  │  │  │  │  │  │  │歩│  │六           │  │  │  │  │  │  │  │Ｐ│  │ｆ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │歩│歩│歩│歩│歩│歩│歩│  │歩│七           │Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│  │Ｐ│ｇ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │  │角│  │  │  │  │  │飛│  │八           │  │Ｂ│  │  │  │  │  │Ｒ│  │ｈ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │香│桂│銀│金│玉│金│銀│桂│香│九           │Ｌ│Ｎ│Ｓ│Ｇ│Ｋ│Ｇ│Ｓ│Ｎ│Ｌ│ｉ
-                //      └─┴─┴─┴─┴─┴─┴─┴─┴─┘             └─┴─┴─┴─┴─┴─┴─┴─┴─┘
-                //
-                // または
-                //
-                //      log.txt
-                //      ┌────────────────────────────────────────
-                //      ～
-                //      │2014/08/02 2:03:35> position sfen lnsgkgsnl/9/ppppppppp/9/9/9/PPPPPPPPP/1B5R1/LNSGKGSNL w - 1 moves 5a6b 7g7f 3a3b
-                //      │
-                //
-                // ↑↓将棋所のサンプルによると、“２枚落ち初期局面から△６二玉、▲７六歩、△３二銀と進んだ局面”とのことです。
-                //
-                //                                           ＜初期局面＞    ９  ８  ７  ６  ５  ４  ３  ２  １
-                //                                                         ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐
-                //                                                         │ｌ│ｎ│ｓ│ｇ│ｋ│ｇ│ｓ│ｎ│ｌ│ａ  ←lnsgkgsnl
-                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //                                                         │  │  │  │  │  │  │  │  │  │ｂ  ←9
-                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //                                                         │ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｃ  ←ppppppppp
-                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //                                                         │  │  │  │  │  │  │  │  │  │ｄ  ←9
-                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //                                                         │  │  │  │  │  │  │  │  │  │ｅ  ←9
-                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //                                                         │  │  │  │  │  │  │  │  │  │ｆ  ←9
-                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //                                                         │Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│ｇ  ←PPPPPPPPP
-                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //                                                         │  │Ｂ│  │  │  │  │  │Ｒ│  │ｈ  ←1B5R1
-                //                                                         ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //                                                         │Ｌ│Ｎ│Ｓ│Ｇ│Ｋ│Ｇ│Ｓ│Ｎ│Ｌ│ｉ  ←LNSGKGSNL
-                //                                                         └─┴─┴─┴─┴─┴─┴─┴─┴─┘
-                //
-                //        ９  ８  ７  ６  ５  ４  ３  ２  １   ＜３手目＞    ９  ８  ７  ６  ５  ４  ３  ２  １
-                //      ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐             ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐
-                //      │香│桂│銀│金│  │金│  │桂│香│一           │ｌ│ｎ│ｓ│ｇ│  │ｇ│  │ｎ│ｌ│ａ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │  │  │  │玉│  │  │銀│  │  │二           │  │  │  │ｋ│  │  │ｓ│  │  │ｂ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │歩│歩│歩│歩│歩│歩│歩│歩│歩│三           │ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｐ│ｃ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │  │  │  │  │  │  │  │  │  │四           │  │  │  │  │  │  │  │  │  │ｄ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │  │  │  │  │  │  │  │  │  │五           │  │  │  │  │  │  │  │  │  │ｅ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │  │  │歩│  │  │  │  │  │  │六           │  │  │Ｐ│  │  │  │  │  │  │ｆ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │歩│歩│  │歩│歩│歩│歩│歩│歩│七           │Ｐ│Ｐ│  │Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│Ｐ│ｇ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │  │角│  │  │  │  │  │飛│  │八           │  │Ｂ│  │  │  │  │  │Ｒ│  │ｈ
-                //      ├─┼─┼─┼─┼─┼─┼─┼─┼─┤             ├─┼─┼─┼─┼─┼─┼─┼─┼─┤
-                //      │香│桂│銀│金│玉│金│銀│桂│香│九           │Ｌ│Ｎ│Ｓ│Ｇ│Ｋ│Ｇ│Ｓ│Ｎ│Ｌ│ｉ
-                //      └─┴─┴─┴─┴─┴─┴─┴─┴─┘             └─┴─┴─┴─┴─┴─┴─┴─┴─┘
-                //
-
-                // 手番になったときに、“まず”、将棋所から送られてくる文字が position です。
-                // このメッセージを読むと、駒の配置が分かります。
-                //
-                // “が”、まだ指してはいけません。
-                #endregion
-#if DEBUG
-                this.Log1_AtLoop2("（＾△＾）positionきたｺﾚ！");
-#endif
-                // 入力行を解析します。
-                IKifuParserAResult result = new KifuParserA_ResultImpl();
-                KifuParserAImpl kifuParserA = new KifuParserAImpl();
-                IKifuParserAGenjo genjo = new KifuParserA_GenjoImpl(line);
-                kifuParserA.Execute_All_CurrentMutable(
-                    ref result,
-
-                    this.Earth,
-                    this.Kifu,
-
-                    genjo,
-                    logTag
-                    );
-                if (null != genjo.StartposImporter_OrNull)
-                {
-                    // SFENの解析結果を渡すので、
-                    // その解析結果をどう使うかは、委譲します。
-                    Util_InClient.OnChangeSky_Im_Client(
-
-                        this.Earth,
-                        this.Kifu,
-
-                        genjo,
-                        logTag
-                        );
-                }
-
-
-#if DEBUG
-                this.Log2_Png_Tyokkin_AtLoop2(line,
-                    result.Out_newNode_OrNull.Key,
-                    this.Kifu_AtLoop2.PositionA,
-                    logger);
-#endif
-
-                //------------------------------------------------------------
-                // じっとがまん
-                //------------------------------------------------------------
-                #region ↓詳説
-                //
-                // 応答は無用です。
-                // 多分、将棋所もまだ準備ができていないのではないでしょうか（？）
-                //
-                #endregion
-            }
-            catch (Exception ex)
-            {
-                // エラー：どうにもできないので  ログだけ取って無視します。
-                Logger.Panic(LogTags.ProcessEngineDefault, "Program「position」：" + ex.GetType().Name + "：" + ex.Message);
-                throw;
-            }
-
-            return PhaseResultUsiLoop2.None;
         }
 
         /// <summary>
@@ -525,7 +359,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 bool test = true;
                 if (test)
                 {
-                    Logger.AppendLine(LogTags.ProcessEngineDefault,"サーバーから受信した局面☆（＾▽＾）");
+                    Logger.AppendLine(LogTags.ProcessEngineDefault, "サーバーから受信した局面☆（＾▽＾）");
                     Logger.AppendLine(LogTags.ProcessEngineDefault, Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(
                         ConvMove.ToPlayerside(curNode1.Move),
                         positionA, LogTags.ProcessEngineDefault)));

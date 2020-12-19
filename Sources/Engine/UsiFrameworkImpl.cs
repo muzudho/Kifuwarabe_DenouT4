@@ -15,7 +15,6 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
             this.OnGo = this.m_nullFunc02;
             this.OnLogDase = this.m_nullFunc02;
             this.OnLoop2End = this.m_nullFunc01;
-            this.OnPosition = this.m_nullFunc02;
             this.OnStop = this.m_nullFunc02;
         }
 
@@ -38,11 +37,6 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
         /// Loop2のEnd部で呼ばれます。
         /// </summary>
         public Func01 OnLoop2End { get; set; }
-
-        /// <summary>
-        /// Loop2のBody部で呼ばれます。
-        /// </summary>
-        public Func02 OnPosition { get; set; }
 
         /// <summary>
         /// Loop2のBody部で呼ばれます。
