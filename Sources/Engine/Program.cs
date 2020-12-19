@@ -189,29 +189,6 @@ namespace Grayscale.P580_Form_______
                     {
                         string line = usiFramework.OnCommandlineAtLoop1();
 
-                        // (2020-12-13 sun) ノン・ブロッキングなら このコードが意味あったんだが☆（＾～＾）
-                        if (null == line)//次の行が無ければヌル。
-                        {
-                            // メッセージは届いていませんでした。
-                            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-#if NOOPABLE
-                    bool isTimeoutShutdown_temp;
-                    noopTimer._03_AtEmptyMessage(this.Owner, out isTimeoutShutdown_temp);
-                    if (isTimeoutShutdown_temp)
-                    {
-                        //MessageBox.Show("ループ１でタイムアウトだぜ☆！");
-                        out_isTimeoutShutdown = isTimeoutShutdown_temp;
-                        result_Usi_Loop1 = PhaseResult_Usi_Loop1.TimeoutShutdown;
-                        goto end_loop1;
-                    }
-#endif
-
-                            // 将棋サーバーに向かってメッセージを送り出します。
-                            // Console.WriteLine("ループ１でメッセージは無かったぜ☆（＾～＾）"); // TODO (2020-12-13 sun) 消す。
-                            continue;
-                        }
-
-
 #if NOOPABLE
                 noopTimer._04_AtResponsed(this.Owner, line);
 #endif
@@ -345,33 +322,21 @@ namespace Grayscale.P580_Form_______
                         {
                             result_Usi_Loop2 = PhaseResultUsiLoop2.None;
 
-                            string line = usiFramework.OnCommandlineAtLoop2();
+                            // ノンストップ版
+                            //string line = TimeoutReader.ReadLine(1000);//指定ミリ秒だけブロック。不具合がある☆（＾～＾）
+                            // ブロッキングIO版
+                            string line = System.Console.In.ReadLine();
 
-                            // (2020-12-13 sun) ノン・ブロッキングなら このコードが意味あったんだが☆（＾～＾）
-                            if (null == line)//次の行が無ければヌル。
-                            {
-                                // メッセージは届いていませんでした。
-                                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                            // 通信ログは必ず取ります。
+                            Logger.AppendLine(LogTags.ProcessEngineDefault, line);
+                            Logger.Flush(LogTags.ProcessEngineDefault, LogTypes.ToClient);
 
 #if NOOPABLE
-                        if (this.owner.Option_enable_serverNoopable)
-                        {
-                            bool isTimeoutShutdown_temp;
-                            noopTimer._02_AtEmptyMessage(this.owner, out isTimeoutShutdown_temp,logTag);
-                            if (isTimeoutShutdown_temp)
-                            {
-                                //MessageBox.Show("ループ２でタイムアウトだぜ☆！");
-                                result_Usi_Loop2 = PhaseResult_Usi_Loop2.TimeoutShutdown;
-                                goto end_loop2;
-                            }
-                        }
+                if (this.owner.Option_enable_serverNoopable)
+                {
+                    noopTimer._03_AtResponsed(this.owner, line, logTag);
+                }
 #endif
-
-                                // Console.WriteLine("ループ２でメッセージは無かったぜ☆（＾～＾）"); // TODO (2020-12-13 sun) 消す。
-                                continue;
-                            }
-
-
 
                             if (line.StartsWith("position")) { result_Usi_Loop2 = usiFramework.OnPosition(line); }
                             else if (line.StartsWith("go ponder")) { result_Usi_Loop2 = usiFramework.OnGoponder(line); }

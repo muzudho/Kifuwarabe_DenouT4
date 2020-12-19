@@ -123,7 +123,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
 
             // 対局開始時
             // 対局中
-            usiFramework.OnCommandlineAtLoop2 = this.OnCommandlineAtLoop2;
 
             usiFramework.OnPosition = this.OnPositionAtLoop2;
             usiFramework.OnGoponder = this.OnGoponderAtLoop2;
@@ -215,35 +214,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 // 通信ログは必ず取ります。
                 Logger.AppendLine(LogTags.ProcessEngineNetwork,line);
                 Logger.Flush(LogTags.ProcessEngineNetwork,LogTypes.ToClient);
-            }
-
-            return line;
-        }
-
-        /// <summary>
-        /// Loop2のBody部で呼び出されます。
-        /// </summary>
-        /// <returns></returns>
-        private string OnCommandlineAtLoop2()
-        {
-            //ノンストップ版
-            //string line = TimeoutReader.ReadLine(1000);//指定ミリ秒だけブロック
-
-            //通常版
-            string line = System.Console.In.ReadLine();
-
-            if (null != line)
-            {
-                // 通信ログは必ず取ります。
-                Logger.AppendLine(LogTags.ProcessEngineDefault, line);
-                Logger.Flush(LogTags.ProcessEngineDefault, LogTypes.ToClient);
-
-#if NOOPABLE
-                if (this.owner.Option_enable_serverNoopable)
-                {
-                    noopTimer._03_AtResponsed(this.owner, line, logTag);
-                }
-#endif
             }
 
             return line;

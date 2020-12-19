@@ -9,10 +9,7 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500UsiFrame
     public interface IUsiFramework
     {
         Func05 OnCommandlineAtLoop1 { get; set; }
-
         Func01 OnLoop2End { get; set; }
-
-        Func05 OnCommandlineAtLoop2 { get; set; }
         Func02 OnPosition { get; set; }
         Func02 OnGoponder { get; set; }
 
