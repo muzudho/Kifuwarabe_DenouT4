@@ -201,32 +201,13 @@ namespace Grayscale.A210KnowNingen.B460KyokumMoves.C500Util
 
 
 
-                try
-                {
-                    // 《１》　＝　《１．４》の戦駒＋持駒
+                // 《１》　＝　《１．４》の戦駒＋持駒
 
-                    // 盤上の駒の移動できる場所を足します。
-                    out_komaBETUSusumeruMasus.AddRange_New(kmSusumeruMasus_seme_BANJO);
+                // 盤上の駒の移動できる場所を足します。
+                out_komaBETUSusumeruMasus.AddRange_New(kmSusumeruMasus_seme_BANJO);
 
-                    // 持ち駒の置ける場所を足します。
-                    out_komaBETUSusumeruMasus.AddRange_New(sMsSusumeruMasus_seme_MOTI);
-                }
-                catch (Exception ex)
-                {
-                    //>>>>> エラーが起こりました。
-                    string msg = ex.GetType().Name + " " + ex.Message + "：ランダムチョイス(50)：";
-
-#if DEBUG
-                    if (null != mmLog_orNull)
-                    {
-                        // どうにもできないので  ログだけ取って無視します。
-                        mmLog_orNull.ErrH.Panic(ex,msg);
-                    }
-#endif
-
-                    throw new Exception(msg, ex);
-                }
-
+                // 持ち駒の置ける場所を足します。
+                out_komaBETUSusumeruMasus.AddRange_New(sMsSusumeruMasus_seme_MOTI);
             }
         }
 

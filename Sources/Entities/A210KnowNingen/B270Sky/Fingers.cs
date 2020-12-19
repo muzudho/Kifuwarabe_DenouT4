@@ -37,8 +37,7 @@ namespace Grayscale.A210KnowNingen.B270Sky.C500Struct
                 }
                 else
                 {
-                    throw new Exception("Fingersに要素がない状態で[" + i + "]にアクセスしたぜ☆（＾～＾）");
-                    //result = Error_1;// FIXME: 1回でも[初期配置]ボタンを押していないと、配列サイズが 0 です。
+                    throw new Exception($"Fingersに要素がない状態で[{i}]にアクセスしたぜ☆（＾～＾）");
                 }
 
                 return result;

@@ -271,9 +271,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
                     Fingers fingers = UtilSkyFingersQuery.InMasuNow_New(positionA, move, logTag);
                     if (fingers.Count < 1)
                     {
-                        string message = "Util_IttesasuRoutine#Do24:指し手に該当する駒が無かったぜ☆（＾～＾）" +
-                            " move=" + ConvMove.ToLog(move);
-                        throw new Exception(message);
+                        throw new Exception($"Util_IttesasuRoutine#Do24:指し手に該当する駒が無かったぜ☆（＾～＾） move={ConvMove.ToLog(move)}");
                     }
                     figMovedKoma = fingers.ToFirst();
                 }
@@ -392,11 +390,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
                     default:
                         {
                             //>>>>> エラー：　先後がおかしいです。
-
-                            StringBuilder sb = new StringBuilder();
-                            sb.AppendLine("エラー：　先後がおかしいです。");
-                            sb.AppendLine("dst.Pside=" + Conv_Busstop.ToPlayerside(dstKoma));
-                            throw new Exception(sb.ToString());
+                            throw new Exception($"エラー：　先後がおかしいです。 dst.Pside={Conv_Busstop.ToPlayerside(dstKoma)}");
                         }
                 }
 
@@ -407,15 +401,10 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
                     // 駒台の空きスペース
                     akiMasu = UtilIttesasuRoutine.GetKomadaiKomabukuroSpace(okiba, susunda_Sky_orNull_before);
 
-
                     if (Masu_Honshogi.IsErrorBasho(akiMasu))
                     {
                         //>>>>> エラー：　駒台に空きスペースがありませんでした。
-
-                        StringBuilder sb = new StringBuilder();
-                        sb.AppendLine("エラー：　駒台に空きスペースがありませんでした。");
-                        sb.AppendLine("駒台=" + Okiba.Gote_Komadai);
-                        throw new Exception(sb.ToString());
+                        throw new Exception($"エラー：　駒台に空きスペースがありませんでした。 駒台={Okiba.Gote_Komadai}");
                     }
                     //>>>>> 駒台に空きスペースがありました。
                 }

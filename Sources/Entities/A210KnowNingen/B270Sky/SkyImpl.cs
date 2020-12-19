@@ -66,11 +66,7 @@ namespace Grayscale.A210KnowNingen.B270Sky.C500Struct
                     else if (this.m_busstops_.Count + 1 <= (int)addsFinger1[i])
                     {
                         // エラー
-                        Debug.Assert((int)addsFinger1[i] < this.m_busstops_.Count, "要素の個数より2大きいインデックスを指定しました。 インデックス[" + (int)addsFinger1[i] + "]　要素の個数[" + this.m_busstops_.Count + "]");
-
-                        string message = this.GetType().Name + "#SetStarPos：　リストの要素より2多いインデックスを指定されましたので、追加しません。starIndex=[" + addsFinger1[i] + "] / this.stars.Count=[" + this.m_busstops_.Count + "]";
-                        //LarabeLogger.GetInstance().WriteLineError(LarabeLoggerList.ERROR, message);
-                        throw new Exception(message);
+                        throw new Exception($"{this.GetType().Name}#SetStarPos：　リストの要素より2多いインデックスを指定されましたので、追加しません。starIndex=[{addsFinger1[i]}] / this.stars.Count=[{this.m_busstops_.Count}]");
                     }
                     else
                     {
@@ -194,9 +190,10 @@ namespace Grayscale.A210KnowNingen.B270Sky.C500Struct
             else
             {
                 // エラー
-                string message = this.GetType().Name + "#StarIndexOf：　スプライト配列の範囲を外れた添え字を指定されましたので、取得できません。スプライト番号=[" + finger + "] / スプライトの数=[" + this.m_busstops_.Count + "]\n memberName=" + memberName + "\n sourceFilePath=" + sourceFilePath + "\n sourceLineNumber=" + sourceLineNumber;
-                Debug.Fail(message);
-                throw new Exception(message);
+                throw new Exception($@"{this.GetType().Name}#StarIndexOf：　スプライト配列の範囲を外れた添え字を指定されましたので、取得できません。スプライト番号=[{finger}] / スプライトの数=[{this.m_busstops_.Count}]
+memberName={memberName}
+sourceFilePath={sourceFilePath}
+sourceLineNumber={sourceLineNumber}");
             }
         }
 
@@ -266,11 +263,7 @@ namespace Grayscale.A210KnowNingen.B270Sky.C500Struct
             else if (this.m_busstops_.Count + 1 <= (int)finger)
             {
                 // エラー
-                Debug.Assert((int)finger < this.Busstops.Count, "要素の個数より2大きいインデックスを指定しました。 インデックス[" + (int)finger + "]　要素の個数[" + this.Busstops.Count + "]");
-
-                string message = this.GetType().Name + "#SetStarPos：　リストの要素より2多いインデックスを指定されましたので、追加しません。starIndex=[" + finger + "] / this.stars.Count=[" + this.m_busstops_.Count + "]";
-                //LarabeLogger.GetInstance().WriteLineError(LarabeLoggerList.ERROR, message);
-                throw new Exception(message);
+                throw new Exception($"{this.GetType().Name}#SetStarPos：　リストの要素より2多いインデックスを指定されましたので、追加しません。starIndex=[{finger}] / this.stars.Count=[{this.m_busstops_.Count}]");
             }
             else
             {

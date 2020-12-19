@@ -105,7 +105,7 @@ namespace Grayscale.A210KnowNingen.B520_SeizaStartp.C500Struct
                         break;
 
                     default:
-                        throw new Exception("未対応のmoji=[" + masuString + "]");
+                        throw new Exception($"未対応のmoji=[{masuString}]");
                 }
             });
 
@@ -284,7 +284,7 @@ namespace Grayscale.A210KnowNingen.B520_SeizaStartp.C500Struct
                         }
                         break;
 
-                    default: throw new Exception("未対応の駒種類=[" + Conv_Busstop.ToKomasyurui(entry.Value) + "]");
+                    default: throw new Exception($"未対応の駒種類=[{Conv_Busstop.ToKomasyurui(entry.Value)}]");
                 }
 
                 Debug.Assert(0 <= int_finger && int_finger <= 39, "finger=[" + int_finger + "]");
@@ -424,7 +424,7 @@ namespace Grayscale.A210KnowNingen.B520_SeizaStartp.C500Struct
                         break;
 
                     default:
-                        throw new Exception("未対応の駒種類=[" + Conv_Busstop.ToKomasyurui(entry.Value) + "]");
+                        throw new Exception($"未対応の駒種類=[{Conv_Busstop.ToKomasyurui(entry.Value)}]");
                 }
             }
 

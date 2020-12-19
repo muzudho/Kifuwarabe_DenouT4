@@ -58,7 +58,7 @@ namespace Grayscale.A210KnowNingen.B630Sennitite.C500Struct
             else
             {
                 // エラー
-                throw new Exception("指定のハッシュは存在せず、カウントダウンできませんでした。hash=[" + hash + "]");
+                throw new Exception($"指定のハッシュは存在せず、カウントダウンできませんでした。hash=[{hash}]");
             }
         }
         public void CountUp_New(ulong hash, string hint)

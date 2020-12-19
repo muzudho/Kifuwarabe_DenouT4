@@ -119,18 +119,14 @@ namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
                         logger);
                     if (Fingers.Error_1 == koma)
                     {
-                        string message = "Conv_SfenMoveTokens#ToMove：[" + Conv_Playerside.ToLog_Kanji(psideA) + "]駒台から種類[" + uttaSyurui + "]の駒を掴もうとしましたが、エラーでした。\n" +
-                            Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(psideA, positionA, logger)) + "\n" +
-                            "hint=[" + hint + "]\n" +
-                            "str1=[" + str1 + "]\n" +
-                            "str2=[" + str2 + "]\n" +
-                            "str3=[" + str3 + "]\n" +
-                            "str4=[" + str4 + "]\n" +
-                            "strNari=[" + strNari + "]\n" +
-                            "";
-                        Exception ex1 = new Exception(message);
-                        Logger.Panic(LogTags.ProcessNoneError,ex1, "moves解析中☆");
-                        throw ex1;
+                        throw new Exception($@"Conv_SfenMoveTokens#ToMove：[{Conv_Playerside.ToLog_Kanji(psideA)}]駒台から種類[{uttaSyurui}]の駒を掴もうとしましたが、エラーでした。
+{Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(psideA, positionA, logger))}
+hint=[{hint}]
+str1=[{str1}]
+str2=[{str2}]
+str3=[{str3}]
+str4=[{str4}]
+strNari=[{strNari}]");
                     }
 
 
@@ -152,53 +148,32 @@ namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
                         // 0手目、平手局面を想定していたが、駒がすべて駒袋に入っているときなど
                         //
 
-                        StringBuilder sb = new StringBuilder();
-                        sb.Append("TuginoItte_Sfen#GetData_FromTextSub：SFEN解析中の失敗：");
-                        sb.Append("SFENでは [");
-                        sb.Append(srcSuji);
-                        sb.Append("]筋、[");
-                        sb.Append(srcDan);
-                        sb.AppendLine("]段 にある駒を掴めと指示がありましたが、");
-                        sb.AppendLine("将棋盤データの[" + Conv_Sy.Query_Word(masu1.Bitfield) + "]マスには、（駒が全て駒袋に入っているのか）駒がありませんでした。");
-                        sb.AppendLine();
-
-                        sb.AppendLine("hint=[" + hint + "]");
-                        sb.AppendLine();
-
+                        string text2;
                         if (masu1 is INewBasho)
                         {
-                            sb.AppendLine("masu1.masuNumber=[" + ((INewBasho)masu1).MasuNumber + "]");
-                            sb.AppendLine("komas1.Count=[" + komas1.Count + "]");
+                            text2 = $@"masu1.masuNumber=[{((INewBasho)masu1).MasuNumber}]
+komas1.Count=[{komas1.Count}]";
                         }
                         else
                         {
-                            sb.AppendLine("masu1.masuNumber=New_Basho型じゃない。");
-                        }
-                        sb.AppendLine();
-
-
-                        sb.AppendLine("isHonshogi=[" + isHonshogi + "]");
-                        sb.AppendLine("str1=[" + str1 + "]");
-                        sb.AppendLine("str2=[" + str2 + "]");
-                        sb.AppendLine("str3=[" + str3 + "]");
-                        sb.AppendLine("str4=[" + str4 + "]");
-                        sb.AppendLine("strNari=[" + strNari + "]");
-
-                        sb.AppendLine("src_Sky.Temezumi=[" + positionA.Temezumi + "]");
-
-                        // どんな局面なのか？
-                        {
-                            sb.AppendLine("局面=sfen " + Util_StartposExporter.ToSfenstring(
-                                Conv_Sky.ToShogiban(psideA, positionA, logger), true));
+                            text2 = $"masu1.masuNumber=New_Basho型じゃない。";
                         }
 
-                        sb.Append(UtilSky307.Json_1Sky(positionA, "エラー駒になったとき",
-                            hint + "_SF解3",
-                            positionA.Temezumi));
+                        var sky2 = UtilSky307.Json_1Sky(positionA, "エラー駒になったとき", $"{hint}_SF解3", positionA.Temezumi);
 
-                        Exception ex1 = new Exception(sb.ToString());
-                        Logger.Panic(LogTags.ProcessNoneError,ex1, "SFEN解析中の失敗");
-                        throw ex1;
+                        throw new Exception($@"TuginoItte_Sfen#GetData_FromTextSub：SFEN解析中の失敗：SFENでは [{srcSuji}]筋、[{srcDan}]段 にある駒を掴めと指示がありましたが、
+将棋盤データの[{Conv_Sy.Query_Word(masu1.Bitfield)}]マスには、（駒が全て駒袋に入っているのか）駒がありませんでした。
+hint=[{hint}]
+{text2}
+isHonshogi=[{isHonshogi}]
+str1=[{str1}]
+str2=[{str2}]
+str3=[{str3}]
+str4=[{str4}]
+strNari=[{strNari}]
+src_Sky.Temezumi=[{positionA.Temezumi}]
+局面=sfen {Util_StartposExporter.ToSfenstring(Conv_Sky.ToShogiban(psideA, positionA, logger), true)}
+{sky2}");
                     }
                 }
 
@@ -284,7 +259,7 @@ namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
             }
             catch (Exception ex)
             {
-                Logger.Panic(LogTags.ProcessNoneError,ex, "moves解析中☆　str1=「" + str1 + "」　str2=「" + str2 + "」　str3=「" + str3 + "」　str4=「" + str4 + "」　strNari=「" + strNari + "」　");
+                Logger.Panic(LogTags.ProcessNoneError, ex, "moves解析中☆　str1=「" + str1 + "」　str2=「" + str2 + "」　str3=「" + str3 + "」　str4=「" + str4 + "」　strNari=「" + strNari + "」　");
                 throw;
             }
         }

@@ -143,10 +143,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
                     else
                     {
                         genjo.ToBreak_Abnormal();
-                        string message = "＼（＾ｏ＾）／Moveオブジェクトがない☆！　inputLine=[" + genjo.InputLine + "]";
-                        Logger.AppendLine(logTag,message);
-                        Logger.Flush(logTag,LogTypes.Error);
-                        throw new Exception(message);
+                        throw new Exception($"＼（＾ｏ＾）／Moveオブジェクトがない☆！　inputLine=[{genjo.InputLine}]");
                     }
                 }
                 else

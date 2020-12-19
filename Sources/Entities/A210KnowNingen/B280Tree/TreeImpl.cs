@@ -180,8 +180,7 @@ namespace Grayscale.A210KnowNingen.B280Tree.C500Struct
             if (kifu1.Pv_IsRoot())
             {
                 // やってはいけない操作は、例外を返すようにします。
-                string message = "ルート局面を削除しようとしました。hint=" + hint;
-                throw new Exception(message);
+                throw new Exception($"ルート局面を削除しようとしました。hint={hint}");
             }
 
             kifu1.Pv_RemoveLast(logger);

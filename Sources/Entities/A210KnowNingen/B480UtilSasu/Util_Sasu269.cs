@@ -200,46 +200,39 @@ namespace Grayscale.A210KnowNingen.B480UtilSasu.C500Util
             Playerside pside
             )
         {
-            try
+            bool isPromotionable;
+            if (!Util_Sasu269.IsPromotionable(out isPromotionable,
+                srcMasu,
+                dstMasu,
+                srcKs,
+                pside
+                ))
             {
-                bool isPromotionable;
-                if (!Util_Sasu269.IsPromotionable(out isPromotionable,
+                goto gt_EndMethod;
+            }
+
+            // 成りの資格があれば、成りの指し手を作ります。
+            if (isPromotionable)
+            {
+                //MessageBox.Show("成りの資格がある駒がありました。 src=["+srcKoma.Masu.Word+"]["+srcKoma.Syurui+"]");
+
+                Move move = ConvMove.ToMove(
                     srcMasu,
                     dstMasu,
                     srcKs,
-                    pside
-                    ))
-                {
-                    goto gt_EndMethod;
-                }
+                    Komasyurui14.H00_Null___,//取った駒不明
+                    true,//Util_Komasyurui14.ToNariCase(dstKs)//強制的に【成り】に駒の種類を変更
+                    false,//成り駒を作るので、ドロップの可能性は無いぜ☆（＾▽＾）
+                    pside,
+                    false
+                    );
 
-                // 成りの資格があれば、成りの指し手を作ります。
-                if (isPromotionable)
-                {
-                    //MessageBox.Show("成りの資格がある駒がありました。 src=["+srcKoma.Masu.Word+"]["+srcKoma.Syurui+"]");
-
-                    Move move = ConvMove.ToMove(
-                        srcMasu,
-                        dstMasu,
-                        srcKs,
-                        Komasyurui14.H00_Null___,//取った駒不明
-                        true,//Util_Komasyurui14.ToNariCase(dstKs)//強制的に【成り】に駒の種類を変更
-                        false,//成り駒を作るので、ドロップの可能性は無いぜ☆（＾▽＾）
-                        pside,
-                        false
-                        );
-
-                    // TODO: 一段目の香車のように、既に駒は成っている場合があります。無い指し手だけ追加するようにします。
-                    komaBETUAllMoves.AddNotOverwrite(figKoma, move);
-                }
-
-            gt_EndMethod:
-                ;
+                // TODO: 一段目の香車のように、既に駒は成っている場合があります。無い指し手だけ追加するようにします。
+                komaBETUAllMoves.AddNotOverwrite(figKoma, move);
             }
-            catch (Exception ex)
-            {
-                throw new Exception("Convert04.cs#AddNariMoveでｴﾗｰ。:" + ex.GetType().Name + ":" + ex.Message);
-            }
+
+        gt_EndMethod:
+            ;
         }
 
 
