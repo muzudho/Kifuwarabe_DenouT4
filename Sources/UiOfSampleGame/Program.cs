@@ -9,6 +9,7 @@ using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 using Grayscale.A500ShogiEngine.B200Scoreing.C240Shogisasi;
 using Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi;
 using Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe;
+using Grayscale.Kifuwaragyoku.UseCases;
 
 namespace P930_SampleGame
 {
@@ -22,14 +23,15 @@ namespace P930_SampleGame
         {
             ILogTag logTag = LogTags.ProcessEngineDefault;
 
+            Playing playing = new Playing();
 
             // 将棋エンジン　きふわらべ
             ProgramSupport kifuWarabe = new ProgramSupport(new UsiFrameworkImpl());
-            kifuWarabe.OnApplicationBegin();
+            // kifuWarabe.OnApplicationBegin(playing);
 
 
             // 将棋指しオブジェクト
-            Shogisasi shogisasi = new ShogisasiImpl(kifuWarabe);
+            Shogisasi shogisasi = new ShogisasiImpl(playing, kifuWarabe);
 
             // 棋譜
             Earth earth1 = new EarthImpl();

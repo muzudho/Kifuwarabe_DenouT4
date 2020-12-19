@@ -9,10 +9,7 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500UsiFrame
 
     public interface IUsiFramework
     {
-        Func01 OnApplicationBegin { get; set; }
         Func01 OnApplicationEnd { get; set; }
-        Func04 OnUsi { get; set; }
-        Func04 OnSetoption { get; set; }
         Func04 OnIsready { get; set; }
         Func04 OnUsinewgame { get; set; }
         Func04 OnQuit { get; set; }

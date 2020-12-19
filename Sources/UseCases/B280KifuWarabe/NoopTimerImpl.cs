@@ -37,12 +37,12 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C249Noop
         /// </summary>
         /// <param name="owner"></param>
         /// <param name="isTimeoutShutdown"></param>
-        public void _02_AtEmptyMessage(ShogiEngine owner, out bool isTimeoutShutdown, ILogTag logTag)
+        public void _02_AtEmptyMessage(Playing playing, ShogiEngine owner, out bool isTimeoutShutdown, ILogTag logTag)
         {
             isTimeoutShutdown = false;
             //logTag.AppendLine_AddMemo("メッセージは届いていませんでした。this.sw_forNoop.Elapsed.Seconds=[" + this.sw_forNoop.Elapsed.Seconds + "]");
 
-            if (owner.EngineOptions.GetOption(EngineOptionNames.NOOPABLE).IsTrue() && 10 < this.sw_forNoop.Elapsed.Seconds)//0 < this.sw_forNoop.Elapsed.Se.Minutes
+            if (playing.EngineOptions.GetOption(EngineOptionNames.NOOPABLE).IsTrue() && 10 < this.sw_forNoop.Elapsed.Seconds)//0 < this.sw_forNoop.Elapsed.Se.Minutes
             {
                 // 1分以上、サーバーからメッセージが届いていない場合。
                 switch (this.noopPhase)

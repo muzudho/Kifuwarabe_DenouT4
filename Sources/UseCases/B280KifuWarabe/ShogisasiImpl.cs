@@ -12,6 +12,7 @@ using Grayscale.A500ShogiEngine.B200Scoreing.C250Args;
 using Grayscale.A500ShogiEngine.B210TimeMan.C500struct;
 using Grayscale.A500ShogiEngine.B210TimeMan.C500Struct;
 using Grayscale.A500ShogiEngine.B240_TansaFukasa.C500Struct;
+using Grayscale.Kifuwaragyoku.UseCases;
 
 #if DEBUG
 using Grayscale.A210KnowNingen.B250LogKaisetu.C250Struct;
@@ -39,11 +40,11 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi
         /// </summary>
         public TimeManager TimeManager { get; set; }
 
-        public ShogisasiImpl(ShogiEngine owner)
+        public ShogisasiImpl(Playing playing, ShogiEngine owner)
         {
             this.owner = owner;
             this.FeatureVector = new FeatureVectorImpl();
-            this.TimeManager = new TimeManagerImpl(owner.EngineOptions.GetOption(EngineOptionNames.THINKING_MILLI_SECOND).GetNumber());
+            this.TimeManager = new TimeManagerImpl(playing.EngineOptions.GetOption(EngineOptionNames.THINKING_MILLI_SECOND).GetNumber());
         }
 
 

@@ -27,6 +27,7 @@ using Grayscale.A690FvLearn.B110FvLearn.C250Learn;
 using Grayscale.A690FvLearn.B110FvLearn.C260View;
 using Grayscale.A690FvLearn.B110FvLearn.C420Inspection;
 using Grayscale.A690FvLearn.B110FvLearn.C470____StartZero;
+using Grayscale.Kifuwaragyoku.UseCases;
 #endif
 
 namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
@@ -347,7 +348,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C600Operation
                 args = new EvaluationArgsImpl(
                     uc_Main.LearningData.Earth.GetSennititeCounter(),
                     new FeatureVectorImpl(),
-                    new ShogisasiImpl(new ProgramSupport(new UsiFrameworkImpl())),
+                    new ShogisasiImpl(new Playing(), new ProgramSupport(new UsiFrameworkImpl())),
                     UtilKifuTreeLogWriter.REPORT_ENVIRONMENT
 #if DEBUG
                     ,

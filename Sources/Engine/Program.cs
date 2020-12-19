@@ -7,6 +7,14 @@ using Grayscale.Kifuwaragyoku.UseCases;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C250UsiLoop;
 using Nett;
 using System.IO;
+using System.Text.RegularExpressions;
+using Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi;
+using Grayscale.A500ShogiEngine.B523UtilFv.C510UtilFvLoad;
+using Grayscale.A210KnowNingen.B380Michi.C500Word;
+using Grayscale.A210KnowNingen.B390KomahaiyaEx.C500Util;
+using System.Text;
+using Grayscale.A210KnowNingen.B490ForcePromot.C250Struct;
+using Grayscale.A210KnowNingen.B300_KomahaiyaTr.C500Table;
 
 namespace Grayscale.P580_Form_______
 {
@@ -32,7 +40,100 @@ namespace Grayscale.P580_Form_______
 
             try
             {
-                usiFramework.OnApplicationBegin();
+                var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
+                var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+
+                //-------------------+----------------------------------------------------------------------------------------------------
+                // ログファイル削除  |
+                //-------------------+----------------------------------------------------------------------------------------------------
+                {
+                    //
+                    // 図.
+                    //
+                    //      フォルダー
+                    //          ├─ Engine.KifuWarabe.exe
+                    //          └─ log.txt               ←これを削除
+                    //
+                    Logger.RemoveAllLogFiles();
+                }
+
+                //------------------------------------------------------------------------------------------------------------------------
+                // 思考エンジンの、記憶を読み取ります。
+                //------------------------------------------------------------------------------------------------------------------------
+                {
+                    programSupport.Shogisasi = new ShogisasiImpl(playing, programSupport);
+                    Util_FvLoad.OpenFv(
+                        programSupport.Shogisasi.FeatureVector,
+                        Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Fv00Komawari")), LogTags.ProcessEngineDefault);
+                }
+
+                //------------------------------------------------------------------------------------------------------------------------
+                // ファイル読込み
+                //------------------------------------------------------------------------------------------------------------------------
+                {
+                    // データの読取「道」
+                    if (Michi187Array.Load(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Michi187"))))
+                    {
+                    }
+
+                    // データの読取「配役」
+                    string filepath_Haiyaku = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Haiyaku185"));
+                    Util_Array_KomahaiyakuEx184.Load(filepath_Haiyaku, Encoding.UTF8);
+
+                    // データの読取「強制転成表」　※駒配役を生成した後で。
+                    string filepath_ForcePromotion = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("InputForcePromotion"));
+                    Array_ForcePromotion.Load(filepath_ForcePromotion, Encoding.UTF8);
+
+#if DEBUG
+                    {
+                        string filepath_LogKyosei = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("OutputForcePromotion"));
+                        File.WriteAllText(filepath_LogKyosei, Array_ForcePromotion.LogHtml());
+                    }
+#endif
+
+                    // データの読取「配役転換表」
+                    string filepath_HaiyakuTenkan = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("InputSyuruiToHaiyaku"));
+                    Data_KomahaiyakuTransition.Load(filepath_HaiyakuTenkan, Encoding.UTF8);
+
+#if DEBUG
+                    {
+                        string filepath_LogHaiyakuTenkan = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("OutputSyuruiToHaiyaku");
+                        File.WriteAllText(filepath_LogHaiyakuTenkan, Data_KomahaiyakuTransition.Format_LogHtml());
+                    }
+#endif
+                }
+
+                //-------------+----------------------------------------------------------------------------------------------------------
+                // ログ書込み  |  ＜この将棋エンジン＞  製品名、バージョン番号
+                //-------------+----------------------------------------------------------------------------------------------------------
+                //
+                // 図.
+                //
+                //      log.txt
+                //      ┌────────────────────────────────────────
+                //      │2014/08/02 1:04:59> v(^▽^)v ｲｪｰｲ☆ ... fugafuga 1.00.0
+                //      │
+                //      │
+                //
+                //
+                // 製品名とバージョン番号は、次のファイルに書かれているものを使っています。
+                // 場所：  [ソリューション エクスプローラー]-[ソリューション名]-[プロジェクト名]-[Properties]-[AssemblyInfo.cs] の中の、[AssemblyProduct]と[AssemblyVersion] を参照。
+                //
+                // バージョン番号を「1.00.0」形式（メジャー番号.マイナー番号.ビルド番号)で書くのは作者の趣味です。
+                //
+                {
+                    string versionStr;
+
+                    // バージョン番号
+                    Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+                    versionStr = String.Format("{0}.{1}.{2}", version.Major, version.Minor.ToString("00"), version.Build);
+
+                    //seihinName += " " + versionStr;
+#if DEBUG
+                    Util_Loggers.ProcessEngine_DEFAULT.AppendLine("v(^▽^)v ｲｪｰｲ☆ ... " + this.SeihinName + " " + versionStr);
+                    Util_Loggers.ProcessEngine_DEFAULT.Flush(LogTypes.Plain);
+#endif
+                }
 
                 // 
                 // 図.
@@ -119,88 +220,94 @@ namespace Grayscale.P580_Form_______
 
                         if ("usi" == line)
                         {
-                            //------------------------------------------------------------
-                            // あなたは USI ですか？
-                            //------------------------------------------------------------
-                            //
-                            // 図.
-                            //
-                            //      log.txt
-                            //      ┌────────────────────────────────────────
-                            //      ～
-                            //      │2014/08/02 1:31:35> usi
-                            //      │
-                            //
-                            //
-                            // 将棋所で [対局(G)]-[エンジン管理...]-[追加...] でファイルを選んだときに、
-                            // 送られてくる文字が usi です。
-
-
-                            //------------------------------------------------------------
-                            // エンジン設定ダイアログボックスを作ります
-                            //------------------------------------------------------------
-                            //
-                            // 図.
-                            //
-                            //      log.txt
-                            //      ┌────────────────────────────────────────
-                            //      ～
-                            //      │2014/08/02 23:40:15< option name 子 type check default true
-                            //      │2014/08/02 23:40:15< option name USI type spin default 2 min 1 max 13
-                            //      │2014/08/02 23:40:15< option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー
-                            //      │2014/08/02 23:40:15< option name 卯 type button default うさぎ
-                            //      │2014/08/02 23:40:15< option name 辰 type string default DRAGON
-                            //      │2014/08/02 23:40:15< option name 巳 type filename default スネーク.html
-                            //      │
-                            //
-                            //
-                            // 将棋所で [エンジン設定] ボタンを押したときに出てくるダイアログボックスに、
-                            //      ・チェックボックス
-                            //      ・スピン
-                            //      ・コンボボックス
-                            //      ・ボタン
-                            //      ・テキストボックス
-                            //      ・ファイル選択テキストボックス
-                            // を置くことができます。
-                            //
-                            Playing.Send("option name 子 type check default true");
-                            Playing.Send("option name USI type spin default 2 min 1 max 13");
-                            Playing.Send("option name 寅 type combo default tiger var マウス var うし var tiger var ウー var 龍 var へび var 馬 var ひつじ var モンキー var バード var ドッグ var うりぼー");
-                            Playing.Send("option name 卯 type button default うさぎ");
-                            Playing.Send("option name 辰 type string default DRAGON");
-                            Playing.Send("option name 巳 type filename default スネーク.html");
-
-
-                            //------------------------------------------------------------
-                            // USI です！！
-                            //------------------------------------------------------------
-                            //
-                            // 図.
-                            //
-                            //      log.txt
-                            //      ┌────────────────────────────────────────
-                            //      ～
-                            //      │2014/08/02 2:03:33< id name fugafuga 1.00.0
-                            //      │2014/08/02 2:03:33< id author hogehoge
-                            //      │2014/08/02 2:03:33< usiok
-                            //      │
-                            //
-                            // プログラム名と、作者名を送り返す必要があります。
-                            // オプションも送り返せば、受け取ってくれます。
-                            // usi を受け取ってから、5秒以内に usiok を送り返して完了です。
-                            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-                            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
                             var engineName = toml.Get<TomlTable>("Engine").Get<string>("Name");
                             Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
                             var engineAuthor = toml.Get<TomlTable>("Engine").Get<string>("Author");
 
-                            Playing.Send($"id name {engineName} {version.Major}.{version.Minor}.{version.Build}");
-                            Playing.Send($"id author {engineAuthor}");
-                            Playing.Send("usiok");
+                            playing.UsiOk($"{engineName} {version.Major}.{version.Minor}.{version.Build}", engineAuthor);
+                            result_Usi_Loop1 = PhaseResultUsiLoop1.None;
+                        }
+                        else if (line.StartsWith("setoption"))
+                        {
+                            //------------------------------------------------------------
+                            // 設定してください
+                            //------------------------------------------------------------
+                            //
+                            // 図.
+                            //
+                            //      log.txt
+                            //      ┌────────────────────────────────────────
+                            //      ～
+                            //      │2014/08/02 8:19:36> setoption name USI_Ponder value true
+                            //      │2014/08/02 8:19:36> setoption name USI_Hash value 256
+                            //      │
+                            //
+                            // ↑ゲーム開始時には、[対局]ダイアログボックスの[エンジン共通設定]の２つの内容が送られてきます。
+                            //      ・[相手の手番中に先読み] チェックボックス
+                            //      ・[ハッシュメモリ  ★　MB] スピン
+                            //
+                            // または
+                            //
+                            //      log.txt
+                            //      ┌────────────────────────────────────────
+                            //      ～
+                            //      │2014/08/02 23:47:35> setoption name 卯
+                            //      │2014/08/02 23:47:35> setoption name 卯
+                            //      │2014/08/02 23:48:29> setoption name 子 value true
+                            //      │2014/08/02 23:48:29> setoption name USI value 6
+                            //      │2014/08/02 23:48:29> setoption name 寅 value 馬
+                            //      │2014/08/02 23:48:29> setoption name 辰 value DRAGONabcde
+                            //      │2014/08/02 23:48:29> setoption name 巳 value C:\Users\Takahashi\Documents\新しいビットマップ イメージ.bmp
+                            //      │
+                            //
+                            //
+                            // 将棋所から、[エンジン設定] ダイアログボックスの内容が送られてきます。
+                            // このダイアログボックスは、将棋エンジンから将棋所に  ダイアログボックスを作るようにメッセージを送って作ったものです。
+                            //
+
+                            //------------------------------------------------------------
+                            // 設定を一覧表に変えます
+                            //------------------------------------------------------------
+                            //
+                            // 上図のメッセージのままだと使いにくいので、
+                            // あとで使いやすいように Key と Value の表に分けて持ち直します。
+                            //
+                            // 図.
+                            //
+                            //      setoptionDictionary
+                            //      ┌──────┬──────┐
+                            //      │Key         │Value       │
+                            //      ┝━━━━━━┿━━━━━━┥
+                            //      │USI_Ponder  │true        │
+                            //      ├──────┼──────┤
+                            //      │USI_Hash    │256         │
+                            //      └──────┴──────┘
+                            //
+                            Regex regex = new Regex(@"setoption name ([^ ]+)(?: value (.*))?", RegexOptions.Singleline);
+                            Match m = regex.Match(line);
+
+                            if (m.Success)
+                            {
+                                // 項目を設定します。未定義の項目の場合、文字列型として新規追加します。
+                                playing.AddOption_ByCommandline(line);
+                                /*
+                                string name = (string)m.Groups[1].Value;
+                                string value = "";
+
+                                if (3 <= m.Groups.Count)
+                                {
+                                    // 「value ★」も省略されずにありました。
+                                    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                                    value = (string)m.Groups[2].Value;
+                                }
+
+                                // 項目を設定します。未定義の項目の場合、文字列型として新規追加します。
+                                owner.EngineOptions.ParseValue_AutoAdd(name, value);
+                                */
+                            }
 
                             result_Usi_Loop1 = PhaseResultUsiLoop1.None;
                         }
-                        else if (line.StartsWith("setoption")) { result_Usi_Loop1 = usiFramework.OnSetoption(line); }
                         else if ("isready" == line) { result_Usi_Loop1 = usiFramework.OnIsready(line); }
                         else if ("usinewgame" == line) { result_Usi_Loop1 = usiFramework.OnUsinewgame(line); }
                         else if ("quit" == line) { result_Usi_Loop1 = usiFramework.OnQuit(line); }

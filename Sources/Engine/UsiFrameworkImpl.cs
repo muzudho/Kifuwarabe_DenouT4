@@ -21,10 +21,8 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
             this.OnLoop2End = this.m_nullFunc01;
             this.OnPosition = this.m_nullFunc02;
             this.OnQuit = this.m_nullFunc04;
-            this.OnSetoption = this.m_nullFunc04;
             this.OnStop = this.m_nullFunc02;
             this.OnUsinewgame = this.m_nullFunc04;
-            this.OnUsi = this.m_nullFunc04;
         }
 
         public Func01 m_nullFunc01 = delegate ()
@@ -89,16 +87,6 @@ namespace Grayscale.A090UsiFramewor.B100UsiFrame1.C500____usiFrame___
         /// Loop2のBody部で呼ばれます。
         /// </summary>
         public Func02 OnLogDase { get; set; }
-
-        /// <summary>
-        /// Loop1のBody部で呼ばれます。
-        /// </summary>
-        public Func04 OnUsi { get; set; }
-
-        /// <summary>
-        /// Loop1のBody部で呼ばれます。
-        /// </summary>
-        public Func04 OnSetoption { get; set; }
 
         /// <summary>
         /// Loop1のBody部で呼ばれます。

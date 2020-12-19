@@ -31,6 +31,7 @@ using Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe;
 using Grayscale.A690FvLearn.B110FvLearn.C___250_Learn;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 using Nett;
+using Grayscale.Kifuwaragyoku.UseCases;
 
 #if DEBUG
 // using Grayscale.A060Application.B310Settei.C500Struct;
@@ -59,7 +60,7 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
         /// 読み用。
         /// </summary>
         private FeatureVector featureVector_ForYomi = new FeatureVectorImpl();
-        private Shogisasi shogisasi_ForYomi = new ShogisasiImpl(new ProgramSupport(new UsiFrameworkImpl()));
+        private Shogisasi shogisasi_ForYomi = new ShogisasiImpl(new Playing(), new ProgramSupport(new UsiFrameworkImpl()));
 
         public static KyokumenPngEnvironment REPORT_ENVIRONMENT;
         static LearningDataImpl()

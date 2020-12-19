@@ -56,15 +56,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
         /// </summary>
         public ProgramSupport(IUsiFramework usiFramework)
         {
-            //-------------+----------------------------------------------------------------------------------------------------------
-            // データ設計  |
-            //-------------+----------------------------------------------------------------------------------------------------------
-            // 将棋所から送られてくるデータを、一覧表に変えたものです。
-            this.EngineOptions = new EngineOptionsImpl();
-            this.EngineOptions.AddOption(EngineOptionNames.USI_PONDER, new EngineOptionBoolImpl());// ポンダーに対応している将棋サーバーなら真です。
-            this.EngineOptions.AddOption(EngineOptionNames.NOOPABLE, new EngineOptionBoolImpl());// 独自実装のコマンドなので、ＯＦＦにしておきます。
-            this.EngineOptions.AddOption(EngineOptionNames.THINKING_MILLI_SECOND, new EngineOptionNumberImpl(30000));//30秒//90000//60000//8000//4000
-
             //
             // 図.
             //
@@ -127,12 +118,7 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
                 this.GameoverProperties["gameover"] = "";
             }
 
-
-            // アプリケーション開始時
-            usiFramework.OnApplicationBegin = this.OnApplicationBegin;
-
             // 準備時
-            usiFramework.OnSetoption = this.OnSetoption;
             usiFramework.OnIsready = this.OnIsready;
             usiFramework.OnUsinewgame = this.OnUsinewgame;
             usiFramework.OnQuit = this.OnQuit;
@@ -165,11 +151,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
         /// 指す１手の答えを出すのが仕事です。
         /// </summary>
         public Shogisasi Shogisasi { get; set; }
-
-        /// <summary>
-        /// USI「setoption」コマンドのリストです。
-        /// </summary>
-        public EngineOptions EngineOptions { get; set; }
 
 
         /// <summary>
@@ -225,97 +206,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
         /// Loop2で呼ばれます。
         /// </summary>
         public Dictionary<string, string> GameoverProperties { get; set; }
-
-        /// <summary>
-        /// Loop1のBody部で呼び出されます。
-        /// </summary>
-        /// <param name="line"></param>
-        /// <returns></returns>
-        private PhaseResultUsiLoop1 OnSetoption(string line)
-        {
-            //------------------------------------------------------------
-            // 設定してください
-            //------------------------------------------------------------
-            #region ↓詳説
-            //
-            // 図.
-            //
-            //      log.txt
-            //      ┌────────────────────────────────────────
-            //      ～
-            //      │2014/08/02 8:19:36> setoption name USI_Ponder value true
-            //      │2014/08/02 8:19:36> setoption name USI_Hash value 256
-            //      │
-            //
-            // ↑ゲーム開始時には、[対局]ダイアログボックスの[エンジン共通設定]の２つの内容が送られてきます。
-            //      ・[相手の手番中に先読み] チェックボックス
-            //      ・[ハッシュメモリ  ★　MB] スピン
-            //
-            // または
-            //
-            //      log.txt
-            //      ┌────────────────────────────────────────
-            //      ～
-            //      │2014/08/02 23:47:35> setoption name 卯
-            //      │2014/08/02 23:47:35> setoption name 卯
-            //      │2014/08/02 23:48:29> setoption name 子 value true
-            //      │2014/08/02 23:48:29> setoption name USI value 6
-            //      │2014/08/02 23:48:29> setoption name 寅 value 馬
-            //      │2014/08/02 23:48:29> setoption name 辰 value DRAGONabcde
-            //      │2014/08/02 23:48:29> setoption name 巳 value C:\Users\Takahashi\Documents\新しいビットマップ イメージ.bmp
-            //      │
-            //
-            //
-            // 将棋所から、[エンジン設定] ダイアログボックスの内容が送られてきます。
-            // このダイアログボックスは、将棋エンジンから将棋所に  ダイアログボックスを作るようにメッセージを送って作ったものです。
-            //
-            #endregion
-
-            //------------------------------------------------------------
-            // 設定を一覧表に変えます
-            //------------------------------------------------------------
-            #region ↓詳説
-            //
-            // 上図のメッセージのままだと使いにくいので、
-            // あとで使いやすいように Key と Value の表に分けて持ち直します。
-            //
-            // 図.
-            //
-            //      setoptionDictionary
-            //      ┌──────┬──────┐
-            //      │Key         │Value       │
-            //      ┝━━━━━━┿━━━━━━┥
-            //      │USI_Ponder  │true        │
-            //      ├──────┼──────┤
-            //      │USI_Hash    │256         │
-            //      └──────┴──────┘
-            //
-            #endregion
-            Regex regex = new Regex(@"setoption name ([^ ]+)(?: value (.*))?", RegexOptions.Singleline);
-            Match m = regex.Match(line);
-
-            if (m.Success)
-            {
-                // 項目を設定します。未定義の項目の場合、文字列型として新規追加します。
-                this.EngineOptions.AddOption_ByCommandline(line);
-                /*
-                string name = (string)m.Groups[1].Value;
-                string value = "";
-
-                if (3 <= m.Groups.Count)
-                {
-                    // 「value ★」も省略されずにありました。
-                    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-                    value = (string)m.Groups[2].Value;
-                }
-
-                // 項目を設定します。未定義の項目の場合、文字列型として新規追加します。
-                owner.EngineOptions.ParseValue_AutoAdd(name, value);
-                */
-            }
-
-            return PhaseResultUsiLoop1.None;
-        }
 
         /// <summary>
         /// Loop1のBody部で呼び出されます。
@@ -1408,128 +1298,6 @@ namespace Grayscale.A500ShogiEngine.B280KifuWarabe.C500KifuWarabe
             }
         }
 #endif
-
-
-        public void OnApplicationBegin()
-        {
-            int exception_area = 0;
-            try
-            {
-                var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-                var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
-
-                exception_area = 500;
-                //-------------------+----------------------------------------------------------------------------------------------------
-                // ログファイル削除  |
-                //-------------------+----------------------------------------------------------------------------------------------------
-                {
-                    //
-                    // 図.
-                    //
-                    //      フォルダー
-                    //          ├─ Engine.KifuWarabe.exe
-                    //          └─ log.txt               ←これを削除
-                    //
-                    Logger.RemoveAllLogFiles();
-                }
-
-
-                exception_area = 1000;
-                //------------------------------------------------------------------------------------------------------------------------
-                // 思考エンジンの、記憶を読み取ります。
-                //------------------------------------------------------------------------------------------------------------------------
-                {
-                    this.Shogisasi = new ShogisasiImpl(this);
-                    Util_FvLoad.OpenFv(
-                        this.Shogisasi.FeatureVector,
-                        Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Fv00Komawari")), LogTags.ProcessEngineDefault);
-                }
-
-
-                exception_area = 2000;
-                //------------------------------------------------------------------------------------------------------------------------
-                // ファイル読込み
-                //------------------------------------------------------------------------------------------------------------------------
-                {
-                    // データの読取「道」
-                    if (Michi187Array.Load(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Michi187"))))
-                    {
-                    }
-
-                    // データの読取「配役」
-                    string filepath_Haiyaku = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Haiyaku185"));
-                    Util_Array_KomahaiyakuEx184.Load(filepath_Haiyaku, Encoding.UTF8);
-
-                    // データの読取「強制転成表」　※駒配役を生成した後で。
-                    string filepath_ForcePromotion = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("InputForcePromotion"));
-                    Array_ForcePromotion.Load(filepath_ForcePromotion, Encoding.UTF8);
-
-#if DEBUG
-                    {
-                        string filepath_LogKyosei = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("OutputForcePromotion"));
-                        File.WriteAllText(filepath_LogKyosei, Array_ForcePromotion.LogHtml());
-                    }
-#endif
-
-                    // データの読取「配役転換表」
-                    string filepath_HaiyakuTenkan = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("InputSyuruiToHaiyaku"));
-                    Data_KomahaiyakuTransition.Load(filepath_HaiyakuTenkan, Encoding.UTF8);
-
-#if DEBUG
-                    {
-                        string filepath_LogHaiyakuTenkan = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("OutputSyuruiToHaiyaku");
-                        File.WriteAllText(filepath_LogHaiyakuTenkan, Data_KomahaiyakuTransition.Format_LogHtml());
-                    }
-#endif
-                }
-
-                exception_area = 4000;
-                //-------------+----------------------------------------------------------------------------------------------------------
-                // ログ書込み  |  ＜この将棋エンジン＞  製品名、バージョン番号
-                //-------------+----------------------------------------------------------------------------------------------------------
-                //
-                // 図.
-                //
-                //      log.txt
-                //      ┌────────────────────────────────────────
-                //      │2014/08/02 1:04:59> v(^▽^)v ｲｪｰｲ☆ ... fugafuga 1.00.0
-                //      │
-                //      │
-                //
-                //
-                // 製品名とバージョン番号は、次のファイルに書かれているものを使っています。
-                // 場所：  [ソリューション エクスプローラー]-[ソリューション名]-[プロジェクト名]-[Properties]-[AssemblyInfo.cs] の中の、[AssemblyProduct]と[AssemblyVersion] を参照。
-                //
-                // バージョン番号を「1.00.0」形式（メジャー番号.マイナー番号.ビルド番号)で書くのは作者の趣味です。
-                //
-                {
-                    string versionStr;
-
-                    // バージョン番号
-                    Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
-                    versionStr = String.Format("{0}.{1}.{2}", version.Major, version.Minor.ToString("00"), version.Build);
-
-                    //seihinName += " " + versionStr;
-#if DEBUG
-                    Util_Loggers.ProcessEngine_DEFAULT.AppendLine("v(^▽^)v ｲｪｰｲ☆ ... " + this.SeihinName + " " + versionStr);
-                    Util_Loggers.ProcessEngine_DEFAULT.Flush(LogTypes.Plain);
-#endif
-                }
-
-            }
-            catch (Exception ex)
-            {
-                switch (exception_area)
-                {
-                    case 1000:
-                        Logger.Panic(LogTags.ProcessEngineDefault, "フィーチャーベクターCSVを読み込んでいるとき。" + ex.GetType().Name + "：" + ex.Message);
-                        throw;
-                        //break;
-                }
-                throw;
-            }
-        }
-
 
         public void OnApplicationEnd()
         {
