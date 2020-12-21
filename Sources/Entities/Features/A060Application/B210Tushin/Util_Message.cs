@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 using ProjectDark.KWSupport;
 
 namespace Grayscale.A060Application.B210Tushin.C500Util
@@ -108,7 +109,7 @@ namespace Grayscale.A060Application.B210Tushin.C500Util
         /// <param name="message"></param>
         public static void Whisper(string message)
         {
-            System.Console.WriteLine(message);
+            Logger.Trace(message);
         }
 
         /// <summary>
@@ -118,7 +119,7 @@ namespace Grayscale.A060Application.B210Tushin.C500Util
         /// <param name="message"></param>
         public static void Show(string message)
         {
-            System.Console.WriteLine(message);
+            Logger.Trace(message);
             MessageBox.Show(message);
         }
 

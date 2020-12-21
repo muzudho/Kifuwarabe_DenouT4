@@ -10,6 +10,16 @@
 
     public static class Logger
     {
+        /// <summary>
+        /// あとで消す☆（＾～＾）
+        /// </summary>
+        /// <param name="message"></param>
+        [Conditional("DEBUG")]
+        public static void Trace(string message)
+        {
+            Console.WriteLine(message);
+        }
+
         private static StringBuilder m_buffer_;
 
         static ILogRecord LogEntry(string profilePath, TomlTable toml, string resourceKey, bool enabled, bool timeStampPrintable, bool enableConsole, IErrorController kwDisplayer_OrNull)
@@ -90,7 +100,7 @@
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"エラー: GetRecord(). [{logTag.Name}] {ex.Message}");
+                Logger.Trace($"エラー: GetRecord(). [{logTag.Name}] {ex.Message}");
                 throw;
             }
         }

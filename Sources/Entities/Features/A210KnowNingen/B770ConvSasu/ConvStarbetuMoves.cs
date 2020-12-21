@@ -49,7 +49,7 @@ namespace Grayscale.A210KnowNingen.B770ConvSasu.C500Converter
                     if (out_inputMovelist.Contains(moveA))
                     {
                         // 既存の指し手なら無視
-                        System.Console.WriteLine("既存の指し手なので無視します1。sfenText=[" + ConvMove.ToSfen(moveA) + "]");
+                        Logger.Trace("既存の指し手なので無視します1。sfenText=[" + ConvMove.ToSfen(moveA) + "]");
                     }
                     else
                     {

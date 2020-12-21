@@ -50,7 +50,7 @@ namespace P930_SampleGame
 
             Move move = bestmoveNode.Move;
             string sfenText = ConvMove.ToSfen(move);
-            System.Console.WriteLine("sfenText=" + sfenText + " move=" + Convert.ToString((int)move, 2));
+            Logger.Trace("sfenText=" + sfenText + " move=" + Convert.ToString((int)move, 2));
 
 
             //bool isTimeoutShutdown_temp;

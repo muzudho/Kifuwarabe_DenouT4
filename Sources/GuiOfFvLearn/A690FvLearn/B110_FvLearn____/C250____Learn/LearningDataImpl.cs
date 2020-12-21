@@ -232,8 +232,8 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C250Learn
                 args, logTag);
 #if DEBUG
             sw2.Stop();
-            Console.WriteLine("合法手作成　　　 　= {0}", sw2.Elapsed);
-            Console.WriteLine("────────────────────────────────────────");
+            Logger.Trace("合法手作成　　　 　= {0}", sw2.Elapsed);
+            Logger.Trace("────────────────────────────────────────");
 #endif
 
 

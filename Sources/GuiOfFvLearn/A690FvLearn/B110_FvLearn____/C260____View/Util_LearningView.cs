@@ -372,10 +372,10 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C260View
             //----------------------------------------
             // カレント・ノードより古い、以前読んだ手を削除したい。
             //----------------------------------------
-            System.Console.WriteLine("カレント・ノード＝" + ConvMove.ToSfen( learningData.GetMove()));
+            Logger.Trace("カレント・ノード＝" + ConvMove.ToSfen( learningData.GetMove()));
             int result_removedCount = Util_KifuTree282.IzennoHenkaCutter(
                 learningData.KifuA, logTag);
-            System.Console.WriteLine("削除した要素数＝" + result_removedCount);
+            Logger.Trace("削除した要素数＝" + result_removedCount);
             */
 
             ////----------------------------------------
@@ -409,8 +409,8 @@ namespace Grayscale.A690FvLearn.B110FvLearn.C260View
 
 #if DEBUG
             sw1.Stop();
-            Console.WriteLine("一手指すボタン合計 = {0}", sw1.Elapsed);
-            Console.WriteLine("────────────────────────────────────────");
+            Logger.Trace("一手指すボタン合計 = {0}", sw1.Elapsed);
+            Logger.Trace("────────────────────────────────────────");
 #endif
 
         gt_EndMethod:

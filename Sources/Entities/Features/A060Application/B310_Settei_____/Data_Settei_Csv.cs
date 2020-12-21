@@ -3,6 +3,7 @@ using System.IO;
 using System.Text;
 using Grayscale.A000Platform.B011Csv.C500Parser;
 using Grayscale.A060Application.B210Tushin.C500Util;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 
 namespace Grayscale.A060Application.B310Settei.C500Struct
 {
@@ -89,15 +90,15 @@ namespace Grayscale.A060Application.B310Settei.C500Struct
 
         public void DebugOut()
         {
-            System.Console.WriteLine("┏━━━━━━━━┓サイズ＝[" + this.Properties.Count + "]");
+            Logger.Trace("┏━━━━━━━━┓サイズ＝[" + this.Properties.Count + "]");
 
             foreach (KeyValuePair<string, string> entry in this.Properties)
             {
-                System.Console.WriteLine(entry.Key + "=「" + entry.Value + "」");
+                Logger.Trace(entry.Key + "=「" + entry.Value + "」");
 
             }
 
-            System.Console.WriteLine("┗━━━━━━━━┛");
+            Logger.Trace("┗━━━━━━━━┛");
         }
 
         public string Get(string name)
