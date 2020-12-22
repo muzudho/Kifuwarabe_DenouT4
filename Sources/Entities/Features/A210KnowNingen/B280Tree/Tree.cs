@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -15,11 +16,11 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
     public interface Tree
     {
-        void LogPv(string message, ILogTag logTag);
+        void LogPv(string message, StringBuilder buf);
 
-        void Pv_RemoveLast(ILogTag logTag);
-        void Pv_ClearAll(ILogTag logTag);
-        void Pv_Append(Move tail, ILogTag logTag);
+        void Pv_RemoveLast(StringBuilder buf);
+        void Pv_ClearAll(StringBuilder buf);
+        void Pv_Append(Move tail, StringBuilder buf);
         Move Pv_GetLatest();
         Move Pv_Get(int index);
         int Pv_Count();
