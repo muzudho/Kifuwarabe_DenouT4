@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 
 #if DEBUG
@@ -31,16 +30,16 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
         #region PV関連
 
-        public void LogPv(string message, StringBuilder buf)
+        public void LogPv(string message, ILogTag logTag)
         {
             int index = 0;
-            buf.AppendLine("┌──────────┐" + message);
+            Logger.AppendLine(logTag, "┌──────────┐" + message);
             foreach (Move move in this.m_pv_)
             {
-                buf.AppendLine($"({index}){ConvMove.ToLog(move)}");
+                Logger.AppendLine(logTag, "(" + index + ")" + ConvMove.ToLog(move));
                 index++;
             }
-            buf.AppendLine("└──────────┘");
+            Logger.AppendLine(logTag, "└──────────┘");
 
             //this.LogPvList(this, logger);
         }
@@ -63,24 +62,24 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             logger.AppendLine("└──────────┘");
         }
         */
-        public void Pv_RemoveLast(StringBuilder buf)
+        public void Pv_RemoveLast(ILogTag logger)
         {
             if (1 < this.m_pv_.Count)//[0]はルート☆（*＾～＾*）
             {
                 this.m_pv_.RemoveAt(this.m_pv_.Count - 1);
-                this.LogPv("RemoveLastPv後", buf);
+                this.LogPv("RemoveLastPv後", logger);
             }
         }
-        public void Pv_ClearAll(StringBuilder buf)
+        public void Pv_ClearAll(ILogTag logger)
         {
             this.m_pv_.Clear();
             this.m_pv_.Add(Move.Empty);
-            this.LogPv("ClearAll後", buf);
+            this.LogPv("ClearAll後", logger);
         }
-        public void Pv_Append(Move tail, StringBuilder buf)
+        public void Pv_Append(Move tail, ILogTag logger)
         {
             this.m_pv_.Add(tail);
-            this.LogPv("Append後", buf);
+            this.LogPv("Append後", logger);
         }
         public Move Pv_GetLatest()
         {
