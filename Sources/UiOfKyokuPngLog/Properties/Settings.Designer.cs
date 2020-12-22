@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Grayscale.Kifuwaragyoku.UiOfKyokuPngLog.Properties {
+namespace Grayscale.Kifuwaragyoku.CliOfKyokuPngLog.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

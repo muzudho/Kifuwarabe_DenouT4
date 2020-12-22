@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Sources\Entities\Entities.csproj", "{147B11E0-827B-4D3F-844C-ADF2BEAFA53F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiOfKyokuPngLog", "Sources\UiOfKyokuPngLog\UiOfKyokuPngLog.csproj", "{6F26BAE0-8E17-4FDA-A242-D1D7C4DB2507}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CliOfKyokuPngLog", "Sources\UiOfKyokuPngLog\CliOfKyokuPngLog.csproj", "{6F26BAE0-8E17-4FDA-A242-D1D7C4DB2507}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfKifuCsa", "Sources\GuiOfKifuCsa\GuiOfKifuCsa.csproj", "{ABED6201-9999-44CD-A91B-4CA01CC89006}"
 EndProject
@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfFvWriter", "Sources\Gu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfFvLearn", "Sources\GuiOfFvLearn\GuiOfFvLearn.csproj", "{974BA7C3-37B5-4575-9349-9E44CFECF2D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiOfSigmoidTest", "Sources\UiOfSigmoidTest\UiOfSigmoidTest.csproj", "{77E59B81-8B78-45D3-98E4-1BF2269B08A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CliOfSigmoidTest", "Sources\UiOfSigmoidTest\CliOfSigmoidTest.csproj", "{77E59B81-8B78-45D3-98E4-1BF2269B08A7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfLuaTest", "Sources\GuiOfLuaTest\GuiOfLuaTest.csproj", "{B2DE7E01-2844-483A-B18F-4A6250FFEDF2}"
 EndProject
@@ -31,7 +31,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfSpeedKeisok", "Sources
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfUtifuduTest", "Sources\GuiOfUtifuduTest\GuiOfUtifuduTest.csproj", "{0E4A4B25-BF5A-47B5-8AAD-6DA1993673ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiOfSampleGame", "Sources\UiOfSampleGame\UiOfSampleGame.csproj", "{FC876110-BD0B-483D-8A64-350582B529F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CliOfSampleGame", "Sources\UiOfSampleGame\CliOfSampleGame.csproj", "{FC876110-BD0B-483D-8A64-350582B529F3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiOfUnitTest", "Sources\UiOfUnitTest\UiOfUnitTest.csproj", "{12A201DF-1210-4EEC-93C2-5D38D01FF097}"
 EndProject

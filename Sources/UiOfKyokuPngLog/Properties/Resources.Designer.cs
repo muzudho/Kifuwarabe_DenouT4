@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Grayscale.Kifuwaragyoku.UiOfKyokuPngLog.Properties {
+namespace Grayscale.Kifuwaragyoku.CliOfKyokuPngLog.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Grayscale.Kifuwaragyoku.UiOfKyokuPngLog.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Grayscale.Kifuwaragyoku.UiOfKyokuPngLog.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Grayscale.Kifuwaragyoku.CliOfKyokuPngLog.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
