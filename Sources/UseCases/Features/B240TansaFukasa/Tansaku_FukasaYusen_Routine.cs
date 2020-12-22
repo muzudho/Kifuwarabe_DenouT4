@@ -191,87 +191,83 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             )
         {
             int temezumi = positionA.Temezumi;
-            int exceptionArea = 0;
 
-            try
+            Tansaku_Genjo genjo = Tansaku_FukasaYusen_Routine.CreateGenjo(
+                temezumi,
+                isHonshogi, mode_Tansaku, logTag);
+
+            // 最初は投了からスタートだぜ☆（*＾～＾*）
+            MoveEx a_bestmoveEx_Children = new MoveExImpl(
+                Move.Empty,
+                //最悪点からスタートだぜ☆（＾～＾）
+                // プレイヤー1ならmax値、プレイヤー2ならmin値。
+                Util_Scoreing.GetWorstScore(psideA)
+                );
+
+            int wideCount2 = 0;
+
+            // 
+            // （１）合法手に一対一対応した子ノードを作成し、ハブ・ノードにぶら下げます。
+            //
+            int yomiDeep;
+            List<Move> movelist = UtilMovePicker.CreateMovelist_BeforeLoop(
+                genjo,
+
+                psideA,//TODO:
+                positionA,
+
+                ref searchedMaxDepth,
+                out yomiDeep,
+                logTag
+                );
+
+            if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(yomiDeep, wideCount2, movelist.Count, genjo, args.Shogisasi.TimeManager))
             {
-                exceptionArea = 10;
-                Tansaku_Genjo genjo = Tansaku_FukasaYusen_Routine.CreateGenjo(
-                    temezumi,
-                    isHonshogi, mode_Tansaku, logTag);
+                // 1手も読まないのなら。
+                // FIXME: エラー？
+                //----------------------------------------
+                // もう深くよまないなら
+                //----------------------------------------
 
-                // 最初は投了からスタートだぜ☆（*＾～＾*）
-                MoveEx a_bestmoveEx_Children = new MoveExImpl(
-                    Move.Empty,
-                    //最悪点からスタートだぜ☆（＾～＾）
-                    // プレイヤー1ならmax値、プレイヤー2ならmin値。
-                    Util_Scoreing.GetWorstScore(psideA)
-                    );
-
-                int wideCount2 = 0;
-
-                // 
-                // （１）合法手に一対一対応した子ノードを作成し、ハブ・ノードにぶら下げます。
-                //
-                int yomiDeep;
-                List<Move> movelist = UtilMovePicker.CreateMovelist_BeforeLoop(
+                // 局面に評価を付けます。
+                float score = Tansaku_FukasaYusen_Routine.Do_Leaf(
                     genjo,
 
-                    psideA,//TODO:
+                    psideA,// positionA.GetKaisiPside(),
                     positionA,
 
-                    ref searchedMaxDepth,
-                    out yomiDeep,
+                    args,
                     logTag
                     );
 
-                if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(yomiDeep, wideCount2, movelist.Count, genjo, args.Shogisasi.TimeManager))
-                {
-                    // 1手も読まないのなら。
-                    // FIXME: エラー？
-                    //----------------------------------------
-                    // もう深くよまないなら
-                    //----------------------------------------
+                a_bestmoveEx_Children = Util_Scoreing.GetHighScore(
+                    a_bestmoveEx_Children.Move,
+                    score,
+                    a_bestmoveEx_Children,
+                    psideA//positionA.GetKaisiPside()
+                    );
+            }
+            else
+            {
+                // ここが再帰のスタート地点☆（＾▽＾）
+                a_bestmoveEx_Children = Tansaku_FukasaYusen_Routine.WAAA_Yomu_Loop(
+                    ref searchedMaxDepth,
+                    ref searchedNodes,
+                    searchedPv,
+                    genjo,
 
-                    // 局面に評価を付けます。
-                    float score = Tansaku_FukasaYusen_Routine.Do_Leaf(
-                        genjo,
+                    positionA.Temezumi,
+                    psideA,//positionA.GetKaisiPside(),
+                    positionA,//この局面から合法手を作成☆（＾～＾）
+                    a_bestmoveEx_Children.Score,
+                    kifu1.MoveEx_Current,// ツリーを伸ばしているぜ☆（＾～＾）
+                    kifu1,
 
-                        psideA,// positionA.GetKaisiPside(),
-                        positionA,
-
-                        args,
-                        logTag
-                        );
-
-                    a_bestmoveEx_Children = Util_Scoreing.GetHighScore(
-                        a_bestmoveEx_Children.Move,
-                        score,
-                        a_bestmoveEx_Children,
-                        psideA//positionA.GetKaisiPside()
-                        );
-                }
-                else
-                {
-                    // ここが再帰のスタート地点☆（＾▽＾）
-                    a_bestmoveEx_Children = Tansaku_FukasaYusen_Routine.WAAA_Yomu_Loop(
-                        ref searchedMaxDepth,
-                        ref searchedNodes,
-                        searchedPv,
-                        genjo,
-
-                        positionA.Temezumi,
-                        psideA,//positionA.GetKaisiPside(),
-                        positionA,//この局面から合法手を作成☆（＾～＾）
-                        a_bestmoveEx_Children.Score,
-                        kifu1.MoveEx_Current,// ツリーを伸ばしているぜ☆（＾～＾）
-                        kifu1,
-
-                        movelist.Count,
-                        args,
-                        logTag
-                        );
-                }
+                    movelist.Count,
+                    args,
+                    logTag
+                    );
+            }
 
 #if DEBUG
                 exceptionArea = 20;
@@ -291,33 +287,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 }
 #endif
 
-                return a_bestmoveEx_Children;
-            }
-            catch (Exception ex)
-            {
-                switch (exceptionArea)
-                {
-                    case 10:
-                        {
-                            //>>>>> エラーが起こりました。
-                            string message = ex.GetType().Name + " " + ex.Message + "：棋譜ツリーの読みの中盤５０です。：";
-                            Debug.Fail(message);
-
-                            // どうにもできないので  ログだけ取って、上に投げます。
-                            Logger.AppendLine(logTag, message);
-                            Logger.Flush(logTag, LogTypes.Error);
-                            throw;
-                        }
-#if DEBUG
-                    case 20:
-                        {
-                            logTag.Panic(ex, "棋譜ツリーの読みの後半９０です。");
-                            throw;
-                        }
-#endif
-                    default: throw;
-                }
-            }
+            return a_bestmoveEx_Children;
         }
 
         /// <summary>
