@@ -1,17 +1,11 @@
 ﻿using System.IO;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Nett;
 
 #if DEBUG
 using System;
 using System.Diagnostics;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Logging;
 using System.Text;
-using Grayscale.Kifuwaragyoku.Entities.Features;
 #endif
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -135,7 +129,8 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     logF_kiki.boards.Clear();
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 logTag.Panic(ex, "局面評価明細を出力しようとしたときです。");
                 throw;
             }

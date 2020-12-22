@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uc_Main1 = new P910SpeedKeisok.UcMain();
+            this.uc_Main1 = new UcMain();
             this.SuspendLayout();
             // 
             // uc_Main1

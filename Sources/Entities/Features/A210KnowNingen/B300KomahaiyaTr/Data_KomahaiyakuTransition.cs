@@ -5,7 +5,6 @@ using System.Text;
 using Nett;
 
 #if DEBUG
-using Grayscale.Kifuwaragyoku.Entities.Features;
 #endif
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -47,12 +46,12 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
             int masuHandle = Conv_Masu.ToMasuHandle(Conv_Masu.BothSenteView(masu_shogiban, pside));
 
-            if (B180ConvPside.C500Converter.Conv_Masu.OnShogiban(masuHandle))
+            if (Conv_Masu.OnShogiban(masuHandle))
             {
 
                 result = Data_KomahaiyakuTransition.Map[syurui][(int)masuHandle];
             }
-            else if (B180ConvPside.C500Converter.Conv_Masu.OnKomadai(masuHandle))
+            else if (Conv_Masu.OnKomadai(masuHandle))
             {
                 switch (syurui)
                 {
@@ -73,7 +72,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     default: result = Komahaiyaku185.n000_未設定; break;
                 }
             }
-            else if (B180ConvPside.C500Converter.Conv_Masu.OnKomabukuro(masuHandle))
+            else if (Conv_Masu.OnKomabukuro(masuHandle))
             {
                 switch (syurui)
                 {

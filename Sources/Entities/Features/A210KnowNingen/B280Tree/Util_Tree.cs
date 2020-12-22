@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 
 #if DEBUG
-using System.Diagnostics;
 #endif
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features

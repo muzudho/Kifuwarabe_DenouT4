@@ -1,9 +1,7 @@
 ﻿using System;
-using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 
 #if DEBUG
-using Grayscale.Kifuwaragyoku.Entities.Features;
 #endif
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features

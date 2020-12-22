@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 // アセンブリに関する一般情報は以下の属性セットをとおして制御されます。
 // アセンブリに関連付けられている情報を変更するには、
 // これらの属性値を変更してください。
-[assembly: AssemblyTitle("P480_ServerAims_")]
-[assembly: AssemblyDescription("擬似将棋サーバー")]
+[assembly: AssemblyTitle("Grayscale.Kifuwaragyoku.UseCases")]
+[assembly: AssemblyDescription("UseCases")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ぐれーすけーる")]
-[assembly: AssemblyProduct("P620_AimsServer_")]
-[assembly: AssemblyCopyright("Copyright © ぐれーすけーる 2015")]
+[assembly: AssemblyProduct("Kifuwaragyoku")]
+[assembly: AssemblyCopyright("Copyright © ぐれーすけーる 2015-2020")]
 [assembly: AssemblyTrademark("きふわらべ")]
 [assembly: AssemblyCulture("")]
 

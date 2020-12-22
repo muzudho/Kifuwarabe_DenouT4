@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
@@ -355,7 +352,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 #if DEBUG
                 if (null != logTag.KwDisplayerOrNull.OnAppendLog)
                 {
-                    logTag.KwDisplayerOrNull.OnAppendLog("駒取った=" + Conv_Busstop.ToKomasyurui( out_food_koma) + Environment.NewLine);
+                    logTag.KwDisplayerOrNull.OnAppendLog("駒取った=" + Conv_Busstop.ToKomasyurui(out_food_koma) + Environment.NewLine);
                 }
 #endif
                 //

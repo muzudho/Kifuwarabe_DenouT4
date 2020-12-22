@@ -1,6 +1,4 @@
 ﻿using System.Diagnostics;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
@@ -1005,7 +1003,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
             // １手を、データにします。
             move = ConvMove.ToMove(
-                B180ConvPside.C500Converter.Conv_Masu.ToMasu(srcMasuHandle1),
+                Conv_Masu.ToMasu(srcMasuHandle1),
                 dstMasu,//符号は将棋盤の升目です。
                 srcSyurui,//dstSyurui
                 Komasyurui14.H00_Null___, // 符号からは、取った駒の種類は分からないんだぜ☆　だがバグではない☆　あとで調べる☆

@@ -1,6 +1,4 @@
-﻿using Grayscale.Kifuwaragyoku.Entities.Features;
-
-namespace Grayscale.Kifuwaragyoku.Entities.Features
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class Conv_Starlight
     {

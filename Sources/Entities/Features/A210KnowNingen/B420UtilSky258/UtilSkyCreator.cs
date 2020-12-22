@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using Grayscale.Kifuwaragyoku.Entities.Features;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features

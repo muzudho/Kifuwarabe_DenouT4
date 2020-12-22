@@ -1,13 +1,8 @@
 ﻿using System;
 using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.A500ShogiEngine.B200Scoreing.C240Shogisasi;
-using Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.Kifuwaragyoku.UseCases;
+using Grayscale.Kifuwaragyoku.UseCases.Features;
 
 namespace Grayscale.Kifuwaragyoku.CliOfSampleGame
 {

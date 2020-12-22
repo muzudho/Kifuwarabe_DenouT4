@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 
 #if DEBUG
-using System.Diagnostics;
 #endif
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features

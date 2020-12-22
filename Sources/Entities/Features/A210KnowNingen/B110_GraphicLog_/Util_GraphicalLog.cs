@@ -1,6 +1,5 @@
 ﻿
 #if DEBUG
-using Grayscale.Kifuwaragyoku.Entities.Features;
 using System.IO;
 using System.Text;
 using Nett;

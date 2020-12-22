@@ -1,19 +1,6 @@
 ﻿#if DEBUG
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-using Grayscale.Kifuwaragyoku.Entities.Features;
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -99,7 +86,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
                 Gkl_KomaMasu km = new Gkl_KomaMasu(
                     Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanSeme, Conv_Busstop.ToKomasyurui(koma), ""),
-                    Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu( koma))
+                    Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu(koma))
                     );
                 boardLog_clone.KomaMasu1.Add(km);
             }

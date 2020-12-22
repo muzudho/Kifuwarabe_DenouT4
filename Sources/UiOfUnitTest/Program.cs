@@ -2,17 +2,8 @@
 using System.Diagnostics;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
 
-namespace Grayscale.A950UnitTest
+namespace Grayscale.Kifuwaragyoku.CliOfUnitTest
 {
     class Program
     {
@@ -20,7 +11,7 @@ namespace Grayscale.A950UnitTest
         {
             ILogTag logTag = LogTags.ProcessUnitTestDefault;
 
-            Logger.AppendLine(logTag,"テストＡ");
+            Logger.AppendLine(logTag, "テストＡ");
             Logger.Flush(logTag, LogTypes.Plain);
             MachineImpl.GetInstance().ReadKey();
 

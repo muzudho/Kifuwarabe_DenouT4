@@ -2,7 +2,6 @@
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
-using Grayscale.Kifuwaragyoku.Entities.Features;
 #endif
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -81,10 +80,10 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         {
             ILogTag logTag = null;
 #if DEBUG
-                    if (mmLog_orNull != null)
-                    {
-                        logTag = mmLog_orNull.ErrH;
-                    }
+            if (mmLog_orNull != null)
+            {
+                logTag = mmLog_orNull.ErrH;
+            }
 #endif
 
             // 《１》 移動可能場所

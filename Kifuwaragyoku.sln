@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiOfSpeedKeisok", "Sources
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CliOfSampleGame", "Sources\UiOfSampleGame\CliOfSampleGame.csproj", "{FC876110-BD0B-483D-8A64-350582B529F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiOfUnitTest", "Sources\UiOfUnitTest\UiOfUnitTest.csproj", "{12A201DF-1210-4EEC-93C2-5D38D01FF097}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CliOfUnitTest", "Sources\UiOfUnitTest\CliOfUnitTest.csproj", "{12A201DF-1210-4EEC-93C2-5D38D01FF097}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
 #endif
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -373,7 +365,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     {
                         logBrd_kiki.NounaiSeme = Gkl_NounaiSeme.Sente;
                     }
-                    else if(Playerside.P2 == tebanSeme)
+                    else if (Playerside.P2 == tebanSeme)
                     {
                         logBrd_kiki.NounaiSeme = Gkl_NounaiSeme.Gote;
                     }
@@ -407,21 +399,21 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     Busstop koma = src_Sky.BusstopIndexOf(finger);
 
 
-                        Gkl_KomaMasu km = new Gkl_KomaMasu(
-                            Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanSeme, Conv_Busstop.ToKomasyurui(koma), ""),
-                            Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu( koma))
-                            );
-                        boardLog_clone.KomaMasu1.Add(km);
+                    Gkl_KomaMasu km = new Gkl_KomaMasu(
+                        Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanSeme, Conv_Busstop.ToKomasyurui(koma), ""),
+                        Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu(koma))
+                        );
+                    boardLog_clone.KomaMasu1.Add(km);
                 }
                 foreach (Finger finger in fingers_kurau_BANJO.Items)
                 {
                     Busstop koma = src_Sky.BusstopIndexOf(finger);
 
 
-                        logBrd_kiki.KomaMasu2.Add(new Gkl_KomaMasu(
-                            Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanKurau, Conv_Busstop.ToKomasyurui(koma), ""),
-                            Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu(koma))
-                            ));
+                    logBrd_kiki.KomaMasu2.Add(new Gkl_KomaMasu(
+                        Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanKurau, Conv_Busstop.ToKomasyurui(koma), ""),
+                        Conv_Masu.ToMasuHandle(Conv_Busstop.ToMasu(koma))
+                        ));
                 }
                 logBrd_kiki = boardLog_clone;
 #endif

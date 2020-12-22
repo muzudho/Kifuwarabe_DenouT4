@@ -4,15 +4,11 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
-using Grayscale.A500ShogiEngine.B180Hyokakansu.C500Hyokakansu;
-using Grayscale.A500ShogiEngine.B523UtilFv.C510UtilFvLoad;
+using Grayscale.Kifuwaragyoku.UseCases.Features;
 
 #if DEBUG || LEARN
-using Grayscale.Kifuwaragyoku.Entities.Features;
 #endif
 
 namespace Grayscale.Kifuwaragyoku.GuiOfSpeedKeisok

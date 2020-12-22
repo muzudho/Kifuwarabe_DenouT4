@@ -3,20 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.A090UsiFramewor.B100UsiFrame1.C490Option;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.A500ShogiEngine.B200Scoreing.C240Shogisasi;
-using Grayscale.A500ShogiEngine.B280KifuWarabe.C125AjimiEngine;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.UseCases.Features;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.UseCases
@@ -753,15 +741,15 @@ namespace Grayscale.Kifuwaragyoku.UseCases
 
 
 #if DEBUG
-                                //// 内容をログ出力
-                                //// 最善手、次善手、三次善手、四次善手、五次善手
-                                //StringBuilder sb = new StringBuilder();
-                                //for (int iMultiPV = 0; iMultiPV < 5; iMultiPV++)
-                                //{
-                                //    string sfenText = Util_Sky.ToSfenMoveText(bestMoveList[iMultiPV]);
-                                //    sb.AppendLine("[" + iMultiPV + "]" + sfenText);
-                                //}
-                                //System.Windows.Forms.MessageBox.Show(sb.ToString());
+                            //// 内容をログ出力
+                            //// 最善手、次善手、三次善手、四次善手、五次善手
+                            //StringBuilder sb = new StringBuilder();
+                            //for (int iMultiPV = 0; iMultiPV < 5; iMultiPV++)
+                            //{
+                            //    string sfenText = Util_Sky.ToSfenMoveText(bestMoveList[iMultiPV]);
+                            //    sb.AppendLine("[" + iMultiPV + "]" + sfenText);
+                            //}
+                            //System.Windows.Forms.MessageBox.Show(sb.ToString());
 #endif
                         }
 

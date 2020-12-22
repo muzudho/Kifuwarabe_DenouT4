@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
 using System.Text;
-using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
