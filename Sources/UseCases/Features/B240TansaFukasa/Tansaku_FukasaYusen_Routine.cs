@@ -432,188 +432,249 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             ILogTag logTag
             )
         {
+            int exceptionArea = 0;
             MoveEx result_thisDepth;
 
-            //
-            // まず前提として、
-            // 現手番の「被王手の局面」だけがピックアップされます。
-            // これはつまり、次の局面がないときは、その枝は投了ということです。
-            //
-
-
-            // 
-            // （１）合法手に一対一対応した子ノードを作成し、ハブ・ノードにぶら下げます。
-            //
-            int yomiDeep2;
-            List<Move> movelist2 = UtilMovePicker.CreateMovelist_BeforeLoop(
-                genjo,
-
-                psideA,//TODO:
-                positionA,
-
-                ref searchedMaxDepth,
-                out yomiDeep2,
-                logTag
-                );
-
-            // 空っぽにして用意しておくぜ☆
-            result_thisDepth = new MoveExImpl(Move.Empty);
-            result_thisDepth.SetScore(Util_Scoreing.GetWorstScore(
-                positionA.GetKaisiPside() //× psideA//
-                ));// プレイヤー1ならmax値、プレイヤー2ならmin値。
-
-            int wideCount1 = 0;
-            foreach (Move iMov_child_const in movelist2)//次に読む手
+            try
             {
-                Move iMov_child_variable = iMov_child_const;
-                MoveEx iNod_child = new MoveExImpl(iMov_child_variable);
-
-                if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(
-                    yomiDeep2,
-                    wideCount1,
-                    movelist2.Count,
-                    genjo,
-                    args.Shogisasi.TimeManager
-                ))
-                {
-                    //----------------------------------------
-                    // もう深くよまないなら
-                    //----------------------------------------
-                    float baseDepth_score = Tansaku_FukasaYusen_Routine.Do_Leaf(
-                        genjo,
-
-                        psideA,//positionA.GetKaisiPside(),
-                        positionA,//改造前
-
-                        args,
-                        logTag
-                        );
-
-                    //result_movEx3 = new MoveExImpl(nod1.Key, this_score);
-                    //*
-                    result_thisDepth = Util_Scoreing.GetHighScore(
-                        baseNod1.Move,
-                        baseDepth_score,
-                        result_thisDepth,
-                        positionA.GetKaisiPside()//× psideA//
-                        );
-
-                    //*/
-                    wideCount1++;
-                    break;
-                }
-
-                //────────────────────────────────────────
-                // 葉以外の探索中なら
-                //────────────────────────────────────────
-
-                //----------------------------------------
-                // 《９》まだ深く読むなら
-                //----------------------------------------
-                // 《８》カウンターを次局面へ
-
-                // 探索ノードのカウントを加算☆（＾～＾）少ないほど枝刈りの質が高いぜ☆
-                searchedNodes++;
-
-                // このノードは、途中節か葉か未確定。
-
+                exceptionArea = 1000;
                 //
-                // （２）指し手を、ノードに変換し、現在の局面に継ぎ足します。
+                // まず前提として、
+                // 現手番の「被王手の局面」だけがピックアップされます。
+                // これはつまり、次の局面がないときは、その枝は投了ということです。
                 //
 
-                // 局面
-                Util_IttesasuSuperRoutine.DoMove_Super1(
-                    ConvMove.ToPlayerside(iMov_child_variable),
-                    ref positionA,//指定局面
-                    ref iMov_child_variable,
-                    "C100",
-                    logTag
-                );
-                //Playerside psideB = positionA.GetKaisiPside();//反転している☆（*＾～＾*）？
-                iNod_child.SetMove(iMov_child_variable);
 
-                // 自分を親要素につなげたあとで、子を検索するぜ☆（＾～＾）
-                kifu1.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(iNod_child, kifu1, positionA, logTag));
-
-                // これを呼び出す回数を減らすのが、アルファ法。
-                // 枝か、葉か、確定させにいきます。
-                // （＾▽＾）再帰☆
-                MoveEx iMovEx_child_temp = Tansaku_FukasaYusen_Routine.WAAA_Yomu_Loop(
-                    ref searchedMaxDepth,
-                    ref searchedNodes,
-                    searchedPv,
+                // 
+                // （１）合法手に一対一対応した子ノードを作成し、ハブ・ノードにぶら下げます。
+                //
+                int yomiDeep2;
+                List<Move> movelist2 = UtilMovePicker.CreateMovelist_BeforeLoop(
                     genjo,
 
-                    positionA.Temezumi,
-                    ConvMove.ToPlayerside(iMov_child_variable),// positionA.GetKaisiPside(),
-                    positionA,//この局面から合法手を作成☆（＾～＾）
-                    result_thisDepth.Score,
-                    kifu1.MoveEx_Current,// ツリーを伸ばしているぜ☆（＾～＾）
-                    kifu1,
-
-                    movelist2.Count,
-                    args,
-                    logTag);
-
-                //*
-                // １手戻したいぜ☆（＾～＾）
-
-                IIttemodosuResult ittemodosuResult;
-                UtilIttemodosuRoutine.UndoMove(
-                    out ittemodosuResult,
-                    iMov_child_variable,//この関数が呼び出されたときの指し手☆（＾～＾）
-                    ConvMove.ToPlayerside(iMov_child_variable),
+                    psideA,//TODO:
                     positionA,
-                    "C900",
+
+                    ref searchedMaxDepth,
+                    out yomiDeep2,
                     logTag
                     );
-                positionA = ittemodosuResult.SyuryoSky;
-                //*/
 
-                kifu1.MoveEx_SetCurrent(
-                    TreeImpl.OnUndoCurrentMove(kifu1, ittemodosuResult.SyuryoSky, logTag, "WAAA_Yomu_Loop20000")
-                );
+                // 空っぽにして用意しておくぜ☆
+                result_thisDepth = new MoveExImpl(Move.Empty);
+                result_thisDepth.SetScore(Util_Scoreing.GetWorstScore(
+                    positionA.GetKaisiPside() //× psideA//
+                    ));// プレイヤー1ならmax値、プレイヤー2ならmin値。
 
-                //----------------------------------------
-                // 子要素の検索が終わった時点で、読み筋を格納☆
-                //----------------------------------------
-                searchedPv[yomiDeep2] = ConvMove.ToSfen(iMov_child_variable); //FIXME:
-                searchedPv[yomiDeep2 + 1] = "";//後ろの１手を消しておいて 終端子扱いにする。
+                exceptionArea = 2000;
 
-                //----------------------------------------
-                // 子要素の検索が終わった時点
-                //----------------------------------------
-                //
-                // 子の点数を、自分に反映させるぜ☆
-                bool alpha_cut;
-                result_thisDepth = Util_Scoreing.Update_BestScore_And_Check_AlphaCut(
-                    result_thisDepth,// これを更新する
+                int wideCount1 = 0;
+                foreach (Move iMov_child_const in movelist2)//次に読む手
+                {
+                    Move iMov_child_variable = iMov_child_const;
+                    MoveEx iNod_child = new MoveExImpl(iMov_child_variable);
 
-                    yomiDeep2,
+                    if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(
+                        yomiDeep2,
+                        wideCount1,
+                        movelist2.Count,
+                        genjo,
+                        args.Shogisasi.TimeManager
+                    ))
+                    {
 
-                    psideA,// positionA.GetKaisiPside(),
+                        exceptionArea = 3000;
 
-                    parentsiblingBestScore,
-                    iMovEx_child_temp,
+                        //----------------------------------------
+                        // もう深くよまないなら
+                        //----------------------------------------
+                        float baseDepth_score = Tansaku_FukasaYusen_Routine.Do_Leaf(
+                            genjo,
 
-                    out alpha_cut
-                    );
+                            psideA,//positionA.GetKaisiPside(),
+                            positionA,//改造前
 
-                wideCount1++;
+                            args,
+                            logTag
+                            );
+
+                        //result_movEx3 = new MoveExImpl(nod1.Key, this_score);
+                        //*
+                        result_thisDepth = Util_Scoreing.GetHighScore(
+                            baseNod1.Move,
+                            baseDepth_score,
+                            result_thisDepth,
+                            positionA.GetKaisiPside()//× psideA//
+                            );
+
+                        //*/
+                        wideCount1++;
+                        break;
+                    }
+
+                    //────────────────────────────────────────
+                    // 葉以外の探索中なら
+                    //────────────────────────────────────────
+                    try
+                    {
+                        exceptionArea = 4010;
+
+                        //----------------------------------------
+                        // 《９》まだ深く読むなら
+                        //----------------------------------------
+                        // 《８》カウンターを次局面へ
+
+                        // 探索ノードのカウントを加算☆（＾～＾）少ないほど枝刈りの質が高いぜ☆
+                        searchedNodes++;
+
+                        // このノードは、途中節か葉か未確定。
+
+                        //
+                        // （２）指し手を、ノードに変換し、現在の局面に継ぎ足します。
+                        //
+                        exceptionArea = 4020;
+
+                        // 局面
+                        Util_IttesasuSuperRoutine.DoMove_Super1(
+                            ConvMove.ToPlayerside(iMov_child_variable),
+                            ref positionA,//指定局面
+                            ref iMov_child_variable,
+                            "C100",
+                            logTag
+                        );
+                        //Playerside psideB = positionA.GetKaisiPside();//反転している☆（*＾～＾*）？
+                        iNod_child.SetMove(iMov_child_variable);
+
+                        exceptionArea = 44011;
+
+
+                        // 自分を親要素につなげたあとで、子を検索するぜ☆（＾～＾）
+                        kifu1.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(iNod_child, kifu1, positionA, logTag));
+
+                        exceptionArea = 44012;
+
+                        // これを呼び出す回数を減らすのが、アルファ法。
+                        // 枝か、葉か、確定させにいきます。
+                        // （＾▽＾）再帰☆
+                        MoveEx iMovEx_child_temp = Tansaku_FukasaYusen_Routine.WAAA_Yomu_Loop(
+                            ref searchedMaxDepth,
+                            ref searchedNodes,
+                            searchedPv,
+                            genjo,
+
+                            positionA.Temezumi,
+                            ConvMove.ToPlayerside(iMov_child_variable),// positionA.GetKaisiPside(),
+                            positionA,//この局面から合法手を作成☆（＾～＾）
+                            result_thisDepth.Score,
+                            kifu1.MoveEx_Current,// ツリーを伸ばしているぜ☆（＾～＾）
+                            kifu1,
+
+                            movelist2.Count,
+                            args,
+                            logTag);
+
+                        exceptionArea = 6000;
+
+                        //*
+                        // １手戻したいぜ☆（＾～＾）
+
+                        IIttemodosuResult ittemodosuResult;
+                        UtilIttemodosuRoutine.UndoMove(
+                            out ittemodosuResult,
+                            iMov_child_variable,//この関数が呼び出されたときの指し手☆（＾～＾）
+                            ConvMove.ToPlayerside(iMov_child_variable),
+                            positionA,
+                            "C900",
+                            logTag
+                            );
+                        positionA = ittemodosuResult.SyuryoSky;
+                        //*/
+
+                        kifu1.MoveEx_SetCurrent(
+                            TreeImpl.OnUndoCurrentMove(kifu1, ittemodosuResult.SyuryoSky, logTag, "WAAA_Yomu_Loop20000")
+                        );
+
+                        exceptionArea = 7000;
+
+                        //----------------------------------------
+                        // 子要素の検索が終わった時点で、読み筋を格納☆
+                        //----------------------------------------
+                        searchedPv[yomiDeep2] = ConvMove.ToSfen(iMov_child_variable); //FIXME:
+                        searchedPv[yomiDeep2 + 1] = "";//後ろの１手を消しておいて 終端子扱いにする。
+
+
+                        exceptionArea = 8000;
+
+                        //----------------------------------------
+                        // 子要素の検索が終わった時点
+                        //----------------------------------------
+                        //
+                        // 子の点数を、自分に反映させるぜ☆
+                        bool alpha_cut;
+                        result_thisDepth = Util_Scoreing.Update_BestScore_And_Check_AlphaCut(
+                            result_thisDepth,// これを更新する
+
+                            yomiDeep2,
+
+                            psideA,// positionA.GetKaisiPside(),
+
+                            parentsiblingBestScore,
+                            iMovEx_child_temp,
+
+                            out alpha_cut
+                            );
+
+
+                        exceptionArea = 9000;
+
+                        wideCount1++;
 
 #if DEBUG_ALPHA_METHOD
                 logTag.AppendLine_AddMemo("3. 手(" + node_yomi.Value.ToKyokumenConst.Temezumi + ")読(" + yomiDeep + ") 兄弟最善=[" + a_siblingDecidedValue + "] 子ベスト=[" + a_childrenBest + "] 自点=[" + a_myScore + "]");
 #endif
-                if (alpha_cut)
-                {
+                        if (alpha_cut)
+                        {
 #if DEBUG_ALPHA_METHOD
                     logTag.AppendLine_AddMemo("アルファ・カット☆！");
 #endif
-                    //----------------------------------------
-                    // 次の「子の弟」要素はもう読みません。
-                    //----------------------------------------
-                    break;
+                            //----------------------------------------
+                            // 次の「子の弟」要素はもう読みません。
+                            //----------------------------------------
+                            break;
+                        }
+
+                        exceptionArea = 1000110;
+
+                    }
+                    catch (Exception ex)
+                    {
+                        StringBuilder sb = new StringBuilder();
+
+                        int i = 0;
+                        foreach (Move entry2 in movelist2)
+                        {
+                            sb.Append(ConvMove.ToSfen(entry2));
+                            sb.Append(",");
+                            if (0 == i % 15)
+                            {
+                                sb.AppendLine();
+                            }
+                            i++;
+                        }
+
+                        Logger.Panic(logTag, ex, "棋譜ツリーで例外です(A)。exceptionArea=" + exceptionArea
+                            + " entry.Key=" + ConvMove.ToSfen(iMov_child_variable)
+                            //+ " node_yomi.CountAllNodes=" + node_yomi_KAIZOMAE.CountAllNodes()
+                            + " 指し手候補=" + sb.ToString());
+                        throw;
+
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Logger.Panic(logTag, ex, "棋譜ツリーで例外です(B)。exceptionArea=" + exceptionArea);
+                throw;
             }
 
             return result_thisDepth;

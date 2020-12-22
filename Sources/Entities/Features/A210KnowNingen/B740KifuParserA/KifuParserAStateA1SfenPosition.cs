@@ -45,34 +45,42 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             out_moveNodeType = MoveNodeType.None;
             nextState = this;
 
-            if (genjo.InputLine.StartsWith("startpos"))
+            try
             {
-                // 平手の初期配置です。
-                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                if (genjo.InputLine.StartsWith("startpos"))
+                {
+                    // 平手の初期配置です。
+                    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 #if DEBUG
                     logTag.AppendLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　平手のようなんだぜ☆");
                     logTag.Flush(LogTypes.Plain);
 #endif
 
-                genjo.InputLine = genjo.InputLine.Substring("startpos".Length);
-                genjo.InputLine = genjo.InputLine.Trim();
+                    genjo.InputLine = genjo.InputLine.Substring("startpos".Length);
+                    genjo.InputLine = genjo.InputLine.Trim();
 
-                //----------------------------------------
-                // 棋譜を空っぽにし、平手初期局面を与えます。
-                //----------------------------------------
-                out_moveNodeType = MoveNodeType.Clear;
+                    //----------------------------------------
+                    // 棋譜を空っぽにし、平手初期局面を与えます。
+                    //----------------------------------------
+                    out_moveNodeType = MoveNodeType.Clear;
 
-                nextState = KifuParserA_StateA1aSfenStartpos.GetInstance();
+                    nextState = KifuParserA_StateA1aSfenStartpos.GetInstance();
+                }
+                else
+                {
+                    //#if DEBUG
+                    Logger.AppendLine(logTag, "（＾△＾）ここはスルーして次に状態遷移するんだぜ☆\n「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】");//　：　局面の指定のようなんだぜ☆　対応していない☆？
+                    Logger.Flush(logTag, LogTypes.Error);
+                    //logTag.AppendLine_Error("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　局面の指定のようなんだぜ☆　対応していない☆？");
+                    //#endif
+                    nextState = KifuParserAStateA1bSfenLnsgkgsnl.GetInstance();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                //#if DEBUG
-                Logger.AppendLine(logTag, "（＾△＾）ここはスルーして次に状態遷移するんだぜ☆\n「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】");//　：　局面の指定のようなんだぜ☆　対応していない☆？
-                Logger.Flush(logTag, LogTypes.Error);
-                //logTag.AppendLine_Error("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　局面の指定のようなんだぜ☆　対応していない☆？");
-                //#endif
-                nextState = KifuParserAStateA1bSfenLnsgkgsnl.GetInstance();
+                Logger.Panic(LogTags.ProcessNoneError, ex, "positionの解析中。");
+                throw;
             }
 
             return genjo.InputLine;

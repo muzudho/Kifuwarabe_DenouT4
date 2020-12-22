@@ -202,9 +202,17 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         {
             bool result;
 
-            SyElement srcMasu = ConvMove.ToSrcMasu(move);
-            result = Okiba.ShogiBan != Conv_Masu.ToOkiba(srcMasu)//駒台（駒袋）から打ったとき。
-                && Okiba.Empty != Conv_Masu.ToOkiba(srcMasu);//初期配置から移動しても、打にはしません。
+            try
+            {
+                SyElement srcMasu = ConvMove.ToSrcMasu(move);
+                result = Okiba.ShogiBan != Conv_Masu.ToOkiba(srcMasu)//駒台（駒袋）から打ったとき。
+                    && Okiba.Empty != Conv_Masu.ToOkiba(srcMasu);//初期配置から移動しても、打にはしません。
+            }
+            catch (Exception ex)
+            {
+                Logger.Panic(LogTags.ProcessNoneError, ex, "IsDaAction:");// exceptionArea=" + exceptionArea
+                throw;
+            }
 
             return result;
         }

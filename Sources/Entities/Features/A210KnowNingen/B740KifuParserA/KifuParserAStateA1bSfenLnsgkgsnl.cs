@@ -47,32 +47,42 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             out_moveNodeType = MoveNodeType.None;
             nextState = this;
 
-            Logger.AppendLine(logTag, "（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　さて、どんな内容なんだぜ☆？");
-            Logger.Flush(logTag, LogTypes.Error);
-
-            StartposImporter startposImporter1;
-            string restText;
-
-            bool successful = StartposImporter.TryParse(
-                genjo.InputLine,
-                out startposImporter1,
-                out restText
-                );
-            genjo.StartposImporter_OrNull = startposImporter1;
-            Logger.AppendLine(logTag, "（＾△＾）restText=「" + restText + "」 successful=【" + successful + "】");
-            Logger.Flush(logTag, LogTypes.Error);
-
-            if (successful)
+            try
             {
-                genjo.InputLine = restText;
 
-                nextState = KifuParserAStateA2SfenMoves.GetInstance();
+                Logger.AppendLine(logTag, "（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　さて、どんな内容なんだぜ☆？");
+                Logger.Flush(logTag, LogTypes.Error);
+
+                StartposImporter startposImporter1;
+                string restText;
+
+                bool successful = StartposImporter.TryParse(
+                    genjo.InputLine,
+                    out startposImporter1,
+                    out restText
+                    );
+                genjo.StartposImporter_OrNull = startposImporter1;
+                Logger.AppendLine(logTag, "（＾△＾）restText=「" + restText + "」 successful=【" + successful + "】");
+                Logger.Flush(logTag, LogTypes.Error);
+
+                if (successful)
+                {
+                    genjo.InputLine = restText;
+
+                    nextState = KifuParserAStateA2SfenMoves.GetInstance();
+                }
+                else
+                {
+                    // 解析に失敗しました。
+                    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+                    genjo.ToBreak_Abnormal();
+                }
+
             }
-            else
+            catch (Exception ex)
             {
-                // 解析に失敗しました。
-                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-                genjo.ToBreak_Abnormal();
+                Logger.Panic(LogTags.ProcessNoneError, ex, "SFEN解析中☆");
+                throw;
             }
 
             return genjo.InputLine;

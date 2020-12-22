@@ -95,11 +95,9 @@
     <Compile Include="Features\A000Platform\B025Machine\MachineImpl.cs" />
     <Compile Include="Logging\ErrorControllerImpl.cs" />
     <Compile Include="Logging\IErrorController.cs" />
-    <Compile Include="Logging\ILogFile.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\ILogRecord.cs" />
     <Compile Include="Logging\ILogTag.cs" />
-    <Compile Include="Logging\LogFile.cs" />
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="Logging\LogRecord.cs" />
     <Compile Include="Logging\LogTag.cs" />

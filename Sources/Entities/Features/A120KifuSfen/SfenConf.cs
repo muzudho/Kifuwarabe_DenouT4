@@ -73,36 +73,58 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
             //System.C onsole.WriteLine("TuginoItte_Sfen.GetData_FromText:text=[" + text + "]");
 
-            //------------------------------------------------------------
-            // リスト作成
-            //------------------------------------------------------------
-            Regex regex = new Regex(
-                @"^\s*([123456789PLNSGKRB])([abcdefghi\*])([123456789])([abcdefghi])(\+)?",
-                RegexOptions.Singleline
-            );
-
-            MatchCollection mc = regex.Matches(inputLine);
-            foreach (Match m in mc)
+            try
             {
-                if (0 < m.Groups.Count)
+
+
+
+                //------------------------------------------------------------
+                // リスト作成
+                //------------------------------------------------------------
+                Regex regex = new Regex(
+                    @"^\s*([123456789PLNSGKRB])([abcdefghi\*])([123456789])([abcdefghi])(\+)?",
+                    RegexOptions.Singleline
+                );
+
+                MatchCollection mc = regex.Matches(inputLine);
+                foreach (Match m in mc)
                 {
-                    successful = true;
 
-                    // 残りのテキスト
-                    rest = inputLine.Substring(0, m.Index) + inputLine.Substring(m.Index + m.Length, inputLine.Length - (m.Index + m.Length));
+                    try
+                    {
 
-                    moji1 = m.Groups[1].Value;
-                    moji2 = m.Groups[2].Value;
-                    moji3 = m.Groups[3].Value;
-                    moji4 = m.Groups[4].Value;
-                    moji5 = m.Groups[5].Value;
+                        if (0 < m.Groups.Count)
+                        {
+                            successful = true;
+
+                            // 残りのテキスト
+                            rest = inputLine.Substring(0, m.Index) + inputLine.Substring(m.Index + m.Length, inputLine.Length - (m.Index + m.Length));
+
+                            moji1 = m.Groups[1].Value;
+                            moji2 = m.Groups[2].Value;
+                            moji3 = m.Groups[3].Value;
+                            moji4 = m.Groups[4].Value;
+                            moji5 = m.Groups[5].Value;
+                        }
+
+                        // 最初の１件だけ処理して終わります。
+                        break;
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger.Panic(LogTags.ProcessNoneError, ex, "moves解析中☆");
+                        throw;
+                    }
                 }
 
-                // 最初の１件だけ処理して終わります。
-                break;
-            }
+                rest = rest.Trim();
 
-            rest = rest.Trim();
+            }
+            catch (Exception ex)
+            {
+                Logger.Panic(LogTags.ProcessNoneError, ex, "moves解析中☆");
+                throw;
+            }
 
             return successful;
         }

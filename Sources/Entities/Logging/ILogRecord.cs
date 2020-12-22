@@ -6,9 +6,19 @@
     public interface ILogRecord
     {
         /// <summary>
-        /// 出力先ファイル。
+        /// ファイル名。
         /// </summary>
-        ILogFile LogFile { get; }
+        string FileName { get; }
+
+        /// <summary>
+        /// 拡張子を除くファイル名。
+        /// </summary>
+        string FileStem { get; }
+
+        /// <summary>
+        /// ドットを含む拡張子。
+        /// </summary>
+        string Extension { get; }
 
         /// <summary>
         /// ログ出力の有無。

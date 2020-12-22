@@ -153,63 +153,72 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         {
             string fileName = "";
 
-            // 出力先
-            fileName = Conv_Filepath.ToEscape($"_log_{(int)moveEx.Score}点_{logFileCounter}_{nodePath}.png");
-            relFolder = Conv_Filepath.ToEscape(relFolder);
-            //
-            // 画像ﾛｸﾞ
-            //
-            if (true)
+            try
             {
-                int srcMasu_orMinusOne = -1;
-                int dstMasu_orMinusOne = -1;
 
-                SyElement srcMasu = ConvMove.ToSrcMasu(moveEx.Move, positionA);
-                SyElement dstMasu = ConvMove.ToDstMasu(moveEx.Move);
-                bool errorCheck = ConvMove.ToErrorCheck(moveEx.Move);
-                Komasyurui14 captured = ConvMove.ToCaptured(moveEx.Move);
-
-                if (!errorCheck)
+                // 出力先
+                fileName = Conv_Filepath.ToEscape($"_log_{(int)moveEx.Score}点_{logFileCounter}_{nodePath}.png");
+                relFolder = Conv_Filepath.ToEscape(relFolder);
+                //
+                // 画像ﾛｸﾞ
+                //
+                if (true)
                 {
-                    srcMasu_orMinusOne = Conv_Masu.ToMasuHandle(srcMasu);
-                    dstMasu_orMinusOne = Conv_Masu.ToMasuHandle(dstMasu);
-                }
+                    int srcMasu_orMinusOne = -1;
+                    int dstMasu_orMinusOne = -1;
 
-                KyokumenPngArgs_FoodOrDropKoma foodKoma;
-                if (Komasyurui14.H00_Null___ != captured)
-                {
-                    switch (Util_Komasyurui14.NarazuCaseHandle(captured))
+                    SyElement srcMasu = ConvMove.ToSrcMasu(moveEx.Move, positionA);
+                    SyElement dstMasu = ConvMove.ToDstMasu(moveEx.Move);
+                    bool errorCheck = ConvMove.ToErrorCheck(moveEx.Move);
+                    Komasyurui14 captured = ConvMove.ToCaptured(moveEx.Move);
+
+                    if (!errorCheck)
                     {
-                        case Komasyurui14.H00_Null___: foodKoma = KyokumenPngArgs_FoodOrDropKoma.NONE; break;
-                        case Komasyurui14.H01_Fu_____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.FU__; break;
-                        case Komasyurui14.H02_Kyo____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.KYO_; break;
-                        case Komasyurui14.H03_Kei____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.KEI_; break;
-                        case Komasyurui14.H04_Gin____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.GIN_; break;
-                        case Komasyurui14.H05_Kin____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.KIN_; break;
-                        case Komasyurui14.H07_Hisya__: foodKoma = KyokumenPngArgs_FoodOrDropKoma.HI__; break;
-                        case Komasyurui14.H08_Kaku___: foodKoma = KyokumenPngArgs_FoodOrDropKoma.KAKU; break;
-                        default: foodKoma = KyokumenPngArgs_FoodOrDropKoma.UNKNOWN; break;
+                        srcMasu_orMinusOne = Conv_Masu.ToMasuHandle(srcMasu);
+                        dstMasu_orMinusOne = Conv_Masu.ToMasuHandle(dstMasu);
                     }
-                }
-                else
-                {
-                    foodKoma = KyokumenPngArgs_FoodOrDropKoma.NONE;
-                }
+
+                    KyokumenPngArgs_FoodOrDropKoma foodKoma;
+                    if (Komasyurui14.H00_Null___ != captured)
+                    {
+                        switch (Util_Komasyurui14.NarazuCaseHandle(captured))
+                        {
+                            case Komasyurui14.H00_Null___: foodKoma = KyokumenPngArgs_FoodOrDropKoma.NONE; break;
+                            case Komasyurui14.H01_Fu_____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.FU__; break;
+                            case Komasyurui14.H02_Kyo____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.KYO_; break;
+                            case Komasyurui14.H03_Kei____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.KEI_; break;
+                            case Komasyurui14.H04_Gin____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.GIN_; break;
+                            case Komasyurui14.H05_Kin____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.KIN_; break;
+                            case Komasyurui14.H07_Hisya__: foodKoma = KyokumenPngArgs_FoodOrDropKoma.HI__; break;
+                            case Komasyurui14.H08_Kaku___: foodKoma = KyokumenPngArgs_FoodOrDropKoma.KAKU; break;
+                            default: foodKoma = KyokumenPngArgs_FoodOrDropKoma.UNKNOWN; break;
+                        }
+                    }
+                    else
+                    {
+                        foodKoma = KyokumenPngArgs_FoodOrDropKoma.NONE;
+                    }
 
 
-                // 評価明細に添付
-                Util_KyokumenPng_Writer.Write1(
-                    ConvKifuNode.ToRO_Kyokumen1(positionA, logTag),
-                    srcMasu_orMinusOne,
-                    dstMasu_orMinusOne,
-                    foodKoma,
-                    ConvMove.ToSfen(moveEx.Move),
-                    relFolder,
-                    fileName,
-                    reportEnvironment,
-                    logTag
-                    );
-                logFileCounter++;
+                    // 評価明細に添付
+                    Util_KyokumenPng_Writer.Write1(
+                        ConvKifuNode.ToRO_Kyokumen1(positionA, logTag),
+                        srcMasu_orMinusOne,
+                        dstMasu_orMinusOne,
+                        foodKoma,
+                        ConvMove.ToSfen(moveEx.Move),
+                        relFolder,
+                        fileName,
+                        reportEnvironment,
+                        logTag
+                        );
+                    logFileCounter++;
+                }
+            }
+            catch (System.Exception ex)
+            {
+                Logger.Panic(logTag, ex, "盤１個分のログを出力しようとしていたときです。\n fileName=[" + fileName + "]\n relFolder=[" + relFolder + "]");
+                throw;
             }
         }
     }

@@ -82,15 +82,37 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 // 指す前の駒
                 SyElement srcMasu = ConvMove.ToSrcMasu(newMove, positionA);
 
-                if (!result_komabetuEntry.Contains(newMove))
+                try
                 {
-                    // 指し手が既存でない局面だけを追加します。
+                    if (!result_komabetuEntry.Contains(newMove))
+                    {
+                        // 指し手が既存でない局面だけを追加します。
 
-                    // 『進める駒』と、『移動先升』
-                    result_komabetuEntry.Add(
-                        newMove//成りの手
-                        );
+                        // 『進める駒』と、『移動先升』
+                        result_komabetuEntry.Add(
+                            newMove//成りの手
+                            );
+                    }
+
                 }
+                catch (Exception ex)
+                {
+                    // 既存の指し手
+                    StringBuilder sb = new StringBuilder();
+                    {
+                        foreach (Move entry in a_moveBetuEntry)
+                        {
+                            sb.Append("「");
+                            sb.Append(ConvMove.ToSfen(entry));
+                            sb.Append("」");
+                        }
+                    }
+
+                    //>>>>> エラーが起こりました。
+                    Logger.Panic(logTag, ex, "新しく作った「成りの指し手」を既存ノードに追加していた時です。：追加したい指し手=「" + ConvMove.ToSfen(newMove) + "」既存の手=" + sb.ToString());
+                    throw;
+                }
+
             }
 
             return result_komabetuEntry;

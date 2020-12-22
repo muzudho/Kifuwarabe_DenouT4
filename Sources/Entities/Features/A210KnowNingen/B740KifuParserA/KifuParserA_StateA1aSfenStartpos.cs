@@ -45,34 +45,42 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             out_moveNodeType = MoveNodeType.None;
             nextState = this;
 
-            if (genjo.InputLine.StartsWith("moves"))
+            try
             {
-                //>>>>> 棋譜が始まります。
+                if (genjo.InputLine.StartsWith("moves"))
+                {
+                    //>>>>> 棋譜が始まります。
 #if DEUBG
                     logTag.AppendLine_AddMemo("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ｳﾑ☆　moves 分かるぜ☆");
 #endif
 
-                genjo.InputLine = genjo.InputLine.Substring("moves".Length);
-                genjo.InputLine = genjo.InputLine.Trim();
+                    genjo.InputLine = genjo.InputLine.Substring("moves".Length);
+                    genjo.InputLine = genjo.InputLine.Trim();
 
 
-                nextState = KifuParserAStateA2SfenMoves.GetInstance();
+                    nextState = KifuParserAStateA2SfenMoves.GetInstance();
+                }
+                else if ("" == genjo.InputLine)
+                {
+                    // FIXME: コンピューターが先手のとき、ここにくる？
+
+                    // 異常時。
+                    Logger.AppendLine(logTag, "＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない1☆！　終わるぜ☆");
+                    Logger.Flush(logTag, LogTypes.Error);
+                    genjo.ToBreak_Abnormal();
+                }
+                else
+                {
+                    // 異常時。
+                    Logger.AppendLine(logTag, "＼（＾ｏ＾）／「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　movesがない☆！　終わるぜ☆");
+                    Logger.Flush(logTag, LogTypes.Error);
+                    genjo.ToBreak_Abnormal();
+                }
             }
-            else if ("" == genjo.InputLine)
+            catch (Exception ex)
             {
-                // FIXME: コンピューターが先手のとき、ここにくる？
-
-                // 異常時。
-                Logger.AppendLine(logTag, "＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない1☆！　終わるぜ☆");
-                Logger.Flush(logTag, LogTypes.Error);
-                genjo.ToBreak_Abnormal();
-            }
-            else
-            {
-                // 異常時。
-                Logger.AppendLine(logTag, "＼（＾ｏ＾）／「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　movesがない☆！　終わるぜ☆");
-                Logger.Flush(logTag, LogTypes.Error);
-                genjo.ToBreak_Abnormal();
+                Logger.Panic(LogTags.ProcessNoneError, ex, "SFEN文字列の解析中。");
+                throw;
             }
 
             return genjo.InputLine;

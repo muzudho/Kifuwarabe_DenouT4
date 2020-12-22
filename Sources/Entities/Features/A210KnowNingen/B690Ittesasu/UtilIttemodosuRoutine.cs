@@ -29,116 +29,154 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             ILogTag logTag
             )
         {
-            bool log = false;
-            if (log)
+            long exception_area = 1000140;
+            try
             {
-                Logger.AppendLine(logTag, "戻す前 " + hint);
-                Logger.Append(logTag, Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(psideA, positionA, logTag)));
-                Logger.Flush(logTag, LogTypes.Plain);
-            }
+                bool log = false;
+                if (log)
+                {
+                    Logger.AppendLine(logTag, "戻す前 " + hint);
+                    Logger.Append(logTag, Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(psideA, positionA, logTag)));
+                    Logger.Flush(logTag, LogTypes.Plain);
+                }
 
-            ittemodosuResult = new IttemodosuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
-            Finger figMovedKoma;
+                ittemodosuResult = new IttemodosuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
+                Finger figMovedKoma;
 
-            //
-            // 動かす駒を移動先へ。
-            //
-            UtilIttemodosuRoutine.Undo25_UgokasuKoma(
-                out figMovedKoma,
-                moved,
-                positionA,
-                logTag
-                );
-            ittemodosuResult.FigMovedKoma = figMovedKoma; //動かした駒更新
-
-            if (Fingers.Error_1 == figMovedKoma)
-            {
-                throw new Exception($"戻せる駒が無かった☆ hint:{hint}\n{Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logTag), positionA, moved)}");
-            }
-
-            //
-            // 巻き戻しなら、非成りに戻します。
-            //
-            Komasyurui14 syurui2 = UtilIttemodosuRoutine.Do30_MakimodosiNara_HinariNiModosu(moved);
-
-            // 戻し先か。
-            Busstop dst = UtilIttemodosuRoutine.Undo37_KomaOnModosisakiMasu(syurui2,
+                //
+                // 動かす駒を移動先へ。
+                //
+                UtilIttemodosuRoutine.Undo25_UgokasuKoma(
+                    out figMovedKoma,
                     moved,
-                    positionA);
+                    positionA,
+                    logTag
+                    );
+                ittemodosuResult.FigMovedKoma = figMovedKoma; //動かした駒更新
 
-            // ISky 局面データは、この関数の途中で何回か変更されます。ローカル変数に退避しておくと、同期が取れなくなります。
+                exception_area = 20000;
 
-            //------------------------------------------------------------
-            // あれば、取られていた駒を取得
-            //------------------------------------------------------------
-            Finger figFoodKoma;//取られていた駒
-            UtilIttemodosuRoutine.Do62_TorareteitaKoma_ifExists(
-                out figFoodKoma,//変更される場合あり。
-                moved,
-                positionA,//巻き戻しのとき
-                logTag
-                );
-            ittemodosuResult.FigFoodKoma = figFoodKoma; //取られていた駒更新
+                if (Fingers.Error_1 == figMovedKoma)
+                {
+                    Logger.Panic(logTag,
+                        "戻せる駒が無かった☆ hint:" + hint + "\n" +
+                        Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logTag), positionA, moved)
+                        );
+                    goto gt_EndMethod;
+                }
 
-            // １手戻す前に、先後を逆転させて、手目済みカウントを減らします。
-            positionA.DecreasePsideTemezumi();
-
-            //------------------------------------------------------------
-            // 指されていた駒の移動
-            //------------------------------------------------------------
-            positionA.AddObjects(
                 //
-                // 動かした駒と、戻し先
+                // 巻き戻しなら、非成りに戻します。
                 //
-                new Finger[] { figMovedKoma }, new Busstop[] { dst });
+                Komasyurui14 syurui2 = UtilIttemodosuRoutine.Do30_MakimodosiNara_HinariNiModosu(moved);
 
-            if (Fingers.Error_1 != figFoodKoma)
-            {
+                exception_area = 30000;
+
+                // 戻し先か。
+                Busstop dst = UtilIttemodosuRoutine.Undo37_KomaOnModosisakiMasu(syurui2,
+                        moved,
+                        positionA);
+
+                exception_area = 40000;
+
+                // ISky 局面データは、この関数の途中で何回か変更されます。ローカル変数に退避しておくと、同期が取れなくなります。
+
                 //------------------------------------------------------------
-                // 取られていた駒を戻す
+                // あれば、取られていた駒を取得
                 //------------------------------------------------------------
+                Finger figFoodKoma;//取られていた駒
+                UtilIttemodosuRoutine.Do62_TorareteitaKoma_ifExists(
+                    out figFoodKoma,//変更される場合あり。
+                    moved,
+                    positionA,//巻き戻しのとき
+                    logTag
+                    );
+                ittemodosuResult.FigFoodKoma = figFoodKoma; //取られていた駒更新
 
-                //------------------------------
-                // 指し手の、取った駒部分を差替えます。
-                //------------------------------
-                SyElement dstMasu = ConvMove.ToDstMasu(moved);
-                Playerside pside10 = ConvMove.ToPlayerside(moved);
-                Komasyurui14 captured = ConvMove.ToCaptured(moved);
+                // １手戻す前に、先後を逆転させて、手目済みカウントを減らします。
+                positionA.DecreasePsideTemezumi();
 
+                exception_area = 50000;
+
+                //------------------------------------------------------------
+                // 指されていた駒の移動
+                //------------------------------------------------------------
                 positionA.AddObjects(
                     //
-                    // 指されていた駒と、取られていた駒
+                    // 動かした駒と、戻し先
                     //
-                    new Finger[] { figFoodKoma },
-                    new Busstop[] { Conv_Busstop.ToBusstop(
+                    new Finger[] { figMovedKoma }, new Busstop[] { dst });
+
+                exception_area = 60000;
+
+                if (Fingers.Error_1 != figFoodKoma)
+                {
+                    //------------------------------------------------------------
+                    // 取られていた駒を戻す
+                    //------------------------------------------------------------
+
+                    //------------------------------
+                    // 指し手の、取った駒部分を差替えます。
+                    //------------------------------
+                    SyElement dstMasu = ConvMove.ToDstMasu(moved);
+                    Playerside pside10 = ConvMove.ToPlayerside(moved);
+                    Komasyurui14 captured = ConvMove.ToCaptured(moved);
+
+                    positionA.AddObjects(
+                        //
+                        // 指されていた駒と、取られていた駒
+                        //
+                        new Finger[] { figFoodKoma },
+                        new Busstop[] { Conv_Busstop.ToBusstop(
                             Conv_Playerside.Reverse(pside10),//先後を逆にして盤上に置きます。
                             dstMasu,// マス
                             captured
                         )
-                    }
+                        }
+                        );
+                }
+                // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+                // この時点で、必ず現局面データに差替えあり
+                // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+                exception_area = 700011;
+
+                // ノード
+                ittemodosuResult.SyuryoSky = positionA;// この変数を返すのがポイント。棋譜とは別に、現局面。
+
+                exception_area = 700021;
+
+            gt_EndMethod:
+                if (log)
+                {
+
+                    exception_area = 700031;
+
+                    Logger.AppendLine(logTag, "戻した後 " + hint);
+
+                    exception_area = 700041;
+
+                    ShogibanImpl shogiban = Conv_Sky.ToShogiban(psideA, positionA, logTag);
+
+                    exception_area = 700051;
+
+                    Logger.Append(logTag,
+                        Conv_Shogiban.ToLog_Type2(
+                            shogiban,
+                            positionA, moved)
                     );
+
+                    exception_area = 700051;
+
+                    Logger.Flush(logTag, LogTypes.Plain);
+
+                    exception_area = 700061;
+                }
             }
-            // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-            // この時点で、必ず現局面データに差替えあり
-            // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-
-            // ノード
-            ittemodosuResult.SyuryoSky = positionA;// この変数を返すのがポイント。棋譜とは別に、現局面。
-
-        gt_EndMethod:
-            if (log)
+            catch (Exception ex)
             {
-                Logger.AppendLine(logTag, "戻した後 " + hint);
-
-                ShogibanImpl shogiban = Conv_Sky.ToShogiban(psideA, positionA, logTag);
-
-                Logger.Append(logTag,
-                    Conv_Shogiban.ToLog_Type2(
-                        shogiban,
-                        positionA, moved)
-                );
-
-                Logger.Flush(logTag, LogTypes.Plain);
+                Logger.Panic(logTag, ex, "駒を戻しているとき☆ hint=" + hint + " exception_area=" + exception_area);
+                throw;
             }
         }
 
