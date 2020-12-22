@@ -24,23 +24,6 @@ namespace Grayscale.Kifuwaragyoku.Entities.Logging
         /// <param name="logTypes"></param>
         void Flush(LogTypes logTypes);
 
-        /// <summary>
-        /// 「どうにもならん、あきらめた」
-        /// 
-        /// 例外が発生したが、対応できないのでログだけ出して例外をさらに上へ投げ返すとき。
-        /// </summary>
-        /// <param name="okottaBasho"></param>
-        void Panic(string okottaBasho);
         void ShowDialog(string okottaBasho);
-
-
-        /// <summary>
-        /// 「どうにもならん、あきらめた」
-        /// 
-        /// 例外が発生したが、対応できないのでログだけ出して例外をさらに上へ投げ返すとき。
-        /// </summary>
-        /// <param name="okottaBasho"></param>
-        void Panic(Exception ex, string okottaBasho);
-
     }
 }

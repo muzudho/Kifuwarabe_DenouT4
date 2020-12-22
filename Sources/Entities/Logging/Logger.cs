@@ -117,64 +117,19 @@
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
             var logsDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("LogsDirectory"));
 
-            try
+            string[] paths = Directory.GetFiles(logsDirectory);
+            foreach (string path in paths)
             {
-                string[] paths = Directory.GetFiles(logsDirectory);
-                foreach (string path in paths)
+                string name = Path.GetFileName(path);
+                if (name.StartsWith("_log_"))
                 {
-                    string name = Path.GetFileName(path);
-                    if (name.StartsWith("_log_"))
-                    {
-                        string fullpath = Path.Combine(logsDirectory, name);
-                        //MessageBox.Show("fullpath=[" + fullpath + "]", "ログ・ファイルの削除");
-                        System.IO.File.Delete(fullpath);
-                    }
+                    string fullpath = Path.Combine(logsDirectory, name);
+                    //MessageBox.Show("fullpath=[" + fullpath + "]", "ログ・ファイルの削除");
+                    System.IO.File.Delete(fullpath);
                 }
             }
-            catch (Exception ex)
-            {
-                Logger.Panic(LogTags.ProcessNoneError, ex, "ﾛｸﾞﾌｧｲﾙ削除中☆");
-                throw;
-            }
         }
 
-        /// <summary>
-        /// 「どうにもならん、あきらめた」
-        /// 
-        /// 例外が発生したが、対応できないのでログだけ出します。
-        /// デバッグ時は、ダイアログボックスを出します。
-        /// </summary>
-        /// <param name="message1"></param>
-        public static void Panic(ILogTag logTag, string message1)
-        {
-            //>>>>> エラーが起こりました。
-            string message2 = "エラー：" + message1;
-            Debug.Fail(message2);
-
-            // どうにもできないので  ログだけ取って、上に投げます。
-            Logger.AppendLine(logTag, message2);
-            Logger.Flush(logTag, LogTypes.Error);
-            // ログ出力に失敗することがありますが、無視します。
-        }
-
-        /// <summary>
-        /// 「どうにもならん、あきらめた」
-        /// 
-        /// 例外が発生したが、対応できないのでログだけ出します。
-        /// デバッグ時は、ダイアログボックスを出します。
-        /// </summary>
-        /// <param name="okottaBasho"></param>
-        public static void Panic(ILogTag logTag, Exception ex, string okottaBasho)
-        {
-            //>>>>> エラーが起こりました。
-            string message = ex.GetType().Name + " " + ex.Message + "：" + okottaBasho;
-            Debug.Fail(message);
-
-            // どうにもできないので  ログだけ取って、上に投げます。
-            Logger.AppendLine(logTag, message);
-            Logger.Flush(logTag, LogTypes.Error);
-            // ログ出力に失敗することがありますが、無視します。
-        }
         /// <summary>
         /// ログを蓄えます。改行なし。
         /// </summary>

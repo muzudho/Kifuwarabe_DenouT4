@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 
@@ -84,11 +85,11 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
             if (index_playerside == -1)
             {
-                Logger.Panic(LogTags.ProcessNoneError, "二駒関係の先後不明の駒");
+                throw new Exception("二駒関係の先後不明の駒");
             }
             else if (index_komasyurui == -1)
             {
-                Logger.Panic(LogTags.ProcessNoneError, "二駒関係の駒種類が対象外の駒");
+                throw new Exception("二駒関係の駒種類が対象外の駒");
             }
 
             koumokuP = index_playerside + index_komasyurui + p_masuHandle;
@@ -114,11 +115,11 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
             if (index_playerside == -1)
             {
-                Logger.Panic(LogTags.ProcessNoneError, "二駒関係の持ち駒_先後不明の駒");
+                throw new Exception("二駒関係の持ち駒_先後不明の駒");
             }
             else if (index_komasyurui == -1)
             {
-                Logger.Panic(LogTags.ProcessNoneError, "二駒関係の持ち駒_駒種類が対象外の駒");
+                throw new Exception("二駒関係の持ち駒_駒種類が対象外の駒");
             }
 
             int koumokuP = index_playerside + index_komasyurui + fingers.Count;

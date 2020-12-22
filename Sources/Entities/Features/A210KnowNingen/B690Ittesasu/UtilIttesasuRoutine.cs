@@ -233,65 +233,45 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             [CallerLineNumber] int sourceLineNumber = 0
             )
         {
-            int exceptionArea = 0;
+            figMovedKoma = Fingers.Error_1;
 
-            try
+            //------------------------------------------------------------
+            // 選択  ：  動かす駒
+            //------------------------------------------------------------
+            // 進むとき
+            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+            //Debug.Assert(null != move, "Sasu24_UgokasuKoma_IdoSakiHe: 指し手がヌルでした。");
+            if (UtilSkyBoolQuery.IsDaAction(move))// 多分、ここで move がヌルになるエラーがある☆
             {
-                exceptionArea = 99001000;
-                figMovedKoma = Fingers.Error_1;
-
-                //------------------------------------------------------------
-                // 選択  ：  動かす駒
-                //------------------------------------------------------------
-                // 進むとき
-                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-                //Debug.Assert(null != move, "Sasu24_UgokasuKoma_IdoSakiHe: 指し手がヌルでした。");
-                if (UtilSkyBoolQuery.IsDaAction(move))// 多分、ここで move がヌルになるエラーがある☆
+                //----------
+                // 駒台から “打”
+                //----------
+                Fingers fingers = UtilSkyFingersQuery.InMasuNow_New(positionA, move, logTag);
+                if (fingers.Count < 1)
                 {
-                    //----------
-                    // 駒台から “打”
-                    //----------
-                    exceptionArea = 99002000;
-
-                    Fingers fingers = UtilSkyFingersQuery.InMasuNow_New(positionA, move, logTag);
-                    if (fingers.Count < 1)
-                    {
-                        throw new Exception($"Util_IttesasuRoutine#Do24:指し手に該当する駒が無かったぜ☆（＾～＾） move={ConvMove.ToLog(move)}");
-                    }
-                    figMovedKoma = fingers.ToFirst();
+                    throw new Exception($"Util_IttesasuRoutine#Do24:指し手に該当する駒が無かったぜ☆（＾～＾） move={ConvMove.ToLog(move)}");
                 }
-                else
-                {
-                    exceptionArea = 99003000;
-                    //----------
-                    // 将棋盤から
-                    //----------
-
-                    SyElement srcMasu = ConvMove.ToSrcMasu(move, positionA);
-                    Debug.Assert(!Masu_Honshogi.IsErrorBasho(srcMasu), "srcKoma.Masuエラー。15");
-                    SyElement dstMasu = ConvMove.ToDstMasu(move);
-                    Playerside pside = ConvMove.ToPlayerside(move);
-
-                    exceptionArea = 99003100;
-                    figMovedKoma = UtilSkyFingerQuery.InMasuNow_FilteringBanjo(
-                        positionA,
-                        pside,
-                        srcMasu,// 将棋盤上と確定している☆（＾▽＾）
-                        logTag
-                        );
-                    Debug.Assert(figMovedKoma != Fingers.Error_1, "駒を動かせなかった？13");
-                }
+                figMovedKoma = fingers.ToFirst();
             }
-            catch (Exception ex)
+            else
             {
-                //>>>>> エラーが起こりました。
+                //----------
+                // 将棋盤から
+                //----------
 
-                // どうにもできないので  ログだけ取って無視します。
-                Logger.Panic(logTag, ex, "Util_IttesasuRoutine#Sasu24_UgokasuKoma_IdoSakiHe： exceptionArea=" + exceptionArea + "\n"
-                    //+"hint=["+hint+"]"
+                SyElement srcMasu = ConvMove.ToSrcMasu(move, positionA);
+                Debug.Assert(!Masu_Honshogi.IsErrorBasho(srcMasu), "srcKoma.Masuエラー。15");
+                SyElement dstMasu = ConvMove.ToDstMasu(move);
+                Playerside pside = ConvMove.ToPlayerside(move);
+
+                figMovedKoma = UtilSkyFingerQuery.InMasuNow_FilteringBanjo(
+                    positionA,
+                    pside,
+                    srcMasu,// 将棋盤上と確定している☆（＾▽＾）
+                    logTag
                     );
-                throw;
+                Debug.Assert(figMovedKoma != Fingers.Error_1, "駒を動かせなかった？13");
             }
         }
 

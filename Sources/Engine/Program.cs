@@ -645,7 +645,8 @@ namespace Grayscale.Kifuwaragyoku.Engine
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                Logger.Panic(LogTags.ProcessEngineDefault, "Program「大外枠でキャッチ」：" + ex.GetType().Name + " " + ex.Message);
+                Logger.Trace($"(^ー^)「大外枠でキャッチ」：{ex}");
+                Console.Out.WriteLine("bestmove resign");
                 //throw;//追加
             }
         }

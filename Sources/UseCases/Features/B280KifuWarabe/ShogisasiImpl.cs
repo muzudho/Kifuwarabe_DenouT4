@@ -87,30 +87,22 @@
                 );
 
 
-            try
-            {
-                //
-                // 指し手生成ルーチンで、棋譜ツリーを作ります。
-                //
-                // 指し手は１つに絞ること。
-                //
-                bestNode = Tansaku_FukasaYusen_Routine.WAA_Yomu_Start(
-                    ref searchedMaxDepth,
-                    ref searchedNodes,
-                    searchedPv,
+            //
+            // 指し手生成ルーチンで、棋譜ツリーを作ります。
+            //
+            // 指し手は１つに絞ること。
+            //
+            bestNode = Tansaku_FukasaYusen_Routine.WAA_Yomu_Start(
+                ref searchedMaxDepth,
+                ref searchedNodes,
+                searchedPv,
 
-                    kifu1,// ツリーを伸ばしているぜ☆（＾～＾）
-                    psideA,//positionA.GetKaisiPside(),
-                    positionA,
+                kifu1,// ツリーを伸ばしているぜ☆（＾～＾）
+                psideA,//positionA.GetKaisiPside(),
+                positionA,
 
-                    isHonshogi, Mode_Tansaku.Shogi_ENgine,
-                    args, logTag);
-            }
-            catch (Exception ex)
-            {
-                Logger.Panic(logTag, ex, "棋譜ツリーを作っていたときです。");
-                throw;
-            }
+                isHonshogi, Mode_Tansaku.Shogi_ENgine,
+                args, logTag);
 
 
 #if DEBUG
