@@ -50,55 +50,44 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             out_moveNodeType = MoveNodeType.None;
             nextState = this;
 
-            try
+            if (genjo.InputLine.StartsWith("position"))
             {
+                // SFEN形式の「position」コマンドが、入力欄に入っていました。
+                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-                if (genjo.InputLine.StartsWith("position"))
-                {
-                    // SFEN形式の「position」コマンドが、入力欄に入っていました。
-                    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-                    //------------------------------------------------------------
-                    // まずこのブロックで「position ～ moves 」まで(*1)を処理します。
-                    //------------------------------------------------------------
-                    //
-                    //          *1…初期配置を作るということです。
-                    // 
+                //------------------------------------------------------------
+                // まずこのブロックで「position ～ moves 」まで(*1)を処理します。
+                //------------------------------------------------------------
+                //
+                //          *1…初期配置を作るということです。
+                // 
 
 #if DEBUG
                     logTag.AppendLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... SFEN形式か...☆");
                     logTag.Flush(LogTypes.Plain);
 #endif
-                    genjo.InputLine = genjo.InputLine.Substring("position".Length);
-                    genjo.InputLine = genjo.InputLine.Trim();
+                genjo.InputLine = genjo.InputLine.Substring("position".Length);
+                genjo.InputLine = genjo.InputLine.Trim();
 
 
-                    nextState = KifuParserAStateA1SfenPosition.GetInstance();
-                }
-                else if ("" == genjo.InputLine)
-                {
-                    // 異常時。
-                    Logger.AppendLine(logTag, "＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない2☆！　終わるぜ☆");
-                    Logger.Flush(logTag, LogTypes.Error);
-                    genjo.ToBreak_Abnormal();
-                }
-                else
-                {
+                nextState = KifuParserAStateA1SfenPosition.GetInstance();
+            }
+            else if ("" == genjo.InputLine)
+            {
+                // 異常時。
+                Logger.AppendLine(logTag, "＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない2☆！　終わるぜ☆");
+                Logger.Flush(logTag, LogTypes.Error);
+                genjo.ToBreak_Abnormal();
+            }
+            else
+            {
 #if DEBUG
                     Playerside pside = positionA.GetKaisiPside();//.KaisiPside;
                     logTag.AppendLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... positionじゃなかったぜ☆　日本式か☆？　SFENでmovesを読んだあとのプログラムに合流させるぜ☆　：　先後＝[" + pside + "]");
                     logTag.Flush(LogTypes.Plain);
 #endif
-                    nextState = KifuParserAStateA2SfenMoves.GetInstance();
-                }
-
+                nextState = KifuParserAStateA2SfenMoves.GetInstance();
             }
-            catch (Exception ex)
-            {
-                Logger.Panic(LogTags.ProcessNoneError, ex, "棋譜ドキュメント解析中☆");
-                throw;
-            }
-
 
             return genjo.InputLine;
         }

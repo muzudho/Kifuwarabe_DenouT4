@@ -40,98 +40,67 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         {
             Maps_OneAndOne<Finger, SySet<SyElement>> starbetuSusumuMasus = new Maps_OneAndOne<Finger, SySet<SyElement>>();// 「どの星を、どこに進める」の一覧
 
-            long exception_area = 1000130;
-            try
+            List<Move> inputMovelist;
+            ConvStarbetuMoves.ToNextNodes_AsHubNode(
+                out inputMovelist,
+                genTeban_komabetuAllMoves1,
+                positionA,
+                logTag
+                );// ハブ・ノード自身はダミーノードなんだが、子ノードに、次のノードが入っている。
+
+            List<Move> restMovelist;
+            if (isHonshogi)
             {
-                List<Move> inputMovelist;
-                ConvStarbetuMoves.ToNextNodes_AsHubNode(
-                    out inputMovelist,
-                    genTeban_komabetuAllMoves1,
+                // 王手が掛かっている局面を除きます。
+
+                restMovelist = Util_LegalMove.LAA_RemoveNextNode_IfMate(
+                    yomikaisiTemezumi,
+                    inputMovelist,
+                    positionA.Temezumi,
+                    psideA,//positionA.GetKaisiPside(),
                     positionA,
-                    logTag
-                    );// ハブ・ノード自身はダミーノードなんだが、子ノードに、次のノードが入っている。
-
-                exception_area = 20000;
-
-                List<Move> restMovelist;
-                if (isHonshogi)
-                {
-                    // 王手が掛かっている局面を除きます。
-
-                    restMovelist = Util_LegalMove.LAA_RemoveNextNode_IfMate(
-                        yomikaisiTemezumi,
-                        inputMovelist,
-                        positionA.Temezumi,
-                        psideA,//positionA.GetKaisiPside(),
-                        positionA,
 #if DEBUG
                     logF_kiki,
 #endif
                     logTag);
-                }
-                else
-                {
-                    restMovelist = new List<Move>();
-                }
-
-                exception_area = 30000;
-
-                // 「指し手一覧」を、「星別の全指し手」に分けます。
-                Maps_OneAndMulti<Finger, Move> starbetuAllMoves2 = Util_Sky258A.SplitMoveByStar(positionA,
-                    restMovelist,//hubNode1.ToMovelist(),
-                    logTag);
-
-                exception_area = 40000;
-
-                //
-                // 「星別の指し手一覧」を、「星別の進むマス一覧」になるよう、データ構造を変換します。
-                //
-                foreach (KeyValuePair<Finger, List<Move>> entry in starbetuAllMoves2.Items)
-                {
-                    Finger finger = entry.Key;
-                    List<Move> moveList = entry.Value;
-
-                    exception_area = 500011;
-
-                    // ポテンシャル・ムーブを調べます。
-                    SySet<SyElement> masus_PotentialMove = new SySet_Default<SyElement>("ポテンシャルムーブ");
-                    try
-                    {
-                        foreach (Move move in moveList)
-                        {
-                            SyElement dstMasu = ConvMove.ToDstMasu(move);
-                            masus_PotentialMove.AddElement(dstMasu);
-                        }
-                    }
-                    catch (Exception ex2)
-                    {
-                        Logger.Panic(logTag, ex2, "ポテンシャルムーブを調べているときだぜ☆（＾▽＾）");
-                        throw;
-                    }
-
-
-                    exception_area = 60000;
-
-                    if (!masus_PotentialMove.IsEmptySet())
-                    {
-                        // 空でないなら
-                        Util_Sky258A.AddOverwrite(starbetuSusumuMasus, finger, masus_PotentialMove);
-                    }
-                }
-
-                exception_area = 70000;
-
-                // FIXME: デバッグ用
-                foreach (Finger key in starbetuSusumuMasus.ToKeyList())
-                {
-                    positionA.AssertFinger(key);
-                }
-
             }
-            catch (Exception ex)
+            else
             {
-                Logger.Panic(logTag, ex, "王手回避漏れを除外しているときだぜ☆（＾▽＾） exception_area=" + exception_area);
-                throw;
+                restMovelist = new List<Move>();
+            }
+
+            // 「指し手一覧」を、「星別の全指し手」に分けます。
+            Maps_OneAndMulti<Finger, Move> starbetuAllMoves2 = Util_Sky258A.SplitMoveByStar(positionA,
+                restMovelist,//hubNode1.ToMovelist(),
+                logTag);
+
+            //
+            // 「星別の指し手一覧」を、「星別の進むマス一覧」になるよう、データ構造を変換します。
+            //
+            foreach (KeyValuePair<Finger, List<Move>> entry in starbetuAllMoves2.Items)
+            {
+                Finger finger = entry.Key;
+                List<Move> moveList = entry.Value;
+
+                // ポテンシャル・ムーブを調べます。
+                SySet<SyElement> masus_PotentialMove = new SySet_Default<SyElement>("ポテンシャルムーブ");
+                foreach (Move move in moveList)
+                {
+                    SyElement dstMasu = ConvMove.ToDstMasu(move);
+                    masus_PotentialMove.AddElement(dstMasu);
+                }
+
+                if (!masus_PotentialMove.IsEmptySet())
+                {
+                    // 空でないなら
+                    Util_Sky258A.AddOverwrite(starbetuSusumuMasus, finger, masus_PotentialMove);
+                }
+            }
+
+            // FIXME: デバッグ用
+            foreach (Finger key in starbetuSusumuMasus.ToKeyList())
+            {
+                positionA.AssertFinger(key);
             }
 
             return starbetuSusumuMasus;
@@ -160,65 +129,48 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             foreach (Move moveA in inputMovelist)
             {
                 Move moveB = moveA;
-                long exception_area = 1000120;
-                try
+                bool successful = Util_IttesasuSuperRoutine.DoMove_Super1(
+                    ConvMove.ToPlayerside(moveB),
+                    ref positionA,//指定局面
+                    ref moveB,
+                    "A100_IfMate",
+                    logTag
+                );
+                if (!successful)
                 {
-                    bool successful = Util_IttesasuSuperRoutine.DoMove_Super1(
-                        ConvMove.ToPlayerside(moveB),
-                        ref positionA,//指定局面
-                        ref moveB,
-                        "A100_IfMate",
-                        logTag
-                    );
-                    if (!successful)
-                    {
-                        // 将棋盤と指し手の不一致があるとき
-                        goto gt_EndLoop;
-                    }
+                    // 将棋盤と指し手の不一致があるとき
+                    goto gt_EndLoop;
+                }
 
-                    exception_area = 30000;
-
-                    // 王様が利きに飛び込んだか？
-                    bool kingSuicide = Util_LegalMove.LAAA_KingSuicide(
-                        yomikaisiTemezumi,
-                        positionA,
-                        temezumi_yomiGenTeban_forLog,
-                        pside_genTeban,//現手番＝攻め手視点
+                // 王様が利きに飛び込んだか？
+                bool kingSuicide = Util_LegalMove.LAAA_KingSuicide(
+                    yomikaisiTemezumi,
+                    positionA,
+                    temezumi_yomiGenTeban_forLog,
+                    pside_genTeban,//現手番＝攻め手視点
 #if DEBUG
                     logF_kiki,
 #endif
                         moveB,
-                        logTag
-                        );
+                    logTag
+                    );
 
-                    exception_area = 40000;
-
-                    if (!kingSuicide)
-                    {
-                        // 王様が利きに飛び込んでいない局面だけ、残します。
-                        restMovelist.Add(moveB);
-                    }
-
-                    exception_area = 5000110;
-
-                    IIttemodosuResult ittemodosuResult;
-                    UtilIttemodosuRoutine.UndoMove(
-                        out ittemodosuResult,
-                        moveB,//この関数が呼び出されたときの指し手☆（＾～＾）
-                        ConvMove.ToPlayerside(moveB),
-                        positionA,
-                        "A900_IfMate",
-                        logTag
-                        );
-                    positionA = ittemodosuResult.SyuryoSky;
-                }
-                catch (Exception ex)
+                if (!kingSuicide)
                 {
-                    Logger.Panic(logTag, ex,
-                        "ノードを削除しているときだぜ☆（＾▽＾） exception_area=" + exception_area +
-                        "\nmove=" + ConvMove.ToLog(moveB));
-                    throw;
+                    // 王様が利きに飛び込んでいない局面だけ、残します。
+                    restMovelist.Add(moveB);
                 }
+
+                IIttemodosuResult ittemodosuResult;
+                UtilIttemodosuRoutine.UndoMove(
+                    out ittemodosuResult,
+                    moveB,//この関数が呼び出されたときの指し手☆（＾～＾）
+                    ConvMove.ToPlayerside(moveB),
+                    positionA,
+                    "A900_IfMate",
+                    logTag
+                    );
+                positionA = ittemodosuResult.SyuryoSky;
 
             gt_EndLoop:
                 ;
@@ -455,19 +407,8 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 logBrd_kiki = boardLog_clone;
 #endif
 
-
-                try
-                {
-                    // 《１》　＝　《１．４》の盤上駒＋持駒
-                    sMs_effect.AddRange_New(kmEffect_seme_BANJO);
-
-                }
-                catch (Exception ex)
-                {
-                    Logger.Panic(logTag, ex, "ランダムチョイス(50)");
-                    throw;
-                }
-
+                // 《１》　＝　《１．４》の盤上駒＋持駒
+                sMs_effect.AddRange_New(kmEffect_seme_BANJO);
             }
 
             return sMs_effect;

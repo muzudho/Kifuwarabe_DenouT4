@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
@@ -36,8 +37,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
                 if (figKoma == Fingers.Error_1)
                 {
-                    Logger.Panic(logTag, "駒番号が記載されていない駒があるぜ☆（＾～＾）");
-                    continue;
+                    throw new Exception("駒番号が記載されていない駒があるぜ☆（＾～＾）");
                 }
 
                 foreach (Move moveA in entry1.Value)// 駒の動ける升

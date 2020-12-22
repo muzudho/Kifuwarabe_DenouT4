@@ -45,38 +45,26 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         {
             Debug.Assert(!this.ContainsBanjoKoma(Conv_Masu.ToMasuHandle(masu)), "既に駒がある枡に、駒を置こうとしています。[" + Conv_Masu.ToMasuHandle(masu) + "]");
 
-            try
+            int masuHandle = Conv_Masu.ToMasuHandle(masu);
+            if (this.BanjoKomas.ContainsKey(masuHandle))
             {
-                int masuHandle = Conv_Masu.ToMasuHandle(masu);
-                if (this.BanjoKomas.ContainsKey(masuHandle))
+                // FIXME: エラー☆（＾▽＾）
+                string message = "[重複]masu=" + Conv_Masu.ToLog(masu) + " busstop=" + Conv_Busstop.ToLog(koma);
+                if (this.ErrorMessage.ContainsKey(masuHandle))
                 {
-                    // FIXME: エラー☆（＾▽＾）
-                    string message = "[重複]masu=" + Conv_Masu.ToLog(masu) + " busstop=" + Conv_Busstop.ToLog(koma);
-                    if (this.ErrorMessage.ContainsKey(masuHandle))
-                    {
-                        this.ErrorMessage.Add(masuHandle,
-                            this.ErrorMessage[masuHandle] + " " +
-                            message);
-                    }
-                    else
-                    {
-                        this.ErrorMessage.Add(masuHandle, message);
-                    }
+                    this.ErrorMessage.Add(masuHandle,
+                        this.ErrorMessage[masuHandle] + " " +
+                        message);
                 }
                 else
                 {
-                    // まだ古い仕様なので、とりあえず駒台と区別せず盤上に追加
-                    this.BanjoKomas.Add(masuHandle, koma);
+                    this.ErrorMessage.Add(masuHandle, message);
                 }
             }
-            catch (Exception ex)
+            else
             {
-                Logger.Panic(logTag, ex,
-                    "将棋盤ログを作っているとき☆（＾▽＾）\n" +
-                    " masu=" + Conv_Masu.ToLog(masu) + "\n" +
-                    " busstop=" + Conv_Busstop.ToLog(koma)
-                    );
-                throw;
+                // まだ古い仕様なので、とりあえず駒台と区別せず盤上に追加
+                this.BanjoKomas.Add(masuHandle, koma);
             }
 
 
