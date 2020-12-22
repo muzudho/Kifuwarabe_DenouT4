@@ -1,9 +1,4 @@
-﻿using Grayscale.A000Platform.B021Random.C500Struct;
-using Grayscale.A060Application.B610_ConstShogi_.C250Const;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
-
-namespace Grayscale.A210KnowNingen.B220ZobrishHash.C500Struct
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     /// <summary>
     /// 本将棋の千日手検出用のゾブリスト・ハッシュ・テーブルを作成します。

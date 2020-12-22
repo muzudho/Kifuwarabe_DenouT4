@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Grayscale.A060Application.B410Collection.C500Struct
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     /// <summary>

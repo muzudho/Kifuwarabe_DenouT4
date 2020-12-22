@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 
-namespace Grayscale.A120KifuSfen
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     /// <summary>
     /// SFEN用の変換。

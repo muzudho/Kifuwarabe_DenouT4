@@ -1,4 +1,4 @@
-﻿namespace Grayscale.A210KnowNingen.B280Tree.C500Struct
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     /// <summary>
     /// ツリー構造の移動の区分

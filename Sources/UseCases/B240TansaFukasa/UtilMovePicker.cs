@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A060Application.B410Collection.C500Struct;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B460KyokumMoves.C500Util;
-using Grayscale.A210KnowNingen.B730UtilSasuEx.C500Util;
-using Grayscale.A210KnowNingen.B770ConvSasu.C500Converter;
-using Grayscale.A210KnowNingen.B780LegalMove.C500Util;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.A500ShogiEngine.B220Tansaku.C500Tansaku;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
-using Grayscale.A210KnowNingen.B250LogKaisetu.C250Struct;
-using Grayscale.A210KnowNingen.B110GraphicLog.C500Util;
-using Grayscale.A210KnowNingen.B460KyokumMoves.C250Log;
-using Grayscale.A210KnowNingen.B810LogGraphiEx.C500Util;
-// using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+// using Grayscale.Kifuwaragyoku.Entities.Features;
 #else
 #endif
 

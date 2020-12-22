@@ -1,11 +1,6 @@
 ﻿using System.Text;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A060Application.B620ConvText.C500Converter;
-using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
 
-namespace Grayscale.A210KnowNingen.B360_MasusWriter.C250Writer
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class WriterMasus
     {

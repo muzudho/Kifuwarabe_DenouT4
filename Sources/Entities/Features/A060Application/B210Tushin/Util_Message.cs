@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using ProjectDark.KWSupport;
 
-namespace Grayscale.A060Application.B210Tushin.C500Util
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
 

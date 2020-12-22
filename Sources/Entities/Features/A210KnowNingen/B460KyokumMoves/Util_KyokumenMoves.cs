@@ -1,21 +1,11 @@
-﻿using System;
-using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A060Application.B410Collection.C500Struct;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B320ConvWords.C500Converter;
-using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
-using Grayscale.A210KnowNingen.B430Play.C500Query;
-using Grayscale.A210KnowNingen.B450Play2.C500Struct;
+﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
-using Grayscale.A210KnowNingen.B460KyokumMoves.C250Log;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 #endif
 
-namespace Grayscale.A210KnowNingen.B460KyokumMoves.C500Util
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     /// <summary>

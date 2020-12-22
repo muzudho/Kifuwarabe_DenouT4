@@ -2,20 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using Grayscale.A000Platform.B011Csv.C250Parser;
-using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
-using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
-using Grayscale.A210KnowNingen.B290_Komahaiyaku.C250Word;
 using Nett;
 
 #if DEBUG
-using Grayscale.A060Application.B310Settei.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 #endif
 
-namespace Grayscale.A210KnowNingen.B300_KomahaiyaTr.C500Table
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     /// <summary>

@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 using Grayscale.A500ShogiEngine.B523UtilFv.C490UtilFvFormat;
 using Nett;

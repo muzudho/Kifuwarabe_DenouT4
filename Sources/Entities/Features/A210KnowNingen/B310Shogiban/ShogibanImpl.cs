@@ -1,16 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A120KifuSfen;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
-using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 
-namespace Grayscale.A210KnowNingen.B310Shogiban.C250Struct
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public class ShogibanImpl
     {
@@ -78,7 +72,7 @@ namespace Grayscale.A210KnowNingen.B310Shogiban.C250Struct
             }
             catch (Exception ex)
             {
-                Logger.Panic(logTag,ex,
+                Logger.Panic(logTag, ex,
                     "将棋盤ログを作っているとき☆（＾▽＾）\n" +
                     " masu=" + Conv_Masu.ToLog(masu) + "\n" +
                     " busstop=" + Conv_Busstop.ToLog(koma)

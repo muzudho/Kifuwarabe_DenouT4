@@ -1,6 +1,6 @@
 ﻿using System;
-using Grayscale.A120KifuSfen;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 
 namespace Grayscale.A500ShogiEngine.B140ConvFvKoumoku.C500Converter

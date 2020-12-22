@@ -1,30 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A060Application.B410Collection.C500Struct;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B320ConvWords.C500Converter;
-using Grayscale.A210KnowNingen.B410SeizaFinger.C250Struct;
-using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
-using Grayscale.A210KnowNingen.B430Play.C500Query;
-using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
-using Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA;
-using Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA;
-using Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB;
-using Grayscale.A210KnowNingen.B770ConvSasu.C500Converter;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
-using Grayscale.A210KnowNingen.B250LogKaisetu.C250Struct;
-using Grayscale.A210KnowNingen.B420UtilSky258.C505ConvLogJson;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 #endif
 
-namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
 
@@ -232,7 +222,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
                 }
                 catch (Exception ex)
                 {
-                    Logger.Panic(logTag,ex,
+                    Logger.Panic(logTag, ex,
                         "ノードを削除しているときだぜ☆（＾▽＾） exception_area=" + exception_area +
                         "\nmove=" + ConvMove.ToLog(moveB));
                     throw;
@@ -482,7 +472,7 @@ namespace Grayscale.A210KnowNingen.B780LegalMove.C500Util
                 }
                 catch (Exception ex)
                 {
-                    Logger.Panic(logTag,ex, "ランダムチョイス(50)");
+                    Logger.Panic(logTag, ex, "ランダムチョイス(50)");
                     throw;
                 }
 

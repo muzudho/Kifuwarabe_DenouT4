@@ -1,14 +1,11 @@
 ﻿using System;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B280Tree.C500Struct;
-using Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA;
-using Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA;
-using Grayscale.A210KnowNingen.B740KifuParserA.C400Conv;
 
-namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     /// <summary>
@@ -135,8 +132,8 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
 
                             // どうにもできないので  ログだけ取って無視します。
                             string message = this.GetType().Name + "#Execute（B）： exceptionArea=" + exceptionArea + "\n" + ex.GetType().Name + "：" + ex.Message;
-                            Logger.AppendLine(logTag,message);
-                            Logger.Flush(logTag,LogTypes.Error);
+                            Logger.AppendLine(logTag, message);
+                            Logger.Flush(logTag, LogTypes.Error);
                         }
 
                     }
@@ -164,8 +161,8 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
 
                 // どうにもできないので  ログだけ取って無視します。
                 string message = this.GetType().Name + "#Execute：" + ex.GetType().Name + "：" + ex.Message;
-                Logger.AppendLine(logTag,message);
-                Logger.Flush(logTag,LogTypes.Error);
+                Logger.AppendLine(logTag, message);
+                Logger.Flush(logTag, LogTypes.Error);
 
                 // サーバーを止めるフラグ☆（＾▽＾）
                 genjo.ToBreak_Abnormal();

@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
-using Grayscale.A210KnowNingen.B630Sennitite.C500Struct;
 
 #if DEBUG
 using System.Diagnostics;
 #endif
 
-namespace Grayscale.A210KnowNingen.B280Tree.C500Struct
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public class EarthImpl : Earth
     {

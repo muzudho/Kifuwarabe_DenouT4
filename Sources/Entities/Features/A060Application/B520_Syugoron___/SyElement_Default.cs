@@ -1,6 +1,4 @@
-﻿using Grayscale.A060Application.B520Syugoron.C250Struct;
-
-namespace Grayscale.A060Application.B520Syugoron.C250Struct
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     public class SyElement_Default : SyElement

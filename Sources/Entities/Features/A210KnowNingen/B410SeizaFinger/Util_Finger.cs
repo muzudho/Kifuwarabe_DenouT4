@@ -1,6 +1,6 @@
 ﻿using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
-namespace Grayscale.A210KnowNingen.B410SeizaFinger.C500Util
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class Util_Finger
     {

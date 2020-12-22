@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A060Application.B410Collection.C500Struct;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
-namespace Grayscale.A210KnowNingen.B770ConvSasu.C500Converter
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     /// <summary>
@@ -40,7 +38,7 @@ namespace Grayscale.A210KnowNingen.B770ConvSasu.C500Converter
 
                 if (figKoma == Fingers.Error_1)
                 {
-                    Logger.Panic(logTag,"駒番号が記載されていない駒があるぜ☆（＾～＾）");
+                    Logger.Panic(logTag, "駒番号が記載されていない駒があるぜ☆（＾～＾）");
                     continue;
                 }
 

@@ -5,17 +5,17 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 using Grayscale.A500ShogiEngine.B180Hyokakansu.C500Hyokakansu;
 using Grayscale.A500ShogiEngine.B523UtilFv.C510UtilFvLoad;
 
 #if DEBUG || LEARN
-using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 #endif
 
-namespace Grayscale.P910SpeedKeisok
+namespace Grayscale.Kifuwaragyoku.GuiOfSpeedKeisok
 {
 
     public partial class UcMain : UserControl

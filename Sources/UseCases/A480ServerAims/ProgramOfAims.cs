@@ -1,10 +1,10 @@
 ﻿using System.IO;
 using System.Windows.Forms;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A060Application.B310Settei.C500Struct;
-using Grayscale.A060Application.B310Settei.L510Xml;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.A480ServerAims.B110AimsServer.C500Server;
 using Nett;
 

@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B280Tree.C500Struct;
-using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
-using Grayscale.A210KnowNingen.B640_KifuTree___.C250Struct;
-using Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA;
 
-namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
 
@@ -184,7 +180,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
             }
             catch (Exception ex)
             {
-                Logger.Panic(LogTags.ProcessNoneError,ex, "棋譜解析中☆");
+                Logger.Panic(LogTags.ProcessNoneError, ex, "棋譜解析中☆");
                 throw;
             }
         }

@@ -1,19 +1,10 @@
 ﻿using System.Diagnostics;
 using System.Text;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A120KifuSfen;
-using Grayscale.A210KnowNingen.B130Json.C500Struct;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B320ConvWords.C500Converter;
-using Grayscale.A210KnowNingen.B350SfenTransla.C500Util;
-using Grayscale.A210KnowNingen.B420UtilSky258.C505ConvLogJson;
-using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
-namespace Grayscale.A210KnowNingen.B600UtilSky.C500Util
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class UtilSky307
     {

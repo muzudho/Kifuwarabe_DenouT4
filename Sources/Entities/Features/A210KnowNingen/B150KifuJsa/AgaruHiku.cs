@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.A210KnowNingen.B150KifuJsa.C500Word
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     /// <summary>
     /// ************************************************************************************************************************

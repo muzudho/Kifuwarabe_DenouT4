@@ -1,4 +1,4 @@
-﻿namespace Grayscale.A120KifuSfen
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     /// <summary>
     /// 駒の種類。先後を含む。持ち駒を指定するのに便利（配列のインデックス）。

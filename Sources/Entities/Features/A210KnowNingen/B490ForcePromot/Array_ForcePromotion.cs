@@ -2,15 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using Grayscale.A000Platform.B011Csv.C500Parser;
-using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
-using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
-using Grayscale.A210KnowNingen.B290_Komahaiyaku.C250Word;
 using Nett;
 
-namespace Grayscale.A210KnowNingen.B490ForcePromot.C250Struct
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
 

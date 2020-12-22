@@ -1,13 +1,8 @@
-﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A120KifuSfen;
-using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
-using Grayscale.A210KnowNingen.B190Komasyurui.C500Util;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
+﻿using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
-namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     /// <summary>

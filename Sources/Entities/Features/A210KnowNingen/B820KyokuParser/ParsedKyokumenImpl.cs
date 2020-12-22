@@ -1,10 +1,7 @@
 ﻿using System.Collections.Generic;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B820KyokuParser.C500Parser;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 
-namespace Grayscale.A210KnowNingen.B820KyokuParser.C500Parser
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     /// <summary>
     /// 解析された局面

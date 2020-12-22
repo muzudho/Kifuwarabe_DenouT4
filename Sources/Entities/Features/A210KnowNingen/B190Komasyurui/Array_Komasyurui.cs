@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Grayscale.A210KnowNingen.B190Komasyurui.C250Word
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public static class Array_Komasyurui
     {

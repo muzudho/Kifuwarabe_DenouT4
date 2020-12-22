@@ -1,10 +1,6 @@
 ﻿using System.Diagnostics;
-using Grayscale.A210KnowNingen.B130Json.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B280Tree.C500Struct;
-using Grayscale.A210KnowNingen.B600UtilSky.C500Util;
 
-namespace Grayscale.A210KnowNingen.B610NodeWriter.C500Writer
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public class NodeWriterImpl
     {

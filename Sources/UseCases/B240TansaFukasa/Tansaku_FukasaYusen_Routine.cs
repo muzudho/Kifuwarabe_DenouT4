@@ -6,15 +6,15 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B250LogKaisetu.C250Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B280Tree.C500Struct;
-using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
-using Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA;
-using Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA;
-using Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.A500ShogiEngine.B200Scoreing.C250Args;
 using Grayscale.A500ShogiEngine.B200Scoreing.C500Util;
 using Grayscale.A500ShogiEngine.B210TimeMan.C500struct;
@@ -22,12 +22,12 @@ using Grayscale.A500ShogiEngine.B220Tansaku.C500Struct;
 using Grayscale.A500ShogiEngine.B220Tansaku.C500Tansaku;
 
 #if DEBUG
-// using Grayscale.A210KnowNingen.B250LogKaisetu.C250Struct;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210KnowNingen.B110GraphicLog.C500Util;
-using Grayscale.A210KnowNingen.B460KyokumMoves.C250Log;
-using Grayscale.A210KnowNingen.B810LogGraphiEx.C500Util;
-using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
+// using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 #else
 #endif
 

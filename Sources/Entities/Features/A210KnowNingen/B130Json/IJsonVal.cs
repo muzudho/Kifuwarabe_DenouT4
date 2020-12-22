@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.A210KnowNingen.B130Json.C500Struct
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public interface IJsonVal
     {

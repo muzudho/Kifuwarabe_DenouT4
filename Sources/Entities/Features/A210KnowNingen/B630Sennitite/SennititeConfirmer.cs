@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.A210KnowNingen.B630Sennitite.C500Struct
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     /// <summary>

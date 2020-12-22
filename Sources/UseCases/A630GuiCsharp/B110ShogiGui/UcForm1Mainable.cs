@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A060Application.B310Settei.L510Xml;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui;
 
 namespace Grayscale.A630GuiCsharp.B110ShogiGui.C510Form

@@ -1,24 +1,13 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using System.Text;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
-using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
-using Grayscale.A210KnowNingen.B190Komasyurui.C500Util;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B280Tree.C500Struct;
-using Grayscale.A210KnowNingen.B320ConvWords.C500Converter;
-using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
-using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
-using Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
-namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
 
@@ -173,8 +162,8 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
 
                 // どうにもできないので  ログだけ取って無視します。
                 string message = "Util_IttesasuRoutine#Execute（B）： exceptionArea=" + exceptionArea + "\n" + ex.GetType().Name + "：" + ex.Message;
-                Logger.AppendLine(logTag,message);
-                Logger.Flush(logTag,LogTypes.Error);
+                Logger.AppendLine(logTag, message);
+                Logger.Flush(logTag, LogTypes.Error);
                 throw;
             }
 
@@ -302,7 +291,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
                 //>>>>> エラーが起こりました。
 
                 // どうにもできないので  ログだけ取って無視します。
-                Logger.Panic(logTag,ex, "Util_IttesasuRoutine#Sasu24_UgokasuKoma_IdoSakiHe： exceptionArea=" + exceptionArea + "\n"
+                Logger.Panic(logTag, ex, "Util_IttesasuRoutine#Sasu24_UgokasuKoma_IdoSakiHe： exceptionArea=" + exceptionArea + "\n"
                     //+"hint=["+hint+"]"
                     );
                 throw;

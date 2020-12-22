@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
-using Grayscale.A000Platform.B025Machine;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B320ConvWords.C500Converter;
-using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
-using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
-using Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA;
-using Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA;
-using Grayscale.A210KnowNingen.B740KifuParserA.C400Conv;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 
 namespace Grayscale.A950UnitTest
 {

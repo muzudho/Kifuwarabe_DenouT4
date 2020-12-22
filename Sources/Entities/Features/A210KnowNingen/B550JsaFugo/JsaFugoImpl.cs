@@ -1,7 +1,4 @@
-﻿using Grayscale.A210KnowNingen.B150KifuJsa.C500Word;
-using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
-
-namespace Grayscale.A210KnowNingen.B550JsaFugo.C250Struct
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     /// <summary>

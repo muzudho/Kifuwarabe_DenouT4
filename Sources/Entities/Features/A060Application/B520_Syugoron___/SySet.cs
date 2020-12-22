@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Grayscale.A060Application.B520Syugoron.C250Struct
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     /// <summary>
     /// 二項演算。

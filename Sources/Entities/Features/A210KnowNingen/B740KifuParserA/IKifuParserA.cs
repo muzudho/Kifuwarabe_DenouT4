@@ -1,8 +1,8 @@
 ﻿using System.Runtime.CompilerServices;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A210KnowNingen.B280Tree.C500Struct;
 
-namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     public interface IKifuParserA

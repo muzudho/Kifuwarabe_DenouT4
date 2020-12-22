@@ -1,8 +1,7 @@
 ﻿using System.IO;
 using System.Text;
-using Grayscale.A180KifuCsa.B120KifuCsa.C250Struct;
 
-namespace Grayscale.A180KifuCsa.B120KifuCsa.C500Writer
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public class CsaKifuWriterImpl
     {

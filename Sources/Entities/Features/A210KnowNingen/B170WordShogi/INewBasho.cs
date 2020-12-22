@@ -1,6 +1,4 @@
-﻿using Grayscale.A060Application.B520Syugoron.C250Struct;
-
-namespace Grayscale.A210KnowNingen.B170WordShogi.C250Masu
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public interface INewBasho : SyElement
     {

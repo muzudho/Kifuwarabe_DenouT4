@@ -1,4 +1,4 @@
-﻿namespace Grayscale.A210_KnowNingen_
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public static class HumanKnowsDebugOptions
     {

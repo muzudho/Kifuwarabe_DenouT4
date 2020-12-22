@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 
-namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class Conv_JsaFugoText
     {
@@ -86,7 +86,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                Logger.Panic(logTag,"TuginoItte_JapanFugo.GetData_FromText（A）：" + ex.GetType().Name + "：" + ex.Message + "：text=「" + inputLine + "」");
+                Logger.Panic(logTag, "TuginoItte_JapanFugo.GetData_FromText（A）：" + ex.GetType().Name + "：" + ex.Message + "：text=「" + inputLine + "」");
                 throw;//追加
             }
 

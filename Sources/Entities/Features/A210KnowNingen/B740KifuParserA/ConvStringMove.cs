@@ -1,13 +1,10 @@
 ﻿using System;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A120KifuSfen;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
-using Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA;
 
-namespace Grayscale.A210KnowNingen.B740KifuParserA.C400Conv
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class ConvStringMove
     {
@@ -101,10 +98,10 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C400Conv
                             //「6g6f」形式でもなかった☆
 
                             string message = "（＾△＾）「" + sfenMove1 + "」！？　次の一手が読めない☆";
-                            Logger.AppendLine(logTag,message);
-                            Logger.Flush(logTag,LogTypes.Error);
+                            Logger.AppendLine(logTag, message);
+                            Logger.Flush(logTag, LogTypes.Error);
 
-                            Logger.Panic(LogTags.ProcessNoneError,message);
+                            Logger.Panic(LogTags.ProcessNoneError, message);
                             goto gt_EndMethod;
                         }
 
@@ -112,7 +109,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C400Conv
                 }
                 catch (Exception ex)
                 {
-                    Logger.Panic(LogTags.ProcessNoneError,ex, "moves解析中☆");
+                    Logger.Panic(LogTags.ProcessNoneError, ex, "moves解析中☆");
                     throw;
                 }
             }

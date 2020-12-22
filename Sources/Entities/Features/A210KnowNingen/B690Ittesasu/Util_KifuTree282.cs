@@ -1,11 +1,8 @@
-﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B280Tree.C500Struct;
-using Grayscale.A210KnowNingen.B640_KifuTree___.C250Struct;
-using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
+﻿using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 
-namespace Grayscale.A210KnowNingen.B690Ittesasu.C125UtilB
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     /// <summary>

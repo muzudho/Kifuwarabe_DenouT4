@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using Grayscale.A180KifuCsa.B120KifuCsa.C250Struct;
 
-namespace Grayscale.A180KifuCsa.B120KifuCsa.C250Struct
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     /// <summary>

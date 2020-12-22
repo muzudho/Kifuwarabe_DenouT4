@@ -1,6 +1,4 @@
-﻿using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-
-namespace Grayscale.A210KnowNingen.B650PnlTaikyoku.C250Struct
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public interface SkyWrapper_Gui
     {

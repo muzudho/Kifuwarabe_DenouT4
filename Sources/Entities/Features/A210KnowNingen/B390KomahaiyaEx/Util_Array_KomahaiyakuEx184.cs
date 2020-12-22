@@ -1,13 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
-using Grayscale.A000Platform.B011Csv.C500Parser;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
-using Grayscale.A210KnowNingen.B290_Komahaiyaku.C250Word;
-using Grayscale.A210KnowNingen.B290_Komahaiyaku.C500Util;
-using Grayscale.A210KnowNingen.B380Michi.C500Word;
 
-namespace Grayscale.A210KnowNingen.B390KomahaiyaEx.C500Util
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class Util_Array_KomahaiyakuEx184
     {

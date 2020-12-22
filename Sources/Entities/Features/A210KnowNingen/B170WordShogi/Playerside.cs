@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Grayscale.A210KnowNingen.B170WordShogi.C500Word
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
 

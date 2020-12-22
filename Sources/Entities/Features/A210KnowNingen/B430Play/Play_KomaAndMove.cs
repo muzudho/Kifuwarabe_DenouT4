@@ -1,14 +1,8 @@
 ﻿using System.Collections.Generic;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A060Application.B410Collection.C500Struct;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210KnowNingen.B110GraphicLog.C500Util;
-using Grayscale.A210KnowNingen.B170WordShogi.C260Operator;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B420UtilSky258.C510UtilLogJson;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
-namespace Grayscale.A210KnowNingen.B430Play.C250Calc
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
 

@@ -1,9 +1,7 @@
-﻿using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA;
+﻿using Grayscale.Kifuwaragyoku.Entities.Features;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
-namespace Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public class IttemodosuResultImpl : IIttemodosuResult
     {

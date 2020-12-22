@@ -1,6 +1,6 @@
 ﻿using System;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.A450Server.B110Server.C498Server;
 using Grayscale.A480ServerAims.B110AimsServer.C060Phase;
 using Grayscale.A480ServerAims.B110AimsServer.C070ServerBase;

@@ -2,14 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A120KifuSfen;
-using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
-using Grayscale.A210KnowNingen.B190Komasyurui.C500Util;
 
-namespace Grayscale.A210KnowNingen.B360_MasusWriter.C500Util
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class UtilMasus<T1>
         where T1 : SyElement

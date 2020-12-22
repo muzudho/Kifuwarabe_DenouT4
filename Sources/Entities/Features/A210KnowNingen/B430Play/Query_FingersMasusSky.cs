@@ -1,11 +1,7 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A060Application.B410Collection.C500Struct;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B430Play.C250Calc;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
-namespace Grayscale.A210KnowNingen.B430Play.C500Query
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     //public class Arg_KmEffectSameIKUSA()
     //{

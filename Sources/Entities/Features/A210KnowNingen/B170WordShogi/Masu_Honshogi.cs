@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using Grayscale.A060Application.B510ConvSy.C500Converter;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
 
-namespace Grayscale.A210KnowNingen.B170WordShogi.C250Masu
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     /// <summary>
     /// 駒を置ける場所２０１箇所だぜ☆

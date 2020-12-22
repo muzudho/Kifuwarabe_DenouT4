@@ -2,11 +2,11 @@
 {
     using System;
     using System.Collections.Generic;
-    using Nett;
-    using System.IO;
     using System.Diagnostics;
+    using System.IO;
     using System.Text;
     using System.Windows.Forms;
+    using Nett;
 
     public static class Logger
     {

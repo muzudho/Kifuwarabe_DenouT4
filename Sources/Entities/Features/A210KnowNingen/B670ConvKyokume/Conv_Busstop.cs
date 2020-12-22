@@ -1,13 +1,7 @@
 ﻿using System.Text;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
-using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
-using Grayscale.A210KnowNingen.B190Komasyurui.C500Util;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 
-namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     /// <summary>
     /// ＲＯ＿Ｓｔａｒ と Busstop の変換☆

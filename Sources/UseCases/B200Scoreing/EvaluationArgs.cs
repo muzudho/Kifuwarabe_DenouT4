@@ -1,13 +1,13 @@
 ﻿#if DEBUG
-using Grayscale.A150LogKyokuPng.B100KyokumenPng.C500Struct;
-using Grayscale.A210KnowNingen.B250LogKaisetu.C250Struct;
-using Grayscale.A210KnowNingen.B630Sennitite.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 using Grayscale.A500ShogiEngine.B200Scoreing.C240Shogisasi;
 #else
-using Grayscale.A150LogKyokuPng.B100KyokumenPng.C500Struct;
-using Grayscale.A210KnowNingen.B250LogKaisetu.C250Struct;
-using Grayscale.A210KnowNingen.B630Sennitite.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 using Grayscale.A500ShogiEngine.B200Scoreing.C240Shogisasi;
 #endif

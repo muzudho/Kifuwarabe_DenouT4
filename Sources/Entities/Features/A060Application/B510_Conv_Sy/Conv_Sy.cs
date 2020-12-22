@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Grayscale.A060Application.B510ConvSy.C500Converter
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class Conv_Sy
     {

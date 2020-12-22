@@ -1,7 +1,6 @@
-﻿using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+﻿using Grayscale.Kifuwaragyoku.Entities.Features;
 
-namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public interface IKifuParserAResult
     {

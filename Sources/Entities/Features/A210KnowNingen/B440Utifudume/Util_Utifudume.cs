@@ -1,28 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A060Application.B410Collection.C500Struct;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210KnowNingen.B170WordShogi.C260Operator;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B170WordShogi.C510Komanokiki;
-using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
-using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
-using Grayscale.A210KnowNingen.B210_KomanoKidou.C500Struct;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B410SeizaFinger.C250Struct;
-using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
-using Grayscale.A210KnowNingen.B430Play.C500Query;
-using Grayscale.A210KnowNingen.B470ConvKiki.C500Converter;
-using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
 
 #endif
 
-namespace Grayscale.A210KnowNingen.B440Utifudume.C500Util
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     /// <summary>
     /// 打ち歩詰め

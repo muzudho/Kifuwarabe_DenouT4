@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.A120KifuSfen
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class SfenWord
     {

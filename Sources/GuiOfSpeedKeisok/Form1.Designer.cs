@@ -1,4 +1,4 @@
-﻿namespace Grayscale.P910SpeedKeisok
+﻿namespace Grayscale.Kifuwaragyoku.GuiOfSpeedKeisok
 {
     partial class Form1
     {

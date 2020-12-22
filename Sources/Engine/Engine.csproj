@@ -71,17 +71,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="KeraLua">
-      <HintPath>..\..\Resources\Lib_NLua\KeraLua.dll</HintPath>
-    </Reference>
     <Reference Include="Nett, Version=0.15.0.0, Culture=neutral, PublicKeyToken=605dcfe7a1d3365b, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Nett.0.15.0\lib\net40\Nett.dll</HintPath>
-    </Reference>
-    <Reference Include="NLua">
-      <HintPath>..\..\Resources\Lib_NLua\NLua.dll</HintPath>
-    </Reference>
-    <Reference Include="ProjectDark.KWSupport">
-      <HintPath>..\..\Resources\Lib_Circle_ProjectDark\ProjectDark.KWSupport.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -106,10 +97,6 @@
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{147b11e0-827b-4d3f-844c-adf2beafa53f}</Project>
       <Name>Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UiOfKyokuPngLog\CliOfKyokuPngLog.csproj">
-      <Project>{6f26bae0-8e17-4fda-a242-d1d7c4db2507}</Project>
-      <Name>CliOfKyokuPngLog</Name>
     </ProjectReference>
     <ProjectReference Include="..\UseCases\UseCases.csproj">
       <Project>{dbea8b61-6f05-49a0-9ccb-6fcf2976bd17}</Project>

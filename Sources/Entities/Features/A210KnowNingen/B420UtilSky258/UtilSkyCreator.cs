@@ -1,13 +1,8 @@
 ﻿using System.Diagnostics;
-using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B410SeizaFinger.C250Struct;
-using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
-namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     /// <summary>
     /// 局面データを作成します。

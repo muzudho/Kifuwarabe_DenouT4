@@ -1,4 +1,4 @@
-﻿using Grayscale.A210KnowNingen.B250LogKaisetu.C250Struct;
+﻿using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.A500ShogiEngine.B220Tansaku.C500Tansaku;
 
 namespace Grayscale.A500ShogiEngine.B220Tansaku.C500Struct

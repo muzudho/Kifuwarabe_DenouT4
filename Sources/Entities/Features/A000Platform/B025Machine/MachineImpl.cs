@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;  // TODO: Unityで使うなら、このusing文は消そうぜ☆（＾▽＾）
 
-namespace Grayscale.A000Platform.B025Machine
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     /// <summary>
     /// デバッグ・モードでのみ実行する関数のかたちです。引数の無い隠し実験。

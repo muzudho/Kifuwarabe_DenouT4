@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Grayscale.A000Platform.B021Random.C500Struct
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     /// <summary>
     /// きふわらべランダム。

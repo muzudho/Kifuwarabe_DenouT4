@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Grayscale.P910SpeedKeisok
+namespace Grayscale.Kifuwaragyoku.GuiOfSpeedKeisok
 {
     static class Program
     {

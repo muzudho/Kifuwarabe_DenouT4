@@ -1,4 +1,4 @@
-﻿namespace Grayscale.A120KifuSfen
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     /// <summary>

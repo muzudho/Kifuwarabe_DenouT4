@@ -1,5 +1,5 @@
-﻿using Grayscale.A000Platform.B021Random.C500Struct;
-using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
+﻿using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 
 namespace Grayscale.A500ShogiEngine.B523UtilFv.C480UtilFvEdit

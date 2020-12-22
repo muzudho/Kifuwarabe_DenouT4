@@ -1,10 +1,6 @@
 ﻿using System.Text;
-using Grayscale.A120KifuSfen;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B310Shogiban.C250Struct;
-using Grayscale.A210KnowNingen.B320ConvWords.C500Converter;
 
-namespace Grayscale.A210KnowNingen.B350SfenTransla.C500Util
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class Util_StartposExporter
     {

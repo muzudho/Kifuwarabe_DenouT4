@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
-using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 
-namespace Grayscale.A210KnowNingen.B350SfenTransla.C250Struct
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     /// <summary>
     /// 将棋盤上の情報を数えます。未使用？

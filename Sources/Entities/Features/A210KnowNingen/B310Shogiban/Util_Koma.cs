@@ -1,8 +1,6 @@
-﻿using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
+﻿using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
-namespace Grayscale.A210KnowNingen.B310Shogiban.C500Util
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public class Util_Koma
     {

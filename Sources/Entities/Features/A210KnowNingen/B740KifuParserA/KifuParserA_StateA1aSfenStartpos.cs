@@ -1,10 +1,8 @@
 ﻿using System;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B280Tree.C500Struct;
 
-namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     /// <summary>
     /// 平手の初期配置です。
@@ -68,21 +66,21 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
                     // FIXME: コンピューターが先手のとき、ここにくる？
 
                     // 異常時。
-                    Logger.AppendLine(logTag,"＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない1☆！　終わるぜ☆");
-                    Logger.Flush(logTag,LogTypes.Error);
+                    Logger.AppendLine(logTag, "＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない1☆！　終わるぜ☆");
+                    Logger.Flush(logTag, LogTypes.Error);
                     genjo.ToBreak_Abnormal();
                 }
                 else
                 {
                     // 異常時。
-                    Logger.AppendLine(logTag,"＼（＾ｏ＾）／「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　movesがない☆！　終わるぜ☆");
-                    Logger.Flush(logTag,LogTypes.Error);
+                    Logger.AppendLine(logTag, "＼（＾ｏ＾）／「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　movesがない☆！　終わるぜ☆");
+                    Logger.Flush(logTag, LogTypes.Error);
                     genjo.ToBreak_Abnormal();
                 }
             }
             catch (Exception ex)
             {
-                Logger.Panic(LogTags.ProcessNoneError,ex, "SFEN文字列の解析中。");
+                Logger.Panic(LogTags.ProcessNoneError, ex, "SFEN文字列の解析中。");
                 throw;
             }
 

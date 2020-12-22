@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct;
 using Grayscale.A500ShogiEngine.B180Hyokakansu.C500Hyokakansu;
 
 #if DEBUG || LEARN
-using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 #endif
 
 namespace Grayscale.A500ShogiEngine.B180Hyokakansu.C510HyokakansuColl

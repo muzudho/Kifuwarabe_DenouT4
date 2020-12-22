@@ -1,12 +1,6 @@
 ﻿using System.Collections.Generic;
-using Grayscale.A000Platform.B021Random.C500Struct;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
-using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
-using Grayscale.A210KnowNingen.B290_Komahaiyaku.C250Word;
-using Grayscale.A210KnowNingen.B290_Komahaiyaku.C500Util;
 
-namespace Grayscale.A210KnowNingen.B390KomahaiyaEx.C500Util
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     /// <summary>

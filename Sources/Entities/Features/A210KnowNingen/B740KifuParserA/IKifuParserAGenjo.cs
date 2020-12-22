@@ -1,6 +1,6 @@
-﻿using Grayscale.A210KnowNingen.B520_SeizaStartp.C500Struct;
+﻿using Grayscale.Kifuwaragyoku.Entities.Features;
 
-namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public interface IKifuParserAGenjo
     {

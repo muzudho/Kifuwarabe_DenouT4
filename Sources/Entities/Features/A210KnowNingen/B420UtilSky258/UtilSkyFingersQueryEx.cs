@@ -1,11 +1,7 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B410SeizaFinger.C500Util;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
-namespace Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     /// <summary>

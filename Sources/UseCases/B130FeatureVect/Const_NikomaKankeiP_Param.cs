@@ -1,4 +1,4 @@
-﻿using Grayscale.A060Application.B610_ConstShogi_.C250Const;
+﻿using Grayscale.Kifuwaragyoku.Entities.Features;
 
 namespace Grayscale.A500ShogiEngine.B130FeatureVect.C500Struct
 {

@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using Grayscale.A000Platform.B011Csv.C500Parser;
-using Grayscale.A060Application.B210Tushin.C500Util;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 
-namespace Grayscale.A060Application.B310Settei.C500Struct
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     /// <summary>

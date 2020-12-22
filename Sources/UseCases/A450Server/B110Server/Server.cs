@@ -1,4 +1,4 @@
-﻿using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+﻿using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.A450Server.B110Server.C497EngineClient;
 
 namespace Grayscale.A450Server.B110Server.C498Server

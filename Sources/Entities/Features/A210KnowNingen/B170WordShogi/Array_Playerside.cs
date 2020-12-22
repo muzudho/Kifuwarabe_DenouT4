@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.A210KnowNingen.B170WordShogi.C500Word
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     /// <summary>
     /// プレイヤーサイドの配列。

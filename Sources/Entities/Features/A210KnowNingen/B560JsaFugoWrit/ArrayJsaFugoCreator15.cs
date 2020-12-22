@@ -1,16 +1,7 @@
-﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210KnowNingen.B150KifuJsa.C500Word;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
-using Grayscale.A210KnowNingen.B210_KomanoKidou.C500Struct;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
-using Grayscale.A210KnowNingen.B550JsaFugo.C250Struct;
-using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
+﻿using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 
-namespace Grayscale.A210KnowNingen.B560_JsaFugoWrit.C500Writer
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
 

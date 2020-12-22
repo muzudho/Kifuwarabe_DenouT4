@@ -1,5 +1,5 @@
 ﻿#if DEBUG
-using Grayscale.A210KnowNingen.B250LogKaisetu.C250Struct;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 #endif
 
 namespace Grayscale.A500ShogiEngine.B220Tansaku.C500Tansaku

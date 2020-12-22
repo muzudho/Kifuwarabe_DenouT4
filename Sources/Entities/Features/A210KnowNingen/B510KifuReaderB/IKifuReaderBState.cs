@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.A210KnowNingen.B510KifuReaderB.C500Reader
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public interface IKifuReaderBState
     {

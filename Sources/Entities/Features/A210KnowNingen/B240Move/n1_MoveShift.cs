@@ -1,4 +1,4 @@
-﻿namespace Grayscale.A210KnowNingen.B240Move.C500Struct
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     /// <summary>
     /// 指し手。

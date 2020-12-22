@@ -1,17 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Text;
-using Grayscale.A060Application.B410Collection.C500Struct;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
-using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
-using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B420UtilSky258.C505ConvLogJson;
-using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
-namespace Grayscale.A210KnowNingen.B420UtilSky258.C510UtilLogJson
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class Util_FormatJson_LogGraphicEx
     {

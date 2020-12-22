@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Text;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 
-namespace Grayscale.A210KnowNingen.B630Sennitite.C500Struct
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public class SennititeCounterImpl : SennititeCounter
     {

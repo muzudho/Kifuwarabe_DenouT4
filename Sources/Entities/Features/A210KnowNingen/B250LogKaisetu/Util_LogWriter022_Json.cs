@@ -1,8 +1,6 @@
 ﻿using System.Text;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B250LogKaisetu.C250Struct;
 
-namespace Grayscale.A210KnowNingen.B250LogKaisetu.C500Util
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class Util_LogWriter_Json
     {

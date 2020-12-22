@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using Grayscale.A210KnowNingen.B290_Komahaiyaku.C250Word;
-using Grayscale.A210KnowNingen.B490ForcePromot.C250Struct;
 using Nett;
 
-namespace Grayscale.A210KnowNingen.B490ForcePromot.C500Util
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
 

@@ -1,14 +1,12 @@
 ﻿using System;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B280Tree.C500Struct;
 
 #if DEBUG
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 #endif
 
-namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     /// <summary>
@@ -82,8 +80,8 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
                 else if ("" == genjo.InputLine)
                 {
                     // 異常時。
-                    Logger.AppendLine(logTag,"＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない2☆！　終わるぜ☆");
-                    Logger.Flush(logTag,LogTypes.Error);
+                    Logger.AppendLine(logTag, "＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない2☆！　終わるぜ☆");
+                    Logger.Flush(logTag, LogTypes.Error);
                     genjo.ToBreak_Abnormal();
                 }
                 else
@@ -99,7 +97,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
             }
             catch (Exception ex)
             {
-                Logger.Panic(LogTags.ProcessNoneError,ex, "棋譜ドキュメント解析中☆");
+                Logger.Panic(LogTags.ProcessNoneError, ex, "棋譜ドキュメント解析中☆");
                 throw;
             }
 

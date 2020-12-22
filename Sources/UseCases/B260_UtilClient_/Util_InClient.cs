@@ -1,9 +1,9 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A120KifuSfen;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B280Tree.C500Struct;
-using Grayscale.A210KnowNingen.B640_KifuTree___.C250Struct;
-using Grayscale.A210KnowNingen.B740KifuParserA.C500Parser;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 
 #if DEBUG
 // using Grayscale.Kifuwaragyoku.Entities.Logging;

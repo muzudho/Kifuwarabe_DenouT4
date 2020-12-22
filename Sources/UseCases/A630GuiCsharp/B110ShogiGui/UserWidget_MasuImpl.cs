@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C491Event;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C492Widgets;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C080Shape;

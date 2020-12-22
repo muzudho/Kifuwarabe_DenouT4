@@ -1,21 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
-using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
-using Grayscale.A210KnowNingen.B190Komasyurui.C500Util;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B310Shogiban.C250Struct;
-using Grayscale.A210KnowNingen.B320ConvWords.C500Converter;
-using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
-using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
-using Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
-namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     /// <summary>
@@ -47,7 +38,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
                 bool log = false;
                 if (log)
                 {
-                    Logger.AppendLine(logTag,"戻す前 " + hint);
+                    Logger.AppendLine(logTag, "戻す前 " + hint);
                     Logger.Append(logTag, Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(psideA, positionA, logTag)));
                     Logger.Flush(logTag, LogTypes.Plain);
                 }
@@ -164,7 +155,7 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA
 
                     exception_area = 700031;
 
-                    Logger.AppendLine(logTag,"戻した後 " + hint);
+                    Logger.AppendLine(logTag, "戻した後 " + hint);
 
                     exception_area = 700041;
 

@@ -1,7 +1,6 @@
 ﻿using System;
-using Grayscale.Kifuwaragyoku.Entities.Logging;
 
-namespace Grayscale.A060Application.B620ConvText.C500Converter
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class Conv_Suji
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.A210KnowNingen.B400_KifuwKuukan.C500Word
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public enum KifuwarabeKuukan24
     {

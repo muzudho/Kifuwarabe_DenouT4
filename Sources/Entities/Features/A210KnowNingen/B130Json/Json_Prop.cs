@@ -1,7 +1,6 @@
 ﻿using System.Text;
-using Grayscale.A210KnowNingen.B130Json.C500Struct;
 
-namespace Grayscale.A210KnowNingen.B130Json.C500Struct
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public class Json_Prop
     {

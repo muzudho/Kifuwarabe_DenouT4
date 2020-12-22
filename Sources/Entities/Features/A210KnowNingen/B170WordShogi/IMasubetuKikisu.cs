@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace Grayscale.A210KnowNingen.B170WordShogi.C510Komanokiki
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     /// <summary>

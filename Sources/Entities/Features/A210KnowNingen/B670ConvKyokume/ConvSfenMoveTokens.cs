@@ -1,28 +1,13 @@
 ﻿using System;
-using System.Text;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A060Application.B510ConvSy.C500Converter;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A060Application.B620ConvText.C500Converter;
-using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
-using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
-using Grayscale.A210KnowNingen.B190Komasyurui.C500Util;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B310Shogiban.C500Util;
-using Grayscale.A210KnowNingen.B320ConvWords.C500Converter;
-using Grayscale.A210KnowNingen.B350SfenTransla.C500Util;
-using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
-using Grayscale.A210KnowNingen.B600UtilSky.C500Util;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
 using System.Diagnostics;
 #endif
 
-namespace Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class ConvSfenMoveTokens
     {

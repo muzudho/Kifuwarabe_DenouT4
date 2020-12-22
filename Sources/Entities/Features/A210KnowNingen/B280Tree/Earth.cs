@@ -1,6 +1,4 @@
-﻿using Grayscale.A210KnowNingen.B630Sennitite.C500Struct;
-
-namespace Grayscale.A210KnowNingen.B280Tree.C500Struct
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public interface Earth
     {

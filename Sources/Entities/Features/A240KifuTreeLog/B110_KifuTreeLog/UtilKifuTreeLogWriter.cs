@@ -1,31 +1,20 @@
 ﻿using System.IO;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A060Application.B310Settei.C500Struct;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A060Application.B620ConvText.C500Converter;
-using Grayscale.A150LogKyokuPng.B100KyokumenPng.C500Struct;
-using Grayscale.A150LogKyokuPng.B200LogKyokuPng.C500UtilWriter;
-using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
-using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
-using Grayscale.A210KnowNingen.B190Komasyurui.C500Util;
-using Grayscale.A210KnowNingen.B250LogKaisetu.C250Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B280Tree.C500Struct;
-using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
-using Grayscale.A120KifuSfen;
 using Nett;
 
 #if DEBUG
 using System;
 using System.Diagnostics;
-using Grayscale.A210KnowNingen.B110GraphicLog.C500Util;
-using Grayscale.A210KnowNingen.B810LogGraphiEx.C500Util;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 using System.Text;
-using Grayscale.A210KnowNingen.B280Tree.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 #endif
 
-namespace Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     /// <summary>
@@ -233,7 +222,7 @@ namespace Grayscale.A240_KifuTreeLog.B110KifuTreeLog.C500Struct
             }
             catch (System.Exception ex)
             {
-                Logger.Panic(logTag,ex, "盤１個分のログを出力しようとしていたときです。\n fileName=[" + fileName + "]\n relFolder=[" + relFolder + "]");
+                Logger.Panic(logTag, ex, "盤１個分のログを出力しようとしていたときです。\n fileName=[" + fileName + "]\n relFolder=[" + relFolder + "]");
                 throw;
             }
         }

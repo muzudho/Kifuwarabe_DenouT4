@@ -1,18 +1,18 @@
 ﻿using System;
-using Grayscale.A000Platform.B021Random.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B280Tree.C500Struct;
-using Grayscale.A210KnowNingen.B320ConvWords.C500Converter;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.A500ShogiEngine.B180Hyokakansu.C500Hyokakansu;
 using Grayscale.A500ShogiEngine.B180Hyokakansu.C510HyokakansuColl;
 using Grayscale.A500ShogiEngine.B200Scoreing.C250Args;
-// using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
+// using Grayscale.Kifuwaragyoku.Entities.Features;
 
 #if DEBUG || LEARN
-using Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 #endif
 
 namespace Grayscale.A500ShogiEngine.B200Scoreing.C500Util

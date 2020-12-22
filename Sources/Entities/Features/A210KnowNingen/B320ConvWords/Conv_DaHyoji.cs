@@ -1,6 +1,4 @@
-﻿using Grayscale.A210KnowNingen.B150KifuJsa.C500Word;
-
-namespace Grayscale.A210KnowNingen.B320ConvWords.C500Converter
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class Conv_DaHyoji
     {

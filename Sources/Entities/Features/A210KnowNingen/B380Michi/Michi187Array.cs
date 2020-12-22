@@ -3,13 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using Grayscale.A000Platform.B011Csv.C500Parser;
-using Grayscale.A060Application.B510ConvSy.C500Converter;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
-using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
 
-namespace Grayscale.A210KnowNingen.B380Michi.C500Word
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
 

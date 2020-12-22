@@ -1,10 +1,8 @@
 ﻿using System;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B280Tree.C500Struct;
 
-namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     /// <summary>
@@ -73,8 +71,8 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
                 else
                 {
                     //#if DEBUG
-                    Logger.AppendLine(logTag,"（＾△＾）ここはスルーして次に状態遷移するんだぜ☆\n「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】");//　：　局面の指定のようなんだぜ☆　対応していない☆？
-                    Logger.Flush(logTag,LogTypes.Error);
+                    Logger.AppendLine(logTag, "（＾△＾）ここはスルーして次に状態遷移するんだぜ☆\n「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】");//　：　局面の指定のようなんだぜ☆　対応していない☆？
+                    Logger.Flush(logTag, LogTypes.Error);
                     //logTag.AppendLine_Error("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　局面の指定のようなんだぜ☆　対応していない☆？");
                     //#endif
                     nextState = KifuParserAStateA1bSfenLnsgkgsnl.GetInstance();
@@ -82,7 +80,7 @@ namespace Grayscale.A210KnowNingen.B740KifuParserA.C500Parser
             }
             catch (Exception ex)
             {
-                Logger.Panic(LogTags.ProcessNoneError,ex, "positionの解析中。");
+                Logger.Panic(LogTags.ProcessNoneError, ex, "positionの解析中。");
                 throw;
             }
 

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A060Application.B210Tushin.C500Util;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B280Tree.C500Struct;
-using Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.A450Server.B110Server.C125Receiver;
 using Grayscale.A450Server.B110Server.C496EngineWrapper;
 

@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.A210KnowNingen.B620KyokumHyoka.C250Struct
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     /// <summary>
     /// 評価項目名＋自信クラス名

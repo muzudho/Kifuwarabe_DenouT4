@@ -1,6 +1,6 @@
-﻿using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B280Tree.C500Struct;
-using Grayscale.A210KnowNingen.B640_KifuTree___.C250Struct;
+﻿using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.A450Server.B110Server.C125Receiver;
 using Grayscale.A450Server.B110Server.C497EngineClient;
 

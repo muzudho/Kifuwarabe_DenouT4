@@ -1,5 +1,5 @@
 ﻿using System;
-using Grayscale.A000Platform.B021Random.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using NLua;
 using Nett;
 using System.IO;

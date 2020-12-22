@@ -1,9 +1,6 @@
 ﻿using System.Drawing;
-using Grayscale.A060Application.B610_ConstShogi_.C250Const;
-using Grayscale.A120KifuSfen;
-using Grayscale.A150LogKyokuPng.B100KyokumenPng.C500Struct;
 
-namespace Grayscale.A150LogKyokuPng.B200LogKyokuPng.C250UtilPaint
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class Util_KyokumenPngPainter
     {

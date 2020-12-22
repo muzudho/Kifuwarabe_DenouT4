@@ -1,18 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B280Tree.C500Struct;
-using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
 
 #if DEBUG
 using System.Diagnostics;
 #endif
 
-namespace Grayscale.A210KnowNingen.B280Tree.C500Struct
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     /// <summary>
@@ -40,13 +35,13 @@ namespace Grayscale.A210KnowNingen.B280Tree.C500Struct
         public void LogPv(string message, ILogTag logTag)
         {
             int index = 0;
-            Logger.AppendLine(logTag,"┌──────────┐" + message);
+            Logger.AppendLine(logTag, "┌──────────┐" + message);
             foreach (Move move in this.m_pv_)
             {
-                Logger.AppendLine(logTag,"(" + index + ")" + ConvMove.ToLog(move));
+                Logger.AppendLine(logTag, "(" + index + ")" + ConvMove.ToLog(move));
                 index++;
             }
-            Logger.AppendLine(logTag,"└──────────┘");
+            Logger.AppendLine(logTag, "└──────────┘");
 
             //this.LogPvList(this, logger);
         }

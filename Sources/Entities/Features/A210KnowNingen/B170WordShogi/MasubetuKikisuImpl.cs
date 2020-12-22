@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using Grayscale.A210KnowNingen.B170WordShogi.C510Komanokiki;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
 
-namespace Grayscale.A210KnowNingen.B170WordShogi.C510Komanokiki
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     /// <summary>

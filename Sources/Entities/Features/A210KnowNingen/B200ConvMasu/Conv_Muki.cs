@@ -1,6 +1,4 @@
-﻿using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-
-namespace Grayscale.A210KnowNingen.B200ConvMasu.C500Conv
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class Conv_Muki
     {

@@ -1,9 +1,8 @@
 ﻿using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using Grayscale.A180KifuCsa.B120KifuCsa.C250Struct;
 
-namespace Grayscale.A180KifuCsa.B120KifuCsa.C250Struct
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     public abstract class Util_Csa

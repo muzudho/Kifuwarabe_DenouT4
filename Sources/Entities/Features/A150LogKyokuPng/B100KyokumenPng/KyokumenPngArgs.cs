@@ -1,6 +1,4 @@
-﻿using Grayscale.A120KifuSfen;
-
-namespace Grayscale.A150LogKyokuPng.B100KyokumenPng.C500Struct
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public interface KyokumenPngArgs
     {

@@ -1,19 +1,9 @@
 ﻿using System.Diagnostics;
 using System.Text;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A060Application.B620ConvText.C500Converter;
-using Grayscale.A120KifuSfen;
-using Grayscale.A180KifuCsa.B120KifuCsa.C250Struct;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B180ConvPside.C500Converter;
-using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
-using Grayscale.A210KnowNingen.B190Komasyurui.C500Util;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
-using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 
-namespace Grayscale.A210KnowNingen.B800ConvCsa.C500Converter
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class UtilCsaMove
     {

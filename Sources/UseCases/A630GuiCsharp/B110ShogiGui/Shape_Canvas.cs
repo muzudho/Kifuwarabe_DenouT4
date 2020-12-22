@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.A630GuiCsharp.B110ShogiGui.C500Gui;
 
 namespace Grayscale.A630GuiCsharp.B110ShogiGui.C081Canvas

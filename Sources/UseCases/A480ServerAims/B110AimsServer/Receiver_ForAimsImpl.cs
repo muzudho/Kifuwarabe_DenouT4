@@ -2,11 +2,11 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B280Tree.C500Struct;
-using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
-using Grayscale.A210KnowNingen.B640_KifuTree___.C250Struct;
-using Grayscale.A210KnowNingen.B690Ittesasu.C250OperationA;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.A450Server.B110Server.C497EngineClient;
 using Grayscale.A480ServerAims.B110AimsServer.C060Phase;
 using Grayscale.A480ServerAims.B110AimsServer.C070ServerBase;

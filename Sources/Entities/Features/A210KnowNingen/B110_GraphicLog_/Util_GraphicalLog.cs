@@ -1,13 +1,13 @@
 ﻿
 #if DEBUG
-using Grayscale.A060Application.B310Settei.C500Struct;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using System.IO;
 using System.Text;
 using Nett;
 #endif
 
 
-namespace Grayscale.A210KnowNingen.B110GraphicLog.C500Util
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class Util_GraphicalLog
     {

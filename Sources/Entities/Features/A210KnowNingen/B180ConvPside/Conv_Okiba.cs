@@ -1,8 +1,4 @@
-﻿using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210KnowNingen.B170WordShogi.C250Masu;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-
-namespace Grayscale.A210KnowNingen.B180ConvPside.C500Converter
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class Conv_Okiba
     {

@@ -1,18 +1,11 @@
 ﻿using System;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.A060Application.B520Syugoron.C250Struct;
-using Grayscale.A210KnowNingen.B170WordShogi.C500Word;
-using Grayscale.A210KnowNingen.B190Komasyurui.C250Word;
-using Grayscale.A210KnowNingen.B190Komasyurui.C500Util;
-using Grayscale.A210KnowNingen.B240Move.C500Struct;
-using Grayscale.A210KnowNingen.B270Sky.C500Struct;
-using Grayscale.A210KnowNingen.B320ConvWords.C500Converter;
-using Grayscale.A210KnowNingen.B420UtilSky258.C500UtilSky;
-using Grayscale.A210KnowNingen.B670_ConvKyokume.C500Converter;
-using Grayscale.A210KnowNingen.B690Ittesasu.C500UtilA;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
-namespace Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class Util_IttesasuSuperRoutine
     {
@@ -29,9 +22,9 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB
             //*
             if (log)
             {
-                Logger.AppendLine(logTag,"進める前 " + hint);
-                Logger.Append(logTag,Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logTag), positionA, move));
-                Logger.Flush(logTag,LogTypes.Plain);
+                Logger.AppendLine(logTag, "進める前 " + hint);
+                Logger.Append(logTag, Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logTag), positionA, move));
+                Logger.Flush(logTag, LogTypes.Plain);
             }
             //*/
 
@@ -62,9 +55,9 @@ namespace Grayscale.A210KnowNingen.B690Ittesasu.C510OperationB
 
                 if (log)
                 {
-                    Logger.AppendLine(logTag,"進めた後 " + hint);
-                    Logger.Append(logTag,Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logTag), positionA, move));
-                    Logger.Flush(logTag,LogTypes.Plain);
+                    Logger.AppendLine(logTag, "進めた後 " + hint);
+                    Logger.Append(logTag, Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logTag), positionA, move));
+                    Logger.Flush(logTag, LogTypes.Plain);
                 }
             }
 

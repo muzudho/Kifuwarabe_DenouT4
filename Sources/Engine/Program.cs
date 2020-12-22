@@ -2,21 +2,21 @@
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
-using Grayscale.A060Application.B210Tushin.C500Util;
 using Grayscale.A090UsiFramewor.B100UsiFrame1.C250UsiLoop;
-using Grayscale.A210KnowNingen.B300_KomahaiyaTr.C500Table;
-using Grayscale.A210KnowNingen.B380Michi.C500Word;
-using Grayscale.A210KnowNingen.B390KomahaiyaEx.C500Util;
-using Grayscale.A210KnowNingen.B490ForcePromot.C250Struct;
-using Grayscale.A210KnowNingen.B740KifuParserA.C500Parser;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.A500ShogiEngine.B260UtilClient.C500Util;
 using Grayscale.A500ShogiEngine.B280KifuWarabe.C100Shogisasi;
 using Grayscale.A500ShogiEngine.B523UtilFv.C510UtilFvLoad;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.Kifuwaragyoku.UseCases;
 using Nett;
 
-namespace Grayscale.P580_Form_______
+namespace Grayscale.Kifuwaragyoku.Engine
 {
     /// <summary>
     /// プログラムのエントリー・ポイントです。

@@ -2,9 +2,8 @@
 using System.IO;
 using System.Text;
 using System.Xml;
-using Grayscale.A060Application.B210Tushin.C500Util;
 
-namespace Grayscale.A060Application.B310Settei.L510Xml
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     /// <summary>

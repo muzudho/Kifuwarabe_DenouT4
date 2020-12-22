@@ -1,5 +1,5 @@
 ﻿
-namespace Grayscale.A120KifuSfen
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
     public delegate void DELEGATE_Masu201(int masuHandle, string masuString, ref bool toBreak);

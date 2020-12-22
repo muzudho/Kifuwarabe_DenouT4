@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using Grayscale.A000Platform.B011Csv.C250Parser;
 
-namespace Grayscale.A000Platform.B011Csv.C500Parser
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
 
 
