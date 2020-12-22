@@ -127,9 +127,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                             //>>>>> エラーが起こりました。
 
                             // どうにもできないので  ログだけ取って無視します。
-                            string message = this.GetType().Name + "#Execute（B）： exceptionArea=" + exceptionArea + "\n" + ex.GetType().Name + "：" + ex.Message;
-                            Logger.AppendLine(logTag, message);
-                            Logger.Flush(logTag, LogTypes.Error);
+                            Logger.Trace($"{this.GetType().Name}#Execute（B）： exceptionArea={exceptionArea}\n{ex.GetType().Name}：{ex.Message}");
                         }
 
                     }
@@ -156,9 +154,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
                 // どうにもできないので  ログだけ取って無視します。
-                string message = this.GetType().Name + "#Execute：" + ex.GetType().Name + "：" + ex.Message;
-                Logger.AppendLine(logTag, message);
-                Logger.Flush(logTag, LogTypes.Error);
+                Logger.Trace($"{this.GetType().Name}#Execute：{ex.GetType().Name}：{ex.Message}");
 
                 // サーバーを止めるフラグ☆（＾▽＾）
                 genjo.ToBreak_Abnormal();

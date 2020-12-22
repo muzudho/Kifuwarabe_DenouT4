@@ -27,7 +27,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     sb.AppendLine("----------------------------------------");
                     sb.AppendLine("is千日手☆！:" + this.douituKyokumenCounterDictionary[hash].ToString());
                     sb.AppendLine(this.Dump_Format());
-                    this.WriteLog(sb.ToString());
+                    Logger.Trace(sb.ToString());
                 }
 #endif
             }
@@ -51,7 +51,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     sb.AppendLine("----------------------------------------");
                     sb.AppendLine("千日手、カウントダウン☆！：" + hint + ":" + this.douituKyokumenCounterDictionary[hash].ToString());
                     sb.AppendLine(this.Dump_Format());
-                    this.WriteLog(sb.ToString());
+                    Logger.Trace(sb.ToString());
                 }
 #endif
             }
@@ -75,7 +75,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     sb.AppendLine("----------------------------------------");
                     sb.AppendLine("千日手カウントアップした☆！：" + hint + ":" + this.douituKyokumenCounterDictionary[hash].ToString());
                     sb.AppendLine(this.Dump_Format());
-                    this.WriteLog(sb.ToString());
+                    Logger.Trace(sb.ToString());
                 }
 #endif
             }
@@ -91,7 +91,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     sb.AppendLine("----------------------------------------");
                     sb.AppendLine("千日手、新局面追加☆！：" + hint + ":" + this.douituKyokumenCounterDictionary[hash].ToString());
                     sb.AppendLine(this.Dump_Format());
-                    this.WriteLog(sb.ToString());
+                    Logger.Trace(sb.ToString());
                 }
 #endif
             }
@@ -146,34 +146,6 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
             return sb.ToString();
         }
-
-        /// <summary>
-        /// プロセス名を見て、ログ・ファイルを切り替えます。
-        /// TODO: 名称変更した場合は、その都度　書き替えてください。
-        /// </summary>
-        /// <param name="text"></param>
-        private void WriteLog(string text)
-        {
-            string processName = Process.GetCurrentProcess().ProcessName;
-
-            if (processName == "Grayscale.P800_ShogiGuiVs.vshost")
-            {
-                Logger.AppendLine(LogTags.ProcessGuiSennitite, text);
-                Logger.Flush(LogTags.ProcessGuiSennitite, LogTypes.Plain);
-            }
-            else if (processName == "Grayscale.P500_ShogiEngine_KifuWarabe")
-            {
-                Logger.AppendLine(LogTags.ProcessGuiSennitite, text);
-                Logger.Flush(LogTags.ProcessGuiSennitite, LogTypes.Plain);
-            }
-            else
-            {
-                // 名称変更したことを忘れていた場合は、デフォルトの書き出し先へ退避。
-                Logger.AppendLine(LogTags.ProcessGuiSennitite, text);
-                Logger.Flush(LogTags.ProcessGuiSennitite, LogTypes.Plain);
-            }
-        }
-
 
         ///// <summary>
         ///// FIXME: 初手から、計算しなおします。

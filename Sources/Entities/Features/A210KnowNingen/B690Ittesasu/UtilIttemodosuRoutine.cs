@@ -32,9 +32,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             bool log = false;
             if (log)
             {
-                Logger.AppendLine(logTag, "戻す前 " + hint);
-                Logger.Append(logTag, Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(psideA, positionA, logTag)));
-                Logger.Flush(logTag, LogTypes.Plain);
+                Logger.Trace($"戻す前 {hint}\n{Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(psideA, positionA, logTag))}");
             }
 
             ittemodosuResult = new IttemodosuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
@@ -128,17 +126,9 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         gt_EndMethod:
             if (log)
             {
-                Logger.AppendLine(logTag, "戻した後 " + hint);
-
                 ShogibanImpl shogiban = Conv_Sky.ToShogiban(psideA, positionA, logTag);
 
-                Logger.Append(logTag,
-                    Conv_Shogiban.ToLog_Type2(
-                        shogiban,
-                        positionA, moved)
-                );
-
-                Logger.Flush(logTag, LogTypes.Plain);
+                Logger.Trace($"戻した後 {hint}\n{Conv_Shogiban.ToLog_Type2(shogiban, positionA, moved)}");
             }
         }
 

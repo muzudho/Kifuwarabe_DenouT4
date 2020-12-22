@@ -178,8 +178,7 @@ namespace Grayscale.Kifuwaragyoku.Engine
                         string line = Util_Message.Download_Nonstop();
 
                         // 通信ログは必ず取ります。
-                        Logger.AppendLine(LogTags.ProcessEngineNetwork, line);
-                        Logger.Flush(LogTags.ProcessEngineNetwork, LogTypes.ToClient);
+                        Logger.WriteLineC(line);
 
 #if NOOPABLE
                 noopTimer._04_AtResponsed(this.Owner, line);
@@ -320,8 +319,7 @@ namespace Grayscale.Kifuwaragyoku.Engine
                             string line = System.Console.In.ReadLine();
 
                             // 通信ログは必ず取ります。
-                            Logger.AppendLine(LogTags.ProcessEngineDefault, line);
-                            Logger.Flush(LogTags.ProcessEngineDefault, LogTypes.ToClient);
+                            Logger.WriteLineC(line);
 
 #if NOOPABLE
                 if (this.owner.Option_enable_serverNoopable)

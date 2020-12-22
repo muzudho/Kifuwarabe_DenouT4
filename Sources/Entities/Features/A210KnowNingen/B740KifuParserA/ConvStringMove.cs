@@ -91,12 +91,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     else
                     {
                         //「6g6f」形式でもなかった☆
-
-                        string message = "（＾△＾）「" + sfenMove1 + "」！？　次の一手が読めない☆";
-                        Logger.AppendLine(logTag, message);
-                        Logger.Flush(logTag, LogTypes.Error);
-
-                        throw new Exception(message);
+                        throw new Exception($"（＾△＾）「{sfenMove1}」！？　次の一手が読めない☆");
                     }
 
                 }
