@@ -63,13 +63,15 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 // FIXME: コンピューターが先手のとき、ここにくる？
 
                 // 異常時。
-                Logger.Trace($"＼（＾ｏ＾）／「{genjo.InputLine}」入力がない1☆！　終わるぜ☆");
+                Logger.AppendLine(logTag, "＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない1☆！　終わるぜ☆");
+                Logger.Flush(logTag, LogTypes.Error);
                 genjo.ToBreak_Abnormal();
             }
             else
             {
                 // 異常時。
-                Logger.Trace($"＼（＾ｏ＾）／「{genjo.InputLine}」vs【{this.GetType().Name}】　：　movesがない☆！　終わるぜ☆");
+                Logger.AppendLine(logTag, "＼（＾ｏ＾）／「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　movesがない☆！　終わるぜ☆");
+                Logger.Flush(logTag, LogTypes.Error);
                 genjo.ToBreak_Abnormal();
             }
 

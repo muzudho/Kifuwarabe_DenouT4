@@ -75,7 +75,8 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             else if ("" == genjo.InputLine)
             {
                 // 異常時。
-                Logger.Trace($"＼（＾ｏ＾）／「{genjo.InputLine}」入力がない2☆！　終わるぜ☆");
+                Logger.AppendLine(logTag, "＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない2☆！　終わるぜ☆");
+                Logger.Flush(logTag, LogTypes.Error);
                 genjo.ToBreak_Abnormal();
             }
             else
