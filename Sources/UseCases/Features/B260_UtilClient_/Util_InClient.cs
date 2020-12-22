@@ -26,7 +26,8 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             ILogTag logTag
             )
         {
-            Logger.Trace($"（＾△＾）「{genjo.InputLine}」Util_InClient　：　クライアントの委譲メソッドｷﾀｰ☆");
+            Logger.AppendLine(logTag, "（＾△＾）「" + genjo.InputLine + "」Util_InClient　：　クライアントの委譲メソッドｷﾀｰ☆");
+            Logger.Flush(logTag, LogTypes.Error);
 
 
             string old_inputLine = genjo.InputLine;//退避
@@ -38,7 +39,8 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 out ro_Kyokumen2_ForTokenize
                 );
 
-            Logger.Trace($"（＾△＾）old_inputLine=「{old_inputLine}」 rest=「{rest}」 Util_InClient　：　ﾊﾊｯ☆");
+            Logger.AppendLine(logTag, "（＾△＾）old_inputLine=「" + old_inputLine + "」 rest=「" + rest + "」 Util_InClient　：　ﾊﾊｯ☆");
+            Logger.Flush(logTag, LogTypes.Error);
 
             //string old_inputLine = genjo.InputLine;
             //genjo.InputLine = "";
