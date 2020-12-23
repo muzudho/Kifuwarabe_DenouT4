@@ -142,14 +142,6 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             }
         }
         private SceneName flowB;
-
-
-        /// <summary>
-        /// 設定データCSV
-        /// </summary>
-        public Data_Settei_Csv Data_Settei_Csv { get; set; }
-
-
         #endregion
 
 
@@ -172,7 +164,6 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             this.TimedB_MouseCapture = new TimedBMouseCapture(this);
             this.TimedC = new TimedC_SaiseiCapture(this);
 
-            this.Data_Settei_Csv = new Data_Settei_Csv();
             this.WidgetLoaders = new List<WidgetsLoader>();
             this.RepaintRequest = new RepaintRequestImpl();
 
@@ -358,20 +349,19 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 logTag.Flush(LogTypes.Plain);
 #endif
 
-                this.Data_Settei_Csv.Read_Add(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("DataSetteiCsv")), Encoding.UTF8);
-                this.Data_Settei_Csv.DebugOut();
-
                 //----------
                 // 道１８７
                 //----------
-                string filepath_Michi = Path.Combine(Application.StartupPath, this.Data_Settei_Csv.Get("data_michi187"));
-                if (Michi187Array.Load(filepath_Michi))
                 {
+                    var filepath_Michi = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.DataMichi187Csv));
+                    if (Michi187Array.Load(filepath_Michi))
+                    {
+                    }
                 }
 
 #if DEBUG
                 {
-                    string filepath_LogMichi = Path.Combine(Application.StartupPath, this.Data_Settei_Csv.Get("_log_道表"));
+                    var filepath_LogMichi = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.MichiHyoLogHtml));
                     File.WriteAllText(filepath_LogMichi, Michi187Array.LogHtml());
                 }
 #endif
@@ -387,26 +377,34 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 {
                     var filepath_ForcePromotion = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.DataForcePromotionUTF8Csv));
                     List<List<string>> rows = Array_ForcePromotion.Load(filepath_ForcePromotion, Encoding.UTF8);
-                    File.WriteAllText(this.Data_Settei_Csv.Get("_log_強制転成表"), Array_ForcePromotion.LogHtml());
+                }
+                {
+                    var filepath_forcePromotionLogHtml = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.ForcePromotionLogHtml));
+                    File.WriteAllText(filepath_forcePromotionLogHtml, Array_ForcePromotion.LogHtml());
                 }
 
                 //----------
                 // 配役転換表
                 //----------
                 {
-                    string filepath_syuruiToHaiyaku = Path.Combine(Application.StartupPath, this.Data_Settei_Csv.Get("data_syuruiToHaiyaku"));
+                    var filepath_syuruiToHaiyaku = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.DataSyuruiToHaiyakuCsv));
                     List<List<string>> rows = Data_KomahaiyakuTransition.Load(filepath_syuruiToHaiyaku, Encoding.UTF8);
-
-                    string filepath_LogHaiyakuTenkan = Path.Combine(Application.StartupPath, this.Data_Settei_Csv.Get("_log_配役転換表"));
+                }
+                {
+                    var filepath_LogHaiyakuTenkan = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.HaiyakuTenkanHyoLogHtml));
                     File.WriteAllText(filepath_LogHaiyakuTenkan, Data_KomahaiyakuTransition.Format_LogHtml());
                 }
             }
 
+            {
+                var filepath_widgets01 = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.DataWidgets01ShogibanCsv));
+                this.WidgetLoaders.Add(new WidgetsLoader_CsharpImpl(filepath_widgets01, this));
+            }
 
-            string filepath_widgets01 = Path.Combine(Application.StartupPath, this.Data_Settei_Csv.Get("data_widgets_01_shogiban"));
-            this.WidgetLoaders.Add(new WidgetsLoader_CsharpImpl(filepath_widgets01, this));
-            string filepath_widgets02 = Path.Combine(Application.StartupPath, this.Data_Settei_Csv.Get("data_widgets_02_console"));
-            this.WidgetLoaders.Add(new WidgetsLoader_CsharpImpl(filepath_widgets02, this));
+            {
+                var filepath_widgets02 = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.DataWidgets02ConsoleCsv));
+                this.WidgetLoaders.Add(new WidgetsLoader_CsharpImpl(filepath_widgets02, this));
+            }
         }
 
         public void LaunchForm_AsBody(ILogTag logTag)
