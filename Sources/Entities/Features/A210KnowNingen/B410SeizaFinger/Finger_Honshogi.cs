@@ -1,4 +1,5 @@
-﻿using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+﻿using Grayscale.Kifuwaragyoku.Entities.Positioning;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {

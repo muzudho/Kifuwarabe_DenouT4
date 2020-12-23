@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -133,7 +134,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     genjo);
                 if (MoveNodeType.Clear == moveNodeType)
                 {
-                    ISky positionInit = UtilSkyCreator.New_Hirate();
+                    IPosition positionInit = UtilSkyCreator.New_Hirate();
                     playing.ClearEarth();
 
                     // 棋譜を空っぽにします。

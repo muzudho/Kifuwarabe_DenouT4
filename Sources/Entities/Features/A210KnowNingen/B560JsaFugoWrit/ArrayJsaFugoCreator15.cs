@@ -1,4 +1,5 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -11,7 +12,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
     /// </summary>
     public abstract class ArrayJsaFugoCreator15
     {
-        public delegate JsaFugoImpl DELEGATE_CreateJFugo(Move move, ISky kWrap);
+        public delegate JsaFugoImpl DELEGATE_CreateJFugo(Move move, IPosition kWrap);
 
         public static DELEGATE_CreateJFugo[] ItemMethods
         {
@@ -46,7 +47,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         }
 
 
-        public static JsaFugoImpl CreateNullKoma(Move move, ISky kWrap)
+        public static JsaFugoImpl CreateNullKoma(Move move, IPosition kWrap)
         {
             JsaFugoImpl result;
 
@@ -81,7 +82,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// </summary>
         /// <param name="move">移動先、移動元、両方のマス番号</param>
         /// <returns></returns>
-        public static JsaFugoImpl CreateFu(Move move, ISky src_Sky)
+        public static JsaFugoImpl CreateFu(Move move, IPosition src_Sky)
         {
             JsaFugoImpl result;
 
@@ -177,7 +178,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             return result;
         }
 
-        public static JsaFugoImpl CreateKyo(Move move, ISky src_Sky)
+        public static JsaFugoImpl CreateKyo(Move move, IPosition src_Sky)
         {
             JsaFugoImpl fugo;
 
@@ -286,7 +287,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             return fugo;
         }
 
-        public static JsaFugoImpl CreateKei(Move move, ISky src_Sky)
+        public static JsaFugoImpl CreateKei(Move move, IPosition src_Sky)
         {
             JsaFugoImpl fugo;
 
@@ -399,7 +400,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             return fugo;
         }
 
-        public static JsaFugoImpl CreateGin(Move move, ISky src_Sky)
+        public static JsaFugoImpl CreateGin(Move move, IPosition src_Sky)
         {
             JsaFugoImpl fugo;
 
@@ -569,7 +570,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             return fugo;
         }
 
-        public static JsaFugoImpl CreateKin(Move move, ISky kWrap)
+        public static JsaFugoImpl CreateKin(Move move, IPosition kWrap)
         {
             JsaFugoImpl fugo;
 
@@ -595,7 +596,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
         public static void CreateKin_static(
             Move move,//移動先、移動元、両方のマス番号
-            ISky src_Sky,
+            IPosition src_Sky,
             out MigiHidari migiHidari, out AgaruHiku agaruHiku, out NariNarazu nari, out DaHyoji daHyoji)
         {
             Playerside pside = ConvMove.ToPlayerside(move);
@@ -753,7 +754,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             nari = NariNarazu.CTRL_SONOMAMA;
         }
 
-        public static JsaFugoImpl CreateOh(Move move, ISky copy_Sky)
+        public static JsaFugoImpl CreateOh(Move move, IPosition copy_Sky)
         {
             JsaFugoImpl fugo;
 
@@ -798,7 +799,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             return fugo;
         }
 
-        public static JsaFugoImpl CreateHisya(Move move, ISky src_Sky)
+        public static JsaFugoImpl CreateHisya(Move move, IPosition src_Sky)
         {
             JsaFugoImpl fugo;
 
@@ -965,7 +966,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             return fugo;
         }
 
-        public static JsaFugoImpl CreateKaku(Move move, ISky src_Sky)
+        public static JsaFugoImpl CreateKaku(Move move, IPosition src_Sky)
         {
             JsaFugoImpl fugo;
 
@@ -1131,7 +1132,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             return fugo;
         }
 
-        public static JsaFugoImpl CreateRyu(Move move, ISky src_Sky)
+        public static JsaFugoImpl CreateRyu(Move move, IPosition src_Sky)
         {
             JsaFugoImpl fugo;
 
@@ -1325,7 +1326,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             return fugo;
         }
 
-        public static JsaFugoImpl CreateUma(Move move, ISky src_Sky)
+        public static JsaFugoImpl CreateUma(Move move, IPosition src_Sky)
         {
             JsaFugoImpl fugo;
 
@@ -1520,7 +1521,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             return fugo;
         }
 
-        public static JsaFugoImpl CreateTokin(Move move, ISky kWrap)
+        public static JsaFugoImpl CreateTokin(Move move, IPosition kWrap)
         {
             JsaFugoImpl fugo;
 
@@ -1544,7 +1545,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             return fugo;
         }
 
-        public static JsaFugoImpl CreateNariKyo(Move move, ISky kWrap)
+        public static JsaFugoImpl CreateNariKyo(Move move, IPosition kWrap)
         {
             MigiHidari migiHidari;
             AgaruHiku agaruHiku;
@@ -1568,7 +1569,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             return fugo;
         }
 
-        public static JsaFugoImpl CreateNariKei(Move move, ISky kWrap)
+        public static JsaFugoImpl CreateNariKei(Move move, IPosition kWrap)
         {
             JsaFugoImpl fugo;
 
@@ -1592,7 +1593,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             return fugo;
         }
 
-        public static JsaFugoImpl CreateNariGin(Move move, ISky kWrap)
+        public static JsaFugoImpl CreateNariGin(Move move, IPosition kWrap)
         {
             JsaFugoImpl fugo;
 
@@ -1616,7 +1617,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             return fugo;
         }
 
-        public static JsaFugoImpl CreateErrorKoma(Move move, ISky copy_Sky)
+        public static JsaFugoImpl CreateErrorKoma(Move move, IPosition copy_Sky)
         {
             JsaFugoImpl fugo;
 

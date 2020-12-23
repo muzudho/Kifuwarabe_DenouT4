@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Text;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 
 namespace Grayscale.Kifuwaragyoku.CliOfUnitTest
 {
@@ -15,7 +16,7 @@ namespace Grayscale.Kifuwaragyoku.CliOfUnitTest
 
 
 
-            ISky positionA = UtilSkyCreator.New_Hirate();
+            IPosition positionA = UtilSkyCreator.New_Hirate();
             Playerside psideA_init = Playerside.P1;
 
             // 盤面をログ出力したいぜ☆

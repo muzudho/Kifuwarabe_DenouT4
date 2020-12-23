@@ -1,4 +1,5 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -18,7 +19,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             Playerside pside,
             Komasyurui14 syurui,
             SySet<SyElement> srcAll,
-            ISky src_Sky,//KifuTree kifu,
+            IPosition src_Sky,//KifuTree kifu,
             out Finger foundKoma)
         {
             //SkyConst src_Sky = kifu.CurNode.Value.ToKyokumenConst;

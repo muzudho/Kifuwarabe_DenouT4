@@ -1,5 +1,6 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 
 #if DEBUG || LEARN
 #endif
@@ -31,7 +32,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <returns></returns>
         public override float Evaluate(
             Playerside psideA,
-            ISky positionA,
+            IPosition positionA,
             IFeatureVector fv
             )
         {

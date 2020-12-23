@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
-namespace Grayscale.Kifuwaragyoku.Entities.Features
+namespace Grayscale.Kifuwaragyoku.Entities.Positioning
 {
     public delegate void DELEGATE_Sky_Foreach(Finger finger, Busstop busstop, ref bool toBreak);
 
-    public interface ISky
+    public interface IPosition
     {
         void AssertFinger(
             Finger finger,

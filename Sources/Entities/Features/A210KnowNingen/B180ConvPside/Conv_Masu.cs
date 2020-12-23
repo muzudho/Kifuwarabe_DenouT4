@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Text;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -170,7 +171,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
             return masuHandle;
         }
-        public static int ToMasuHandle_FromKomadaiKomasyurui_First(Playerside pside, Komasyurui14 ks14, ISky positionA)
+        public static int ToMasuHandle_FromKomadaiKomasyurui_First(Playerside pside, Komasyurui14 ks14, IPosition positionA)
         {
             Fingers figKomas = new Fingers();
 
@@ -242,7 +243,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 return Masu_Honshogi.Query_Basho(Masu_Honshogi.nError);//範囲外が指定されることもあります。
             }
         }
-        public static SyElement ToMasu_FromDokodemoKomasyurui(Komasyurui14 syurui, ISky positionA)
+        public static SyElement ToMasu_FromDokodemoKomasyurui(Komasyurui14 syurui, IPosition positionA)
         {
             Fingers figKomas = new Fingers();
 
@@ -255,7 +256,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
             return Masu_Honshogi.Query_Basho(Masu_Honshogi.nError);
         }
-        public static SyElement ToMasu_FromKomadaiKomasyurui(Playerside pside, Komasyurui14 ks14, ISky positionA)
+        public static SyElement ToMasu_FromKomadaiKomasyurui(Playerside pside, Komasyurui14 ks14, IPosition positionA)
         {
             int masuHandle = Conv_Masu.ToMasuHandle_FromKomadaiKomasyurui_First(pside, ks14, positionA);
 

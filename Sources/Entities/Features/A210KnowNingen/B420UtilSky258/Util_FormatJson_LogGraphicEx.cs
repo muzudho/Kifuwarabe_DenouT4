@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -14,7 +15,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="km_move"></param>
         /// <param name="comment"></param>
         /// <returns></returns>
-        public static string JsonKyokumens_MultiKomabetuMasus(bool enableLog, ISky src_Sky_base, Maps_OneAndOne<Finger, SySet<SyElement>> km_move, string comment)
+        public static string JsonKyokumens_MultiKomabetuMasus(bool enableLog, IPosition src_Sky_base, Maps_OneAndOne<Finger, SySet<SyElement>> km_move, string comment)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -62,7 +63,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// </summary>
         /// <param name="hkomas_gen_MOTI"></param>
         /// <returns></returns>
-        public static string JsonElements_KomaHandles(bool enableLog, ISky src_Sky, List<int> hKomas, string comment)
+        public static string JsonElements_KomaHandles(bool enableLog, IPosition src_Sky, List<int> hKomas, string comment)
         {
             StringBuilder sb = new StringBuilder();
 

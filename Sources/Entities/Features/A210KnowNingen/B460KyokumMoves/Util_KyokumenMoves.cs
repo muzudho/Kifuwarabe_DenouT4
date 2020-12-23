@@ -1,4 +1,5 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
@@ -43,7 +44,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         public static void SplitGroup_Banjo(
             out SySet<SyElement> out_masus_seme,
             out SySet<SyElement> out_masus_kurau,
-            ISky src_Sky,
+            IPosition src_Sky,
             Fingers fs_kurau,//盤上の駒（喰らう側）
             Fingers fs_seme//盤上の駒（利きを調べる側）
             )
@@ -69,7 +70,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             out List_OneAndMulti<Finger, SySet<SyElement>> out_komaBETUSusumeruMasus,
 
             bool isHonshogi,
-            ISky positionA,
+            IPosition positionA,
             Playerside psideA,
             bool isAiteban
 #if DEBUG
@@ -211,7 +212,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             SySet<SyElement> masus_mikata_onBanjo,
             SySet<SyElement> masus_aite_onBanjo,
             Playerside psideA,
-            ISky positionA)
+            IPosition positionA)
         {
             // 持ち駒を置けない升
             SySet<SyElement> okenaiMasus = new SySet_Default<SyElement>("持ち駒を置けない升");

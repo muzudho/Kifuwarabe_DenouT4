@@ -1,5 +1,6 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
 namespace Grayscale.Kifuwaragyoku.UseCases.Features
@@ -18,7 +19,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="komasyurui">盤上の種類</param>
         /// <param name="masu">盤上の駒の升</param>
         /// <returns></returns>
-        public static int ToKIndex_From_PsideBanjoKomasyuruiMasu(ISky src_Sky, Playerside pside)
+        public static int ToKIndex_From_PsideBanjoKomasyuruiMasu(IPosition src_Sky, Playerside pside)
         {
             // 調査項目番号（Ｋ１、Ｋ２等）
             int result;

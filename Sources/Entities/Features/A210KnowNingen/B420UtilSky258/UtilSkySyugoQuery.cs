@@ -1,4 +1,5 @@
-﻿using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+﻿using Grayscale.Kifuwaragyoku.Entities.Positioning;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -10,7 +11,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="src_Sky"></param>
         /// <param name="pside"></param>
         /// <returns></returns>
-        public static SySet<SyElement> Masus_Now(ISky src_Sky, Playerside pside)
+        public static SySet<SyElement> Masus_Now(IPosition src_Sky, Playerside pside)
         {
             SySet_Default<SyElement> masus = new SySet_Default<SyElement>("今の升");
 
@@ -36,7 +37,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// </summary>
         /// <param name="light"></param>
         /// <returns></returns>
-        public static SySet<SyElement> KomaKidou_Potential(Finger finger, ISky src_Sky)
+        public static SySet<SyElement> KomaKidou_Potential(Finger finger, IPosition src_Sky)
         {
             src_Sky.AssertFinger(finger);
             Busstop koma = src_Sky.BusstopIndexOf(finger);

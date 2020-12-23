@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 
 #if DEBUG || LEARN
 #endif
@@ -39,7 +40,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="logTag"></param>
         public static float EvaluateAll_Normal(
             Playerside psideA,
-            ISky positionA,
+            IPosition positionA,
             IFeatureVector fv
             )
         {

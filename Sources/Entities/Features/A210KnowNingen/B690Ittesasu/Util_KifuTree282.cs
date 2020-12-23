@@ -1,4 +1,5 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -92,7 +93,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// </summary>
         public static void Clear_SetStartpos_KokokaraSaifu(
             IPlaying playing,
-            ISky positionA,//kifu1.GetRoot().GetNodeValue()
+            IPosition positionA,//kifu1.GetRoot().GetNodeValue()
             ITree kifu1,
             Playerside pside)
         {

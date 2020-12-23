@@ -1,4 +1,5 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.UseCases.Features
@@ -318,7 +319,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
                     if (Busstop.Empty != koma)
                     {
-                        ISky positionA = new SkyImpl(mainGui3.SkyWrapper_Gui.GuiSky);
+                        IPosition positionA = new Position(mainGui3.SkyWrapper_Gui.GuiSky);
                         MoveEx modifyNode = new MoveExImpl(mainGui3.Link_Server.KifuTree.MoveEx_Current.Move);
                         positionA.AddObjects(
                                 new Finger[] { figKoma }, new Busstop[] {
@@ -488,12 +489,12 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     );// 選択している駒の元の場所と、移動先
 
                 MoveEx newNode;
-                ISky positionA;
+                IPosition positionA;
                 {
                     //
                     // 成ったので、指し手データ差替え。
                     //
-                    positionA = new SkyImpl(mainGui.SkyWrapper_Gui.GuiSky);
+                    positionA = new Position(mainGui.SkyWrapper_Gui.GuiSky);
                     // 先後を逆転させて、1手進めます。
                     //newNode.GetValue().IncreasePsideTemezumi();
                     positionA.ReversePlayerside();// 先後を反転させます。

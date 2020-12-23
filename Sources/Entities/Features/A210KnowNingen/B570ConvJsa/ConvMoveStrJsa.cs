@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -15,7 +16,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         public static string ToMoveStrJsa(
             Move move,
             List<Move> honpuList,
-            ISky positionA)
+            IPosition positionA)
         {
             Komasyurui14 ks = ConvMove.ToSrcKomasyurui(move);
 

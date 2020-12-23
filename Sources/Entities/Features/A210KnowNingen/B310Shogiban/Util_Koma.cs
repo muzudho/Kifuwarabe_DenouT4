@@ -1,4 +1,5 @@
-﻿using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
+﻿using Grayscale.Kifuwaragyoku.Entities.Positioning;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -21,7 +22,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
 
 
-        public static Busstop FromFinger(ISky src_Sky, Finger finger)
+        public static Busstop FromFinger(IPosition src_Sky, Finger finger)
         {
             src_Sky.AssertFinger(finger);
             return src_Sky.BusstopIndexOf(finger);

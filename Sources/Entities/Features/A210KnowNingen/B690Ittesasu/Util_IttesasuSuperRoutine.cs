@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -9,7 +10,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
     {
         public static bool DoMove_Super1(
             Playerside psideA,
-            ref ISky positionA,//指定局面
+            ref IPosition positionA,//指定局面
             ref Move move,//TODO:取った駒があると、上書きされる
             string hint)
         {
@@ -66,7 +67,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="logTag"></param>
         /// <returns></returns>
         public static void DoMove_Super2(
-            ref ISky positionA,//指定局面
+            ref IPosition positionA,//指定局面
             ref Move moveA,
             Finger figKoma,//動かす駒
             SyElement dstMasu,//移動先マス

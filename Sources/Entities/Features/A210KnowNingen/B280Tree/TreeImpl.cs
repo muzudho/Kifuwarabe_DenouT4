@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 
 #if DEBUG
 #endif
@@ -14,14 +15,14 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
     /// </summary>
     public class TreeImpl : ITree
     {
-        public TreeImpl(ISky sky)
+        public TreeImpl(IPosition sky)
         {
             this.m_moveEx_ = new MoveExImpl();
             this.m_positionA_ = sky;
             this.m_pv_ = new List<Move>();
             this.m_pv_.Add(Move.Empty);
         }
-        public TreeImpl(MoveEx root, ISky sky)
+        public TreeImpl(MoveEx root, IPosition sky)
         {
             this.m_moveEx_ = root;
             this.m_positionA_ = sky;
@@ -132,7 +133,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         private MoveEx m_moveEx_;
 
 
-        public static Playerside MoveEx_ClearAllCurrent(ITree tree, ISky positionA)
+        public static Playerside MoveEx_ClearAllCurrent(ITree tree, IPosition positionA)
         {
             tree.MoveEx_SetCurrent(new MoveExImpl());
 
@@ -153,7 +154,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="node"></param>
         /// <param name="sky"></param>
         /// <returns></returns>
-        public MoveEx MoveEx_OnEditCurrent(MoveEx node, ISky sky)
+        public MoveEx MoveEx_OnEditCurrent(MoveEx node, IPosition sky)
         {
             this.m_moveEx_ = node;
             this.m_positionA_ = sky;
@@ -163,7 +164,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         #endregion
 
 
-        public static MoveEx OnDoCurrentMove(MoveEx curNode, ITree kifu1, ISky positionA)
+        public static MoveEx OnDoCurrentMove(MoveEx curNode, ITree kifu1, IPosition positionA)
         {
             kifu1.MoveEx_SetCurrent(curNode);
             kifu1.Pv_Append(curNode.Move);
@@ -171,7 +172,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             kifu1.SetPositionA(positionA);
             return kifu1.MoveEx_Current;
         }
-        public static MoveEx OnUndoCurrentMove(ITree kifu1, ISky positionA, string hint)
+        public static MoveEx OnUndoCurrentMove(ITree kifu1, IPosition positionA, string hint)
         {
             if (kifu1.Pv_IsRoot())
             {
@@ -186,14 +187,14 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
 
 
-        public ISky PositionA
+        public IPosition PositionA
         {
             get { return this.m_positionA_; }
         }
-        public void SetPositionA(ISky positionA)
+        public void SetPositionA(IPosition positionA)
         {
             this.m_positionA_ = positionA;
         }
-        private ISky m_positionA_;
+        private IPosition m_positionA_;
     }
 }

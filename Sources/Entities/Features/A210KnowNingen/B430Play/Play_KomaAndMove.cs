@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -18,7 +19,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="sbGohosyu"></param>
         /// <param name="logTag"></param>
         public static Maps_OneAndOne<Finger, SySet<SyElement>> MinusMasus(
-            ISky src_Sky_forLog,
+            IPosition src_Sky_forLog,
             Maps_OneAndOne<Finger, SySet<SyElement>> a1,
             SySet<SyElement> b)
         {
@@ -55,7 +56,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="sbGohosyu"></param>
         /// <param name="logTag"></param>
         public static Maps_OneAndOne<Finger, SySet<SyElement>> Minus_OverThereMasus(
-            ISky src_srcSky_forLog,
+            IPosition src_srcSky_forLog,
             Maps_OneAndOne<Finger, SySet<SyElement>> a,
             SySet<SyElement> b)
         {

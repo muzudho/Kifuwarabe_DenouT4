@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -31,7 +32,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             string strDaHyoji, //打
             out Move move,
             Move src_Move,// 「同」を調べるためだけに使う☆
-            ISky src_Sky// = kifu.CurNode.Value.Kyokumen;
+            IPosition src_Sky// = kifu.CurNode.Value.Kyokumen;
             )
         {
 

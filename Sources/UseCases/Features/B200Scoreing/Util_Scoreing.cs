@@ -1,6 +1,7 @@
 ﻿using System;
 using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 // using Grayscale.Kifuwaragyoku.Entities.Features;
 
 #if DEBUG || LEARN
@@ -212,7 +213,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         public static float DoScoreing_Kyokumen(
             IPlaying playing,
             Playerside psideA,
-            ISky positionA,
+            IPosition positionA,
 
             EvaluationArgs args)
         {

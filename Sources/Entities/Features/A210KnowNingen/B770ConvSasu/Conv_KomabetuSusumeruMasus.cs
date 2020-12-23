@@ -1,4 +1,5 @@
-﻿using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+﻿using Grayscale.Kifuwaragyoku.Entities.Positioning;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -12,7 +13,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <returns></returns>
         public static Maps_OneAndMulti<Finger, Move> ToKomaBETUAllMoves(
             List_OneAndMulti<Finger, SySet<SyElement>> komaBETUSusumeruMasus,
-            ISky positionA
+            IPosition positionA
             )
         {
             Maps_OneAndMulti<Finger, Move> result_komabetuAllMoves = new Maps_OneAndMulti<Finger, Move>();

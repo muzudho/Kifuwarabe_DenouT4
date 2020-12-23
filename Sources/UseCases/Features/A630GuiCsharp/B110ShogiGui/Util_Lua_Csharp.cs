@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Nett;
 using NLua;
 
@@ -124,7 +125,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             // 棋譜を空っぽにします。
             //Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(mainGui.Link_Server.KifuTree, null,logger);
 
-            ISky newSky = new SkyImpl(mainGui.SkyWrapper_Gui.GuiSky);
+            IPosition newSky = new Position(mainGui.SkyWrapper_Gui.GuiSky);
 
             int figKoma;
 

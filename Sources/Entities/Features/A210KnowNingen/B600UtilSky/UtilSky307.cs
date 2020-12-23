@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Text;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -8,7 +9,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
     public abstract class UtilSky307
     {
 
-        public static SfenStringImpl ExportSfen(Playerside psideA, ISky positionA)
+        public static SfenStringImpl ExportSfen(Playerside psideA, IPosition positionA)
         {
             Debug.Assert(positionA.Count == 40, "sky.Starlights.Count=[" + positionA.Count + "]");//将棋の駒の数
 
@@ -17,7 +18,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         }
 
         public static SfenStringImpl ExportSfen_ForDebug(
-            Playerside psideA, ISky positionA, bool psideIsBlack)
+            Playerside psideA, IPosition positionA, bool psideIsBlack)
         {
             return new SfenStringImpl("sfen " + Util_StartposExporter.ToSfenstring(
                 Conv_Sky.ToShogiban(psideA, positionA), true));
@@ -27,7 +28,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// ログが多くなるので、１行で出力されるようにします。
         /// </summary>
         /// <returns></returns>
-        public static IJsonVal ToJsonVal(ISky src_Sky)
+        public static IJsonVal ToJsonVal(IPosition src_Sky)
         {
             Json_Obj obj = new Json_Obj();
 
@@ -53,7 +54,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// 「グラフィカル局面ログ」出力用だぜ☆
         /// </summary>
         public static string Json_1Sky(
-            ISky src_Sky,
+            IPosition src_Sky,
             string memo,
             string hint,
             int temezumi_yomiGenTeban_forLog//読み進めている現在の手目済

@@ -1,4 +1,5 @@
-﻿using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+﻿using Grayscale.Kifuwaragyoku.Entities.Positioning;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -24,6 +25,6 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// 「進む」ときは、一手指す局面の「指した後」のツリー・ノード。
         /// 「巻き戻す」のときは、ヌル。
         /// </summary>
-        ISky SyuryoKyokumenW { get; set; }
+        IPosition SyuryoKyokumenW { get; set; }
     }
 }

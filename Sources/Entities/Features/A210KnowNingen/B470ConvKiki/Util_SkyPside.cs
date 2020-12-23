@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -11,7 +12,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="src_Sky"></param>
         /// <returns></returns>
         public static MasubetuKikisuImpl ToMasubetuKikisu(
-            ISky src_Sky,
+            IPosition src_Sky,
             Playerside tebanside
             )
         {

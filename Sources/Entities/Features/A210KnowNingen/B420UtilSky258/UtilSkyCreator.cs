@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -14,9 +15,9 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// 駒を、平手の初期配置に並べます。
         /// ************************************************************************************************************************
         /// </summary>
-        public static ISky New_Hirate()
+        public static IPosition New_Hirate()
         {
-            ISky newSky = new SkyImpl();
+            IPosition newSky = new Position();
             Finger figKoma;
 
             figKoma = Finger_Honshogi.SenteOh;
@@ -115,9 +116,9 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         }
 
 
-        public static ISky New_Komabukuro()
+        public static IPosition New_Komabukuro()
         {
-            ISky newSky = new SkyImpl();
+            IPosition newSky = new Position();
 
             Finger finger = 0;
 

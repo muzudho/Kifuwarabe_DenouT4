@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -40,7 +41,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             // 採譜用に、新しい対局を用意します。
             ITree saifuKifu2;//使い捨て☆
             {
-                ISky positionInit = UtilSkyCreator.New_Hirate();//日本の符号読取時
+                IPosition positionInit = UtilSkyCreator.New_Hirate();//日本の符号読取時
                 saifuKifu2 = new TreeImpl(positionInit);
                 playing.ClearEarth();
 
@@ -65,7 +66,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 //------------------------------
                 // 符号の追加（記録係）
                 //------------------------------
-                ISky saifu_PositionA = new SkyImpl(saifuKifu2.PositionA);
+                IPosition saifu_PositionA = new Position(saifuKifu2.PositionA);
 
 
                 // 採譜用新ノード

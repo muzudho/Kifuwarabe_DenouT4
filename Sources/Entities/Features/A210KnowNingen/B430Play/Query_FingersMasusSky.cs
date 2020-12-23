@@ -1,4 +1,5 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -26,7 +27,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             Fingers fs_sirabetaiKoma,
             SySet<SyElement> masus_mikata_Banjo,
             SySet<SyElement> masus_aite_Banjo,
-            ISky src_Sky)
+            IPosition src_Sky)
         {
             // 利きを調べる側の利き（戦駒）
             Maps_OneAndOne<Finger, SySet<SyElement>> komabetuKiki = QuerySkyFingers.Get_PotentialMoves(src_Sky, fs_sirabetaiKoma);

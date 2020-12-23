@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
-namespace Grayscale.Kifuwaragyoku.Entities.Features
+namespace Grayscale.Kifuwaragyoku.Entities.Positioning
 {
 
     /// <summary>
     /// 局面データです。
     /// </summary>
-    public class SkyImpl : ISky
+    public class Position : IPosition
     {
         /// <summary>
         /// 棋譜を新規作成するときに使うコンストラクター。
         /// </summary>
-        public SkyImpl()
+        public Position()
         {
             this.m_kaisiPside_ = Playerside.P1;// 初期局面では、Player 1 の手番とします。
             this.temezumi = 0;//初期局面は 0手目済み
@@ -26,10 +27,10 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// クローンを作ります。
         /// </summary>
         /// <param name="src"></param>
-        public SkyImpl(ISky src)
+        public Position(IPosition src)
         {
             // 手番のクローン
-            this.m_kaisiPside_ = ((SkyImpl)src).m_kaisiPside_;
+            this.m_kaisiPside_ = ((Position)src).m_kaisiPside_;
             this.temezumi = src.Temezumi;
 
             // 星々のクローン

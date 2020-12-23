@@ -1,5 +1,6 @@
 ﻿using System;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -10,7 +11,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             string sfenMove1,
             Move previous_Move,  // 「同」を調べるためのもの。
             Playerside pside,
-            ISky previous_Sky
+            IPosition previous_Sky
             )
         {
             bool isHonshogi = true;

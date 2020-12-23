@@ -1,4 +1,5 @@
-﻿using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+﻿using Grayscale.Kifuwaragyoku.Entities.Positioning;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -11,7 +12,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="fingers"></param>
         /// <param name="src_Sky"></param>
         /// <returns></returns>
-        public static SySet<SyElement> ToMasus(Fingers fingers, ISky src_Sky)
+        public static SySet<SyElement> ToMasus(Fingers fingers, IPosition src_Sky)
         {
             SySet<SyElement> masus = new SySet_Default<SyElement>("何かの升");
 

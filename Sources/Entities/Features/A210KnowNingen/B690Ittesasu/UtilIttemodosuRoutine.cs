@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Text;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -25,7 +26,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             out IIttemodosuResult ittemodosuResult,
             Move moved,
             Playerside psideA,
-            ISky positionA,
+            IPosition positionA,
             string hint)
         {
             bool log = false;
@@ -137,7 +138,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         private static void Undo25_UgokasuKoma(
             out Finger figMovedKoma,
             Move moved,
-            ISky positionA
+            IPosition positionA
             )
         {
             //------------------------------------------------------------
@@ -168,7 +169,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         private static Busstop Undo37_KomaOnModosisakiMasu(
             Komasyurui14 syurui2,
             Move move,
-            ISky positionA
+            IPosition positionA
             )
         {
             Playerside pside = ConvMove.ToPlayerside(move);
@@ -227,7 +228,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         private static void Do62_TorareteitaKoma_ifExists(
             out Finger out_figFoodKoma,
             Move move,
-            ISky kaisi_Sky//巻き戻しのとき
+            IPosition kaisi_Sky//巻き戻しのとき
         )
         {
             Komasyurui14 captured = ConvMove.ToCaptured(move);

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.UseCases.Features
@@ -14,7 +15,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             if (0 < mainGui.SkyWrapper_Gui.GuiSky.Temezumi)
             {
                 // 処理の順序が悪く、初回はうまく判定できない。
-                ISky positionA = mainGui.SkyWrapper_Gui.GuiSky;
+                IPosition positionA = mainGui.SkyWrapper_Gui.GuiSky;
                 Playerside psideA = mainGui.SkyWrapper_Gui.GuiSky.GetKaisiPside();
 
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -9,7 +10,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
     /// </summary>
     public abstract class Conv_Shogiban
     {
-        public static string ToLog_Type2(ShogibanImpl shogiban, ISky sky, Move move)
+        public static string ToLog_Type2(ShogibanImpl shogiban, IPosition sky, Move move)
         {
             StringBuilder sb = new StringBuilder();
 

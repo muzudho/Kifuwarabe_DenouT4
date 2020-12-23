@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
@@ -29,7 +30,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             SkyWrapper_Gui model_Manual,
             MoveEx newNodeA,
             Move move,
-            ISky positionA,
+            IPosition positionA,
             out string jsaFugoStr,
             ITree kifu1)
         {
@@ -272,7 +273,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             //------------------------------
             // 棋譜から１手削ります
             //------------------------------
-            ISky positionA = kifu1_mutable.PositionA;// curNode1.GetNodeValue();
+            IPosition positionA = kifu1_mutable.PositionA;// curNode1.GetNodeValue();
             int korekaranoTemezumi = positionA.Temezumi - 1;//１手前へ。
 
             if (kifu1_mutable.Pv_IsRoot())// curNode1.IsRoot(kifu1_mutable,logger)

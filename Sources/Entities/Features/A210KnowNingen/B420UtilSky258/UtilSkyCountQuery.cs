@@ -1,4 +1,5 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -33,7 +34,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="mp"></param>
         /// <param name="logTag"></param>
         public static void CountMoti(
-            ISky src_Sky,
+            IPosition src_Sky,
             out int[] motiSu)
         {
             motiSu = new int[(int)Piece.Num];

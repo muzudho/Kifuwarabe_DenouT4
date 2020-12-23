@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
@@ -29,7 +30,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             bool isHonshogi,
             Maps_OneAndMulti<Finger, Move> genTeban_komabetuAllMoves1,// 指定局面で、どの駒が、どんな手を指すことができるか
             Playerside psideA,
-            ISky positionA,//指定局面。
+            IPosition positionA,//指定局面。
 
 #if DEBUG
             KaisetuBoards logF_kiki,
@@ -112,7 +113,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             List<Move> inputMovelist,
             int temezumi_yomiGenTeban_forLog,//読み進めている現在の手目
             Playerside pside_genTeban,
-            ISky positionA
+            IPosition positionA
 
 #if DEBUG
             KaisetuBoards logF_kiki
@@ -178,7 +179,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// </summary>
         public static bool LAAA_KingSuicide(
             int yomikaisiTemezumi,
-            ISky src_Sky,//調べたい局面
+            IPosition src_Sky,//調べたい局面
             int temezumi_yomiCur_forLog,//読み進めている現在の手目
             Playerside pside_genTeban,//現手番側
 
@@ -260,7 +261,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         public static List_OneAndMulti<Finger, SySet<SyElement>> LAAAA_GetEffect(
             int yomikaisiTemezumi,
             bool isHonshogi,
-            ISky src_Sky,
+            IPosition src_Sky,
             Playerside pside_genTeban3,
             bool isAiteban,
 #if DEBUG

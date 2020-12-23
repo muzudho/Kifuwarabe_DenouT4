@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -23,7 +24,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         public static void DoMove_Normal(
             out IIttesasuResult syuryoResult,
             ref Move move1,//このメソッド実行後、取った駒を上書きされることがあるぜ☆（＾▽＾）
-            ISky positionA,// 一手指し、開始局面。
+            IPosition positionA,// 一手指し、開始局面。
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
@@ -162,7 +163,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             IPlaying playing,
             ITree kifu1,
             Move move,
-            ISky positionA)
+            IPosition positionA)
         {
             MoveEx newNodeB = new MoveExImpl(move);
 
@@ -187,7 +188,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         private static void Do24_UgokasuKoma_IdoSakiHe(
             out Finger figMovedKoma,
             Move move,
-            ISky positionA
+            IPosition positionA
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -248,7 +249,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         private static Busstop Do36_KomaOnDestinationMasu(
             Komasyurui14 syurui2,
             Move move,
-            ISky src_Sky)
+            IPosition src_Sky)
         {
             Playerside pside = ConvMove.ToPlayerside(move);
             SyElement dstMasu = ConvMove.ToDstMasu(move);
@@ -266,7 +267,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// </summary>
         private static void Do61_KomaToru(
             Busstop dstKoma,
-            ISky susunda_Sky_orNull_before,//駒を取られたとき、局面を変更します。
+            IPosition susunda_Sky_orNull_before,//駒を取られたとき、局面を変更します。
             out Finger out_figFoodKoma,
             out Busstop out_food_koma,
             out Playerside pside,
@@ -352,7 +353,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="okiba">先手駒台、または後手駒台</param>
         /// <param name="uc_Main">メインパネル</param>
         /// <returns>置ける場所。無ければヌル。</returns>
-        public static SyElement GetKomadaiKomabukuroSpace(Okiba okiba, ISky src_Sky)
+        public static SyElement GetKomadaiKomabukuroSpace(Okiba okiba, IPosition src_Sky)
         {
             SyElement akiMasu = Masu_Honshogi.Query_Basho(Masu_Honshogi.nError);
 

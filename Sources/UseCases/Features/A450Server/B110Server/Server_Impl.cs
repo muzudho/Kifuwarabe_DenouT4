@@ -1,5 +1,6 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 
 namespace Grayscale.Kifuwaragyoku.UseCases.Features
 {
@@ -8,7 +9,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
     /// </summary>
     public class Server_Impl : Server
     {
-        public Server_Impl(ISky src_Sky, IReceiver receiver)
+        public Server_Impl(IPosition src_Sky, IReceiver receiver)
         {
             this.engineClient = new EngineClientImpl(receiver);
             this.engineClient.SetOwner_Server(this);
@@ -16,7 +17,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             //----------
             // モデル
             //----------
-            ISky positionInit = new SkyImpl(src_Sky);
+            IPosition positionInit = new Position(src_Sky);
             this.m_kifuTree_ = new TreeImpl(positionInit);
             this.Playing = new Playing();
             this.Playing.SetEarthProperty(Word_KifuTree.PropName_Startpos, "9/9/9/9/9/9/9/9/9");

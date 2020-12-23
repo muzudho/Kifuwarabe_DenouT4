@@ -1,4 +1,6 @@
-﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
+﻿using Grayscale.Kifuwaragyoku.Entities.Positioning;
+
+namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public class SkyWrapper_GuiImpl : SkyWrapper_Gui
     {
@@ -12,12 +14,12 @@
         /// 局面が進むごとに更新されていきます。
         /// 
         /// </summary>
-        public ISky GuiSky { get { return this.guiSkyConst; } }
-        public void SetGuiSky(ISky sky)
+        public IPosition GuiSky { get { return this.guiSkyConst; } }
+        public void SetGuiSky(IPosition sky)
         {
             this.guiSkyConst = sky;
         }
-        private ISky guiSkyConst;
+        private IPosition guiSkyConst;
 
         public SkyWrapper_GuiImpl()
         {

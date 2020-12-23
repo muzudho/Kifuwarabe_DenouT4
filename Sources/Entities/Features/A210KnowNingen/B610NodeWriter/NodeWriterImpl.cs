@@ -1,11 +1,12 @@
 ﻿using System.Diagnostics;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public class NodeWriterImpl
     {
 
-        public IJsonVal ToJsonVal(ISky sky1, MoveExImpl node)
+        public IJsonVal ToJsonVal(IPosition sky1, MoveExImpl node)
         {
             Json_Obj obj = new Json_Obj();
 

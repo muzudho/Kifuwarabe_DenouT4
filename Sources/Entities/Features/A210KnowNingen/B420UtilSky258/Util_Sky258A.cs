@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -29,7 +30,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             return Util_Komasyurui14.ToGaiji(dstKs, pside);
         }
 
-        public static void Assert_Honshogi(ISky src_Sky)
+        public static void Assert_Honshogi(IPosition src_Sky)
         {
             Debug.Assert(src_Sky.Count == 40, "siteiSky.Starlights.Count=[" + src_Sky.Count + "]");//将棋の駒の数
 
@@ -166,7 +167,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="logger"></param>
         /// <returns>駒毎の、全指し手</returns>
         public static Maps_OneAndMulti<Finger, Move> SplitMoveByStar(
-            ISky positionA,
+            IPosition positionA,
             List<Move> siblingMoves)
         {
             Maps_OneAndMulti<Finger, Move> enable_moveMap = new Maps_OneAndMulti<Finger, Move>();

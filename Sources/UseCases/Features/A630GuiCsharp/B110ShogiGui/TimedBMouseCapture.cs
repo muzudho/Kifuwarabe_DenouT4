@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
@@ -39,7 +40,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             //kikiZukei.DebugWrite("駒の利きLv1");
 
             // 味方の駒
-            ISky positionA = shogiGui.Link_Server.KifuTree.PositionA;
+            IPosition positionA = shogiGui.Link_Server.KifuTree.PositionA;
             Playerside psideA = positionA.GetKaisiPside();
 
             //shogiGui.Model_PnlTaikyoku.Kifu.AssertPside(shogiGui.Model_PnlTaikyoku.Kifu.CurNode, "Check_MouseoverKomaKiki",logTag);
@@ -104,7 +105,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                         }
                                         bMouseMove_SceneB_1TumamitaiKoma = true;
 
-                                        ISky src_Sky = mainGui.SkyWrapper_Gui.GuiSky;
+                                        IPosition src_Sky = mainGui.SkyWrapper_Gui.GuiSky;
 
                                         Point mouse = eventState.MouseLocation;
 
@@ -192,7 +193,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                     {
                                         #region マウス左ボタンダウン
                                         SceneName nextPhaseB = SceneName.Ignore;
-                                        ISky src_Sky = mainGui.SkyWrapper_Gui.GuiSky;
+                                        IPosition src_Sky = mainGui.SkyWrapper_Gui.GuiSky;
 
                                         //----------
                                         // 駒
@@ -282,7 +283,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                 case MouseEventStateName.MouseLeftButtonUp:
                                     {
                                         #region マウス左ボタンアップ
-                                        ISky src_GuiSky = mainGui.SkyWrapper_Gui.GuiSky;
+                                        IPosition src_GuiSky = mainGui.SkyWrapper_Gui.GuiSky;
 
                                         //----------
                                         // 将棋盤：升目
@@ -365,7 +366,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                                     //
                                                     // TODO: 一手[巻戻し]のときは追加したくない
                                                     //
-                                                    ISky sky_newChild = new SkyImpl(src_GuiSky);
+                                                    IPosition sky_newChild = new Position(src_GuiSky);
                                                     sky_newChild.SetKaisiPside(Playerside.P2);//FIXME:人間が先手でハードコーディング中
                                                     sky_newChild.SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//1手進ませる。
                                                     MoveEx newNode = new MoveExImpl(move);
@@ -458,7 +459,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                 case MouseEventStateName.MouseLeftButtonUp:
                                     {
                                         #region マウス左ボタンアップ
-                                        ISky src_GuiSky = mainGui.SkyWrapper_Gui.GuiSky;
+                                        IPosition src_GuiSky = mainGui.SkyWrapper_Gui.GuiSky;
 
 
                                         //----------
@@ -510,7 +511,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                                             );// 選択している駒の元の場所と、移動先
 
                                                         // 駒を置いたので、次のノードを準備しておく☆？
-                                                        ISky sky_newChild = new SkyImpl(src_GuiSky);
+                                                        IPosition sky_newChild = new Position(src_GuiSky);
                                                         MoveEx newNode =
                                                             new MoveExImpl(move);
                                                         sky_newChild.SetTemezumi(mainGui.SkyWrapper_Gui.GuiSky.Temezumi + 1);//1手進ませる。

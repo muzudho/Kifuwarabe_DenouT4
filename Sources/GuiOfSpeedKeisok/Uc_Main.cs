@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Grayscale.Kifuwaragyoku.UseCases;
 using Grayscale.Kifuwaragyoku.UseCases.Features;
 
@@ -34,7 +35,7 @@ namespace Grayscale.Kifuwaragyoku.GuiOfSpeedKeisok
 
         //public Sky Src_Sky { get; set; }
         public IFeatureVector FeatureVector { get; set; }
-        public ISky PositionA { get; set; }
+        public IPosition PositionA { get; set; }
         public ITree Kifu { get; set; }
 
 
@@ -45,7 +46,7 @@ namespace Grayscale.Kifuwaragyoku.GuiOfSpeedKeisok
             this.FeatureVector = new FeatureVector();
             {
                 ITree newKifu1_Hirate;
-                ISky positionA;
+                IPosition positionA;
                 Util_FvLoad.CreateKifuTree(
                     playing, out positionA, out newKifu1_Hirate);
 
@@ -55,7 +56,7 @@ namespace Grayscale.Kifuwaragyoku.GuiOfSpeedKeisok
             InitializeComponent();
         }
 
-        private KeisokuResult Keisoku(IHyokakansu handan1, ISky positionA)
+        private KeisokuResult Keisoku(IHyokakansu handan1, IPosition positionA)
         {
             Stopwatch watch = new Stopwatch();
             watch.Start();
@@ -83,7 +84,7 @@ namespace Grayscale.Kifuwaragyoku.GuiOfSpeedKeisok
         {
 
             List<KeisokuResult> list = new List<KeisokuResult>();
-            ISky positionA = this.Kifu.PositionA;//.CurNode2ok.GetNodeValue()
+            IPosition positionA = this.Kifu.PositionA;//.CurNode2ok.GetNodeValue()
             list.Add(this.Keisoku(new Hyokakansu_Komawari(), positionA));
             list.Add(this.Keisoku(new Hyokakansu_NikomaKankeiPp(), positionA));
 

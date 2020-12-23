@@ -4,6 +4,7 @@
 using System.Collections.Generic;
 using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Grayscale.Kifuwaragyoku.Entities.Searching;
 
 #if DEBUG
@@ -177,7 +178,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             ref ulong searchedNodes,
             string[] searchedPv,
             Playerside psideA,//Playerside psideA = positionA.GetKaisiPside();
-            ISky positionA,
+            IPosition positionA,
             bool isHonshogi,
             Mode_Tansaku mode_Tansaku,
             EvaluationArgs args)
@@ -312,7 +313,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             ICurrentSearch genjo,
 
             Playerside psideA,
-            ISky positionA,
+            IPosition positionA,
 
             EvaluationArgs args)
         {
@@ -377,7 +378,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             ICurrentSearch genjo,
             int kaisiTemezumi,
             Playerside psideA,
-            ISky positionA,//この局面から、合法手を作成☆（＾～＾）
+            IPosition positionA,//この局面から、合法手を作成☆（＾～＾）
             float parentsiblingBestScore,
             MoveEx baseNod1,// ツリーを伸ばしているぜ☆（＾～＾）
             int movelist_count,

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -21,7 +22,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         public static void ToNextNodes_AsHubNode(
             out List<Move> out_inputMovelist,
             Maps_OneAndMulti<Finger, Move> komabetuAllMoves,
-            ISky src_Sky)
+            IPosition src_Sky)
         {
             out_inputMovelist = new List<Move>();
 

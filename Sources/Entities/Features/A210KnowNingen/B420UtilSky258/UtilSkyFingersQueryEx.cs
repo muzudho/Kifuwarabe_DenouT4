@@ -1,4 +1,5 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -20,7 +21,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="km"></param>
         /// <returns></returns>
         public static void Fingers_EachSrcNow(
-            out Fingers out_fingers, SySet<SyElement> srcList, ISky src_Sky, Playerside pside)
+            out Fingers out_fingers, SySet<SyElement> srcList, IPosition src_Sky, Playerside pside)
         {
             out_fingers = new Fingers();
 

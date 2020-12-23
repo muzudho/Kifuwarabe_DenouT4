@@ -1,4 +1,5 @@
-﻿using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+﻿using Grayscale.Kifuwaragyoku.Entities.Positioning;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -8,14 +9,14 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
         public Finger FigFoodKoma { get; set; }
 
-        public ISky SyuryoSky { get; set; }
+        public IPosition SyuryoSky { get; set; }
 
         public Komasyurui14 FoodKomaSyurui { get; set; }
 
         public IttemodosuResultImpl(
             Finger figMovedKoma,
             Finger figFoodKoma,
-            ISky syuryoSky,
+            IPosition syuryoSky,
             Komasyurui14 foodKomaSyurui
             )
         {

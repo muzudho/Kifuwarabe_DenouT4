@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -35,9 +36,9 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// </summary>
         /// <param name="sky"></param>
         /// <returns></returns>
-        MoveEx MoveEx_OnEditCurrent(MoveEx node, ISky sky);
-        ISky PositionA { get; }
-        void SetPositionA(ISky positionA);
+        MoveEx MoveEx_OnEditCurrent(MoveEx node, IPosition sky);
+        IPosition PositionA { get; }
+        void SetPositionA(IPosition positionA);
         void MoveEx_SetCurrent(MoveEx curNode);
     }
 }

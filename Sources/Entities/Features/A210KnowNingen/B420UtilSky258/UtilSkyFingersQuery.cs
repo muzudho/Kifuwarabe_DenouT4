@@ -1,4 +1,5 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -19,7 +20,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="okiba"></param>
         /// <param name="kifuD"></param>
         /// <returns></returns>
-        public static Fingers InOkibaPsideNow(ISky src_Sky, Okiba okiba, Playerside pside)
+        public static Fingers InOkibaPsideNow(IPosition src_Sky, Okiba okiba, Playerside pside)
         {
             Fingers fingers = new Fingers();
 
@@ -47,7 +48,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="syurui"></param>
         /// <param name="hKomas"></param>
         /// <returns></returns>
-        public static Fingers InKomasyuruiNow(ISky src_Sky, Komasyurui14 syurui)
+        public static Fingers InKomasyuruiNow(IPosition src_Sky, Komasyurui14 syurui)
         {
             Fingers figKomas = new Fingers();
 
@@ -75,7 +76,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="syurui"></param>
         /// <param name="kifu"></param>
         /// <returns></returns>
-        public static Fingers InOkibaKomasyuruiNow(ISky src_Sky, Okiba okiba, Komasyurui14 syurui)
+        public static Fingers InOkibaKomasyuruiNow(IPosition src_Sky, Okiba okiba, Komasyurui14 syurui)
         {
             Fingers komas = new Fingers();
 
@@ -107,7 +108,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="pside">先後サイド。</param>
         /// <param name="komaSyurui">駒の種類。</param>
         /// <returns></returns>
-        public static Fingers InOkibaPsideKomasyuruiNow(ISky src_Sky, Okiba okiba, Playerside pside, Komasyurui14 komaSyurui)
+        public static Fingers InOkibaPsideKomasyuruiNow(IPosition src_Sky, Okiba okiba, Playerside pside, Komasyurui14 komaSyurui)
         {
             Fingers fingers = new Fingers();
 
@@ -136,7 +137,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
         /// <returns>スプライト番号。なければエラー番号。</returns>
-        public static Fingers InMasuNow_Old(ISky positionA, SyElement masu)
+        public static Fingers InMasuNow_Old(IPosition positionA, SyElement masu)
         {
             // １個入る。
             Fingers found = new Fingers();
@@ -164,7 +165,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
         /// <returns>スプライト番号。なければエラー番号。</returns>
-        public static Fingers InMasuNow_New(ISky positionA, Move move)
+        public static Fingers InMasuNow_New(IPosition positionA, Move move)
         {
             //Komasyurui14 ks14_move = ConvMove.ToSrcKomasyurui(move);
             bool drop = ConvMove.ToDrop(move);
@@ -271,7 +272,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="kifu"></param>
         /// <param name="okiba"></param>
         /// <returns></returns>
-        public static Fingers InOkibaNow(ISky src_Sky, Okiba okiba)
+        public static Fingers InOkibaNow(IPosition src_Sky, Okiba okiba)
         {
             Fingers komas = new Fingers();
 
@@ -297,7 +298,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="pside"></param>
         /// <param name="hKomas"></param>
         /// <returns></returns>
-        public static Fingers InPsideNow(ISky src_Sky, Playerside pside)
+        public static Fingers InPsideNow(IPosition src_Sky, Playerside pside)
         {
             Fingers fingers = new Fingers();
 

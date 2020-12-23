@@ -1,4 +1,5 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -21,7 +22,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="masu">筋、段</param>
         /// <param name="uc_Main">メインパネル</param>
         /// <returns>駒。無ければヌル。</returns>
-        public static Finger InBanjoMasuNow(ISky src_Sky, Playerside pside, SyElement masu)
+        public static Finger InBanjoMasuNow(IPosition src_Sky, Playerside pside, SyElement masu)
         {
             Finger foundKoma = Fingers.Error_1;
 
@@ -64,7 +65,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="komasyurui"></param>
         /// <param name="uc_Main"></param>
         /// <returns>無ければ -1</returns>
-        public static Finger InOkibaSyuruiNow_IgnoreCase(ISky positionA, Okiba okiba, Komasyurui14 komasyurui)
+        public static Finger InOkibaSyuruiNow_IgnoreCase(IPosition positionA, Okiba okiba, Komasyurui14 komasyurui)
         {
             Finger found = Fingers.Error_1;
 
@@ -99,7 +100,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="masu">筋、段</param>
         /// <param name="uc_Main">メインパネル</param>
         /// <returns>駒。無ければヌル。</returns>
-        public static Finger InMasuNow_FilteringBanjo(ISky positionA, Playerside pside, SyElement masu)
+        public static Finger InMasuNow_FilteringBanjo(IPosition positionA, Playerside pside, SyElement masu)
         {
             Finger foundKoma = Fingers.Error_1;
 

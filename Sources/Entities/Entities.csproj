@@ -194,9 +194,9 @@
     <Compile Include="Features\A210KnowNingen\B250LogKaisetu\KaisetuBoard.cs" />
     <Compile Include="Features\A210KnowNingen\B250LogKaisetu\KaisetuBoards.cs" />
     <Compile Include="Features\A210KnowNingen\B250LogKaisetu\Util_LogWriter022_Json.cs" />
-    <Compile Include="Features\A210KnowNingen\B270Sky\Fingers.cs" />
-    <Compile Include="Features\A210KnowNingen\B270Sky\ISky.cs" />
-    <Compile Include="Features\A210KnowNingen\B270Sky\SkyImpl.cs" />
+    <Compile Include="Positioning\Fingers.cs" />
+    <Compile Include="Positioning\IPosition.cs" />
+    <Compile Include="Positioning\Position.cs" />
     <Compile Include="Features\A210KnowNingen\B280Tree\MoveEx.cs" />
     <Compile Include="Features\A210KnowNingen\B280Tree\MoveExImpl.cs" />
     <Compile Include="Features\A210KnowNingen\B280Tree\MoveNodeType.cs" />

@@ -1,12 +1,13 @@
 ﻿using System.Diagnostics;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class Conv_Sky
     {
-        public static ShogibanImpl ToShogiban(Playerside pside, ISky src_Sky)
+        public static ShogibanImpl ToShogiban(Playerside pside, IPosition src_Sky)
         {
             ShogibanImpl shogiban = new ShogibanImpl();
 
@@ -37,7 +38,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// TODO: 持ち駒も判定したい。
         /// </summary>
         /// <returns></returns>
-        public static ulong ToKyokumenHash(ISky sky)
+        public static ulong ToKyokumenHash(IPosition sky)
         {
             ulong hash = 0;
 

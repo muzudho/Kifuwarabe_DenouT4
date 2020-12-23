@@ -1,5 +1,6 @@
 ﻿using System;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
@@ -27,7 +28,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             string strNari, //+
             out Move move,
             Playerside psideA,
-            ISky positionA,
+            IPosition positionA,
             string hint)
         {
             move = Move.Empty;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Text;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -247,7 +248,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// </summary>
         /// <param name="move"></param>
         /// <returns></returns>
-        public static SyElement ToSrcMasu(Move move, ISky positionA)
+        public static SyElement ToSrcMasu(Move move, IPosition positionA)
         {
             int v = (int)move;              // バリュー
 
@@ -714,7 +715,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="csa"></param>
         /// <param name="ittemae_Sky">1手前の局面。ルート局面などの理由で１手前の局面がない場合はヌル。</param>
         /// <returns></returns>
-        public static Move ToMove_ByCsa(CsaKifuMove csa, ISky ittemae_Sky_orNull)
+        public static Move ToMove_ByCsa(CsaKifuMove csa, IPosition ittemae_Sky_orNull)
         {
             bool errorCheck = false;
 

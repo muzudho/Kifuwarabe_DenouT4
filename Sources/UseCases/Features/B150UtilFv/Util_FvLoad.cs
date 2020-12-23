@@ -6,6 +6,7 @@ using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Nett;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
@@ -29,7 +30,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// </summary>
         public static void CreateKifuTree(
             IPlaying playing,
-            out ISky out_positionA,
+            out IPosition out_positionA,
             out ITree out_kifu1
             )
         {

@@ -1,5 +1,6 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 // using Grayscale.Kifuwaragyoku.Entities.Features;
 
@@ -26,7 +27,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <returns></returns>
         public override float Evaluate(
             Playerside psideA,
-            ISky positionA,
+            IPosition positionA,
             IFeatureVector fv
             )
         {

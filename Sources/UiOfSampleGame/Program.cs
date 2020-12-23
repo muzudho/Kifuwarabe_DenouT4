@@ -1,6 +1,7 @@
 ﻿using System;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Grayscale.Kifuwaragyoku.UseCases;
 
 namespace Grayscale.Kifuwaragyoku.CliOfSampleGame
@@ -17,7 +18,7 @@ namespace Grayscale.Kifuwaragyoku.CliOfSampleGame
             Playing playing = new Playing();
 
             // 棋譜
-            ISky positionA = UtilSkyCreator.New_Hirate();//日本の符号読取時;
+            IPosition positionA = UtilSkyCreator.New_Hirate();//日本の符号読取時;
 
             int searchedMaxDepth = 0;
             ulong searchedNodes = 0;

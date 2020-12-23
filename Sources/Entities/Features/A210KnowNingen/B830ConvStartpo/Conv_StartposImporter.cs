@@ -1,4 +1,5 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -37,7 +38,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             // 駒の配置
             //------------------------------
             {
-                ISky newSky = startposImporter.ToSky();
+                IPosition newSky = startposImporter.ToSky();
                 newSky.SetKaisiPside(parsedKyokumen.FirstPside);
                 newSky.SetTemezumi(startposImporter.RO_SfenStartpos.Temezumi);// FIXME: 将棋所だと常に 1 かも？？
                 parsedKyokumen.NewMove = Move.Empty;// ConvMove.GetErrorMove();//ルートなので

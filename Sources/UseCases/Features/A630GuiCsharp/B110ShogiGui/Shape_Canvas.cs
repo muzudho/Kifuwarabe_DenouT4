@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 
 namespace Grayscale.Kifuwaragyoku.UseCases.Features
 {
@@ -16,7 +17,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             object sender,
             PaintEventArgs e,
             Playerside psideA,
-            ISky positionA,
+            IPosition positionA,
             MainGui_Csharp shogiGui,
             string windowName);
 

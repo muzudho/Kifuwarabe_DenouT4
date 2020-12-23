@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 
 
 
@@ -106,7 +107,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="pside"></param>
         /// <param name="syurui"></param>
         /// <returns>エラー時は-1</returns>
-        public static int ParamIndex_Moti(ISky src_Sky, Playerside pside, Komasyurui14 syurui)
+        public static int ParamIndex_Moti(IPosition src_Sky, Playerside pside, Komasyurui14 syurui)
         {
             Fingers fingers = UtilSkyFingersQuery.InOkibaPsideKomasyuruiNow(src_Sky, Conv_Playerside.ToKomadai(pside), pside, syurui);
 

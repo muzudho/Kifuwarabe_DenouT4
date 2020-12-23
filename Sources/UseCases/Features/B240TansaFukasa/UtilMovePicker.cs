@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Grayscale.Kifuwaragyoku.Entities.Searching;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
@@ -27,7 +28,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             ICurrentSearch genjo,
 
             Playerside psideA,
-            ISky positionA,//この局面から合法手を作成☆（＾～＾）
+            IPosition positionA,//この局面から合法手を作成☆（＾～＾）
 
             ref int searchedMaxDepth,
             out int out_yomiDeep)
@@ -66,7 +67,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         private static List<Move> WAAAA_Create_ChildNodes(
             ICurrentSearch genjo,
             Playerside psideA,
-            ISky positionA
+            IPosition positionA
             //Move move_ForLog,            
             )
         {

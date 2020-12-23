@@ -1,5 +1,6 @@
 ﻿using System;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -29,7 +30,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             out Fingers fs_banjoKurau,//戦駒（喰らう側）
             out Fingers fs_motiSeme,// 持駒（利きを調べる側）
             out Fingers fs_motiKurau,// 持駒（喰らう側）
-            ISky src_Sky,
+            IPosition src_Sky,
             Playerside tebanSeme,
             Playerside tebanKurau)
         {
@@ -120,7 +121,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         public static void Split_Moti1p_Moti2p(
             out Fingers fingers_moti1p,// 持駒 1P
             out Fingers fingers_moti2p,// 持駒 2=
-            ISky src_Sky)
+            IPosition src_Sky)
         {
             Fingers fingers_moti1p_temp = new Fingers();// （３）持ち駒_攻め手
             Fingers fingers_moti2p_temp = new Fingers();// （４）持ち駒_食らう側
@@ -150,7 +151,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         public static void Split_Jigyoku_Aitegyoku(
             out Busstop koma_Jigyoku_orNull,
             out Busstop koma_Aitegyoku_orNull,
-            ISky src_Sky,
+            IPosition src_Sky,
             Playerside jiPside,
             Playerside aitePside
             )
@@ -196,7 +197,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         public static void Split_1PGyoku_2PGyoku(
             out Busstop koma_1PGyoku_orNull,
             out Busstop koma_2PGyoku_orNull,
-            ISky src_Sky
+            IPosition src_Sky
         )
         {
             Busstop koma_1PGyoku_temp = Busstop.Empty;

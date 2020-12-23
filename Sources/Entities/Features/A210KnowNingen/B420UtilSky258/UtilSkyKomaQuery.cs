@@ -1,4 +1,5 @@
-﻿using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+﻿using Grayscale.Kifuwaragyoku.Entities.Positioning;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -12,7 +13,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
         /// <returns>スプライト番号。なければエラー番号。</returns>
-        public static Busstop InMasuNow(ISky src_Sky, SyElement masu)
+        public static Busstop InMasuNow(IPosition src_Sky, SyElement masu)
         {
             Busstop koma = Busstop.Empty;
 
@@ -38,7 +39,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
         /// <returns>スプライト番号。なければエラー番号。</returns>
-        public static Busstop InMasuPsideNow(ISky src_Sky, SyElement masu, Playerside pside)
+        public static Busstop InMasuPsideNow(IPosition src_Sky, SyElement masu, Playerside pside)
         {
             Busstop koma = Busstop.Empty;
 
@@ -70,7 +71,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
         /// <returns>スプライト番号。なければエラー番号。</returns>
-        public static Busstop InMasuPsideKomasyuruiNow(ISky src_Sky, SyElement masu, Playerside pside, Komasyurui14 syurui)
+        public static Busstop InMasuPsideKomasyuruiNow(IPosition src_Sky, SyElement masu, Playerside pside, Komasyurui14 syurui)
         {
             Busstop koma = Busstop.Empty;
 

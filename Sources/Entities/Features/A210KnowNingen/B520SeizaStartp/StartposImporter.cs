@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -106,10 +107,10 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         }
 
 
-        public ISky ToSky()
+        public IPosition ToSky()
         {
             // 駒40個に、Finger番号を割り当てておきます。
-            ISky newSky = new SkyImpl();// 駒数０。
+            IPosition newSky = new Position();// 駒数０。
 
             Dictionary<Finger, Busstop> komaDic = new Dictionary<Finger, Busstop>();
 

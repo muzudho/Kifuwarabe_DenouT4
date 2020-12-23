@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -12,7 +13,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// </summary>
         /// <param name="logTag"></param>
         /// <returns></returns>
-        public static ISfenPosition1 ToRO_Kyokumen1(ISky src_Sky)
+        public static ISfenPosition1 ToRO_Kyokumen1(IPosition src_Sky)
         {
             ISfenPosition1 ro_Kyokumen1 = new SfenPosition1Impl();
 
@@ -59,7 +60,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="pside"></param>
         /// <param name="logTag"></param>
         /// <returns></returns>
-        public static string ToSfenstring(ISky src_Sky, Playerside pside)
+        public static string ToSfenstring(IPosition src_Sky, Playerside pside)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("sfen ");

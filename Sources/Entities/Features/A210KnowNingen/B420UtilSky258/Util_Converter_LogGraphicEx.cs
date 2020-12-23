@@ -1,4 +1,5 @@
-﻿using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+﻿using Grayscale.Kifuwaragyoku.Entities.Positioning;
+using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -71,7 +72,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="finger"></param>
         /// <param name="extentionWithDot"></param>
         /// <returns></returns>
-        public static string Finger_ToString(ISky src_Sky, Finger finger, string extentionWithDot)
+        public static string Finger_ToString(IPosition src_Sky, Finger finger, string extentionWithDot)
         {
             string komaImg = "";
 

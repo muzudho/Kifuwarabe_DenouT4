@@ -1,4 +1,5 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
@@ -17,7 +18,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="logTag"></param>
         /// <returns></returns>
         public static Maps_OneAndOne<Finger, SySet<SyElement>> Get_PotentialMoves(
-            ISky src_Sky,
+            IPosition src_Sky,
             Fingers fingers)
         {
             Maps_OneAndOne<Finger, SySet<SyElement>> kiki_fMs = new Maps_OneAndOne<Finger, SySet<SyElement>>();// 「どの駒を、どこに進める」の一覧

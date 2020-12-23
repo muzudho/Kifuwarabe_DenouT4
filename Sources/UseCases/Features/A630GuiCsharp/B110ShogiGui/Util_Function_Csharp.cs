@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.UseCases.Features
@@ -14,7 +15,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         {
             MoveEx newNode = new MoveExImpl();
 
-            ISky positionA = UtilSkyCreator.New_Hirate();//[初期配置]ボタン押下時
+            IPosition positionA = UtilSkyCreator.New_Hirate();//[初期配置]ボタン押下時
             mainGui.Link_Server.Playing.ClearEarth();
 
             // 棋譜を空っぽにします。
@@ -100,7 +101,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         public static bool Komaokuri_Gui(
             string restText,
             MoveEx node6,// = shogiGui.Link_Server.KifuTree.CurNode;
-            ISky positionA,// = shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue();
+            IPosition positionA,// = shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue();
             MainGui_Csharp shogiGui,
             ITree kifu1)
         {

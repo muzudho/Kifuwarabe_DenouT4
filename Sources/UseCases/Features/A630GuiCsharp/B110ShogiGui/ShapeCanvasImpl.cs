@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 
 namespace Grayscale.Kifuwaragyoku.UseCases.Features
 {
@@ -31,7 +32,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             object sender,
             PaintEventArgs e,
             Playerside psideA,
-            ISky positionA,//shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue()
+            IPosition positionA,//shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue()
             MainGui_Csharp shogibanGui,
             string windowName)
         {

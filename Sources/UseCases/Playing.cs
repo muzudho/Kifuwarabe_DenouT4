@@ -6,6 +6,7 @@ using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Grayscale.Kifuwaragyoku.Entities.Searching;
 using Grayscale.Kifuwaragyoku.UseCases.Features;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
@@ -53,7 +54,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases
             //
 
             // 棋譜
-            ISky positionInit = UtilSkyCreator.New_Hirate();// きふわらべ起動時
+            IPosition positionInit = UtilSkyCreator.New_Hirate();// きふわらべ起動時
             {
                 // FIXME:平手とは限らないが、平手という前提で作っておく。
                 //----------------------------------------
@@ -675,7 +676,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases
             // ┏━━━━プログラム━━━━┓
 
             MoveEx curNode1 = this.Kifu.MoveEx_Current;
-            ISky positionA = this.Kifu.PositionA;
+            IPosition positionA = this.Kifu.PositionA;
             int latestTemezumi = positionA.Temezumi;//現・手目済// curNode1.GetNodeValue()
 
             //#if DEBUG
@@ -1004,7 +1005,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases
             string[] searchedPv,
             bool isHonshogi,
             Playerside psideA,
-            ISky positionA)
+            IPosition positionA)
         {
             MoveEx bestNode = null;
 

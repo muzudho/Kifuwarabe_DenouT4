@@ -1,5 +1,6 @@
 ﻿using System;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -14,7 +15,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// </summary>
         /// <param name="masus"></param>
         /// <returns></returns>
-        public static bool ExistsIn(Move move, SySet<SyElement> masus, ISky positionA)
+        public static bool ExistsIn(Move move, SySet<SyElement> masus, IPosition positionA)
         {
             bool matched = false;
 
@@ -93,7 +94,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// 不一致判定：　先後、駒種類  が、自分と同じものが　＜ひとつもない＞
         /// </summary>
         /// <returns></returns>
-        public static bool NeverOnaji(Move move, ISky src_Sky, params Fingers[] komaGroupArgs)
+        public static bool NeverOnaji(Move move, IPosition src_Sky, params Fingers[] komaGroupArgs)
         {
             bool unmatched = true;
 

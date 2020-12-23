@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -19,7 +20,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// 必要により、【成り】の指し手を追加するぜ☆
         /// </summary>
         public static List<Move> CreateNariMove(
-            ISky positionA,
+            IPosition positionA,
             List<Move> a_moveBetuEntry)
         {
             //----------------------------------------

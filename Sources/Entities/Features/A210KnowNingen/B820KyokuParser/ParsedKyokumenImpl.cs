@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -18,14 +19,14 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// </summary>
         //public KifuNode KifuNode { get; set; }
         public Move NewMove { get; set; }
-        public ISky NewSky { get; set; }
+        public IPosition NewSky { get; set; }
 
         /// <summary>
         /// 持ち駒リスト。
         /// </summary>
         public List<MotiItem> MotiList { get; set; }
 
-        public ISky Sky { get; set; }
+        public IPosition Sky { get; set; }
 
         public ParsedKyokumenImpl()
         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -33,7 +34,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             ref IKifuParserAResult result,
             IPlaying playing,
             Move move1_notUse,
-            ISky positionA,
+            IPosition positionA,
 
             out IKifuParserAState nextState,
             IKifuParserA owner,

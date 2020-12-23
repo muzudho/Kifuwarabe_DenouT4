@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Nett;
 
 #if DEBUG
@@ -134,7 +135,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             ref int logFileCounter,
             string nodePath,
             MoveEx moveEx,
-            ISky positionA,
+            IPosition positionA,
             ITree kifu,
             string relFolder,
             KyokumenPngEnvironment reportEnvironment)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
@@ -22,7 +23,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// </summary>
         public static void Utifudume(
             Playerside psideA,// = positionA.GetKaisiPside();
-            ISky positionA,
+            IPosition positionA,
             SySet<SyElement> masus_mikata_onBanjo,//打ち歩詰めチェック用
             SySet<SyElement> masus_aite_onBanjo,//打ち歩詰めチェック用
             SySet<SyElement>[] aMasus//駒種類別、置こうとする升
