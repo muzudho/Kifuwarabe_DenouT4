@@ -96,6 +96,7 @@
     <Compile Include="Features\A000Platform\B021Random\KwRandom.cs" />
     <Compile Include="Features\A000Platform\B021Random\KwShuffle.cs" />
     <Compile Include="Features\A000Platform\B025Machine\MachineImpl.cs" />
+    <Compile Include="IPlaying.cs" />
     <Compile Include="Logging\ErrorControllerImpl.cs" />
     <Compile Include="Logging\IErrorController.cs" />
     <Compile Include="Logging\ILogFile.cs" />
@@ -326,7 +327,6 @@
     <Compile Include="Searching\CurrentSearch.cs" />
     <Compile Include="Searching\ICurrentSearch.cs" />
     <Compile Include="Searching\ISearchArgs.cs" />
-    <Compile Include="Searching\IShogisasi.cs" />
     <Compile Include="Searching\ITimeManager.cs" />
     <Compile Include="Searching\SearchArgs.cs" />
     <Compile Include="Searching\TimeManager.cs" />

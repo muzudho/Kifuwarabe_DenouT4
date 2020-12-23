@@ -206,7 +206,6 @@
     <Compile Include="Features\B280KifuWarabe\NoopPhase.cs" />
     <Compile Include="Features\B280KifuWarabe\NoopTimerImpl.cs" />
     <Compile Include="Features\B280KifuWarabe\Result_KingState.cs" />
-    <Compile Include="Features\B280KifuWarabe\ShogisasiImpl.cs" />
     <Compile Include="Features\B280KifuWarabe\Util_LogBuilder510.cs" />
     <Compile Include="Playing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

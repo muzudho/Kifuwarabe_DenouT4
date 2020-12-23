@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using Grayscale.Kifuwaragyoku.Entities;
+using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.Kifuwaragyoku.Entities.Searching;
@@ -10,7 +12,7 @@ using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.UseCases
 {
-    public class Playing
+    public class Playing : IPlaying
     {
         /// <summary>
         /// 棋譜です。
@@ -25,10 +27,14 @@ namespace Grayscale.Kifuwaragyoku.UseCases
         public const int SEARCHED_PV_LENGTH = 2048;
 
         /// <summary>
-        /// 将棋エンジンの中の一大要素「思考エンジン」です。
-        /// 指す１手の答えを出すのが仕事です。
+        /// 右脳。
         /// </summary>
-        public IShogisasi Shogisasi { get; set; }
+        public IFeatureVector FeatureVector { get; set; }
+
+        /// <summary>
+        /// 時間管理
+        /// </summary>
+        public ITimeManager TimeManager { get; set; }
 
         /// <summary>
         /// 「go ponder」の属性一覧です。
@@ -94,6 +100,9 @@ namespace Grayscale.Kifuwaragyoku.UseCases
             {
                 this.GoPonderFlag = false;   // go ponderを将棋所に伝えたなら真
             }
+
+            this.FeatureVector = new FeatureVector();
+            this.TimeManager = new TimeManager(this.EngineOptions.GetOption(EngineOptionNames.THINKING_MILLI_SECOND).GetNumber());
         }
 
         /// <summary>
@@ -717,7 +726,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases
                             for (int iMultiPV = 0; iMultiPV < multiPV_Count; iMultiPV++)
                             {
                                 // null を返すことがある？
-                                multiPvNodeExList.Add(this.Shogisasi.WA_Bestmove(
+                                multiPvNodeExList.Add(this.WA_Bestmove(
                                     ref searchedMaxDepth,
                                     ref searchedNodes,
                                     searchedPv,
@@ -794,7 +803,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases
 
                                 // infostring
                                 StringBuilder sb = new StringBuilder();
-                                sb.Append($"info time {this.Shogisasi.TimeManager.Stopwatch.ElapsedMilliseconds} depth {searchedMaxDepth} nodes {searchedNodes} score cp {hyojiScore.ToString()} pv ");
+                                sb.Append($"info time {this.TimeManager.Stopwatch.ElapsedMilliseconds} depth {searchedMaxDepth} nodes {searchedNodes} score cp {hyojiScore.ToString()} pv ");
                                 //+ " pv 3a3b L*4h 4c4d"
                                 foreach (string sfen1 in searchedPv)
                                 {
@@ -924,6 +933,88 @@ namespace Grayscale.Kifuwaragyoku.UseCases
         public void GameOver(string value)
         {
 
+        }
+
+
+        /// <summary>
+        /// 指し手を決めます。
+        /// </summary>
+        /// <param name="enableLog"></param>
+        /// <param name="isHonshogi"></param>
+        /// <param name="kifu1"></param>
+        /// <param name="logTag"></param>
+        /// <returns></returns>
+        public MoveEx WA_Bestmove(
+            ref int searchedMaxDepth,
+            ref ulong searchedNodes,
+            string[] searchedPv,
+            bool isHonshogi,
+
+            Earth earth1,
+            Tree kifu1,// ツリーを伸ばしているぜ☆（＾～＾）
+            Playerside psideA,
+            ISky positionA)
+        {
+            MoveEx bestNode = null;
+
+            //────────────────────────────────────────
+            // ストップウォッチ
+            //────────────────────────────────────────
+            this.TimeManager.Stopwatch.Restart();
+
+#if DEBUG
+            KaisetuBoards logF_kiki = new KaisetuBoards();// デバッグ用だが、メソッドはこのオブジェクトを必要としてしまう。
+#endif
+            EvaluationArgs args = new EvaluationArgsImpl(
+                earth1.GetSennititeCounter(),
+                this.FeatureVector,
+                UtilKifuTreeLogWriter.REPORT_ENVIRONMENT
+#if DEBUG
+                ,
+                logF_kiki
+#endif
+                );
+
+
+            //
+            // 指し手生成ルーチンで、棋譜ツリーを作ります。
+            //
+            // 指し手は１つに絞ること。
+            //
+            bestNode = Tansaku_FukasaYusen_Routine.WAA_Yomu_Start(
+                this,
+                ref searchedMaxDepth,
+                ref searchedNodes,
+                searchedPv,
+
+                kifu1,// ツリーを伸ばしているぜ☆（＾～＾）
+                psideA,//positionA.GetKaisiPside(),
+                positionA,
+
+                isHonshogi, Mode_Tansaku.Shogi_ENgine,
+                args);
+
+
+#if DEBUG
+            //
+            // 評価明細ログの書出し
+            //
+            Util_KifuTreeLogWriter.A_Write_KifuTreeLog(
+                logF_kiki,
+                kifu1,
+                logTag
+                );
+            //Util_LogWriter500_HyokaMeisai.Log_Html5(
+            //    this,
+            //    logF_kiki,
+            //    kifu,
+            //    playerInfo,
+            //    logTag
+            //    );
+#endif
+
+            this.TimeManager.Stopwatch.Stop();
+            return bestNode;
         }
 
     }

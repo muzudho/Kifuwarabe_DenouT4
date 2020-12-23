@@ -2,6 +2,7 @@
 //#define DEBUG_ALPHA_METHOD
 
 using System.Collections.Generic;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Searching;
 
@@ -171,6 +172,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="logTag"></param>
         /// <returns></returns>
         public static MoveEx WAA_Yomu_Start(
+            IPlaying playing,
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
             string[] searchedPv,
@@ -212,7 +214,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 ref searchedMaxDepth,
                 out yomiDeep);
 
-            if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(yomiDeep, wideCount2, movelist.Count, genjo, args.Shogisasi.TimeManager))
+            if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(yomiDeep, wideCount2, movelist.Count, genjo, playing.TimeManager))
             {
                 // 1手も読まないのなら。
                 // FIXME: エラー？
@@ -240,6 +242,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             {
                 // ここが再帰のスタート地点☆（＾▽＾）
                 a_bestmoveEx_Children = Tansaku_FukasaYusen_Routine.WAAA_Yomu_Loop(
+                    playing,
                     ref searchedMaxDepth,
                     ref searchedNodes,
                     searchedPv,
@@ -368,6 +371,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="logTag"></param>
         /// <returns>子の中で最善の点</returns>
         private static MoveEx WAAA_Yomu_Loop(
+            IPlaying playing,
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
             string[] searchedPv,
@@ -422,7 +426,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     wideCount1,
                     movelist2.Count,
                     genjo,
-                    args.Shogisasi.TimeManager
+                    playing.TimeManager
                 ))
                 {
                     //----------------------------------------
@@ -484,6 +488,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 // 枝か、葉か、確定させにいきます。
                 // （＾▽＾）再帰☆
                 MoveEx iMovEx_child_temp = Tansaku_FukasaYusen_Routine.WAAA_Yomu_Loop(
+                    playing,
                     ref searchedMaxDepth,
                     ref searchedNodes,
                     searchedPv,

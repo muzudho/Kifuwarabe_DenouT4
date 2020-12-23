@@ -1,10 +1,7 @@
 ﻿using System;
-using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.Kifuwaragyoku.Entities.Searching;
 using Grayscale.Kifuwaragyoku.UseCases;
-using Grayscale.Kifuwaragyoku.UseCases.Features;
 
 namespace Grayscale.Kifuwaragyoku.CliOfSampleGame
 {
@@ -19,10 +16,6 @@ namespace Grayscale.Kifuwaragyoku.CliOfSampleGame
             // 将棋エンジン　きふわらべ
             Playing playing = new Playing();
 
-            // 将棋指しオブジェクト
-            var fv = new FeatureVector();
-            IShogisasi shogisasi = new ShogisasiImpl(playing, fv);
-
             // 棋譜
             Earth earth1 = new EarthImpl();
             ISky positionA = UtilSkyCreator.New_Hirate();//日本の符号読取時;
@@ -31,7 +24,7 @@ namespace Grayscale.Kifuwaragyoku.CliOfSampleGame
             int searchedMaxDepth = 0;
             ulong searchedNodes = 0;
             string[] searchedPv = new string[Playing.SEARCHED_PV_LENGTH];
-            MoveEx bestmoveNode = shogisasi.WA_Bestmove(
+            MoveEx bestmoveNode = playing.WA_Bestmove(
                 ref searchedMaxDepth,
                 ref searchedNodes,
                 searchedPv,
