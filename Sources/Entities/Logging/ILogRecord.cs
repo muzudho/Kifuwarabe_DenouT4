@@ -6,9 +6,9 @@
     public interface ILogRecord
     {
         /// <summary>
-        /// ファイル名。
+        /// 出力先ファイル。
         /// </summary>
-        string Basename { get; set; }
+        ILogFile LogFile { get; }
 
         /// <summary>
         /// ログ出力の有無。

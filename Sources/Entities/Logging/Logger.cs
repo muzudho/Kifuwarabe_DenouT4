@@ -37,8 +37,8 @@
             ErrorRecord = LogEntry(logDirectory, toml, SpecifiedFiles.Error, true, true, false, null);
             FatalRecord = LogEntry(logDirectory, toml, SpecifiedFiles.Fatal, true, true, false, null);
 
-            var basename = Path.Combine(logDirectory, $"default_({System.Diagnostics.Process.GetCurrentProcess()})");
-            AddLog(LogTags.Default, new LogRecord($"{basename}.log", 0, false, false, false, null));
+            var logFile = LogFile.AsLog(logDirectory, $"default_({System.Diagnostics.Process.GetCurrentProcess()}).log");
+            AddLog(LogTags.Default, new LogRecord(logFile, false, false, false, null));
 
             // ログを出せなかったときなど、致命的なエラーにも利用。
             AddLog(LogTags.ProcessNoneError, LogEntry(logDirectory, toml, SpecifiedFiles.N01ProcessNoneErrorLog, true, false, false, null));
@@ -77,8 +77,8 @@
 
         static ILogRecord LogEntry(string logDirectory, TomlTable toml, string resourceKey, bool enabled, bool timeStampPrintable, bool enableConsole, IErrorController kwDisplayer_OrNull)
         {
-            var basename = Path.Combine(logDirectory, toml.Get<TomlTable>("Logs").Get<string>(resourceKey));
-            return new LogRecord(basename, 0, enabled, timeStampPrintable, enableConsole, kwDisplayer_OrNull);
+            var logFile = LogFile.AsLog(logDirectory, toml.Get<TomlTable>("Logs").Get<string>(resourceKey));
+            return new LogRecord(logFile, enabled, timeStampPrintable, enableConsole, kwDisplayer_OrNull);
         }
 
         static readonly ILogRecord TraceRecord;
@@ -89,7 +89,6 @@
         static readonly ILogRecord ErrorRecord;
         static readonly ILogRecord FatalRecord;
 
-        /*
         /// <summary>
         /// テキストをそのまま、ファイルへ出力するためのものです。
         /// </summary>
@@ -249,7 +248,6 @@
             File.AppendAllText(NoticeRecord.LogFile.Name, $@"{DateTime.Now.ToString()}<   {line}
 ");
         }
-        */
 
         /// <summary>
         /// アドレスの登録。ログ・ファイルのリムーブに使用。
@@ -355,7 +353,7 @@
                     MessageBox.Show(message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                string filepath2 = Path.Combine(Application.StartupPath, record.Basename);
+                string filepath2 = Path.Combine(Application.StartupPath, record.LogFile.Name);
                 System.IO.File.AppendAllText(filepath2, message);
 
                 if (record.EnableConsole)
