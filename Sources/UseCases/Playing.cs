@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Text;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Searching;
 using Grayscale.Kifuwaragyoku.UseCases.Features;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
@@ -27,7 +28,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases
         /// 将棋エンジンの中の一大要素「思考エンジン」です。
         /// 指す１手の答えを出すのが仕事です。
         /// </summary>
-        public Shogisasi Shogisasi { get; set; }
+        public IShogisasi Shogisasi { get; set; }
 
         /// <summary>
         /// 「go ponder」の属性一覧です。

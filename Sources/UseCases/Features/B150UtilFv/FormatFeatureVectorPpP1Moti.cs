@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.UseCases.Evaluation;
 
 namespace Grayscale.Kifuwaragyoku.UseCases.Features
 {
@@ -40,7 +42,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="title"></param>
         /// <param name="p1_base_motiFu">持ち駒の位置から。</param>
         /// <returns></returns>
-        public static string Format_PP_P1_Moti19Mai(FeatureVector fv, string title, int p1_base_motiFu)
+        public static string Format_PP_P1_Moti19Mai(IFeatureVector fv, string title, int p1_base_motiFu)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -191,7 +193,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="fv"></param>
         /// <param name="player"></param>
         /// <returns></returns>
-        public static string Format_PP_P1Moti_5Mai(FeatureVector fv, string title, int p1Koumoku)
+        public static string Format_PP_P1Moti_5Mai(IFeatureVector fv, string title, int p1Koumoku)
         {
             int p1MaisuLength = 5;
 
@@ -336,7 +338,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="fv"></param>
         /// <param name="player"></param>
         /// <returns></returns>
-        public static string Format_PP_P1Moti_3Mai(FeatureVector fv, string title, int p1Koumoku)
+        public static string Format_PP_P1Moti_3Mai(IFeatureVector fv, string title, int p1Koumoku)
         {
             int p1MaisuLength = 3;
 
@@ -491,7 +493,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="p1_base_motiFu">持ち駒の位置から。</param>
         /// <param name="p2Item"></param>
         /// <returns></returns>
-        private static string Format_19Shogibans(FeatureVector fv, int p1_base_motiFu, PpItem_P2Banjo p2Item)
+        private static string Format_19Shogibans(IFeatureVector fv, int p1_base_motiFu, PpItem_P2Banjo p2Item)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -622,7 +624,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// largeColumnMaxを指定して、3枚 or 5枚の将棋盤にすることも可能。
         /// </summary>
         /// <returns></returns>
-        private static string Format_3or5Shogibans(FeatureVector fv, int p1_base, PpItem_P2Banjo p2Item, int largeColumnMax)
+        private static string Format_3or5Shogibans(IFeatureVector fv, int p1_base, PpItem_P2Banjo p2Item, int largeColumnMax)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -720,7 +722,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// PP。ただの枚数分のリスト。持ち駒の一覧に利用。
         /// </summary>
         /// <returns></returns>
-        private static string Format_MaisuList(FeatureVector fv, int p1_base, int p1MaisuLength, PpItem_P2Moti p2Item)
+        private static string Format_MaisuList(IFeatureVector fv, int p1_base, int p1MaisuLength, PpItem_P2Moti p2Item)
         {
             StringBuilder sb = new StringBuilder();
 

@@ -2,8 +2,10 @@
 using System.Diagnostics;
 using System.IO;
 using System.Text;
+using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.UseCases.Evaluation;
 using Nett;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
@@ -57,7 +59,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="rv_orNull">学習でしか使いません。</param>
         /// <param name="fv_komawari_filepath"></param>
         /// <returns></returns>
-        public static string OpenFv(FeatureVector fv, string fv_komawari_filepath, ILogTag logTag)
+        public static string OpenFv(IFeatureVector fv, string fv_komawari_filepath, ILogTag logTag)
         {
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));

@@ -1,6 +1,6 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities.Features;
 
-namespace Grayscale.Kifuwaragyoku.UseCases.Features
+namespace Grayscale.Kifuwaragyoku.UseCases.Evaluation
 {
     /// <summary>
     /// 二駒関係のＰ　パラメーター・インデックス

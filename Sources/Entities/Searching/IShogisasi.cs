@@ -1,18 +1,19 @@
-﻿using Grayscale.Kifuwaragyoku.Entities.Features;
+﻿using Grayscale.Kifuwaragyoku.Entities.Evaluation;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 
-namespace Grayscale.Kifuwaragyoku.UseCases.Features
+namespace Grayscale.Kifuwaragyoku.Entities.Searching
 {
 
     /// <summary>
     /// 将棋指し。
     /// </summary>
-    public interface Shogisasi
+    public interface IShogisasi
     {
         /// <summary>
         /// 右脳。
         /// </summary>
-        FeatureVector FeatureVector { get; set; }
+        IFeatureVector FeatureVector { get; set; }
 
         /// <summary>
         /// 対局開始のとき。
@@ -22,7 +23,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <summary>
         /// 時間管理
         /// </summary>
-        TimeManager TimeManager { get; set; }
+        ITimeManager TimeManager { get; set; }
 
 
         /// <summary>

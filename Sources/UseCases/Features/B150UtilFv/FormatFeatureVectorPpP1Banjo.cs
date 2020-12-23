@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.UseCases.Evaluation;
 
 namespace Grayscale.Kifuwaragyoku.UseCases.Features
 {
@@ -28,7 +30,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="fv"></param>
         /// <param name="player"></param>
         /// <returns></returns>
-        public static string Format_PP_P1Banjo(FeatureVector fv, string title, int p1_base)
+        public static string Format_PP_P1Banjo(IFeatureVector fv, string title, int p1_base)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -191,7 +193,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// ２重の入れ子の将棋盤。
         /// </summary>
         /// <returns></returns>
-        private static string Format_NestedShogiban_P1Banjo(FeatureVector fv, int p1_base, PpItem_P2 p2Item)
+        private static string Format_NestedShogiban_P1Banjo(IFeatureVector fv, int p1_base, PpItem_P2 p2Item)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -297,7 +299,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// １重の入れ子の将棋盤。持ち駒の一覧に利用。
         /// </summary>
         /// <returns></returns>
-        private static string Format_SingleShogiban_P1Banjo(FeatureVector fv, int p1_base, PpItem_P2 p2Item)
+        private static string Format_SingleShogiban_P1Banjo(IFeatureVector fv, int p1_base, PpItem_P2 p2Item)
         {
             StringBuilder sb = new StringBuilder();
 

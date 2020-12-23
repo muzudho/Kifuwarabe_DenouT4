@@ -1,4 +1,5 @@
-﻿using Grayscale.Kifuwaragyoku.Entities.Features;
+﻿using Grayscale.Kifuwaragyoku.Entities.Evaluation;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 
 namespace Grayscale.Kifuwaragyoku.UseCases.Features
 {
@@ -22,7 +23,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         float Evaluate(
             Playerside psideA,
             ISky positionA,
-            FeatureVector featureVector
+            IFeatureVector featureVector
             );
 
     }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 
 #if DEBUG || LEARN
@@ -39,7 +40,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         public static float EvaluateAll_Normal(
             Playerside psideA,
             ISky positionA,
-            FeatureVector fv
+            IFeatureVector fv
             )
         {
             float score = 0.0f;

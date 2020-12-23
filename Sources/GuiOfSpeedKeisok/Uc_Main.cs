@@ -4,8 +4,10 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.UseCases.Evaluation;
 using Grayscale.Kifuwaragyoku.UseCases.Features;
 
 #if DEBUG || LEARN
@@ -31,7 +33,7 @@ namespace Grayscale.Kifuwaragyoku.GuiOfSpeedKeisok
         }
 
         //public Sky Src_Sky { get; set; }
-        public FeatureVector FeatureVector { get; set; }
+        public IFeatureVector FeatureVector { get; set; }
 
         public Earth Earth { get; set; }
         public ISky PositionA { get; set; }

@@ -1,4 +1,5 @@
-﻿using Grayscale.Kifuwaragyoku.Entities.Features;
+﻿using Grayscale.Kifuwaragyoku.Entities.Evaluation;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 
 #if DEBUG || LEARN
 #endif
@@ -31,7 +32,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         public override float Evaluate(
             Playerside psideA,
             ISky positionA,
-            FeatureVector fv
+            IFeatureVector fv
             )
         {
             float out_score = 0.0f;            // -999～999(*bairitu) が 40×40個ほど足し合わせた数になるはず。

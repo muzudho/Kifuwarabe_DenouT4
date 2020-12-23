@@ -1,4 +1,6 @@
-﻿using Grayscale.Kifuwaragyoku.Entities.Features;
+﻿using Grayscale.Kifuwaragyoku.Entities.Evaluation;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Searching;
 
 #if DEBUG
 #endif
@@ -13,11 +15,11 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         public SennititeConfirmer SennititeConfirmer { get { return this.sennititeConfirmer; } }
         private SennititeConfirmer sennititeConfirmer;
 
-        public FeatureVector FeatureVector { get { return this.featureVector; } }
-        private FeatureVector featureVector;
+        public IFeatureVector FeatureVector { get { return this.featureVector; } }
+        private IFeatureVector featureVector;
 
-        public Shogisasi Shogisasi { get { return this.shogisasi; } }
-        private Shogisasi shogisasi;
+        public IShogisasi Shogisasi { get { return this.shogisasi; } }
+        private IShogisasi shogisasi;
 
 
         public KyokumenPngEnvironment ReportEnvironment { get { return this.reportEnvironment; } }
@@ -33,8 +35,8 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
         public EvaluationArgsImpl(
             SennititeConfirmer sennititeConfirmer,
-            FeatureVector featureVector,
-            Shogisasi shogisasi,
+            IFeatureVector featureVector,
+            IShogisasi shogisasi,
             KyokumenPngEnvironment reportEnvironment
 #if DEBUG
             ,

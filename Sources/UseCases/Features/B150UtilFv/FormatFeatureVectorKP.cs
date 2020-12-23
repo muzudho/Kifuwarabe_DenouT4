@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.UseCases.Evaluation;
 
 namespace Grayscale.Kifuwaragyoku.UseCases.Features
 {
@@ -25,7 +27,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="fv"></param>
         /// <param name="player"></param>
         /// <returns></returns>
-        public static string Format_KP(FeatureVector fv, Playerside k_pside)
+        public static string Format_KP(IFeatureVector fv, Playerside k_pside)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -187,7 +189,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// ２重の入れ子の将棋盤。
         /// </summary>
         /// <returns></returns>
-        private static string Format_NestedShogiban(FeatureVector fv, Playerside pside, Kp_P2Item kp_p2item)
+        private static string Format_NestedShogiban(IFeatureVector fv, Playerside pside, Kp_P2Item kp_p2item)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -291,7 +293,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// １重の入れ子の将棋盤。持ち駒の一覧に利用。
         /// </summary>
         /// <returns></returns>
-        private static string Format_SingleShogiban(FeatureVector fv, Playerside pside, Kp_P2Item kp_p2Item)
+        private static string Format_SingleShogiban(IFeatureVector fv, Playerside pside, Kp_P2Item kp_p2Item)
         {
             StringBuilder sb = new StringBuilder();
 

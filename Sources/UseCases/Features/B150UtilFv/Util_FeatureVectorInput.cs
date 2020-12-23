@@ -12,8 +12,10 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Windows.Forms;
+    using Grayscale.Kifuwaragyoku.Entities.Evaluation;
     using Grayscale.Kifuwaragyoku.Entities.Features;
     using Grayscale.Kifuwaragyoku.Entities.Logging;
+    using Grayscale.Kifuwaragyoku.UseCases.Evaluation;
 #endif
 
     public abstract class Util_FeatureVectorInput
@@ -24,7 +26,7 @@
         /// 駒割。
         /// </summary>
         /// <param name="filepath1"></param>
-        public static bool Make_FromFile_Komawari(FeatureVector fv, string filepath1)
+        public static bool Make_FromFile_Komawari(IFeatureVector fv, string filepath1)
         {
             bool successful = false;
 
@@ -123,7 +125,7 @@
         /// 評価値の割合を調整するもの。
         /// </summary>
         /// <param name="filepath1"></param>
-        public static bool Make_FromFile_Scale(FeatureVector fv, string filepath1)
+        public static bool Make_FromFile_Scale(IFeatureVector fv, string filepath1)
         {
             bool successful = false;
 
@@ -260,7 +262,7 @@
         /// ファイルから読み込みます。
         /// </summary>
         /// <param name="filepath1"></param>
-        public static bool Make_FromFile_KK(FeatureVector fv, string filepath1, ILogTag logTag)
+        public static bool Make_FromFile_KK(IFeatureVector fv, string filepath1, ILogTag logTag)
         {
             bool successful = false;
 
@@ -383,7 +385,7 @@
         /// <param name="filepath1"></param>
         /// <param name="kingPlayer">1 or 2</param>
         /// <returns></returns>
-        public static bool Make_FromFile_KP(FeatureVector fv, string filepath1, Playerside k_pside, ILogTag logTag)
+        public static bool Make_FromFile_KP(IFeatureVector fv, string filepath1, Playerside k_pside, ILogTag logTag)
         {
             bool successful = false;
 
@@ -638,7 +640,7 @@
         /// </summary>
         /// <param name="filepath1"></param>
         /// <returns></returns>
-        public static bool Make_FromFile_PP_Banjo(FeatureVector fv, string filepath1, int p1_base, ILogTag logTag)
+        public static bool Make_FromFile_PP_Banjo(IFeatureVector fv, string filepath1, int p1_base, ILogTag logTag)
         {
             bool successful = false;
 
@@ -888,7 +890,7 @@
         /// <param name="fv"></param>
         /// <param name="filepath1"></param>
         /// <returns></returns>
-        public static bool Make_FromFile_PP_Moti19Mai(FeatureVector fv, string filepath1, int p1_base, ILogTag logTag)
+        public static bool Make_FromFile_PP_Moti19Mai(IFeatureVector fv, string filepath1, int p1_base, ILogTag logTag)
         {
             bool successful = false;
             string filepath2 = Path.Combine(Application.StartupPath, filepath1);
@@ -1147,7 +1149,7 @@
         /// <param name="fv"></param>
         /// <param name="filepath1"></param>
         /// <returns></returns>
-        public static bool Make_FromFile_PP_Moti3or5Mai(FeatureVector fv, string filepath1, int p1_base, int p1Koumoku3or5Length, ILogTag logTag)
+        public static bool Make_FromFile_PP_Moti3or5Mai(IFeatureVector fv, string filepath1, int p1_base, int p1Koumoku3or5Length, ILogTag logTag)
         {
 
             bool successful = false;

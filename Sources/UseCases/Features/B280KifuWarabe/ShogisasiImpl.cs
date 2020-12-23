@@ -7,8 +7,10 @@
     using Grayscale.Kifuwaragyoku.UseCases;
 #else
     using System;
+    using Grayscale.Kifuwaragyoku.Entities.Evaluation;
     using Grayscale.Kifuwaragyoku.Entities.Features;
     using Grayscale.Kifuwaragyoku.Entities.Logging;
+    using Grayscale.Kifuwaragyoku.Entities.Searching;
     using Grayscale.Kifuwaragyoku.UseCases;
 #endif
 
@@ -17,21 +19,21 @@
     /// 
     /// 指し手を決めるエンジンです。
     /// </summary>
-    public class ShogisasiImpl : Shogisasi
+    public class ShogisasiImpl : IShogisasi
     {
         /// <summary>
         /// 右脳。
         /// </summary>
-        public FeatureVector FeatureVector { get; set; }
+        public IFeatureVector FeatureVector { get; set; }
 
         /// <summary>
         /// 時間管理
         /// </summary>
-        public TimeManager TimeManager { get; set; }
+        public ITimeManager TimeManager { get; set; }
 
-        public ShogisasiImpl(Playing playing)
+        public ShogisasiImpl(Playing playing, IFeatureVector fv)
         {
-            this.FeatureVector = new FeatureVectorImpl();
+            this.FeatureVector = fv; //  new FeatureVectorImpl();
             this.TimeManager = new TimeManagerImpl(playing.EngineOptions.GetOption(EngineOptionNames.THINKING_MILLI_SECOND).GetNumber());
         }
 

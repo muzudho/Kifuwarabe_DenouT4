@@ -1,13 +1,11 @@
 ﻿using System.Text;
+using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 
-#if DEBUG
-#endif
-
-namespace Grayscale.Kifuwaragyoku.UseCases.Features
+namespace Grayscale.Kifuwaragyoku.UseCases.Evaluation
 {
 
-    public class FeatureVectorImpl : FeatureVector
+    public class FeatureVectorImpl : IFeatureVector
     {
 
         /// <summary>

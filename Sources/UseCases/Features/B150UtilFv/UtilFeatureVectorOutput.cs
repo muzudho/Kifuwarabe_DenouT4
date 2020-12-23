@@ -1,6 +1,8 @@
 ﻿using System.IO;
+using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.UseCases.Evaluation;
 using Nett;
 
 namespace Grayscale.Kifuwaragyoku.UseCases.Features
@@ -21,7 +23,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             }
         }
 
-        public static void Write_Scale(FeatureVector fv, string fvDirectory)
+        public static void Write_Scale(IFeatureVector fv, string fvDirectory)
         {
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(fvDirectory, "Engine.toml"));
@@ -30,7 +32,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             File.WriteAllText(filepathW, Format_FeatureVector_Scale.Format_Text(fv));
         }
 
-        public static void Write_KK(FeatureVector fv, string fvDirectory)
+        public static void Write_KK(IFeatureVector fv, string fvDirectory)
         {
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
@@ -43,7 +45,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             //MessageBox.Show("ファイルを書き出しました。\n" + sb.ToString());
         }
 
-        public static void Write_KP(FeatureVector fv, string fvDirectory)
+        public static void Write_KP(IFeatureVector fv, string fvDirectory)
         {
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
@@ -76,7 +78,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// </summary>
         /// <param name="fv"></param>
         /// <param name="fvDirectory"></param>
-        public static void Write_PP_Banjo(FeatureVector fv, string fvDirectory)
+        public static void Write_PP_Banjo(IFeatureVector fv, string fvDirectory)
         {
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
@@ -116,7 +118,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// </summary>
         /// <param name="fv"></param>
         /// <param name="fvDirectory"></param>
-        public static void Write_PP_19Mai(FeatureVector fv, string fvDirectory)
+        public static void Write_PP_19Mai(IFeatureVector fv, string fvDirectory)
         {
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
@@ -145,7 +147,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// </summary>
         /// <param name="fv"></param>
         /// <param name="fvDirectory"></param>
-        public static void Write_PP_5Mai(FeatureVector fv, string fvDirectory)
+        public static void Write_PP_5Mai(IFeatureVector fv, string fvDirectory)
         {
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
@@ -178,7 +180,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// </summary>
         /// <param name="fv"></param>
         /// <param name="fvDirectory"></param>
-        public static void Write_PP_3Mai(FeatureVector fv, string fvDirectory)
+        public static void Write_PP_3Mai(IFeatureVector fv, string fvDirectory)
         {
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));

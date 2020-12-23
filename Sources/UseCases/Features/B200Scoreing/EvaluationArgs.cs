@@ -1,7 +1,9 @@
 ﻿#if DEBUG
 using Grayscale.Kifuwaragyoku.Entities.Features;
 #else
+using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Searching;
 #endif
 
 namespace Grayscale.Kifuwaragyoku.UseCases.Features
@@ -16,9 +18,9 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <summary>
         /// フィーチャー・ベクター。
         /// </summary>
-        FeatureVector FeatureVector { get; }
+        IFeatureVector FeatureVector { get; }
 
-        Shogisasi Shogisasi { get; }
+        IShogisasi Shogisasi { get; }
 
         KyokumenPngEnvironment ReportEnvironment { get; }
 

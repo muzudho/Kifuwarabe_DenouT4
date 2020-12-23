@@ -88,6 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Evaluation\IFeatureVector.cs" />
     <Compile Include="Features\A000Platform\B011Csv\CsvLineParserImpl.cs" />
     <Compile Include="Features\A000Platform\B011Csv\Util_Csv.cs" />
     <Compile Include="Features\A000Platform\B021Random\KwRandom.cs" />
@@ -326,6 +327,8 @@
     <Compile Include="Searching\CurrentSearchImpl.cs" />
     <Compile Include="Searching\ICurrentSearch.cs" />
     <Compile Include="Searching\ISearchArgs.cs" />
+    <Compile Include="Searching\IShogisasi.cs" />
+    <Compile Include="Searching\ITimeManager.cs" />
     <Compile Include="Searching\SearchArgsImpl.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

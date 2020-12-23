@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.Kifuwaragyoku.UseCases;
+using Grayscale.Kifuwaragyoku.UseCases.Evaluation;
 using Grayscale.Kifuwaragyoku.UseCases.Features;
 using Nett;
 
@@ -48,7 +49,8 @@ namespace Grayscale.Kifuwaragyoku.Engine
                 // 思考エンジンの、記憶を読み取ります。
                 //------------------------------------------------------------------------------------------------------------------------
                 {
-                    playing.Shogisasi = new ShogisasiImpl(playing);
+                    var fv = new FeatureVectorImpl();
+                    playing.Shogisasi = new ShogisasiImpl(playing, fv);
                     Util_FvLoad.OpenFv(
                         playing.Shogisasi.FeatureVector,
                         Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv00Komawari)), LogTags.ProcessEngineDefault);

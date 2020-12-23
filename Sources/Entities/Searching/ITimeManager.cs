@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 
-namespace Grayscale.Kifuwaragyoku.UseCases.Features
+namespace Grayscale.Kifuwaragyoku.Entities.Searching
 {
-    public interface TimeManager
+    public interface ITimeManager
     {
         /// <summary>
         /// 思考時間。

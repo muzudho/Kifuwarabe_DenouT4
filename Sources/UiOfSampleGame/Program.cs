@@ -1,7 +1,9 @@
 ﻿using System;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Searching;
 using Grayscale.Kifuwaragyoku.UseCases;
+using Grayscale.Kifuwaragyoku.UseCases.Evaluation;
 using Grayscale.Kifuwaragyoku.UseCases.Features;
 
 namespace Grayscale.Kifuwaragyoku.CliOfSampleGame
@@ -14,13 +16,12 @@ namespace Grayscale.Kifuwaragyoku.CliOfSampleGame
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            ILogTag logTag = LogTags.ProcessEngineDefault;
-
             // 将棋エンジン　きふわらべ
             Playing playing = new Playing();
 
             // 将棋指しオブジェクト
-            Shogisasi shogisasi = new ShogisasiImpl(playing);
+            var fv = new FeatureVectorImpl();
+            IShogisasi shogisasi = new ShogisasiImpl(playing, fv);
 
             // 棋譜
             Earth earth1 = new EarthImpl();
@@ -40,8 +41,7 @@ namespace Grayscale.Kifuwaragyoku.CliOfSampleGame
                 kifu1,// ツリーを伸ばしているぜ☆（＾～＾）
                 positionA.GetKaisiPside(),
                 positionA,
-
-                logTag);
+                LogTags.Default);
 
             Move move = bestmoveNode.Move;
             string sfenText = ConvMove.ToSfen(move);

@@ -1,4 +1,6 @@
-﻿using Grayscale.Kifuwaragyoku.Entities.Features;
+﻿using Grayscale.Kifuwaragyoku.Entities.Evaluation;
+using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.UseCases.Evaluation;
 
 namespace Grayscale.Kifuwaragyoku.UseCases.Features
 {
@@ -11,7 +13,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// 増減の確認用。
         /// </summary>
         /// <returns></returns>
-        public static float GetTotal_PP(FeatureVector fv)
+        public static float GetTotal_PP(IFeatureVector fv)
         {
             float result = 0.0f;
 
@@ -33,7 +35,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// 旧型。
         /// 適当に数字を埋めます☆
         /// </summary>
-        public static void Make_Random(FeatureVector fv)
+        public static void Make_Random(IFeatureVector fv)
         {
             //
             // 駒割は固定。

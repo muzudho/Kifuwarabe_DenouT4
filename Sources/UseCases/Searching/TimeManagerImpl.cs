@@ -1,11 +1,12 @@
 ﻿using System.Diagnostics;
+using Grayscale.Kifuwaragyoku.Entities.Searching;
 
 namespace Grayscale.Kifuwaragyoku.UseCases.Features
 {
     /// <summary>
     /// 時間管理。
     /// </summary>
-    public class TimeManagerImpl : TimeManager
+    public class TimeManagerImpl : ITimeManager
     {
         public TimeManagerImpl(long thinkableMilliSeconds)
         {

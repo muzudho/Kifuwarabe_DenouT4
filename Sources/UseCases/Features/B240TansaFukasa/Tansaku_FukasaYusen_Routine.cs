@@ -304,7 +304,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             int wideCount2,
             int movelist_count,
             ICurrentSearch genjo,
-            TimeManager timeManager
+            ITimeManager timeManager
             )
         {
             return

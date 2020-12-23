@@ -1,7 +1,7 @@
 ﻿
-namespace Grayscale.Kifuwaragyoku.UseCases.Features
+namespace Grayscale.Kifuwaragyoku.Entities.Evaluation
 {
-    public interface FeatureVector
+    public interface IFeatureVector
     {
         /// <summary>
         /// 駒割の価値。

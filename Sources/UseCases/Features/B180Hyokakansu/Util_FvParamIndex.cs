@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.UseCases.Evaluation;
 
 
 

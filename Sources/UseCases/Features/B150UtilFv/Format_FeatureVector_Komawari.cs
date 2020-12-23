@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 
 
@@ -13,7 +14,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// </summary>
         /// <param name="fv"></param>
         /// <returns></returns>
-        public static string Format_Text(FeatureVector fv)
+        public static string Format_Text(IFeatureVector fv)
         {
             StringBuilder sb = new StringBuilder();
 
