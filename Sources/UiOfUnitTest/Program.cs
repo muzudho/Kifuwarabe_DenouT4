@@ -12,7 +12,7 @@ namespace Grayscale.Kifuwaragyoku.CliOfUnitTest
         {
             ILogTag logTag = LogTags.ProcessUnitTestDefault;
 
-            Logger.Flush(logTag, LogTypes.Plain, "テストＡ");
+            Logger.Trace("テストＡ");
             MachineImpl.GetInstance().ReadKey();
 
 
@@ -22,7 +22,7 @@ namespace Grayscale.Kifuwaragyoku.CliOfUnitTest
 
             // 盤面をログ出力したいぜ☆
             var boardLog = Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(psideA_init, positionA, logTag));
-            Logger.Flush(logTag, LogTypes.Plain, $"初期局面\n{boardLog}");
+            Logger.Trace($"初期局面\n{boardLog}");
             MachineImpl.GetInstance().ReadKey();
 
 
@@ -36,7 +36,7 @@ namespace Grayscale.Kifuwaragyoku.CliOfUnitTest
             //────────────────────────────────────────
             // 分解しながら、局面を進めるぜ☆（＾▽＾）
             //────────────────────────────────────────
-            Logger.Flush(logTag, LogTypes.Plain, $"commandLine={commandLine}");
+            Logger.Trace($"commandLine={commandLine}");
 
             List<Move> pv = new List<Move>();
             pv.Add(Move.Empty);// 「同」（※同歩など）を調べるために１つ前を見にくるので、空を入れておく。
@@ -66,11 +66,11 @@ namespace Grayscale.Kifuwaragyoku.CliOfUnitTest
                             ConvMove.ToPlayerside(moveB),
                             positionA, logTag)
                             , positionA, moveB);
-                        Logger.Flush(logTag, LogTypes.Plain, $"sfen=[{ConvMove.ToSfen(moveB)}] captured=[{Conv_Komasyurui.ToStr_Ichimoji(ConvMove.ToCaptured(moveB))}]\n{boardLog4}");
+                        Logger.Trace($"sfen=[{ConvMove.ToSfen(moveB)}] captured=[{Conv_Komasyurui.ToStr_Ichimoji(ConvMove.ToCaptured(moveB))}]\n{boardLog4}");
 
                         while (true)
                         {
-                            Logger.Flush(logTag, LogTypes.Plain, "[n]next [d]debug");
+                            Logger.Trace("[n]next [d]debug");
                             char key = MachineImpl.GetInstance().ReadKey();
                             switch (key)
                             {
@@ -83,7 +83,7 @@ namespace Grayscale.Kifuwaragyoku.CliOfUnitTest
                         ;
                     }
                     pv.Add(moveB);
-                    Logger.Flush(logTag, LogTypes.Plain, $"commandLine={commandLine}");
+                    Logger.Trace($"commandLine={commandLine}");
                 }
             }
 
@@ -98,7 +98,7 @@ namespace Grayscale.Kifuwaragyoku.CliOfUnitTest
                     buf7.AppendLine($"[{i}]{ConvMove.ToLog(move)}");
                     i++;
                 }
-                Logger.Flush(logTag, LogTypes.Plain, buf7.ToString());
+                Logger.Trace(buf7.ToString());
             }
 
             //────────────────────────────────────────
@@ -125,11 +125,11 @@ namespace Grayscale.Kifuwaragyoku.CliOfUnitTest
                     var boardLog8 = Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(
                         ConvMove.ToPlayerside(move1),
                         positionA, logTag));
-                    Logger.Flush(logTag, LogTypes.Plain, $"back sfen=[{ConvMove.ToSfen(move1)}] captured=[{Conv_Komasyurui.ToStr_Ichimoji(ConvMove.ToCaptured(move1))}]\n{boardLog8}");
+                    Logger.Trace($"back sfen=[{ConvMove.ToSfen(move1)}] captured=[{Conv_Komasyurui.ToStr_Ichimoji(ConvMove.ToCaptured(move1))}]\n{boardLog8}");
 
                     while (true)
                     {
-                        Logger.Flush(logTag, LogTypes.Plain, "[b]back [d]debug");
+                        Logger.Trace("[b]back [d]debug");
                         char key = MachineImpl.GetInstance().ReadKey();
                         switch (key)
                         {

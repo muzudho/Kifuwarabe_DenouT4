@@ -20,7 +20,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             //*
             if (log)
             {
-                Logger.Flush(logTag, LogTypes.Plain, $"進める前 {hint}\n{Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logTag), positionA, move)}");
+                Logger.Trace($"進める前 {hint}\n{Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logTag), positionA, move)}");
             }
             //*/
 
@@ -51,7 +51,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
                 if (log)
                 {
-                    Logger.Flush(logTag, LogTypes.Plain, $"進めた後 {hint}\n{Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logTag), positionA, move)}");
+                    Logger.Trace($"進めた後 {hint}\n{Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logTag), positionA, move)}");
                 }
             }
 

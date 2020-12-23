@@ -622,7 +622,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases
                 var boardLog = Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(
                     ConvMove.ToPlayerside(curNode1.Move),
                     positionA, LogTags.ProcessEngineDefault));
-                Logger.Flush(LogTags.ProcessEngineDefault, LogTypes.Plain, $"サーバーから受信した局面☆（＾▽＾）\n{boardLog}");
+                Logger.Trace($"サーバーから受信した局面☆（＾▽＾）\n{boardLog}");
             }
 
             //errH2.Logger.WriteLine_AddMemo("将棋サーバー「" + latestTemezumi + "手目、きふわらべ　さんの手番ですよ！」　" + line);

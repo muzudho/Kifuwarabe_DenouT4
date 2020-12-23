@@ -69,7 +69,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             {
                 //#if DEBUG
                 //　：　局面の指定のようなんだぜ☆　対応していない☆？
-                Logger.Flush(logTag, LogTypes.Error, $"（＾△＾）ここはスルーして次に状態遷移するんだぜ☆\n「{genjo.InputLine}」vs【{this.GetType().Name}】");
+                Logger.Error($"（＾△＾）ここはスルーして次に状態遷移するんだぜ☆\n「{genjo.InputLine}」vs【{this.GetType().Name}】");
                 //logTag.AppendLine_Error("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　局面の指定のようなんだぜ☆　対応していない☆？");
                 //#endif
                 nextState = KifuParserAStateA1bSfenLnsgkgsnl.GetInstance();

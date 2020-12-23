@@ -1,7 +1,6 @@
 ﻿namespace Grayscale.Kifuwaragyoku.Entities.Logging
 {
     using System;
-    using System.Collections.Generic;
     using System.Diagnostics;
     using System.IO;
     using System.Text;
@@ -12,16 +11,6 @@
     {
         private static readonly Guid unique = Guid.NewGuid();
         public static Guid Unique { get { return unique; } }
-
-        /// <summary>
-        /// あとで消す☆（＾～＾）
-        /// </summary>
-        /// <param name="message"></param>
-        [Conditional("DEBUG")]
-        public static void Trace(string message)
-        {
-            Console.WriteLine(message);
-        }
 
         static Logger()
         {
@@ -37,6 +26,7 @@
             ErrorRecord = LogEntry(logDirectory, toml, SpecifiedFiles.Error, true, true, false, null);
             FatalRecord = LogEntry(logDirectory, toml, SpecifiedFiles.Fatal, true, true, false, null);
 
+            /*
             var logFile = LogFile.AsLog(logDirectory, $"default_({System.Diagnostics.Process.GetCurrentProcess()}).log");
             AddLog(LogTags.Default, new LogRecord(logFile, false, false, false, null));
 
@@ -73,6 +63,7 @@
             AddLog(LogTags.ProcessSpeedTestKeisoku, LogEntry(logDirectory, toml, SpecifiedFiles.N16ProcessSpeedTestKeisokuLog, true, false, false, null));
             // その他のログ。ユニット・テスト用。
             AddLog(LogTags.ProcessUnitTestDefault, LogEntry(logDirectory, toml, SpecifiedFiles.N17ProcessUnitTestDefaultLog, true, false, true, new ErrorControllerImpl()));
+            */
         }
 
         static ILogRecord LogEntry(string logDirectory, TomlTable toml, string resourceKey, bool enabled, bool timeStampPrintable, bool enableConsole, IErrorController kwDisplayer_OrNull)
@@ -250,40 +241,6 @@
         }
 
         /// <summary>
-        /// アドレスの登録。ログ・ファイルのリムーブに使用。
-        /// </summary>
-        public static Dictionary<ILogTag, ILogRecord> LogMap
-        {
-            get
-            {
-                if (Logger.logMap == null)
-                {
-                    Logger.logMap = new Dictionary<ILogTag, ILogRecord>();
-                }
-                return Logger.logMap;
-            }
-        }
-        private static Dictionary<ILogTag, ILogRecord> logMap;
-
-        public static void AddLog(ILogTag key, ILogRecord value)
-        {
-            Logger.LogMap.Add(key, value);
-        }
-
-        public static ILogRecord GetRecord(ILogTag logTag)
-        {
-            try
-            {
-                return LogMap[logTag];
-            }
-            catch (Exception ex)
-            {
-                Logger.Trace($"エラー: GetRecord(). [{logTag.Name}] {ex.Message}");
-                throw;
-            }
-        }
-
-        /// <summary>
         /// ログファイルを削除します。(連番がなければ)
         /// 
         /// FIXME: アプリ起動後、ログが少し取られ始めたあとに削除が開始されることがあります。
@@ -308,70 +265,10 @@
             }
         }
 
-        /// <summary>
-        /// テキストを、ログ・ファイルの末尾に追記します。
-        /// </summary>
-        /// <param name="logTypes"></param>
-        public static void Flush(ILogTag logTag, LogTypes logTypes, string message)
-        {
-            var record = GetRecord(logTag);
-
-            if (!record.Enabled)
-            {
-                // ログ出力オフ
-                return;
-            }
-
-            try
-            {
-                StringBuilder sb = new StringBuilder();
-
-                // タイムスタンプ
-                if (record.TimeStampPrintable)
-                {
-                    sb.Append(DateTime.Now.ToString());
-                    sb.Append(" ");
-                }
-
-                switch (logTypes)
-                {
-                    case LogTypes.Plain:
-                        break;
-                    case LogTypes.Error://エラーを、ログ・ファイルに記録します。
-                        sb.Append("Error:");
-                        break;
-                    case LogTypes.ToServer:
-                        sb.Append("<     ");
-                        break;
-                    case LogTypes.ToClient:
-                        sb.Append(">     ");
-                        break;
-                }
-
-                if (logTypes == LogTypes.Error)
-                {
-                    MessageBox.Show(message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                string filepath2 = Path.Combine(Application.StartupPath, record.LogFile.Name);
-                System.IO.File.AppendAllText(filepath2, message);
-
-                if (record.EnableConsole)
-                {
-                    System.Console.Write(message);
-                }
-            }
-            catch (Exception)
-            {
-                // 循環参照になるので、ログを取れません。
-                // ログ出力に失敗しても、続行します。
-            }
-        }
-
         public static void ShowDialog(ILogTag logTag, string message)
         {
             MessageBox.Show(message);
-            Logger.Flush(logTag, LogTypes.Plain, message);
+            Logger.Trace(message);
             // ログ出力に失敗することがありますが、無視します。
         }
     }

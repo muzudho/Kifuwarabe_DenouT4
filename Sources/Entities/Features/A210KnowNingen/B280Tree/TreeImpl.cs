@@ -42,7 +42,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 index++;
             }
             buf.AppendLine("└──────────┘");
-            Logger.Flush(logTag, LogTypes.Plain, buf.ToString());
+            Logger.Trace(buf.ToString());
 
             //this.LogPvList(this, logger);
         }
