@@ -25,7 +25,8 @@
 
         static ILogRecord LogEntry(string profilePath, TomlTable toml, string resourceKey, bool enabled, bool timeStampPrintable, bool enableConsole, IErrorController kwDisplayer_OrNull)
         {
-            return new LogRecord(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(resourceKey)), enabled, timeStampPrintable, enableConsole, kwDisplayer_OrNull);
+            var basename = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(resourceKey));
+            return new LogRecord($"{basename}.log", 0, enabled, timeStampPrintable, enableConsole, kwDisplayer_OrNull);
         }
 
         static Logger()
@@ -33,7 +34,8 @@
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
 
-            AddLog(LogTags.Default, new LogRecord(Path.Combine(profilePath, $"default_({System.Diagnostics.Process.GetCurrentProcess()})"), false, false, false, null));
+            var basename = Path.Combine(profilePath, $"default_({System.Diagnostics.Process.GetCurrentProcess()})");
+            AddLog(LogTags.Default, new LogRecord($"{basename}.log", 0, false, false, false, null));
 
             // ログを出せなかったときなど、致命的なエラーにも利用。
             AddLog(LogTags.ProcessNoneError, LogEntry(profilePath, toml, "N01ProcessNoneErrorLog", true, false, false, null));
@@ -174,7 +176,7 @@
                     MessageBox.Show(message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                string filepath2 = Path.Combine(Application.StartupPath, record.FileName);
+                string filepath2 = Path.Combine(Application.StartupPath, record.Basename);
                 System.IO.File.AppendAllText(filepath2, message);
 
                 if (record.EnableConsole)

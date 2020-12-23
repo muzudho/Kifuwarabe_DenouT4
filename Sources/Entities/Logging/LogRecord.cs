@@ -8,18 +8,7 @@
         /// <summary>
         /// ファイル名。
         /// </summary>
-        public string FileName { get { return $"{this.FileStem}{this.Extension}"; } }
-
-        /// <summary>
-        /// 拡張子抜きのファイル名。
-        /// </summary>
-        public string FileStem { get; private set; }
-
-        /// <summary>
-        /// ドット付きの拡張子。
-        /// 拡張子は .log 固定。ファイル削除の目印にします。
-        /// </summary>
-        public string Extension { get { return ".log"; } }
+        public string Basename { get; set; }
 
         /// <summary>
         /// ログ出力の有無。
@@ -39,9 +28,9 @@
 
         public IErrorController KwDisplayerOrNull { get; set; }
 
-        public LogRecord(string fileStem, bool enabled, bool timeStampPrintable, bool enableConsole, IErrorController kwDisplayer_OrNull)
+        public LogRecord(string basename, int n, bool enabled, bool timeStampPrintable, bool enableConsole, IErrorController kwDisplayer_OrNull)
         {
-            this.FileStem = fileStem;
+            this.Basename = basename;
             this.enabled = enabled;
             this.TimeStampPrintable = timeStampPrintable;
             this.EnableConsole = enableConsole;
@@ -64,7 +53,7 @@
             }
 
             // Return true if the fields match:
-            return ($"{this.FileStem}{this.Extension}" == $"{p.FileStem}{p.Extension}");
+            return ($"{this.Basename}" == $"{p.Basename}");
         }
 
         public override int GetHashCode()

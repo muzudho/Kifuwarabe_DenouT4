@@ -8,17 +8,7 @@
         /// <summary>
         /// ファイル名。
         /// </summary>
-        string FileName { get; }
-
-        /// <summary>
-        /// 拡張子を除くファイル名。
-        /// </summary>
-        string FileStem { get; }
-
-        /// <summary>
-        /// ドットを含む拡張子。
-        /// </summary>
-        string Extension { get; }
+        string Basename { get; set; }
 
         /// <summary>
         /// ログ出力の有無。
