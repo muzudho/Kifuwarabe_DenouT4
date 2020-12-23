@@ -91,8 +91,9 @@
             //{
             // noopを投げてなくても、毎回ストップウォッチはリスタートさせます。
             //#if DEBUG
-            Logger.AppendLine(logTag, "サーバーから応答[" + command + "]があったのでタイマーをリスタートさせるぜ☆");
-            Logger.Flush(logTag, LogTypes.ToClient);
+            var buf = Logger.FlushBuf();
+            buf.AppendLine($"サーバーから応答[{command}]があったのでタイマーをリスタートさせるぜ☆");
+            Logger.Flush(logTag, LogTypes.ToClient, buf);
             //#endif
             this.noopPhase = NoopPhase.None;
             this.sw_forNoop.Restart();

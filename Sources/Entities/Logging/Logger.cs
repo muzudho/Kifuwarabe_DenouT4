@@ -131,31 +131,6 @@
         }
 
         /// <summary>
-        /// ログを蓄えます。改行なし。
-        /// </summary>
-        /// <param name="token"></param>
-        public static void Append(ILogTag logTag, string token)
-        {
-            var record = GetRecord(logTag);
-
-            if (!record.Enabled)
-            {
-                // ログ出力オフ
-                return;
-            }
-
-            // ログ追記 TODO:非同期
-            try
-            {
-                Logger.m_buffer_.AppendLine(token);
-            }
-            catch (Exception)
-            {
-                // 循環参照になるので、ログを取れません。
-                // ログ出力に失敗しても、続行します。
-            }
-        }
-        /// <summary>
         /// ログを蓄えます。改行付き。
         /// </summary>
         /// <param name="line"></param>
@@ -181,17 +156,25 @@
             }
         }
 
+        public static StringBuilder FlushBuf()
+        {
+            var buf = Logger.m_buffer_;
+            Logger.m_buffer_.Clear();
+            return buf;
+        }
+
         /// <summary>
         /// テキストを、ログ・ファイルの末尾に追記します。
         /// </summary>
         /// <param name="logTypes"></param>
-        public static void Flush(ILogTag logTag, LogTypes logTypes)
+        public static void Flush(ILogTag logTag, LogTypes logTypes, StringBuilder buf2)
         {
             var record = GetRecord(logTag);
 
             if (!record.Enabled)
             {
                 // ログ出力オフ
+                Logger.m_buffer_ = buf2;
                 return;
             }
 
@@ -221,9 +204,7 @@
                         break;
                 }
 
-                sb.Append(Logger.m_buffer_.ToString());
-                string message = sb.ToString();
-                Logger.m_buffer_.Clear();
+                var message = buf2.ToString();
 
                 if (logTypes == LogTypes.Error)
                 {
@@ -247,9 +228,10 @@
 
         public static void ShowDialog(ILogTag logTag, string message)
         {
-            Logger.AppendLine(logTag, message);
-            MessageBox.Show(message);
-            Logger.Flush(logTag, LogTypes.Plain);
+            var buf = Logger.FlushBuf();
+            buf.AppendLine(message);
+            MessageBox.Show(buf.ToString());
+            Logger.Flush(logTag, LogTypes.Plain, buf);
             // ログ出力に失敗することがありますが、無視します。
         }
     }

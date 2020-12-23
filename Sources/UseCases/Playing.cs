@@ -619,11 +619,12 @@ namespace Grayscale.Kifuwaragyoku.UseCases
             bool test = true;
             if (test)
             {
-                Logger.AppendLine(LogTags.ProcessEngineDefault, "サーバーから受信した局面☆（＾▽＾）");
-                Logger.AppendLine(LogTags.ProcessEngineDefault, Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(
+                var buf = Logger.FlushBuf();
+                var boardLog = Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(
                     ConvMove.ToPlayerside(curNode1.Move),
-                    positionA, LogTags.ProcessEngineDefault)));
-                Logger.Flush(LogTags.ProcessEngineDefault, LogTypes.Plain);
+                    positionA, LogTags.ProcessEngineDefault));
+                buf.AppendLine($"サーバーから受信した局面☆（＾▽＾）\n{boardLog}");
+                Logger.Flush(LogTags.ProcessEngineDefault, LogTypes.Plain, buf);
             }
 
             //errH2.Logger.WriteLine_AddMemo("将棋サーバー「" + latestTemezumi + "手目、きふわらべ　さんの手番ですよ！」　" + line);

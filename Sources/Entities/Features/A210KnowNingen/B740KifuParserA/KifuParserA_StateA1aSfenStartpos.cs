@@ -60,19 +60,16 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             }
             else if ("" == genjo.InputLine)
             {
+                // TODO: コンピューターが先手のとき、ここにくる？
                 // FIXME: コンピューターが先手のとき、ここにくる？
 
                 // 異常時。
-                Logger.AppendLine(logTag, "＼（＾ｏ＾）／「" + genjo.InputLine + "」入力がない1☆！　終わるぜ☆");
-                Logger.Flush(logTag, LogTypes.Error);
-                genjo.ToBreak_Abnormal();
+                throw new Exception($"＼（＾ｏ＾）／「{genjo.InputLine}」入力がない1☆！　終わるぜ☆");
             }
             else
             {
                 // 異常時。
-                Logger.AppendLine(logTag, "＼（＾ｏ＾）／「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　movesがない☆！　終わるぜ☆");
-                Logger.Flush(logTag, LogTypes.Error);
-                genjo.ToBreak_Abnormal();
+                throw new Exception($"＼（＾ｏ＾）／「{genjo.InputLine}」vs【{this.GetType().Name}】　：　movesがない☆！　終わるぜ☆");
             }
 
             return genjo.InputLine;

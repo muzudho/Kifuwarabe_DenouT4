@@ -96,7 +96,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 }
             }
 
-        gt_EndMethod:
+        // gt_EndMethod:
             return nextMove;
         }
     }

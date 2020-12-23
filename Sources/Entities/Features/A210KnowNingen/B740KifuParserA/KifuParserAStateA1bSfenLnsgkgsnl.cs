@@ -47,8 +47,9 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             out_moveNodeType = MoveNodeType.None;
             nextState = this;
 
-            Logger.AppendLine(logTag, "（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　さて、どんな内容なんだぜ☆？");
-            Logger.Flush(logTag, LogTypes.Error);
+            var buf1 = Logger.FlushBuf();
+            buf1.AppendLine($"（＾△＾）「{genjo.InputLine}」vs【{this.GetType().Name}】　：　さて、どんな内容なんだぜ☆？");
+            Logger.Flush(logTag, LogTypes.Error, buf1);
 
             StartposImporter startposImporter1;
             string restText;
@@ -59,8 +60,10 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 out restText
                 );
             genjo.StartposImporter_OrNull = startposImporter1;
-            Logger.AppendLine(logTag, "（＾△＾）restText=「" + restText + "」 successful=【" + successful + "】");
-            Logger.Flush(logTag, LogTypes.Error);
+
+            var buf2 = Logger.FlushBuf();
+            buf2.AppendLine($"（＾△＾）restText=「{restText}」 successful=【{successful}】");
+            Logger.Flush(logTag, LogTypes.Error, buf2);
 
             if (successful)
             {

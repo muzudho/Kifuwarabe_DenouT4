@@ -158,9 +158,9 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 //>>>>> エラーが起こりました。
 
                 // どうにもできないので  ログだけ取って無視します。
-                string message = "Util_IttesasuRoutine#Execute（B）： exceptionArea=" + exceptionArea + "\n" + ex.GetType().Name + "：" + ex.Message;
-                Logger.AppendLine(logTag, message);
-                Logger.Flush(logTag, LogTypes.Error);
+                var buf = Logger.FlushBuf();
+                buf.AppendLine($"Util_IttesasuRoutine#Execute（B）： exceptionArea={exceptionArea}\n{ex.GetType().Name}：{ex.Message}");
+                Logger.Flush(logTag, LogTypes.Error, buf);
                 throw;
             }
 
