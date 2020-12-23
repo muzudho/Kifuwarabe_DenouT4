@@ -1,7 +1,12 @@
+# Kifuwaragyoku Data
+
+## data_settei.xml
+
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <kifunarabe setteiFileVer="1.00.0">
   <!--v(^-^)vｲｪｰｲ☆ 『将棋ＧＵＩ きふならべ』の設定ファイルなんだぜ☆！ 今は一番上に書いてある ＜shogiEngine＞ を見に行くぜ☆-->
-
+  <shogiEngine name="きふわらべ"              file="E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A500_ShogiEngine\Grayscale.A500_ShogiEngine.exe" />
 
   <!--
     ボナと戦うときは、ボナンザのファイルを Xenon.KifuNarabe.exe と同階層にぶちまけて u2b.exe を叩くんだぜ☆
@@ -9,8 +14,7 @@
     
     わたしのＧＵＩでは動かない将棋エンジンもいくつかあるな☆
   -->
-  
-  <shogiEngine name="きふわらべ"              file="E:\Muzudho\Shogi\Kifuwarabe_CSharp\CSharp\Engine01_Binaries\A500_ShogiEngine\Grayscale.A500_ShogiEngine.exe" />
+
   <!--
   <shogiEngine name="きふわらべリリース版"    file="Grayscale.KifuWarabe.exe" />
 
@@ -30,5 +34,5 @@
 
   <shogiEngine name="MiyakoShogiSystem"       file="C:\Users\Takahashi\Documents\tool\VS_MiyakoShogiSystem\engine\mss_usi.exe" />
   -->
-
 </kifunarabe>
+```

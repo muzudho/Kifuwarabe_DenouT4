@@ -104,7 +104,6 @@
     <Compile Include="Logging\LogTags.cs" />
     <Compile Include="Logging\LogTypes.cs" />
     <Compile Include="Features\A060Application\B210Tushin\Util_Message.cs" />
-    <Compile Include="Features\A060Application\B310_Settei_____\SetteiXmlFile.cs" />
     <Compile Include="Features\A060Application\B410Collection\Couple.cs" />
     <Compile Include="Features\A060Application\B410Collection\List_OneAndMulti.cs" />
     <Compile Include="Features\A060Application\B410Collection\Maps_OneAndMulti.cs" />

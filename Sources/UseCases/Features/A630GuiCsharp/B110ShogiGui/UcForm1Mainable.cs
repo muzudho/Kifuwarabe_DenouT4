@@ -14,7 +14,5 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             Form1_Mutex mutex, MainGui_Csharp mainGui, ILogTag logTag);
 
         MainGui_Csharp MainGui { get; }
-
-        SetteiXmlFile SetteiXmlFile { get; }
     }
 }

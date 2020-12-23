@@ -103,13 +103,6 @@
     <Compile Include="Features\A450Server\B110Server\Server.cs" />
     <Compile Include="Features\A450Server\B110Server\Server_Impl.cs" />
     <Compile Include="Features\A450Server\B110Server\Util_Functions_Server.cs" />
-    <Compile Include="Features\A480ServerAims\B110AimsServer\Receiver_ForAimsImpl.cs" />
-    <Compile Include="Features\A480ServerAims\B110AimsServer\PhaseResult_AimsServer.cs" />
-    <Compile Include="Features\A480ServerAims\B110AimsServer\AimsServerBase.cs" />
-    <Compile Include="Features\A480ServerAims\B110AimsServer\Phase_AimsServer.cs" />
-    <Compile Include="Features\A480ServerAims\B110AimsServer\AimsServerImpl.cs" />
-    <Compile Include="Features\A480ServerAims\B110AimsServer\Receiver_ForAims.cs" />
-    <Compile Include="Features\A480ServerAims\ProgramOfAims.cs" />
     <Compile Include="Features\A630GuiCsharp\B110ShogiGui\AspectOriented_TextBox.cs" />
     <Compile Include="Features\A630GuiCsharp\B110ShogiGui\Conv_Koma_InGui.cs" />
     <Compile Include="Features\A630GuiCsharp\B110ShogiGui\Event_CsharpImpl.cs" />
@@ -230,7 +223,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\A450Server\B100_／／将棋サーバー\" />
-    <Folder Include="Features\A480ServerAims\B100_／／AIMSサーバー\" />
     <Folder Include="Features\A630GuiCsharp\B100_／／将棋ＧＵＩ\" />
     <Folder Include="Features\B110_／／↓心\" />
     <Folder Include="Features\B120_／／↓右脳（二駒関係）\" />
