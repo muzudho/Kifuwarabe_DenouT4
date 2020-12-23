@@ -128,3 +128,11 @@ N16ProcessSpeedTestKeisokuLog = "#スピード計測ソフト用.log"
 N17ProcessUnitTestDefaultLog = "#ユニットテスト用.log"
 
 KyouseiTenseiDebug = "#強制転成デバッグ.log"
+
+Trace = "Trace.log"
+Debug = "Debug.log"
+Info = "Info.log"
+Notice = "Notice.log"
+Warn = "Warn.log"
+Error = "Error.log"
+Fatal = "Fatal.log"
