@@ -3,7 +3,6 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Nett;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 

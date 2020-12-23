@@ -1,12 +1,8 @@
 ﻿// アルファ法のデバッグ出力をする場合。
 //#define DEBUG_ALPHA_METHOD
 
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
 using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.Kifuwaragyoku.Entities.Searching;
 
 #if DEBUG

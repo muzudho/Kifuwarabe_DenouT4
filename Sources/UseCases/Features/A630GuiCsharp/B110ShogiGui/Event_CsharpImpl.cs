@@ -1,5 +1,4 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.UseCases.Features
@@ -62,7 +61,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     object obj_shogiGui2
                     , object userWidget2 // UerWidget
                     , object btnKoma_Selected2
-                    
+
                     ) =>
                 {
                     Shape_BtnKoma btnKoma_Selected = (Shape_BtnKoma)btnKoma_Selected2;

@@ -1,9 +1,9 @@
 ﻿using System;
+using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.Kifuwaragyoku.Entities.Searching;
 using Grayscale.Kifuwaragyoku.UseCases;
-using Grayscale.Kifuwaragyoku.UseCases.Evaluation;
 using Grayscale.Kifuwaragyoku.UseCases.Features;
 
 namespace Grayscale.Kifuwaragyoku.CliOfSampleGame

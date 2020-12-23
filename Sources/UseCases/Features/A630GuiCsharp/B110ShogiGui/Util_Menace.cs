@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.UseCases.Features

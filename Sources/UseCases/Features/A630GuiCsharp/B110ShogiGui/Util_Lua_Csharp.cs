@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Nett;
 using NLua;
 

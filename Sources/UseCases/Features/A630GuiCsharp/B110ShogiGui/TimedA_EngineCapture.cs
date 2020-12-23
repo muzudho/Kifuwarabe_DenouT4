@@ -1,6 +1,4 @@
-﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
-
-#if DEBUG
+﻿#if DEBUG
 // using Grayscale.Kifuwaragyoku.Entities.Logging;
 #endif
 

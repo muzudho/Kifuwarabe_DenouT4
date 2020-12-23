@@ -14,8 +14,6 @@
     using System.Windows.Forms;
     using Grayscale.Kifuwaragyoku.Entities.Evaluation;
     using Grayscale.Kifuwaragyoku.Entities.Features;
-    using Grayscale.Kifuwaragyoku.Entities.Logging;
-    using Grayscale.Kifuwaragyoku.UseCases.Evaluation;
 #endif
 
     public abstract class Util_FeatureVectorInput

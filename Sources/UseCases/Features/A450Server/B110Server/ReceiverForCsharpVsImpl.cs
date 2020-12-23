@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using Grayscale.Kifuwaragyoku.Entities.Logging;
 
 #if DEBUG
 #endif

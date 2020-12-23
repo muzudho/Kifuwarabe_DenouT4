@@ -1,6 +1,6 @@
 ﻿using System;
+using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.UseCases.Evaluation;
 
 namespace Grayscale.Kifuwaragyoku.UseCases.Features
 {

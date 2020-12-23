@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
-using Grayscale.Kifuwaragyoku.Entities.Logging;
 
 namespace Grayscale.Kifuwaragyoku.UseCases.Features
 {

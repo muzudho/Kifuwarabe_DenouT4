@@ -1,6 +1,5 @@
 ﻿using System;
 using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Logging;
 // using Grayscale.Kifuwaragyoku.Entities.Features;
 
 #if DEBUG || LEARN

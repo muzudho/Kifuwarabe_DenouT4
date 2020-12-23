@@ -6,8 +6,6 @@ using System.Text;
 using System.Windows.Forms;
 using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.Kifuwaragyoku.UseCases.Evaluation;
 using Grayscale.Kifuwaragyoku.UseCases.Features;
 
 #if DEBUG || LEARN

@@ -88,6 +88,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Evaluation\Const_NikomaKankeiP_Param.cs" />
+    <Compile Include="Evaluation\FeatureVector.cs" />
     <Compile Include="Evaluation\IFeatureVector.cs" />
     <Compile Include="Features\A000Platform\B011Csv\CsvLineParserImpl.cs" />
     <Compile Include="Features\A000Platform\B011Csv\Util_Csv.cs" />

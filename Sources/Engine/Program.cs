@@ -2,10 +2,10 @@
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
+using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.Kifuwaragyoku.UseCases;
-using Grayscale.Kifuwaragyoku.UseCases.Evaluation;
 using Grayscale.Kifuwaragyoku.UseCases.Features;
 using Nett;
 
@@ -294,8 +294,6 @@ namespace Grayscale.Kifuwaragyoku.Engine
                     }
 
                     // ループ（２つ目）
-                    playing.Shogisasi.OnTaikyokuKaisi();//対局開始時の処理。
-
                     while (true)
                     {
 

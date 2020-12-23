@@ -2,7 +2,7 @@
 using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 
-namespace Grayscale.Kifuwaragyoku.UseCases.Evaluation
+namespace Grayscale.Kifuwaragyoku.Entities.Evaluation
 {
 
     public class FeatureVector : IFeatureVector

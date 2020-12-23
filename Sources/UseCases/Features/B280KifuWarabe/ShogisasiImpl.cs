@@ -6,10 +6,8 @@
     using Grayscale.Kifuwaragyoku.Entities.Logging;
     using Grayscale.Kifuwaragyoku.UseCases;
 #else
-    using System;
     using Grayscale.Kifuwaragyoku.Entities.Evaluation;
     using Grayscale.Kifuwaragyoku.Entities.Features;
-    using Grayscale.Kifuwaragyoku.Entities.Logging;
     using Grayscale.Kifuwaragyoku.Entities.Searching;
     using Grayscale.Kifuwaragyoku.UseCases;
 #endif
@@ -35,14 +33,6 @@
         {
             this.FeatureVector = fv; //  new FeatureVectorImpl();
             this.TimeManager = new TimeManager(playing.EngineOptions.GetOption(EngineOptionNames.THINKING_MILLI_SECOND).GetNumber());
-        }
-
-
-        /// <summary>
-        /// 対局開始のとき。
-        /// </summary>
-        public void OnTaikyokuKaisi()
-        {
         }
 
         /// <summary>

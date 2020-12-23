@@ -1,6 +1,4 @@
-﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
-
-/// <summary>
+﻿/// <summary>
 /// この名前空間は、デリゲートを定義しているだけ。
 /// </summary>
 namespace Grayscale.Kifuwaragyoku.UseCases.Features

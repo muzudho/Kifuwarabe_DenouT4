@@ -1,6 +1,4 @@
-﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
-
-namespace Grayscale.Kifuwaragyoku.UseCases.Features
+﻿namespace Grayscale.Kifuwaragyoku.UseCases.Features
 {
     /// <summary>
     /// [再生]イベントの状態です。

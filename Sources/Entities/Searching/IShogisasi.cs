@@ -16,11 +16,6 @@ namespace Grayscale.Kifuwaragyoku.Entities.Searching
         IFeatureVector FeatureVector { get; set; }
 
         /// <summary>
-        /// 対局開始のとき。
-        /// </summary>
-        void OnTaikyokuKaisi();
-
-        /// <summary>
         /// 時間管理
         /// </summary>
         ITimeManager TimeManager { get; set; }

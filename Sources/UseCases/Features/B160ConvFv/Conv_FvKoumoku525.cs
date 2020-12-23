@@ -1,5 +1,5 @@
-﻿using Grayscale.Kifuwaragyoku.Entities.Features;
-using Grayscale.Kifuwaragyoku.UseCases.Evaluation;
+﻿using Grayscale.Kifuwaragyoku.Entities.Evaluation;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
 
 namespace Grayscale.Kifuwaragyoku.UseCases.Features

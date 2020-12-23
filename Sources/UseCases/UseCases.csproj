@@ -173,8 +173,6 @@
     <Compile Include="Features\B100UsiFrame1\IEngineOptionSpin.cs" />
     <Compile Include="Features\B100UsiFrame1\IEngineOptionString.cs" />
     <Compile Include="Features\B100UsiFrame1\PhaseResult_UsiLoop2.cs" />
-    <Compile Include="Evaluation\Const_NikomaKankeiP_Param.cs" />
-    <Compile Include="Evaluation\FeatureVector.cs" />
     <Compile Include="Features\B140ConvFvKoumoku\Conv_FvKoumoku522.cs" />
     <Compile Include="Features\B150UtilFv\FeatureVectorFormatDebugOptions.cs" />
     <Compile Include="Features\B150UtilFv\FormatFeatureVectorKP.cs" />
@@ -222,7 +220,6 @@
     <Folder Include="Features\B190_／／↓点数付け・探索ルーチン\" />
     <Folder Include="Features\B250_／／↑探索ルーチン\" />
     <Folder Include="Features\B270_／／↓きふわらべ\" />
-    <Folder Include="Searching\" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\packages\Microsoft.CodeAnalysis.NetAnalyzers.5.0.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll" />
