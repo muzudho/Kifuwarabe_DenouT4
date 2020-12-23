@@ -1,12 +1,12 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities.Features;
 
-namespace Grayscale.Kifuwaragyoku.UseCases.Features
+namespace Grayscale.Kifuwaragyoku.Entities.Searching
 {
 
     /// <summary>
     /// 探索が終わるまで、途中で変更されない設定。
     /// </summary>
-    public class Tansaku_ArgsImpl : Tansaku_Args
+    public class SearchArgsImpl : ISearchArgs
     {
         /// <summary>
         /// 本将棋なら真。
@@ -26,7 +26,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         public KaisetuBoards LogF_moveKiki { get { return this.m_logF_moveKiki_; } }
         private KaisetuBoards m_logF_moveKiki_;
 
-        public Tansaku_ArgsImpl(
+        public SearchArgsImpl(
             bool isHonshogi,
             int[] yomuLimitter,
             KaisetuBoards logF_moveKiki

@@ -1,10 +1,10 @@
 ﻿
-namespace Grayscale.Kifuwaragyoku.UseCases.Features
+namespace Grayscale.Kifuwaragyoku.Entities.Searching
 {
-    public interface Tansaku_Genjo
+    public interface ICurrentSearch
     {
 
-        Tansaku_Args Args { get; }
+        ISearchArgs Args { get; }
 
         /// <summary>
         /// 読み開始手目済み

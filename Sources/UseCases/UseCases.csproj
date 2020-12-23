@@ -205,10 +205,6 @@
     <Compile Include="Features\B200Scoreing\Util_Scoreing.cs" />
     <Compile Include="Features\B210TimeMan\TimeManager.cs" />
     <Compile Include="Features\B210TimeMan\TimeManagerImpl.cs" />
-    <Compile Include="Features\B220Tansaku\Tansaku_Args.cs" />
-    <Compile Include="Features\B220Tansaku\Tansaku_ArgsImpl.cs" />
-    <Compile Include="Features\B220Tansaku\Tansaku_Genjo.cs" />
-    <Compile Include="Features\B220Tansaku\Tansaku_GenjoImpl.cs" />
     <Compile Include="Features\B240TansaFukasa\Mode_Tansaku.cs" />
     <Compile Include="Features\B240TansaFukasa\Tansaku_FukasaYusen_Routine.cs" />
     <Compile Include="Features\B240TansaFukasa\UtilMovePicker.cs" />

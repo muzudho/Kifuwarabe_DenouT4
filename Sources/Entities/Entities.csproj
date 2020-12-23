@@ -128,32 +128,32 @@
     <Compile Include="Features\A060Application\B620_ConvText___\Conv_Int.cs" />
     <Compile Include="Features\A060Application\B620_ConvText___\Conv_Suji.cs" />
     <Compile Include="Features\A060Application\B620_ConvText___\TextConst.cs" />
-    <Compile Include="Features\A120KifuSfen\ISfenFormat2.cs" />
-    <Compile Include="Features\A120KifuSfen\ISfenPosition1.cs" />
-    <Compile Include="Features\A120KifuSfen\Piece.cs" />
-    <Compile Include="Features\A120KifuSfen\PieceType.cs" />
-    <Compile Include="Features\A120KifuSfen\SfenConf.cs" />
-    <Compile Include="Features\A120KifuSfen\SfenFormat2Impl.cs" />
-    <Compile Include="Features\A120KifuSfen\SfenFormat2Reference.cs" />
-    <Compile Include="Features\A120KifuSfen\SfenPosition1Impl.cs" />
-    <Compile Include="Features\A120KifuSfen\SfenString.cs" />
-    <Compile Include="Features\A120KifuSfen\SfenStringImpl.cs" />
-    <Compile Include="Features\A120KifuSfen\SfenWord.cs" />
-    <Compile Include="Features\A120KifuSfen\Square.cs" />
-    <Compile Include="Features\A150LogKyokuPng\B100KyokumenPng\KyokumenPngArgs.cs" />
-    <Compile Include="Features\A150LogKyokuPng\B100KyokumenPng\KyokumenPngArgsImpl.cs" />
-    <Compile Include="Features\A150LogKyokuPng\B100KyokumenPng\KyokumenPngArgs_FoodOrDropKoma.cs" />
-    <Compile Include="Features\A150LogKyokuPng\B100KyokumenPng\KyokumenPngEnvironment.cs" />
-    <Compile Include="Features\A150LogKyokuPng\B100KyokumenPng\KyokumenPngEnvironmentImpl.cs" />
-    <Compile Include="Features\A150LogKyokuPng\B200LogKyokuPng\Util_KyokumenPngPainter.cs" />
-    <Compile Include="Features\A150LogKyokuPng\B200LogKyokuPng\Util_KyokumenPng_Writer.cs" />
-    <Compile Include="Features\A180KifuCsa\B120KifuCsa\CsaKifu.cs" />
-    <Compile Include="Features\A180KifuCsa\B120KifuCsa\CsaKifuImpl.cs" />
-    <Compile Include="Features\A180KifuCsa\B120KifuCsa\CsaKifuMove.cs" />
-    <Compile Include="Features\A180KifuCsa\B120KifuCsa\CsaKifuMoveImpl.cs" />
-    <Compile Include="Features\A180KifuCsa\B120KifuCsa\CsaKifuWriterImpl.cs" />
-    <Compile Include="Features\A180KifuCsa\B120KifuCsa\Util_Csa.cs" />
-    <Compile Include="Features\A180KifuCsa\B120KifuCsa\Word_Csa.cs" />
+    <Compile Include="Features\GameRecordOfSfen\ISfenFormat2.cs" />
+    <Compile Include="Features\GameRecordOfSfen\ISfenPosition1.cs" />
+    <Compile Include="Features\GameRecordOfSfen\Piece.cs" />
+    <Compile Include="Features\GameRecordOfSfen\PieceType.cs" />
+    <Compile Include="Features\GameRecordOfSfen\SfenConf.cs" />
+    <Compile Include="Features\GameRecordOfSfen\SfenFormat2Impl.cs" />
+    <Compile Include="Features\GameRecordOfSfen\SfenFormat2Reference.cs" />
+    <Compile Include="Features\GameRecordOfSfen\SfenPosition1Impl.cs" />
+    <Compile Include="Features\GameRecordOfSfen\SfenString.cs" />
+    <Compile Include="Features\GameRecordOfSfen\SfenStringImpl.cs" />
+    <Compile Include="Features\GameRecordOfSfen\SfenWord.cs" />
+    <Compile Include="Features\GameRecordOfSfen\Square.cs" />
+    <Compile Include="Features\LoggingOfPosition\KyokumenPngArgs.cs" />
+    <Compile Include="Features\LoggingOfPosition\KyokumenPngArgsImpl.cs" />
+    <Compile Include="Features\LoggingOfPosition\KyokumenPngArgs_FoodOrDropKoma.cs" />
+    <Compile Include="Features\LoggingOfPosition\KyokumenPngEnvironment.cs" />
+    <Compile Include="Features\LoggingOfPosition\KyokumenPngEnvironmentImpl.cs" />
+    <Compile Include="Features\LoggingOfPosition\Util_KyokumenPngPainter.cs" />
+    <Compile Include="Features\LoggingOfPosition\Util_KyokumenPng_Writer.cs" />
+    <Compile Include="Features\GameRecordOfCsa\CsaKifu.cs" />
+    <Compile Include="Features\GameRecordOfCsa\CsaKifuImpl.cs" />
+    <Compile Include="Features\GameRecordOfCsa\CsaKifuMove.cs" />
+    <Compile Include="Features\GameRecordOfCsa\CsaKifuMoveImpl.cs" />
+    <Compile Include="Features\GameRecordOfCsa\CsaKifuWriterImpl.cs" />
+    <Compile Include="Features\GameRecordOfCsa\Util_Csa.cs" />
+    <Compile Include="Features\GameRecordOfCsa\Word_Csa.cs" />
     <Compile Include="Features\A210KnowNingen\B110_GraphicLog_\Util_GraphicalLog.cs" />
     <Compile Include="Features\A210KnowNingen\B130Json\IJsonVal.cs" />
     <Compile Include="Features\A210KnowNingen\B130Json\Json_Arr.cs" />
@@ -320,9 +320,13 @@
     <Compile Include="Features\A210KnowNingen\B820KyokuParser\ParsedKyokumenImpl.cs" />
     <Compile Include="Features\A210KnowNingen\B830ConvStartpo\Conv_StartposImporter.cs" />
     <Compile Include="Features\A210KnowNingen\HumanKnowsDebugOptions.cs" />
-    <Compile Include="Features\A240KifuTreeLog\B110_KifuTreeLog\UtilKifuTreeLogWriter.cs" />
+    <Compile Include="Features\LoggingOfTree\UtilKifuTreeLogWriter.cs" />
     <Compile Include="Logging\SpecifiedFiles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Searching\CurrentSearchImpl.cs" />
+    <Compile Include="Searching\ICurrentSearch.cs" />
+    <Compile Include="Searching\ISearchArgs.cs" />
+    <Compile Include="Searching\SearchArgsImpl.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -344,17 +348,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\A000Platform\B000_／／環境\" />
-    <Folder Include="Features\A000Platform\B010_／／↓CSV\" />
-    <Folder Include="Features\A000Platform\B020_／／↓ランダム値生成\" />
     <Folder Include="Features\A060Application\B100_／／↓ログ、異常系処理等\" />
     <Folder Include="Features\A060Application\B200_／／↓通信\" />
     <Folder Include="Features\A060Application\B300_／／↓設定ファイル\" />
     <Folder Include="Features\A060Application\B400_／／コレクションクラス\" />
     <Folder Include="Features\A060Application\B500_／／↓集合論\" />
     <Folder Include="Features\A060Application\B600_／／↓将棋定数と変換器\" />
-    <Folder Include="Features\A120KifuSfen\／／SFEN棋譜\" />
-    <Folder Include="Features\A180KifuCsa\B100_／／CSA棋譜\" />
     <Folder Include="Features\A210KnowNingen\B100_／／人間ライブラリー\" />
     <Folder Include="Features\A210KnowNingen\B120_／／↓データ格納記法（JSON）\" />
     <Folder Include="Features\A210KnowNingen\B140_／／↓日本将棋連盟式符号（上引寄、等）\" />
@@ -373,7 +372,6 @@
     <Folder Include="Features\A210KnowNingen\B750_／／↑SFEN棋譜指示実行\" />
     <Folder Include="Features\A210KnowNingen\B760_／／↓合法手まとめルーチン\" />
     <Folder Include="Features\A210KnowNingen\B790_／／↑合法手まとめルーチン\" />
-    <Folder Include="Features\A240KifuTreeLog\B100_／／棋譜ツリーログ\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

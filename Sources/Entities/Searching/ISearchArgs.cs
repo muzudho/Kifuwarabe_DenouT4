@@ -2,13 +2,13 @@
 using Grayscale.Kifuwaragyoku.Entities.Features;
 #endif
 
-namespace Grayscale.Kifuwaragyoku.UseCases.Features
+namespace Grayscale.Kifuwaragyoku.Entities.Searching
 {
 
     /// <summary>
     /// 探索が終わるまで、途中で変更されない設定。
     /// </summary>
-    public interface Tansaku_Args
+    public interface ISearchArgs
     {
 
         bool IsHonshogi { get; }

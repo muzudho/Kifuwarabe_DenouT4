@@ -1,14 +1,14 @@
-﻿namespace Grayscale.Kifuwaragyoku.UseCases.Features
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Searching
 {
     /// <summary>
     /// 探索中に変化するデータです。
     /// </summary>
-    public class Tansaku_GenjoImpl : Tansaku_Genjo
+    public class CurrentSearchImpl : ICurrentSearch
     {
 
 
-        public Tansaku_Args Args { get { return this.args; } }
-        private Tansaku_Args args;
+        public ISearchArgs Args { get { return this.args; } }
+        private ISearchArgs args;
 
         /// <summary>
         /// 読み開始手目済み
@@ -31,10 +31,10 @@
         /// <param name="yomiArgs"></param>
         /// <param name="temezumi_yomiCur">読んでいる局面の手目済み</param>
         /// <param name="pside_teban"></param>
-        public Tansaku_GenjoImpl(
+        public CurrentSearchImpl(
             //KifuNode node_yomiKaisi,
             int temezumi,
-            Tansaku_Args yomiArgs)
+            ISearchArgs yomiArgs)
         {
             //this.node_yomi = node_yomiKaisi;
             this.args = yomiArgs;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Searching;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 #if DEBUG
@@ -24,7 +25,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="out_a_childrenBest"></param>
         /// <param name="logTag"></param>
         public static List<Move> CreateMovelist_BeforeLoop(
-            Tansaku_Genjo genjo,
+            ICurrentSearch genjo,
 
             Playerside psideA,
             ISky positionA,//この局面から合法手を作成☆（＾～＾）
@@ -66,7 +67,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="logTag"></param>
         /// <returns>複数のノードを持つハブ・ノード</returns>
         private static List<Move> WAAAA_Create_ChildNodes(
-            Tansaku_Genjo genjo,
+            ICurrentSearch genjo,
             Playerside psideA,
             ISky positionA,
             //Move move_ForLog,

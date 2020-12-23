@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Text;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Searching;
 
 #if DEBUG
 // using Grayscale.Kifuwaragyoku.Entities.Features;
@@ -22,7 +23,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
     public class Tansaku_FukasaYusen_Routine
     {
 
-        public static Tansaku_Genjo CreateGenjo(
+        public static ICurrentSearch CreateGenjo(
             int temezumi,
             bool isHonshogi,
             Mode_Tansaku mode_Tansaku,
@@ -156,8 +157,8 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 #endif
 
 
-            Tansaku_Args args = new Tansaku_ArgsImpl(isHonshogi, yomuLimitter, logF_moveKiki);
-            Tansaku_Genjo genjo = new Tansaku_GenjoImpl(
+            ISearchArgs args = new SearchArgsImpl(isHonshogi, yomuLimitter, logF_moveKiki);
+            ICurrentSearch genjo = new CurrentSearchImpl(
                 temezumi,
                 args
                 );
@@ -192,7 +193,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         {
             int temezumi = positionA.Temezumi;
 
-            Tansaku_Genjo genjo = Tansaku_FukasaYusen_Routine.CreateGenjo(
+            ICurrentSearch genjo = Tansaku_FukasaYusen_Routine.CreateGenjo(
                 temezumi,
                 isHonshogi, mode_Tansaku, logTag);
 
@@ -302,7 +303,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             int yomiDeep,
             int wideCount2,
             int movelist_count,
-            Tansaku_Genjo genjo,
+            ICurrentSearch genjo,
             TimeManager timeManager
             )
         {
@@ -321,7 +322,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// もう深く読まない場合の処理。
         /// </summary>
         private static float Do_Leaf(
-            Tansaku_Genjo genjo,
+            ICurrentSearch genjo,
 
             Playerside psideA,
             ISky positionA,
@@ -388,7 +389,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
             string[] searchedPv,
-            Tansaku_Genjo genjo,
+            ICurrentSearch genjo,
 
             int kaisiTemezumi,
             Playerside psideA,
