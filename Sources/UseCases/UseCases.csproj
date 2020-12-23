@@ -174,7 +174,7 @@
     <Compile Include="Features\B100UsiFrame1\IEngineOptionString.cs" />
     <Compile Include="Features\B100UsiFrame1\PhaseResult_UsiLoop2.cs" />
     <Compile Include="Evaluation\Const_NikomaKankeiP_Param.cs" />
-    <Compile Include="Evaluation\FeatureVectorImpl.cs" />
+    <Compile Include="Evaluation\FeatureVector.cs" />
     <Compile Include="Features\B140ConvFvKoumoku\Conv_FvKoumoku522.cs" />
     <Compile Include="Features\B150UtilFv\FeatureVectorFormatDebugOptions.cs" />
     <Compile Include="Features\B150UtilFv\FormatFeatureVectorKP.cs" />
@@ -201,7 +201,6 @@
     <Compile Include="Features\B200Scoreing\EvaluationArgsImpl.cs" />
     <Compile Include="Features\B200Scoreing\PerformanceMetrics.cs" />
     <Compile Include="Features\B200Scoreing\Util_Scoreing.cs" />
-    <Compile Include="Searching\TimeManagerImpl.cs" />
     <Compile Include="Features\B240TansaFukasa\Mode_Tansaku.cs" />
     <Compile Include="Features\B240TansaFukasa\Tansaku_FukasaYusen_Routine.cs" />
     <Compile Include="Features\B240TansaFukasa\UtilMovePicker.cs" />
@@ -223,6 +222,7 @@
     <Folder Include="Features\B190_／／↓点数付け・探索ルーチン\" />
     <Folder Include="Features\B250_／／↑探索ルーチン\" />
     <Folder Include="Features\B270_／／↓きふわらべ\" />
+    <Folder Include="Searching\" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\packages\Microsoft.CodeAnalysis.NetAnalyzers.5.0.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll" />

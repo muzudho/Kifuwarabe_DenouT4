@@ -34,7 +34,7 @@
         public ShogisasiImpl(Playing playing, IFeatureVector fv)
         {
             this.FeatureVector = fv; //  new FeatureVectorImpl();
-            this.TimeManager = new TimeManagerImpl(playing.EngineOptions.GetOption(EngineOptionNames.THINKING_MILLI_SECOND).GetNumber());
+            this.TimeManager = new TimeManager(playing.EngineOptions.GetOption(EngineOptionNames.THINKING_MILLI_SECOND).GetNumber());
         }
 
 

@@ -3,7 +3,7 @@
     /// <summary>
     /// 探索中に変化するデータです。
     /// </summary>
-    public class CurrentSearchImpl : ICurrentSearch
+    public class CurrentSearch : ICurrentSearch
     {
 
 
@@ -31,7 +31,7 @@
         /// <param name="yomiArgs"></param>
         /// <param name="temezumi_yomiCur">読んでいる局面の手目済み</param>
         /// <param name="pside_teban"></param>
-        public CurrentSearchImpl(
+        public CurrentSearch(
             //KifuNode node_yomiKaisi,
             int temezumi,
             ISearchArgs yomiArgs)

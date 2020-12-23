@@ -5,7 +5,7 @@ using Grayscale.Kifuwaragyoku.Entities.Features;
 namespace Grayscale.Kifuwaragyoku.UseCases.Evaluation
 {
 
-    public class FeatureVectorImpl : IFeatureVector
+    public class FeatureVector : IFeatureVector
     {
 
         /// <summary>
@@ -114,14 +114,14 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Evaluation
         //    return (int)
         //}
 
-        public FeatureVectorImpl()
+        public FeatureVector()
         {
             this.Komawari = new float[Array_Komasyurui.Items_AllElements.Length];
             this.SetBairitu_NikomaKankeiPp(0.5963f);//ダミー 1.0f;
             this.SetTyoseiryoSmallest_NikomaKankeiPp(0.4649f);//ダミー
             this.SetTyoseiryoLargest_NikomaKankeiPp(0.5963f);//ダミー
             this.SetTyoseiryoInit_NikomaKankeiPp(0.5963f);//ダミー
-            this.NikomaKankeiPp_ForMemory = new float[FeatureVectorImpl.CHOSA_KOMOKU_P, FeatureVectorImpl.CHOSA_KOMOKU_P];
+            this.NikomaKankeiPp_ForMemory = new float[FeatureVector.CHOSA_KOMOKU_P, FeatureVector.CHOSA_KOMOKU_P];
         }
 
         /// <summary>
@@ -184,7 +184,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Evaluation
                 sb.Append("(");
                 sb.Append(k);
                 sb.Append(")");
-                sb.Append(FeatureVectorImpl.Handle_To_Label(k));
+                sb.Append(FeatureVector.Handle_To_Label(k));
             }
             else//エラー
             {
@@ -206,7 +206,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Evaluation
         {
             StringBuilder sb = new StringBuilder();
 
-            if (0 <= p && p < FeatureVectorImpl.CHOSA_KOMOKU_P)
+            if (0 <= p && p < FeatureVector.CHOSA_KOMOKU_P)
             {
                 sb.Append("(");
                 sb.Append(p);
@@ -261,42 +261,42 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Evaluation
                 }
                 else if (Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Kaku <= p)//角1～81
                 {
-                    sb.Append(FeatureVectorImpl.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Kaku));
+                    sb.Append(FeatureVector.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Kaku));
                     sb.Append("敵角");
                 }
                 else if (Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Hi__ <= p)//飛1～81
                 {
-                    sb.Append(FeatureVectorImpl.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Hi__));
+                    sb.Append(FeatureVector.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Hi__));
                     sb.Append("敵飛");
                 }
                 else if (Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Oh__ <= p)//玉1～81
                 {
-                    sb.Append(FeatureVectorImpl.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Oh__));
+                    sb.Append(FeatureVector.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Oh__));
                     sb.Append("敵王");
                 }
                 else if (Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Kin_ <= p)//金1～81
                 {
-                    sb.Append(FeatureVectorImpl.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Kin_));
+                    sb.Append(FeatureVector.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Kin_));
                     sb.Append("敵金");
                 }
                 else if (Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Gin_ <= p)//銀1～81
                 {
-                    sb.Append(FeatureVectorImpl.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Gin_));
+                    sb.Append(FeatureVector.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Gin_));
                     sb.Append("敵銀");
                 }
                 else if (Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Kei_ <= p)//桂1～81
                 {
-                    sb.Append(FeatureVectorImpl.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Kei_));
+                    sb.Append(FeatureVector.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Kei_));
                     sb.Append("敵桂");
                 }
                 else if (Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Kyo_ <= p)//香1～81
                 {
-                    sb.Append(FeatureVectorImpl.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Kyo_));
+                    sb.Append(FeatureVector.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Kyo_));
                     sb.Append("敵香");
                 }
                 else if (Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Fu__ <= p)//歩1～81
                 {
-                    sb.Append(FeatureVectorImpl.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Fu__));
+                    sb.Append(FeatureVector.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER2 + Const_NikomaKankeiP_ParamIx.Ban_Fu__));
                     sb.Append("敵歩");
                 }
                 else if (Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.MotiKaku <= p)//角0～2
@@ -336,42 +336,42 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Evaluation
                 }
                 else if (Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Kaku <= p)//角1～81
                 {
-                    sb.Append(FeatureVectorImpl.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Kaku));
+                    sb.Append(FeatureVector.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Kaku));
                     sb.Append("自角");
                 }
                 else if (Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Hi__ <= p)//飛1～81
                 {
-                    sb.Append(FeatureVectorImpl.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Hi__));
+                    sb.Append(FeatureVector.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Hi__));
                     sb.Append("自飛");
                 }
                 else if (Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Oh__ <= p)//玉1～81
                 {
-                    sb.Append(FeatureVectorImpl.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Oh__));
+                    sb.Append(FeatureVector.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Oh__));
                     sb.Append("自玉");
                 }
                 else if (Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Kin_ <= p)//金1～81
                 {
-                    sb.Append(FeatureVectorImpl.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Kin_));
+                    sb.Append(FeatureVector.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Kin_));
                     sb.Append("自金");
                 }
                 else if (Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Gin_ <= p)//銀1～81
                 {
-                    sb.Append(FeatureVectorImpl.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Gin_));
+                    sb.Append(FeatureVector.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Gin_));
                     sb.Append("自銀");
                 }
                 else if (Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Kei_ <= p)//桂1～81
                 {
-                    sb.Append(FeatureVectorImpl.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Kei_));
+                    sb.Append(FeatureVector.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Kei_));
                     sb.Append("自桂");
                 }
                 else if (Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Kyo_ <= p)//香1～81
                 {
-                    sb.Append(FeatureVectorImpl.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Kyo_));
+                    sb.Append(FeatureVector.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Kyo_));
                     sb.Append("自香");
                 }
                 else if (Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Fu__ <= p)//歩1～81
                 {
-                    sb.Append(FeatureVectorImpl.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Fu__));
+                    sb.Append(FeatureVector.Handle_To_Label(p - Const_NikomaKankeiP_ParamIx.PLAYER1 + Const_NikomaKankeiP_ParamIx.Ban_Fu__));
                     sb.Append("自歩");
                 }
                 else// エラー

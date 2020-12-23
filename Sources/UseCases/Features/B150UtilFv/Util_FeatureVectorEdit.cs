@@ -17,9 +17,9 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         {
             float result = 0.0f;
 
-            for (int p1 = 0; p1 < FeatureVectorImpl.CHOSA_KOMOKU_P; p1++)
+            for (int p1 = 0; p1 < FeatureVector.CHOSA_KOMOKU_P; p1++)
             {
-                for (int p2 = 0; p2 < FeatureVectorImpl.CHOSA_KOMOKU_P; p2++)
+                for (int p2 = 0; p2 < FeatureVector.CHOSA_KOMOKU_P; p2++)
                 {
                     result += fv.NikomaKankeiPp_ForMemory[p1, p2];
                 }
@@ -78,9 +78,9 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             //
             // PP
             //
-            for (int iChosaKomoku1 = 0; iChosaKomoku1 < FeatureVectorImpl.CHOSA_KOMOKU_P; iChosaKomoku1++)//調査項目Ｐ
+            for (int iChosaKomoku1 = 0; iChosaKomoku1 < FeatureVector.CHOSA_KOMOKU_P; iChosaKomoku1++)//調査項目Ｐ
             {
-                for (int iChosaKomoku2 = 0; iChosaKomoku2 < FeatureVectorImpl.CHOSA_KOMOKU_P; iChosaKomoku2++)//調査項目Ｐ
+                for (int iChosaKomoku2 = 0; iChosaKomoku2 < FeatureVector.CHOSA_KOMOKU_P; iChosaKomoku2++)//調査項目Ｐ
                 {
                     // 0.0～1.0
                     fv.NikomaKankeiPp_ForMemory[iChosaKomoku1, iChosaKomoku2] = KwRandom.Random.Next(0, 999);

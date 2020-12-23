@@ -90,24 +90,24 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 List<PpItem_P2Banjo> p2List = new List<PpItem_P2Banjo>();
                 //if (true)
                 //{
-                p2List.Add(new PpItem_P2Banjo("vs 1P歩", FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____FU_____));//盤上の駒の項目位置
-                p2List.Add(new PpItem_P2Banjo("vs 1P香", FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KYO____));
-                p2List.Add(new PpItem_P2Banjo("vs 1P桂", FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KEI____));
-                p2List.Add(new PpItem_P2Banjo("vs 1P銀", FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____GIN____));
-                p2List.Add(new PpItem_P2Banjo("vs 1P金", FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KIN____));
-                p2List.Add(new PpItem_P2Banjo("vs 1P飛", FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____HISYA__));
+                p2List.Add(new PpItem_P2Banjo("vs 1P歩", FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____FU_____));//盤上の駒の項目位置
+                p2List.Add(new PpItem_P2Banjo("vs 1P香", FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KYO____));
+                p2List.Add(new PpItem_P2Banjo("vs 1P桂", FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KEI____));
+                p2List.Add(new PpItem_P2Banjo("vs 1P銀", FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____GIN____));
+                p2List.Add(new PpItem_P2Banjo("vs 1P金", FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KIN____));
+                p2List.Add(new PpItem_P2Banjo("vs 1P飛", FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____HISYA__));
                 //}
-                p2List.Add(new PpItem_P2Banjo("vs 1P角", FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KAKU___));
+                p2List.Add(new PpItem_P2Banjo("vs 1P角", FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KAKU___));
                 //if (true)
                 //{
-                p2List.Add(new PpItem_P2Banjo("vs 2P歩", FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____FU_____));
-                p2List.Add(new PpItem_P2Banjo("vs 2P香", FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KYO____));
-                p2List.Add(new PpItem_P2Banjo("vs 2P桂", FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KEI____));
-                p2List.Add(new PpItem_P2Banjo("vs 2P銀", FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____GIN____));
-                p2List.Add(new PpItem_P2Banjo("vs 2P金", FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KIN____));
-                p2List.Add(new PpItem_P2Banjo("vs 2P飛", FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____HISYA__));
+                p2List.Add(new PpItem_P2Banjo("vs 2P歩", FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____FU_____));
+                p2List.Add(new PpItem_P2Banjo("vs 2P香", FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KYO____));
+                p2List.Add(new PpItem_P2Banjo("vs 2P桂", FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KEI____));
+                p2List.Add(new PpItem_P2Banjo("vs 2P銀", FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____GIN____));
+                p2List.Add(new PpItem_P2Banjo("vs 2P金", FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KIN____));
+                p2List.Add(new PpItem_P2Banjo("vs 2P飛", FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____HISYA__));
                 //}
-                p2List.Add(new PpItem_P2Banjo("vs 2P角", FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KAKU___));
+                p2List.Add(new PpItem_P2Banjo("vs 2P角", FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KAKU___));
                 foreach (PpItem_P2Banjo p2Item in p2List)
                 {
                     sb.Append(FormatFeatureVectorPpP1Moti.Format_19Shogibans(fv, p1_base_motiFu, p2Item));
@@ -142,11 +142,11 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     int koumokuIndex;
                     if (p2Player == 1)
                     {
-                        koumokuIndex = FeatureVectorImpl.CHOSA_KOMOKU_1P;
+                        koumokuIndex = FeatureVector.CHOSA_KOMOKU_1P;
                     }
                     else if (p2Player == 2)
                     {
-                        koumokuIndex = FeatureVectorImpl.CHOSA_KOMOKU_2P;
+                        koumokuIndex = FeatureVector.CHOSA_KOMOKU_2P;
                     }
                     else
                     {
@@ -154,25 +154,25 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     }
 
                     // vs 持ち駒 1P歩x 0～18
-                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P歩x0～18", p2Player), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIFU_____, 19));
+                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P歩x0～18", p2Player), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIFU_____, 19));
 
                     // vs 持ち駒 1P香x 0～4
-                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P香x0～5", p2Player), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKYO____, 5));
+                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P香x0～5", p2Player), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIKYO____, 5));
 
                     // vs 持ち駒 1P桂x 0～4
-                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P桂x0～5", p2Player), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKEI____, 5));
+                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P桂x0～5", p2Player), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIKEI____, 5));
 
                     // vs 持ち駒 1P銀x 0～4
-                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P銀x0～5", p2Player), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIGIN____, 5));
+                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P銀x0～5", p2Player), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIGIN____, 5));
 
                     // vs 持ち駒 1P金x 0～4
-                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P金x0～5", p2Player), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKIN____, 5));
+                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P金x0～5", p2Player), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIKIN____, 5));
 
                     // vs 持ち駒 1P飛x 0～4
-                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P飛x0～2", p2Player), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIHISYA__, 3));
+                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P飛x0～2", p2Player), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIHISYA__, 3));
 
                     // vs 持ち駒 1P角x 0～4
-                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P角x0～2", p2Player), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKAKU___, 3));
+                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P角x0～2", p2Player), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIKAKU___, 3));
                 }
                 // 計90項目
 
@@ -241,20 +241,20 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             //----------------------------------------
             {
                 List<PpItem_P2Banjo> p2List = new List<PpItem_P2Banjo>();
-                p2List.Add(new PpItem_P2Banjo("vs 1P歩", FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____FU_____));
-                p2List.Add(new PpItem_P2Banjo("vs 1P香", FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KYO____));
-                p2List.Add(new PpItem_P2Banjo("vs 1P桂", FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KEI____));
-                p2List.Add(new PpItem_P2Banjo("vs 1P銀", FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____GIN____));
-                p2List.Add(new PpItem_P2Banjo("vs 1P金", FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KIN____));
-                p2List.Add(new PpItem_P2Banjo("vs 1P飛", FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____HISYA__));
-                p2List.Add(new PpItem_P2Banjo("vs 1P角", FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KAKU___));
-                p2List.Add(new PpItem_P2Banjo("vs 2P歩", FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____FU_____));
-                p2List.Add(new PpItem_P2Banjo("vs 2P香", FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KYO____));
-                p2List.Add(new PpItem_P2Banjo("vs 2P桂", FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KEI____));
-                p2List.Add(new PpItem_P2Banjo("vs 2P銀", FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____GIN____));
-                p2List.Add(new PpItem_P2Banjo("vs 2P金", FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KIN____));
-                p2List.Add(new PpItem_P2Banjo("vs 2P飛", FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____HISYA__));
-                p2List.Add(new PpItem_P2Banjo("vs 2P角", FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KAKU___));
+                p2List.Add(new PpItem_P2Banjo("vs 1P歩", FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____FU_____));
+                p2List.Add(new PpItem_P2Banjo("vs 1P香", FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KYO____));
+                p2List.Add(new PpItem_P2Banjo("vs 1P桂", FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KEI____));
+                p2List.Add(new PpItem_P2Banjo("vs 1P銀", FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____GIN____));
+                p2List.Add(new PpItem_P2Banjo("vs 1P金", FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KIN____));
+                p2List.Add(new PpItem_P2Banjo("vs 1P飛", FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____HISYA__));
+                p2List.Add(new PpItem_P2Banjo("vs 1P角", FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KAKU___));
+                p2List.Add(new PpItem_P2Banjo("vs 2P歩", FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____FU_____));
+                p2List.Add(new PpItem_P2Banjo("vs 2P香", FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KYO____));
+                p2List.Add(new PpItem_P2Banjo("vs 2P桂", FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KEI____));
+                p2List.Add(new PpItem_P2Banjo("vs 2P銀", FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____GIN____));
+                p2List.Add(new PpItem_P2Banjo("vs 2P金", FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KIN____));
+                p2List.Add(new PpItem_P2Banjo("vs 2P飛", FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____HISYA__));
+                p2List.Add(new PpItem_P2Banjo("vs 2P角", FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KAKU___));
                 foreach (PpItem_P2Banjo p2Item in p2List)
                 {
                     sb.Append(FormatFeatureVectorPpP1Moti.Format_3or5Shogibans(fv, p1Koumoku, p2Item, 5));
@@ -287,11 +287,11 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     int koumokuIndex;
                     if (p2Player == 1)
                     {
-                        koumokuIndex = FeatureVectorImpl.CHOSA_KOMOKU_1P;
+                        koumokuIndex = FeatureVector.CHOSA_KOMOKU_1P;
                     }
                     else if (p2Player == 2)
                     {
-                        koumokuIndex = FeatureVectorImpl.CHOSA_KOMOKU_2P;
+                        koumokuIndex = FeatureVector.CHOSA_KOMOKU_2P;
                     }
                     else
                     {
@@ -299,25 +299,25 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     }
 
                     // vs 持ち駒 1P歩x 0～18
-                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P歩x0～18", p2Player), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIFU_____, 19));
+                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P歩x0～18", p2Player), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIFU_____, 19));
 
                     // vs 持ち駒 1P香x 0～4
-                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P香x0～5", p2Player), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKYO____, 5));
+                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P香x0～5", p2Player), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIKYO____, 5));
 
                     // vs 持ち駒 1P桂x 0～4
-                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P桂x0～5", p2Player), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKEI____, 5));
+                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P桂x0～5", p2Player), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIKEI____, 5));
 
                     // vs 持ち駒 1P銀x 0～4
-                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P銀x0～5", p2Player), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIGIN____, 5));
+                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P銀x0～5", p2Player), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIGIN____, 5));
 
                     // vs 持ち駒 1P金x 0～4
-                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P金x0～5", p2Player), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKIN____, 5));
+                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P金x0～5", p2Player), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIKIN____, 5));
 
                     // vs 持ち駒 1P飛x 0～4
-                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P飛x0～2", p2Player), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIHISYA__, 3));
+                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P飛x0～2", p2Player), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIHISYA__, 3));
 
                     // vs 持ち駒 1P角x 0～4
-                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P角x0～2", p2Player), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKAKU___, 3));
+                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P角x0～2", p2Player), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIKAKU___, 3));
                 }
                 // 計90項目
 
@@ -385,20 +385,20 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             //----------------------------------------
             {
                 List<PpItem_P2Banjo> p2List = new List<PpItem_P2Banjo>();
-                p2List.Add(new PpItem_P2Banjo("vs 1P歩", FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____FU_____));
-                p2List.Add(new PpItem_P2Banjo("vs 1P香", FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KYO____));
-                p2List.Add(new PpItem_P2Banjo("vs 1P桂", FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KEI____));
-                p2List.Add(new PpItem_P2Banjo("vs 1P銀", FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____GIN____));
-                p2List.Add(new PpItem_P2Banjo("vs 1P金", FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KIN____));
-                p2List.Add(new PpItem_P2Banjo("vs 1P飛", FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____HISYA__));
-                p2List.Add(new PpItem_P2Banjo("vs 1P角", FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KAKU___));
-                p2List.Add(new PpItem_P2Banjo("vs 2P歩", FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____FU_____));
-                p2List.Add(new PpItem_P2Banjo("vs 2P香", FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KYO____));
-                p2List.Add(new PpItem_P2Banjo("vs 2P桂", FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KEI____));
-                p2List.Add(new PpItem_P2Banjo("vs 2P銀", FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____GIN____));
-                p2List.Add(new PpItem_P2Banjo("vs 2P金", FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KIN____));
-                p2List.Add(new PpItem_P2Banjo("vs 2P飛", FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____HISYA__));
-                p2List.Add(new PpItem_P2Banjo("vs 2P角", FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KAKU___));
+                p2List.Add(new PpItem_P2Banjo("vs 1P歩", FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____FU_____));
+                p2List.Add(new PpItem_P2Banjo("vs 1P香", FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KYO____));
+                p2List.Add(new PpItem_P2Banjo("vs 1P桂", FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KEI____));
+                p2List.Add(new PpItem_P2Banjo("vs 1P銀", FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____GIN____));
+                p2List.Add(new PpItem_P2Banjo("vs 1P金", FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KIN____));
+                p2List.Add(new PpItem_P2Banjo("vs 1P飛", FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____HISYA__));
+                p2List.Add(new PpItem_P2Banjo("vs 1P角", FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KAKU___));
+                p2List.Add(new PpItem_P2Banjo("vs 2P歩", FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____FU_____));
+                p2List.Add(new PpItem_P2Banjo("vs 2P香", FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KYO____));
+                p2List.Add(new PpItem_P2Banjo("vs 2P桂", FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KEI____));
+                p2List.Add(new PpItem_P2Banjo("vs 2P銀", FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____GIN____));
+                p2List.Add(new PpItem_P2Banjo("vs 2P金", FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KIN____));
+                p2List.Add(new PpItem_P2Banjo("vs 2P飛", FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____HISYA__));
+                p2List.Add(new PpItem_P2Banjo("vs 2P角", FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KAKU___));
                 foreach (PpItem_P2Banjo p2Item in p2List)
                 {
                     sb.Append(FormatFeatureVectorPpP1Moti.Format_3or5Shogibans(fv, p1Koumoku, p2Item, 3));
@@ -431,11 +431,11 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     int koumokuIndex;
                     if (p2Player == 1)
                     {
-                        koumokuIndex = FeatureVectorImpl.CHOSA_KOMOKU_1P;
+                        koumokuIndex = FeatureVector.CHOSA_KOMOKU_1P;
                     }
                     else if (p2Player == 2)
                     {
-                        koumokuIndex = FeatureVectorImpl.CHOSA_KOMOKU_2P;
+                        koumokuIndex = FeatureVector.CHOSA_KOMOKU_2P;
                     }
                     else
                     {
@@ -443,25 +443,25 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     }
 
                     // vs 持ち駒 1P歩x 0～18
-                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P歩x0～18", p2Player), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIFU_____, 19));
+                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P歩x0～18", p2Player), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIFU_____, 19));
 
                     // vs 持ち駒 1P香x 0～4
-                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P香x0～5", p2Player), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKYO____, 5));
+                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P香x0～5", p2Player), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIKYO____, 5));
 
                     // vs 持ち駒 1P桂x 0～4
-                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P桂x0～5", p2Player), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKEI____, 5));
+                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P桂x0～5", p2Player), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIKEI____, 5));
 
                     // vs 持ち駒 1P銀x 0～4
-                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P銀x0～5", p2Player), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIGIN____, 5));
+                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P銀x0～5", p2Player), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIGIN____, 5));
 
                     // vs 持ち駒 1P金x 0～4
-                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P金x0～5", p2Player), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKIN____, 5));
+                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P金x0～5", p2Player), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIKIN____, 5));
 
                     // vs 持ち駒 1P飛x 0～4
-                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P飛x0～2", p2Player), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIHISYA__, 3));
+                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P飛x0～2", p2Player), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIHISYA__, 3));
 
                     // vs 持ち駒 1P角x 0～4
-                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P角x0～2", p2Player), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKAKU___, 3));
+                    p2List.Add(new PpItem_P2Moti(string.Format("vs 持ち駒 {0}P角x0～2", p2Player), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIKAKU___, 3));
                 }
                 // 計90項目
 

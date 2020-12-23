@@ -1,14 +1,14 @@
 ﻿using System.Diagnostics;
 using Grayscale.Kifuwaragyoku.Entities.Searching;
 
-namespace Grayscale.Kifuwaragyoku.UseCases.Features
+namespace Grayscale.Kifuwaragyoku.Entities.Searching
 {
     /// <summary>
     /// 時間管理。
     /// </summary>
-    public class TimeManagerImpl : ITimeManager
+    public class TimeManager : ITimeManager
     {
-        public TimeManagerImpl(long thinkableMilliSeconds)
+        public TimeManager(long thinkableMilliSeconds)
         {
             this.Stopwatch = new Stopwatch();
             this.ThinkableMilliSeconds = thinkableMilliSeconds;

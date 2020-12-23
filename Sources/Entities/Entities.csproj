@@ -321,12 +321,13 @@
     <Compile Include="Features\LoggingOfTree\UtilKifuTreeLogWriter.cs" />
     <Compile Include="Logging\SpecifiedFiles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Searching\CurrentSearchImpl.cs" />
+    <Compile Include="Searching\CurrentSearch.cs" />
     <Compile Include="Searching\ICurrentSearch.cs" />
     <Compile Include="Searching\ISearchArgs.cs" />
     <Compile Include="Searching\IShogisasi.cs" />
     <Compile Include="Searching\ITimeManager.cs" />
-    <Compile Include="Searching\SearchArgsImpl.cs" />
+    <Compile Include="Searching\SearchArgs.cs" />
+    <Compile Include="Searching\TimeManager.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

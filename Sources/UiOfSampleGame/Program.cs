@@ -20,7 +20,7 @@ namespace Grayscale.Kifuwaragyoku.CliOfSampleGame
             Playing playing = new Playing();
 
             // 将棋指しオブジェクト
-            var fv = new FeatureVectorImpl();
+            var fv = new FeatureVector();
             IShogisasi shogisasi = new ShogisasiImpl(playing, fv);
 
             // 棋譜

@@ -443,20 +443,20 @@
                             int area = (int)(rowBanjo / 81);
                             switch (area)
                             {
-                                case 0: pKoumoku_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____FU_____; break;
-                                case 1: pKoumoku_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KYO____; break;
-                                case 2: pKoumoku_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KEI____; break;
-                                case 3: pKoumoku_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____GIN____; break;
-                                case 4: pKoumoku_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KIN____; break;
-                                case 5: pKoumoku_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____HISYA__; break;
-                                case 6: pKoumoku_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KAKU___; break;
-                                case 7: pKoumoku_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____FU_____; break;
-                                case 8: pKoumoku_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KYO____; break;
-                                case 9: pKoumoku_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KEI____; break;
-                                case 10: pKoumoku_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____GIN____; break;
-                                case 11: pKoumoku_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KIN____; break;
-                                case 12: pKoumoku_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____HISYA__; break;
-                                case 13: pKoumoku_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KAKU___; break;
+                                case 0: pKoumoku_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____FU_____; break;
+                                case 1: pKoumoku_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KYO____; break;
+                                case 2: pKoumoku_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KEI____; break;
+                                case 3: pKoumoku_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____GIN____; break;
+                                case 4: pKoumoku_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KIN____; break;
+                                case 5: pKoumoku_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____HISYA__; break;
+                                case 6: pKoumoku_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KAKU___; break;
+                                case 7: pKoumoku_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____FU_____; break;
+                                case 8: pKoumoku_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KYO____; break;
+                                case 9: pKoumoku_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KEI____; break;
+                                case 10: pKoumoku_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____GIN____; break;
+                                case 11: pKoumoku_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KIN____; break;
+                                case 12: pKoumoku_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____HISYA__; break;
+                                case 13: pKoumoku_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KAKU___; break;
                                 default: throw new Exception($"範囲外rowBanjo=[{rowBanjo}]");
                             }
                             int kDan = (int)(rowBanjo % 81 / 9) + 1;
@@ -499,59 +499,59 @@
                             int area = (int)(rowMoti / 9);
                             if (0 <= area && area <= 18)//1P歩
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIFU_____ + area;
+                                p2 = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIFU_____ + area;
                             }
                             else if (19 <= area && area <= 23)//1P香
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKYO____ + (area - 19);
+                                p2 = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIKYO____ + (area - 19);
                             }
                             else if (24 <= area && area <= 28)//1P桂
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKEI____ + (area - 24);
+                                p2 = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIKEI____ + (area - 24);
                             }
                             else if (29 <= area && area <= 33)//1P銀
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIGIN____ + (area - 29);
+                                p2 = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIGIN____ + (area - 29);
                             }
                             else if (34 <= area && area <= 38)//1P金
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKIN____ + (area - 34);
+                                p2 = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIKIN____ + (area - 34);
                             }
                             else if (39 <= area && area <= 41)//1P飛
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIHISYA__ + (area - 39);
+                                p2 = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIHISYA__ + (area - 39);
                             }
                             else if (42 <= area && area <= 44)//1P角
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKAKU___ + (area - 42);
+                                p2 = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIKAKU___ + (area - 42);
                             }
                             else if (45 <= area && area <= 63)//2P歩
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIFU_____ + (area - 45);
+                                p2 = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIFU_____ + (area - 45);
                             }
                             else if (64 <= area && area <= 68)//2P香
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKYO____ + (area - 64);
+                                p2 = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIKYO____ + (area - 64);
                             }
                             else if (69 <= area && area <= 73)//2P桂
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKEI____ + (area - 69);
+                                p2 = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIKEI____ + (area - 69);
                             }
                             else if (74 <= area && area <= 78)//2P銀
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIGIN____ + (area - 74);
+                                p2 = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIGIN____ + (area - 74);
                             }
                             else if (79 <= area && area <= 83)//2P金
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKIN____ + (area - 79);
+                                p2 = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIKIN____ + (area - 79);
                             }
                             else if (84 <= area && area <= 86)//2P飛
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIHISYA__ + (area - 84);
+                                p2 = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIHISYA__ + (area - 84);
                             }
                             else if (87 <= area && area <= 89)//2P角
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKAKU___ + (area - 87);
+                                p2 = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIKAKU___ + (area - 87);
                             }
                             else
                             {
@@ -698,20 +698,20 @@
                             int largeTableNo = (int)(rowNestedShogiban / 81);//大テーブル番号 0～
                             switch (largeTableNo)
                             {
-                                case 0: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____FU_____; break;//1P歩
-                                case 1: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KYO____; break;//1P香
-                                case 2: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KEI____; break;//1P桂
-                                case 3: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____GIN____; break;//1P銀
-                                case 4: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KIN____; break;//1P金
-                                case 5: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____HISYA__; break;//1P飛
-                                case 6: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KAKU___; break;//1P角
-                                case 7: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____FU_____; break;//2P歩
-                                case 8: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KYO____; break;//2P香
-                                case 9: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KEI____; break;//2P桂
-                                case 10: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____GIN____; break;//2P銀
-                                case 11: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KIN____; break;//2P金
-                                case 12: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____HISYA__; break;//2P飛
-                                case 13: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KAKU___; break;//2P角
+                                case 0: p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____FU_____; break;//1P歩
+                                case 1: p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KYO____; break;//1P香
+                                case 2: p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KEI____; break;//1P桂
+                                case 3: p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____GIN____; break;//1P銀
+                                case 4: p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KIN____; break;//1P金
+                                case 5: p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____HISYA__; break;//1P飛
+                                case 6: p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KAKU___; break;//1P角
+                                case 7: p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____FU_____; break;//2P歩
+                                case 8: p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KYO____; break;//2P香
+                                case 9: p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KEI____; break;//2P桂
+                                case 10: p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____GIN____; break;//2P銀
+                                case 11: p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KIN____; break;//2P金
+                                case 12: p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____HISYA__; break;//2P飛
+                                case 13: p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KAKU___; break;//2P角
                                 default: throw new Exception($"範囲外rowBanjo=[{rowNestedShogiban}]");
                             }
                             //int p2_base = largeTableNo * ConstShogi.BAN_SIZE;//小テーブル番号ベースは、P2のベース。
@@ -758,59 +758,59 @@
                             int largeTableNo = (int)(rowSingleShogiban / 9);//大テーブル番号
                             if (0 <= largeTableNo && largeTableNo <= 18)//1P歩
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIFU_____ + largeTableNo;
+                                p2 = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIFU_____ + largeTableNo;
                             }
                             else if (19 <= largeTableNo && largeTableNo <= 23)//1P香
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKYO____ + (largeTableNo - 19);
+                                p2 = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIKYO____ + (largeTableNo - 19);
                             }
                             else if (24 <= largeTableNo && largeTableNo <= 28)//1P桂
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKEI____ + (largeTableNo - 24);
+                                p2 = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIKEI____ + (largeTableNo - 24);
                             }
                             else if (29 <= largeTableNo && largeTableNo <= 33)//1P銀
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIGIN____ + (largeTableNo - 29);
+                                p2 = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIGIN____ + (largeTableNo - 29);
                             }
                             else if (34 <= largeTableNo && largeTableNo <= 38)//1P金
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKIN____ + (largeTableNo - 34);
+                                p2 = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIKIN____ + (largeTableNo - 34);
                             }
                             else if (39 <= largeTableNo && largeTableNo <= 41)//1P飛
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIHISYA__ + (largeTableNo - 39);
+                                p2 = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIHISYA__ + (largeTableNo - 39);
                             }
                             else if (42 <= largeTableNo && largeTableNo <= 44)//1P角
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKAKU___ + (largeTableNo - 42);
+                                p2 = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIKAKU___ + (largeTableNo - 42);
                             }
                             else if (45 <= largeTableNo && largeTableNo <= 63)//2P歩
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIFU_____ + (largeTableNo - 45);
+                                p2 = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIFU_____ + (largeTableNo - 45);
                             }
                             else if (64 <= largeTableNo && largeTableNo <= 68)//2P香
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKYO____ + (largeTableNo - 64);
+                                p2 = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIKYO____ + (largeTableNo - 64);
                             }
                             else if (69 <= largeTableNo && largeTableNo <= 73)//2P桂
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKEI____ + (largeTableNo - 69);
+                                p2 = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIKEI____ + (largeTableNo - 69);
                             }
                             else if (74 <= largeTableNo && largeTableNo <= 78)//2P銀
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIGIN____ + (largeTableNo - 74);
+                                p2 = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIGIN____ + (largeTableNo - 74);
                             }
                             else if (79 <= largeTableNo && largeTableNo <= 83)//2P金
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKIN____ + (largeTableNo - 79);
+                                p2 = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIKIN____ + (largeTableNo - 79);
                             }
                             else if (84 <= largeTableNo && largeTableNo <= 86)//2P飛
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIHISYA__ + (largeTableNo - 84);
+                                p2 = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIHISYA__ + (largeTableNo - 84);
                             }
                             else if (87 <= largeTableNo && largeTableNo <= 89)//2P角
                             {
-                                p2 = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKAKU___ + (largeTableNo - 87);
+                                p2 = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIKAKU___ + (largeTableNo - 87);
                             }
                             else
                             {
@@ -952,33 +952,33 @@
                             switch (row_LargeShogiban)
                             {
                                 case 0:
-                                case 1: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____FU_____; break;//1P歩
+                                case 1: p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____FU_____; break;//1P歩
                                 case 2:
-                                case 3: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KYO____; break;//1P香
+                                case 3: p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KYO____; break;//1P香
                                 case 4:
-                                case 5: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KEI____; break;//1P桂
+                                case 5: p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KEI____; break;//1P桂
                                 case 6:
-                                case 7: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____GIN____; break;//1P銀
+                                case 7: p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____GIN____; break;//1P銀
                                 case 8:
-                                case 9: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KIN____; break;//1P金
+                                case 9: p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KIN____; break;//1P金
                                 case 10:
-                                case 11: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____HISYA__; break;//1P飛
+                                case 11: p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____HISYA__; break;//1P飛
                                 case 12:
-                                case 13: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KAKU___; break;//1P角
+                                case 13: p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KAKU___; break;//1P角
                                 case 14:
-                                case 15: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____FU_____; break;//2P歩
+                                case 15: p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____FU_____; break;//2P歩
                                 case 16:
-                                case 17: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KYO____; break;//2P香
+                                case 17: p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KYO____; break;//2P香
                                 case 18:
-                                case 19: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KEI____; break;//2P桂
+                                case 19: p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KEI____; break;//2P桂
                                 case 20:
-                                case 21: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____GIN____; break;//2P銀
+                                case 21: p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____GIN____; break;//2P銀
                                 case 22:
-                                case 23: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KIN____; break;//2P金
+                                case 23: p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KIN____; break;//2P金
                                 case 24:
-                                case 25: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____HISYA__; break;//2P飛
+                                case 25: p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____HISYA__; break;//2P飛
                                 case 26:
-                                case 27: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KAKU___; break;//2P角
+                                case 27: p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KAKU___; break;//2P角
                                 default: throw new Exception($"範囲外rowBanjo=[{row_banjoArea}]");
                             }
                             int largeDan = row_LargeShogiban % 2 + 1;//1 or 2
@@ -1025,59 +1025,59 @@
                             switch (largeTableNo)
                             {
                                 case 0://1P歩 0～18枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIFU_____;
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIFU_____;
                                     p2MaisuLength = 19;
                                     break;
                                 case 1://1P香 0～5枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKYO____;
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIKYO____;
                                     p2MaisuLength = 5;
                                     break;
                                 case 2://1P桂 0～5枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKEI____;
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIKEI____;
                                     p2MaisuLength = 5;
                                     break;
                                 case 3://1P銀 0～5枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIGIN____;
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIGIN____;
                                     p2MaisuLength = 5;
                                     break;
                                 case 4://1P金 0～5枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKIN____;
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIKIN____;
                                     p2MaisuLength = 5;
                                     break;
                                 case 5://1P飛 0～3枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIHISYA__;
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIHISYA__;
                                     p2MaisuLength = 3;
                                     break;
                                 case 6://1P角 0～3枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKAKU___;
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIKAKU___;
                                     p2MaisuLength = 3;
                                     break;
                                 case 7://2P歩 0～18枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIFU_____;
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIFU_____;
                                     p2MaisuLength = 19;
                                     break;
                                 case 8://2P香 0～5枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKYO____;
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIKYO____;
                                     p2MaisuLength = 5;
                                     break;
                                 case 9://2P桂 0～5枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKEI____;
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIKEI____;
                                     p2MaisuLength = 5;
                                     break;
                                 case 10://2P銀 0～5枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIGIN____;
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIGIN____;
                                     p2MaisuLength = 5;
                                     break;
                                 case 11://2P金 0～5枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKIN____;
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIKIN____;
                                     p2MaisuLength = 5;
                                     break;
                                 case 12://2P飛 0～3枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIHISYA__;
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIHISYA__;
                                     p2MaisuLength = 3;
                                     break;
                                 case 13://2P角 0～3枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKAKU___;
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIKAKU___;
                                     p2MaisuLength = 3;
                                     break;
                                 default: throw new Exception($"範囲外rowMoti=[{row_motiArea}]");
@@ -1208,20 +1208,20 @@
                             int row_largeShogiban = (int)(row_banjoArea / ConstShogi.DAN_SIZE);//将棋盤が縦に何個目か。0～13。
                             switch (row_largeShogiban)
                             {
-                                case 0: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____FU_____; break;//1P歩
-                                case 1: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KYO____; break;//1P香
-                                case 2: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KEI____; break;//1P桂
-                                case 3: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____GIN____; break;//1P銀
-                                case 4: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KIN____; break;//1P金
-                                case 5: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____HISYA__; break;//1P飛
-                                case 6: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KAKU___; break;//1P角
-                                case 7: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____FU_____; break;//2P歩
-                                case 8: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KYO____; break;//2P香
-                                case 9: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KEI____; break;//2P桂
-                                case 10: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____GIN____; break;//2P銀
-                                case 11: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KIN____; break;//2P金
-                                case 12: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____HISYA__; break;//2P飛
-                                case 13: p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KAKU___; break;//2P角
+                                case 0: p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____FU_____; break;//1P歩
+                                case 1: p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KYO____; break;//1P香
+                                case 2: p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KEI____; break;//1P桂
+                                case 3: p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____GIN____; break;//1P銀
+                                case 4: p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KIN____; break;//1P金
+                                case 5: p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____HISYA__; break;//1P飛
+                                case 6: p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KAKU___; break;//1P角
+                                case 7: p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____FU_____; break;//2P歩
+                                case 8: p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KYO____; break;//2P香
+                                case 9: p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KEI____; break;//2P桂
+                                case 10: p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____GIN____; break;//2P銀
+                                case 11: p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KIN____; break;//2P金
+                                case 12: p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____HISYA__; break;//2P飛
+                                case 13: p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KAKU___; break;//2P角
                                 default: throw new Exception($"範囲外rowBanjo=[{row_banjoArea}]");
                             }
                             //int largeMaisu = (int)(row_banjoArea % p1Koumoku3or5Length);//大グループの枚数。０枚～。
@@ -1269,59 +1269,59 @@
                             switch (largeTableNo)
                             {
                                 case 0://1P歩 0～18枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIFU_____;// + largeTableNo;
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIFU_____;// + largeTableNo;
                                     p2MaisuLength = 19;
                                     break;
                                 case 1://1P香 0～5枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKYO____;// + (largeTableNo - 19);
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIKYO____;// + (largeTableNo - 19);
                                     p2MaisuLength = 5;
                                     break;
                                 case 2://1P桂 0～5枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKEI____;// + (largeTableNo - 24);
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIKEI____;// + (largeTableNo - 24);
                                     p2MaisuLength = 5;
                                     break;
                                 case 3://1P銀 0～5枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIGIN____;// + (largeTableNo - 29);
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIGIN____;// + (largeTableNo - 29);
                                     p2MaisuLength = 5;
                                     break;
                                 case 4://1P金 0～5枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKIN____;// + (largeTableNo - 34);
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIKIN____;// + (largeTableNo - 34);
                                     p2MaisuLength = 5;
                                     break;
                                 case 5://1P飛 0～3枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIHISYA__;// + (largeTableNo - 39);
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIHISYA__;// + (largeTableNo - 39);
                                     p2MaisuLength = 3;
                                     break;
                                 case 6://1P角 0～3枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKAKU___;// + (largeTableNo - 42);
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIKAKU___;// + (largeTableNo - 42);
                                     p2MaisuLength = 3;
                                     break;
                                 case 7://2P歩 0～18枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIFU_____;// + (largeTableNo - 45);
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIFU_____;// + (largeTableNo - 45);
                                     p2MaisuLength = 19;
                                     break;
                                 case 8://2P香 0～5枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKYO____;// + (largeTableNo - 64);
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIKYO____;// + (largeTableNo - 64);
                                     p2MaisuLength = 5;
                                     break;
                                 case 9://2P桂 0～5枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKEI____;// + (largeTableNo - 69);
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIKEI____;// + (largeTableNo - 69);
                                     p2MaisuLength = 5;
                                     break;
                                 case 10://2P銀 0～5枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIGIN____;// + (largeTableNo - 74);
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIGIN____;// + (largeTableNo - 74);
                                     p2MaisuLength = 5;
                                     break;
                                 case 11://2P金 0～5枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKIN____;// + (largeTableNo - 79);
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIKIN____;// + (largeTableNo - 79);
                                     p2MaisuLength = 5;
                                     break;
                                 case 12://2P飛 0～3枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIHISYA__;// + (largeTableNo - 84);
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIHISYA__;// + (largeTableNo - 84);
                                     p2MaisuLength = 3;
                                     break;
                                 case 13://2P角 0～3枚
-                                    p2_base = FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKAKU___;// + (largeTableNo - 87);
+                                    p2_base = FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIKAKU___;// + (largeTableNo - 87);
                                     p2MaisuLength = 3;
                                     break;
                                 default:

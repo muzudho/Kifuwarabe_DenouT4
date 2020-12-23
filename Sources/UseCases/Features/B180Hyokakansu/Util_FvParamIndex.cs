@@ -94,7 +94,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             }
 
             koumokuP = index_playerside + index_komasyurui + p_masuHandle;
-            Debug.Assert(0 <= koumokuP && koumokuP < FeatureVectorImpl.CHOSA_KOMOKU_P, "koumokuP=[" + koumokuP + "]");
+            Debug.Assert(0 <= koumokuP && koumokuP < FeatureVector.CHOSA_KOMOKU_P, "koumokuP=[" + koumokuP + "]");
             return koumokuP;
         }
 
@@ -124,7 +124,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             }
 
             int koumokuP = index_playerside + index_komasyurui + fingers.Count;
-            Debug.Assert(0 <= koumokuP && koumokuP < FeatureVectorImpl.CHOSA_KOMOKU_P, "koumokuP=[" + koumokuP + "]");
+            Debug.Assert(0 <= koumokuP && koumokuP < FeatureVector.CHOSA_KOMOKU_P, "koumokuP=[" + koumokuP + "]");
             return koumokuP;
         }
 

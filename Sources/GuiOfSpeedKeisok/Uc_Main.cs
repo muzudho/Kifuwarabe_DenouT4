@@ -42,7 +42,7 @@ namespace Grayscale.Kifuwaragyoku.GuiOfSpeedKeisok
 
         public UcMain()
         {
-            this.FeatureVector = new FeatureVectorImpl();
+            this.FeatureVector = new FeatureVector();
             {
                 Earth newEarth1;
                 Tree newKifu1_Hirate;

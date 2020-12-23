@@ -121,20 +121,20 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             {//盤上の駒
                 List<PP_P1Item> p1List = new List<PP_P1Item>()
                 {
-                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv04PP1pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____FU_____),
-                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv05PP1pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KYO____),
-                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv06pp1pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KEI____),
-                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv07pp1pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____GIN____),
-                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv08pp1pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KIN____),
-                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv09pp1pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____HISYA__),
-                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv10pp1pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KAKU___),
-                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv18pp2pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____FU_____),
-                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv19pp2pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KYO____),
-                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv20pp2pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KEI____),
-                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv21pp2pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____GIN____),
-                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv22pp2pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KIN____),
-                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv23pp2pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____HISYA__),
-                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv24pp2pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KAKU___),
+                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv04PP1pInFvDir)),FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____FU_____),
+                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv05PP1pInFvDir)),FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KYO____),
+                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv06pp1pInFvDir)),FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KEI____),
+                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv07pp1pInFvDir)),FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____GIN____),
+                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv08pp1pInFvDir)),FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KIN____),
+                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv09pp1pInFvDir)),FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____HISYA__),
+                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv10pp1pInFvDir)),FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KAKU___),
+                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv18pp2pInFvDir)),FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____FU_____),
+                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv19pp2pInFvDir)),FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KYO____),
+                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv20pp2pInFvDir)),FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KEI____),
+                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv21pp2pInFvDir)),FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____GIN____),
+                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv22pp2pInFvDir)),FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KIN____),
+                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv23pp2pInFvDir)),FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____HISYA__),
+                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv24pp2pInFvDir)),FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KAKU___),
                 };
 
                 foreach (PP_P1Item p1Item in p1List)
@@ -151,8 +151,8 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             {//１９枚の持ち駒
                 List<PP_P1Item> p1Items = new List<PP_P1Item>()
                 {
-                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv11PP1pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIFU_____),
-                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv25pp2pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIFU_____)
+                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv11PP1pInFvDir)),FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIFU_____),
+                    new PP_P1Item( Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv25pp2pInFvDir)),FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIFU_____)
                 };
 
                 foreach (PP_P1Item ppItem in p1Items)
@@ -169,14 +169,14 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             {//３枚の持駒
                 List<PP_P1Item> p1Items = new List<PP_P1Item>()
                 {
-                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv12PP1pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKYO____),
-                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv13pp1pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKEI____),
-                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv14pp1pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIGIN____),
-                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv15pp1pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKIN____),
-                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv26pp2pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKYO____),
-                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv27pp2pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKEI____),
-                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv28pp2pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIGIN____),
-                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv29pp2pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKIN____),
+                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv12PP1pInFvDir)),FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIKYO____),
+                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv13pp1pInFvDir)),FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIKEI____),
+                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv14pp1pInFvDir)),FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIGIN____),
+                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv15pp1pInFvDir)),FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIKIN____),
+                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv26pp2pInFvDir)),FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIKYO____),
+                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv27pp2pInFvDir)),FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIKEI____),
+                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv28pp2pInFvDir)),FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIGIN____),
+                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv29pp2pInFvDir)),FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIKIN____),
                 };
 
                 foreach (PP_P1Item ppItem in p1Items)
@@ -193,10 +193,10 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             {//２枚の持駒
                 List<PP_P1Item> p1Items = new List<PP_P1Item>()
                 {
-                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv16pp1pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIHISYA__),
-                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv17pp1pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKAKU___),
-                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv30pp2pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIHISYA__),
-                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv31pp2pInFvDir)),FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKAKU___),
+                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv16pp1pInFvDir)),FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIHISYA__),
+                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv17pp1pInFvDir)),FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIKAKU___),
+                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv30pp2pInFvDir)),FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIHISYA__),
+                    new PP_P1Item( Path.Combine( fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv31pp2pInFvDir)),FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIKAKU___),
                 };
 
                 foreach (PP_P1Item ppItem in p1Items)

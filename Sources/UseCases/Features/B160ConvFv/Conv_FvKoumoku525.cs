@@ -79,26 +79,26 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             switch (pside)
             {
                 case Playerside.P1: break;
-                case Playerside.P2: p_index += FeatureVectorImpl.CHOSA_KOMOKU_2P; break;
+                case Playerside.P2: p_index += FeatureVector.CHOSA_KOMOKU_2P; break;
                 default: break;
             }
 
             switch (komasyurui)
             {
                 case Komasyurui14.H11_Tokin__: //thru
-                case Komasyurui14.H01_Fu_____: p_index += FeatureVectorImpl.CHOSA_KOMOKU_____FU_____; break;
+                case Komasyurui14.H01_Fu_____: p_index += FeatureVector.CHOSA_KOMOKU_____FU_____; break;
                 case Komasyurui14.H12_NariKyo: //thru
-                case Komasyurui14.H02_Kyo____: p_index += FeatureVectorImpl.CHOSA_KOMOKU_____KYO____; break;
+                case Komasyurui14.H02_Kyo____: p_index += FeatureVector.CHOSA_KOMOKU_____KYO____; break;
                 case Komasyurui14.H13_NariKei: //thru
-                case Komasyurui14.H03_Kei____: p_index += FeatureVectorImpl.CHOSA_KOMOKU_____KEI____; break;
+                case Komasyurui14.H03_Kei____: p_index += FeatureVector.CHOSA_KOMOKU_____KEI____; break;
                 case Komasyurui14.H14_NariGin: //thru
-                case Komasyurui14.H04_Gin____: p_index += FeatureVectorImpl.CHOSA_KOMOKU_____GIN____; break;
-                case Komasyurui14.H05_Kin____: p_index += FeatureVectorImpl.CHOSA_KOMOKU_____KIN____; break;
-                case Komasyurui14.H06_Gyoku__: p_index += FeatureVectorImpl.CHOSA_KOMOKU_____OH_____; break;
+                case Komasyurui14.H04_Gin____: p_index += FeatureVector.CHOSA_KOMOKU_____GIN____; break;
+                case Komasyurui14.H05_Kin____: p_index += FeatureVector.CHOSA_KOMOKU_____KIN____; break;
+                case Komasyurui14.H06_Gyoku__: p_index += FeatureVector.CHOSA_KOMOKU_____OH_____; break;
                 case Komasyurui14.H09_Ryu____: //thru
-                case Komasyurui14.H07_Hisya__: p_index += FeatureVectorImpl.CHOSA_KOMOKU_____HISYA__; break;
+                case Komasyurui14.H07_Hisya__: p_index += FeatureVector.CHOSA_KOMOKU_____HISYA__; break;
                 case Komasyurui14.H10_Uma____: //thru
-                case Komasyurui14.H08_Kaku___: p_index += FeatureVectorImpl.CHOSA_KOMOKU_____KAKU___; break;
+                case Komasyurui14.H08_Kaku___: p_index += FeatureVector.CHOSA_KOMOKU_____KAKU___; break;
                 default: p_index = -1; goto gt_EndMethod;
             }
 
@@ -124,26 +124,26 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             switch (pside)
             {
                 case Playerside.P1: break;
-                case Playerside.P2: p_index += FeatureVectorImpl.CHOSA_KOMOKU_2P; break;
+                case Playerside.P2: p_index += FeatureVector.CHOSA_KOMOKU_2P; break;
                 default: break;
             }
 
             switch (komasyurui)
             {
                 //case Ks14.H11_Tokin__: //駒台にない。
-                case Komasyurui14.H01_Fu_____: p_index += FeatureVectorImpl.CHOSA_KOMOKU_MOTIFU_____; break;
+                case Komasyurui14.H01_Fu_____: p_index += FeatureVector.CHOSA_KOMOKU_MOTIFU_____; break;
                 //case Ks14.H12_NariKyo: //駒台にない。
-                case Komasyurui14.H02_Kyo____: p_index += FeatureVectorImpl.CHOSA_KOMOKU_MOTIKYO____; break;
+                case Komasyurui14.H02_Kyo____: p_index += FeatureVector.CHOSA_KOMOKU_MOTIKYO____; break;
                 //case Ks14.H13_NariKei: //駒台にない。
-                case Komasyurui14.H03_Kei____: p_index += FeatureVectorImpl.CHOSA_KOMOKU_MOTIKEI____; break;
+                case Komasyurui14.H03_Kei____: p_index += FeatureVector.CHOSA_KOMOKU_MOTIKEI____; break;
                 //case Ks14.H14_NariGin: //駒台にない。
-                case Komasyurui14.H04_Gin____: p_index += FeatureVectorImpl.CHOSA_KOMOKU_MOTIGIN____; break;
-                case Komasyurui14.H05_Kin____: p_index += FeatureVectorImpl.CHOSA_KOMOKU_MOTIKIN____; break;
+                case Komasyurui14.H04_Gin____: p_index += FeatureVector.CHOSA_KOMOKU_MOTIGIN____; break;
+                case Komasyurui14.H05_Kin____: p_index += FeatureVector.CHOSA_KOMOKU_MOTIKIN____; break;
                 //case Ks14.H06_Oh_____: // 駒台にない。
                 //case Ks14.H09_Ryu____: //駒台にない。
-                case Komasyurui14.H07_Hisya__: p_index += FeatureVectorImpl.CHOSA_KOMOKU_MOTIHISYA__; break;
+                case Komasyurui14.H07_Hisya__: p_index += FeatureVector.CHOSA_KOMOKU_MOTIHISYA__; break;
                 //case Ks14.H10_Uma____: //駒台にない。
-                case Komasyurui14.H08_Kaku___: p_index += FeatureVectorImpl.CHOSA_KOMOKU_MOTIKAKU___; break;
+                case Komasyurui14.H08_Kaku___: p_index += FeatureVector.CHOSA_KOMOKU_MOTIKAKU___; break;
                 default: p_index = -1; goto gt_EndMethod;
             }
 

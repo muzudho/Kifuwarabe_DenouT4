@@ -49,7 +49,7 @@ namespace Grayscale.Kifuwaragyoku.Engine
                 // 思考エンジンの、記憶を読み取ります。
                 //------------------------------------------------------------------------------------------------------------------------
                 {
-                    var fv = new FeatureVectorImpl();
+                    var fv = new FeatureVector();
                     playing.Shogisasi = new ShogisasiImpl(playing, fv);
                     Util_FvLoad.OpenFv(
                         playing.Shogisasi.FeatureVector,

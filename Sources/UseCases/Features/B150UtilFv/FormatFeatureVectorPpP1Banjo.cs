@@ -75,20 +75,20 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             {
                 List<PpItem_P2> p2List = new List<PpItem_P2>()
                 {
-                    new PpItem_P2( "vs 1P歩",FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____FU_____),
-                    new PpItem_P2( "vs 1P香",FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KYO____),
-                    new PpItem_P2( "vs 1P桂",FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KEI____),
-                    new PpItem_P2( "vs 1P銀",FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____GIN____),
-                    new PpItem_P2( "vs 1P金",FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KIN____),
-                    new PpItem_P2( "vs 1P飛",FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____HISYA__),
-                    new PpItem_P2( "vs 1P角",FeatureVectorImpl.CHOSA_KOMOKU_1P + FeatureVectorImpl.CHOSA_KOMOKU_____KAKU___),
-                    new PpItem_P2( "vs 2P歩",FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____FU_____),
-                    new PpItem_P2( "vs 2P香",FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KYO____),
-                    new PpItem_P2( "vs 2P桂",FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KEI____),
-                    new PpItem_P2( "vs 2P銀",FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____GIN____),
-                    new PpItem_P2( "vs 2P金",FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KIN____),
-                    new PpItem_P2( "vs 2P飛",FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____HISYA__),
-                    new PpItem_P2( "vs 2P角",FeatureVectorImpl.CHOSA_KOMOKU_2P + FeatureVectorImpl.CHOSA_KOMOKU_____KAKU___),
+                    new PpItem_P2( "vs 1P歩",FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____FU_____),
+                    new PpItem_P2( "vs 1P香",FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KYO____),
+                    new PpItem_P2( "vs 1P桂",FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KEI____),
+                    new PpItem_P2( "vs 1P銀",FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____GIN____),
+                    new PpItem_P2( "vs 1P金",FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KIN____),
+                    new PpItem_P2( "vs 1P飛",FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____HISYA__),
+                    new PpItem_P2( "vs 1P角",FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_____KAKU___),
+                    new PpItem_P2( "vs 2P歩",FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____FU_____),
+                    new PpItem_P2( "vs 2P香",FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KYO____),
+                    new PpItem_P2( "vs 2P桂",FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KEI____),
+                    new PpItem_P2( "vs 2P銀",FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____GIN____),
+                    new PpItem_P2( "vs 2P金",FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KIN____),
+                    new PpItem_P2( "vs 2P飛",FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____HISYA__),
+                    new PpItem_P2( "vs 2P角",FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_____KAKU___),
                 };
                 foreach (PpItem_P2 p2Item in p2List)
                 {
@@ -122,11 +122,11 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     int koumokuIndex;
                     if (piecePlayer == 1)
                     {
-                        koumokuIndex = FeatureVectorImpl.CHOSA_KOMOKU_1P;
+                        koumokuIndex = FeatureVector.CHOSA_KOMOKU_1P;
                     }
                     else if (piecePlayer == 2)
                     {
-                        koumokuIndex = FeatureVectorImpl.CHOSA_KOMOKU_2P;
+                        koumokuIndex = FeatureVector.CHOSA_KOMOKU_2P;
                     }
                     else
                     {
@@ -136,43 +136,43 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     // vs 持ち駒 1P歩x 0～18
                     for (int maisu = 0; maisu < 19; maisu++)//枚数
                     {
-                        p2List.Add(new PpItem_P2(string.Format("vs 持ち駒 {0}P歩x{1,2}", piecePlayer, maisu), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIFU_____ + maisu));
+                        p2List.Add(new PpItem_P2(string.Format("vs 持ち駒 {0}P歩x{1,2}", piecePlayer, maisu), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIFU_____ + maisu));
                     }
 
                     // vs 持ち駒 1P香x 0～4
                     for (int maisu = 0; maisu < 5; maisu++)//枚数
                     {
-                        p2List.Add(new PpItem_P2(string.Format("vs 持ち駒 {0}P香x{1,2}", piecePlayer, maisu), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKYO____ + maisu));
+                        p2List.Add(new PpItem_P2(string.Format("vs 持ち駒 {0}P香x{1,2}", piecePlayer, maisu), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIKYO____ + maisu));
                     }
 
                     // vs 持ち駒 1P桂x 0～4
                     for (int maisu = 0; maisu < 5; maisu++)//枚数
                     {
-                        p2List.Add(new PpItem_P2(string.Format("vs 持ち駒 {0}P桂x{1,2}", piecePlayer, maisu), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKEI____ + maisu));
+                        p2List.Add(new PpItem_P2(string.Format("vs 持ち駒 {0}P桂x{1,2}", piecePlayer, maisu), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIKEI____ + maisu));
                     }
 
                     // vs 持ち駒 1P銀x 0～4
                     for (int maisu = 0; maisu < 5; maisu++)//枚数
                     {
-                        p2List.Add(new PpItem_P2(string.Format("vs 持ち駒 {0}P銀x{1,2}", piecePlayer, maisu), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIGIN____ + maisu));
+                        p2List.Add(new PpItem_P2(string.Format("vs 持ち駒 {0}P銀x{1,2}", piecePlayer, maisu), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIGIN____ + maisu));
                     }
 
                     // vs 持ち駒 1P金x 0～4
                     for (int maisu = 0; maisu < 5; maisu++)//枚数
                     {
-                        p2List.Add(new PpItem_P2(string.Format("vs 持ち駒 {0}P金x{1,2}", piecePlayer, maisu), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKIN____ + maisu));
+                        p2List.Add(new PpItem_P2(string.Format("vs 持ち駒 {0}P金x{1,2}", piecePlayer, maisu), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIKIN____ + maisu));
                     }
 
                     // vs 持ち駒 1P飛x 0～4
                     for (int maisu = 0; maisu < 3; maisu++)//枚数
                     {
-                        p2List.Add(new PpItem_P2(string.Format("vs 持ち駒 {0}P飛x{1,2}", piecePlayer, maisu), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIHISYA__ + maisu));
+                        p2List.Add(new PpItem_P2(string.Format("vs 持ち駒 {0}P飛x{1,2}", piecePlayer, maisu), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIHISYA__ + maisu));
                     }
 
                     // vs 持ち駒 1P角x 0～4
                     for (int maisu = 0; maisu < 3; maisu++)//枚数
                     {
-                        p2List.Add(new PpItem_P2(string.Format("vs 持ち駒 {0}P角x{1,2}", piecePlayer, maisu), koumokuIndex + FeatureVectorImpl.CHOSA_KOMOKU_MOTIKAKU___ + maisu));
+                        p2List.Add(new PpItem_P2(string.Format("vs 持ち駒 {0}P角x{1,2}", piecePlayer, maisu), koumokuIndex + FeatureVector.CHOSA_KOMOKU_MOTIKAKU___ + maisu));
                     }
                 }
                 // 計90項目

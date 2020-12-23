@@ -6,7 +6,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Searching
     /// <summary>
     /// 探索が終わるまで、途中で変更されない設定。
     /// </summary>
-    public class SearchArgsImpl : ISearchArgs
+    public class SearchArgs : ISearchArgs
     {
         /// <summary>
         /// 本将棋なら真。
@@ -26,7 +26,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Searching
         public KaisetuBoards LogF_moveKiki { get { return this.m_logF_moveKiki_; } }
         private KaisetuBoards m_logF_moveKiki_;
 
-        public SearchArgsImpl(
+        public SearchArgs(
             bool isHonshogi,
             int[] yomuLimitter,
             KaisetuBoards logF_moveKiki

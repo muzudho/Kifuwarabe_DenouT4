@@ -155,8 +155,8 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 #endif
 
 
-            ISearchArgs args = new SearchArgsImpl(isHonshogi, yomuLimitter, logF_moveKiki);
-            ICurrentSearch genjo = new CurrentSearchImpl(
+            ISearchArgs args = new SearchArgs(isHonshogi, yomuLimitter, logF_moveKiki);
+            ICurrentSearch genjo = new CurrentSearch(
                 temezumi,
                 args
                 );
