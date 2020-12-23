@@ -27,7 +27,6 @@ InputForcePromotion = "./Data/data_forcePromotion_UTF-8.csv"
 OutputForcePromotion = "../Logs/_log_強制転成表.html"
 InputSyuruiToHaiyaku = "./Data/data_syuruiToHaiyaku.csv"
 OutputSyuruiToHaiyaku = "../Logs/_log_配役転換表.html"
-
 Shogiban01Widgets = "./Data/data_widgets_01_shogiban.csv"
 Console02Widgets = "./Data/data_widgets_02_console.csv"
 Vs03Widgets = "./Data/data_widgets_03_vs.csv"
@@ -38,16 +37,7 @@ DataScoreLua = "./Data/lua/KifuWarabe/data_score.lua"
 NarabeDataGuiLua = "./Data/lua/KifuNarabe/data_gui.lua"
 DataSetteiXml = "./Data/data_settei.xml"
 
-DataSetteiCsv = "./Data/data_settei.csv"
-DataForcePromotionUTF8Csv = "../../Engine01_Config/data_forcePromotion_UTF-8.csv"
-data_haiyaku185_UTF-8 = "../../Engine01_Config/data_haiyaku185_UTF-8.csv"
-DataMichi187Csv = "../../Engine01_Config/data_michi187.csv"
-DataSyuruiToHaiyakuCsv = "../../Engine01_Config/data_syuruiToHaiyaku.csv"
-DataWidgets01ShogibanCsv = "../../Engine01_Config/data_widgets_01_shogiban.csv"
-DataWidgets02ConsoleCsv = "../../Engine01_Config/data_widgets_02_console.csv"
-MichiHyoLogHtml = "../../Engine01_Logs/_log_道表.html"
-ForcePromotionLogHtml = "../../Engine01_Logs/_log_強制転成表.html"
-HaiyakuTenkanHyoLogHtml = "../../Engine01_Logs/_log_配役転換表.html"
+MichiHyoLogHtml = "../Logs/_log_道表.html"
 
 # テキストファイル
 

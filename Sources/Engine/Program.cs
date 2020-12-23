@@ -59,32 +59,32 @@ namespace Grayscale.Kifuwaragyoku.Engine
                 //------------------------------------------------------------------------------------------------------------------------
                 {
                     // データの読取「道」
-                    if (Michi187Array.Load(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Michi187"))))
+                    if (Michi187Array.Load(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Michi187))))
                     {
                     }
 
                     // データの読取「配役」
-                    string filepath_Haiyaku = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Haiyaku185"));
+                    string filepath_Haiyaku = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Haiyaku185));
                     Util_Array_KomahaiyakuEx184.Load(filepath_Haiyaku, Encoding.UTF8);
 
                     // データの読取「強制転成表」　※駒配役を生成した後で。
-                    string filepath_ForcePromotion = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("InputForcePromotion"));
+                    string filepath_ForcePromotion = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.InputForcePromotion));
                     Array_ForcePromotion.Load(filepath_ForcePromotion, Encoding.UTF8);
 
 #if DEBUG
                     {
-                        string filepath_LogKyosei = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("OutputForcePromotion"));
+                        string filepath_LogKyosei = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.OutputForcePromotion));
                         File.WriteAllText(filepath_LogKyosei, Array_ForcePromotion.LogHtml());
                     }
 #endif
 
                     // データの読取「配役転換表」
-                    string filepath_HaiyakuTenkan = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("InputSyuruiToHaiyaku"));
+                    string filepath_HaiyakuTenkan = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.InputSyuruiToHaiyaku));
                     Data_KomahaiyakuTransition.Load(filepath_HaiyakuTenkan, Encoding.UTF8);
 
 #if DEBUG
                     {
-                        string filepath_LogHaiyakuTenkan = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("OutputSyuruiToHaiyaku");
+                        string filepath_LogHaiyakuTenkan = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.OutputSyuruiToHaiyaku);
                         File.WriteAllText(filepath_LogHaiyakuTenkan, Data_KomahaiyakuTransition.Format_LogHtml());
                     }
 #endif

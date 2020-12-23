@@ -353,7 +353,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 // 道１８７
                 //----------
                 {
-                    var filepath_Michi = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.DataMichi187Csv));
+                    var filepath_Michi = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Michi187));
                     if (Michi187Array.Load(filepath_Michi))
                     {
                     }
@@ -370,16 +370,16 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 // 駒の配役１８１
                 //----------
                 {
-                    var filepath_Haiyaku = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.DataHaiyaku185UTF8Csv));
+                    var filepath_Haiyaku = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Haiyaku185));
                     Util_Array_KomahaiyakuEx184.Load(filepath_Haiyaku, Encoding.UTF8);
                 }
 
                 {
-                    var filepath_ForcePromotion = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.DataForcePromotionUTF8Csv));
+                    var filepath_ForcePromotion = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.InputForcePromotion));
                     List<List<string>> rows = Array_ForcePromotion.Load(filepath_ForcePromotion, Encoding.UTF8);
                 }
                 {
-                    var filepath_forcePromotionLogHtml = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.ForcePromotionLogHtml));
+                    var filepath_forcePromotionLogHtml = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.OutputForcePromotion));
                     File.WriteAllText(filepath_forcePromotionLogHtml, Array_ForcePromotion.LogHtml());
                 }
 
@@ -387,11 +387,11 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 // 配役転換表
                 //----------
                 {
-                    var filepath_syuruiToHaiyaku = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.DataSyuruiToHaiyakuCsv));
+                    var filepath_syuruiToHaiyaku = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.InputSyuruiToHaiyaku));
                     List<List<string>> rows = Data_KomahaiyakuTransition.Load(filepath_syuruiToHaiyaku, Encoding.UTF8);
                 }
                 {
-                    var filepath_LogHaiyakuTenkan = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.HaiyakuTenkanHyoLogHtml));
+                    var filepath_LogHaiyakuTenkan = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.OutputSyuruiToHaiyaku));
                     File.WriteAllText(filepath_LogHaiyakuTenkan, Data_KomahaiyakuTransition.Format_LogHtml());
                 }
             }
@@ -402,7 +402,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             }
 
             {
-                var filepath_widgets02 = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.DataWidgets02ConsoleCsv));
+                var filepath_widgets02 = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Console02Widgets));
                 this.WidgetLoaders.Add(new WidgetsLoader_CsharpImpl(filepath_widgets02, this));
             }
         }
