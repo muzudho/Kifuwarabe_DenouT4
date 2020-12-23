@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Nett;
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -43,7 +44,8 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             {
                 StringBuilder sbLog = new StringBuilder();
 
-                var filename = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("KyouseiTenseiDebug"));
+                var logDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.LogDirectory));
+                var filename = Path.Combine(logDirectory, toml.Get<TomlTable>("Logs").Get<string>(SpecifiedFiles.KyouseiTenseiDebug));
                 if (File.Exists(filename))
                 {
                     sbLog.Append(File.ReadAllText(filename));

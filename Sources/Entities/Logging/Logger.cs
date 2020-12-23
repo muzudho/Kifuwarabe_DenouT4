@@ -23,53 +23,54 @@
             Console.WriteLine(message);
         }
 
-        static ILogRecord LogEntry(string profilePath, TomlTable toml, string resourceKey, bool enabled, bool timeStampPrintable, bool enableConsole, IErrorController kwDisplayer_OrNull)
-        {
-            var basename = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(resourceKey));
-            return new LogRecord($"{basename}.log", 0, enabled, timeStampPrintable, enableConsole, kwDisplayer_OrNull);
-        }
-
         static Logger()
         {
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+            var logDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.LogDirectory));
 
-            var basename = Path.Combine(profilePath, $"default_({System.Diagnostics.Process.GetCurrentProcess()})");
+            var basename = Path.Combine(logDirectory, $"default_({System.Diagnostics.Process.GetCurrentProcess()})");
             AddLog(LogTags.Default, new LogRecord($"{basename}.log", 0, false, false, false, null));
 
             // ログを出せなかったときなど、致命的なエラーにも利用。
-            AddLog(LogTags.ProcessNoneError, LogEntry(profilePath, toml, "N01ProcessNoneErrorLog", true, false, false, null));
+            AddLog(LogTags.ProcessNoneError, LogEntry(logDirectory, toml, SpecifiedFiles.N01ProcessNoneErrorLog, true, false, false, null));
             // 汎用ログ。千日手判定用。
-            AddLog(LogTags.PeocessNoneSennitite, LogEntry(profilePath, toml, "N02PeocessNoneSennititeLog", true, false, false, null));
-            AddLog(LogTags.ProcessServerDefault, LogEntry(profilePath, toml, "N03ProcessServerDefaultLog", true, false, false, null));
+            AddLog(LogTags.PeocessNoneSennitite, LogEntry(logDirectory, toml, SpecifiedFiles.N02PeocessNoneSennititeLog, true, false, false, null));
+            AddLog(LogTags.ProcessServerDefault, LogEntry(logDirectory, toml, SpecifiedFiles.N03ProcessServerDefaultLog, true, false, false, null));
             // 擬似将棋サーバーのログ。ログ。送受信内容の記録専用です。
-            AddLog(LogTags.ProcessServerNetworkAsync, LogEntry(profilePath, toml, "N04ProcessServerNetworkAsyncLog", true, true, false, null));
+            AddLog(LogTags.ProcessServerNetworkAsync, LogEntry(logDirectory, toml, SpecifiedFiles.N04ProcessServerNetworkAsyncLog, true, true, false, null));
             // C# GUIのログ。
-            AddLog(LogTags.ProcessGuiDefault, LogEntry(profilePath, toml, "N05ProcessGuiDefaultLog", true, false, false, new ErrorControllerImpl()));
+            AddLog(LogTags.ProcessGuiDefault, LogEntry(logDirectory, toml, SpecifiedFiles.N05ProcessGuiDefaultLog, true, false, false, new ErrorControllerImpl()));
             // C# GUIのログ。
-            AddLog(LogTags.ProcessGuiKifuYomitori, LogEntry(profilePath, toml, "N06ProcessGuiKifuYomitoriLog", true, false, false, null));
+            AddLog(LogTags.ProcessGuiKifuYomitori, LogEntry(logDirectory, toml, SpecifiedFiles.N06ProcessGuiKifuYomitoriLog, true, false, false, null));
             // C# GUIのログ。
-            AddLog(LogTags.ProcessGuiNetwork, LogEntry(profilePath, toml, "N07ProcessGuiNetworkLog", true, true, false, null));
+            AddLog(LogTags.ProcessGuiNetwork, LogEntry(logDirectory, toml, SpecifiedFiles.N07ProcessGuiNetworkLog, true, true, false, null));
             // C# GUIのログ。
-            AddLog(LogTags.ProcessGuiPaint, LogEntry(profilePath, toml, "N08ProcessGuiPaintLog", true, false, false, null));
+            AddLog(LogTags.ProcessGuiPaint, LogEntry(logDirectory, toml, SpecifiedFiles.N08ProcessGuiPaintLog, true, false, false, null));
             // C# GUIのログ。
-            AddLog(LogTags.ProcessGuiSennitite, LogEntry(profilePath, toml, "N09ProcessGuiSennititeLog", true, false, false, null));
+            AddLog(LogTags.ProcessGuiSennitite, LogEntry(logDirectory, toml, SpecifiedFiles.N09ProcessGuiSennititeLog, true, false, false, null));
             // AIMS GUIに対応する用のログ。
-            AddLog(LogTags.ProcessAimsDefault, LogEntry(profilePath, toml, "N10ProcessAimsDefaultLog", true, false, false, null));
+            AddLog(LogTags.ProcessAimsDefault, LogEntry(logDirectory, toml, SpecifiedFiles.N10ProcessAimsDefaultLog, true, false, false, null));
             // 将棋エンジンのログ。将棋エンジンきふわらべで汎用に使います。
-            AddLog(LogTags.ProcessEngineDefault, LogEntry(profilePath, toml, "N11ProcessEngineDefaultLog", true, false, false, new ErrorControllerImpl()));
+            AddLog(LogTags.ProcessEngineDefault, LogEntry(logDirectory, toml, SpecifiedFiles.N11ProcessEngineDefaultLog, true, false, false, new ErrorControllerImpl()));
             // 将棋エンジンのログ。送受信内容の記録専用です。
-            AddLog(LogTags.ProcessEngineNetwork, LogEntry(profilePath, toml, "N12ProcessEngineNetworkLog", true, true, false, null));
+            AddLog(LogTags.ProcessEngineNetwork, LogEntry(logDirectory, toml, SpecifiedFiles.N12ProcessEngineNetworkLog, true, true, false, null));
             // 将棋エンジンのログ。思考ルーチン専用です。
-            AddLog(LogTags.ProcessEngineSennitite, LogEntry(profilePath, toml, "N13ProcessEngineSennititeLog", true, false, false, null));
+            AddLog(LogTags.ProcessEngineSennitite, LogEntry(logDirectory, toml, SpecifiedFiles.N13ProcessEngineSennititeLog, true, false, false, null));
             // その他のログ。汎用。テスト・プログラム用。
-            AddLog(LogTags.ProcessTestProgramDefault, LogEntry(profilePath, toml, "N14ProcessTestProgramDefaultLog", true, false, false, null));
+            AddLog(LogTags.ProcessTestProgramDefault, LogEntry(logDirectory, toml, SpecifiedFiles.N14ProcessTestProgramDefaultLog, true, false, false, null));
             // その他のログ。棋譜学習ソフト用。
-            AddLog(LogTags.ProcessLearnerDefault, LogEntry(profilePath, toml, "N15ProcessLearnerDefaultLog", true, false, false, new ErrorControllerImpl()));
+            AddLog(LogTags.ProcessLearnerDefault, LogEntry(logDirectory, toml, SpecifiedFiles.N15ProcessLearnerDefaultLog, true, false, false, new ErrorControllerImpl()));
             // その他のログ。スピード計測ソフト用。
-            AddLog(LogTags.ProcessSpeedTestKeisoku, LogEntry(profilePath, toml, "N16ProcessSpeedTestKeisokuLog", true, false, false, null));
+            AddLog(LogTags.ProcessSpeedTestKeisoku, LogEntry(logDirectory, toml, SpecifiedFiles.N16ProcessSpeedTestKeisokuLog, true, false, false, null));
             // その他のログ。ユニット・テスト用。
-            AddLog(LogTags.ProcessUnitTestDefault, LogEntry(profilePath, toml, "N17ProcessUnitTestDefaultLog", true, false, true, new ErrorControllerImpl()));
+            AddLog(LogTags.ProcessUnitTestDefault, LogEntry(logDirectory, toml, SpecifiedFiles.N17ProcessUnitTestDefaultLog, true, false, true, new ErrorControllerImpl()));
+        }
+
+        static ILogRecord LogEntry(string logDirectory, TomlTable toml, string resourceKey, bool enabled, bool timeStampPrintable, bool enableConsole, IErrorController kwDisplayer_OrNull)
+        {
+            var basename = Path.Combine(logDirectory, toml.Get<TomlTable>("Logs").Get<string>(resourceKey));
+            return new LogRecord(basename, 0, enabled, timeStampPrintable, enableConsole, kwDisplayer_OrNull);
         }
 
         /// <summary>
@@ -116,15 +117,15 @@
         {
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
-            var logsDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("LogsDirectory"));
+            var logDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.LogDirectory));
 
-            string[] paths = Directory.GetFiles(logsDirectory);
+            string[] paths = Directory.GetFiles(logDirectory);
             foreach (string path in paths)
             {
                 string name = Path.GetFileName(path);
                 if (name.StartsWith("_log_"))
                 {
-                    string fullpath = Path.Combine(logsDirectory, name);
+                    string fullpath = Path.Combine(logDirectory, name);
                     //MessageBox.Show("fullpath=[" + fullpath + "]", "ログ・ファイルの削除");
                     System.IO.File.Delete(fullpath);
                 }
