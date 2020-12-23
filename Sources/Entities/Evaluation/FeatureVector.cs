@@ -1,5 +1,4 @@
 ﻿using System.Text;
-using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 
 namespace Grayscale.Kifuwaragyoku.Entities.Evaluation
@@ -7,6 +6,15 @@ namespace Grayscale.Kifuwaragyoku.Entities.Evaluation
 
     public class FeatureVector : IFeatureVector
     {
+        public FeatureVector()
+        {
+            this.Komawari = new float[Array_Komasyurui.Items_AllElements.Length];
+            this.SetBairitu_NikomaKankeiPp(0.5963f);//ダミー 1.0f;
+            this.SetTyoseiryoSmallest_NikomaKankeiPp(0.4649f);//ダミー
+            this.SetTyoseiryoLargest_NikomaKankeiPp(0.5963f);//ダミー
+            this.SetTyoseiryoInit_NikomaKankeiPp(0.5963f);//ダミー
+            this.NikomaKankeiPp_ForMemory = new float[FeatureVector.CHOSA_KOMOKU_P, FeatureVector.CHOSA_KOMOKU_P];
+        }
 
         /// <summary>
         //----------------------------------------
@@ -113,16 +121,6 @@ namespace Grayscale.Kifuwaragyoku.Entities.Evaluation
         //    float value = 
         //    return (int)
         //}
-
-        public FeatureVector()
-        {
-            this.Komawari = new float[Array_Komasyurui.Items_AllElements.Length];
-            this.SetBairitu_NikomaKankeiPp(0.5963f);//ダミー 1.0f;
-            this.SetTyoseiryoSmallest_NikomaKankeiPp(0.4649f);//ダミー
-            this.SetTyoseiryoLargest_NikomaKankeiPp(0.5963f);//ダミー
-            this.SetTyoseiryoInit_NikomaKankeiPp(0.5963f);//ダミー
-            this.NikomaKankeiPp_ForMemory = new float[FeatureVector.CHOSA_KOMOKU_P, FeatureVector.CHOSA_KOMOKU_P];
-        }
 
         /// <summary>
         /// 「0」→「１一」。

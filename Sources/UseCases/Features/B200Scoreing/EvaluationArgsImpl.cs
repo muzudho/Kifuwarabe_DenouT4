@@ -1,5 +1,4 @@
-﻿using Grayscale.Kifuwaragyoku.Entities.Evaluation;
-using Grayscale.Kifuwaragyoku.Entities.Features;
+﻿using Grayscale.Kifuwaragyoku.Entities.Features;
 
 #if DEBUG
 #endif
@@ -14,9 +13,6 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         public SennititeConfirmer SennititeConfirmer { get { return this.sennititeConfirmer; } }
         private SennititeConfirmer sennititeConfirmer;
 
-        public IFeatureVector FeatureVector { get { return this.featureVector; } }
-        private IFeatureVector featureVector;
-
         public KyokumenPngEnvironment ReportEnvironment { get { return this.reportEnvironment; } }
         private KyokumenPngEnvironment reportEnvironment;
 
@@ -30,7 +26,6 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
         public EvaluationArgsImpl(
             SennititeConfirmer sennititeConfirmer,
-            IFeatureVector featureVector,
             KyokumenPngEnvironment reportEnvironment
 #if DEBUG
             ,
@@ -39,7 +34,6 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             )
         {
             this.sennititeConfirmer = sennititeConfirmer;
-            this.featureVector = featureVector;
             this.reportEnvironment = reportEnvironment;
 #if DEBUG
             this.kaisetuBoards_orNull = kaisetuBoards_orNull;

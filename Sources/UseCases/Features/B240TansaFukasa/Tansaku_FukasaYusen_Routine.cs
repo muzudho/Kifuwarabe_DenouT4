@@ -224,6 +224,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
                 // 局面に評価を付けます。
                 float score = Tansaku_FukasaYusen_Routine.Do_Leaf(
+                    playing,
                     genjo,
 
                     psideA,// positionA.GetKaisiPside(),
@@ -311,6 +312,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// もう深く読まない場合の処理。
         /// </summary>
         private static float Do_Leaf(
+            IPlaying playing,
             ICurrentSearch genjo,
 
             Playerside psideA,
@@ -322,6 +324,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
             // 局面に評価値を付けます。
             score += Util_Scoreing.DoScoreing_Kyokumen(
+                playing,
                 psideA,
                 positionA,
 
@@ -433,6 +436,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     // もう深くよまないなら
                     //----------------------------------------
                     float baseDepth_score = Tansaku_FukasaYusen_Routine.Do_Leaf(
+                        playing,
                         genjo,
 
                         psideA,//positionA.GetKaisiPside(),

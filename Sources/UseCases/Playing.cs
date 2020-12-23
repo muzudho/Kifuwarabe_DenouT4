@@ -967,7 +967,6 @@ namespace Grayscale.Kifuwaragyoku.UseCases
 #endif
             EvaluationArgs args = new EvaluationArgsImpl(
                 earth1.GetSennititeCounter(),
-                this.FeatureVector,
                 UtilKifuTreeLogWriter.REPORT_ENVIRONMENT
 #if DEBUG
                 ,

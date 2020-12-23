@@ -1,10 +1,7 @@
-﻿using System.Collections.Generic;
-
-#if DEBUG
-#endif
-
-namespace Grayscale.Kifuwaragyoku.Entities.Features
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
+    using System.Collections.Generic;
+
     public class EarthImpl : Earth
     {
         public EarthImpl()

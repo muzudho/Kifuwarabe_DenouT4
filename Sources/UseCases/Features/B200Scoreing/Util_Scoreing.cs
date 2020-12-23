@@ -1,4 +1,5 @@
 ﻿using System;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 // using Grayscale.Kifuwaragyoku.Entities.Features;
 
@@ -209,6 +210,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// 局面に、評価値を付けます。
         /// </summary>
         public static float DoScoreing_Kyokumen(
+            IPlaying playing,
             Playerside psideA,
             ISky positionA,
 
@@ -241,7 +243,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 score += hyokakansu.Evaluate(
                     psideA,
                     positionA,//node_yomi_mutable_KAIZOMAE.Value.Kyokumen,
-                    args.FeatureVector
+                    playing.FeatureVector
                 );
             }
             else
@@ -249,7 +251,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 score += UtilHyokakansuCollection.EvaluateAll_Normal(
                     psideA,
                     positionA,
-                    args.FeatureVector
+                    playing.FeatureVector
                     );
             }
 
