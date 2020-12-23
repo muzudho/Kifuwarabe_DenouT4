@@ -379,11 +379,13 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 //----------
                 // 駒の配役１８１
                 //----------
-                string filepath_Haiyaku = Path.Combine(Application.StartupPath, this.Data_Settei_Csv.Get("data_haiyaku185_UTF-8"));
-                Util_Array_KomahaiyakuEx184.Load(filepath_Haiyaku, Encoding.UTF8);
+                {
+                    var filepath_Haiyaku = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.DataHaiyaku185UTF8Csv));
+                    Util_Array_KomahaiyakuEx184.Load(filepath_Haiyaku, Encoding.UTF8);
+                }
 
                 {
-                    string filepath_ForcePromotion = Path.Combine(Application.StartupPath, this.Data_Settei_Csv.Get("data_forcePromotion_UTF-8"));
+                    var filepath_ForcePromotion = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.DataForcePromotionUTF8Csv));
                     List<List<string>> rows = Array_ForcePromotion.Load(filepath_ForcePromotion, Encoding.UTF8);
                     File.WriteAllText(this.Data_Settei_Csv.Get("_log_強制転成表"), Array_ForcePromotion.LogHtml());
                 }

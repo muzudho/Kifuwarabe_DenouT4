@@ -321,6 +321,7 @@
     <Compile Include="Features\A210KnowNingen\B830ConvStartpo\Conv_StartposImporter.cs" />
     <Compile Include="Features\A210KnowNingen\HumanKnowsDebugOptions.cs" />
     <Compile Include="Features\A240KifuTreeLog\B110_KifuTreeLog\UtilKifuTreeLogWriter.cs" />
+    <Compile Include="Logging\SpecifiedFiles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
