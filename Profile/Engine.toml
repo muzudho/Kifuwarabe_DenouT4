@@ -65,9 +65,9 @@ N3PngFilename = "3.png" # 数字・小
 # Fv
 
 Fv00Komawari = "./Data/fv/fv_00_Komawari.csv"
-Fv00Scale = "./Data/fv/fv_00_Scale.csv"
-Fv01KK = "./Data/fv_01_KK.csv"
-Fv2Sample = "./Data/fv_2(sample).csv"
+# Fv00Scale = "./Data/fv/fv_00_Scale.csv"
+# Fv01KK = "./Data/fv_01_KK.csv"
+# Fv2Sample = "./Data/fv_2(sample).csv"
 
 Fv00ScaleInFvDir = "fv_00_Scale.csv"
 Fv01KKInFvDir = "fv_01_KK.csv"

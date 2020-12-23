@@ -51,7 +51,7 @@ namespace Grayscale.Kifuwaragyoku.Engine
                     playing.Shogisasi = new ShogisasiImpl(playing);
                     Util_FvLoad.OpenFv(
                         playing.Shogisasi.FeatureVector,
-                        Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("Fv00Komawari")), LogTags.ProcessEngineDefault);
+                        Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv00Komawari)), LogTags.ProcessEngineDefault);
                 }
 
                 //------------------------------------------------------------------------------------------------------------------------
