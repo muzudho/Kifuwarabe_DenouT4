@@ -10,6 +10,9 @@
 
     public static class Logger
     {
+        private static readonly Guid unique = Guid.NewGuid();
+        public static Guid Unique { get { return unique; } }
+
         /// <summary>
         /// あとで消す☆（＾～＾）
         /// </summary>
