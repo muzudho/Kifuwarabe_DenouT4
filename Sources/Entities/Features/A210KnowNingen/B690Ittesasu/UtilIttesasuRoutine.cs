@@ -30,141 +30,110 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             [CallerLineNumber] int sourceLineNumber = 0
             )
         {
-            int exceptionArea = 0;
+            //------------------------------
+            // 用意
+            //------------------------------
+            syuryoResult = new IttesasuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
 
+            //------------------------------
+            // 動かす駒を移動先へ。
+            //------------------------------
+            //Debug.Assert(null != ittesasuArg.KorekaranoMove, "これからの指し手がヌルでした。");
+            Finger figMovedKoma;
+            UtilIttesasuRoutine.Do24_UgokasuKoma_IdoSakiHe(
+                out figMovedKoma,
+                move1,
+                positionA,
+                logTag
+                //hint
+                );
+            syuryoResult.FigMovedKoma = figMovedKoma; //動かした駒更新
+            Debug.Assert(Fingers.Error_1 != syuryoResult.FigMovedKoma, "動かした駒がない☆！？エラーだぜ☆！");
 
-            try
+            SyElement dstMasu = ConvMove.ToDstMasu(move1);
+            Komasyurui14 dstKs = ConvMove.ToDstKomasyurui(move1);
+            Busstop afterStar;
             {
-                //------------------------------
-                // 用意
-                //------------------------------
-                exceptionArea = 1010;
-                syuryoResult = new IttesasuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
-
-                exceptionArea = 1040;
-
-                exceptionArea = 1050;
-                //------------------------------
-                // 動かす駒を移動先へ。
-                //------------------------------
-                //Debug.Assert(null != ittesasuArg.KorekaranoMove, "これからの指し手がヌルでした。");
-                Finger figMovedKoma;
-                UtilIttesasuRoutine.Do24_UgokasuKoma_IdoSakiHe(
-                    out figMovedKoma,
+                afterStar = UtilIttesasuRoutine.Do36_KomaOnDestinationMasu(
+                    dstKs,
                     move1,
-                    positionA,
-                    logTag
-                    //hint
+                    positionA
                     );
-                syuryoResult.FigMovedKoma = figMovedKoma; //動かした駒更新
-                Debug.Assert(Fingers.Error_1 != syuryoResult.FigMovedKoma, "動かした駒がない☆！？エラーだぜ☆！");
+            }
 
+            // ISky 局面データは、この関数の途中で何回か変更されます。ローカル変数に退避しておくと、同期が取れなくなります。
 
-                exceptionArea = 1060;
-                SyElement dstMasu = ConvMove.ToDstMasu(move1);
-                Komasyurui14 dstKs = ConvMove.ToDstKomasyurui(move1);
-                Busstop afterStar;
-                {
-                    afterStar = UtilIttesasuRoutine.Do36_KomaOnDestinationMasu(
-                        dstKs,
-                        move1,
-                        positionA
-                        );
-                }
+            //------------------------------------------------------------
+            // 駒を取る
+            //------------------------------------------------------------
+            Finger figFoodKoma = Fingers.Error_1;
+            Busstop food_koma = Busstop.Empty;
+            Playerside food_pside = Playerside.Empty;
+            SyElement food_akiMasu = Masu_Honshogi.Query_Basho(Masu_Honshogi.nError);
+            {
+                UtilIttesasuRoutine.Do61_KomaToru(
+                    afterStar,
+                    positionA,
+                    out figFoodKoma,
+                    out food_koma,
+                    out food_pside,
+                    out food_akiMasu,
+                    logTag
+                    );
 
-
-
-                exceptionArea = 1070;
-                // ISky 局面データは、この関数の途中で何回か変更されます。ローカル変数に退避しておくと、同期が取れなくなります。
-
-                //------------------------------------------------------------
-                // 駒を取る
-                //------------------------------------------------------------
-                Finger figFoodKoma = Fingers.Error_1;
-                Busstop food_koma = Busstop.Empty;
-                Playerside food_pside = Playerside.Empty;
-                SyElement food_akiMasu = Masu_Honshogi.Query_Basho(Masu_Honshogi.nError);
-                {
-                    UtilIttesasuRoutine.Do61_KomaToru(
-                        afterStar,
-                        positionA,
-                        out figFoodKoma,
-                        out food_koma,
-                        out food_pside,
-                        out food_akiMasu,
-                        logTag
-                        );
-
-                    if (Fingers.Error_1 != figFoodKoma)
-                    {
-                        //>>>>> 指した先に駒があったなら
-                        syuryoResult.FoodKomaSyurui = Conv_Busstop.ToKomasyurui(food_koma);
-                    }
-                    else
-                    {
-                        syuryoResult.FoodKomaSyurui = Komasyurui14.H00_Null___;
-                    }
-                }
-                Debug.Assert(figMovedKoma != Fingers.Error_1, "駒を動かせなかった？1");
-
-
-                exceptionArea = 1080;
                 if (Fingers.Error_1 != figFoodKoma)
                 {
-                    //------------------------------------------------------------
-                    // 指した駒と、取った駒の移動
-                    //------------------------------------------------------------
+                    //>>>>> 指した先に駒があったなら
+                    syuryoResult.FoodKomaSyurui = Conv_Busstop.ToKomasyurui(food_koma);
+                }
+                else
+                {
+                    syuryoResult.FoodKomaSyurui = Komasyurui14.H00_Null___;
+                }
+            }
+            Debug.Assert(figMovedKoma != Fingers.Error_1, "駒を動かせなかった？1");
 
-                    //------------------------------
-                    // 局面データの書き換え
-                    //------------------------------
-                    positionA.AddObjects(
-                        //
-                        // 指した駒と、取った駒
-                        //
-                        new Finger[] { figMovedKoma,//指した駒番号
+            if (Fingers.Error_1 != figFoodKoma)
+            {
+                //------------------------------------------------------------
+                // 指した駒と、取った駒の移動
+                //------------------------------------------------------------
+
+                //------------------------------
+                // 局面データの書き換え
+                //------------------------------
+                positionA.AddObjects(
+                    //
+                    // 指した駒と、取った駒
+                    //
+                    new Finger[] { figMovedKoma,//指した駒番号
                             figFoodKoma// 取った駒
-                        },
-                        new Busstop[] { afterStar,//指した駒
+                    },
+                    new Busstop[] { afterStar,//指した駒
                             Conv_Busstop.ToBusstop(
                             food_pside,
                             food_akiMasu,//駒台の空きマスへ
                             Util_Komasyurui14.NarazuCaseHandle(Conv_Busstop.ToKomasyurui( food_koma))// 取られた駒の種類。表面を上に向ける。
                         )// 取った駒
-                        }
-                        );
-                }
-                else
-                {
-                    //------------------------------------------------------------
-                    // 指した駒の移動
-                    //------------------------------------------------------------
-
-                    //駒を取って変化しているかもしれない？
-                    positionA.AddObjects(
-                        //
-                        // 指した駒
-                        //
-                        new Finger[] { figMovedKoma }, new Busstop[] { afterStar }
-                        );
-                }
-
-
-                exceptionArea = 1090;
-                syuryoResult.FigFoodKoma = figFoodKoma; //取った駒更新
+                    }
+                    );
             }
-            catch (Exception ex)
+            else
             {
-                //>>>>> エラーが起こりました。
+                //------------------------------------------------------------
+                // 指した駒の移動
+                //------------------------------------------------------------
 
-                // どうにもできないので  ログだけ取って無視します。
-                var buf = Logger.FlushBuf();
-                buf.AppendLine($"Util_IttesasuRoutine#Execute（B）： exceptionArea={exceptionArea}\n{ex.GetType().Name}：{ex.Message}");
-                Logger.Flush(logTag, LogTypes.Error, buf);
-                throw;
+                //駒を取って変化しているかもしれない？
+                positionA.AddObjects(
+                    //
+                    // 指した駒
+                    //
+                    new Finger[] { figMovedKoma }, new Busstop[] { afterStar }
+                    );
             }
 
-
+            syuryoResult.FigFoodKoma = figFoodKoma; //取った駒更新
 
             if (syuryoResult.FoodKomaSyurui != Komasyurui14.H00_Null___)
             {

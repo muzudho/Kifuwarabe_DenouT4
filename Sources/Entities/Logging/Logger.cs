@@ -20,8 +20,6 @@
             Console.WriteLine(message);
         }
 
-        private static StringBuilder m_buffer_;
-
         static ILogRecord LogEntry(string profilePath, TomlTable toml, string resourceKey, bool enabled, bool timeStampPrintable, bool enableConsole, IErrorController kwDisplayer_OrNull)
         {
             return new LogRecord(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(resourceKey)), enabled, timeStampPrintable, enableConsole, kwDisplayer_OrNull);
@@ -29,8 +27,6 @@
 
         static Logger()
         {
-            Logger.m_buffer_ = new StringBuilder();
-
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
 
@@ -130,25 +126,17 @@
             }
         }
 
-        public static StringBuilder FlushBuf()
-        {
-            var buf = Logger.m_buffer_;
-            Logger.m_buffer_.Clear();
-            return buf;
-        }
-
         /// <summary>
         /// テキストを、ログ・ファイルの末尾に追記します。
         /// </summary>
         /// <param name="logTypes"></param>
-        public static void Flush(ILogTag logTag, LogTypes logTypes, StringBuilder buf2)
+        public static void Flush(ILogTag logTag, LogTypes logTypes, string message)
         {
             var record = GetRecord(logTag);
 
             if (!record.Enabled)
             {
                 // ログ出力オフ
-                Logger.m_buffer_ = buf2;
                 return;
             }
 
@@ -178,8 +166,6 @@
                         break;
                 }
 
-                var message = buf2.ToString();
-
                 if (logTypes == LogTypes.Error)
                 {
                     MessageBox.Show(message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -202,10 +188,8 @@
 
         public static void ShowDialog(ILogTag logTag, string message)
         {
-            var buf = Logger.FlushBuf();
-            buf.AppendLine(message);
-            MessageBox.Show(buf.ToString());
-            Logger.Flush(logTag, LogTypes.Plain, buf);
+            MessageBox.Show(message);
+            Logger.Flush(logTag, LogTypes.Plain, message);
             // ログ出力に失敗することがありますが、無視します。
         }
     }

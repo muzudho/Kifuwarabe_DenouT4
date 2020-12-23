@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 
 #if DEBUG
@@ -32,7 +33,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
         public void LogPv(string message, ILogTag logTag)
         {
-            var buf = Logger.FlushBuf();
+            var buf = new StringBuilder();
             int index = 0;
             buf.AppendLine($"┌──────────┐{message}");
             foreach (Move move in this.m_pv_)
@@ -41,7 +42,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 index++;
             }
             buf.AppendLine("└──────────┘");
-            Logger.Flush(logTag, LogTypes.Plain, buf);
+            Logger.Flush(logTag, LogTypes.Plain, buf.ToString());
 
             //this.LogPvList(this, logger);
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
@@ -19,9 +20,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             //*
             if (log)
             {
-                var buf = Logger.FlushBuf();
-                buf.AppendLine($"進める前 {hint}\n{Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logTag), positionA, move)}");
-                Logger.Flush(logTag, LogTypes.Plain, buf);
+                Logger.Flush(logTag, LogTypes.Plain, $"進める前 {hint}\n{Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logTag), positionA, move)}");
             }
             //*/
 
@@ -52,9 +51,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
                 if (log)
                 {
-                    var buf = Logger.FlushBuf();
-                    buf.AppendLine($"進めた後 {hint}\n{Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logTag), positionA, move)}");
-                    Logger.Flush(logTag, LogTypes.Plain, buf);
+                    Logger.Flush(logTag, LogTypes.Plain, $"進めた後 {hint}\n{Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logTag), positionA, move)}");
                 }
             }
 

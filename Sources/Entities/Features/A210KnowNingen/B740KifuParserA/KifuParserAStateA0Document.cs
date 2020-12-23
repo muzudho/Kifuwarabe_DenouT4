@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 
 #if DEBUG
@@ -75,9 +76,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             else if ("" == genjo.InputLine)
             {
                 // 異常時。
-                var buf = Logger.FlushBuf();
-                buf.AppendLine($"＼（＾ｏ＾）／「{genjo.InputLine}」入力がない2☆！　終わるぜ☆");
-                Logger.Flush(logTag, LogTypes.Error, buf);
+                Logger.Flush(logTag, LogTypes.Error, $"＼（＾ｏ＾）／「{genjo.InputLine}」入力がない2☆！　終わるぜ☆");
                 genjo.ToBreak_Abnormal();
             }
             else
