@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 
@@ -133,11 +134,9 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// ************************************************************************************************************************
         /// </summary>
         public void OnChangedTurn(
-            Earth earth1,
-
+            IPlaying playing,
             //MoveEx endNode1,
             Tree kifu1,
-
             Playerside kaisiPside)
         {
             if (!this.ShogiEngineProcessWrapper.IsLive_ShogiEngine())
@@ -158,7 +157,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     // 例：「position startpos moves 7g7f」
                     this.ShogiEngineProcessWrapper.Send_Position(
                         UtilKirokuGakari.ToSfen_PositionCommand(
-                            earth1,
+                            playing,
 
                             kifu1//endNode1//エンドノード
 

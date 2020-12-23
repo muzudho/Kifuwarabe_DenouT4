@@ -159,7 +159,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// 棋譜ツリーのカレントを変更します。
         /// </summary>
         public static void BeforeUpdateKifuTree(
-            Earth earth1,
+            IPlaying playing,
             Tree kifu1,
             Move move,
             ISky positionA)
@@ -169,7 +169,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             //----------------------------------------
             // 次ノード追加
             //----------------------------------------
-            earth1.GetSennititeCounter().CountUp_New(
+            playing.GetSennititeCounter().CountUp_New(
                 Conv_Sky.ToKyokumenHash(positionA), "After3_ChangeCurrent(次の一手なし)");
 
             //次ノードを、これからのカレントとします。

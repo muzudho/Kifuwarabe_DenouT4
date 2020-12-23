@@ -91,7 +91,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// ************************************************************************************************************************
         /// </summary>
         public static void Clear_SetStartpos_KokokaraSaifu(
-            Earth earth1,
+            IPlaying playing,
             ISky positionA,//kifu1.GetRoot().GetNodeValue()
             Tree kifu1,
             Playerside pside)
@@ -99,11 +99,11 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             //------------------------------------------------------------
             // 棋譜を空に
             //------------------------------------------------------------
-            earth1.Clear();
+            playing.ClearEarth();
 
             Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(kifu1, positionA);
 
-            earth1.SetProperty(
+            playing.SetEarthProperty(
                 Word_KifuTree.PropName_Startpos,
                 ConvKifuNode.ToSfenstring(positionA, pside));
         }

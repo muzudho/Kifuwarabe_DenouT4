@@ -15,12 +15,12 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             MoveEx newNode = new MoveExImpl();
 
             ISky positionA = UtilSkyCreator.New_Hirate();//[初期配置]ボタン押下時
-            mainGui.Link_Server.Earth.Clear();
+            mainGui.Link_Server.Playing.ClearEarth();
 
             // 棋譜を空っぽにします。
             Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(mainGui.Link_Server.KifuTree, positionA);
 
-            mainGui.Link_Server.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
+            mainGui.Link_Server.Playing.SetEarthProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
 
 
             // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■

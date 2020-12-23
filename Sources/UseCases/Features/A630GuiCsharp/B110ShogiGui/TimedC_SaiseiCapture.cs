@@ -66,7 +66,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                 Util_Functions_Server.ReadLine_TuginoItteSusumu_Srv_CurrentMutable(
                                     ref restText,
 
-                                    this.mainGui.Link_Server.Earth,
+                                    this.mainGui.Link_Server.Playing,
                                     this.mainGui.Link_Server.KifuTree,
 
                                     this.mainGui.SkyWrapper_Gui,

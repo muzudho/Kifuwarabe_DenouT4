@@ -197,8 +197,6 @@
     <Compile Include="Features\A210KnowNingen\B270Sky\Fingers.cs" />
     <Compile Include="Features\A210KnowNingen\B270Sky\ISky.cs" />
     <Compile Include="Features\A210KnowNingen\B270Sky\SkyImpl.cs" />
-    <Compile Include="Features\A210KnowNingen\B280Tree\Earth.cs" />
-    <Compile Include="Features\A210KnowNingen\B280Tree\EarthImpl.cs" />
     <Compile Include="Features\A210KnowNingen\B280Tree\MoveEx.cs" />
     <Compile Include="Features\A210KnowNingen\B280Tree\MoveExImpl.cs" />
     <Compile Include="Features\A210KnowNingen\B280Tree\MoveNodeType.cs" />

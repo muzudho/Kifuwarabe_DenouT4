@@ -1,4 +1,5 @@
-﻿using Grayscale.Kifuwaragyoku.Entities.Features;
+﻿using Grayscale.Kifuwaragyoku.Entities;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 
 namespace Grayscale.Kifuwaragyoku.UseCases.Features
 {
@@ -15,17 +16,16 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             //----------
             // モデル
             //----------
-            this.m_earth_ = new EarthImpl();
             ISky positionInit = new SkyImpl(src_Sky);
             this.m_kifuTree_ = new TreeImpl(positionInit);
-            this.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "9/9/9/9/9/9/9/9/9");
+            this.Playing = new Playing();
+            this.Playing.SetEarthProperty(Word_KifuTree.PropName_Startpos, "9/9/9/9/9/9/9/9/9");
 
             this.inputString99 = "";
         }
 
+        public IPlaying Playing { get; private set; }
 
-
-        #region プロパティ
 
         public Tree KifuTree { get { return this.m_kifuTree_; } }
         public void SetKifuTree(Tree kifu1)
@@ -33,9 +33,6 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             this.m_kifuTree_ = kifu1;
         }
         private Tree m_kifuTree_;
-
-        public Earth Earth { get { return this.m_earth_; } }
-        private Earth m_earth_;
 
         /// <summary>
         /// サーバーが持つ、将棋エンジン。
@@ -60,10 +57,5 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             this.inputString99 = "";
         }
         private string inputString99;
-
-        #endregion
-
-
-
     }
 }

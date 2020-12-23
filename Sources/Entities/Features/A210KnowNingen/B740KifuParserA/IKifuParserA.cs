@@ -16,12 +16,9 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <returns></returns>
         string Execute_Step_CurrentMutable(
             ref IKifuParserAResult result,
-
-            Earth earth1,
+            IPlaying playing,
             Tree kifu1,
-
             IKifuParserAGenjo genjo
-            
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -36,12 +33,9 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="larabeLogger"></param>
         void Execute_All_CurrentMutable(
             ref IKifuParserAResult result,
-
-            Earth earth1,
+            IPlaying playing,
             Tree kifu1,
-
             IKifuParserAGenjo genjo
-            
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",

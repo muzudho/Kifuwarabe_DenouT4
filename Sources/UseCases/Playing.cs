@@ -84,9 +84,15 @@ namespace Grayscale.Kifuwaragyoku.UseCases
             ISky positionInit = UtilSkyCreator.New_Hirate();// きふわらべ起動時
             {
                 // FIXME:平手とは限らないが、平手という前提で作っておく。
-                this.m_earth_ = new EarthImpl();
+                //----------------------------------------
+                // 千日手カウンター
+                //----------------------------------------
+                this.sennititeCounter = new SennititeCounterImpl();
+
+                this.earthProperties = new Dictionary<string, object>();
+
                 this.m_kifu_ = new TreeImpl(positionInit);
-                this.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
+                this.SetEarthProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
 
                 this.m_kifu_.PositionA.AssertFinger((Finger)0);
                 Debug.Assert(!Conv_Masu.OnKomabukuro(
@@ -105,6 +111,69 @@ namespace Grayscale.Kifuwaragyoku.UseCases
             this.TimeManager = new TimeManager(this.EngineOptions.GetOption(EngineOptionNames.THINKING_MILLI_SECOND).GetNumber());
         }
 
+
+        /// <summary>
+        /// 千日手カウンター。
+        /// </summary>
+        /// <returns></returns>
+        public SennititeCounter GetSennititeCounter()
+        {
+            return this.sennititeCounter;
+        }
+        private SennititeCounter sennititeCounter;
+
+
+        /// <summary>
+        /// 棋譜を空っぽにします。
+        /// 
+        /// ルートは残します。
+        /// </summary>
+        public void ClearEarth()
+        {
+            //----------------------------------------
+            // 千日手カウンター
+            //----------------------------------------
+            this.sennititeCounter.Clear();
+        }
+
+        /// <summary>
+        /// 使い方自由。
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        public void SetEarthProperty(string key, object value)
+        {
+            if (this.earthProperties.ContainsKey(key))
+            {
+                this.earthProperties[key] = value;
+            }
+            else
+            {
+                this.earthProperties.Add(key, value);
+            }
+        }
+
+        /// <summary>
+        /// 使い方自由。
+        /// </summary>
+        public object GetEarthProperty(string key)
+        {
+            object result;
+
+            if (this.earthProperties.ContainsKey(key))
+            {
+                result = this.earthProperties[key];
+            }
+            else
+            {
+                result = "Unknown kifu property [" + key + "]";
+            }
+
+            return result;
+        }
+        private Dictionary<string, object> earthProperties;
+
+
         /// <summary>
         /// Loop2で呼ばれます。
         /// </summary>
@@ -115,16 +184,6 @@ namespace Grayscale.Kifuwaragyoku.UseCases
             //this.m_positionA_ = kifu.GetSky();
         }
         //private ISky m_positionA_;
-
-        /// <summary>
-        /// Loop2で使います。
-        /// </summary>
-        public Earth Earth { get { return this.m_earth_; } }
-        public void SetEarth(Earth earth1)
-        {
-            this.m_earth_ = earth1;
-        }
-        private Earth m_earth_;
 
         /// <summary>
         /// USI「setoption」コマンドのリストです。
@@ -731,8 +790,6 @@ namespace Grayscale.Kifuwaragyoku.UseCases
                                     ref searchedNodes,
                                     searchedPv,
                                     isHonshogi,
-
-                                    this.Earth,
                                     this.Kifu,// ツリーを伸ばしているぜ☆（＾～＾）
                                     this.Kifu.PositionA.GetKaisiPside(),
                                     this.Kifu.PositionA//.CurNode1.GetNodeValue(),
@@ -949,8 +1006,6 @@ namespace Grayscale.Kifuwaragyoku.UseCases
             ref ulong searchedNodes,
             string[] searchedPv,
             bool isHonshogi,
-
-            Earth earth1,
             Tree kifu1,// ツリーを伸ばしているぜ☆（＾～＾）
             Playerside psideA,
             ISky positionA)
@@ -966,7 +1021,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases
             KaisetuBoards logF_kiki = new KaisetuBoards();// デバッグ用だが、メソッドはこのオブジェクトを必要としてしまう。
 #endif
             EvaluationArgs args = new EvaluationArgsImpl(
-                earth1.GetSennititeCounter(),
+                this.GetSennititeCounter(),
                 UtilKifuTreeLogWriter.REPORT_ENVIRONMENT
 #if DEBUG
                 ,

@@ -8,8 +8,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         string Execute(
             out MoveNodeType moveNodeType,
             ref IKifuParserAResult result,
-
-            Earth earth1,
+            IPlaying playing,
             Move move1,
             ISky positionA,
 

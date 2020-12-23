@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
@@ -56,10 +57,8 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// </summary>
         public static bool ReadLine_TuginoItteSusumu_Srv_CurrentMutable(
             ref string inputLine,
-
-            Earth earth1,
+            IPlaying playing,
             Tree kifu1,//SetCurNodeがある。[コマ送り][再生]などで使用。
-
             SkyWrapper_Gui model_Manual,
             out bool toBreak,
             string hint,
@@ -89,7 +88,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 #endif
                     inputLine = kifuParserA_Impl.Execute_Step_CurrentMutable(
                         ref result,
-                        earth1,
+                        playing,
                         kifu1,
                         genjo);
 
@@ -121,7 +120,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
                         inputLine = kifuParserA_Impl.Execute_Step_CurrentMutable(
                             ref result,
-                            earth1,
+                            playing,
                             kifu1,
                             genjo);
                         Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
@@ -142,7 +141,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
                         inputLine = kifuParserA_Impl.Execute_Step_CurrentMutable(
                             ref result,
-                            earth1,
+                            playing,
                             kifu1,
                             genjo);
                         Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
@@ -172,7 +171,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
                     inputLine = kifuParserA_Impl.Execute_Step_CurrentMutable(
                         ref result,
-                        earth1,
+                        playing,
                         kifu1,
                         genjo);
 
@@ -337,10 +336,8 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// </summary>
         public static bool Komaokuri_Srv(
             ref string inputLine,
-
-            Earth earth1,
+            IPlaying playing,
             Tree kifu1,
-
             SkyWrapper_Gui model_Manual
             ,
             [CallerMemberName] string memberName = "",
@@ -357,7 +354,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             bool toBreak = false;
             Util_Functions_Server.ReadLine_TuginoItteSusumu_Srv_CurrentMutable(
                 ref inputLine,
-                earth1,
+                playing,
                 kifu1,//SetCurNodeがある。
                 model_Manual,
                 out toBreak,

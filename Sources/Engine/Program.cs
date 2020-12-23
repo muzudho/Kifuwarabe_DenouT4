@@ -342,20 +342,16 @@ namespace Grayscale.Kifuwaragyoku.Engine
                                 IKifuParserAGenjo genjo = new KifuParserA_GenjoImpl(line);
                                 kifuParserA.Execute_All_CurrentMutable(
                                     ref result,
-
-                                    playing.Earth,
+                                    playing,
                                     playing.Kifu,
-
                                     genjo);
                                 if (null != genjo.StartposImporter_OrNull)
                                 {
                                     // SFENの解析結果を渡すので、
                                     // その解析結果をどう使うかは、委譲します。
                                     Util_InClient.OnChangeSky_Im_Client(
-
-                                        playing.Earth,
+                                        playing,
                                         playing.Kifu,
-
                                         genjo);
                                 }
 

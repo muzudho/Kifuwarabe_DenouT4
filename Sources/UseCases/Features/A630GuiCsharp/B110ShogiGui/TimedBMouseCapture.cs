@@ -378,7 +378,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                                     //----------------------------------------
                                                     // 次ノード追加
                                                     //----------------------------------------
-                                                    mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(sky_newChild), "TimedB.Step(1)");
+                                                    mainGui.Link_Server.Playing.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(sky_newChild), "TimedB.Step(1)");
 
                                                     mainGui.Link_Server.KifuTree.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(newNode, mainGui.Link_Server.KifuTree, sky_newChild));
 
@@ -520,7 +520,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                                         //----------------------------------------
                                                         // 次ノード追加
                                                         //----------------------------------------
-                                                        mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(sky_newChild), "TimedB.Step(2)");
+                                                        mainGui.Link_Server.Playing.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(sky_newChild), "TimedB.Step(2)");
 
                                                         mainGui.Link_Server.KifuTree.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(newNode, mainGui.Link_Server.KifuTree, sky_newChild));
 

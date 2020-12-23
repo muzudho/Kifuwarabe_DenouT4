@@ -59,7 +59,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     Util_Functions_Server.Komaokuri_Srv(
                         ref restText,
 
-                        this.mainGui.Link_Server.Earth,
+                        this.mainGui.Link_Server.Playing,
                         this.mainGui.Link_Server.KifuTree,
 
                         this.mainGui.SkyWrapper_Gui);// 棋譜の[コマ送り]を実行します。

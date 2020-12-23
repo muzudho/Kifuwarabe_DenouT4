@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Text;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
@@ -27,18 +28,15 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// 棋譜ツリーを、平手初期局面 で準備します。
         /// </summary>
         public static void CreateKifuTree(
-            out Earth out_earth1,
+            IPlaying playing,
             out ISky out_positionA,
             out Tree out_kifu1
             )
         {
-
-
             // 棋譜
-            out_earth1 = new EarthImpl();
             out_positionA = UtilSkyCreator.New_Hirate();
             out_kifu1 = new TreeImpl(out_positionA);
-            out_earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手
+            playing.SetEarthProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手
 
 
             out_positionA.AssertFinger((Finger)0);

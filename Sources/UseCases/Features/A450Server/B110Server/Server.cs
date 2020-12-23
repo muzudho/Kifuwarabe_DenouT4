@@ -1,4 +1,5 @@
-﻿using Grayscale.Kifuwaragyoku.Entities.Features;
+﻿using Grayscale.Kifuwaragyoku.Entities;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 
 namespace Grayscale.Kifuwaragyoku.UseCases.Features
 {
@@ -7,6 +8,8 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
     /// </summary>
     public interface Server
     {
+        IPlaying Playing { get; }
+
         /// <summary>
         /// 将棋エンジン。
         /// </summary>
@@ -20,8 +23,6 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         void SetInputString99(string inputString99);
         void ClearInputString99();
 
-
-        Earth Earth { get; }
         Tree KifuTree { get; }
     }
 }

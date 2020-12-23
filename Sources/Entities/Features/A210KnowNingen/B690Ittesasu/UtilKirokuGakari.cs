@@ -25,32 +25,29 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// </summary>
         /// <param name="fugoList"></param>
         public static string ToJsaFugoListString(
-            Earth earth1,
-
+            IPlaying playing,
             //MoveEx curNode_base,
             Tree kifu1,
-
             string hint)
         {
             StringBuilder sb = new StringBuilder();
 
             sb.Append("position ");
 
-            sb.Append(earth1.GetProperty(Word_KifuTree.PropName_Startpos));
+            sb.Append(playing.GetEarthProperty(Word_KifuTree.PropName_Startpos));
             sb.Append(" moves ");
 
             // 採譜用に、新しい対局を用意します。
-            Earth saifuEarth2 = new EarthImpl();
             Tree saifuKifu2;//使い捨て☆
             {
                 ISky positionInit = UtilSkyCreator.New_Hirate();//日本の符号読取時
                 saifuKifu2 = new TreeImpl(positionInit);
-                earth1.Clear();
+                playing.ClearEarth();
 
                 // 棋譜を空っぽにします。
                 Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(saifuKifu2, positionInit);
 
-                saifuEarth2.SetProperty(
+                playing.SetEarthProperty(
                     Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面 // FIXME:平手とは限らないのでは？
             }
 
@@ -82,7 +79,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 //----------------------------------------
                 // 次ノート追加
                 //----------------------------------------
-                earth1.GetSennititeCounter().CountUp_New(
+                playing.GetSennititeCounter().CountUp_New(
                     Conv_Sky.ToKyokumenHash(saifu_PositionA),
                     hint + "/AppendChild_And_ChangeCurrentToChild");
 
@@ -113,8 +110,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// </summary>
         /// <param name="fugoList"></param>
         public static string ToSfen_PositionCommand(
-            Earth earth1,
-
+            IPlaying playing,
             //MoveEx endNode1
             Tree kifu1
             )
@@ -122,7 +118,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             StringBuilder sb = new StringBuilder();
 
             sb.Append("position ");
-            sb.Append(earth1.GetProperty(Word_KifuTree.PropName_Startpos));
+            sb.Append(playing.GetEarthProperty(Word_KifuTree.PropName_Startpos));
             sb.Append(" moves ");
 
             // 本譜

@@ -119,7 +119,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// </summary>
         public static void ClearKifu(MainGui_Csharp mainGui, RepaintRequest repaintRequest)
         {
-            mainGui.Link_Server.Earth.Clear();
+            mainGui.Link_Server.Playing.ClearEarth();
 
             // 棋譜を空っぽにします。
             //Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(mainGui.Link_Server.KifuTree, null,logger);
@@ -237,7 +237,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     mainGui.Link_Server.KifuTree);
                 repaintRequest.SetFlag_RefreshRequest();
 
-                mainGui.Link_Server.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "9/9/9/9/9/9/9/9/9 b K1R1B1G2S2N2L2P9 k1r1b1g2s2n2l2p9 1");
+                mainGui.Link_Server.Playing.SetEarthProperty(Word_KifuTree.PropName_Startpos, "9/9/9/9/9/9/9/9/9 b K1R1B1G2S2N2L2P9 k1r1b1g2s2n2l2p9 1");
             }
         }
 

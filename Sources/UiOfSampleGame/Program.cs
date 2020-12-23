@@ -17,7 +17,6 @@ namespace Grayscale.Kifuwaragyoku.CliOfSampleGame
             Playing playing = new Playing();
 
             // 棋譜
-            Earth earth1 = new EarthImpl();
             ISky positionA = UtilSkyCreator.New_Hirate();//日本の符号読取時;
             Tree kifu1 = new TreeImpl(positionA);
 
@@ -29,8 +28,6 @@ namespace Grayscale.Kifuwaragyoku.CliOfSampleGame
                 ref searchedNodes,
                 searchedPv,
                 true,
-
-                earth1,
                 kifu1,// ツリーを伸ばしているぜ☆（＾～＾）
                 positionA.GetKaisiPside(),
                 positionA);

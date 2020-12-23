@@ -1,4 +1,5 @@
-﻿using Grayscale.Kifuwaragyoku.Entities.Features;
+﻿using Grayscale.Kifuwaragyoku.Entities;
+using Grayscale.Kifuwaragyoku.Entities.Features;
 
 namespace Grayscale.Kifuwaragyoku.UseCases.Features
 {
@@ -31,11 +32,9 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="kifu"></param>
         /// <param name="logTag"></param>
         void OnChangedTurn(
-            Earth earth,
-
+            IPlaying playing,
             //MoveEx curNode,
             Tree kifu1,
-
             Playerside kaisiPside);
 
         /// <summary>

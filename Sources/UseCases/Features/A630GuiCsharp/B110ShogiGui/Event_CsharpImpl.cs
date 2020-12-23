@@ -101,7 +101,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     Util_Functions_Server.Komaokuri_Srv(
                         ref restText,
 
-                        mainGui3.Link_Server.Earth,
+                        mainGui3.Link_Server.Playing,
                         mainGui3.Link_Server.KifuTree,
 
                         mainGui3.SkyWrapper_Gui);
@@ -259,7 +259,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
                     Util_KifuTree282.Clear_SetStartpos_KokokaraSaifu(
 
-                        shogibanGui2.Link_Server.Earth,
+                        shogibanGui2.Link_Server.Playing,
                         shogibanGui2.Link_Server.KifuTree.PositionA,
                         shogibanGui2.Link_Server.KifuTree,
 
@@ -506,7 +506,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     //----------------------------------------
                     // 次ノード追加
                     //----------------------------------------
-                    mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(positionA), "After_NaruNaranai");
+                    mainGui.Link_Server.Playing.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(positionA), "After_NaruNaranai");
 
                     // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
                     // ここで棋譜の変更をします。

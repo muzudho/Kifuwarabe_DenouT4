@@ -30,7 +30,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <returns></returns>
         public string Execute_Step_CurrentMutable(
             ref IKifuParserAResult result,
-            Earth earth1,
+            IPlaying playing,
             Tree kifu1_mutable,
             IKifuParserAGenjo genjo
             ,
@@ -53,7 +53,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             genjo.InputLine = this.State.Execute(
                 out moveNodeType,
                 ref result,
-                earth1,
+                playing,
                 kifu1_mutable.MoveEx_Current.Move,
                 kifu1_mutable.PositionA,
                 out nextState,
@@ -61,18 +61,18 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 genjo);
             if (MoveNodeType.Clear == moveNodeType)
             {
-                earth1.Clear();
+                playing.ClearEarth();
 
                 // 棋譜を空っぽにします。
                 Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(kifu1_mutable, result.NewSky);
 
-                earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
+                playing.SetEarthProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
             }
 
             if (null != result.Out_newNode_OrNull)
             {
                 UtilIttesasuRoutine.BeforeUpdateKifuTree(
-                    earth1,
+                    playing,
                     kifu1_mutable,
                     result.Out_newNode_OrNull.Move,
                     result.NewSky);
@@ -92,7 +92,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="larabeLogger"></param>
         public void Execute_All_CurrentMutable(
             ref IKifuParserAResult result,
-            Earth earth1,
+            IPlaying playing,
             Tree kifu1_mutable,
             IKifuParserAGenjo genjo
             ,
@@ -125,7 +125,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 genjo.InputLine = this.State.Execute(
                     out moveNodeType,
                     ref result,
-                    earth1,
+                    playing,
                     kifu1_mutable.MoveEx_Current.Move,
                     kifu1_mutable.PositionA,
                     out nextState,
@@ -134,19 +134,19 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 if (MoveNodeType.Clear == moveNodeType)
                 {
                     ISky positionInit = UtilSkyCreator.New_Hirate();
-                    earth1.Clear();
+                    playing.ClearEarth();
 
                     // 棋譜を空っぽにします。
                     Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(kifu1_mutable, positionInit);
 
-                    earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
+                    playing.SetEarthProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
                 }
 
 
                 if (null != result.Out_newNode_OrNull)
                 {
                     UtilIttesasuRoutine.BeforeUpdateKifuTree(
-                        earth1,
+                        playing,
                         kifu1_mutable,
                         result.Out_newNode_OrNull.Move,
                         result.NewSky);

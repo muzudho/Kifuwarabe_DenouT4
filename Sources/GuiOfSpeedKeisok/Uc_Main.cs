@@ -4,8 +4,10 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.UseCases;
 using Grayscale.Kifuwaragyoku.UseCases.Features;
 
 #if DEBUG || LEARN
@@ -32,23 +34,21 @@ namespace Grayscale.Kifuwaragyoku.GuiOfSpeedKeisok
 
         //public Sky Src_Sky { get; set; }
         public IFeatureVector FeatureVector { get; set; }
-
-        public Earth Earth { get; set; }
         public ISky PositionA { get; set; }
         public Tree Kifu { get; set; }
 
 
         public UcMain()
         {
+            IPlaying playing = new Playing();
+
             this.FeatureVector = new FeatureVector();
             {
-                Earth newEarth1;
                 Tree newKifu1_Hirate;
                 ISky positionA;
                 Util_FvLoad.CreateKifuTree(
-                    out newEarth1, out positionA, out newKifu1_Hirate);
+                    playing, out positionA, out newKifu1_Hirate);
 
-                this.Earth = newEarth1;
                 this.PositionA = positionA;
                 this.Kifu = newKifu1_Hirate;
             }
