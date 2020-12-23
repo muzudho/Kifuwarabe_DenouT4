@@ -32,14 +32,16 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
         public void LogPv(string message, ILogTag logTag)
         {
+            var buf = Logger.FlushBuf();
             int index = 0;
-            Logger.AppendLine(logTag, "┌──────────┐" + message);
+            buf.AppendLine($"┌──────────┐{message}");
             foreach (Move move in this.m_pv_)
             {
-                Logger.AppendLine(logTag, "(" + index + ")" + ConvMove.ToLog(move));
+                buf.AppendLine($"({index}){ConvMove.ToLog(move)}");
                 index++;
             }
-            Logger.AppendLine(logTag, "└──────────┘");
+            buf.AppendLine("└──────────┘");
+            Logger.Flush(logTag, LogTypes.Plain, buf);
 
             //this.LogPvList(this, logger);
         }

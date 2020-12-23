@@ -130,32 +130,6 @@
             }
         }
 
-        /// <summary>
-        /// ログを蓄えます。改行付き。
-        /// </summary>
-        /// <param name="line"></param>
-        public static void AppendLine(ILogTag logTag, string line)
-        {
-            var record = GetRecord(logTag);
-
-            if (!record.Enabled)
-            {
-                // ログ出力オフ
-                return;
-            }
-
-            // ログ追記 TODO:非同期
-            try
-            {
-                Logger.m_buffer_.AppendLine(line);
-            }
-            catch (Exception)
-            {
-                // 循環参照になるので、ログを取れません。
-                // ログ出力に失敗しても、続行します。
-            }
-        }
-
         public static StringBuilder FlushBuf()
         {
             var buf = Logger.m_buffer_;
