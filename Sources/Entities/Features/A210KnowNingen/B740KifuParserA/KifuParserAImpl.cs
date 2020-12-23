@@ -134,11 +134,11 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     genjo);
                 if (MoveNodeType.Clear == moveNodeType)
                 {
-                    IPosition positionInit = UtilSkyCreator.New_Hirate();
+                    IPosition startingPosition2 = UtilSkyCreator.New_Hirate();
                     playing.ClearEarth();
 
                     // 棋譜を空っぽにします。
-                    Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(kifu1_mutable, positionInit);
+                    Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(kifu1_mutable, startingPosition2);
 
                     playing.SetEarthProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
                 }

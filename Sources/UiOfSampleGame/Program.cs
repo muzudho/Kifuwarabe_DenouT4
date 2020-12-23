@@ -18,8 +18,6 @@ namespace Grayscale.Kifuwaragyoku.CliOfSampleGame
             Playing playing = new Playing();
 
             // 棋譜
-            IPosition positionA = UtilSkyCreator.New_Hirate();//日本の符号読取時;
-
             int searchedMaxDepth = 0;
             ulong searchedNodes = 0;
             string[] searchedPv = new string[Playing.SEARCHED_PV_LENGTH];
@@ -28,8 +26,8 @@ namespace Grayscale.Kifuwaragyoku.CliOfSampleGame
                 ref searchedNodes,
                 searchedPv,
                 true,
-                positionA.GetKaisiPside(),
-                positionA);
+                playing.StartingPosition.GetKaisiPside(),
+                playing.StartingPosition);
 
             Move move = bestmoveNode.Move;
             string sfenText = ConvMove.ToSfen(move);

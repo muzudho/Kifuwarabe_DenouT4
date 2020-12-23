@@ -1,5 +1,6 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Grayscale.Kifuwaragyoku.Entities.Searching;
 
 namespace Grayscale.Kifuwaragyoku.Entities
@@ -27,6 +28,11 @@ namespace Grayscale.Kifuwaragyoku.Entities
         /// Loop2で使います。
         /// </summary>
         ITree Kifu { get; }
+
+        /// <summary>
+        /// 開始局面。
+        /// </summary>
+        IPosition StartingPosition { get; set; }
 
         /// <summary>
         /// 棋譜を空っぽにします。

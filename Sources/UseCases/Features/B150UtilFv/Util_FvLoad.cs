@@ -30,20 +30,19 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// </summary>
         public static void CreateKifuTree(
             IPlaying playing,
-            out IPosition out_positionA,
             out ITree out_kifu1
             )
         {
             // 棋譜
-            out_positionA = UtilSkyCreator.New_Hirate();
-            out_kifu1 = new TreeImpl(out_positionA);
+            playing.StartingPosition = UtilSkyCreator.New_Hirate();
+            out_kifu1 = new TreeImpl(playing.StartingPosition);
             playing.SetEarthProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手
 
 
-            out_positionA.AssertFinger((Finger)0);
+            playing.StartingPosition.AssertFinger((Finger)0);
             Debug.Assert(!Conv_Masu.OnKomabukuro(
                 Conv_Masu.ToMasuHandle(
-                    Conv_Busstop.ToMasu(out_positionA.BusstopIndexOf((Finger)0))
+                    Conv_Busstop.ToMasu(playing.StartingPosition.BusstopIndexOf((Finger)0))
                     )
                 ), "駒が駒袋にあった。");
         }

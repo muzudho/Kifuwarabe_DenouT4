@@ -41,12 +41,12 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             // 採譜用に、新しい対局を用意します。
             ITree saifuKifu2;//使い捨て☆
             {
-                IPosition positionInit = UtilSkyCreator.New_Hirate();//日本の符号読取時
-                saifuKifu2 = new TreeImpl(positionInit);
+                IPosition startingPosition2 = UtilSkyCreator.New_Hirate();//日本の符号読取時
+                saifuKifu2 = new TreeImpl(startingPosition2);
                 playing.ClearEarth();
 
                 // 棋譜を空っぽにします。
-                Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(saifuKifu2, positionInit);
+                Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(saifuKifu2, startingPosition2);
 
                 playing.SetEarthProperty(
                     Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面 // FIXME:平手とは限らないのでは？

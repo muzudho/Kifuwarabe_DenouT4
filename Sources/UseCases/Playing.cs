@@ -54,17 +54,17 @@ namespace Grayscale.Kifuwaragyoku.UseCases
             //
 
             // 棋譜
-            IPosition positionInit = UtilSkyCreator.New_Hirate();// きふわらべ起動時
             {
-                // FIXME:平手とは限らないが、平手という前提で作っておく。
-                //----------------------------------------
-                // 千日手カウンター
-                //----------------------------------------
+                this.StartingPosition = UtilSkyCreator.New_Hirate();// きふわらべ起動時
+                                                                    // FIXME:平手とは限らないが、平手という前提で作っておく。
+                                                                    //----------------------------------------
+                                                                    // 千日手カウンター
+                                                                    //----------------------------------------
                 this.sennititeCounter = new SennititeCounterImpl();
 
                 this.earthProperties = new Dictionary<string, object>();
 
-                this.Kifu = new TreeImpl(positionInit);
+                this.Kifu = new TreeImpl(this.StartingPosition);
                 this.SetEarthProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
 
                 this.Kifu.PositionA.AssertFinger((Finger)0);
@@ -85,10 +85,15 @@ namespace Grayscale.Kifuwaragyoku.UseCases
         }
 
         /// <summary>
+        /// 開始局面。
+        /// </summary>
+        public IPosition StartingPosition { get; set; }
+
+        /// <summary>
         /// 棋譜です。
         /// Loop2で使います。
         /// </summary>
-        public ITree Kifu { get; private set;}
+        public ITree Kifu { get; private set; }
 
         /// <summary>
         /// 読み筋を格納する配列の容量。

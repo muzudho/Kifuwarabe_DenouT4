@@ -35,7 +35,6 @@ namespace Grayscale.Kifuwaragyoku.GuiOfSpeedKeisok
 
         //public Sky Src_Sky { get; set; }
         public IFeatureVector FeatureVector { get; set; }
-        public IPosition PositionA { get; set; }
         public ITree Kifu { get; set; }
 
 
@@ -46,11 +45,8 @@ namespace Grayscale.Kifuwaragyoku.GuiOfSpeedKeisok
             this.FeatureVector = new FeatureVector();
             {
                 ITree newKifu1_Hirate;
-                IPosition positionA;
                 Util_FvLoad.CreateKifuTree(
-                    playing, out positionA, out newKifu1_Hirate);
-
-                this.PositionA = positionA;
+                    playing, out newKifu1_Hirate);
                 this.Kifu = newKifu1_Hirate;
             }
             InitializeComponent();
