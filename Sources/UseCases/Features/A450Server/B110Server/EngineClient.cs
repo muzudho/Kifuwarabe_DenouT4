@@ -34,7 +34,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         void OnChangedTurn(
             IPlaying playing,
             //MoveEx curNode,
-            Tree kifu1,
+            ITree kifu1,
             Playerside kaisiPside);
 
         /// <summary>

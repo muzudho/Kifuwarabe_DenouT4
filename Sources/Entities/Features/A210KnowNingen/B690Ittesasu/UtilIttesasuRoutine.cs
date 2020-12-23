@@ -160,7 +160,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// </summary>
         public static void BeforeUpdateKifuTree(
             IPlaying playing,
-            Tree kifu1,
+            ITree kifu1,
             Move move,
             ISky positionA)
         {

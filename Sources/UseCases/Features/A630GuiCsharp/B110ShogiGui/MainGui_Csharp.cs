@@ -29,7 +29,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         void ChangedTurn(
 
             //MoveEx endNode,
-            Tree kifu1,
+            ITree kifu1,
 
             Playerside pside);
 

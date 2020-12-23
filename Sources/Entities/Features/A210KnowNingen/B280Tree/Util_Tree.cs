@@ -12,7 +12,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// </summary>
         /// <param name="endNode">葉側のノード。</param>
         /// <param name="delegate_Foreach"></param>
-        public static void ForeachHonpu2(Tree kifu1,
+        public static void ForeachHonpu2(ITree kifu1,
             //MoveEx endNode,
             DELEGATE_Foreach2 delegate_Foreach)
         {

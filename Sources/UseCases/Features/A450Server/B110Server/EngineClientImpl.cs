@@ -136,7 +136,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         public void OnChangedTurn(
             IPlaying playing,
             //MoveEx endNode1,
-            Tree kifu1,
+            ITree kifu1,
             Playerside kaisiPside)
         {
             if (!this.ShogiEngineProcessWrapper.IsLive_ShogiEngine())

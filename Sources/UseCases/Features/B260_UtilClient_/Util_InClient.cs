@@ -20,7 +20,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="logTag"></param>
         public static void OnChangeSky_Im_Client(
             IPlaying playing,
-            Tree kifu1,
+            ITree kifu1,
             IKifuParserAGenjo genjo)
         {
             Logger.Trace($"（＾△＾）「{genjo.InputLine}」Util_InClient　：　クライアントの委譲メソッドｷﾀｰ☆");

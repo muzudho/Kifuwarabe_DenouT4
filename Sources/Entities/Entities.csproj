@@ -200,7 +200,7 @@
     <Compile Include="Features\A210KnowNingen\B280Tree\MoveEx.cs" />
     <Compile Include="Features\A210KnowNingen\B280Tree\MoveExImpl.cs" />
     <Compile Include="Features\A210KnowNingen\B280Tree\MoveNodeType.cs" />
-    <Compile Include="Features\A210KnowNingen\B280Tree\Tree.cs" />
+    <Compile Include="Features\A210KnowNingen\B280Tree\ITree.cs" />
     <Compile Include="Features\A210KnowNingen\B280Tree\TreeImpl.cs" />
     <Compile Include="Features\A210KnowNingen\B280Tree\Util_Tree.cs" />
     <Compile Include="Features\A210KnowNingen\B280Tree\Word_KifuTree.cs" />

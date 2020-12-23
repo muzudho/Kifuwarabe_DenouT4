@@ -49,7 +49,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         public static bool Makimodosi_Gui(
 
             //MoveEx curNode1,
-            Tree kifu1,
+            ITree kifu1,
 
             Playerside pside,
             MainGui_Csharp mainGui,
@@ -102,7 +102,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             MoveEx node6,// = shogiGui.Link_Server.KifuTree.CurNode;
             ISky positionA,// = shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue();
             MainGui_Csharp shogiGui,
-            Tree kifu1)
+            ITree kifu1)
         {
             //------------------------------
             // 符号表示

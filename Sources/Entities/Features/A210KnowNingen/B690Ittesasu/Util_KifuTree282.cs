@@ -93,7 +93,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         public static void Clear_SetStartpos_KokokaraSaifu(
             IPlaying playing,
             ISky positionA,//kifu1.GetRoot().GetNodeValue()
-            Tree kifu1,
+            ITree kifu1,
             Playerside pside)
         {
             //------------------------------------------------------------

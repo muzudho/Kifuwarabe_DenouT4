@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Grayscale.Kifuwaragyoku.Entities.Logging;
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -13,7 +12,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
     public delegate void DELEGATE_Foreach2(int temezumi, Move move, ref bool toBreak);
 
 
-    public interface Tree
+    public interface ITree
     {
         void LogPv(string message);
 

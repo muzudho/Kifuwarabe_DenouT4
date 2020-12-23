@@ -23,6 +23,6 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         void SetInputString99(string inputString99);
         void ClearInputString99();
 
-        Tree KifuTree { get; }
+        ITree KifuTree { get; }
     }
 }

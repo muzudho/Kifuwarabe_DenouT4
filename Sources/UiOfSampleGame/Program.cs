@@ -18,7 +18,6 @@ namespace Grayscale.Kifuwaragyoku.CliOfSampleGame
 
             // 棋譜
             ISky positionA = UtilSkyCreator.New_Hirate();//日本の符号読取時;
-            Tree kifu1 = new TreeImpl(positionA);
 
             int searchedMaxDepth = 0;
             ulong searchedNodes = 0;
@@ -28,7 +27,6 @@ namespace Grayscale.Kifuwaragyoku.CliOfSampleGame
                 ref searchedNodes,
                 searchedPv,
                 true,
-                kifu1,// ツリーを伸ばしているぜ☆（＾～＾）
                 positionA.GetKaisiPside(),
                 positionA);
 

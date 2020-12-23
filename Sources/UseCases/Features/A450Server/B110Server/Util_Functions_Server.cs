@@ -31,7 +31,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             Move move,
             ISky positionA,
             out string jsaFugoStr,
-            Tree kifu1)
+            ITree kifu1)
         {
             model_Manual.SetGuiSky(positionA);
 
@@ -58,7 +58,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         public static bool ReadLine_TuginoItteSusumu_Srv_CurrentMutable(
             ref string inputLine,
             IPlaying playing,
-            Tree kifu1,//SetCurNodeがある。[コマ送り][再生]などで使用。
+            ITree kifu1,//SetCurNodeがある。[コマ送り][再生]などで使用。
             SkyWrapper_Gui model_Manual,
             out bool toBreak,
             string hint,
@@ -265,7 +265,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             out Finger foodKoma,
             out string jsaFugoStr,
             MoveEx curNode1,//削るノード
-            Tree kifu1_mutable)
+            ITree kifu1_mutable)
         {
             bool successful = false;
 
@@ -337,7 +337,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         public static bool Komaokuri_Srv(
             ref string inputLine,
             IPlaying playing,
-            Tree kifu1,
+            ITree kifu1,
             SkyWrapper_Gui model_Manual
             ,
             [CallerMemberName] string memberName = "",

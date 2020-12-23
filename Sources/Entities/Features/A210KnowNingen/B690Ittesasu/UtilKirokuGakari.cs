@@ -27,7 +27,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         public static string ToJsaFugoListString(
             IPlaying playing,
             //MoveEx curNode_base,
-            Tree kifu1,
+            ITree kifu1,
             string hint)
         {
             StringBuilder sb = new StringBuilder();
@@ -38,7 +38,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             sb.Append(" moves ");
 
             // 採譜用に、新しい対局を用意します。
-            Tree saifuKifu2;//使い捨て☆
+            ITree saifuKifu2;//使い捨て☆
             {
                 ISky positionInit = UtilSkyCreator.New_Hirate();//日本の符号読取時
                 saifuKifu2 = new TreeImpl(positionInit);
@@ -112,7 +112,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         public static string ToSfen_PositionCommand(
             IPlaying playing,
             //MoveEx endNode1
-            Tree kifu1
+            ITree kifu1
             )
         {
             StringBuilder sb = new StringBuilder();

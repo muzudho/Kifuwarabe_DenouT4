@@ -30,7 +30,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         public static void CreateKifuTree(
             IPlaying playing,
             out ISky out_positionA,
-            out Tree out_kifu1
+            out ITree out_kifu1
             )
         {
             // 棋譜

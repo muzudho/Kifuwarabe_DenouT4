@@ -14,34 +14,6 @@ namespace Grayscale.Kifuwaragyoku.UseCases
 {
     public class Playing : IPlaying
     {
-        /// <summary>
-        /// 棋譜です。
-        /// Loop2で使います。
-        /// </summary>
-        public Tree Kifu { get { return this.m_kifu_; } }
-        private Tree m_kifu_;
-
-        /// <summary>
-        /// 読み筋を格納する配列の容量。
-        /// </summary>
-        public const int SEARCHED_PV_LENGTH = 2048;
-
-        /// <summary>
-        /// 右脳。
-        /// </summary>
-        public IFeatureVector FeatureVector { get; set; }
-
-        /// <summary>
-        /// 時間管理
-        /// </summary>
-        public ITimeManager TimeManager { get; set; }
-
-        /// <summary>
-        /// 「go ponder」の属性一覧です。
-        /// Loop2で呼ばれます。
-        /// </summary>
-        public bool GoPonderFlag { get; set; }
-
         public Playing()
         {
             //-------------+----------------------------------------------------------------------------------------------------------
@@ -91,13 +63,13 @@ namespace Grayscale.Kifuwaragyoku.UseCases
 
                 this.earthProperties = new Dictionary<string, object>();
 
-                this.m_kifu_ = new TreeImpl(positionInit);
+                this.Kifu = new TreeImpl(positionInit);
                 this.SetEarthProperty(Word_KifuTree.PropName_Startpos, "startpos");// 平手 // FIXME:平手とは限らないが。
 
-                this.m_kifu_.PositionA.AssertFinger((Finger)0);
+                this.Kifu.PositionA.AssertFinger((Finger)0);
                 Debug.Assert(!Conv_Masu.OnKomabukuro(
                     Conv_Masu.ToMasuHandle(
-                        Conv_Busstop.ToMasu(this.m_kifu_.PositionA.BusstopIndexOf((Finger)0))
+                        Conv_Busstop.ToMasu(this.Kifu.PositionA.BusstopIndexOf((Finger)0))
                         )
                     ), "駒が駒袋にあった。");
             }
@@ -111,6 +83,32 @@ namespace Grayscale.Kifuwaragyoku.UseCases
             this.TimeManager = new TimeManager(this.EngineOptions.GetOption(EngineOptionNames.THINKING_MILLI_SECOND).GetNumber());
         }
 
+        /// <summary>
+        /// 棋譜です。
+        /// Loop2で使います。
+        /// </summary>
+        public ITree Kifu { get; private set;}
+
+        /// <summary>
+        /// 読み筋を格納する配列の容量。
+        /// </summary>
+        public const int SEARCHED_PV_LENGTH = 2048;
+
+        /// <summary>
+        /// 右脳。
+        /// </summary>
+        public IFeatureVector FeatureVector { get; set; }
+
+        /// <summary>
+        /// 時間管理
+        /// </summary>
+        public ITimeManager TimeManager { get; set; }
+
+        /// <summary>
+        /// 「go ponder」の属性一覧です。
+        /// Loop2で呼ばれます。
+        /// </summary>
+        public bool GoPonderFlag { get; set; }
 
         /// <summary>
         /// 千日手カウンター。
@@ -178,9 +176,9 @@ namespace Grayscale.Kifuwaragyoku.UseCases
         /// Loop2で呼ばれます。
         /// </summary>
         /// <param name="kifu"></param>
-        public void SetKifu(Tree kifu)
+        public void SetKifu(ITree kifu)
         {
-            this.m_kifu_ = kifu;
+            this.Kifu = kifu;
             //this.m_positionA_ = kifu.GetSky();
         }
         //private ISky m_positionA_;
@@ -790,7 +788,6 @@ namespace Grayscale.Kifuwaragyoku.UseCases
                                     ref searchedNodes,
                                     searchedPv,
                                     isHonshogi,
-                                    this.Kifu,// ツリーを伸ばしているぜ☆（＾～＾）
                                     this.Kifu.PositionA.GetKaisiPside(),
                                     this.Kifu.PositionA//.CurNode1.GetNodeValue(),
                                 ));
@@ -1006,7 +1003,6 @@ namespace Grayscale.Kifuwaragyoku.UseCases
             ref ulong searchedNodes,
             string[] searchedPv,
             bool isHonshogi,
-            Tree kifu1,// ツリーを伸ばしているぜ☆（＾～＾）
             Playerside psideA,
             ISky positionA)
         {
@@ -1040,11 +1036,8 @@ namespace Grayscale.Kifuwaragyoku.UseCases
                 ref searchedMaxDepth,
                 ref searchedNodes,
                 searchedPv,
-
-                kifu1,// ツリーを伸ばしているぜ☆（＾～＾）
                 psideA,//positionA.GetKaisiPside(),
                 positionA,
-
                 isHonshogi, Mode_Tansaku.Shogi_ENgine,
                 args);
 

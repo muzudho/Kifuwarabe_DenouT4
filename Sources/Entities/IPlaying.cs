@@ -23,6 +23,12 @@ namespace Grayscale.Kifuwaragyoku.Entities
         SennititeCounter GetSennititeCounter();
 
         /// <summary>
+        /// 棋譜です。
+        /// Loop2で使います。
+        /// </summary>
+        ITree Kifu { get; }
+
+        /// <summary>
         /// 棋譜を空っぽにします。
         /// 
         /// ルートは残します。

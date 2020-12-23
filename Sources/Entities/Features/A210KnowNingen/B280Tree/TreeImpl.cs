@@ -12,7 +12,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
     /// <summary>
     /// 棋譜。
     /// </summary>
-    public class TreeImpl : Tree
+    public class TreeImpl : ITree
     {
         public TreeImpl(ISky sky)
         {
@@ -132,7 +132,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         private MoveEx m_moveEx_;
 
 
-        public static Playerside MoveEx_ClearAllCurrent(Tree tree, ISky positionA)
+        public static Playerside MoveEx_ClearAllCurrent(ITree tree, ISky positionA)
         {
             tree.MoveEx_SetCurrent(new MoveExImpl());
 
@@ -163,7 +163,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         #endregion
 
 
-        public static MoveEx OnDoCurrentMove(MoveEx curNode, Tree kifu1, ISky positionA)
+        public static MoveEx OnDoCurrentMove(MoveEx curNode, ITree kifu1, ISky positionA)
         {
             kifu1.MoveEx_SetCurrent(curNode);
             kifu1.Pv_Append(curNode.Move);
@@ -171,7 +171,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             kifu1.SetPositionA(positionA);
             return kifu1.MoveEx_Current;
         }
-        public static MoveEx OnUndoCurrentMove(Tree kifu1, ISky positionA, string hint)
+        public static MoveEx OnUndoCurrentMove(ITree kifu1, ISky positionA, string hint)
         {
             if (kifu1.Pv_IsRoot())
             {

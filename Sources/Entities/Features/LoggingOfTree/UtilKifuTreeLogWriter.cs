@@ -42,7 +42,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// </summary>
         public static void A_Write_KifuTreeLog(
             KaisetuBoards logF_kiki,
-            Tree kifu)
+            ITree kifu)
         {
 #if DEBUG
             int logFileCounter = 0;
@@ -135,7 +135,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             string nodePath,
             MoveEx moveEx,
             ISky positionA,
-            Tree kifu,
+            ITree kifu,
             string relFolder,
             KyokumenPngEnvironment reportEnvironment)
         {

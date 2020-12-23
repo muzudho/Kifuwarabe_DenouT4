@@ -176,11 +176,8 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             ref int searchedMaxDepth,
             ref ulong searchedNodes,
             string[] searchedPv,
-
-            Tree kifu1,// ツリーを伸ばしているぜ☆（＾～＾）
             Playerside psideA,//Playerside psideA = positionA.GetKaisiPside();
             ISky positionA,
-
             bool isHonshogi,
             Mode_Tansaku mode_Tansaku,
             EvaluationArgs args)
@@ -253,8 +250,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     psideA,//positionA.GetKaisiPside(),
                     positionA,//この局面から合法手を作成☆（＾～＾）
                     a_bestmoveEx_Children.Score,
-                    kifu1.MoveEx_Current,// ツリーを伸ばしているぜ☆（＾～＾）
-                    kifu1,
+                    playing.Kifu.MoveEx_Current,// ツリーを伸ばしているぜ☆（＾～＾）
 
                     movelist.Count,
                     args);
@@ -379,14 +375,11 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             ref ulong searchedNodes,
             string[] searchedPv,
             ICurrentSearch genjo,
-
             int kaisiTemezumi,
             Playerside psideA,
             ISky positionA,//この局面から、合法手を作成☆（＾～＾）
             float parentsiblingBestScore,
             MoveEx baseNod1,// ツリーを伸ばしているぜ☆（＾～＾）
-            Tree kifu1,
-
             int movelist_count,
             EvaluationArgs args)
         {
@@ -486,7 +479,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 iNod_child.SetMove(iMov_child_variable);
 
                 // 自分を親要素につなげたあとで、子を検索するぜ☆（＾～＾）
-                kifu1.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(iNod_child, kifu1, positionA));
+                playing.Kifu.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(iNod_child, playing.Kifu, positionA));
 
                 // これを呼び出す回数を減らすのが、アルファ法。
                 // 枝か、葉か、確定させにいきます。
@@ -497,14 +490,11 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     ref searchedNodes,
                     searchedPv,
                     genjo,
-
                     positionA.Temezumi,
                     ConvMove.ToPlayerside(iMov_child_variable),// positionA.GetKaisiPside(),
                     positionA,//この局面から合法手を作成☆（＾～＾）
                     result_thisDepth.Score,
-                    kifu1.MoveEx_Current,// ツリーを伸ばしているぜ☆（＾～＾）
-                    kifu1,
-
+                    playing.Kifu.MoveEx_Current,// ツリーを伸ばしているぜ☆（＾～＾）
                     movelist2.Count,
                     args);
 
@@ -521,8 +511,8 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 positionA = ittemodosuResult.SyuryoSky;
                 //*/
 
-                kifu1.MoveEx_SetCurrent(
-                    TreeImpl.OnUndoCurrentMove(kifu1, ittemodosuResult.SyuryoSky, "WAAA_Yomu_Loop20000")
+                playing.Kifu.MoveEx_SetCurrent(
+                    TreeImpl.OnUndoCurrentMove(playing.Kifu, ittemodosuResult.SyuryoSky, "WAAA_Yomu_Loop20000")
                 );
 
                 //----------------------------------------

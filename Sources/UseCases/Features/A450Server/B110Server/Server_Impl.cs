@@ -27,12 +27,12 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         public IPlaying Playing { get; private set; }
 
 
-        public Tree KifuTree { get { return this.m_kifuTree_; } }
-        public void SetKifuTree(Tree kifu1)
+        public ITree KifuTree { get { return this.m_kifuTree_; } }
+        public void SetKifuTree(ITree kifu1)
         {
             this.m_kifuTree_ = kifu1;
         }
-        private Tree m_kifuTree_;
+        private ITree m_kifuTree_;
 
         /// <summary>
         /// サーバーが持つ、将棋エンジン。

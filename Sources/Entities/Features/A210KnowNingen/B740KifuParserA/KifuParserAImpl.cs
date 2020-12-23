@@ -31,7 +31,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         public string Execute_Step_CurrentMutable(
             ref IKifuParserAResult result,
             IPlaying playing,
-            Tree kifu1_mutable,
+            ITree kifu1_mutable,
             IKifuParserAGenjo genjo
             ,
             [CallerMemberName] string memberName = "",
@@ -93,7 +93,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         public void Execute_All_CurrentMutable(
             ref IKifuParserAResult result,
             IPlaying playing,
-            Tree kifu1_mutable,
+            ITree kifu1_mutable,
             IKifuParserAGenjo genjo
             ,
             [CallerMemberName] string memberName = "",
