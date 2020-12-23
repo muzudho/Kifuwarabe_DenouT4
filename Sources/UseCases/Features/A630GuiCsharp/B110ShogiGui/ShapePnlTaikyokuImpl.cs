@@ -331,9 +331,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             Playerside psideA,
             ISky positionA,
             MainGui_Csharp shogiGui,
-            string windowName,
-            ILogTag logTag
-            )
+            string windowName)
         {
             if (!this.Visible)
             {
@@ -359,7 +357,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             //----------
             foreach (Shape_BtnKomaImpl koma in this.Btn40Komas)
             {
-                koma.Paint(e.Graphics, shogiGui, logTag);
+                koma.Paint(e.Graphics, shogiGui);
             }
 
             //----------
@@ -379,7 +377,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             base.Paint(sender, e,
                 psideA,//shogiGui.Link_Server.KifuTree.PositionA.GetKaisiPside(),
                 shogiGui.Link_Server.KifuTree.PositionA,
-                shogiGui, windowName, logTag);
+                shogiGui, windowName);
 
         gt_EndMethod:
             ;

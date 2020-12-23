@@ -18,9 +18,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <returns></returns>
         public static Maps_OneAndOne<Finger, SySet<SyElement>> Get_PotentialMoves(
             ISky src_Sky,
-            Fingers fingers,
-            ILogTag errH_orNull
-            )
+            Fingers fingers)
         {
             Maps_OneAndOne<Finger, SySet<SyElement>> kiki_fMs = new Maps_OneAndOne<Finger, SySet<SyElement>>();// 「どの駒を、どこに進める」の一覧
 

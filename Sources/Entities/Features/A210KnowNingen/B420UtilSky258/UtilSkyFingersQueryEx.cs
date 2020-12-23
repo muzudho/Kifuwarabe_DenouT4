@@ -20,14 +20,13 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="km"></param>
         /// <returns></returns>
         public static void Fingers_EachSrcNow(
-            out Fingers out_fingers, SySet<SyElement> srcList, ISky src_Sky, Playerside pside,
-            ILogTag logTag)
+            out Fingers out_fingers, SySet<SyElement> srcList, ISky src_Sky, Playerside pside)
         {
             out_fingers = new Fingers();
 
             foreach (SyElement masu in srcList.Elements)
             {
-                Finger finger = UtilSkyFingerQuery.InMasuNow_FilteringBanjo(src_Sky, pside, masu, logTag);
+                Finger finger = UtilSkyFingerQuery.InMasuNow_FilteringBanjo(src_Sky, pside, masu);
                 if (Util_Finger.ForHonshogi(finger))
                 {
                     // 指定の升に駒がありました。

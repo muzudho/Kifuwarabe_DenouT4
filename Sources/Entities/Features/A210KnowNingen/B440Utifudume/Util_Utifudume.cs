@@ -25,8 +25,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             ISky positionA,
             SySet<SyElement> masus_mikata_onBanjo,//打ち歩詰めチェック用
             SySet<SyElement> masus_aite_onBanjo,//打ち歩詰めチェック用
-            SySet<SyElement>[] aMasus,//駒種類別、置こうとする升
-            ILogTag errH_orNull
+            SySet<SyElement>[] aMasus//駒種類別、置こうとする升
             )
         {
             // 攻め側
@@ -83,9 +82,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     fingers_aiteKing,
                     masus_mikata_onBanjo,
                     masus_aite_onBanjo,
-                    positionA,
-                    errH_orNull
-                );
+                    positionA);
 
                 int gyokutouMasuNumber = Conv_Masu.ToMasuHandle(masu_gyokutou);
                 kikiMap.Foreach_Values((SySet<SyElement> values, ref bool toBreak) =>
@@ -120,9 +117,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     fingers_aiteKoma_Banjo,
                     masus_aite_onBanjo,//相手の駒は、味方
                     masus_mikata_onBanjo,//味方の駒は、障害物。
-                    positionA,
-                    errH_orNull
-                );
+                    positionA);
                 aitegyokuKiki = kikiMap.ElementAt(figKing_aite);
 
                 int gyokutouMasuNumber = Conv_Masu.ToMasuHandle(masu_gyokutou);

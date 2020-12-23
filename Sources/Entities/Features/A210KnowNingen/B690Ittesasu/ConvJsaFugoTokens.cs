@@ -31,8 +31,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             string strDaHyoji, //打
             out Move move,
             Move src_Move,// 「同」を調べるためだけに使う☆
-            ISky src_Sky,// = kifu.CurNode.Value.Kyokumen;
-            ILogTag logTag
+            ISky src_Sky// = kifu.CurNode.Value.Kyokumen;
             )
         {
 
@@ -121,7 +120,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 SySet<SyElement> srcAll = new SySet_Default<SyElement>("J符号");
                 if (isE) { srcAll.AddSupersets(KomanoKidou.SrcIppo_戻引(pside, dst1)); }
 
-                if (Query341OnSky.Query_Koma(pside, srcSyurui, srcAll, src_Sky, out foundKoma, logTag))
+                if (Query341OnSky.Query_Koma(pside, srcSyurui, srcAll, src_Sky, out foundKoma))
                 {
                     srcOkiba1 = Okiba.ShogiBan;
                     goto gt_EndSyurui;
@@ -220,7 +219,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 if (isE) { srcAll.AddSupersets(KomanoKidou.SrcKantu_戻引(pside, dst1)); }
                 if (isG) { srcAll.AddSupersets(KomanoKidou.SrcKantu_戻滑(pside, dst1)); }
 
-                if (Query341OnSky.Query_Koma(pside, srcSyurui, srcAll, src_Sky, out foundKoma, logTag))
+                if (Query341OnSky.Query_Koma(pside, srcSyurui, srcAll, src_Sky, out foundKoma))
                 {
                     srcOkiba1 = Okiba.ShogiBan;
                     goto gt_EndSyurui;
@@ -319,7 +318,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 //----------
                 // 候補マスＢ
                 //----------
-                if (Query341OnSky.Query_Koma(pside, srcSyurui, srcAll, src_Sky, out foundKoma, logTag))
+                if (Query341OnSky.Query_Koma(pside, srcSyurui, srcAll, src_Sky, out foundKoma))
                 {
                     srcOkiba1 = Okiba.ShogiBan;
                     goto gt_EndSyurui;
@@ -359,7 +358,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 SySet<SyElement> srcAll = new SySet_Default<SyElement>("J符号");
                 if (isE) { srcAll.AddSupersets(KomanoKidou.SrcKantu_戻引(pside, dst1)); }
 
-                if (Query341OnSky.Query_Koma(pside, srcSyurui, srcAll, src_Sky, out foundKoma, logTag))
+                if (Query341OnSky.Query_Koma(pside, srcSyurui, srcAll, src_Sky, out foundKoma))
                 {
                     srcOkiba1 = Okiba.ShogiBan;
                     goto gt_EndSyurui;
@@ -421,7 +420,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 if (isI) { srcAll.AddSupersets(KomanoKidou.SrcKeimatobi_戻跳(pside, dst1)); }
                 if (isJ) { srcAll.AddSupersets(KomanoKidou.SrcKeimatobi_戻駆(pside, dst1)); }
 
-                if (Query341OnSky.Query_Koma(pside, srcSyurui, srcAll, src_Sky, out foundKoma, logTag))
+                if (Query341OnSky.Query_Koma(pside, srcSyurui, srcAll, src_Sky, out foundKoma))
                 {
                     srcOkiba1 = Okiba.ShogiBan;
                     goto gt_EndSyurui;
@@ -497,7 +496,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 if (isF) { srcAll.AddSupersets(KomanoKidou.SrcIppo_戻降(pside, dst1)); }
                 if (isH) { srcAll.AddSupersets(KomanoKidou.SrcIppo_戻浮(pside, dst1)); }
 
-                if (Query341OnSky.Query_Koma(pside, srcSyurui, srcAll, src_Sky, out foundKoma, logTag))
+                if (Query341OnSky.Query_Koma(pside, srcSyurui, srcAll, src_Sky, out foundKoma))
                 {
                     srcOkiba1 = Okiba.ShogiBan;
                     goto gt_EndSyurui;
@@ -586,7 +585,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 if (isF) { srcAll.AddSupersets(KomanoKidou.SrcIppo_戻降(pside, dst1)); }
                 if (isG) { srcAll.AddSupersets(KomanoKidou.SrcIppo_戻滑(pside, dst1)); }
 
-                if (Query341OnSky.Query_Koma(pside, srcSyurui, srcAll, src_Sky, out foundKoma, logTag))
+                if (Query341OnSky.Query_Koma(pside, srcSyurui, srcAll, src_Sky, out foundKoma))
                 {
                     srcOkiba1 = Okiba.ShogiBan;
                     goto gt_EndSyurui;
@@ -630,7 +629,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 if (isH) { srcAll.AddSupersets(KomanoKidou.SrcIppo_戻浮(pside, dst1)); }
 
                 // 王は１つです。
-                if (Query341OnSky.Query_Koma(pside, srcSyurui, srcAll, src_Sky, out foundKoma, logTag))
+                if (Query341OnSky.Query_Koma(pside, srcSyurui, srcAll, src_Sky, out foundKoma))
                 {
                     srcOkiba1 = Okiba.ShogiBan;
                     goto gt_EndSyurui;
@@ -754,7 +753,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 if (isG) { srcAll.AddSupersets(KomanoKidou.SrcKantu_戻滑(pside, dst1)); }
                 if (isH) { srcAll.AddSupersets(KomanoKidou.SrcIppo_戻浮(pside, dst1)); }
 
-                if (Query341OnSky.Query_Koma(pside, srcSyurui, srcAll, src_Sky, out foundKoma, logTag))
+                if (Query341OnSky.Query_Koma(pside, srcSyurui, srcAll, src_Sky, out foundKoma))
                 {
                     srcOkiba1 = Okiba.ShogiBan;
                     goto gt_EndSyurui;
@@ -877,7 +876,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 if (isG) { srcAll.AddSupersets(KomanoKidou.SrcIppo_戻滑(pside, dst1)); }
                 if (isH) { srcAll.AddSupersets(KomanoKidou.SrcKantu_戻浮(pside, dst1)); }
 
-                if (Query341OnSky.Query_Koma(pside, srcSyurui, srcAll, src_Sky, out foundKoma, logTag))
+                if (Query341OnSky.Query_Koma(pside, srcSyurui, srcAll, src_Sky, out foundKoma))
                 {
                     srcOkiba1 = Okiba.ShogiBan;
                     goto gt_EndSyurui;
@@ -905,7 +904,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 Fingers komas = UtilSkyFingersQuery.InOkibaPsideKomasyuruiNow(
                     src_Sky, srcOkiba1, pside, srcSyurui);//(2015-08-05 01:04)変更
                 //Fingers komas = Util_Sky051Fingers.Fingers_ByOkibaPsideSyuruiNow_OldSpec(
-                //    siteiNode.Value.ToKyokumenConst, srcOkiba1, pside, srcSyurui, logTag);
+                //    siteiNode.Value.ToKyokumenConst, srcOkiba1, pside, srcSyurui);
 
                 if (0 < komas.Count)
                 {
@@ -969,7 +968,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 Fingers daiKomaFgs = UtilSkyFingersQuery.InOkibaPsideKomasyuruiNow(
                     src_Sky, srcOkiba1, pside, srcSyurui);//(2015-08-05 01:04)変更
                 //Fingers daiKomaFgs = Util_Sky051Fingers.Fingers_ByOkibaPsideSyuruiNow_OldSpec(
-                //    siteiNode.Value.ToKyokumenConst, srcOkiba1, pside, srcSyurui, logTag);//(2014-10-04 12:46)変更
+                //    siteiNode.Value.ToKyokumenConst, srcOkiba1, pside, srcSyurui);//(2014-10-04 12:46)変更
 
 
                 Debug.Assert(0 < daiKomaFgs.Count, "フィンガーズが 1個未満。 srcOkiba1=[" + srcOkiba1 + "] pside=[" + pside + "] srcSyurui=[" + srcSyurui + "]");

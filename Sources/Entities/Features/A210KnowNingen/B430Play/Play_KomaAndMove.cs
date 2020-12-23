@@ -20,9 +20,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         public static Maps_OneAndOne<Finger, SySet<SyElement>> MinusMasus(
             ISky src_Sky_forLog,
             Maps_OneAndOne<Finger, SySet<SyElement>> a1,
-            SySet<SyElement> b,
-            ILogTag errH_orNull
-            )
+            SySet<SyElement> b)
         {
             //GraphicalLogUtil.Log(enableLog, "Thought_KomaAndMove#MinusMasus",
             //    "["+
@@ -59,9 +57,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         public static Maps_OneAndOne<Finger, SySet<SyElement>> Minus_OverThereMasus(
             ISky src_srcSky_forLog,
             Maps_OneAndOne<Finger, SySet<SyElement>> a,
-            SySet<SyElement> b,
-            ILogTag errH_orNull
-        )
+            SySet<SyElement> b)
         {
             Maps_OneAndOne<Finger, SySet<SyElement>> c = new Maps_OneAndOne<Finger, SySet<SyElement>>(a);
 

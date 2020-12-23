@@ -29,7 +29,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             this.SaiseiEventQueue = new Queue<SaiseiEventState>();
         }
 
-        public override void Step(ILogTag logTag)
+        public override void Step()
         {
 
             // 入っているマウス操作イベントは、全部捨てていきます。
@@ -47,7 +47,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                             mainGui.RepaintRequest = new RepaintRequestImpl();
 
                             this.restText = Util_Function_Csharp.ReadLine_FromTextbox();
-                            this.SaiseiEventQueue.Enqueue(new SaiseiEventState(SaiseiEventStateName.Step, eventState.Flg_logTag));
+                            this.SaiseiEventQueue.Enqueue(new SaiseiEventState(SaiseiEventStateName.Step));
                             #endregion
                         }
                         break;
@@ -72,9 +72,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
                                     this.mainGui.SkyWrapper_Gui,
                                     out toBreak,
-                                    "再生ボタン",
-                                    logTag
-                                    );
+                                    "再生ボタン");
 
                                 //TimedC.Saisei_Step(restText, shogiGui, eventState.Flg_logTag);// 再描画（ループが１回も実行されなかったとき用）
                                 // 他のアプリが固まらないようにします。
@@ -92,27 +90,26 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                     mainGui.Link_Server.KifuTree.MoveEx_Current,
                                     mainGui.Link_Server.KifuTree.PositionA,//.CurNode2ok.GetNodeValue()
                                     mainGui,
-                                    mainGui.Link_Server.KifuTree,
-                                    eventState.Flg_logTag);//追加
+                                    mainGui.Link_Server.KifuTree);//追加
 
                                 //------------------------------
                                 // メナス
                                 //------------------------------
-                                Util_Menace.Menace(mainGui, eventState.Flg_logTag);
+                                Util_Menace.Menace(mainGui);
 
-                                mainGui.Response("Saisei", eventState.Flg_logTag);// 再描画
+                                mainGui.Response("Saisei");// 再描画
                             }
 
 
                             if (toBreak)
                             {
                                 // 終了
-                                this.SaiseiEventQueue.Enqueue(new SaiseiEventState(SaiseiEventStateName.Finished, eventState.Flg_logTag));
+                                this.SaiseiEventQueue.Enqueue(new SaiseiEventState(SaiseiEventStateName.Finished));
                             }
                             else
                             {
                                 // 続行
-                                this.SaiseiEventQueue.Enqueue(new SaiseiEventState(SaiseiEventStateName.Step, eventState.Flg_logTag));
+                                this.SaiseiEventQueue.Enqueue(new SaiseiEventState(SaiseiEventStateName.Step));
                             }
                             #endregion
                         }

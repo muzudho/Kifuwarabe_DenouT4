@@ -59,7 +59,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="rv_orNull">学習でしか使いません。</param>
         /// <param name="fv_komawari_filepath"></param>
         /// <returns></returns>
-        public static string OpenFv(IFeatureVector fv, string fv_komawari_filepath, ILogTag logTag)
+        public static string OpenFv(IFeatureVector fv, string fv_komawari_filepath)
         {
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
@@ -90,7 +90,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
             {//KK
                 string filepath = Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv01KKInFvDir));//komawari.csvと同じフォルダー
-                if (!Util_FeatureVectorInput.Make_FromFile_KK(fv, filepath, logTag))
+                if (!Util_FeatureVectorInput.Make_FromFile_KK(fv, filepath))
                 {
                     sb_result.Append("ファイルオープン失敗 KK[" + filepath + "]。");
                     goto gt_EndMethod;
@@ -100,7 +100,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
             {//1pKP
                 string filepath = Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv02n1pKPInFvDir));
-                if (!Util_FeatureVectorInput.Make_FromFile_KP(fv, filepath, Playerside.P1, logTag))
+                if (!Util_FeatureVectorInput.Make_FromFile_KP(fv, filepath, Playerside.P1))
                 {
                     sb_result.Append("ファイルオープン失敗 1pKP[" + filepath + "]。");
                     goto gt_EndMethod;
@@ -110,7 +110,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
             {//2pKP
                 string filepath = Path.Combine(fvDirectory, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv03n2pKPInFvDir));
-                if (!Util_FeatureVectorInput.Make_FromFile_KP(fv, filepath, Playerside.P2, logTag))
+                if (!Util_FeatureVectorInput.Make_FromFile_KP(fv, filepath, Playerside.P2))
                 {
                     sb_result.Append("ファイルオープン失敗 2pKP[" + filepath + "]。");
                     goto gt_EndMethod;
@@ -139,7 +139,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
                 foreach (PP_P1Item p1Item in p1List)
                 {
-                    if (!Util_FeatureVectorInput.Make_FromFile_PP_Banjo(fv, p1Item.Filepath, p1Item.P1_base, logTag))
+                    if (!Util_FeatureVectorInput.Make_FromFile_PP_Banjo(fv, p1Item.Filepath, p1Item.P1_base))
                     {
                         sb_result.Append("ファイルオープン失敗 PP_Banjo[" + p1Item.Filepath + "]。");
                         goto gt_EndMethod;
@@ -157,7 +157,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
                 foreach (PP_P1Item ppItem in p1Items)
                 {
-                    if (!Util_FeatureVectorInput.Make_FromFile_PP_Moti19Mai(fv, ppItem.Filepath, ppItem.P1_base, logTag))
+                    if (!Util_FeatureVectorInput.Make_FromFile_PP_Moti19Mai(fv, ppItem.Filepath, ppItem.P1_base))
                     {
                         sb_result.Append("ファイルオープン失敗 PP_Banjo[" + ppItem.Filepath + "]。");
                         goto gt_EndMethod;
@@ -181,7 +181,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
                 foreach (PP_P1Item ppItem in p1Items)
                 {
-                    if (!Util_FeatureVectorInput.Make_FromFile_PP_Moti3or5Mai(fv, ppItem.Filepath, ppItem.P1_base, 5, logTag))
+                    if (!Util_FeatureVectorInput.Make_FromFile_PP_Moti3or5Mai(fv, ppItem.Filepath, ppItem.P1_base, 5))
                     {
                         sb_result.Append("ファイルオープン失敗 PP_Banjo[" + ppItem.Filepath + "]。");
                         goto gt_EndMethod;
@@ -201,7 +201,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
                 foreach (PP_P1Item ppItem in p1Items)
                 {
-                    if (!Util_FeatureVectorInput.Make_FromFile_PP_Moti3or5Mai(fv, ppItem.Filepath, ppItem.P1_base, 3, logTag))
+                    if (!Util_FeatureVectorInput.Make_FromFile_PP_Moti3or5Mai(fv, ppItem.Filepath, ppItem.P1_base, 3))
                     {
                         sb_result.Append("ファイルオープン失敗 PP_Banjo[" + ppItem.Filepath + "]。");
                         goto gt_EndMethod;

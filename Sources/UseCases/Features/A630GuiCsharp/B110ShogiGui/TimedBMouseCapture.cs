@@ -26,7 +26,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         public Queue<MouseEventState> MouseEventQueue { get; set; }
 
 
-        public static void Check_MouseoverKomaKiki(object obj_shogiGui, Finger finger, ILogTag logger)
+        public static void Check_MouseoverKomaKiki(object obj_shogiGui, Finger finger)
         {
             MainGui_Csharp shogiGui = (MainGui_Csharp)obj_shogiGui;
 
@@ -66,7 +66,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         }
 
 
-        public override void Step(ILogTag logger)
+        public override void Step()
         {
             // 入っているマウス操作イベントのうち、マウスムーブは　１つに　集約　します。
             bool bMouseMove_SceneB_1TumamitaiKoma = false;
@@ -91,7 +91,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                         //------------------------------
                                         // メナス
                                         //------------------------------
-                                        Util_Menace.Menace(this.mainGui, eventState.Flg_logTag);
+                                        Util_Menace.Menace(this.mainGui);
                                         #endregion
                                     }
                                     break;
@@ -162,7 +162,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                                 if (Okiba.ShogiBan == Conv_Busstop.ToOkiba(koma))
                                                 {
                                                     // マウスオーバーした駒の利き
-                                                    TimedBMouseCapture.Check_MouseoverKomaKiki(mainGui, btnKoma.Koma, eventState.Flg_logTag);
+                                                    TimedBMouseCapture.Check_MouseoverKomaKiki(mainGui, btnKoma.Koma);
 
 
                                                     break;
@@ -263,9 +263,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                                         widget.Delegate_MouseHitEvent(
                                                             mainGui
                                                            , widget
-                                                           , btnKoma_Selected
-                                                           , eventState.Flg_logTag
-                                                           );
+                                                           , btnKoma_Selected);
                                                     }
                                                 }
                                             }
@@ -277,7 +275,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                         //------------------------------
                                         // このメインパネルの反応
                                         //------------------------------
-                                        mainGui.Response("MouseOperation", eventState.Flg_logTag);
+                                        mainGui.Response("MouseOperation");
                                         #endregion
                                     }
                                     break;
@@ -383,7 +381,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                                     //----------------------------------------
                                                     mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(sky_newChild), "TimedB.Step(1)");
 
-                                                    mainGui.Link_Server.KifuTree.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(newNode, mainGui.Link_Server.KifuTree, sky_newChild, logger));
+                                                    mainGui.Link_Server.KifuTree.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(newNode, mainGui.Link_Server.KifuTree, sky_newChild));
 
                                                     string jsaFugoStr;
                                                     Util_Functions_Server.AfterSetCurNode_Srv(
@@ -392,8 +390,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                                         mainGui.Link_Server.KifuTree.MoveEx_Current.Move,
                                                         sky_newChild,
                                                         out jsaFugoStr,
-                                                        mainGui.Link_Server.KifuTree,
-                                                        logger);
+                                                        mainGui.Link_Server.KifuTree);
                                                     mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
 
@@ -412,8 +409,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                                     {
                                                         mainGui.ChangedTurn(
                                                             mainGui.Link_Server.KifuTree,
-                                                            mainGui.Link_Server.KifuTree.PositionA.GetKaisiPside(),
-                                                            eventState.Flg_logTag);//マウス左ボタンを放したのでチェンジターンします。
+                                                            mainGui.Link_Server.KifuTree.PositionA.GetKaisiPside());//マウス左ボタンを放したのでチェンジターンします。
                                                     }
 
                                                     mainGui.RepaintRequest.SyuturyokuRequest = RepaintRequestGedanTxt.Kifu;
@@ -443,7 +439,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                         //------------------------------
                                         // このメインパネルの反応
                                         //------------------------------
-                                        mainGui.Response("MouseOperation", eventState.Flg_logTag);
+                                        mainGui.Response("MouseOperation");
 
                                         #endregion
                                     }
@@ -527,7 +523,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                                         //----------------------------------------
                                                         mainGui.Link_Server.Earth.GetSennititeCounter().CountUp_New(Conv_Sky.ToKyokumenHash(sky_newChild), "TimedB.Step(2)");
 
-                                                        mainGui.Link_Server.KifuTree.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(newNode, mainGui.Link_Server.KifuTree, sky_newChild, logger));
+                                                        mainGui.Link_Server.KifuTree.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(newNode, mainGui.Link_Server.KifuTree, sky_newChild));
 
                                                         string jsaFugoStr;
 
@@ -537,8 +533,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                                             mainGui.Link_Server.KifuTree.MoveEx_Current.Move,
                                                             sky_newChild,
                                                             out jsaFugoStr,
-                                                            mainGui.Link_Server.KifuTree,
-                                                            logger);
+                                                            mainGui.Link_Server.KifuTree);
                                                         mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
 
@@ -562,8 +557,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                                             //System.C onsole.WriteLine("マウス左ボタンを放したのでチェンジターンします。");
                                                             mainGui.ChangedTurn(
                                                                 mainGui.Link_Server.KifuTree,
-                                                                mainGui.Link_Server.KifuTree.PositionA.GetKaisiPside(),
-                                                                eventState.Flg_logTag);//マウス左ボタンを放したのでチェンジターンします。
+                                                                mainGui.Link_Server.KifuTree.PositionA.GetKaisiPside());//マウス左ボタンを放したのでチェンジターンします。
                                                         }
 
                                                         mainGui.RepaintRequest.SyuturyokuRequest = RepaintRequestGedanTxt.Kifu;
@@ -579,7 +573,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                         //------------------------------
                                         // このメインパネルの反応
                                         //------------------------------
-                                        mainGui.Response("MouseOperation", eventState.Flg_logTag);
+                                        mainGui.Response("MouseOperation");
                                         #endregion
                                     }
                                     break;
@@ -733,7 +727,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                                     // ServerからGuiへ渡す情報
                                                     bool torareruKomaAri;
                                                     Busstop koma_Food_after;
-                                                    Util_Functions_Server.Komamove1a_50Srv(out torareruKomaAri, out koma_Food_after, dst, btnTumandeiruKoma.Koma, dst, mainGui.SkyWrapper_Gui, eventState.Flg_logTag);
+                                                    Util_Functions_Server.Komamove1a_50Srv(out torareruKomaAri, out koma_Food_after, dst, btnTumandeiruKoma.Koma, dst, mainGui.SkyWrapper_Gui);
 
                                                     Util_Function_Csharp.Komamove1a_51Gui(torareruKomaAri, koma_Food_after, mainGui);
                                                 }
@@ -794,9 +788,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                                         widget.Delegate_MouseHitEvent(
                                                             mainGui
                                                            , widget
-                                                           , btnKoma_Selected
-                                                           , eventState.Flg_logTag
-                                                           );
+                                                           , btnKoma_Selected);
                                                     }
                                                 }
                                             }
@@ -808,7 +800,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                         //------------------------------
                                         // このメインパネルの反応
                                         //------------------------------
-                                        mainGui.Response("MouseOperation", eventState.Flg_logTag);
+                                        mainGui.Response("MouseOperation");
                                         #endregion
                                     }
                                     break;
@@ -829,7 +821,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                         //------------------------------
                                         // このメインパネルの反応
                                         //------------------------------
-                                        mainGui.Response("MouseOperation", eventState.Flg_logTag);
+                                        mainGui.Response("MouseOperation");
                                         #endregion
                                     }
                                     break;
@@ -872,9 +864,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                                     widget.Delegate_MouseHitEvent(
                                                         mainGui
                                                        , widget
-                                                       , btnKoma_Selected
-                                                       , eventState.Flg_logTag
-                                                       );
+                                                       , btnKoma_Selected);
                                                 }
                                             }
                                         }
@@ -898,9 +888,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                                         widget.Delegate_MouseHitEvent(
                                                             mainGui
                                                            , widget
-                                                           , btnKoma_Selected
-                                                           , eventState.Flg_logTag
-                                                           );
+                                                           , btnKoma_Selected);
                                                     }
                                                 }
                                             }
@@ -912,7 +900,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                                         //------------------------------
                                         // このメインパネルの反応
                                         //------------------------------
-                                        mainGui.Response("MouseOperation", eventState.Flg_logTag);
+                                        mainGui.Response("MouseOperation");
                                         #endregion
                                     }
                                     break;

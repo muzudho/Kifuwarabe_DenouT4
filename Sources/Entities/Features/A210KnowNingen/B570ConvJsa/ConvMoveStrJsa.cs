@@ -15,16 +15,13 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         public static string ToMoveStrJsa(
             Move move,
             List<Move> honpuList,
-            ISky positionA,
-            ILogTag logTag
-            )
+            ISky positionA)
         {
             Komasyurui14 ks = ConvMove.ToSrcKomasyurui(move);
 
             JsaFugoImpl jsaFugo = ArrayJsaFugoCreator15.ItemMethods[(int)ks](
                 move,
-                positionA,
-                logTag);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
+                positionA);//「▲２二角成」なら、馬（dst）ではなくて角（src）。
 
             return Util_Translator_JsaFugo.ToString_UseDou(jsaFugo, move, honpuList);
         }

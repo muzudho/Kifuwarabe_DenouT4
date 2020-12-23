@@ -10,8 +10,6 @@ namespace Grayscale.Kifuwaragyoku.CliOfUnitTest
     {
         static void Main(string[] args)
         {
-            ILogTag logTag = LogTags.ProcessUnitTestDefault;
-
             Logger.Trace("テストＡ");
             MachineImpl.GetInstance().ReadKey();
 
@@ -21,7 +19,7 @@ namespace Grayscale.Kifuwaragyoku.CliOfUnitTest
             Playerside psideA_init = Playerside.P1;
 
             // 盤面をログ出力したいぜ☆
-            var boardLog = Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(psideA_init, positionA, logTag));
+            var boardLog = Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(psideA_init, positionA));
             Logger.Trace($"初期局面\n{boardLog}");
             MachineImpl.GetInstance().ReadKey();
 
@@ -48,7 +46,7 @@ namespace Grayscale.Kifuwaragyoku.CliOfUnitTest
                     Move moveA = ConvStringMove.ToMove(
                         out rest, commandLine, pv[pv.Count - 1],
                         positionA.GetKaisiPside(),
-                        positionA, logTag);
+                        positionA);
                     Move moveB;
                     commandLine = rest.Trim();
 
@@ -57,14 +55,13 @@ namespace Grayscale.Kifuwaragyoku.CliOfUnitTest
                         moveB = moveA;
                         UtilIttesasuRoutine.DoMove_Normal(out syuryoResult,
                             ref moveB,// 駒を取った場合、moveは更新される。
-                            positionA,
-                            logTag);
+                            positionA);
                         positionA = syuryoResult.SyuryoKyokumenW;
 
                         // 盤面をログ出力したいぜ☆
                         var boardLog4 = Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(
                             ConvMove.ToPlayerside(moveB),
-                            positionA, logTag)
+                            positionA)
                             , positionA, moveB);
                         Logger.Trace($"sfen=[{ConvMove.ToSfen(moveB)}] captured=[{Conv_Komasyurui.ToStr_Ichimoji(ConvMove.ToCaptured(moveB))}]\n{boardLog4}");
 
@@ -115,16 +112,14 @@ namespace Grayscale.Kifuwaragyoku.CliOfUnitTest
                         move1,
                         ConvMove.ToPlayerside(move1),
                         positionA,
-                        "G900",
-                        logTag
-                        );
+                        "G900");
                     positionA = syuryoResult2.SyuryoSky;
                     Debug.Assert(null != positionA, "局面がヌル");
 
                     // 盤面をログ出力したいぜ☆
                     var boardLog8 = Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(
                         ConvMove.ToPlayerside(move1),
-                        positionA, logTag));
+                        positionA));
                     Logger.Trace($"back sfen=[{ConvMove.ToSfen(move1)}] captured=[{Conv_Komasyurui.ToStr_Ichimoji(ConvMove.ToCaptured(move1))}]\n{boardLog8}");
 
                     while (true)

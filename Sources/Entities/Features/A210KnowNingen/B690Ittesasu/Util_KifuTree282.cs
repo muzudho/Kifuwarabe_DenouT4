@@ -94,20 +94,18 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             Earth earth1,
             ISky positionA,//kifu1.GetRoot().GetNodeValue()
             Tree kifu1,
-            Playerside pside, ILogTag logger)
+            Playerside pside)
         {
-
             //------------------------------------------------------------
             // 棋譜を空に
             //------------------------------------------------------------
             earth1.Clear();
 
-            Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(kifu1, positionA, logger);
+            Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(kifu1, positionA);
 
             earth1.SetProperty(
                 Word_KifuTree.PropName_Startpos,
-                ConvKifuNode.ToSfenstring(positionA, pside, logger));
+                ConvKifuNode.ToSfenstring(positionA, pside));
         }
-
     }
 }

@@ -43,11 +43,6 @@ namespace Grayscale.Kifuwaragyoku.Entities.Searching
             Earth earth1,
             Tree kifu1,
             Playerside psideA,
-            ISky positionA,
-
-            ILogTag logTag
-            );
-
+            ISky positionA);
     }
-
 }

@@ -15,9 +15,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         public static ParsedKyokumen ToParsedKyokumen(
             SkyWrapper_Gui model_Manual,// Gui局面を使用
             StartposImporter startposImporter,
-            IKifuParserAGenjo genjo,
-            ILogTag logTag
-            )
+            IKifuParserAGenjo genjo)
         {
             ParsedKyokumen parsedKyokumen = new ParsedKyokumenImpl();
 

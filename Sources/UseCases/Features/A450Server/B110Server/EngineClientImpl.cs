@@ -124,8 +124,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="e"></param>
         private void OnExited(object sender, System.EventArgs e)
         {
-            ILogTag logTag = LogTags.ProcessEngineDefault;
-            this.ShogiEngineProcessWrapper.Send_Shutdown(logTag);
+            this.ShogiEngineProcessWrapper.Send_Shutdown();
         }
 
         /// <summary>
@@ -139,8 +138,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             //MoveEx endNode1,
             Tree kifu1,
 
-            Playerside kaisiPside,
-            ILogTag logTag)
+            Playerside kaisiPside)
         {
             if (!this.ShogiEngineProcessWrapper.IsLive_ShogiEngine())
             {
@@ -164,9 +162,9 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
                             kifu1//endNode1//エンドノード
 
-                            ), logTag);
+                            ));
 
-                    this.ShogiEngineProcessWrapper.Send_Go(logTag);
+                    this.ShogiEngineProcessWrapper.Send_Go();
 
                     break;
                 default:
@@ -181,17 +179,17 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
         /// </summary>
-        public void Send_Shutdown(ILogTag logTag)
+        public void Send_Shutdown()
         {
-            this.ShogiEngineProcessWrapper.Send_Shutdown(logTag);
+            this.ShogiEngineProcessWrapper.Send_Shutdown();
         }
 
         /// <summary>
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
-        public void Send_Logdase(ILogTag logTag)
+        public void Send_Logdase()
         {
-            this.ShogiEngineProcessWrapper.Send_Logdase(logTag);
+            this.ShogiEngineProcessWrapper.Send_Logdase();
         }
 
         ///// <summary>
@@ -199,7 +197,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         ///// </summary>
         //public void Send_Go(ILogger logTag)
         //{
-        //    this.ShogiEngineProcessWrapper.Send_Go(logTag);
+        //    this.ShogiEngineProcessWrapper.Send_Go();
         //}
 
     }

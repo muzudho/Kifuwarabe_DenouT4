@@ -38,9 +38,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
             out IKifuParserAState nextState,
             IKifuParserA owner,
-            IKifuParserAGenjo genjo,
-            ILogTag logTag
-            )
+            IKifuParserAGenjo genjo)
         {
             out_moveNodeType = MoveNodeType.None;
             nextState = this;

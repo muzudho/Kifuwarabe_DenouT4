@@ -8,19 +8,19 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
     public abstract class UtilSky307
     {
 
-        public static SfenStringImpl ExportSfen(Playerside psideA, ISky positionA, ILogTag logTag)
+        public static SfenStringImpl ExportSfen(Playerside psideA, ISky positionA)
         {
             Debug.Assert(positionA.Count == 40, "sky.Starlights.Count=[" + positionA.Count + "]");//将棋の駒の数
 
             return new SfenStringImpl("sfen " + Util_StartposExporter.ToSfenstring(
-                Conv_Sky.ToShogiban(psideA, positionA, logTag), false));
+                Conv_Sky.ToShogiban(psideA, positionA), false));
         }
 
         public static SfenStringImpl ExportSfen_ForDebug(
-            Playerside psideA, ISky positionA, bool psideIsBlack, ILogTag logger)
+            Playerside psideA, ISky positionA, bool psideIsBlack)
         {
             return new SfenStringImpl("sfen " + Util_StartposExporter.ToSfenstring(
-                Conv_Sky.ToShogiban(psideA, positionA, logger), true));
+                Conv_Sky.ToShogiban(psideA, positionA), true));
         }
 
         /// <summary>

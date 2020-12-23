@@ -34,15 +34,13 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="logTag"></param>
         public static void CountMoti(
             ISky src_Sky,
-            out int[] motiSu,
-            ILogTag logTag
-        )
+            out int[] motiSu)
         {
             motiSu = new int[(int)Piece.Num];
 
             Fingers komas_moti1p;// 先手の持駒
             Fingers komas_moti2p;// 後手の持駒
-            UtilSkyFingersQueryFx.Split_Moti1p_Moti2p(out komas_moti1p, out komas_moti2p, src_Sky, logTag);
+            UtilSkyFingersQueryFx.Split_Moti1p_Moti2p(out komas_moti1p, out komas_moti2p, src_Sky);
 
             foreach (Finger figKoma in komas_moti1p.Items)
             {

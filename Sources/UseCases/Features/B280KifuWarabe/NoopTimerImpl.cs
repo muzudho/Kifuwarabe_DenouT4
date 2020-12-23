@@ -38,7 +38,7 @@
         /// </summary>
         /// <param name="owner"></param>
         /// <param name="isTimeoutShutdown"></param>
-        public void _02_AtEmptyMessage(Playing playing, out bool isTimeoutShutdown, ILogTag logTag)
+        public void _02_AtEmptyMessage(Playing playing, out bool isTimeoutShutdown)
         {
             isTimeoutShutdown = false;
             //logTag.AppendLine_AddMemo("メッセージは届いていませんでした。this.sw_forNoop.Elapsed.Seconds=[" + this.sw_forNoop.Elapsed.Seconds + "]");
@@ -82,7 +82,7 @@
         /// <summary>
         /// 応答があったとき。
         /// </summary>
-        public void _03_AtResponsed(string command, ILogTag logTag)
+        public void _03_AtResponsed(string command)
         {
             //System.Windows.Forms.MessageBox.Show("メッセージが届いています [" + line + "]");
 

@@ -15,11 +15,11 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
     public interface Tree
     {
-        void LogPv(string message, ILogTag logTag);
+        void LogPv(string message);
 
-        void Pv_RemoveLast(ILogTag logTag);
-        void Pv_ClearAll(ILogTag logTag);
-        void Pv_Append(Move tail, ILogTag logTag);
+        void Pv_RemoveLast();
+        void Pv_ClearAll();
+        void Pv_Append(Move tail);
         Move Pv_GetLatest();
         Move Pv_Get(int index);
         int Pv_Count();

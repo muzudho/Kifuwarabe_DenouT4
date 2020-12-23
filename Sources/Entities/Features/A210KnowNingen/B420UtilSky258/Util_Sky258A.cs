@@ -167,9 +167,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <returns>駒毎の、全指し手</returns>
         public static Maps_OneAndMulti<Finger, Move> SplitMoveByStar(
             ISky positionA,
-            List<Move> siblingMoves,
-            ILogTag logger
-            )
+            List<Move> siblingMoves)
         {
             Maps_OneAndMulti<Finger, Move> enable_moveMap = new Maps_OneAndMulti<Finger, Move>();
 
@@ -177,9 +175,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             {
                 Finger figKoma = UtilSkyFingersQuery.InMasuNow_New(
                     positionA,
-                    move,
-                    logger
-                    ).ToFirst();
+                    move).ToFirst();
                 if ((int)figKoma < 0)
                 {
                     throw new ApplicationException("駒のハンドルが負数でしたが、間違いです(B)。figKoma=" + (int)figKoma +

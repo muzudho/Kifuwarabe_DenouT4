@@ -16,9 +16,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         public static List<Move> ToMovelist_NonPromotion(
             Maps_OneAndOne<Finger, SySet<SyElement>> komabetuSusumuMasus,
             Playerside psideA,
-            ISky positionA,
-            ILogTag logTag
-        )
+            ISky positionA)
         {
             List<Move> result_movelist = new List<Move>();
 
@@ -56,9 +54,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         public static List<Move> ToMovelist_NonPromotion(
             List_OneAndMulti<Finger, SySet<SyElement>> komaMasus,
             Playerside psideA,
-            ISky positionA,
-            ILogTag logTag
-            )
+            ISky positionA)
         {
             List<Move> movelist = new List<Move>();
 

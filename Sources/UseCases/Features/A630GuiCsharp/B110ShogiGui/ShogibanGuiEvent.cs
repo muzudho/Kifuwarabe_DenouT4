@@ -13,6 +13,5 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
          object obj_shogiGui //ShogiGui
         , object userWidget // UerWidget
         , object shape_BtnKoma_Selected //Shape_BtnKoma
-        , ILogTag errH2
     );
 }

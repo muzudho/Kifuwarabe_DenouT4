@@ -31,18 +31,14 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             Move move,
             ISky positionA,
             out string jsaFugoStr,
-            Tree kifu1,
-            ILogTag logger
-            )
+            Tree kifu1)
         {
             model_Manual.SetGuiSky(positionA);
 
             jsaFugoStr = ConvMoveStrJsa.ToMoveStrJsa(
                 move,
                 kifu1.Pv_ToList(),
-                positionA,
-                logger
-                );
+                positionA);
         }
 
         /// <summary>
@@ -68,7 +64,6 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             SkyWrapper_Gui model_Manual,
             out bool toBreak,
             string hint,
-            ILogTag logger,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
@@ -97,9 +92,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                         ref result,
                         earth1,
                         kifu1,
-                        genjo,
-                        logger
-                        );
+                        genjo);
 
                     Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
 
@@ -131,9 +124,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                             ref result,
                             earth1,
                             kifu1,
-                            genjo,
-                            logger
-                            );
+                            genjo);
                         Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
 
 
@@ -154,9 +145,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                             ref result,
                             earth1,
                             kifu1,
-                            genjo,
-                            logger
-                            );
+                            genjo);
                         Debug.Assert(result.Out_newNode_OrNull == null, "ここでノードに変化があるのはおかしい。");
 
 
@@ -186,15 +175,13 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                         ref result,
                         earth1,
                         kifu1,
-                        genjo,
-                        logger
-                        );
+                        genjo);
 
                     if (null != result.Out_newNode_OrNull)
                     {
                         string jsaFugoStr;
 
-                        //× kifu1.Pv_Append(result.Out_newNode_OrNull.Move, logger);
+                        //× kifu1.Pv_Append(result.Out_newNode_OrNull.Move);
                         //kifu1.MoveEx_SetCurrent(TreeImpl.DoCurrentMove(result.Out_newNode_OrNull, kifu1, result.NewSky,logger));
                         //kifu1.OnDoCurrentMove(result.Out_newNode_OrNull, result.NewSky);
 
@@ -204,8 +191,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                             result.Out_newNode_OrNull.Move,
                             result.NewSky,
                             out jsaFugoStr,
-                            kifu1,
-                            logger);
+                            kifu1);
                     }
 
                     if (genjo.IsBreak())
@@ -230,9 +216,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     ParsedKyokumen parsedKyokumen = Conv_StartposImporter.ToParsedKyokumen(
                         model_Manual,
                         genjo.StartposImporter_OrNull,//指定されているはず。
-                        genjo,
-                        logger
-                        );
+                        genjo);
 
                     //------------------------------
                     // 駒の配置
@@ -241,7 +225,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
                     MoveEx curNode1 = new MoveExImpl(parsedKyokumen.NewMove);
 
-                    Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(kifu1, parsedKyokumen.NewSky, logger);
+                    Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(kifu1, parsedKyokumen.NewSky);
                     curNode1 = kifu1.MoveEx_Current;
 
                     Util_Functions_Server.AfterSetCurNode_Srv(
@@ -250,8 +234,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                         parsedKyokumen.NewMove,
                         parsedKyokumen.NewSky,
                         out jsaFugoStr,
-                        kifu1,
-                        logger);// GUIに通知するだけ。
+                        kifu1);// GUIに通知するだけ。
                 }
 
 
@@ -284,9 +267,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             out Finger foodKoma,
             out string jsaFugoStr,
             MoveEx curNode1,//削るノード
-            Tree kifu1_mutable,
-            ILogTag logger
-            )
+            Tree kifu1_mutable)
         {
             bool successful = false;
 
@@ -313,8 +294,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             jsaFugoStr = ConvMoveStrJsa.ToMoveStrJsa(
                 curNode1.Move,
                 kifu1_mutable.Pv_ToList(),
-                positionA,
-                logger);
+                positionA);
 
 
 
@@ -328,12 +308,10 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 curNode1.Move,
                 ConvMove.ToPlayerside(curNode1.Move),
                 positionA,
-                "B",
-                logger
-                );
+                "B");
 
             kifu1_mutable.MoveEx_SetCurrent(
-                TreeImpl.OnUndoCurrentMove(kifu1_mutable, ittemodosuResult.SyuryoSky, logger, "Makimodosi_Srv30000")
+                TreeImpl.OnUndoCurrentMove(kifu1_mutable, ittemodosuResult.SyuryoSky, "Makimodosi_Srv30000")
             );
 
             movedKoma = ittemodosuResult.FigMovedKoma;
@@ -364,8 +342,8 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             Earth earth1,
             Tree kifu1,
 
-            SkyWrapper_Gui model_Manual,
-            ILogTag logTag,
+            SkyWrapper_Gui model_Manual
+            ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
@@ -384,9 +362,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 kifu1,//SetCurNodeがある。
                 model_Manual,
                 out toBreak,
-                "hint",
-                logTag
-                );
+                "hint");
 
         gt_EndMethod:
             ;
@@ -410,9 +386,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             Busstop dst,
             Finger fig_btnTumandeiruKoma,
             Busstop foodee_koma,//取られる対象の駒
-            SkyWrapper_Gui model_Manual,
-            ILogTag logTag
-            )
+            SkyWrapper_Gui model_Manual)
         {
 
             Finger btnKoma_Food_Koma;

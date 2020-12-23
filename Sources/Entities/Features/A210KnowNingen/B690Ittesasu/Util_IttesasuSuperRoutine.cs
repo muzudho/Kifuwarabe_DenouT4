@@ -11,21 +11,19 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             Playerside psideA,
             ref ISky positionA,//指定局面
             ref Move move,//TODO:取った駒があると、上書きされる
-            string hint,
-            ILogTag logTag
-            )
+            string hint)
         {
             bool successful = true;
             bool log = false;
             //*
             if (log)
             {
-                Logger.Trace($"進める前 {hint}\n{Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logTag), positionA, move)}");
+                Logger.Trace($"進める前 {hint}\n{Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA), positionA, move)}");
             }
             //*/
 
             // 動かす駒
-            Fingers fingers = UtilSkyFingersQuery.InMasuNow_New(positionA, move, logTag);
+            Fingers fingers = UtilSkyFingersQuery.InMasuNow_New(positionA, move);
 
             if (fingers.Count < 1)
             {
@@ -45,13 +43,12 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                         fingers.ToFirst(),// マス
 
                         ConvMove.ToDstMasu(move),//移動先升
-                        ConvMove.ToPromotion(move),//成るか。
-                        logTag
+                        ConvMove.ToPromotion(move)//成るか。
                     );
 
                 if (log)
                 {
-                    Logger.Trace($"進めた後 {hint}\n{Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logTag), positionA, move)}");
+                    Logger.Trace($"進めた後 {hint}\n{Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA), positionA, move)}");
                 }
             }
 
@@ -73,8 +70,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             ref Move moveA,
             Finger figKoma,//動かす駒
             SyElement dstMasu,//移動先マス
-            bool toNaru,//成るなら真
-            ILogTag logTag
+            bool toNaru//成るなら真
             )
         {
             // 移動先に相手の駒がないか、確認します。

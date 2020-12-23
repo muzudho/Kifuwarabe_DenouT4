@@ -265,7 +265,7 @@
             }
         }
 
-        public static void ShowDialog(ILogTag logTag, string message)
+        public static void ShowDialog(string message)
         {
             MessageBox.Show(message);
             Logger.Trace(message);

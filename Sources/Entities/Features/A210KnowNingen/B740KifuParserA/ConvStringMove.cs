@@ -10,8 +10,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             string sfenMove1,
             Move previous_Move,  // 「同」を調べるためのもの。
             Playerside pside,
-            ISky previous_Sky,
-            ILogTag logTag
+            ISky previous_Sky
             )
         {
             bool isHonshogi = true;
@@ -33,7 +32,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 string str9;
                 if (SfenConf.ToTokens_FromMove(
                     sfenMove2, out str1, out str2, out str3, out str4, out str5,
-                    out out_restString, logTag)
+                    out out_restString)
                     &&
                     !(str1 == "" && str2 == "" && str3 == "" && str4 == "" && str5 == "")
                     )
@@ -53,9 +52,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                         //previous_Sky.KaisiPside,
 
                         previous_Sky,
-                        "棋譜パーサーA_SFENパース1",
-                        logTag
-                        );
+                        "棋譜パーサーA_SFENパース1");
                 }
                 else
                 {
@@ -65,8 +62,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     if (Conv_JsaFugoText.ToTokens(
                         sfenMove2,
                         out str1, out str2, out str3, out str4, out str5, out str6, out str7, out str8, out str9,
-                        out out_restString,
-                        logTag))
+                        out out_restString))
                     {
                         if (!(str1 == "" && str2 == "" && str3 == "" && str4 == "" && str5 == "" && str6 == "" && str7 == "" && str8 == "" && str9 == ""))
                         {
@@ -82,9 +78,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                                 str9,  //打
                                 out nextMove,
                                 previous_Move,
-                                previous_Sky,
-                                logTag
-                                );
+                                previous_Sky);
                         }
 
                     }

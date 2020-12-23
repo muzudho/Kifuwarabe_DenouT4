@@ -141,7 +141,7 @@ namespace Grayscale.Kifuwaragyoku.GuiOfSpeedKeisok
 
                     StringBuilder sb_result = new StringBuilder();
                     // フィーチャー・ベクターの外部ファイルを開きます。
-                    sb_result.Append(Util_FvLoad.OpenFv(this.FeatureVector, filepath_base, LogTags.ProcessSpeedTestKeisoku));
+                    sb_result.Append(Util_FvLoad.OpenFv(this.FeatureVector, filepath_base));
 
                     this.txtResult.Text = sb_result.ToString();
 

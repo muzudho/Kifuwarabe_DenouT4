@@ -24,7 +24,6 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             out IIttesasuResult syuryoResult,
             ref Move move1,//このメソッド実行後、取った駒を上書きされることがあるぜ☆（＾▽＾）
             ISky positionA,// 一手指し、開始局面。
-            ILogTag logTag,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
@@ -43,10 +42,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             UtilIttesasuRoutine.Do24_UgokasuKoma_IdoSakiHe(
                 out figMovedKoma,
                 move1,
-                positionA,
-                logTag
-                //hint
-                );
+                positionA);
             syuryoResult.FigMovedKoma = figMovedKoma; //動かした駒更新
             Debug.Assert(Fingers.Error_1 != syuryoResult.FigMovedKoma, "動かした駒がない☆！？エラーだぜ☆！");
 
@@ -77,9 +73,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     out figFoodKoma,
                     out food_koma,
                     out food_pside,
-                    out food_akiMasu,
-                    logTag
-                    );
+                    out food_akiMasu);
 
                 if (Fingers.Error_1 != figFoodKoma)
                 {
@@ -168,9 +162,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             Earth earth1,
             Tree kifu1,
             Move move,
-            ISky positionA,
-            ILogTag logger
-            )
+            ISky positionA)
         {
             MoveEx newNodeB = new MoveExImpl(move);
 
@@ -181,7 +173,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 Conv_Sky.ToKyokumenHash(positionA), "After3_ChangeCurrent(次の一手なし)");
 
             //次ノードを、これからのカレントとします。
-            kifu1.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(newNodeB, kifu1, positionA, logger));
+            kifu1.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(newNodeB, kifu1, positionA));
         }
 
 
@@ -195,8 +187,8 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         private static void Do24_UgokasuKoma_IdoSakiHe(
             out Finger figMovedKoma,
             Move move,
-            ISky positionA,
-            ILogTag logTag,
+            ISky positionA
+            ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
             [CallerLineNumber] int sourceLineNumber = 0
@@ -216,7 +208,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 //----------
                 // 駒台から “打”
                 //----------
-                Fingers fingers = UtilSkyFingersQuery.InMasuNow_New(positionA, move, logTag);
+                Fingers fingers = UtilSkyFingersQuery.InMasuNow_New(positionA, move);
                 if (fingers.Count < 1)
                 {
                     throw new Exception($"Util_IttesasuRoutine#Do24:指し手に該当する駒が無かったぜ☆（＾～＾） move={ConvMove.ToLog(move)}");
@@ -237,8 +229,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 figMovedKoma = UtilSkyFingerQuery.InMasuNow_FilteringBanjo(
                     positionA,
                     pside,
-                    srcMasu,// 将棋盤上と確定している☆（＾▽＾）
-                    logTag
+                    srcMasu// 将棋盤上と確定している☆（＾▽＾）
                     );
                 Debug.Assert(figMovedKoma != Fingers.Error_1, "駒を動かせなかった？13");
             }
@@ -279,8 +270,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             out Finger out_figFoodKoma,
             out Busstop out_food_koma,
             out Playerside pside,
-            out SyElement akiMasu,
-            ILogTag logTag
+            out SyElement akiMasu
             )
         {
             //----------

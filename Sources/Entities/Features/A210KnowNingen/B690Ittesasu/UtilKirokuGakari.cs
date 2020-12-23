@@ -30,9 +30,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             //MoveEx curNode_base,
             Tree kifu1,
 
-            string hint,
-            ILogTag logger
-            )
+            string hint)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -50,7 +48,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 earth1.Clear();
 
                 // 棋譜を空っぽにします。
-                Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(saifuKifu2, positionInit, logger);
+                Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(saifuKifu2, positionInit);
 
                 saifuEarth2.SetProperty(
                     Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面 // FIXME:平手とは限らないのでは？
@@ -88,14 +86,13 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     Conv_Sky.ToKyokumenHash(saifu_PositionA),
                     hint + "/AppendChild_And_ChangeCurrentToChild");
 
-                saifuKifu2.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(saifu_newChild, saifuKifu2, saifu_PositionA, logger));
+                saifuKifu2.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(saifu_newChild, saifuKifu2, saifu_PositionA));
 
                 // 後手の符号がまだ含まれていない。
                 string jsaFugoStr = ConvMoveStrJsa.ToMoveStrJsa(
                     saifu_newChild.Move,
                     saifuKifu2.Pv_ToList(),
-                    saifu_PositionA,
-                    logger);
+                    saifu_PositionA);
                 sb.Append(jsaFugoStr);
 
             gt_EndLoop:

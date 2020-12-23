@@ -34,9 +34,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             Playerside psideA,
             ISky positionA,//shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue()
             MainGui_Csharp shogibanGui,
-            string windowName,
-            ILogTag logTag
-            )
+            string windowName)
         {
             //----------------------------------------
             // 登録ウィジェットの描画

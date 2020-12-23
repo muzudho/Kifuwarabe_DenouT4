@@ -48,9 +48,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
             out IKifuParserAState nextState,
             IKifuParserA owner,
-            IKifuParserAGenjo genjo,
-            ILogTag logTag
-            )
+            IKifuParserAGenjo genjo)
         {
             out_moveNodeType = MoveNodeType.None;
 
@@ -70,9 +68,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     //ConvMove.ToPlayerside(move1),
                     positionA.GetKaisiPside(),
 
-                    positionA,
-                    logTag
-                    );
+                    positionA);
                 genjo.InputLine = rest;
 
 
@@ -98,9 +94,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     UtilIttesasuRoutine.DoMove_Normal(
                         out ittesasuResult,
                         ref nextMove,
-                        positionA,
-                        logTag
-                        );
+                        positionA);
                     // 棋譜ツリーのカレントを変更します。
                     result.SetNode(new MoveExImpl(nextMove),
                         ittesasuResult.SyuryoKyokumenW

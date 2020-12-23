@@ -12,7 +12,6 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         private static Lua lua;
 
         public static MainGui_Csharp ShogiGui { get; set; }
-        public static ILogTag ErrH { get; set; }
 
         /// <summary>
         /// 
@@ -97,7 +96,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         public static void InputBox_Play()
         {
             // [再生]タイマー開始☆
-            ((TimedC_SaiseiCapture)Util_Lua_Csharp.ShogiGui.TimedC).SaiseiEventQueue.Enqueue(new SaiseiEventState(SaiseiEventStateName.Start, Util_Lua_Csharp.ErrH));
+            ((TimedC_SaiseiCapture)Util_Lua_Csharp.ShogiGui.TimedC).SaiseiEventQueue.Enqueue(new SaiseiEventState(SaiseiEventStateName.Start));
         }
 
         public static void OutputBox_Clear()
@@ -121,8 +120,6 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// </summary>
         public static void ClearKifu(MainGui_Csharp mainGui, RepaintRequest repaintRequest)
         {
-            ILogTag logTags = LogTags.ProcessNoneError;
-
             mainGui.Link_Server.Earth.Clear();
 
             // 棋譜を空っぽにします。
@@ -229,7 +226,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
                 string jsaFugoStr;
 
-                Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(mainGui.Link_Server.KifuTree, newSky, logTags);
+                Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(mainGui.Link_Server.KifuTree, newSky);
 
 
                 Util_Functions_Server.AfterSetCurNode_Srv(
@@ -238,8 +235,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     newNode.Move,
                     newSky,
                     out jsaFugoStr,
-                    mainGui.Link_Server.KifuTree,
-                    logTags);
+                    mainGui.Link_Server.KifuTree);
                 repaintRequest.SetFlag_RefreshRequest();
 
                 mainGui.Link_Server.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "9/9/9/9/9/9/9/9/9 b K1R1B1G2S2N2L2P9 k1r1b1g2s2n2l2p9 1");

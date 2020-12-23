@@ -26,14 +26,12 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             Move moved,
             Playerside psideA,
             ISky positionA,
-            string hint,
-            ILogTag logTag
-            )
+            string hint)
         {
             bool log = false;
             if (log)
             {
-                Logger.Trace($"戻す前 {hint}\n{Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(psideA, positionA, logTag))}");
+                Logger.Trace($"戻す前 {hint}\n{Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(psideA, positionA))}");
             }
 
             ittemodosuResult = new IttemodosuResultImpl(Fingers.Error_1, Fingers.Error_1, null, Komasyurui14.H00_Null___);
@@ -45,14 +43,12 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             UtilIttemodosuRoutine.Undo25_UgokasuKoma(
                 out figMovedKoma,
                 moved,
-                positionA,
-                logTag
-                );
+                positionA);
             ittemodosuResult.FigMovedKoma = figMovedKoma; //動かした駒更新
 
             if (Fingers.Error_1 == figMovedKoma)
             {
-                throw new Exception($"戻せる駒が無かった☆ hint:{hint}\n{Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA, logTag), positionA, moved)}");
+                throw new Exception($"戻せる駒が無かった☆ hint:{hint}\n{Conv_Shogiban.ToLog_Type2(Conv_Sky.ToShogiban(psideA, positionA), positionA, moved)}");
             }
 
             //
@@ -74,8 +70,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             UtilIttemodosuRoutine.Do62_TorareteitaKoma_ifExists(
                 out figFoodKoma,//変更される場合あり。
                 moved,
-                positionA,//巻き戻しのとき
-                logTag
+                positionA//巻き戻しのとき
                 );
             ittemodosuResult.FigFoodKoma = figFoodKoma; //取られていた駒更新
 
@@ -127,7 +122,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         // gt_EndMethod:
             if (log)
             {
-                ShogibanImpl shogiban = Conv_Sky.ToShogiban(psideA, positionA, logTag);
+                ShogibanImpl shogiban = Conv_Sky.ToShogiban(psideA, positionA);
                 Logger.Trace($"戻した後 {hint}\n{Conv_Shogiban.ToLog_Type2(shogiban, positionA, moved)}");
             }
         }
@@ -142,8 +137,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         private static void Undo25_UgokasuKoma(
             out Finger figMovedKoma,
             Move moved,
-            ISky positionA,
-            ILogTag logTag
+            ISky positionA
             )
         {
             //------------------------------------------------------------
@@ -158,8 +152,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             figMovedKoma = UtilSkyFingerQuery.InMasuNow_FilteringBanjo(
                 positionA,
                 ConvMove.ToPlayerside(moved),
-                ConvMove.ToDstMasu(moved),//[巻戻し]のときは、先位置が　駒の居場所。
-                logTag
+                ConvMove.ToDstMasu(moved)//[巻戻し]のときは、先位置が　駒の居場所。
                 );
             Debug.Assert(figMovedKoma != Fingers.Error_1, "駒を動かせなかった？ Dst=" + Conv_Masu.ToLog_FromBanjo(ConvMove.ToDstMasu(moved)));
         }
@@ -231,12 +224,10 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="move"></param>
         /// <param name="kaisi_Sky"></param>
         /// <param name="out_figFoodKoma"></param>
-        /// <param name="logTag"></param>
         private static void Do62_TorareteitaKoma_ifExists(
             out Finger out_figFoodKoma,
             Move move,
-            ISky kaisi_Sky,//巻き戻しのとき
-            ILogTag logTag
+            ISky kaisi_Sky//巻き戻しのとき
         )
         {
             Komasyurui14 captured = ConvMove.ToCaptured(move);
@@ -261,7 +252,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
                 // 取った駒は、種類が同じなら、駒台のどの駒でも同じです。
                 out_figFoodKoma = UtilSkyFingerQuery.InOkibaSyuruiNow_IgnoreCase(
-                    kaisi_Sky, okiba, captured, logTag);
+                    kaisi_Sky, okiba, captured);
             }
             else
             {

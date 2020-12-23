@@ -6,7 +6,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
     public abstract class Conv_Sky
     {
-        public static ShogibanImpl ToShogiban(Playerside pside, ISky src_Sky, ILogTag logger)
+        public static ShogibanImpl ToShogiban(Playerside pside, ISky src_Sky)
         {
             ShogibanImpl shogiban = new ShogibanImpl();
 
@@ -25,9 +25,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 // マスが重複することがある☆？（＾～＾）？
                 shogiban.AddKoma(
                     masu,
-                    busstop,
-                    logger
-                );
+                    busstop);
             }
 
             return shogiban;

@@ -26,9 +26,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         public static ICurrentSearch CreateGenjo(
             int temezumi,
             bool isHonshogi,
-            Mode_Tansaku mode_Tansaku,
-            ILogTag logTag
-            )
+            Mode_Tansaku mode_Tansaku)
         {
             // TODO:ここではログを出力せずに、ツリーの先端で出力したい。
             KaisetuBoards logF_moveKiki = new KaisetuBoards();
@@ -187,15 +185,13 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
             bool isHonshogi,
             Mode_Tansaku mode_Tansaku,
-            EvaluationArgs args,
-            ILogTag logTag
-            )
+            EvaluationArgs args)
         {
             int temezumi = positionA.Temezumi;
 
             ICurrentSearch genjo = Tansaku_FukasaYusen_Routine.CreateGenjo(
                 temezumi,
-                isHonshogi, mode_Tansaku, logTag);
+                isHonshogi, mode_Tansaku);
 
             // 最初は投了からスタートだぜ☆（*＾～＾*）
             MoveEx a_bestmoveEx_Children = new MoveExImpl(
@@ -218,9 +214,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 positionA,
 
                 ref searchedMaxDepth,
-                out yomiDeep,
-                logTag
-                );
+                out yomiDeep);
 
             if (Tansaku_FukasaYusen_Routine.CanNotNextLoop(yomiDeep, wideCount2, movelist.Count, genjo, args.Shogisasi.TimeManager))
             {
@@ -237,9 +231,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     psideA,// positionA.GetKaisiPside(),
                     positionA,
 
-                    args,
-                    logTag
-                    );
+                    args);
 
                 a_bestmoveEx_Children = Util_Scoreing.GetHighScore(
                     a_bestmoveEx_Children.Move,
@@ -265,9 +257,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     kifu1,
 
                     movelist.Count,
-                    args,
-                    logTag
-                    );
+                    args);
             }
 
 #if DEBUG
@@ -327,9 +317,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             Playerside psideA,
             ISky positionA,
 
-            EvaluationArgs args,
-            ILogTag logTag
-            )
+            EvaluationArgs args)
         {
             float score = 0.0f;
 
@@ -338,9 +326,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 psideA,
                 positionA,
 
-                args,
-                logTag
-                );
+                args);
 
 #if DEBUG_ALPHA_METHOD
                     logTag.AppendLine_AddMemo("1. 手(" + node_yomi.Value.ToKyokumenConst.Temezumi + ")読(" + yomiDeep + ") 兄弟最善=[" + a_siblingDecidedValue + "] 子ベスト=[" + a_childrenBest + "]");
@@ -399,9 +385,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             Tree kifu1,
 
             int movelist_count,
-            EvaluationArgs args,
-            ILogTag logTag
-            )
+            EvaluationArgs args)
         {
             MoveEx result_thisDepth;
 
@@ -423,9 +407,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 positionA,
 
                 ref searchedMaxDepth,
-                out yomiDeep2,
-                logTag
-                );
+                out yomiDeep2);
 
             // 空っぽにして用意しておくぜ☆
             result_thisDepth = new MoveExImpl(Move.Empty);
@@ -456,9 +438,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                         psideA,//positionA.GetKaisiPside(),
                         positionA,//改造前
 
-                        args,
-                        logTag
-                        );
+                        args);
 
                     //result_movEx3 = new MoveExImpl(nod1.Key, this_score);
                     //*
@@ -497,14 +477,12 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     ConvMove.ToPlayerside(iMov_child_variable),
                     ref positionA,//指定局面
                     ref iMov_child_variable,
-                    "C100",
-                    logTag
-                );
+                    "C100");
                 //Playerside psideB = positionA.GetKaisiPside();//反転している☆（*＾～＾*）？
                 iNod_child.SetMove(iMov_child_variable);
 
                 // 自分を親要素につなげたあとで、子を検索するぜ☆（＾～＾）
-                kifu1.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(iNod_child, kifu1, positionA, logTag));
+                kifu1.MoveEx_SetCurrent(TreeImpl.OnDoCurrentMove(iNod_child, kifu1, positionA));
 
                 // これを呼び出す回数を減らすのが、アルファ法。
                 // 枝か、葉か、確定させにいきます。
@@ -523,8 +501,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     kifu1,
 
                     movelist2.Count,
-                    args,
-                    logTag);
+                    args);
 
                 //*
                 // １手戻したいぜ☆（＾～＾）
@@ -535,14 +512,12 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     iMov_child_variable,//この関数が呼び出されたときの指し手☆（＾～＾）
                     ConvMove.ToPlayerside(iMov_child_variable),
                     positionA,
-                    "C900",
-                    logTag
-                    );
+                    "C900");
                 positionA = ittemodosuResult.SyuryoSky;
                 //*/
 
                 kifu1.MoveEx_SetCurrent(
-                    TreeImpl.OnUndoCurrentMove(kifu1, ittemodosuResult.SyuryoSky, logTag, "WAAA_Yomu_Loop20000")
+                    TreeImpl.OnUndoCurrentMove(kifu1, ittemodosuResult.SyuryoSky, "WAAA_Yomu_Loop20000")
                 );
 
                 //----------------------------------------

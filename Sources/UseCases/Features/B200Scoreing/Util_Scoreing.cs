@@ -213,9 +213,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             Playerside psideA,
             ISky positionA,
 
-            EvaluationArgs args,
-            ILogTag logTag
-            )
+            EvaluationArgs args)
         {
             float score = 0.0f;
 

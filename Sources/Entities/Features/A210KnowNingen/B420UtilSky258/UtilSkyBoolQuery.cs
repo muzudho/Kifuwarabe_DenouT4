@@ -14,7 +14,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// </summary>
         /// <param name="masus"></param>
         /// <returns></returns>
-        public static bool ExistsIn(Move move, SySet<SyElement> masus, ISky positionA, ILogTag logTag)
+        public static bool ExistsIn(Move move, SySet<SyElement> masus, ISky positionA)
         {
             bool matched = false;
 
@@ -23,7 +23,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
             foreach (SyElement masu in masus.Elements)
             {
-                Finger finger = UtilSkyFingerQuery.InMasuNow_FilteringBanjo(positionA, pside, masu, logTag);
+                Finger finger = UtilSkyFingerQuery.InMasuNow_FilteringBanjo(positionA, pside, masu);
 
                 if (
                     finger != Fingers.Error_1  //2014-07-21 先後も見るように追記。

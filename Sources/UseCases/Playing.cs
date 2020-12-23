@@ -622,7 +622,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases
             {
                 var boardLog = Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(
                     ConvMove.ToPlayerside(curNode1.Move),
-                    positionA, LogTags.ProcessEngineDefault));
+                    positionA));
                 Logger.Trace($"サーバーから受信した局面☆（＾▽＾）\n{boardLog}");
             }
 
@@ -726,17 +726,14 @@ namespace Grayscale.Kifuwaragyoku.UseCases
                                     this.Earth,
                                     this.Kifu,// ツリーを伸ばしているぜ☆（＾～＾）
                                     this.Kifu.PositionA.GetKaisiPside(),
-                                    this.Kifu.PositionA,//.CurNode1.GetNodeValue(),
-
-                                    LogTags.ProcessEngineDefault)
-                                    );
+                                    this.Kifu.PositionA//.CurNode1.GetNodeValue(),
+                                ));
 
                                 this.Kifu.MoveEx_SetCurrent(
                                     TreeImpl.OnDoCurrentMove(
                                         this.Kifu.MoveEx_Current,
                                         this.Kifu,
-                                        this.Kifu.PositionA,
-                                        LogTags.ProcessEngineDefault));
+                                        this.Kifu.PositionA));
                             }
 
 

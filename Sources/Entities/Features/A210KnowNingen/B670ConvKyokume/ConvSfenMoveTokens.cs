@@ -28,13 +28,11 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             out Move move,
             Playerside psideA,
             ISky positionA,
-            string hint,
-            ILogTag logger
-            )
+            string hint)
         {
             move = Move.Empty;
 
-            //kifu.AssertPside(kifu.CurNode, "str1=" + str1, logTag);
+            //kifu.AssertPside(kifu.CurNode, "str1=" + str1);
             //Playerside pside1 = positionA.KaisiPside;
 
 #if DEBUG
@@ -97,12 +95,11 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 koma = UtilSkyFingerQuery.InOkibaSyuruiNow_IgnoreCase(
                     positionA,
                     Conv_Playerside.ToKomadai(psideA),//FIXME:
-                    uttaSyurui,
-                    logger);
+                    uttaSyurui);
                 if (Fingers.Error_1 == koma)
                 {
                     throw new Exception($@"Conv_SfenMoveTokens#ToMove：[{Conv_Playerside.ToLog_Kanji(psideA)}]駒台から種類[{uttaSyurui}]の駒を掴もうとしましたが、エラーでした。
-{Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(psideA, positionA, logger))}
+{Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(psideA, positionA))}
 hint=[{hint}]
 str1=[{str1}]
 str2=[{str2}]
@@ -154,7 +151,7 @@ str3=[{str3}]
 str4=[{str4}]
 strNari=[{strNari}]
 src_Sky.Temezumi=[{positionA.Temezumi}]
-局面=sfen {Util_StartposExporter.ToSfenstring(Conv_Sky.ToShogiban(psideA, positionA, logger), true)}
+局面=sfen {Util_StartposExporter.ToSfenstring(Conv_Sky.ToShogiban(psideA, positionA), true)}
 {sky2}");
                 }
             }
@@ -189,7 +186,7 @@ src_Sky.Temezumi=[{positionA.Temezumi}]
 
                 Finger srcKoma = UtilSkyFingerQuery.InOkibaSyuruiNow_IgnoreCase(
                     positionA,// siteiNode.Value.Kyokumen,
-                    srcOkiba, srcSyurui, logger);
+                    srcOkiba, srcSyurui);
 
                 positionA.AssertFinger(srcKoma);
                 Busstop dstKoma = positionA.BusstopIndexOf(srcKoma);

@@ -41,7 +41,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         public Playerside KaisiPside { get; set; }
 
 
-        public void AddKoma(SyElement masu, Busstop koma, ILogTag logTag)
+        public void AddKoma(SyElement masu, Busstop koma)
         {
             Debug.Assert(!this.ContainsBanjoKoma(Conv_Masu.ToMasuHandle(masu)), "既に駒がある枡に、駒を置こうとしています。[" + Conv_Masu.ToMasuHandle(masu) + "]");
 

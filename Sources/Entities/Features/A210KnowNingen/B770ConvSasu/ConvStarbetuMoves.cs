@@ -21,9 +21,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         public static void ToNextNodes_AsHubNode(
             out List<Move> out_inputMovelist,
             Maps_OneAndMulti<Finger, Move> komabetuAllMoves,
-            ISky src_Sky,
-            ILogTag logTag
-            )
+            ISky src_Sky)
         {
             out_inputMovelist = new List<Move>();
 

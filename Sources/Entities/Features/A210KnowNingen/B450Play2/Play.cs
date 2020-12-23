@@ -30,9 +30,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             Fingers fingers_sirabetaiMOTIkoma,
             SySet<SyElement> masus_mikata_onBanjo,//打ち歩詰めチェック用
             SySet<SyElement> masus_aite_onBanjo,//打ち歩詰めチェック用
-            SySet<SyElement> motiOkenaiMasus,
-            ILogTag errH_orNull
-            )
+            SySet<SyElement> motiOkenaiMasus)
         {
             // 駒種類別、置こうとする升
             SySet<SyElement>[] aMasus = new SySet<SyElement>[Array_Komasyurui.Items_AllElements.Length];
@@ -157,8 +155,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                         positionA,
                         masus_mikata_onBanjo,//打ち歩詰めチェック用
                         masus_aite_onBanjo,//打ち歩詰めチェック用
-                        aMasus,//駒種類別、置こうとする升
-                        errH_orNull
+                        aMasus//駒種類別、置こうとする升
                     );
                 }
             }

@@ -47,7 +47,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="syurui"></param>
         /// <param name="hKomas"></param>
         /// <returns></returns>
-        public static Fingers InKomasyuruiNow(ISky src_Sky, Komasyurui14 syurui, ILogTag logTag)
+        public static Fingers InKomasyuruiNow(ISky src_Sky, Komasyurui14 syurui)
         {
             Fingers figKomas = new Fingers();
 
@@ -164,7 +164,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="masu">マス番号</param>
         /// <param name="logTag">ログ名</param>
         /// <returns>スプライト番号。なければエラー番号。</returns>
-        public static Fingers InMasuNow_New(ISky positionA, Move move, ILogTag logger)
+        public static Fingers InMasuNow_New(ISky positionA, Move move)
         {
             //Komasyurui14 ks14_move = ConvMove.ToSrcKomasyurui(move);
             bool drop = ConvMove.ToDrop(move);
@@ -185,9 +185,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 Finger found2 = UtilSkyFingerQuery.InOkibaSyuruiNow_IgnoreCase(
                     positionA,
                     okiba,
-                    ks14,
-                    logger
-                    );
+                    ks14);
                 if (found2 != Fingers.Error_1)
                 {
                     foundList.Add(found2);
@@ -273,7 +271,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="kifu"></param>
         /// <param name="okiba"></param>
         /// <returns></returns>
-        public static Fingers InOkibaNow(ISky src_Sky, Okiba okiba, ILogTag logTag)
+        public static Fingers InOkibaNow(ISky src_Sky, Okiba okiba)
         {
             Fingers komas = new Fingers();
 
@@ -299,7 +297,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="pside"></param>
         /// <param name="hKomas"></param>
         /// <returns></returns>
-        public static Fingers InPsideNow(ISky src_Sky, Playerside pside, ILogTag logTag)
+        public static Fingers InPsideNow(ISky src_Sky, Playerside pside)
         {
             Fingers fingers = new Fingers();
 

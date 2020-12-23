@@ -53,7 +53,7 @@ namespace Grayscale.Kifuwaragyoku.Engine
                     playing.Shogisasi = new ShogisasiImpl(playing, fv);
                     Util_FvLoad.OpenFv(
                         playing.Shogisasi.FeatureVector,
-                        Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv00Komawari)), LogTags.ProcessEngineDefault);
+                        Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv00Komawari)));
                 }
 
                 //------------------------------------------------------------------------------------------------------------------------
@@ -326,14 +326,12 @@ namespace Grayscale.Kifuwaragyoku.Engine
 #if NOOPABLE
                 if (this.owner.Option_enable_serverNoopable)
                 {
-                    noopTimer._03_AtResponsed(this.owner, line, logTag);
+                    noopTimer._03_AtResponsed(this.owner, line);
                 }
 #endif
 
                             if (line.StartsWith("position"))
                             {
-                                ILogTag logTag = LogTags.ProcessEngineDefault;
-
                                 // 手番になったときに、“まず”、将棋所から送られてくる文字が position です。
                                 // このメッセージを読むと、駒の配置が分かります。
                                 //
@@ -352,9 +350,7 @@ namespace Grayscale.Kifuwaragyoku.Engine
                                     playing.Earth,
                                     playing.Kifu,
 
-                                    genjo,
-                                    logTag
-                                    );
+                                    genjo);
                                 if (null != genjo.StartposImporter_OrNull)
                                 {
                                     // SFENの解析結果を渡すので、
@@ -364,9 +360,7 @@ namespace Grayscale.Kifuwaragyoku.Engine
                                         playing.Earth,
                                         playing.Kifu,
 
-                                        genjo,
-                                        logTag
-                                        );
+                                        genjo);
                                 }
 
 
@@ -421,7 +415,7 @@ namespace Grayscale.Kifuwaragyoku.Engine
 
                                         // 直近の指し手。
                                         Util_KyokumenPng_Writer.Write1(
-                                            ConvKifuNode.ToRO_Kyokumen1(sky, logTag),
+                                            ConvKifuNode.ToRO_Kyokumen1(sky),
                                             srcMasuNum,
                                             dstMasuNum,
                                             foodKoma,

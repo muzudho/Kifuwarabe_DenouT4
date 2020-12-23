@@ -31,16 +31,14 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             ISky positionA,//この局面から合法手を作成☆（＾～＾）
 
             ref int searchedMaxDepth,
-            out int out_yomiDeep,
-            ILogTag logTag
-            )
+            out int out_yomiDeep)
         {
             List<Move> result_movelist = UtilMovePicker.WAAAA_Create_ChildNodes(
                 genjo,
                 psideA,//× Conv_Playerside.Reverse( psideA),
-                positionA,
+                positionA
                 //move_ForLog,//ログ用
-                logTag);
+                );
 
             out_yomiDeep = positionA.Temezumi - genjo.YomikaisiTemezumi + 1;
             if (searchedMaxDepth < out_yomiDeep - 1)//これから探索する分をマイナス1しているんだぜ☆（＾～＾）
@@ -69,9 +67,8 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         private static List<Move> WAAAA_Create_ChildNodes(
             ICurrentSearch genjo,
             Playerside psideA,
-            ISky positionA,
-            //Move move_ForLog,
-            ILogTag logTag
+            ISky positionA
+            //Move move_ForLog,            
             )
         {
             //----------------------------------------
@@ -92,7 +89,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 #if DEBUG
                 MmLogGenjoImpl mm_log_orNull = null;
                 KaisetuBoard logBrd_move1;
-                Tansaku_FukasaYusen_Routine.Log1(genjo, positionA, out mm_log_orNull, out logBrd_move1, logger);
+                Tansaku_FukasaYusen_Routine.Log1(genjo, positionA, out mm_log_orNull, out logBrd_move1);
 #endif
 
             //----------------------------------------
@@ -130,10 +127,10 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             //                Logger.Trace("komaBETUSusumeruMasusの全要素＝" + Util_List_OneAndMultiEx<Finger, SySet<SyElement>>.CountAllElements(komaBETUSusumeruMasus));
             //#endif
             //#if DEBUG
-            //                string jsaMoveStr = Util_Translator_Move.ToMove(genjo.Node_yomiNext, genjo.Node_yomiNext.Value, logTag);
+            //                string jsaMoveStr = Util_Translator_Move.ToMove(genjo.Node_yomiNext, genjo.Node_yomiNext.Value);
             //                Logger.Trace("[" + jsaMoveStr + "]の駒別置ける升 調べ\n" + Util_List_OneAndMultiEx<Finger, SySet<SyElement>>.Dump(komaBETUSusumeruMasus, genjo.Node_yomiNext.Value.ToKyokumenConst));
             //#endif
-            //Moveseisei_FukasaYusen_Routine.Log2(genjo, logBrd_move1, logTag);//ログ試し
+            //Moveseisei_FukasaYusen_Routine.Log2(genjo, logBrd_move1);//ログ試し
 
             //----------------------------------------
             // ②利きから、被王手の局面を除いたハブノード
@@ -176,8 +173,8 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 #if DEBUG
                         genjo.Args.LogF_moveKiki,//利き用
 #endif
-                        "読みNextルーチン",
-                    logTag);
+                        "読みNextルーチン"
+                    );
 
                 //----------------------------------------
                 // 『駒別升ズ』を、ハブ・ノードへ変換。
@@ -186,17 +183,14 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 movelist = Conv_Movelist1.ToMovelist_NonPromotion(
                     starbetuSusumuMasus,
                     psideA,
-                    positionA,
-                    logTag
-                );
+                    positionA);
 
                 //----------------------------------------
                 // 成りの指し手を作成します。（拡張）
                 //----------------------------------------
                 //成りの手
                 List<Move> b_movelist = Util_SasuEx.CreateNariMove(positionA,
-                    movelist,
-                    logTag);
+                    movelist);
 
                 // マージ
                 foreach (Move move in b_movelist)
@@ -222,9 +216,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 movelist = Conv_Movelist1.ToMovelist_NonPromotion(
                     komaBETUSusumeruMasus,
                     psideA,
-                    positionA,
-                    logTag
-                    );
+                    positionA);
 
                 //#if DEBUG
                 //                    Logger.Trace("駒別置ける升="+komaBETUSusumeruMasus.Items.Count+"件。　指し手別局面="+ss.Count+"件。");

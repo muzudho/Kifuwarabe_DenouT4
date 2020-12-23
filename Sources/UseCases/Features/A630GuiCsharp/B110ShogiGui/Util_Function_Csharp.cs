@@ -11,9 +11,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// [初期配置]ボタン
         /// </summary>
         public static void Perform_SyokiHaichi_CurrentMutable(
-            MainGui_Csharp mainGui,
-            ILogTag logger
-            )
+            MainGui_Csharp mainGui)
         {
             MoveEx newNode = new MoveExImpl();
 
@@ -21,7 +19,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             mainGui.Link_Server.Earth.Clear();
 
             // 棋譜を空っぽにします。
-            Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(mainGui.Link_Server.KifuTree, positionA, logger);
+            Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(mainGui.Link_Server.KifuTree, positionA);
 
             mainGui.Link_Server.Earth.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
 
@@ -36,8 +34,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 newNode.Move,
                 positionA,
                 out jsaFugoStr,
-                mainGui.Link_Server.KifuTree,
-                logger);
+                mainGui.Link_Server.KifuTree);
             mainGui.RepaintRequest.SetFlag_RefreshRequest();
 
             mainGui.RepaintRequest.SetFlag_RecalculateRequested();// 駒の再描画要求
@@ -60,16 +57,15 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             Finger movedKoma,
             Finger foodKoma,
             string fugoJStr,
-            string backedInputText,
-            ILogTag logTag)
+            string backedInputText)
         {
             //------------------------------
             // チェンジターン
             //------------------------------
             mainGui.ChangedTurn(
                 kifu1,// curNode1,
-                pside,// curNode1.GetNodeValue().KaisiPside,
-                logTag);//[巻戻し]ボタンを押したあと
+                pside// curNode1.GetNodeValue().KaisiPside,
+                );//[巻戻し]ボタンを押したあと
 
 
             //------------------------------
@@ -107,9 +103,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             MoveEx node6,// = shogiGui.Link_Server.KifuTree.CurNode;
             ISky positionA,// = shogiGui.Link_Server.KifuTree.CurNode.GetNodeValue();
             MainGui_Csharp shogiGui,
-            Tree kifu1,
-            ILogTag logger
-            )
+            Tree kifu1)
         {
             //------------------------------
             // 符号表示
@@ -119,7 +113,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 string jsaFugoStr = ConvMoveStrJsa.ToMoveStrJsa(
                     node6.Move,
                     kifu1.Pv_ToList(),
-                    positionA, logger);
+                    positionA);
 
                 shogiGui.Shape_PnlTaikyoku.SetFugo(jsaFugoStr);
             }
@@ -217,9 +211,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="btnKoma">駒</param>
         public static void Redraw_KomaLocation(
             Finger figKoma,
-            MainGui_Csharp mainGui,
-            ILogTag logTag
-            )
+            MainGui_Csharp mainGui)
         {
             mainGui.SkyWrapper_Gui.GuiSky.AssertFinger(figKoma);
             Busstop koma = mainGui.SkyWrapper_Gui.GuiSky.BusstopIndexOf(figKoma);

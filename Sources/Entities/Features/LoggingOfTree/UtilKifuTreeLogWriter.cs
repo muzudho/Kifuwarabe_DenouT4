@@ -42,9 +42,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// </summary>
         public static void A_Write_KifuTreeLog(
             KaisetuBoards logF_kiki,
-            Tree kifu,
-            ILogTag logTag
-            )
+            Tree kifu)
         {
 #if DEBUG
             int logFileCounter = 0;
@@ -139,9 +137,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             ISky positionA,
             Tree kifu,
             string relFolder,
-            KyokumenPngEnvironment reportEnvironment,
-            ILogTag logTag
-            )
+            KyokumenPngEnvironment reportEnvironment)
         {
             string fileName = "";
 
@@ -191,16 +187,14 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
                 // 評価明細に添付
                 Util_KyokumenPng_Writer.Write1(
-                    ConvKifuNode.ToRO_Kyokumen1(positionA, logTag),
+                    ConvKifuNode.ToRO_Kyokumen1(positionA),
                     srcMasu_orMinusOne,
                     dstMasu_orMinusOne,
                     foodKoma,
                     ConvMove.ToSfen(moveEx.Move),
                     relFolder,
                     fileName,
-                    reportEnvironment,
-                    logTag
-                    );
+                    reportEnvironment);
                 logFileCounter++;
             }
         }

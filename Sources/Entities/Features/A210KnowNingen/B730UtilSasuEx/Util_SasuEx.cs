@@ -20,9 +20,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// </summary>
         public static List<Move> CreateNariMove(
             ISky positionA,
-            List<Move> a_moveBetuEntry,
-            ILogTag logTag
-            )
+            List<Move> a_moveBetuEntry)
         {
             //----------------------------------------
             // 『進める駒』と、『移動先升』

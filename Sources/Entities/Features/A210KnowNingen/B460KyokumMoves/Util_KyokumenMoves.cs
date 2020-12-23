@@ -78,7 +78,6 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 #endif
             )
         {
-            ILogTag logTag = null;
 #if DEBUG
             if (mmLog_orNull != null)
             {
@@ -121,8 +120,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 {
                     UtilSkyFingersQueryFx.Split_BanjoSeme_BanjoKurau_MotiSeme_MotiKurau(
                         out fingers_seme_BANJO, out fingers_kurau_BANJO, out fingers_seme_MOTI,
-                        out fingers_kurau_MOTI, positionA, tebanSeme, tebanKurau,
-                        logTag);
+                        out fingers_kurau_MOTI, positionA, tebanSeme, tebanKurau);
                     //#if DEBUG
                     //                    Logger.Trace("◇fingers_seme_BANJOの要素数=" + fingers_seme_BANJO.Count);
                     //                    Logger.Trace("◇fingers_kurau_BANJOの要素数=" + fingers_kurau_BANJO.Count);
@@ -162,9 +160,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     fingers_seme_BANJO,
                     masus_seme_BANJO,
                     masus_kurau_BANJO,
-                    positionA,
-                    logTag
-                    );// 盤上の駒の移動できる場所
+                    positionA);// 盤上の駒の移動できる場所
 
                 //
                 // 持ち駒（代表）を置ける場所
@@ -176,8 +172,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     masus_seme_BANJO,
                     masus_kurau_BANJO,
                     psideA,
-                    positionA,//これは、どの局面？
-                    logTag
+                    positionA//これは、どの局面？
                     );
                 //#if DEBUG
                 //                Logger.Trace("sMsSusumeruMasus_seme_MOTIの要素数=" + Util_List_OneAndMultiEx<Finger, SySet<SyElement>>.CountAllElements(sMsSusumeruMasus_seme_MOTI));
@@ -216,9 +211,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             SySet<SyElement> masus_mikata_onBanjo,
             SySet<SyElement> masus_aite_onBanjo,
             Playerside psideA,
-            ISky positionA,
-            ILogTag errH_orNull
-            )
+            ISky positionA)
         {
             // 持ち駒を置けない升
             SySet<SyElement> okenaiMasus = new SySet_Default<SyElement>("持ち駒を置けない升");
@@ -237,9 +230,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 fingers_sirabetaiMOTIkoma,
                 masus_mikata_onBanjo,
                 masus_aite_onBanjo,
-                okenaiMasus,
-                errH_orNull
-                );
+                okenaiMasus);
             //#if DEBUG
             //            if (caller_forLog == 1)
             //            {

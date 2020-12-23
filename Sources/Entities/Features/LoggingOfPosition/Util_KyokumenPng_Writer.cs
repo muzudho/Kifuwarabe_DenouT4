@@ -53,9 +53,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 "",//指し手SFEN
                 relFolder,
                 outFile,
-                reportEnvironment,
-                LogTags.ProcessTestProgramDefault
-                );
+                reportEnvironment);
 
         gt_EndMethod:
             return successful;
@@ -78,9 +76,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             string sfenMoveStrOrEmpty,
             string appendFilepath,
             string outFile,
-            KyokumenPngEnvironment reportEnvironment,
-            ILogTag logTag
-            )
+            KyokumenPngEnvironment reportEnvironment)
         {
             bool successful = true;
 
@@ -106,9 +102,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                         out moji3,
                         out moji4,
                         out moji5,
-                        out rest,
-                        logTag
-                        );
+                        out rest);
                     //Logger.Trace("moji1=[" + moji1 + "] moji2=[" + moji2 + "] moji3=[" + moji3 + "] moji4=[" + moji4 + "] moji5=[" + moji5 + "] rest=[" + rest + "]");
 
                     if (moji2 == "*")

@@ -62,10 +62,7 @@
             Earth earth1,
             Tree kifu1,// ツリーを伸ばしているぜ☆（＾～＾）
             Playerside psideA,
-            ISky positionA,
-
-            ILogTag logTag
-            )
+            ISky positionA)
         {
             MoveEx bestNode = null;
 
@@ -104,7 +101,7 @@
                 positionA,
 
                 isHonshogi, Mode_Tansaku.Shogi_ENgine,
-                args, logTag);
+                args);
 
 
 #if DEBUG

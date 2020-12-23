@@ -32,19 +32,18 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             //MoveEx endNode,
             Tree kifu1,
 
-            Playerside pside,
-            ILogTag logTag);
+            Playerside pside);
 
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
         /// </summary>
-        void Shutdown(ILogTag logTag);
+        void Shutdown();
 
 
         /// <summary>
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
-        void Logdase(ILogTag logTag);
+        void Logdase();
 
 
         /// <summary>
@@ -52,12 +51,12 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// 将棋エンジンを起動します。
         /// ************************************************************************************************************************
         /// </summary>
-        void Start_ShogiEngine(string shogiEngineFilePath, ILogTag logTag);
+        void Start_ShogiEngine(string shogiEngineFilePath);
 
         /// <summary>
         /// コンピューターの先手
         /// </summary>
-        void Do_ComputerSente(ILogTag logTag);
+        void Do_ComputerSente();
 
 
         Busstop GetKoma(Finger finger);
@@ -107,7 +106,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         Timed TimedA { get; set; }
         Timed TimedB_MouseCapture { get; set; }
         Timed TimedC { get; set; }
-        void Timer_Tick(ILogTag logTag);
+        void Timer_Tick();
 
         RepaintRequest RepaintRequest { get; set; }
 
@@ -134,7 +133,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         void SetScene(SceneName scene);
 
 
-        void Response(string mutexString, ILogTag logTag);
+        void Response(string mutexString);
 
 
 

@@ -24,7 +24,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         }
 
 
-        public override void Step(ILogTag logTag)
+        public override void Step()
         {
             // 将棋エンジンからの入力が、input99 に溜まるものとします。
             if (0 < this.mainGui.ConsoleWindowGui.InputString99.Length)
@@ -42,7 +42,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 {
                     this.mainGui.RepaintRequest = new RepaintRequestImpl();
                     this.mainGui.RepaintRequest.SetNyuryokuTextTail(this.mainGui.ConsoleWindowGui.InputString99);// 受信文字列を、上部テキストボックスに入れるよう、依頼します。
-                    this.mainGui.Response("Timer", logTag);// テキストボックスに、受信文字列を入れます。
+                    this.mainGui.Response("Timer");// テキストボックスに、受信文字列を入れます。
                     this.mainGui.ConsoleWindowGui.ClearInputString99();// 受信文字列の要求を空っぽにします。
                 }
 
@@ -64,18 +64,15 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                         this.mainGui.Link_Server.Earth,
                         this.mainGui.Link_Server.KifuTree,
 
-                        this.mainGui.SkyWrapper_Gui,
-                        logTag
-                        );// 棋譜の[コマ送り]を実行します。
+                        this.mainGui.SkyWrapper_Gui);// 棋譜の[コマ送り]を実行します。
                     Util_Function_Csharp.Komaokuri_Gui(
                         restText,
                         this.mainGui.Link_Server.KifuTree.MoveEx_Current,
                         this.mainGui.Link_Server.KifuTree.PositionA,//.CurNode2ok.GetNodeValue()
                         this.mainGui,
-                        this.mainGui.Link_Server.KifuTree,
-                        logTag);//追加
+                        this.mainGui.Link_Server.KifuTree);//追加
                     // ↑チェンジターン済み
-                    Util_Menace.Menace((MainGui_Csharp)this.mainGui, logTag);// メナス
+                    Util_Menace.Menace((MainGui_Csharp)this.mainGui);// メナス
                 }
 
                 //
@@ -87,7 +84,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 //
                 {
                     //this.ShogiGui.ResponseData.InputTextString = "";//空っぽにすることを要求する。
-                    this.mainGui.Response("Timer", logTag);// GUIに反映させます。
+                    this.mainGui.Response("Timer");// GUIに反映させます。
                 }
 
             }

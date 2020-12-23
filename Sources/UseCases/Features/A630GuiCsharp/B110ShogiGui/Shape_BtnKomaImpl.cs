@@ -123,7 +123,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// ************************************************************************************************************************
         /// </summary>
         /// <param name="g1"></param>
-        public void Paint(Graphics g1, MainGui_Csharp mainGui, ILogTag logTag)
+        public void Paint(Graphics g1, MainGui_Csharp mainGui)
         {
 
             if (!this.Visible)

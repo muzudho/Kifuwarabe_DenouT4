@@ -31,9 +31,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             out Fingers fs_motiKurau,// 持駒（喰らう側）
             ISky src_Sky,
             Playerside tebanSeme,
-            Playerside tebanKurau,
-            ILogTag errH_OrNull
-        )
+            Playerside tebanKurau)
         {
             Fingers fs_banjoSeme_temp = new Fingers();// （１）盤上駒_攻め手
             Fingers fs_banjoKurau_temp = new Fingers();// （２）盤上駒_食らう側
@@ -122,9 +120,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         public static void Split_Moti1p_Moti2p(
             out Fingers fingers_moti1p,// 持駒 1P
             out Fingers fingers_moti2p,// 持駒 2=
-            ISky src_Sky,
-            ILogTag errH_OrNull
-        )
+            ISky src_Sky)
         {
             Fingers fingers_moti1p_temp = new Fingers();// （３）持ち駒_攻め手
             Fingers fingers_moti2p_temp = new Fingers();// （４）持ち駒_食らう側

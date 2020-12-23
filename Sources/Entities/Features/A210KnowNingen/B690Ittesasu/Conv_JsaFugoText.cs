@@ -25,9 +25,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             out string str7,
             out string str8,
             out string str9,
-            out string rest,
-            ILogTag logTag
-            )
+            out string rest)
         {
             //nextTe = null;
             bool successful = false;

@@ -40,8 +40,7 @@ namespace Grayscale.Kifuwaragyoku.CliOfSampleGame
                 earth1,
                 kifu1,// ツリーを伸ばしているぜ☆（＾～＾）
                 positionA.GetKaisiPside(),
-                positionA,
-                LogTags.Default);
+                positionA);
 
             Move move = bestmoveNode.Move;
             string sfenText = ConvMove.ToSfen(move);
@@ -49,7 +48,7 @@ namespace Grayscale.Kifuwaragyoku.CliOfSampleGame
 
 
             //bool isTimeoutShutdown_temp;
-            //kifuWarabe.AtBody(out isTimeoutShutdown_temp, logTag);    // 将棋サーバーからのメッセージの受信や、
+            //kifuWarabe.AtBody(out isTimeoutShutdown_temp);    // 将棋サーバーからのメッセージの受信や、
             // 思考は、ここで行っています。
         }
     }

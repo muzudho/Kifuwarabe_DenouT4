@@ -20,8 +20,8 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             Earth earth1,
             Tree kifu1,
 
-            IKifuParserAGenjo genjo,
-            ILogTag logTag
+            IKifuParserAGenjo genjo
+            
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -40,8 +40,8 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             Earth earth1,
             Tree kifu1,
 
-            IKifuParserAGenjo genjo,
-            ILogTag logTag
+            IKifuParserAGenjo genjo
+            
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",

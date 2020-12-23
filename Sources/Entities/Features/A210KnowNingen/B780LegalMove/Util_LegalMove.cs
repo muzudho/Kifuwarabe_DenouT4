@@ -35,8 +35,8 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             KaisetuBoards logF_kiki,
 #endif
 
-            string hint,
-            ILogTag logTag)
+            string hint
+            )
         {
             Maps_OneAndOne<Finger, SySet<SyElement>> starbetuSusumuMasus = new Maps_OneAndOne<Finger, SySet<SyElement>>();// 「どの星を、どこに進める」の一覧
 
@@ -44,9 +44,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             ConvStarbetuMoves.ToNextNodes_AsHubNode(
                 out inputMovelist,
                 genTeban_komabetuAllMoves1,
-                positionA,
-                logTag
-                );// ハブ・ノード自身はダミーノードなんだが、子ノードに、次のノードが入っている。
+                positionA);// ハブ・ノード自身はダミーノードなんだが、子ノードに、次のノードが入っている。
 
             List<Move> restMovelist;
             if (isHonshogi)
@@ -58,11 +56,11 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     inputMovelist,
                     positionA.Temezumi,
                     psideA,//positionA.GetKaisiPside(),
-                    positionA,
+                    positionA
 #if DEBUG
-                    logF_kiki,
+                    logF_kiki
 #endif
-                    logTag);
+                    );
             }
             else
             {
@@ -71,8 +69,8 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
             // 「指し手一覧」を、「星別の全指し手」に分けます。
             Maps_OneAndMulti<Finger, Move> starbetuAllMoves2 = Util_Sky258A.SplitMoveByStar(positionA,
-                restMovelist,//hubNode1.ToMovelist(),
-                logTag);
+                restMovelist//hubNode1.ToMovelist(),
+                );
 
             //
             // 「星別の指し手一覧」を、「星別の進むマス一覧」になるよう、データ構造を変換します。
@@ -114,13 +112,11 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             List<Move> inputMovelist,
             int temezumi_yomiGenTeban_forLog,//読み進めている現在の手目
             Playerside pside_genTeban,
-            ISky positionA,
+            ISky positionA
 
 #if DEBUG
-            KaisetuBoards logF_kiki,
+            KaisetuBoards logF_kiki
 #endif
-
-            ILogTag logTag
             )
         {
             // 残す指し手☆
@@ -133,8 +129,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     ConvMove.ToPlayerside(moveB),
                     ref positionA,//指定局面
                     ref moveB,
-                    "A100_IfMate",
-                    logTag
+                    "A100_IfMate"
                 );
                 if (!successful)
                 {
@@ -151,9 +146,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 #if DEBUG
                     logF_kiki,
 #endif
-                        moveB,
-                    logTag
-                    );
+                        moveB);
 
                 if (!kingSuicide)
                 {
@@ -167,9 +160,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     moveB,//この関数が呼び出されたときの指し手☆（＾～＾）
                     ConvMove.ToPlayerside(moveB),
                     positionA,
-                    "A900_IfMate",
-                    logTag
-                    );
+                    "A900_IfMate");
                 positionA = ittemodosuResult.SyuryoSky;
 
             gt_EndLoop:
@@ -194,9 +185,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 #if DEBUG
             KaisetuBoards logF_kiki,
 #endif
-            Move move_forLog,
-            ILogTag logTag
-            )
+            Move move_forLog)
         {
             bool isHonshogi = true;
 
@@ -215,8 +204,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 #endif
                 "玉自殺ﾁｪｯｸ",
                 temezumi_yomiCur_forLog,
-                move_forLog,
-                logTag);
+                move_forLog);
 
 
             // 現手番側が受け手に回ったとします。現手番の、王の座標
@@ -280,9 +268,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 #endif
             string logBrd_caption,
             int temezumi_yomiCur_forLog,
-            Move move_forLog,
-            ILogTag logTag
-            )
+            Move move_forLog)
         {
 #if DEBUG
             KaisetuBoard logBrd_kiki = new KaisetuBoard();
@@ -338,9 +324,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                         out dust2,
                         src_Sky,
                         tebanSeme,
-                        tebanKurau,
-                        logTag
-                    );
+                        tebanKurau);
 
 
                 // 攻め手の駒の位置
@@ -384,9 +368,8 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     fingers_seme_BANJO,//この中身がおかしい。
                     masus_seme_BANJO,
                     masus_kurau_BANJO,
-                    src_Sky,
+                    src_Sky
                     //Conv_Move.Move_To_KsString_ForLog(Move_forLog, pside_genTeban3),
-                    logTag
                     );// 利きを調べる側の利き（戦駒）
 
                 // 盤上駒の利き

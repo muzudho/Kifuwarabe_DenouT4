@@ -32,8 +32,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             ref IKifuParserAResult result,
             Earth earth1,
             Tree kifu1_mutable,
-            IKifuParserAGenjo genjo,
-            ILogTag logger
+            IKifuParserAGenjo genjo
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -59,13 +58,13 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 kifu1_mutable.PositionA,
                 out nextState,
                 this,
-                genjo, logger);
+                genjo);
             if (MoveNodeType.Clear == moveNodeType)
             {
                 earth1.Clear();
 
                 // 棋譜を空っぽにします。
-                Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(kifu1_mutable, result.NewSky, logger);
+                Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(kifu1_mutable, result.NewSky);
 
                 earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
             }
@@ -76,9 +75,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     earth1,
                     kifu1_mutable,
                     result.Out_newNode_OrNull.Move,
-                    result.NewSky,
-                    logger
-                    );
+                    result.NewSky);
                 // ■■■■■■■■■■カレント・チェンジ■■■■■■■■■■
                 result.SetNode(kifu1_mutable.MoveEx_Current, result.NewSky);
             }
@@ -97,8 +94,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             ref IKifuParserAResult result,
             Earth earth1,
             Tree kifu1_mutable,
-            IKifuParserAGenjo genjo,
-            ILogTag logger
+            IKifuParserAGenjo genjo
             ,
             [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "",
@@ -134,14 +130,14 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     kifu1_mutable.PositionA,
                     out nextState,
                     this,
-                    genjo, logger);
+                    genjo);
                 if (MoveNodeType.Clear == moveNodeType)
                 {
                     ISky positionInit = UtilSkyCreator.New_Hirate();
                     earth1.Clear();
 
                     // 棋譜を空っぽにします。
-                    Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(kifu1_mutable, positionInit, logger);
+                    Playerside rootPside = TreeImpl.MoveEx_ClearAllCurrent(kifu1_mutable, positionInit);
 
                     earth1.SetProperty(Word_KifuTree.PropName_Startpos, "startpos");//平手の初期局面
                 }
@@ -153,9 +149,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                         earth1,
                         kifu1_mutable,
                         result.Out_newNode_OrNull.Move,
-                        result.NewSky,
-                        logger
-                        );
+                        result.NewSky);
                     // ■■■■■■■■■■カレント・チェンジ■■■■■■■■■■
                     result.SetNode(kifu1_mutable.MoveEx_Current, result.NewSky);
                 }

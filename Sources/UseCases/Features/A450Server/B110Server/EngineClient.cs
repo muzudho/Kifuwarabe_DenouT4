@@ -37,18 +37,17 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             //MoveEx curNode,
             Tree kifu1,
 
-            Playerside kaisiPside,
-            ILogTag logTag);
+            Playerside kaisiPside);
 
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
         /// </summary>
-        void Send_Shutdown(ILogTag logTag);
+        void Send_Shutdown();
 
         /// <summary>
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
-        void Send_Logdase(ILogTag logTag);
+        void Send_Logdase();
 
     }
 }

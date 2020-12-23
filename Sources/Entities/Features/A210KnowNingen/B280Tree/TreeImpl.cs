@@ -31,7 +31,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
         #region PV関連
 
-        public void LogPv(string message, ILogTag logTag)
+        public void LogPv(string message)
         {
             var buf = new StringBuilder();
             int index = 0;
@@ -44,7 +44,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             buf.AppendLine("└──────────┘");
             Logger.Trace(buf.ToString());
 
-            //this.LogPvList(this, logger);
+            //this.LogPvList(this);
         }
         /*
         public void LogPvList(Tree kifu1, ILogger logger)
@@ -65,24 +65,24 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             logger.AppendLine("└──────────┘");
         }
         */
-        public void Pv_RemoveLast(ILogTag logger)
+        public void Pv_RemoveLast()
         {
             if (1 < this.m_pv_.Count)//[0]はルート☆（*＾～＾*）
             {
                 this.m_pv_.RemoveAt(this.m_pv_.Count - 1);
-                this.LogPv("RemoveLastPv後", logger);
+                this.LogPv("RemoveLastPv後");
             }
         }
-        public void Pv_ClearAll(ILogTag logger)
+        public void Pv_ClearAll()
         {
             this.m_pv_.Clear();
             this.m_pv_.Add(Move.Empty);
-            this.LogPv("ClearAll後", logger);
+            this.LogPv("ClearAll後");
         }
-        public void Pv_Append(Move tail, ILogTag logger)
+        public void Pv_Append(Move tail)
         {
             this.m_pv_.Add(tail);
-            this.LogPv("Append後", logger);
+            this.LogPv("Append後");
         }
         public Move Pv_GetLatest()
         {
@@ -132,7 +132,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         private MoveEx m_moveEx_;
 
 
-        public static Playerside MoveEx_ClearAllCurrent(Tree tree, ISky positionA, ILogTag logger)
+        public static Playerside MoveEx_ClearAllCurrent(Tree tree, ISky positionA)
         {
             tree.MoveEx_SetCurrent(new MoveExImpl());
 
@@ -163,15 +163,15 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         #endregion
 
 
-        public static MoveEx OnDoCurrentMove(MoveEx curNode, Tree kifu1, ISky positionA, ILogTag logger)
+        public static MoveEx OnDoCurrentMove(MoveEx curNode, Tree kifu1, ISky positionA)
         {
             kifu1.MoveEx_SetCurrent(curNode);
-            kifu1.Pv_Append(curNode.Move, logger);
+            kifu1.Pv_Append(curNode.Move);
 
             kifu1.SetPositionA(positionA);
             return kifu1.MoveEx_Current;
         }
-        public static MoveEx OnUndoCurrentMove(Tree kifu1, ISky positionA, ILogTag logger, string hint)
+        public static MoveEx OnUndoCurrentMove(Tree kifu1, ISky positionA, string hint)
         {
             if (kifu1.Pv_IsRoot())
             {
@@ -179,7 +179,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 throw new Exception($"ルート局面を削除しようとしました。hint={hint}");
             }
 
-            kifu1.Pv_RemoveLast(logger);
+            kifu1.Pv_RemoveLast();
             kifu1.SetPositionA(positionA);
             return kifu1.MoveEx_Current;
         }

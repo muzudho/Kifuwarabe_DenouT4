@@ -130,7 +130,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 return this.flowB;
             }
         }
-        public void SetFlowB(SceneName name1, ILogTag logTag)
+        public void SetFlowB(SceneName name1)
         {
             this.flowB = name1;
 
@@ -138,7 +138,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             {
                 TimedBMouseCapture timeB = ((TimedBMouseCapture)this.TimedB_MouseCapture);
                 timeB.MouseEventQueue.Enqueue(
-                    new MouseEventState(name1, ShapeCanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.Arive, Point.Empty, logTag));
+                    new MouseEventState(name1, ShapeCanvasImpl.WINDOW_NAME_SHOGIBAN, MouseEventStateName.Arive, Point.Empty));
             }
         }
         private SceneName flowB;
@@ -192,14 +192,14 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// 将棋エンジンを起動します。
         /// ************************************************************************************************************************
         /// </summary>
-        public virtual void Start_ShogiEngine(string shogiEngineFilePath, ILogTag logTag)
+        public virtual void Start_ShogiEngine(string shogiEngineFilePath)
         {
         }
 
         /// <summary>
         /// コンピューターの先手
         /// </summary>
-        public virtual void Do_ComputerSente(ILogTag logTag)
+        public virtual void Do_ComputerSente()
         {
         }
 
@@ -212,8 +212,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             //MoveEx endNode,
             Tree kifu1,
 
-            Playerside pside,
-            ILogTag logTag)
+            Playerside pside)
         {
         }
 
@@ -221,7 +220,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <summary>
         /// 将棋エンジンに、終了するように促します。
         /// </summary>
-        public virtual void Shutdown(ILogTag logTag)
+        public virtual void Shutdown()
         {
         }
 
@@ -229,14 +228,14 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <summary>
         /// 将棋エンジンに、ログを出すように促します。
         /// </summary>
-        public virtual void Logdase(ILogTag logTag)
+        public virtual void Logdase()
         {
         }
 
 
 
         private int noopSend_counter;
-        public void Timer_Tick(ILogTag logTag)
+        public void Timer_Tick()
         {
             if (this.server.EngineClient.ShogiEngineProcessWrapper.IsLive_ShogiEngine())
             {
@@ -244,7 +243,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 if (20 * 3 < this.noopSend_counter) // 3秒に 1 回ぐらい ok を送れば？
                 {
                     // noop
-                    this.server.EngineClient.ShogiEngineProcessWrapper.Send_Noop_from_server(logTag);
+                    this.server.EngineClient.ShogiEngineProcessWrapper.Send_Noop_from_server();
                     this.noopSend_counter = 0;
                 }
                 else
@@ -253,9 +252,9 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 }
             }
 
-            this.TimedA.Step(logTag);
-            this.TimedB_MouseCapture.Step(logTag);
-            this.TimedC.Step(logTag);
+            this.TimedA.Step();
+            this.TimedB_MouseCapture.Step();
+            this.TimedC.Step();
         }
 
 
@@ -331,7 +330,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <summary>
         /// このアプリケーションソフトの開始時の処理。
         /// </summary>
-        public virtual void Load_AsStart(ILogTag logTag)
+        public virtual void Load_AsStart()
         {
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
@@ -407,7 +406,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             }
         }
 
-        public void LaunchForm_AsBody(ILogTag logTag)
+        public void LaunchForm_AsBody()
         {
             ((Form1Shogiable)this.OwnerForm).Delegate_Form1_Load = (MainGui_Csharp shogiGui, object sender, EventArgs e) =>
             {
@@ -439,9 +438,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             //
             {
                 Util_Function_Csharp.Perform_SyokiHaichi_CurrentMutable(
-                    ((Form1Shogiable)this.OwnerForm).Uc_Form1Main.MainGui,
-                    logTag
-                );
+                    ((Form1Shogiable)this.OwnerForm).Uc_Form1Main.MainGui);
             }
 
 
@@ -449,7 +446,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         }
 
 
-        public void Response(string mutexString, ILogTag logTag)
+        public void Response(string mutexString)
         {
             UcForm1Mainable uc_Form1Main = ((Form1Shogiable)this.OwnerForm).Uc_Form1Main;
 
@@ -488,7 +485,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 default: break;
             }
 
-            uc_Form1Main.Solute_RepaintRequest(mutex2, this, logTag);// 再描画
+            uc_Form1Main.Solute_RepaintRequest(mutex2, this);// 再描画
 
         gt_EndMethod:
             ;
