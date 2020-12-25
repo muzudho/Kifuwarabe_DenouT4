@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using Grayscale.Kifuwaragyoku.Engine.Configuration;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.Kifuwaragyoku.Entities.Positioning;
@@ -12,11 +14,13 @@ namespace Grayscale.Kifuwaragyoku.CliOfUnitTest
     {
         static void Main(string[] args)
         {
+            var engineConf = new EngineConf();
+            EntitiesLayer.Implement(engineConf);
+
+            var playing = new Playing(engineConf);
+
             Logger.Trace("テストＡ");
             MachineImpl.GetInstance().ReadKey();
-
-
-            var playing = new Playing();
 
             // 盤面をログ出力したいぜ☆
             var boardLog = Conv_Shogiban.ToLog(Conv_Sky.ToShogiban(Playerside.P1, playing.StartingPosition));

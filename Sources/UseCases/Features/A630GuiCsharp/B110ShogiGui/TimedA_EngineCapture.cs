@@ -29,9 +29,9 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             {
 
 #if DEBUG
-                string message = "(^o^)timer入力 input99=[" + this.mainGui.ConsoleWindowGui.InputString99 + "]";
-                logTag.AppendLine(message);
-                logTag.Flush(LogTypes.Plain);
+                //string message = "(^o^)timer入力 input99=[" + this.mainGui.ConsoleWindowGui.InputString99 + "]";
+                //logTag.AppendLine(message);
+                //logTag.Flush(LogTypes.Plain);
 #endif
 
                 //

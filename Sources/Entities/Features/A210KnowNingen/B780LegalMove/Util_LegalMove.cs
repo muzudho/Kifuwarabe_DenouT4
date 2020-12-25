@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Grayscale.Kifuwaragyoku.Entities.Configuration;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
@@ -26,6 +27,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="sbGohosyu"></param>
         /// <param name="logTag"></param>
         public static Maps_OneAndOne<Finger, SySet<SyElement>> LA_RemoveMate(
+            IEngineConf engineConf,
             int yomikaisiTemezumi,
             bool isHonshogi,
             Maps_OneAndMulti<Finger, Move> genTeban_komabetuAllMoves1,// 指定局面で、どの駒が、どんな手を指すことができるか
@@ -53,13 +55,14 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 // 王手が掛かっている局面を除きます。
 
                 restMovelist = Util_LegalMove.LAA_RemoveNextNode_IfMate(
+                    engineConf,
                     yomikaisiTemezumi,
                     inputMovelist,
                     positionA.Temezumi,
                     psideA,//positionA.GetKaisiPside(),
                     positionA
 #if DEBUG
-                    logF_kiki
+                    ,logF_kiki
 #endif
                     );
             }
@@ -109,6 +112,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// ハブノードの次手番の局面のうち、王手がかかった局面は取り除きます。
         /// </summary>
         public static List<Move> LAA_RemoveNextNode_IfMate(
+            IEngineConf engineConf,
             int yomikaisiTemezumi,
             List<Move> inputMovelist,
             int temezumi_yomiGenTeban_forLog,//読み進めている現在の手目
@@ -116,7 +120,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             IPosition positionA
 
 #if DEBUG
-            KaisetuBoards logF_kiki
+            ,KaisetuBoards logF_kiki
 #endif
             )
         {
@@ -140,6 +144,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
                 // 王様が利きに飛び込んだか？
                 bool kingSuicide = Util_LegalMove.LAAA_KingSuicide(
+                    engineConf,
                     yomikaisiTemezumi,
                     positionA,
                     temezumi_yomiGenTeban_forLog,
@@ -178,6 +183,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// GetAvailableMove()の中では使わないでください。循環してしまいます。
         /// </summary>
         public static bool LAAA_KingSuicide(
+            IEngineConf engineConf,
             int yomikaisiTemezumi,
             IPosition src_Sky,//調べたい局面
             int temezumi_yomiCur_forLog,//読み進めている現在の手目
@@ -195,6 +201,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             // 「相手の駒を動かしたときの利き」リスト
             // 持ち駒はどう考える？「駒を置けば、思い出王手だってある」
             List_OneAndMulti<Finger, SySet<SyElement>> sMs_effect_aiTeban = Util_LegalMove.LAAAA_GetEffect(
+                engineConf,
                 yomikaisiTemezumi,
                 isHonshogi,
                 src_Sky,
@@ -259,6 +266,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="sbGohosyu"></param>
         /// <param name="logger"></param>
         public static List_OneAndMulti<Finger, SySet<SyElement>> LAAAA_GetEffect(
+            IEngineConf engineConf,
             int yomikaisiTemezumi,
             bool isHonshogi,
             IPosition src_Sky,
@@ -366,6 +374,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
                 // 《１．４》
                 Maps_OneAndOne<Finger, SySet<SyElement>> kmEffect_seme_BANJO = Query_FingersMasusSky.To_KomabetuKiki_OnBanjo(
+                    engineConf,
                     fingers_seme_BANJO,//この中身がおかしい。
                     masus_seme_BANJO,
                     masus_kurau_BANJO,
@@ -375,20 +384,20 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
                 // 盤上駒の利き
 #if DEBUG
-                logBrd_kiki = new KaisetuBoard(logBrd_kiki);
-                kmEffect_seme_BANJO.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
-                {
-                    Busstop koma = src_Sky.BusstopIndexOf(key);
+                //logBrd_kiki = new KaisetuBoard(logBrd_kiki);
+                //kmEffect_seme_BANJO.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
+                //{
+                //    Busstop koma = src_Sky.BusstopIndexOf(key);
 
 
-                    string komaImg = Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanSeme, Conv_Busstop.ToKomasyurui(koma), "");
+                //    string komaImg = Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanSeme, Conv_Busstop.ToKomasyurui(koma), "");
 
-                    foreach (New_Basho masu in value.Elements)
-                    {
-                        boardLog_clone.Masu_theEffect.Add(masu.MasuNumber);
-                    }
-                });
-                logBrd_kiki = boardLog_clone;
+                //    foreach (New_Basho masu in value.Elements)
+                //    {
+                //        boardLog_clone.Masu_theEffect.Add(masu.MasuNumber);
+                //    }
+                //});
+                //logBrd_kiki = boardLog_clone;
 #endif
 
 

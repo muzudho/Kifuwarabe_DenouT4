@@ -1,13 +1,14 @@
-﻿
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
+{
 #if DEBUG
 using System.IO;
 using System.Text;
+using Grayscale.Kifuwaragyoku.Entities.Configuration;
 using Nett;
+#else
+    using Grayscale.Kifuwaragyoku.Entities.Configuration;
 #endif
 
-
-namespace Grayscale.Kifuwaragyoku.Entities.Features
-{
     public abstract class Util_GraphicalLog
     {
 
@@ -25,7 +26,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="masus"></param>
         /// <param name="fileNameMemo"></param>
         /// <param name="comment"></param>
-        public static void WriteHtml5(bool enableLog, string fileNameMemo, string json)
+        public static void WriteHtml5(IEngineConf engineConf, bool enableLog, string fileNameMemo, string json)
         {
 #if DEBUG
             if (!enableLog)
@@ -33,13 +34,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 goto gt_EndMethod;
             }
 
-            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
-            var dataDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("DataDirectory"));
-            var logsDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.LogDirectory));
-
             StringBuilder sb = new StringBuilder();
-
 
             sb.AppendLine("<!DOCTYPE html>");
             sb.AppendLine("<html lang=\"ja\">");
@@ -47,7 +42,8 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             sb.AppendLine("    <meta charset=\"UTF-8\">");
             sb.AppendLine("    <title>グラフィカル局面ログ</title>");
             sb.AppendLine("    ");
-            sb.AppendLine($"    <script type=\"text/javascript\" src=\"{Path.Combine(dataDirectory, "graphicalKyokumenLog.js")}\">");
+            // TODO 相対ファイルパス。
+            sb.AppendLine($"    <script type=\"text/javascript\" src=\"{Path.Combine(engineConf.DataDirectory, "graphicalKyokumenLog.js")}\">");
             sb.AppendLine("    </script>");
             sb.AppendLine("");
             sb.AppendLine("    <script type=\"text/javascript\">");
@@ -83,7 +79,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             sb.AppendLine("</body>");
             sb.AppendLine("</html>");
 
-            File.WriteAllText(Path.Combine(logsDirectory, $"_log{Util_GraphicalLog.LogFileCounter}_{fileNameMemo}.html"), sb.ToString());
+            File.WriteAllText(Path.Combine(engineConf.LogDirectory, $"_log{Util_GraphicalLog.LogFileCounter}_{fileNameMemo}.html"), sb.ToString());
             Util_GraphicalLog.LogFileCounter++;
 
         gt_EndMethod:

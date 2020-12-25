@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Grayscale.Kifuwaragyoku.Entities.Configuration;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Grayscale.Kifuwaragyoku.Entities.Searching;
@@ -25,6 +26,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="out_a_childrenBest"></param>
         /// <param name="logTag"></param>
         public static List<Move> CreateMovelist_BeforeLoop(
+            IEngineConf engineConf,
             ICurrentSearch genjo,
 
             Playerside psideA,
@@ -34,6 +36,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             out int out_yomiDeep)
         {
             List<Move> result_movelist = UtilMovePicker.WAAAA_Create_ChildNodes(
+                engineConf,
                 genjo,
                 psideA,//× Conv_Playerside.Reverse( psideA),
                 positionA
@@ -65,6 +68,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="logTag"></param>
         /// <returns>複数のノードを持つハブ・ノード</returns>
         private static List<Move> WAAAA_Create_ChildNodes(
+            IEngineConf engineConf,
             ICurrentSearch genjo,
             Playerside psideA,
             IPosition positionA
@@ -87,9 +91,9 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             // 盤１個分のログの準備
             //----------------------------------------
 #if DEBUG
-                MmLogGenjoImpl mm_log_orNull = null;
-                KaisetuBoard logBrd_move1;
-                Tansaku_FukasaYusen_Routine.Log1(genjo, positionA, out mm_log_orNull, out logBrd_move1);
+            //MmLogGenjoImpl mm_log_orNull = null;
+            //KaisetuBoard logBrd_move1;
+            //Tansaku_FukasaYusen_Routine.Log1(genjo, positionA, out mm_log_orNull, out logBrd_move1);
 #endif
 
             //----------------------------------------
@@ -97,6 +101,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             //----------------------------------------
             List_OneAndMulti<Finger, SySet<SyElement>> komaBETUSusumeruMasus;
             Util_KyokumenMoves.LA_Split_KomaBETUSusumeruMasus(
+                engineConf,
                 1,
                 out komaBETUSusumeruMasus,
                 genjo.Args.IsHonshogi,//本将棋か
@@ -107,8 +112,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
                 false//相手番か
 #if DEBUG
-                    ,
-                    mm_log_orNull
+                    , null // mm_log_orNull
 #endif
                 );
             bool test = true;
@@ -165,6 +169,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 // 本将棋の場合、王手されている局面は削除します。
                 //----------------------------------------
                 Maps_OneAndOne<Finger, SySet<SyElement>> starbetuSusumuMasus = Util_LegalMove.LA_RemoveMate(
+                    engineConf,
                     genjo.YomikaisiTemezumi,
                     genjo.Args.IsHonshogi,
                     komaBETUAllMoves,//駒別の全ての指し手

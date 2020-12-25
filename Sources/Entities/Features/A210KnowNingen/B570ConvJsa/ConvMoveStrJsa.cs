@@ -10,7 +10,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// 「▲７六歩」といった符号にして返します。
         /// </summary>
         /// <param name="node">keyで指し手の指定、かつ、１つ前のノードに移動するのに使います。</param>
-        /// <param name="ISky">現局面です。</param>
+        /// <param name="IPosition">現局面です。</param>
         /// <param name="logTag"></param>
         /// <returns></returns>
         public static string ToMoveStrJsa(

@@ -21,14 +21,14 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 isNextSennitite = true;
 
 #if DEBUG
-                // ログ出力
-                {
-                    StringBuilder sb = new StringBuilder();
-                    sb.AppendLine("----------------------------------------");
-                    sb.AppendLine("is千日手☆！:" + this.douituKyokumenCounterDictionary[hash].ToString());
-                    sb.AppendLine(this.Dump_Format());
-                    this.WriteLog(sb.ToString());
-                }
+                //// ログ出力
+                //{
+                //    StringBuilder sb = new StringBuilder();
+                //    sb.AppendLine("----------------------------------------");
+                //    sb.AppendLine("is千日手☆！:" + this.douituKyokumenCounterDictionary[hash].ToString());
+                //    sb.AppendLine(this.Dump_Format());
+                //    this.WriteLog(sb.ToString());
+                //}
 #endif
             }
             else
@@ -45,14 +45,14 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 this.douituKyokumenCounterDictionary[hash]--;
 
 #if DEBUG
-                // ログ出力
-                {
-                    StringBuilder sb = new StringBuilder();
-                    sb.AppendLine("----------------------------------------");
-                    sb.AppendLine("千日手、カウントダウン☆！：" + hint + ":" + this.douituKyokumenCounterDictionary[hash].ToString());
-                    sb.AppendLine(this.Dump_Format());
-                    this.WriteLog(sb.ToString());
-                }
+                //// ログ出力
+                //{
+                //    StringBuilder sb = new StringBuilder();
+                //    sb.AppendLine("----------------------------------------");
+                //    sb.AppendLine("千日手、カウントダウン☆！：" + hint + ":" + this.douituKyokumenCounterDictionary[hash].ToString());
+                //    sb.AppendLine(this.Dump_Format());
+                //    this.WriteLog(sb.ToString());
+                //}
 #endif
             }
             else
@@ -69,14 +69,14 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 this.douituKyokumenCounterDictionary[hash]++;
 
 #if DEBUG
-                // ログ出力
-                {
-                    StringBuilder sb = new StringBuilder();
-                    sb.AppendLine("----------------------------------------");
-                    sb.AppendLine("千日手カウントアップした☆！：" + hint + ":" + this.douituKyokumenCounterDictionary[hash].ToString());
-                    sb.AppendLine(this.Dump_Format());
-                    this.WriteLog(sb.ToString());
-                }
+                //// ログ出力
+                //{
+                //    StringBuilder sb = new StringBuilder();
+                //    sb.AppendLine("----------------------------------------");
+                //    sb.AppendLine("千日手カウントアップした☆！：" + hint + ":" + this.douituKyokumenCounterDictionary[hash].ToString());
+                //    sb.AppendLine(this.Dump_Format());
+                //    this.WriteLog(sb.ToString());
+                //}
 #endif
             }
             else
@@ -85,14 +85,14 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 this.douituKyokumenCounterDictionary.Add(hash, 1);//1スタート。
 
 #if DEBUG
-                // ログ出力
-                {
-                    StringBuilder sb = new StringBuilder();
-                    sb.AppendLine("----------------------------------------");
-                    sb.AppendLine("千日手、新局面追加☆！：" + hint + ":" + this.douituKyokumenCounterDictionary[hash].ToString());
-                    sb.AppendLine(this.Dump_Format());
-                    this.WriteLog(sb.ToString());
-                }
+                //// ログ出力
+                //{
+                //    StringBuilder sb = new StringBuilder();
+                //    sb.AppendLine("----------------------------------------");
+                //    sb.AppendLine("千日手、新局面追加☆！：" + hint + ":" + this.douituKyokumenCounterDictionary[hash].ToString());
+                //    sb.AppendLine(this.Dump_Format());
+                //    this.WriteLog(sb.ToString());
+                //}
 #endif
             }
         }
@@ -155,8 +155,8 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         //    //----------------------------------------
         //    // 初手から、全ノードを取得
         //    //----------------------------------------
-        //    Node<Move, ISky> node1 = kifuTree.GetRoot();
-        //    List<Node<Move, ISky>> nodeList = new List<Node<Move, ISky>>();
+        //    Node<Move, IPosition> node1 = kifuTree.GetRoot();
+        //    List<Node<Move, IPosition>> nodeList = new List<Node<Move, IPosition>>();
         //    this.Recursive(node1, nodeList);
 
         //    //----------------------------------------
@@ -166,9 +166,9 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
         //}
 
-        //private void Recursive(Node<Move, ISky> node1, List<Node<Move, ISky>> nodeList)
+        //private void Recursive(Node<Move, IPosition> node1, List<Node<Move, IPosition>> nodeList)
         //{
-        //    node1.Foreach_ChildNodes((string key2, Node<Move, ISky> node2, ref bool toBreak2) =>
+        //    node1.Foreach_ChildNodes((string key2, Node<Move, IPosition> node2, ref bool toBreak2) =>
         //    {
         //        nodeList.Add(node2);
         //        this.Recursive(node2, nodeList);

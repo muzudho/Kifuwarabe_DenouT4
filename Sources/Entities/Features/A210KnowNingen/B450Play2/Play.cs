@@ -1,6 +1,7 @@
 ﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+using Grayscale.Kifuwaragyoku.Entities.Configuration;
 
 #if DEBUG
 using System.Diagnostics;
@@ -26,6 +27,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="errH_orNull"></param>
         /// <returns></returns>
         public static List_OneAndMulti<Finger, SySet<SyElement>> Translate_Motikoma_ToMove(
+            IEngineConf engineConf,
             Playerside psideA,
             IPosition positionA,
             Fingers fingers_sirabetaiMOTIkoma,
@@ -152,6 +154,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 if (HumanKnowsDebugOptions.UtiFuDumeCheck)
                 {
                     Util_Utifudume.Utifudume(
+                        engineConf,
                         psideA,
                         positionA,
                         masus_mikata_onBanjo,//打ち歩詰めチェック用

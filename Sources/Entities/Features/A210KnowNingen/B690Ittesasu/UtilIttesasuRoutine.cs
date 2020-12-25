@@ -58,7 +58,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     );
             }
 
-            // ISky 局面データは、この関数の途中で何回か変更されます。ローカル変数に退避しておくと、同期が取れなくなります。
+            // IPosition 局面データは、この関数の途中で何回か変更されます。ローカル変数に退避しておくと、同期が取れなくなります。
 
             //------------------------------------------------------------
             // 駒を取る
@@ -290,10 +290,10 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 susunda_Sky_orNull_before.AssertFinger(out_figFoodKoma);
                 out_food_koma = susunda_Sky_orNull_before.BusstopIndexOf(out_figFoodKoma);
 #if DEBUG
-                if (null != logTag.KwDisplayerOrNull.OnAppendLog)
-                {
-                    logTag.KwDisplayerOrNull.OnAppendLog("駒取った=" + Conv_Busstop.ToKomasyurui(out_food_koma) + Environment.NewLine);
-                }
+                //if (null != logTag.KwDisplayerOrNull.OnAppendLog)
+                //{
+                //    logTag.KwDisplayerOrNull.OnAppendLog("駒取った=" + Conv_Busstop.ToKomasyurui(out_food_koma) + Environment.NewLine);
+                //}
 #endif
                 //
                 // 取られる駒は、駒置き場の空きマスに移動させます。

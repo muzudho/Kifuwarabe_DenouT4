@@ -152,10 +152,10 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <summary>
         /// 生成後、OwnerFormをセットしてください。
         /// </summary>
-        public MainGui_CsharpImpl()
+        public MainGui_CsharpImpl(IEngineConf engineConf)
         {
             this.m_skyWrapper_Gui_ = new SkyWrapper_GuiImpl();
-            this.server = new Server_Impl(this.m_skyWrapper_Gui_.GuiSky, new ReceiverForCsharpVsImpl());
+            this.server = new Server_Impl(engineConf, this.m_skyWrapper_Gui_.GuiSky, new ReceiverForCsharpVsImpl());
 
             this.Widgets = new Dictionary<string, UserWidget>();
 
@@ -345,8 +345,8 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
             {
 #if DEBUG
-                logTag.AppendLine("(^o^)乱数のたね＝[" + KwRandom.Seed + "]");
-                logTag.Flush(LogTypes.Plain);
+                //logTag.AppendLine("(^o^)乱数のたね＝[" + KwRandom.Seed + "]");
+                //logTag.Flush(LogTypes.Plain);
 #endif
 
                 //----------

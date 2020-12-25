@@ -56,15 +56,15 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             this.ShogiEngineProcessWrapper = new EngineProcessWrapperImpl();
 
 #if DEBUG
-            this.ShogiEngineProcessWrapper.SetDelegate_ShogiServer_ToEngine((string line, ILogger logTag) =>
-           {
-                //
-                // USIコマンドを将棋エンジンに送ったタイミングで、なにかすることがあれば、
-                // ここに書きます。
-                //
-                logTag.AppendLine(line);
-               logTag.Flush(LogTypes.ToClient);
-           });
+           // this.ShogiEngineProcessWrapper.SetDelegate_ShogiServer_ToEngine((string line, ILogger logTag) =>
+           //{
+           //     //
+           //     // USIコマンドを将棋エンジンに送ったタイミングで、なにかすることがあれば、
+           //     // ここに書きます。
+           //     //
+           //     logTag.AppendLine(line);
+           //    logTag.Flush(LogTypes.ToClient);
+           //});
 #endif
         }
 

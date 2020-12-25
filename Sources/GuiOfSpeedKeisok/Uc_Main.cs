@@ -4,15 +4,13 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using Grayscale.Kifuwaragyoku.Engine.Configuration;
 using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Grayscale.Kifuwaragyoku.UseCases;
 using Grayscale.Kifuwaragyoku.UseCases.Features;
-
-#if DEBUG || LEARN
-#endif
 
 namespace Grayscale.Kifuwaragyoku.GuiOfSpeedKeisok
 {
@@ -40,7 +38,10 @@ namespace Grayscale.Kifuwaragyoku.GuiOfSpeedKeisok
 
         public UcMain()
         {
-            IPlaying playing = new Playing();
+            var engineConf = new EngineConf();
+            EntitiesLayer.Implement(engineConf);
+
+            IPlaying playing = new Playing(engineConf);
 
             this.FeatureVector = new FeatureVector();
             {

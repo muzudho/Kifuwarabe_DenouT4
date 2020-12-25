@@ -1,4 +1,5 @@
-﻿using Grayscale.Kifuwaragyoku.Entities.Evaluation;
+﻿using Grayscale.Kifuwaragyoku.Entities.Configuration;
+using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Grayscale.Kifuwaragyoku.Entities.Searching;
@@ -7,6 +8,11 @@ namespace Grayscale.Kifuwaragyoku.Entities
 {
     public interface IPlaying
     {
+        /// <summary>
+        /// エンジン設定。
+        /// </summary>
+        IEngineConf EngineConf { get; }
+
         /// <summary>
         /// 右脳。
         /// </summary>

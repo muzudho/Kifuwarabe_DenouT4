@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Grayscale.Kifuwaragyoku.Entities.Configuration;
 using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
@@ -12,6 +13,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="src_Sky"></param>
         /// <returns></returns>
         public static MasubetuKikisuImpl ToMasubetuKikisu(
+            IEngineConf engineConf,
             IPosition src_Sky,
             Playerside tebanside
             )
@@ -21,6 +23,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             List_OneAndMulti<Finger, SySet<SyElement>> komaBETUSusumeruMasus;
 
             Util_KyokumenMoves.LA_Split_KomaBETUSusumeruMasus(
+                engineConf,
                 3,
                 //node_forLog,
                 out komaBETUSusumeruMasus,//進めるマス

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Grayscale.Kifuwaragyoku.Entities.Configuration;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
@@ -56,6 +57,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="sbGohosyu"></param>
         /// <param name="logTag"></param>
         public static Maps_OneAndOne<Finger, SySet<SyElement>> Minus_OverThereMasus(
+            IEngineConf engineConf,
             IPosition src_srcSky_forLog,
             Maps_OneAndOne<Finger, SySet<SyElement>> a,
             SySet<SyElement> b)
@@ -73,7 +75,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 SySet<SyElement> srcMasus = c.ElementAt(selfKoma);
 
                 // a -overThere b するぜ☆
-                Util_GraphicalLog.WriteHtml5(enableLog, "Thought_KomaAndMove Minus_OverThereMasus1",
+                Util_GraphicalLog.WriteHtml5(engineConf, enableLog, "Thought_KomaAndMove Minus_OverThereMasus1",
                     "[\n" +
                     "    [\n" +
                     Util_FormatJson_LogGraphicEx.JsonElements_Masus(enableLog, srcMasus, "(1)引く前") +
@@ -87,7 +89,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 c.AddReplace(selfKoma, minusedMasus, false);//差分に差替えます。もともと無い駒なら何もしません。
             }
 
-            Util_GraphicalLog.WriteHtml5(enableLog, "Thought_KomaAndMove Minus_OverThereMasus2",
+            Util_GraphicalLog.WriteHtml5(engineConf, enableLog, "Thought_KomaAndMove Minus_OverThereMasus2",
                 "[\n" +
                 "    [\n" +
                 Util_FormatJson_LogGraphicEx.JsonKyokumens_MultiKomabetuMasus(enableLog, src_srcSky_forLog, a, "(1)a") +

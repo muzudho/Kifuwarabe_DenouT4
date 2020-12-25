@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Configuration;
 using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-
-#if DEBUG
-
-#endif
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -22,6 +18,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// TODO:打ち歩詰めチェック
         /// </summary>
         public static void Utifudume(
+            IEngineConf engineConf,
             Playerside psideA,// = positionA.GetKaisiPside();
             IPosition positionA,
             SySet<SyElement> masus_mikata_onBanjo,//打ち歩詰めチェック用
@@ -80,6 +77,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             {
                 // 利き一覧
                 Maps_OneAndOne<Finger, SySet<SyElement>> kikiMap = Query_FingersMasusSky.To_KomabetuKiki_OnBanjo(
+                    engineConf,
                     fingers_aiteKing,
                     masus_mikata_onBanjo,
                     masus_aite_onBanjo,
@@ -115,6 +113,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
                 // 利き一覧
                 Maps_OneAndOne<Finger, SySet<SyElement>> kikiMap = Query_FingersMasusSky.To_KomabetuKiki_OnBanjo(
+                    engineConf,
                     fingers_aiteKoma_Banjo,
                     masus_aite_onBanjo,//相手の駒は、味方
                     masus_mikata_onBanjo,//味方の駒は、障害物。
@@ -148,7 +147,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             }
 
             // 「王様に逃げ道がある」なら、スルー。
-            IMasubetuKikisu masubetuKikisu_semeKoma = Util_SkyPside.ToMasubetuKikisu(positionA, psideA);
+            IMasubetuKikisu masubetuKikisu_semeKoma = Util_SkyPside.ToMasubetuKikisu(engineConf, positionA, psideA);
             Dictionary<int, int> nigerarenaiMap = new Dictionary<int, int>();
             switch (psideA)
             {

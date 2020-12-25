@@ -1,4 +1,5 @@
-﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
+﻿using Grayscale.Kifuwaragyoku.Entities.Configuration;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
@@ -66,6 +67,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="sbGohosyu"></param>
         /// <param name="logger"></param>
         public static void LA_Split_KomaBETUSusumeruMasus(
+            IEngineConf engineConf,
             int caller_forLog,//デバッグ用。
             out List_OneAndMulti<Finger, SySet<SyElement>> out_komaBETUSusumeruMasus,
 
@@ -80,10 +82,10 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             )
         {
 #if DEBUG
-            if (mmLog_orNull != null)
-            {
-                logTag = mmLog_orNull.ErrH;
-            }
+            //if (mmLog_orNull != null)
+            //{
+            //    logTag = mmLog_orNull.ErrH;
+            //}
 #endif
 
             // 《１》 移動可能場所
@@ -158,6 +160,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 // 《１．４》
                 Maps_OneAndOne<Finger, SySet<SyElement>> kmSusumeruMasus_seme_BANJO;
                 kmSusumeruMasus_seme_BANJO = Query_FingersMasusSky.To_KomabetuKiki_OnBanjo(
+                    engineConf,
                     fingers_seme_BANJO,
                     masus_seme_BANJO,
                     masus_kurau_BANJO,
@@ -168,6 +171,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 //
                 List_OneAndMulti<Finger, SySet<SyElement>> sMsSusumeruMasus_seme_MOTI;
                 sMsSusumeruMasus_seme_MOTI = Util_KyokumenMoves.Get_MotiDaihyo_ToMove(
+                    engineConf,
                     caller_forLog,
                     fingers_seme_MOTI,
                     masus_seme_BANJO,
@@ -207,6 +211,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="errH_orNull"></param>
         /// <returns></returns>
         public static List_OneAndMulti<Finger, SySet<SyElement>> Get_MotiDaihyo_ToMove(
+            IEngineConf engineConf,
             int caller_forLog,
             Fingers fingers_sirabetaiMOTIkoma,
             SySet<SyElement> masus_mikata_onBanjo,
@@ -226,6 +231,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
             // 「どの持ち駒（代表）を」「どこに置けるか」のコレクション。
             List_OneAndMulti<Finger, SySet<SyElement>> result = Play.Translate_Motikoma_ToMove(
+                engineConf,
                 psideA,
                 positionA,
                 fingers_sirabetaiMOTIkoma,

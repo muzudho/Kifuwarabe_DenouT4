@@ -2,6 +2,8 @@
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
+using Grayscale.Kifuwaragyoku.Engine.Configuration;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.Kifuwaragyoku.Entities.Configuration;
 using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
@@ -24,14 +26,14 @@ namespace Grayscale.Kifuwaragyoku.Engine
         /// <param name="args"></param>
         static void Main(string[] args)
         {
+            var engineConf = new EngineConf();
+            EntitiesLayer.Implement(engineConf);
+
             // 将棋エンジン　きふわらべ
-            Playing playing = new Playing();
+            Playing playing = new Playing(engineConf);
 
             try
             {
-                var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-                var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
-
                 //-------------------+----------------------------------------------------------------------------------------------------
                 // ログファイル削除  |
                 //-------------------+----------------------------------------------------------------------------------------------------
@@ -49,44 +51,33 @@ namespace Grayscale.Kifuwaragyoku.Engine
                 //------------------------------------------------------------------------------------------------------------------------
                 // 思考エンジンの、記憶を読み取ります。
                 //------------------------------------------------------------------------------------------------------------------------
-                {
-                    Util_FvLoad.OpenFv(
-                        playing.FeatureVector,
-                        Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Fv00Komawari)));
-                }
+                Util_FvLoad.OpenFv(playing.FeatureVector, engineConf.GetResourceFullPath(SpecifiedFiles.Fv00Komawari));
 
                 //------------------------------------------------------------------------------------------------------------------------
                 // ファイル読込み
                 //------------------------------------------------------------------------------------------------------------------------
                 {
                     // データの読取「道」
-                    if (Michi187Array.Load(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Michi187))))
+                    if (Michi187Array.Load(engineConf.GetResourceFullPath(SpecifiedFiles.Michi187)))
                     {
                     }
 
                     // データの読取「配役」
-                    string filepath_Haiyaku = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Haiyaku185));
-                    Util_Array_KomahaiyakuEx184.Load(filepath_Haiyaku, Encoding.UTF8);
+                    Util_Array_KomahaiyakuEx184.Load(engineConf.GetResourceFullPath(SpecifiedFiles.Haiyaku185), Encoding.UTF8);
 
                     // データの読取「強制転成表」　※駒配役を生成した後で。
-                    string filepath_ForcePromotion = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.InputForcePromotion));
-                    Array_ForcePromotion.Load(filepath_ForcePromotion, Encoding.UTF8);
+                    Array_ForcePromotion.Load(engineConf.GetResourceFullPath(SpecifiedFiles.InputForcePromotion), Encoding.UTF8);
 
 #if DEBUG
-                    {
-                        string filepath_LogKyosei = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.OutputForcePromotion));
-                        File.WriteAllText(filepath_LogKyosei, Array_ForcePromotion.LogHtml());
-                    }
+                    File.WriteAllText(engineConf.GetResourceFullPath(SpecifiedFiles.OutputForcePromotion), Array_ForcePromotion.LogHtml());
 #endif
 
                     // データの読取「配役転換表」
-                    string filepath_HaiyakuTenkan = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.InputSyuruiToHaiyaku));
-                    Data_KomahaiyakuTransition.Load(filepath_HaiyakuTenkan, Encoding.UTF8);
+                    Data_KomahaiyakuTransition.Load(engineConf.GetResourceFullPath(SpecifiedFiles.InputSyuruiToHaiyaku), Encoding.UTF8);
 
 #if DEBUG
                     {
-                        string filepath_LogHaiyakuTenkan = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.OutputSyuruiToHaiyaku);
-                        File.WriteAllText(filepath_LogHaiyakuTenkan, Data_KomahaiyakuTransition.Format_LogHtml());
+                        File.WriteAllText(engineConf.GetResourceFullPath(SpecifiedFiles.OutputSyuruiToHaiyaku), Data_KomahaiyakuTransition.Format_LogHtml());
                     }
 #endif
                 }
@@ -118,8 +109,8 @@ namespace Grayscale.Kifuwaragyoku.Engine
 
                     //seihinName += " " + versionStr;
 #if DEBUG
-                    Util_Loggers.ProcessEngine_DEFAULT.AppendLine("v(^▽^)v ｲｪｰｲ☆ ... " + this.SeihinName + " " + versionStr);
-                    Util_Loggers.ProcessEngine_DEFAULT.Flush(LogTypes.Plain);
+                    //Util_Loggers.ProcessEngine_DEFAULT.AppendLine("v(^▽^)v ｲｪｰｲ☆ ... " + this.SeihinName + " " + versionStr);
+                    //Util_Loggers.ProcessEngine_DEFAULT.Flush(LogTypes.Plain);
 #endif
                 }
 
@@ -187,9 +178,9 @@ namespace Grayscale.Kifuwaragyoku.Engine
 
                         if ("usi" == line)
                         {
-                            var engineName = toml.Get<TomlTable>("Engine").Get<string>("Name");
+                            var engineName = engineConf.GetEngine("Name");
                             Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
-                            var engineAuthor = toml.Get<TomlTable>("Engine").Get<string>("Author");
+                            var engineAuthor = engineConf.GetEngine("Author");
 
                             playing.UsiOk($"{engineName} {version.Major}.{version.Minor}.{version.Build}", engineAuthor);
                         }
@@ -334,8 +325,8 @@ namespace Grayscale.Kifuwaragyoku.Engine
                                 //
                                 // “が”、まだ指してはいけません。
 #if DEBUG
-                                Util_Loggers.ProcessEngine_DEFAULT.AppendLine("（＾△＾）positionきたｺﾚ！");
-                                Util_Loggers.ProcessEngine_DEFAULT.Flush(LogTypes.Plain);
+                                //Util_Loggers.ProcessEngine_DEFAULT.AppendLine("（＾△＾）positionきたｺﾚ！");
+                                //Util_Loggers.ProcessEngine_DEFAULT.Flush(LogTypes.Plain);
 #endif
                                 // 入力行を解析します。
                                 IKifuParserAResult result = new KifuParserA_ResultImpl();
@@ -358,68 +349,65 @@ namespace Grayscale.Kifuwaragyoku.Engine
 
 
 #if DEBUG
-                                Move move_forLog = result.Out_newNode_OrNull.Key;
-                                ISky sky = this.Kifu_AtLoop2.PositionA;
-                                ILogger logTag = logger;
-                                {
-                                    var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-                                    var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
+                                //Move move_forLog = result.Out_newNode_OrNull.Key;
+                                //IPosition sky = this.Kifu_AtLoop2.PositionA;
+                                //ILogger logTag = logger;
+                                //{
+                                //    //OwataMinister.WARABE_ENGINE.Logger.WriteLine_AddMemo(
+                                //    //    Util_Sky307.Json_1Sky(this.Kifu.CurNode.Value.ToKyokumenConst, "現局面になっているのかなんだぜ☆？　line=[" + line + "]　棋譜＝" + KirokuGakari.ToJsaKifuText(this.Kifu, OwataMinister.WARABE_ENGINE),
+                                //    //        "PgCS",
+                                //    //        this.Kifu.CurNode.Value.ToKyokumenConst.Temezumi
+                                //    //    )
+                                //    //);
 
-                                    //OwataMinister.WARABE_ENGINE.Logger.WriteLine_AddMemo(
-                                    //    Util_Sky307.Json_1Sky(this.Kifu.CurNode.Value.ToKyokumenConst, "現局面になっているのかなんだぜ☆？　line=[" + line + "]　棋譜＝" + KirokuGakari.ToJsaKifuText(this.Kifu, OwataMinister.WARABE_ENGINE),
-                                    //        "PgCS",
-                                    //        this.Kifu.CurNode.Value.ToKyokumenConst.Temezumi
-                                    //    )
-                                    //);
+                                //    //
+                                //    // 局面画像ﾛｸﾞ
+                                //    //
+                                //    {
+                                //        // 出力先
+                                //        string fileName = engine.GetResourceFullPath("ChokkinNoMovePngFilename");
 
-                                    //
-                                    // 局面画像ﾛｸﾞ
-                                    //
-                                    {
-                                        // 出力先
-                                        string fileName = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("ChokkinNoMovePngFilename"));
+                                //        SyElement srcMasu = ConvMove.ToSrcMasu(move_forLog);
+                                //        SyElement dstMasu = ConvMove.ToDstMasu(move_forLog);
+                                //        Komasyurui14 captured = ConvMove.ToCaptured(move_forLog);
+                                //        int srcMasuNum = Conv_Masu.ToMasuHandle(srcMasu);
+                                //        int dstMasuNum = Conv_Masu.ToMasuHandle(dstMasu);
 
-                                        SyElement srcMasu = ConvMove.ToSrcMasu(move_forLog);
-                                        SyElement dstMasu = ConvMove.ToDstMasu(move_forLog);
-                                        Komasyurui14 captured = ConvMove.ToCaptured(move_forLog);
-                                        int srcMasuNum = Conv_Masu.ToMasuHandle(srcMasu);
-                                        int dstMasuNum = Conv_Masu.ToMasuHandle(dstMasu);
+                                //        KyokumenPngArgs_FoodOrDropKoma foodKoma;
+                                //        if (Komasyurui14.H00_Null___ != captured)
+                                //        {
+                                //            switch (Util_Komasyurui14.NarazuCaseHandle(captured))
+                                //            {
+                                //                case Komasyurui14.H00_Null___: foodKoma = KyokumenPngArgs_FoodOrDropKoma.NONE; break;
+                                //                case Komasyurui14.H01_Fu_____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.FU__; break;
+                                //                case Komasyurui14.H02_Kyo____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.KYO_; break;
+                                //                case Komasyurui14.H03_Kei____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.KEI_; break;
+                                //                case Komasyurui14.H04_Gin____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.GIN_; break;
+                                //                case Komasyurui14.H05_Kin____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.KIN_; break;
+                                //                case Komasyurui14.H07_Hisya__: foodKoma = KyokumenPngArgs_FoodOrDropKoma.HI__; break;
+                                //                case Komasyurui14.H08_Kaku___: foodKoma = KyokumenPngArgs_FoodOrDropKoma.KAKU; break;
+                                //                default: foodKoma = KyokumenPngArgs_FoodOrDropKoma.UNKNOWN; break;
+                                //            }
+                                //        }
+                                //        else
+                                //        {
+                                //            foodKoma = KyokumenPngArgs_FoodOrDropKoma.NONE;
+                                //        }
 
-                                        KyokumenPngArgs_FoodOrDropKoma foodKoma;
-                                        if (Komasyurui14.H00_Null___ != captured)
-                                        {
-                                            switch (Util_Komasyurui14.NarazuCaseHandle(captured))
-                                            {
-                                                case Komasyurui14.H00_Null___: foodKoma = KyokumenPngArgs_FoodOrDropKoma.NONE; break;
-                                                case Komasyurui14.H01_Fu_____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.FU__; break;
-                                                case Komasyurui14.H02_Kyo____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.KYO_; break;
-                                                case Komasyurui14.H03_Kei____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.KEI_; break;
-                                                case Komasyurui14.H04_Gin____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.GIN_; break;
-                                                case Komasyurui14.H05_Kin____: foodKoma = KyokumenPngArgs_FoodOrDropKoma.KIN_; break;
-                                                case Komasyurui14.H07_Hisya__: foodKoma = KyokumenPngArgs_FoodOrDropKoma.HI__; break;
-                                                case Komasyurui14.H08_Kaku___: foodKoma = KyokumenPngArgs_FoodOrDropKoma.KAKU; break;
-                                                default: foodKoma = KyokumenPngArgs_FoodOrDropKoma.UNKNOWN; break;
-                                            }
-                                        }
-                                        else
-                                        {
-                                            foodKoma = KyokumenPngArgs_FoodOrDropKoma.NONE;
-                                        }
-
-                                        // 直近の指し手。
-                                        Util_KyokumenPng_Writer.Write1(
-                                            ConvKifuNode.ToRO_Kyokumen1(sky),
-                                            srcMasuNum,
-                                            dstMasuNum,
-                                            foodKoma,
-                                            ConvMove.ToSfen(move_forLog),
-                                            "",
-                                            fileName,
-                                            UtilKifuTreeLogWriter.REPORT_ENVIRONMENT,
-                                            logTag
-                                            );
-                                    }
-                                }
+                                //        // 直近の指し手。
+                                //        Util_KyokumenPng_Writer.Write1(
+                                //            ConvKifuNode.ToRO_Kyokumen1(sky),
+                                //            srcMasuNum,
+                                //            dstMasuNum,
+                                //            foodKoma,
+                                //            ConvMove.ToSfen(move_forLog),
+                                //            "",
+                                //            fileName,
+                                //            UtilKifuTreeLogWriter.REPORT_ENVIRONMENT,
+                                //            logTag
+                                //            );
+                                //    }
+                                //}
 #endif
 
                                 //------------------------------------------------------------
@@ -514,7 +502,7 @@ namespace Grayscale.Kifuwaragyoku.Engine
                             {
                                 StringBuilder sb = new StringBuilder();
                                 sb.Append("ログ出せ機能は廃止だぜ～☆（＾▽＾）");
-                                File.WriteAllText(Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("LogDaseMeirei")), sb.ToString());
+                                File.WriteAllText(engineConf.GetResourceFullPath("LogDaseMeirei"), sb.ToString());
 
                                 result_Usi_Loop2 = PhaseResultUsiLoop2.None;
                             }
@@ -596,32 +584,32 @@ namespace Grayscale.Kifuwaragyoku.Engine
                     //      └──────┴──────┘
                     //
 #if DEBUG
-                    Util_Loggers.ProcessEngine_DEFAULT.AppendLine("KifuParserA_Impl.LOGGING_BY_ENGINE, 確認 setoptionDictionary");
-                    Util_Loggers.ProcessEngine_DEFAULT.AppendLine(this.EngineOptions.ToString());
+                    //Util_Loggers.ProcessEngine_DEFAULT.AppendLine("KifuParserA_Impl.LOGGING_BY_ENGINE, 確認 setoptionDictionary");
+                    //Util_Loggers.ProcessEngine_DEFAULT.AppendLine(this.EngineOptions.ToString());
 
-                    Util_Loggers.ProcessEngine_DEFAULT.AppendLine("┏━確認━━━━goDictionary━━━━━┓");
-                    foreach (KeyValuePair<string, string> pair in this.GoProperties_AtLoop2)
-                    {
-                        Util_Loggers.ProcessEngine_DEFAULT.AppendLine(pair.Key + "=" + pair.Value);
-                    }
-
-                    //Dictionary<string, string> goMateProperties = new Dictionary<string, string>();
-                    //goMateProperties["mate"] = "";
-                    //LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo("┗━━━━━━━━━━━━━━━━━━┛");
-                    //LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo("┏━確認━━━━goMateDictionary━━━┓");
-                    //foreach (KeyValuePair<string, string> pair in this.goMateProperties)
+                    //Util_Loggers.ProcessEngine_DEFAULT.AppendLine("┏━確認━━━━goDictionary━━━━━┓");
+                    //foreach (KeyValuePair<string, string> pair in this.GoProperties_AtLoop2)
                     //{
-                    //    LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
+                    //    Util_Loggers.ProcessEngine_DEFAULT.AppendLine(pair.Key + "=" + pair.Value);
                     //}
 
-                    Util_Loggers.ProcessEngine_DEFAULT.AppendLine("┗━━━━━━━━━━━━━━━━━━┛");
-                    Util_Loggers.ProcessEngine_DEFAULT.AppendLine("┏━確認━━━━gameoverDictionary━━┓");
-                    foreach (KeyValuePair<string, string> pair in this.GameoverProperties_AtLoop2)
-                    {
-                        Util_Loggers.ProcessEngine_DEFAULT.AppendLine(pair.Key + "=" + pair.Value);
-                    }
-                    Util_Loggers.ProcessEngine_DEFAULT.AppendLine("┗━━━━━━━━━━━━━━━━━━┛");
-                    Util_Loggers.ProcessEngine_DEFAULT.Flush(LogTypes.Plain);
+                    ////Dictionary<string, string> goMateProperties = new Dictionary<string, string>();
+                    ////goMateProperties["mate"] = "";
+                    ////LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo("┗━━━━━━━━━━━━━━━━━━┛");
+                    ////LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo("┏━確認━━━━goMateDictionary━━━┓");
+                    ////foreach (KeyValuePair<string, string> pair in this.goMateProperties)
+                    ////{
+                    ////    LarabeLoggerList_Warabe.ENGINE.WriteLine_AddMemo(pair.Key + "=" + pair.Value);
+                    ////}
+
+                    //Util_Loggers.ProcessEngine_DEFAULT.AppendLine("┗━━━━━━━━━━━━━━━━━━┛");
+                    //Util_Loggers.ProcessEngine_DEFAULT.AppendLine("┏━確認━━━━gameoverDictionary━━┓");
+                    //foreach (KeyValuePair<string, string> pair in this.GameoverProperties_AtLoop2)
+                    //{
+                    //    Util_Loggers.ProcessEngine_DEFAULT.AppendLine(pair.Key + "=" + pair.Value);
+                    //}
+                    //Util_Loggers.ProcessEngine_DEFAULT.AppendLine("┗━━━━━━━━━━━━━━━━━━┛");
+                    //Util_Loggers.ProcessEngine_DEFAULT.Flush(LogTypes.Plain);
 #endif
 
                 }//全体ループ

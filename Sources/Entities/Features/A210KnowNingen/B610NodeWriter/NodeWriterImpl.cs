@@ -10,7 +10,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         {
             Json_Obj obj = new Json_Obj();
 
-            //ISky sky1 = node.Value as ISky;
+            //IPosition sky1 = node.Value as IPosition;
             if (null != sky1)
             {
                 // TODO: ログが大きくなるので、１行で出力したあとに改行にします。
@@ -20,7 +20,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             }
             else
             {
-                Debug.Fail("this.Value as ISky じゃなかった。");
+                Debug.Fail("this.Value as IPosition じゃなかった。");
             }
 
             return obj;

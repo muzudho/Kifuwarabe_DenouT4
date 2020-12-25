@@ -54,8 +54,8 @@
 
                             // noop を投げて 1分過ぎていれば。
 #if DEBUG
-                            logTag.AppendLine("計20秒ほど、サーバーからの応答がなかったぜ☆ (^-^)ﾉｼ");
-                            logTag.Flush(LogTypes.Plain);
+                            //logTag.AppendLine("計20秒ほど、サーバーからの応答がなかったぜ☆ (^-^)ﾉｼ");
+                            //logTag.Flush(LogTypes.Plain);
 #endif
 
                             // このプログラムを終了します。
@@ -66,8 +66,8 @@
                     case NoopPhase.None:
                         {
 #if DEBUG
-                            logTag.AppendLine("noopを投げるぜ☆");
-                            logTag.Flush(LogTypes.Plain);
+                            //logTag.AppendLine("noopを投げるぜ☆");
+                            //logTag.Flush(LogTypes.Plain);
 #endif
                             // まだ noop を投げていないなら
                             Playing.Send("noop");// サーバーが生きていれば、"ok" と返してくるはず。（独自実装）

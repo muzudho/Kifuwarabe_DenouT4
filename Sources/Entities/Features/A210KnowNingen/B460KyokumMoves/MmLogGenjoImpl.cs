@@ -1,5 +1,6 @@
 ﻿#if DEBUG
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -46,7 +47,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
         public void Log1(Playerside pside_genTeban3)
         {
-            this.BrdMove.Caption = "移動可能_" + Conv_Move.Move_To_KsString_ForLog(this.Move, pside_genTeban3);
+            // this.BrdMove.Caption = "移動可能_" + ConvMove.Move_To_KsString_ForLog(this.Move, pside_genTeban3);
             this.BrdMove.Temezumi = this.Temezumi_yomiCur;
             this.BrdMove.YomikaisiTemezumi = this.YomikaisiTemezumi;
             this.BrdMove.GenTeban = pside_genTeban3;// 現手番
@@ -69,7 +70,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
 
         public void Log3(
-            ISky src_Sky,
+            IPosition src_Sky,
             Playerside tebanKurau,//手番（喰らう側）
             Playerside tebanSeme,//手番（利きを調べる側）
             Fingers fingers_kurau_IKUSA,//戦駒（喰らう側）
@@ -125,26 +126,26 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         }
 
         public void Log4(
-            ISky src_Sky,
+            IPosition src_Sky,
             Playerside tebanSeme,//手番（利きを調べる側）
             Maps_OneAndOne<Finger, SySet<SyElement>> kmMove_seme_IKUSA
         )
         {
-            // 戦駒の移動可能場所
-            KaisetuBoard boardLog_clone = new KaisetuBoard(this.BrdMove);
-            kmMove_seme_IKUSA.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
-            {
-                Busstop koma = src_Sky.BusstopIndexOf(key);
+            //// 戦駒の移動可能場所
+            //KaisetuBoard boardLog_clone = new KaisetuBoard(this.BrdMove);
+            //kmMove_seme_IKUSA.Foreach_Entry((Finger key, SySet<SyElement> value, ref bool toBreak) =>
+            //{
+            //    Busstop koma = src_Sky.BusstopIndexOf(key);
 
-                string komaImg = Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanSeme, Conv_Busstop.ToKomasyurui(koma), "");
+            //    string komaImg = Util_Converter_LogGraphicEx.PsideKs14_ToString(tebanSeme, Conv_Busstop.ToKomasyurui(koma), "");
 
-                foreach (New_Basho masu in value.Elements)
-                {
-                    boardLog_clone.Masu_theMove.Add((int)masu.MasuNumber);
-                }
-            });
+            //    foreach (New_Basho masu in value.Elements)
+            //    {
+            //        boardLog_clone.Masu_theMove.Add((int)masu.MasuNumber);
+            //    }
+            //});
 
-            this.BrdMove = boardLog_clone;
+            //this.BrdMove = boardLog_clone;
         }
 
     }

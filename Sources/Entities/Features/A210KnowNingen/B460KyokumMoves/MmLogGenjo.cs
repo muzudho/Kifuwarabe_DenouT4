@@ -1,5 +1,6 @@
 ﻿#if DEBUG
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -30,7 +31,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         );
 
         void Log3(
-            ISky src_Sky,
+            IPosition src_Sky,
             Playerside tebanKurau,//手番（喰らう側）
             Playerside tebanSeme,//手番（利きを調べる側）
             Fingers fingers_kurau_IKUSA,//戦駒（喰らう側）
@@ -40,7 +41,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         );
 
         void Log4(
-            ISky src_Sky,
+            IPosition src_Sky,
             Playerside tebanSeme,//手番（利きを調べる側）
             Maps_OneAndOne<Finger, SySet<SyElement>> kmMove_seme_IKUSA
         );

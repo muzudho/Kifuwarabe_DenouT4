@@ -83,9 +83,9 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     // 最初はここ
 
 #if DEBUG
-                    logger.AppendLine("(^o^)... ...");
-                    logger.AppendLine("ｻｲｼｮﾊｺｺ☆　：　" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
-                    logger.Flush(LogTypes.Plain);
+                    //logger.AppendLine("(^o^)... ...");
+                    //logger.AppendLine("ｻｲｼｮﾊｺｺ☆　：　" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
+                    //logger.Flush(LogTypes.Plain);
 #endif
                     inputLine = kifuParserA_Impl.Execute_Step_CurrentMutable(
                         ref result,
@@ -114,9 +114,9 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
                     {
 #if DEBUG
-                        string message = "(^o^)ﾂｷﾞﾊ　ﾋﾗﾃ　ﾏﾀﾊ　ｼﾃｲｷｮｸﾒﾝ　ｦ　ｼｮﾘｼﾀｲ☆ inputLine=[" + inputLine + "]";
-                        logger.AppendLine(message);
-                        logger.Flush(LogTypes.Plain);
+                        //string message = "(^o^)ﾂｷﾞﾊ　ﾋﾗﾃ　ﾏﾀﾊ　ｼﾃｲｷｮｸﾒﾝ　ｦ　ｼｮﾘｼﾀｲ☆ inputLine=[" + inputLine + "]";
+                        //logger.AppendLine(message);
+                        //logger.Flush(LogTypes.Plain);
 #endif
 
                         inputLine = kifuParserA_Impl.Execute_Step_CurrentMutable(
@@ -136,8 +136,8 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
 
                     {
 #if DEBUG
-                        logger.AppendLine("(^o^)ﾂｷﾞﾊ　ﾑｰﾌﾞｽ　ｦ　ｼｮﾘｼﾀｲ☆");
-                        logger.Flush(LogTypes.Plain);
+                        //logger.AppendLine("(^o^)ﾂｷﾞﾊ　ﾑｰﾌﾞｽ　ｦ　ｼｮﾘｼﾀｲ☆");
+                        //logger.Flush(LogTypes.Plain);
 #endif
 
                         inputLine = kifuParserA_Impl.Execute_Step_CurrentMutable(
@@ -166,8 +166,8 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 if (kifuParserA_Impl.State is KifuParserAStateA2SfenMoves)
                 {
 #if DEBUG
-                    logTag.AppendLine("ﾂｷﾞﾊ　ｲｯﾃ　ｼｮﾘｼﾀｲ☆");
-                    logTag.Flush(LogTypes.Plain);
+                    //logTag.AppendLine("ﾂｷﾞﾊ　ｲｯﾃ　ｼｮﾘｼﾀｲ☆");
+                    //logTag.Flush(LogTypes.Plain);
 #endif
 
                     inputLine = kifuParserA_Impl.Execute_Step_CurrentMutable(

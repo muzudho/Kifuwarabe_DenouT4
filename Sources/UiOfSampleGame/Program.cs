@@ -1,7 +1,8 @@
 ﻿using System;
+using Grayscale.Kifuwaragyoku.Engine.Configuration;
+using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Grayscale.Kifuwaragyoku.UseCases;
 
 namespace Grayscale.Kifuwaragyoku.CliOfSampleGame
@@ -14,8 +15,11 @@ namespace Grayscale.Kifuwaragyoku.CliOfSampleGame
         /// <param name="args"></param>
         static void Main(string[] args)
         {
+            var engineConf = new EngineConf();
+            EntitiesLayer.Implement(engineConf);
+
             // 将棋エンジン　きふわらべ
-            Playing playing = new Playing();
+            Playing playing = new Playing(engineConf);
 
             // 棋譜
             int searchedMaxDepth = 0;

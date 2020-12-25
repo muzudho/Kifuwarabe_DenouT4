@@ -63,8 +63,8 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 // 
 
 #if DEBUG
-                    logTag.AppendLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... SFEN形式か...☆");
-                    logTag.Flush(LogTypes.Plain);
+                    //logTag.AppendLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... SFEN形式か...☆");
+                    //logTag.Flush(LogTypes.Plain);
 #endif
                 genjo.InputLine = genjo.InputLine.Substring("position".Length);
                 genjo.InputLine = genjo.InputLine.Trim();
@@ -81,9 +81,9 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             else
             {
 #if DEBUG
-                    Playerside pside = positionA.GetKaisiPside();//.KaisiPside;
-                    logTag.AppendLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... positionじゃなかったぜ☆　日本式か☆？　SFENでmovesを読んだあとのプログラムに合流させるぜ☆　：　先後＝[" + pside + "]");
-                    logTag.Flush(LogTypes.Plain);
+                    //Playerside pside = positionA.GetKaisiPside();//.KaisiPside;
+                    //logTag.AppendLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　ﾌﾑﾌﾑ... positionじゃなかったぜ☆　日本式か☆？　SFENでmovesを読んだあとのプログラムに合流させるぜ☆　：　先後＝[" + pside + "]");
+                    //logTag.Flush(LogTypes.Plain);
 #endif
                 nextState = KifuParserAStateA2SfenMoves.GetInstance();
             }

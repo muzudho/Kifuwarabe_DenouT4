@@ -1,4 +1,5 @@
-﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
+﻿using Grayscale.Kifuwaragyoku.Entities.Configuration;
+using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
 
@@ -24,6 +25,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="errH_orNull"></param>
         /// <returns></returns>
         public static Maps_OneAndOne<Finger, SySet<SyElement>> To_KomabetuKiki_OnBanjo(
+            IEngineConf engineConf,
             Fingers fs_sirabetaiKoma,
             SySet<SyElement> masus_mikata_Banjo,
             SySet<SyElement> masus_aite_Banjo,
@@ -36,7 +38,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             komabetuKiki = Play_KomaAndMove.MinusMasus(src_Sky, komabetuKiki, masus_mikata_Banjo);
 
             // そこから、相手番の駒がある枡「以降」を更に除外します。
-            komabetuKiki = Play_KomaAndMove.Minus_OverThereMasus(src_Sky, komabetuKiki, masus_aite_Banjo);
+            komabetuKiki = Play_KomaAndMove.Minus_OverThereMasus(engineConf, src_Sky, komabetuKiki, masus_aite_Banjo);
 
             return komabetuKiki;
         }

@@ -43,9 +43,9 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             //shogiGui_Base.Model_PnlTaikyoku.Kifu.AssertPside(shogiGui_Base.Model_PnlTaikyoku.Kifu.CurNode, "Execute_Step",logTag);
 
 #if DEBUG
-                logger.AppendLine("┏━━━━━┓(^o^)");
-                logger.AppendLine("わたしは　" + this.State.GetType().Name + "　の　Execute_Step　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
-                logger.Flush(LogTypes.Plain);
+                //logger.AppendLine("┏━━━━━┓(^o^)");
+                //logger.AppendLine("わたしは　" + this.State.GetType().Name + "　の　Execute_Step　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
+                //logger.Flush(LogTypes.Plain);
 #endif
 
             IKifuParserAState nextState;
@@ -103,9 +103,9 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             )
         {
 #if DEBUG
-                logger.AppendLine("┏━━━━━━━━━━┓");
-                logger.AppendLine("わたしは　" + this.State.GetType().Name + "　の　Execute_All　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
-                logger.Flush(LogTypes.Plain);
+                //logger.AppendLine("┏━━━━━━━━━━┓");
+                //logger.AppendLine("わたしは　" + this.State.GetType().Name + "　の　Execute_All　だぜ☆　：　呼出箇所＝" + memberName + "." + sourceFilePath + "." + sourceLineNumber);
+                //logger.Flush(LogTypes.Plain);
 #endif
 
             IKifuParserAState nextState = this.State;

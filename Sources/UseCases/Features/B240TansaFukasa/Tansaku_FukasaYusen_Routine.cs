@@ -3,6 +3,7 @@
 
 using System.Collections.Generic;
 using Grayscale.Kifuwaragyoku.Entities;
+using Grayscale.Kifuwaragyoku.Entities.Configuration;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Grayscale.Kifuwaragyoku.Entities.Searching;
@@ -204,6 +205,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             //
             int yomiDeep;
             List<Move> movelist = UtilMovePicker.CreateMovelist_BeforeLoop(
+                playing.EngineConf,
                 genjo,
 
                 psideA,//TODO:
@@ -258,7 +260,6 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             }
 
 #if DEBUG
-                exceptionArea = 20;
                 if (0 < genjo.Args.LogF_moveKiki.boards.Count)//ﾛｸﾞが残っているなら
                 {
                     ////
@@ -337,6 +338,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             // ログの書き出し
             //
             Util_GraphicalLog.WriteHtml5(
+                playing.EngineConf,
                 enableLog,
                 "指し手生成ログA",
                 "[" + Conv_KaisetuBoards.ToJsonStr(genjo.Args.LogF_moveKiki) + "]"
@@ -398,6 +400,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             //
             int yomiDeep2;
             List<Move> movelist2 = UtilMovePicker.CreateMovelist_BeforeLoop(
+                playing.EngineConf,
                 genjo,
 
                 psideA,//TODO:
@@ -561,42 +564,42 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             return result_thisDepth;
         }
 #if DEBUG
-        public static void Log1(
-            Tansaku_Genjo genjo,
-            ISky src_Sky,
-            out MmLogGenjoImpl out_mm_log,
-            out KaisetuBoard out_logBrd_move1,
-            ILogger logTag
-        )
-        {
-            Move move_forLog = Move.Empty;//ログ出力しないことにした☆（＞＿＜）
-            out_logBrd_move1 = new KaisetuBoard();// 盤１個分のログの準備
+        //public static void Log1(
+        //    Tansaku_Genjo genjo,
+        //    IPosition src_Sky,
+        //    out MmLogGenjoImpl out_mm_log,
+        //    out KaisetuBoard out_logBrd_move1,
+        //    ILogger logTag
+        //)
+        //{
+        //    Move move_forLog = Move.Empty;//ログ出力しないことにした☆（＞＿＜）
+        //    out_logBrd_move1 = new KaisetuBoard();// 盤１個分のログの準備
 
-                out_mm_log = new MmLogGenjoImpl(
-                        genjo.YomikaisiTemezumi,
-                        out_logBrd_move1,//ログ？
-                        src_Sky.Temezumi,//手済み
-                        move_forLog,//指し手
-                        logTag//ログ
-                    );
-        }
-        private static void Log2(
-            Tansaku_Genjo genjo,
-            MoveEx node_yomi,
-            KaisetuBoard logBrd_move1,
-            ILogger logTag
-        )
-        {
-                logBrd_move1.Move = node_yomi.Key;
+        //        out_mm_log = new MmLogGenjoImpl(
+        //                genjo.YomikaisiTemezumi,
+        //                out_logBrd_move1,//ログ？
+        //                src_Sky.Temezumi,//手済み
+        //                move_forLog,//指し手
+        //                logTag//ログ
+        //            );
+        //}
+        //private static void Log2(
+        //    Tansaku_Genjo genjo,
+        //    MoveEx node_yomi,
+        //    KaisetuBoard logBrd_move1,
+        //    ILogger logTag
+        //)
+        //{
+        //        logBrd_move1.Move = node_yomi.Key;
 
-                SyElement srcMasu = ConvMove.ToSrcMasu(logBrd_move1.Move);
-                SyElement dstMasu = ConvMove.ToDstMasu(logBrd_move1.Move);
+        //        SyElement srcMasu = ConvMove.ToSrcMasu(logBrd_move1.Move);
+        //        SyElement dstMasu = ConvMove.ToDstMasu(logBrd_move1.Move);
 
-                // ログ試し
-                logBrd_move1.Arrow.Add(new Gkl_Arrow(Conv_Masu.ToMasuHandle(srcMasu),
-                    Conv_Masu.ToMasuHandle(dstMasu)));
-                genjo.Args.LogF_moveKiki.boards.Add(logBrd_move1);
-        }
+        //        // ログ試し
+        //        logBrd_move1.Arrow.Add(new Gkl_Arrow(Conv_Masu.ToMasuHandle(srcMasu),
+        //            Conv_Masu.ToMasuHandle(dstMasu)));
+        //        genjo.Args.LogF_moveKiki.boards.Add(logBrd_move1);
+        //}
 #endif
     }
 

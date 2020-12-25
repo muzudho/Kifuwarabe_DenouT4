@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Grayscale.Kifuwaragyoku.Entities;
+using Grayscale.Kifuwaragyoku.Entities.Configuration;
 using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
@@ -15,8 +16,10 @@ namespace Grayscale.Kifuwaragyoku.UseCases
 {
     public class Playing : IPlaying
     {
-        public Playing()
+        public Playing(IEngineConf engineConf)
         {
+            this.EngineConf = engineConf;
+
             //-------------+----------------------------------------------------------------------------------------------------------
             // データ設計  |
             //-------------+----------------------------------------------------------------------------------------------------------
@@ -83,6 +86,11 @@ namespace Grayscale.Kifuwaragyoku.UseCases
             this.FeatureVector = new FeatureVector();
             this.TimeManager = new TimeManager(this.EngineOptions.GetOption(EngineOptionNames.THINKING_MILLI_SECOND).GetNumber());
         }
+
+        /// <summary>
+        /// エンジン設定。
+        /// </summary>
+        public IEngineConf EngineConf { get; private set; }
 
         /// <summary>
         /// 開始局面。
@@ -187,7 +195,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases
             this.Kifu = kifu;
             //this.m_positionA_ = kifu.GetSky();
         }
-        //private ISky m_positionA_;
+        //private IPosition m_positionA_;
 
         /// <summary>
         /// USI「setoption」コマンドのリストです。
@@ -204,9 +212,9 @@ namespace Grayscale.Kifuwaragyoku.UseCases
             Util_Message.Upload(line);
 
 #if DEBUG
-            // 送信記録をつけます。
-            Util_Loggers.ProcessEngine_NETWORK.AppendLine(line);
-            Util_Loggers.ProcessEngine_NETWORK.Flush(LogTypes.ToServer);
+            //// 送信記録をつけます。
+            //Util_Loggers.ProcessEngine_NETWORK.AppendLine(line);
+            //Util_Loggers.ProcessEngine_NETWORK.Flush(LogTypes.ToServer);
 #endif
         }
 
@@ -435,9 +443,9 @@ namespace Grayscale.Kifuwaragyoku.UseCases
             // 将棋エンジン「おっおっ、設定を終わらせておかなければ（汗、汗…）」
             //------------------------------------------------------------
 #if DEBUG
-            // ログ出力
-            Util_Loggers.ProcessEngine_DEFAULT.AppendLine(this.EngineOptions.ToString());
-            Util_Loggers.ProcessEngine_DEFAULT.Flush(LogTypes.Plain);
+            //// ログ出力
+            //Util_Loggers.ProcessEngine_DEFAULT.AppendLine(this.EngineOptions.ToString());
+            //Util_Loggers.ProcessEngine_DEFAULT.Flush(LogTypes.Plain);
 #endif
 
             //------------------------------------------------------------
@@ -506,8 +514,8 @@ namespace Grayscale.Kifuwaragyoku.UseCases
             //
             //
 #if DEBUG
-            Util_Loggers.ProcessEngine_DEFAULT.AppendLine("(^-^)ﾉｼ");
-            Util_Loggers.ProcessEngine_DEFAULT.Flush(LogTypes.Plain);
+            //Util_Loggers.ProcessEngine_DEFAULT.AppendLine("(^-^)ﾉｼ");
+            //Util_Loggers.ProcessEngine_DEFAULT.Flush(LogTypes.Plain);
 #endif
         }
 
@@ -1049,21 +1057,21 @@ namespace Grayscale.Kifuwaragyoku.UseCases
 
 
 #if DEBUG
-            //
-            // 評価明細ログの書出し
-            //
-            Util_KifuTreeLogWriter.A_Write_KifuTreeLog(
-                logF_kiki,
-                kifu1,
-                logTag
-                );
-            //Util_LogWriter500_HyokaMeisai.Log_Html5(
-            //    this,
+            ////
+            //// 評価明細ログの書出し
+            ////
+            //Util_KifuTreeLogWriter.A_Write_KifuTreeLog(
             //    logF_kiki,
-            //    kifu,
-            //    playerInfo,
+            //    kifu1,
             //    logTag
             //    );
+            ////Util_LogWriter500_HyokaMeisai.Log_Html5(
+            ////    this,
+            ////    logF_kiki,
+            ////    kifu,
+            ////    playerInfo,
+            ////    logTag
+            ////    );
 #endif
 
             this.TimeManager.Stopwatch.Stop();

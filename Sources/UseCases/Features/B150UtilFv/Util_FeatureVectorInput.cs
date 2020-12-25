@@ -5,6 +5,7 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Windows.Forms;
+    using Grayscale.Kifuwaragyoku.Entities.Evaluation;
     using Grayscale.Kifuwaragyoku.Entities.Features;
     using Grayscale.Kifuwaragyoku.Entities.Logging;
 #else
@@ -267,11 +268,11 @@
             string filepath2 = Path.Combine(Application.StartupPath, filepath1);
 
 #if DEBUG
-            logTag.AppendLine("----------------------------------------");
-            logTag.AppendLine("FV 総合点（読込前）2");
-            logTag.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
-            logTag.AppendLine("----------------------------------------");
-            logTag.Flush(LogTypes.Plain);
+            //logTag.AppendLine("----------------------------------------");
+            //logTag.AppendLine("FV 総合点（読込前）2");
+            //logTag.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            //logTag.AppendLine("----------------------------------------");
+            //logTag.Flush(LogTypes.Plain);
 #endif
 
             if (!File.Exists(filepath2))
@@ -360,16 +361,16 @@
             }
 
 #if DEBUG
-            logTag.AppendLine("----------------------------------------");
-            logTag.AppendLine("FV 総合点（読込後）4");
-            logTag.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
-            logTag.AppendLine("----------------------------------------");
-            logTag.Flush(LogTypes.Plain);
+            //logTag.AppendLine("----------------------------------------");
+            //logTag.AppendLine("FV 総合点（読込後）4");
+            //logTag.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            //logTag.AppendLine("----------------------------------------");
+            //logTag.Flush(LogTypes.Plain);
 
-            //MessageBox.Show(
-            //    "rowVersion=[" + rowVersion + "]\n" +
-            //            "rowKk=[" + rowKk + "]\n"
-            //, "デバッグ");
+            ////MessageBox.Show(
+            ////    "rowVersion=[" + rowVersion + "]\n" +
+            ////            "rowKk=[" + rowKk + "]\n"
+            ////, "デバッグ");
 #endif
             successful = true;
         gt_EndMethod:
@@ -390,11 +391,11 @@
             string filepath2 = Path.Combine(Application.StartupPath, filepath1);
 
 #if DEBUG
-            logTag.AppendLine("----------------------------------------");
-            logTag.AppendLine("FV 総合点（読込前）6");
-            logTag.AppendLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
-            logTag.AppendLine("----------------------------------------");
-            logTag.Flush(LogTypes.Plain);
+            //logTag.AppendLine("----------------------------------------");
+            //logTag.AppendLine("FV 総合点（読込前）6");
+            //logTag.AppendLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            //logTag.AppendLine("----------------------------------------");
+            //logTag.Flush(LogTypes.Plain);
 #endif
 
             if (!File.Exists(filepath2))
@@ -599,16 +600,16 @@
             }
 
 #if DEBUG
-            logTag.AppendLine("----------------------------------------");
-            logTag.AppendLine("FV 総合点（読込後）5");
-            logTag.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
-            logTag.AppendLine("----------------------------------------");
-            logTag.Flush(LogTypes.Plain);
+            //logTag.AppendLine("----------------------------------------");
+            //logTag.AppendLine("FV 総合点（読込後）5");
+            //logTag.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            //logTag.AppendLine("----------------------------------------");
+            //logTag.Flush(LogTypes.Plain);
 
-            //MessageBox.Show(
-            //    "rowVersion=[" + rowVersion + "]\n" +
-            //            "rowKk=[" + rowBanjo + "]\n"
-            //, "デバッグ");
+            ////MessageBox.Show(
+            ////    "rowVersion=[" + rowVersion + "]\n" +
+            ////            "rowKk=[" + rowBanjo + "]\n"
+            ////, "デバッグ");
 #endif
             successful = true;
         gt_EndMethod:
@@ -645,11 +646,11 @@
             string filepath2 = Path.Combine(Application.StartupPath, filepath1);
 
 #if DEBUG
-            logTag.AppendLine("----------------------------------------");
-            logTag.AppendLine("FV 総合点（読込前）3");
-            logTag.AppendLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
-            logTag.AppendLine("----------------------------------------");
-            logTag.Flush(LogTypes.Plain);
+            //logTag.AppendLine("----------------------------------------");
+            //logTag.AppendLine("FV 総合点（読込前）3");
+            //logTag.AppendLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            //logTag.AppendLine("----------------------------------------");
+            //logTag.Flush(LogTypes.Plain);
 #endif
 
             if (!File.Exists(filepath2))
@@ -860,16 +861,16 @@
             }
 
 #if DEBUG
-            logTag.AppendLine("----------------------------------------");
-            logTag.AppendLine("FV 総合点（読込後）1");
-            logTag.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
-            logTag.AppendLine("----------------------------------------");
-            logTag.Flush(LogTypes.Plain);
+            //logTag.AppendLine("----------------------------------------");
+            //logTag.AppendLine("FV 総合点（読込後）1");
+            //logTag.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            //logTag.AppendLine("----------------------------------------");
+            //logTag.Flush(LogTypes.Plain);
 
-            //MessageBox.Show(
-            //    "rowVersion=[" + rowVersion + "]\n" +
-            //            "rowKk=[" + rowNestedShogiban + "]\n"
-            //, "デバッグ");
+            ////MessageBox.Show(
+            ////    "rowVersion=[" + rowVersion + "]\n" +
+            ////            "rowKk=[" + rowNestedShogiban + "]\n"
+            ////, "デバッグ");
 #endif
             successful = true;
         gt_EndMethod:
@@ -897,11 +898,11 @@
 
 
 #if DEBUG
-            logTag.AppendLine("----------------------------------------");
-            logTag.AppendLine("FV 総合点（読込前）4");
-            logTag.AppendLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
-            logTag.AppendLine("----------------------------------------");
-            logTag.Flush(LogTypes.Plain);
+            //logTag.AppendLine("----------------------------------------");
+            //logTag.AppendLine("FV 総合点（読込前）4");
+            //logTag.AppendLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            //logTag.AppendLine("----------------------------------------");
+            //logTag.Flush(LogTypes.Plain);
 #endif
 
             if (!File.Exists(filepath2))
@@ -1124,15 +1125,15 @@
             }
 
 #if DEBUG
-            logTag.AppendLine("----------------------------------------");
-            logTag.AppendLine("FV 総合点（読込後）2");
-            logTag.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
-            logTag.AppendLine("----------------------------------------");
-            logTag.Flush(LogTypes.Plain);
+            //logTag.AppendLine("----------------------------------------");
+            //logTag.AppendLine("FV 総合点（読込後）2");
+            //logTag.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            //logTag.AppendLine("----------------------------------------");
+            //logTag.Flush(LogTypes.Plain);
 
-            //MessageBox.Show(
-            //    "rowVersion=[" + rowVersion + "]\n" 
-            //, "デバッグ");
+            ////MessageBox.Show(
+            ////    "rowVersion=[" + rowVersion + "]\n" 
+            ////, "デバッグ");
 #endif
             successful = true;
         gt_EndMethod:
@@ -1155,11 +1156,11 @@
             string filepath2 = Path.Combine(Application.StartupPath, filepath1);
 
 #if DEBUG
-            logTag.AppendLine("----------------------------------------");
-            logTag.AppendLine("FV 総合点（読込前）5");
-            logTag.AppendLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
-            logTag.AppendLine("----------------------------------------");
-            logTag.Flush(LogTypes.Plain);
+            //logTag.AppendLine("----------------------------------------");
+            //logTag.AppendLine("FV 総合点（読込前）5");
+            //logTag.AppendLine("    PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            //logTag.AppendLine("----------------------------------------");
+            //logTag.Flush(LogTypes.Plain);
 #endif
 
             if (!File.Exists(filepath2))
@@ -1368,15 +1369,15 @@
             }
 
 #if DEBUG
-            logTag.AppendLine("----------------------------------------");
-            logTag.AppendLine("FV 総合点（読込後）3");
-            logTag.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
-            logTag.AppendLine("----------------------------------------");
-            logTag.Flush(LogTypes.Plain);
+            //logTag.AppendLine("----------------------------------------");
+            //logTag.AppendLine("FV 総合点（読込後）3");
+            //logTag.AppendLine("      PP =" + Util_FeatureVectorEdit.GetTotal_PP(fv));
+            //logTag.AppendLine("----------------------------------------");
+            //logTag.Flush(LogTypes.Plain);
 
-            //MessageBox.Show(
-            //    "rowVersion=[" + rowVersion + "]\n" 
-            //, "デバッグ");
+            ////MessageBox.Show(
+            ////    "rowVersion=[" + rowVersion + "]\n" 
+            ////, "デバッグ");
 #endif
             successful = true;
         gt_EndMethod:

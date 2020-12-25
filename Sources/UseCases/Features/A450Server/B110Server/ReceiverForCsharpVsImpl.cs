@@ -57,8 +57,8 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             {
                 //>>>>>>>>>> メッセージを受け取りました。
 #if DEBUG
-                logTag.AppendLine(line);
-                logTag.Flush(LogTypes.ToServer);
+                //logTag.AppendLine(line);
+                //logTag.Flush(LogTypes.ToServer);
 #endif
 
                 if ("noop" == line)
@@ -132,8 +132,8 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                         );
 
 #if DEBUG
-                    logTag.AppendLine("USI受信：bestmove input99=[" + ((Server)((EngineClient)this.Owner_EngineClient).Owner_Server).InputString99 + "]");
-                    logTag.Flush(LogTypes.Plain);
+                    //logTag.AppendLine("USI受信：bestmove input99=[" + ((Server)((EngineClient)this.Owner_EngineClient).Owner_Server).InputString99 + "]");
+                    //logTag.Flush(LogTypes.Plain);
 #endif
                 }
                 else

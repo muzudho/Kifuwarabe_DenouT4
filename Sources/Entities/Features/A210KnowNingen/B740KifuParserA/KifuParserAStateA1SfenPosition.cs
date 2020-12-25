@@ -50,8 +50,8 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 #if DEBUG
-                    logTag.AppendLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　平手のようなんだぜ☆");
-                    logTag.Flush(LogTypes.Plain);
+                    //logTag.AppendLine("（＾△＾）「" + genjo.InputLine + "」vs【" + this.GetType().Name + "】　：　平手のようなんだぜ☆");
+                    //logTag.Flush(LogTypes.Plain);
 #endif
 
                 genjo.InputLine = genjo.InputLine.Substring("startpos".Length);
