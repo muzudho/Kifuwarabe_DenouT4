@@ -10,73 +10,75 @@
 
     public static class Logger
     {
-        static Logger()
+        /// <summary>
+        /// このクラスを使う前にセットしてください。
+        /// </summary>
+        public static void Init(IEngineConf engineConf)
         {
-            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
-            var logDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.LogDirectory));
+            EngineConf = engineConf;
 
-            TraceRecord = LogEntry(logDirectory, toml, SpecifiedFiles.Trace, true, true, false, null);
-            DebugRecord = LogEntry(logDirectory, toml, SpecifiedFiles.Debug, true, true, false, null);
-            InfoRecord = LogEntry(logDirectory, toml, SpecifiedFiles.Info, true, true, false, null);
-            NoticeRecord = LogEntry(logDirectory, toml, SpecifiedFiles.Notice, true, true, false, null);
-            WarnRecord = LogEntry(logDirectory, toml, SpecifiedFiles.Warn, true, true, false, null);
-            ErrorRecord = LogEntry(logDirectory, toml, SpecifiedFiles.Error, true, true, false, null);
-            FatalRecord = LogEntry(logDirectory, toml, SpecifiedFiles.Fatal, true, true, false, null);
+            TraceRecord = LogEntry(SpecifiedFiles.Trace, true, true, false, null);
+            DebugRecord = LogEntry(SpecifiedFiles.Debug, true, true, false, null);
+            InfoRecord = LogEntry(SpecifiedFiles.Info, true, true, false, null);
+            NoticeRecord = LogEntry(SpecifiedFiles.Notice, true, true, false, null);
+            WarnRecord = LogEntry(SpecifiedFiles.Warn, true, true, false, null);
+            ErrorRecord = LogEntry(SpecifiedFiles.Error, true, true, false, null);
+            FatalRecord = LogEntry(SpecifiedFiles.Fatal, true, true, false, null);
 
             /*
             var logFile = LogFile.AsLog(logDirectory, $"default_({System.Diagnostics.Process.GetCurrentProcess()}).log");
             AddLog(LogTags.Default, new LogRecord(logFile, false, false, false, null));
 
             // ログを出せなかったときなど、致命的なエラーにも利用。
-            AddLog(LogTags.ProcessNoneError, LogEntry(logDirectory, toml, SpecifiedFiles.N01ProcessNoneErrorLog, true, false, false, null));
+            AddLog(LogTags.ProcessNoneError, LogEntry(SpecifiedFiles.N01ProcessNoneErrorLog, true, false, false, null));
             // 汎用ログ。千日手判定用。
-            AddLog(LogTags.PeocessNoneSennitite, LogEntry(logDirectory, toml, SpecifiedFiles.N02PeocessNoneSennititeLog, true, false, false, null));
-            AddLog(LogTags.ProcessServerDefault, LogEntry(logDirectory, toml, SpecifiedFiles.N03ProcessServerDefaultLog, true, false, false, null));
+            AddLog(LogTags.PeocessNoneSennitite, LogEntry(SpecifiedFiles.N02PeocessNoneSennititeLog, true, false, false, null));
+            AddLog(LogTags.ProcessServerDefault, LogEntry(SpecifiedFiles.N03ProcessServerDefaultLog, true, false, false, null));
             // 擬似将棋サーバーのログ。ログ。送受信内容の記録専用です。
-            AddLog(LogTags.ProcessServerNetworkAsync, LogEntry(logDirectory, toml, SpecifiedFiles.N04ProcessServerNetworkAsyncLog, true, true, false, null));
+            AddLog(LogTags.ProcessServerNetworkAsync, LogEntry(SpecifiedFiles.N04ProcessServerNetworkAsyncLog, true, true, false, null));
             // C# GUIのログ。
-            AddLog(LogTags.ProcessGuiDefault, LogEntry(logDirectory, toml, SpecifiedFiles.N05ProcessGuiDefaultLog, true, false, false, new ErrorControllerImpl()));
+            AddLog(LogTags.ProcessGuiDefault, LogEntry(SpecifiedFiles.N05ProcessGuiDefaultLog, true, false, false, new ErrorControllerImpl()));
             // C# GUIのログ。
-            AddLog(LogTags.ProcessGuiKifuYomitori, LogEntry(logDirectory, toml, SpecifiedFiles.N06ProcessGuiKifuYomitoriLog, true, false, false, null));
+            AddLog(LogTags.ProcessGuiKifuYomitori, LogEntry(SpecifiedFiles.N06ProcessGuiKifuYomitoriLog, true, false, false, null));
             // C# GUIのログ。
-            AddLog(LogTags.ProcessGuiNetwork, LogEntry(logDirectory, toml, SpecifiedFiles.N07ProcessGuiNetworkLog, true, true, false, null));
+            AddLog(LogTags.ProcessGuiNetwork, LogEntry(SpecifiedFiles.N07ProcessGuiNetworkLog, true, true, false, null));
             // C# GUIのログ。
-            AddLog(LogTags.ProcessGuiPaint, LogEntry(logDirectory, toml, SpecifiedFiles.N08ProcessGuiPaintLog, true, false, false, null));
+            AddLog(LogTags.ProcessGuiPaint, LogEntry(SpecifiedFiles.N08ProcessGuiPaintLog, true, false, false, null));
             // C# GUIのログ。
-            AddLog(LogTags.ProcessGuiSennitite, LogEntry(logDirectory, toml, SpecifiedFiles.N09ProcessGuiSennititeLog, true, false, false, null));
+            AddLog(LogTags.ProcessGuiSennitite, LogEntry(SpecifiedFiles.N09ProcessGuiSennititeLog, true, false, false, null));
             // AIMS GUIに対応する用のログ。
-            AddLog(LogTags.ProcessAimsDefault, LogEntry(logDirectory, toml, SpecifiedFiles.N10ProcessAimsDefaultLog, true, false, false, null));
+            AddLog(LogTags.ProcessAimsDefault, LogEntry(SpecifiedFiles.N10ProcessAimsDefaultLog, true, false, false, null));
             // 将棋エンジンのログ。将棋エンジンきふわらべで汎用に使います。
-            AddLog(LogTags.ProcessEngineDefault, LogEntry(logDirectory, toml, SpecifiedFiles.N11ProcessEngineDefaultLog, true, false, false, new ErrorControllerImpl()));
+            AddLog(LogTags.ProcessEngineDefault, LogEntry(SpecifiedFiles.N11ProcessEngineDefaultLog, true, false, false, new ErrorControllerImpl()));
             // 将棋エンジンのログ。送受信内容の記録専用です。
-            AddLog(LogTags.ProcessEngineNetwork, LogEntry(logDirectory, toml, SpecifiedFiles.N12ProcessEngineNetworkLog, true, true, false, null));
+            AddLog(LogTags.ProcessEngineNetwork, LogEntry(SpecifiedFiles.N12ProcessEngineNetworkLog, true, true, false, null));
             // 将棋エンジンのログ。思考ルーチン専用です。
-            AddLog(LogTags.ProcessEngineSennitite, LogEntry(logDirectory, toml, SpecifiedFiles.N13ProcessEngineSennititeLog, true, false, false, null));
+            AddLog(LogTags.ProcessEngineSennitite, LogEntry(SpecifiedFiles.N13ProcessEngineSennititeLog, true, false, false, null));
             // その他のログ。汎用。テスト・プログラム用。
-            AddLog(LogTags.ProcessTestProgramDefault, LogEntry(logDirectory, toml, SpecifiedFiles.N14ProcessTestProgramDefaultLog, true, false, false, null));
+            AddLog(LogTags.ProcessTestProgramDefault, LogEntry(SpecifiedFiles.N14ProcessTestProgramDefaultLog, true, false, false, null));
             // その他のログ。棋譜学習ソフト用。
-            AddLog(LogTags.ProcessLearnerDefault, LogEntry(logDirectory, toml, SpecifiedFiles.N15ProcessLearnerDefaultLog, true, false, false, new ErrorControllerImpl()));
+            AddLog(LogTags.ProcessLearnerDefault, LogEntry(SpecifiedFiles.N15ProcessLearnerDefaultLog, true, false, false, new ErrorControllerImpl()));
             // その他のログ。スピード計測ソフト用。
-            AddLog(LogTags.ProcessSpeedTestKeisoku, LogEntry(logDirectory, toml, SpecifiedFiles.N16ProcessSpeedTestKeisokuLog, true, false, false, null));
+            AddLog(LogTags.ProcessSpeedTestKeisoku, LogEntry(SpecifiedFiles.N16ProcessSpeedTestKeisokuLog, true, false, false, null));
             // その他のログ。ユニット・テスト用。
-            AddLog(LogTags.ProcessUnitTestDefault, LogEntry(logDirectory, toml, SpecifiedFiles.N17ProcessUnitTestDefaultLog, true, false, true, new ErrorControllerImpl()));
+            AddLog(LogTags.ProcessUnitTestDefault, LogEntry(SpecifiedFiles.N17ProcessUnitTestDefaultLog, true, false, true, new ErrorControllerImpl()));
             */
         }
 
-        static ILogRecord LogEntry(string logDirectory, TomlTable toml, string resourceKey, bool enabled, bool timeStampPrintable, bool enableConsole, IErrorController kwDisplayer_OrNull)
+        static ILogRecord LogEntry(string key, bool enabled, bool timeStampPrintable, bool enableConsole, IErrorController kwDisplayer_OrNull)
         {
-            var logFile = ResFile.AsLog(logDirectory, toml.Get<TomlTable>("Logs").Get<string>(resourceKey));
+            var logFile = ResFile.AsLog(EngineConf.LogDirectory, EngineConf.GetLogBasename(key));
             return new LogRecord(logFile, enabled, timeStampPrintable, enableConsole, kwDisplayer_OrNull);
         }
 
-        static readonly ILogRecord TraceRecord;
-        static readonly ILogRecord DebugRecord;
-        static readonly ILogRecord InfoRecord;
-        static readonly ILogRecord NoticeRecord;
-        static readonly ILogRecord WarnRecord;
-        static readonly ILogRecord ErrorRecord;
-        static readonly ILogRecord FatalRecord;
+        static IEngineConf EngineConf { get; set; }
+        public static ILogRecord TraceRecord { get; private set; }
+        public static ILogRecord DebugRecord { get; private set; }
+        public static ILogRecord InfoRecord { get; private set; }
+        public static ILogRecord NoticeRecord { get; private set; }
+        public static ILogRecord WarnRecord { get; private set; }
+        public static ILogRecord ErrorRecord { get; private set; }
+        public static ILogRecord FatalRecord { get; private set; }
 
         /// <summary>
         /// テキストをそのまま、ファイルへ出力するためのものです。
