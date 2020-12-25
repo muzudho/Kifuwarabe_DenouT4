@@ -51,7 +51,7 @@ namespace Grayscale.Kifuwaragyoku.Engine
                 //------------------------------------------------------------------------------------------------------------------------
                 // 思考エンジンの、記憶を読み取ります。
                 //------------------------------------------------------------------------------------------------------------------------
-                Util_FvLoad.OpenFv(playing.FeatureVector, engineConf.GetResourceFullPath(SpecifiedFiles.Fv00Komawari));
+                Util_FvLoad.OpenFv(engineConf, playing.FeatureVector, engineConf.GetResourceFullPath(SpecifiedFiles.Fv00Komawari));
 
                 //------------------------------------------------------------------------------------------------------------------------
                 // ファイル読込み

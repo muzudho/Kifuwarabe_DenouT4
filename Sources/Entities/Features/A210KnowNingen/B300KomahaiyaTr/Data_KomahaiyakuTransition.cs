@@ -267,7 +267,7 @@ columnCount=[{columnCount}]");
             sb.AppendLine("</head>");
             sb.AppendLine("<body>");
 
-            var dataDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("DataDirectory"));
+            var dataDirectory = Path.Combine(profilePath, engineConf.GetResourceBasename("DataDirectory"));
 
             foreach (KeyValuePair<Komasyurui14, Komahaiyaku185[]> entry1 in Data_KomahaiyakuTransition.Map)
             {

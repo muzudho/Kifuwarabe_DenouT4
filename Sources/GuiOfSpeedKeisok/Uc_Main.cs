@@ -6,6 +6,7 @@ using System.Text;
 using System.Windows.Forms;
 using Grayscale.Kifuwaragyoku.Engine.Configuration;
 using Grayscale.Kifuwaragyoku.Entities;
+using Grayscale.Kifuwaragyoku.Entities.Configuration;
 using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Positioning;
@@ -31,17 +32,12 @@ namespace Grayscale.Kifuwaragyoku.GuiOfSpeedKeisok
             }
         }
 
-        //public Sky Src_Sky { get; set; }
-        public IFeatureVector FeatureVector { get; set; }
-        public ITree Kifu { get; set; }
-
-
         public UcMain()
         {
-            var engineConf = new EngineConf();
-            EntitiesLayer.Implement(engineConf);
+            EngineConf = new EngineConf();
+            EntitiesLayer.Implement(EngineConf);
 
-            IPlaying playing = new Playing(engineConf);
+            IPlaying playing = new Playing(EngineConf);
 
             this.FeatureVector = new FeatureVector();
             {
@@ -52,6 +48,11 @@ namespace Grayscale.Kifuwaragyoku.GuiOfSpeedKeisok
             }
             InitializeComponent();
         }
+        public IEngineConf EngineConf { get; private set; }
+
+        //public Sky Src_Sky { get; set; }
+        public IFeatureVector FeatureVector { get; set; }
+        public ITree Kifu { get; set; }
 
         private KeisokuResult Keisoku(IHyokakansu handan1, IPosition positionA)
         {
@@ -137,7 +138,7 @@ namespace Grayscale.Kifuwaragyoku.GuiOfSpeedKeisok
 
                     StringBuilder sb_result = new StringBuilder();
                     // フィーチャー・ベクターの外部ファイルを開きます。
-                    sb_result.Append(Util_FvLoad.OpenFv(this.FeatureVector, filepath_base));
+                    sb_result.Append(Util_FvLoad.OpenFv(EngineConf, this.FeatureVector, filepath_base));
 
                     this.txtResult.Text = sb_result.ToString();
 
