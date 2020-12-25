@@ -1,4 +1,4 @@
-﻿namespace Grayscale.Kifuwaragyoku.Entities.Logging
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Configuration
 {
     public static class SpecifiedFiles
     {

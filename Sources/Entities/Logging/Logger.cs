@@ -5,13 +5,11 @@
     using System.IO;
     using System.Text;
     using System.Windows.Forms;
+    using Grayscale.Kifuwaragyoku.Entities.Configuration;
     using Nett;
 
     public static class Logger
     {
-        private static readonly Guid unique = Guid.NewGuid();
-        public static Guid Unique { get { return unique; } }
-
         static Logger()
         {
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
@@ -68,7 +66,7 @@
 
         static ILogRecord LogEntry(string logDirectory, TomlTable toml, string resourceKey, bool enabled, bool timeStampPrintable, bool enableConsole, IErrorController kwDisplayer_OrNull)
         {
-            var logFile = LogFile.AsLog(logDirectory, toml.Get<TomlTable>("Logs").Get<string>(resourceKey));
+            var logFile = ResFile.AsLog(logDirectory, toml.Get<TomlTable>("Logs").Get<string>(resourceKey));
             return new LogRecord(logFile, enabled, timeStampPrintable, enableConsole, kwDisplayer_OrNull);
         }
 
@@ -85,7 +83,7 @@
         /// </summary>
         /// <param name="path"></param>
         /// <param name="contents"></param>
-        public static void WriteFile(ILogFile logFile, string contents)
+        public static void WriteFile(IResFile logFile, string contents)
         {
             File.WriteAllText(logFile.Name, contents);
             // MessageBox.Show($a"ファイルを出力しました。
@@ -97,7 +95,7 @@
         /// </summary>
         /// <param name="line"></param>
         [Conditional("DEBUG")]
-        public static void Trace(string line, ILogFile targetOrNull = null)
+        public static void Trace(string line, IResFile targetOrNull = null)
         {
             Logger.XLine(TraceRecord, "Trace", line, targetOrNull);
         }
@@ -107,7 +105,7 @@
         /// </summary>
         /// <param name="line"></param>
         [Conditional("DEBUG")]
-        public static void Debug(string line, ILogFile targetOrNull = null)
+        public static void Debug(string line, IResFile targetOrNull = null)
         {
             Logger.XLine(DebugRecord, "Debug", line, targetOrNull);
         }
@@ -116,7 +114,7 @@
         /// インフォ・レベル。
         /// </summary>
         /// <param name="line"></param>
-        public static void Info(string line, ILogFile targetOrNull = null)
+        public static void Info(string line, IResFile targetOrNull = null)
         {
             Logger.XLine(InfoRecord, "Info", line, targetOrNull);
         }
@@ -125,7 +123,7 @@
         /// ノティス・レベル。
         /// </summary>
         /// <param name="line"></param>
-        public static void Notice(string line, ILogFile targetOrNull = null)
+        public static void Notice(string line, IResFile targetOrNull = null)
         {
             Logger.XLine(NoticeRecord, "Notice", line, targetOrNull);
         }
@@ -134,7 +132,7 @@
         /// ワーン・レベル。
         /// </summary>
         /// <param name="line"></param>
-        public static void Warn(string line, ILogFile targetOrNull = null)
+        public static void Warn(string line, IResFile targetOrNull = null)
         {
             Logger.XLine(WarnRecord, "Warn", line, targetOrNull);
         }
@@ -143,7 +141,7 @@
         /// エラー・レベル。
         /// </summary>
         /// <param name="line"></param>
-        public static void Error(string line, ILogFile targetOrNull = null)
+        public static void Error(string line, IResFile targetOrNull = null)
         {
             Logger.XLine(ErrorRecord, "Error", line, targetOrNull);
         }
@@ -152,7 +150,7 @@
         /// ファータル・レベル。
         /// </summary>
         /// <param name="line"></param>
-        public static void Fatal(string line, ILogFile targetOrNull = null)
+        public static void Fatal(string line, IResFile targetOrNull = null)
         {
             Logger.XLine(FatalRecord, "Fatal", line, targetOrNull);
         }
@@ -161,7 +159,7 @@
         /// ログ・ファイルに記録します。失敗しても無視します。
         /// </summary>
         /// <param name="line"></param>
-        static void XLine(ILogRecord record, string level, string line, ILogFile targetOrNull)
+        static void XLine(ILogRecord record, string level, string line, IResFile targetOrNull)
         {
             // ログ出力オフ
             if (!record.Enabled)
