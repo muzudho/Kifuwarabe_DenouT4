@@ -69,15 +69,15 @@ namespace Grayscale.Kifuwaragyoku.Engine
                     Array_ForcePromotion.Load(engineConf.GetResourceFullPath(SpecifiedFiles.InputForcePromotion), Encoding.UTF8);
 
 #if DEBUG
-                    File.WriteAllText(engineConf.GetResourceFullPath(SpecifiedFiles.OutputForcePromotion), Array_ForcePromotion.LogHtml());
+                    File.WriteAllText(engineConf.GetResourceFullPath(SpecifiedFiles.OutputForcePromotion), Array_ForcePromotion.LogHtml(engineConf));
 #endif
 
                     // データの読取「配役転換表」
-                    Data_KomahaiyakuTransition.Load(engineConf.GetResourceFullPath(SpecifiedFiles.InputSyuruiToHaiyaku), Encoding.UTF8);
+                    Data_KomahaiyakuTransition.Load(engineConf, engineConf.GetResourceFullPath(SpecifiedFiles.InputSyuruiToHaiyaku), Encoding.UTF8);
 
 #if DEBUG
                     {
-                        File.WriteAllText(engineConf.GetResourceFullPath(SpecifiedFiles.OutputSyuruiToHaiyaku), Data_KomahaiyakuTransition.Format_LogHtml());
+                        File.WriteAllText(engineConf.GetResourceFullPath(SpecifiedFiles.OutputSyuruiToHaiyaku), Data_KomahaiyakuTransition.Format_LogHtml(engineConf));
                     }
 #endif
                 }

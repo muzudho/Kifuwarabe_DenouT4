@@ -25,8 +25,43 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
     /// </summary>
     public class MainGui_CsharpImpl : MainGui_Csharp
     {
+        /// <summary>
+        /// 生成後、OwnerFormをセットしてください。
+        /// </summary>
+        public MainGui_CsharpImpl(IEngineConf engineConf)
+        {
+            this.m_skyWrapper_Gui_ = new SkyWrapper_GuiImpl();
+            this.server = new Server_Impl(engineConf, this.m_skyWrapper_Gui_.GuiSky, new ReceiverForCsharpVsImpl());
 
-        #region プロパティー
+            this.Widgets = new Dictionary<string, UserWidget>();
+
+            this.consoleWindowGui = new SubGuiImpl(this);
+
+            this.TimedA = new TimedA_EngineCapture(this);
+            this.TimedB_MouseCapture = new TimedBMouseCapture(this);
+            this.TimedC = new TimedC_SaiseiCapture(this);
+
+            this.WidgetLoaders = new List<WidgetsLoader>();
+            this.RepaintRequest = new RepaintRequestImpl();
+
+            //----------
+            // ビュー
+            //----------
+            //
+            //      ボタンや将棋盤などを描画するツールを、事前準備しておきます。
+            //
+            this.shape_PnlTaikyoku = new ShapePnlTaikyokuImpl("#TaikyokuPanel", this);
+
+            //System.C onsole.WriteLine("つまんでいる駒を放します。(1)");
+            this.SetFigTumandeiruKoma(-1);
+
+            //----------
+            // [出力切替]初期値
+            //----------
+            this.syuturyokuKirikae = SyuturyokuKirikae.Japanese;
+        }
+
+        public IEngineConf EngineConf { get; private set; }
 
         /// <summary>
         /// 将棋サーバー。
@@ -143,49 +178,11 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
             }
         }
         private SceneName flowB;
-        #endregion
 
 
 
-        #region コンストラクター
 
-        /// <summary>
-        /// 生成後、OwnerFormをセットしてください。
-        /// </summary>
-        public MainGui_CsharpImpl(IEngineConf engineConf)
-        {
-            this.m_skyWrapper_Gui_ = new SkyWrapper_GuiImpl();
-            this.server = new Server_Impl(engineConf, this.m_skyWrapper_Gui_.GuiSky, new ReceiverForCsharpVsImpl());
 
-            this.Widgets = new Dictionary<string, UserWidget>();
-
-            this.consoleWindowGui = new SubGuiImpl(this);
-
-            this.TimedA = new TimedA_EngineCapture(this);
-            this.TimedB_MouseCapture = new TimedBMouseCapture(this);
-            this.TimedC = new TimedC_SaiseiCapture(this);
-
-            this.WidgetLoaders = new List<WidgetsLoader>();
-            this.RepaintRequest = new RepaintRequestImpl();
-
-            //----------
-            // ビュー
-            //----------
-            //
-            //      ボタンや将棋盤などを描画するツールを、事前準備しておきます。
-            //
-            this.shape_PnlTaikyoku = new ShapePnlTaikyokuImpl("#TaikyokuPanel", this);
-
-            //System.C onsole.WriteLine("つまんでいる駒を放します。(1)");
-            this.SetFigTumandeiruKoma(-1);
-
-            //----------
-            // [出力切替]初期値
-            //----------
-            this.syuturyokuKirikae = SyuturyokuKirikae.Japanese;
-        }
-
-        #endregion
 
 
         /// <summary>
@@ -333,12 +330,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// </summary>
         public virtual void Load_AsStart()
         {
-            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
-
-            //
             // 既存のログファイルを削除したい。
-            //
             {
 
             }
@@ -352,59 +344,34 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                 //----------
                 // 道１８７
                 //----------
+                if (Michi187Array.Load(this.EngineConf.GetResourceFullPath(SpecifiedFiles.Michi187)))
                 {
-                    var filepath_Michi = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Michi187));
-                    if (Michi187Array.Load(filepath_Michi))
-                    {
-                    }
                 }
 
 #if DEBUG
-                {
-                    var filepath_LogMichi = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.MichiHyoLogHtml));
-                    File.WriteAllText(filepath_LogMichi, Michi187Array.LogHtml());
-                }
+                File.WriteAllText(this.EngineConf.GetResourceFullPath(SpecifiedFiles.MichiHyoLogHtml), Michi187Array.LogHtml());
 #endif
 
                 //----------
                 // 駒の配役１８１
                 //----------
-                {
-                    var filepath_Haiyaku = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Haiyaku185));
-                    Util_Array_KomahaiyakuEx184.Load(filepath_Haiyaku, Encoding.UTF8);
-                }
+                Util_Array_KomahaiyakuEx184.Load(this.EngineConf.GetResourceFullPath(SpecifiedFiles.Haiyaku185), Encoding.UTF8);
 
                 {
-                    var filepath_ForcePromotion = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.InputForcePromotion));
-                    List<List<string>> rows = Array_ForcePromotion.Load(filepath_ForcePromotion, Encoding.UTF8);
+                    List<List<string>> rows1 = Array_ForcePromotion.Load(this.EngineConf.GetResourceFullPath(SpecifiedFiles.InputForcePromotion), Encoding.UTF8);
                 }
-                {
-                    var filepath_forcePromotionLogHtml = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.OutputForcePromotion));
-                    File.WriteAllText(filepath_forcePromotionLogHtml, Array_ForcePromotion.LogHtml());
-                }
+                File.WriteAllText(this.EngineConf.GetResourceFullPath(SpecifiedFiles.OutputForcePromotion), Array_ForcePromotion.LogHtml(this.EngineConf));
 
                 //----------
                 // 配役転換表
                 //----------
-                {
-                    var filepath_syuruiToHaiyaku = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.InputSyuruiToHaiyaku));
-                    List<List<string>> rows = Data_KomahaiyakuTransition.Load(filepath_syuruiToHaiyaku, Encoding.UTF8);
-                }
-                {
-                    var filepath_LogHaiyakuTenkan = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.OutputSyuruiToHaiyaku));
-                    File.WriteAllText(filepath_LogHaiyakuTenkan, Data_KomahaiyakuTransition.Format_LogHtml());
-                }
+                List<List<string>> rows2 = Data_KomahaiyakuTransition.Load(EngineConf, this.EngineConf.GetResourceFullPath(SpecifiedFiles.InputSyuruiToHaiyaku), Encoding.UTF8);
+                File.WriteAllText(this.EngineConf.GetResourceFullPath(SpecifiedFiles.OutputSyuruiToHaiyaku), Data_KomahaiyakuTransition.Format_LogHtml(this.EngineConf));
             }
 
-            {
-                var filepath_widgets01 = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.DataWidgets01ShogibanCsv));
-                this.WidgetLoaders.Add(new WidgetsLoader_CsharpImpl(filepath_widgets01, this));
-            }
+            this.WidgetLoaders.Add(new WidgetsLoader_CsharpImpl(this.EngineConf.GetResourceFullPath(SpecifiedFiles.DataWidgets01ShogibanCsv), this));
 
-            {
-                var filepath_widgets02 = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.Console02Widgets));
-                this.WidgetLoaders.Add(new WidgetsLoader_CsharpImpl(filepath_widgets02, this));
-            }
+            this.WidgetLoaders.Add(new WidgetsLoader_CsharpImpl(this.EngineConf.GetResourceFullPath(SpecifiedFiles.Console02Widgets), this));
         }
 
         public void LaunchForm_AsBody()

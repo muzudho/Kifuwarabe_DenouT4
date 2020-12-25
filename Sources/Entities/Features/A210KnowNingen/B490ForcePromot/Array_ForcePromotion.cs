@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Grayscale.Kifuwaragyoku.Entities.Configuration;
 using Nett;
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
@@ -148,12 +149,9 @@ masuHandle=[{masuHandle}]");
         /// ロードした内容を確認するときに使います。
         /// </summary>
         /// <returns></returns>
-        public static string LogHtml()
+        public static string LogHtml(IEngineConf engineConf)
         {
-            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
-
-            var imgDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("ImgDirectory"));
+            var imgDirectory = engineConf.GetResourceFullPath("ImgDirectory");
             imgDirectory = imgDirectory.EndsWith("/") ? imgDirectory.Substring(0, imgDirectory.Length - 1) : imgDirectory;
 
             StringBuilder sb = new StringBuilder();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Grayscale.Kifuwaragyoku.Entities.Configuration;
 using Nett;
 
 #if DEBUG
@@ -15,10 +16,6 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
     /// </summary>
     public class Data_KomahaiyakuTransition
     {
-
-
-        #region 静的プロパティー類
-
         /// <summary>
         /// 種類ハンドル→升ハンドル→次配役ハンドルの連鎖なんだぜ☆
         /// </summary>
@@ -30,9 +27,6 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             }
         }
         private static Dictionary<Komasyurui14, Komahaiyaku185[]> map;
-
-        #endregion
-
 
         /// <summary>
         /// 
@@ -102,7 +96,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         }
 
 
-        public static List<List<string>> Load(string path, Encoding encoding)
+        public static List<List<string>> Load(IEngineConf engineConf, string path, Encoding encoding)
         {
             StringBuilder sbLog = new StringBuilder();
 
@@ -150,8 +144,6 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
 #if DEBUG
             // デバッグ出力
-            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
             {
                 StringBuilder sb = new StringBuilder();
 
@@ -167,7 +159,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     sb.AppendLine();
                 }
 
-                string filepath_HaiyakuLoad1 = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("HaiyakuTenkanhyoLoad1DataOnly"));
+                string filepath_HaiyakuLoad1 = engineConf.GetResourceFullPath("HaiyakuTenkanhyoLoad1DataOnly");
                 File.WriteAllText(filepath_HaiyakuLoad1, sb.ToString());
             }
 #endif
@@ -237,7 +229,7 @@ columnCount=[{columnCount}]");
 
 #if DEBUG
             {
-                string filepath_HaiyakuLoad2 = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("HaiyakuTenkanhyoLoad2"));
+                string filepath_HaiyakuLoad2 =engineConf.GetResourceFullPath("HaiyakuTenkanhyoLoad2");
                 File.WriteAllText(filepath_HaiyakuLoad2, sbLog.ToString());
             }
 #endif
@@ -250,7 +242,7 @@ columnCount=[{columnCount}]");
         /// ロードした内容を確認するときに使います。
         /// </summary>
         /// <returns></returns>
-        public static string Format_LogHtml()
+        public static string Format_LogHtml(IEngineConf engineConf)
         {
             var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
             var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
@@ -303,7 +295,7 @@ columnCount=[{columnCount}]");
                         int haiyakuHandle = (int)kh184;
 
                         // ここでは、末尾のスラッシュは削除してほしい☆（＾～＾）
-                        var path1 = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>("ImgDirectory"));
+                        var path1 = engineConf.GetResourceFullPath("ImgDirectory");
                         path1 = path1.EndsWith("/") ? path1.Substring(0, path1.Length - 1) : path1;
                         sb.Append($"<img src=\"{path1}/train");
 

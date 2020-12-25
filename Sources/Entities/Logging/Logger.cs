@@ -241,27 +241,33 @@
         }
 
         /// <summary>
-        /// ログファイルを削除します。(連番がなければ)
+        /// ログ・ディレクトリー直下の ログファイルを削除します。
         /// 
-        /// FIXME: アプリ起動後、ログが少し取られ始めたあとに削除が開始されることがあります。
-        /// FIXME: 将棋エンジン起動時に、またログが削除されることがあります。
+        /// Example:
+        /// [GUID]name.log
+        /// name.log.png
+        /// ...
+        ///
+        /// * 将棋エンジン起動後、ログが少し取られ始めたあとに削除を開始するようなところで実行しないでください。
+        /// * TODO usinewgame のタイミングでログを削除したい。
         /// </summary>
         public static void RemoveAllLogFiles()
         {
-            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
-            var logDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.LogDirectory));
-
-            string[] paths = Directory.GetFiles(logDirectory);
-            foreach (string path in paths)
+            try
             {
-                string name = Path.GetFileName(path);
-                if (name.StartsWith("_log_"))
+                string[] paths = Directory.GetFiles(EngineConf.LogDirectory);
+                foreach (string path in paths)
                 {
-                    string fullpath = Path.Combine(logDirectory, name);
-                    //MessageBox.Show("fullpath=[" + fullpath + "]", "ログ・ファイルの削除");
-                    System.IO.File.Delete(fullpath);
+                    string name = Path.GetFileName(path);
+                    if (name.StartsWith("_log_") || name.EndsWith(".log") || name.Contains(".log."))
+                    {
+                        System.IO.File.Delete(path);
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                // ログ・ファイルの削除に失敗しても無視します。
             }
         }
 

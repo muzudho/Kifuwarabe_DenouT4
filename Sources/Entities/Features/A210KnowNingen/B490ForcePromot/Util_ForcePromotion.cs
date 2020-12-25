@@ -20,12 +20,11 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
         /// <param name="currentHaiyaku"></param>
         /// <param name="masuHandle"></param>
         /// <returns>転生しないなら　未設定　を返します。</returns>
-        public static Komahaiyaku185 MasuHandleTo_ForcePromotionHaiyaku(Komahaiyaku185 currentHaiyaku, int masuHandle, string hint)
+        public static Komahaiyaku185 MasuHandleTo_ForcePromotionHaiyaku(
+            IEngineConf engineConf,
+            Komahaiyaku185 currentHaiyaku, int masuHandle, string hint)
         {
             Komahaiyaku185 result;
-
-            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
 
             Dictionary<int, Komahaiyaku185> map2 = Array_ForcePromotion.HaiyakuMap[currentHaiyaku];
 
@@ -45,8 +44,7 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
             {
                 StringBuilder sbLog = new StringBuilder();
 
-                var logDirectory = Path.Combine(profilePath, toml.Get<TomlTable>("Resources").Get<string>(SpecifiedFiles.LogDirectory));
-                var filename = Path.Combine(logDirectory, toml.Get<TomlTable>("Logs").Get<string>(SpecifiedFiles.KyouseiTenseiDebug));
+                var filename = Path.Combine(engineConf.LogDirectory, engineConf.GetLogBasename(SpecifiedFiles.KyouseiTenseiDebug));
                 if (File.Exists(filename))
                 {
                     sbLog.Append(File.ReadAllText(filename));
