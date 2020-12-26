@@ -104,22 +104,15 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="fvDirectory"></param>
         public static void Write_PP_19Mai(IEngineConf engineConf, IFeatureVector fv, string fvDirectory)
         {
-            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
-
-            //StringBuilder sb_result = new StringBuilder();
-
-            {
-                PpItem_P1[] p1Items = new PpItem_P1[]{
+            PpItem_P1[] p1Items = new PpItem_P1[]{
                     new PpItem_P1( Path.Combine(fvDirectory, engineConf.GetResourceBasename(SpecifiedFiles.Fv11PP1pInFvDir)),"1P歩",FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIFU_____),
                     new PpItem_P1( Path.Combine(fvDirectory, engineConf.GetResourceBasename(SpecifiedFiles.Fv25pp2pInFvDir)),"2P歩",FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIFU_____),
                 };
-                foreach (PpItem_P1 item in p1Items)
-                {
-                    File.WriteAllText(item.Filepath, FormatFeatureVectorPpP1Moti.Format_PP_P1_Moti19Mai(fv, item.Title, item.P1_base));
+            foreach (PpItem_P1 item in p1Items)
+            {
+                File.WriteAllText(item.Filepath, FormatFeatureVectorPpP1Moti.Format_PP_P1_Moti19Mai(fv, item.Title, item.P1_base));
 
-                    //sb_result.AppendLine(item.Filepath);
-                }
+                //sb_result.AppendLine(item.Filepath);
             }
 
             //MessageBox.Show("ファイルを書き出しました。\n" + sb_result.ToString());
@@ -133,13 +126,7 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="fvDirectory"></param>
         public static void Write_PP_5Mai(IEngineConf engineConf, IFeatureVector fv, string fvDirectory)
         {
-            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
-
-            //StringBuilder sb = new StringBuilder();
-
-            {
-                PpItem_P1[] p1Items = new PpItem_P1[]{
+            PpItem_P1[] p1Items = new PpItem_P1[]{
                     new PpItem_P1( Path.Combine(fvDirectory, engineConf.GetResourceBasename(SpecifiedFiles.Fv12PP1pInFvDir)),"1P香",FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIKYO____),
                     new PpItem_P1( Path.Combine(fvDirectory, engineConf.GetResourceBasename(SpecifiedFiles.Fv13pp1pInFvDir)),"1P桂",FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIKEI____),
                     new PpItem_P1( Path.Combine(fvDirectory, engineConf.GetResourceBasename(SpecifiedFiles.Fv14pp1pInFvDir)),"1P銀",FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIGIN____),
@@ -149,14 +136,11 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
                     new PpItem_P1( Path.Combine(fvDirectory, engineConf.GetResourceBasename(SpecifiedFiles.Fv28pp2pInFvDir)),"2P銀",FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIGIN____),
                     new PpItem_P1( Path.Combine(fvDirectory, engineConf.GetResourceBasename(SpecifiedFiles.Fv29pp2pInFvDir)),"2P金",FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIKIN____),
                 };
-                foreach (PpItem_P1 item in p1Items)
-                {
-                    File.WriteAllText(item.Filepath, FormatFeatureVectorPpP1Moti.Format_PP_P1Moti_5Mai(fv, item.Title, item.P1_base));
-                    //sb.AppendLine(item.Filepath);
-                }
+            foreach (PpItem_P1 item in p1Items)
+            {
+                File.WriteAllText(item.Filepath, FormatFeatureVectorPpP1Moti.Format_PP_P1Moti_5Mai(fv, item.Title, item.P1_base));
+                //sb.AppendLine(item.Filepath);
             }
-
-            //MessageBox.Show("ファイルを書き出しました。\n" + sb.ToString());
         }
 
         /// <summary>
@@ -166,26 +150,17 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <param name="fvDirectory"></param>
         public static void Write_PP_3Mai(IEngineConf engineConf, IFeatureVector fv, string fvDirectory)
         {
-            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
-
-            //StringBuilder sb = new StringBuilder();
-
-            {
-                PpItem_P1[] p1Items = new PpItem_P1[]{
+            PpItem_P1[] p1Items = new PpItem_P1[]{
                     new PpItem_P1( Path.Combine(fvDirectory, engineConf.GetResourceBasename(SpecifiedFiles.Fv16pp1pInFvDir)),"1P飛",FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIHISYA__),
                     new PpItem_P1( Path.Combine(fvDirectory, engineConf.GetResourceBasename(SpecifiedFiles.Fv17pp1pInFvDir)),"1P角",FeatureVector.CHOSA_KOMOKU_1P + FeatureVector.CHOSA_KOMOKU_MOTIKAKU___),
                     new PpItem_P1( Path.Combine(fvDirectory, engineConf.GetResourceBasename(SpecifiedFiles.Fv30pp2pInFvDir)),"2P飛",FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIHISYA__),
                     new PpItem_P1( Path.Combine(fvDirectory, engineConf.GetResourceBasename(SpecifiedFiles.Fv31pp2pInFvDir)),"2P角",FeatureVector.CHOSA_KOMOKU_2P + FeatureVector.CHOSA_KOMOKU_MOTIKAKU___),
                 };
-                foreach (PpItem_P1 item in p1Items)
-                {
-                    File.WriteAllText(item.Filepath, FormatFeatureVectorPpP1Moti.Format_PP_P1Moti_3Mai(fv, item.Title, item.P1_base));
-                    //sb.AppendLine(item.Filepath);
-                }
+            foreach (PpItem_P1 item in p1Items)
+            {
+                File.WriteAllText(item.Filepath, FormatFeatureVectorPpP1Moti.Format_PP_P1Moti_3Mai(fv, item.Title, item.P1_base));
+                //sb.AppendLine(item.Filepath);
             }
-
-            //MessageBox.Show("ファイルを書き出しました。\n" + sb.ToString());
         }
 
 

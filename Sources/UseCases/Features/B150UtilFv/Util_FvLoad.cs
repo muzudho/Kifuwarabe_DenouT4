@@ -59,9 +59,6 @@ namespace Grayscale.Kifuwaragyoku.UseCases.Features
         /// <returns></returns>
         public static string OpenFv(IEngineConf engineConf, IFeatureVector fv, string fv_komawari_filepath)
         {
-            var profilePath = System.Configuration.ConfigurationManager.AppSettings["Profile"];
-            var toml = Toml.ReadFile(Path.Combine(profilePath, "Engine.toml"));
-
             StringBuilder sb_result = new StringBuilder();
 
             {//駒割
