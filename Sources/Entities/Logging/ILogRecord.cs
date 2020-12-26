@@ -26,7 +26,5 @@ namespace Grayscale.Kifuwaragyoku.Entities.Logging
         /// コンソール出力の有無。
         /// </summary>
         bool EnableConsole { get; set; }
-
-        IErrorController KwDisplayerOrNull { get; set; }
     }
 }

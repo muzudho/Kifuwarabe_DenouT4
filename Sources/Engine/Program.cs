@@ -5,12 +5,10 @@ using System.Text.RegularExpressions;
 using Grayscale.Kifuwaragyoku.Engine.Configuration;
 using Grayscale.Kifuwaragyoku.Entities;
 using Grayscale.Kifuwaragyoku.Entities.Configuration;
-using Grayscale.Kifuwaragyoku.Entities.Evaluation;
 using Grayscale.Kifuwaragyoku.Entities.Features;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
 using Grayscale.Kifuwaragyoku.UseCases;
 using Grayscale.Kifuwaragyoku.UseCases.Features;
-using Nett;
 
 namespace Grayscale.Kifuwaragyoku.Engine
 {

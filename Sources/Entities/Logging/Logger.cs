@@ -17,13 +17,13 @@
         {
             EngineConf = engineConf;
 
-            TraceRecord = LogEntry(SpecifiedFiles.Trace, true, true, false, null);
-            DebugRecord = LogEntry(SpecifiedFiles.Debug, true, true, false, null);
-            InfoRecord = LogEntry(SpecifiedFiles.Info, true, true, false, null);
-            NoticeRecord = LogEntry(SpecifiedFiles.Notice, true, true, false, null);
-            WarnRecord = LogEntry(SpecifiedFiles.Warn, true, true, false, null);
-            ErrorRecord = LogEntry(SpecifiedFiles.Error, true, true, false, null);
-            FatalRecord = LogEntry(SpecifiedFiles.Fatal, true, true, false, null);
+            TraceRecord = LogEntry(SpecifiedFiles.Trace, true, true, false);
+            DebugRecord = LogEntry(SpecifiedFiles.Debug, true, true, false);
+            InfoRecord = LogEntry(SpecifiedFiles.Info, true, true, false);
+            NoticeRecord = LogEntry(SpecifiedFiles.Notice, true, true, false);
+            WarnRecord = LogEntry(SpecifiedFiles.Warn, true, true, false);
+            ErrorRecord = LogEntry(SpecifiedFiles.Error, true, true, false);
+            FatalRecord = LogEntry(SpecifiedFiles.Fatal, true, true, false);
 
             /*
             var logFile = LogFile.AsLog(logDirectory, $"default_({System.Diagnostics.Process.GetCurrentProcess()}).log");
@@ -65,10 +65,10 @@
             */
         }
 
-        static ILogRecord LogEntry(string key, bool enabled, bool timeStampPrintable, bool enableConsole, IErrorController kwDisplayer_OrNull)
+        static ILogRecord LogEntry(string key, bool enabled, bool timeStampPrintable, bool enableConsole)
         {
             var logFile = ResFile.AsLog(EngineConf.LogDirectory, EngineConf.GetLogBasename(key));
-            return new LogRecord(logFile, enabled, timeStampPrintable, enableConsole, kwDisplayer_OrNull);
+            return new LogRecord(logFile, enabled, timeStampPrintable, enableConsole);
         }
 
         static IEngineConf EngineConf { get; set; }

@@ -7,13 +7,12 @@ namespace Grayscale.Kifuwaragyoku.Entities.Logging
     /// </summary>
     public class LogRecord : ILogRecord
     {
-        public LogRecord(IResFile logFile, bool enabled, bool timeStampPrintable, bool enableConsole, IErrorController kwDisplayer_OrNull)
+        public LogRecord(IResFile logFile, bool enabled, bool timeStampPrintable, bool enableConsole)
         {
             this.LogFile = logFile;
             this.Enabled = enabled;
             this.TimeStampPrintable = timeStampPrintable;
             this.EnableConsole = enableConsole;
-            this.KwDisplayerOrNull = kwDisplayer_OrNull;
         }
 
         /// <summary>
@@ -35,7 +34,5 @@ namespace Grayscale.Kifuwaragyoku.Entities.Logging
         /// コンソール出力の有無。
         /// </summary>
         public bool EnableConsole { get; set; }
-
-        public IErrorController KwDisplayerOrNull { get; set; }
     }
 }
