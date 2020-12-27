@@ -209,7 +209,11 @@ namespace Grayscale.Kifuwaragyoku.UseCases
         public static void Send(string line)
         {
             // 将棋サーバーに向かってメッセージを送り出します。
-            Util_Message.Upload(line);
+            // 将棋エンジンが使います。
+            if (0 < line.Length)
+            {
+                Console.Out.WriteLine(line);
+            }
 
 #if DEBUG
             //// 送信記録をつけます。
