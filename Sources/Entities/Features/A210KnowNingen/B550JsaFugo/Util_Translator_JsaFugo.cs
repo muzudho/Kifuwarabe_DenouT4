@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Text;
-
-namespace Grayscale.Kifuwaragyoku.Entities.Features
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
+    using System.Collections.Generic;
+    using System.Text;
+    using Grayscale.Kifuwaragyoku.Entities.Take1Base;
+
     public abstract class Util_Translator_JsaFugo
     {
         /// <summary>

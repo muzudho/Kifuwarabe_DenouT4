@@ -133,7 +133,7 @@
     <Compile Include="Features\A060Application\B620_ConvText___\TextConst.cs" />
     <Compile Include="Features\GameRecordOfSfen\ISfenFormat2.cs" />
     <Compile Include="Features\GameRecordOfSfen\ISfenPosition1.cs" />
-    <Compile Include="Features\GameRecordOfSfen\Piece.cs" />
+    <Compile Include="Take1Base\Piece.cs" />
     <Compile Include="Features\GameRecordOfSfen\PieceType.cs" />
     <Compile Include="Features\GameRecordOfSfen\SfenConf.cs" />
     <Compile Include="Features\GameRecordOfSfen\SfenFormat2Impl.cs" />

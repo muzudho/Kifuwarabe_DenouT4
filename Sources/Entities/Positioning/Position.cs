@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Grayscale.Kifuwaragyoku.Entities.Features;
-using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
-
-namespace Grayscale.Kifuwaragyoku.Entities.Positioning
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Positioning
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Runtime.CompilerServices;
+    using Grayscale.Kifuwaragyoku.Entities.Features;
+    using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
+    using Grayscale.Kifuwaragyoku.Entities.Take1Base;
 
     /// <summary>
     /// 局面データです。

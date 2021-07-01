@@ -1,7 +1,8 @@
-﻿using System.Text;
-
-namespace Grayscale.Kifuwaragyoku.Entities.Features
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
+    using System.Text;
+    using Grayscale.Kifuwaragyoku.Entities.Take1Base;
+
     public abstract class Util_StartposExporter
     {
         /// <summary>
@@ -78,22 +79,22 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
             // 持ち駒
             if (
-                shogiban.MotiSu[(int)Piece.P] < 1
-                && shogiban.MotiSu[(int)Piece.L] < 1
-                && shogiban.MotiSu[(int)Piece.N] < 1
-                && shogiban.MotiSu[(int)Piece.S] < 1
-                && shogiban.MotiSu[(int)Piece.G] < 1
-                && shogiban.MotiSu[(int)Piece.K] < 1
-                && shogiban.MotiSu[(int)Piece.R] < 1
-                && shogiban.MotiSu[(int)Piece.B] < 1
-                && shogiban.MotiSu[(int)Piece.p] < 1
-                && shogiban.MotiSu[(int)Piece.l] < 1
-                && shogiban.MotiSu[(int)Piece.n] < 1
-                && shogiban.MotiSu[(int)Piece.s] < 1
-                && shogiban.MotiSu[(int)Piece.g] < 1
-                && shogiban.MotiSu[(int)Piece.k] < 1
-                && shogiban.MotiSu[(int)Piece.r] < 1
-                && shogiban.MotiSu[(int)Piece.b] < 1
+                shogiban.MotiSu[(int)Piece.P1] < 1
+                && shogiban.MotiSu[(int)Piece.L1] < 1
+                && shogiban.MotiSu[(int)Piece.N1] < 1
+                && shogiban.MotiSu[(int)Piece.S1] < 1
+                && shogiban.MotiSu[(int)Piece.G1] < 1
+                && shogiban.MotiSu[(int)Piece.K1] < 1
+                && shogiban.MotiSu[(int)Piece.R1] < 1
+                && shogiban.MotiSu[(int)Piece.B1] < 1
+                && shogiban.MotiSu[(int)Piece.P2] < 1
+                && shogiban.MotiSu[(int)Piece.L2] < 1
+                && shogiban.MotiSu[(int)Piece.N2] < 1
+                && shogiban.MotiSu[(int)Piece.S2] < 1
+                && shogiban.MotiSu[(int)Piece.G2] < 1
+                && shogiban.MotiSu[(int)Piece.K2] < 1
+                && shogiban.MotiSu[(int)Piece.R2] < 1
+                && shogiban.MotiSu[(int)Piece.B2] < 1
                 )
             {
                 sb.Append(" -");
@@ -104,162 +105,162 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
                 // 先手持ち駒
                 //王
-                if (0 < shogiban.MotiSu[(int)Piece.K])
+                if (0 < shogiban.MotiSu[(int)Piece.K1])
                 {
-                    if (1 < shogiban.MotiSu[(int)Piece.K])
+                    if (1 < shogiban.MotiSu[(int)Piece.K1])
                     {
-                        sb.Append(shogiban.MotiSu[(int)Piece.K]);
+                        sb.Append(shogiban.MotiSu[(int)Piece.K1]);
                     }
                     sb.Append("K");
                 }
 
                 //飛車
-                if (0 < shogiban.MotiSu[(int)Piece.R])
+                if (0 < shogiban.MotiSu[(int)Piece.R1])
                 {
-                    if (1 < shogiban.MotiSu[(int)Piece.R])
+                    if (1 < shogiban.MotiSu[(int)Piece.R1])
                     {
-                        sb.Append(shogiban.MotiSu[(int)Piece.R]);
+                        sb.Append(shogiban.MotiSu[(int)Piece.R1]);
                     }
                     sb.Append("R");
                 }
 
                 //角
-                if (0 < shogiban.MotiSu[(int)Piece.B])
+                if (0 < shogiban.MotiSu[(int)Piece.B1])
                 {
-                    if (1 < shogiban.MotiSu[(int)Piece.B])
+                    if (1 < shogiban.MotiSu[(int)Piece.B1])
                     {
-                        sb.Append(shogiban.MotiSu[(int)Piece.B]);
+                        sb.Append(shogiban.MotiSu[(int)Piece.B1]);
                     }
                     sb.Append("B");
                 }
 
                 //金
-                if (0 < shogiban.MotiSu[(int)Piece.G])
+                if (0 < shogiban.MotiSu[(int)Piece.G1])
                 {
-                    if (1 < shogiban.MotiSu[(int)Piece.G])
+                    if (1 < shogiban.MotiSu[(int)Piece.G1])
                     {
-                        sb.Append(shogiban.MotiSu[(int)Piece.G]);
+                        sb.Append(shogiban.MotiSu[(int)Piece.G1]);
                     }
                     sb.Append("G");
                 }
 
                 //銀
-                if (0 < shogiban.MotiSu[(int)Piece.S])
+                if (0 < shogiban.MotiSu[(int)Piece.S1])
                 {
-                    if (1 < shogiban.MotiSu[(int)Piece.S])
+                    if (1 < shogiban.MotiSu[(int)Piece.S1])
                     {
-                        sb.Append(shogiban.MotiSu[(int)Piece.S]);
+                        sb.Append(shogiban.MotiSu[(int)Piece.S1]);
                     }
                     sb.Append("S");
                 }
 
                 //桂馬
-                if (0 < shogiban.MotiSu[(int)Piece.N])
+                if (0 < shogiban.MotiSu[(int)Piece.N1])
                 {
-                    if (1 < shogiban.MotiSu[(int)Piece.N])
+                    if (1 < shogiban.MotiSu[(int)Piece.N1])
                     {
-                        sb.Append(shogiban.MotiSu[(int)Piece.N]);
+                        sb.Append(shogiban.MotiSu[(int)Piece.N1]);
                     }
                     sb.Append("N");
                 }
 
                 //香車
-                if (0 < shogiban.MotiSu[(int)Piece.L])
+                if (0 < shogiban.MotiSu[(int)Piece.L1])
                 {
-                    if (1 < shogiban.MotiSu[(int)Piece.L])
+                    if (1 < shogiban.MotiSu[(int)Piece.L1])
                     {
-                        sb.Append(shogiban.MotiSu[(int)Piece.L]);
+                        sb.Append(shogiban.MotiSu[(int)Piece.L1]);
                     }
                     sb.Append("L");
                 }
 
                 //歩
-                if (0 < shogiban.MotiSu[(int)Piece.P])
+                if (0 < shogiban.MotiSu[(int)Piece.P1])
                 {
-                    if (1 < shogiban.MotiSu[(int)Piece.P])
+                    if (1 < shogiban.MotiSu[(int)Piece.P1])
                     {
-                        sb.Append(shogiban.MotiSu[(int)Piece.P]);
+                        sb.Append(shogiban.MotiSu[(int)Piece.P1]);
                     }
                     sb.Append("P");
                 }
 
                 // 後手持ち駒
                 //王
-                if (0 < shogiban.MotiSu[(int)Piece.k])
+                if (0 < shogiban.MotiSu[(int)Piece.K2])
                 {
-                    if (1 < shogiban.MotiSu[(int)Piece.k])
+                    if (1 < shogiban.MotiSu[(int)Piece.K2])
                     {
-                        sb.Append(shogiban.MotiSu[(int)Piece.k]);
+                        sb.Append(shogiban.MotiSu[(int)Piece.K2]);
                     }
                     sb.Append("k");
                 }
 
                 //飛車
-                if (0 < shogiban.MotiSu[(int)Piece.r])
+                if (0 < shogiban.MotiSu[(int)Piece.R2])
                 {
-                    if (1 < shogiban.MotiSu[(int)Piece.r])
+                    if (1 < shogiban.MotiSu[(int)Piece.R2])
                     {
-                        sb.Append(shogiban.MotiSu[(int)Piece.r]);
+                        sb.Append(shogiban.MotiSu[(int)Piece.R2]);
                     }
                     sb.Append("r");
                 }
 
                 //角
-                if (0 < shogiban.MotiSu[(int)Piece.b])
+                if (0 < shogiban.MotiSu[(int)Piece.B2])
                 {
-                    if (1 < shogiban.MotiSu[(int)Piece.b])
+                    if (1 < shogiban.MotiSu[(int)Piece.B2])
                     {
-                        sb.Append(shogiban.MotiSu[(int)Piece.b]);
+                        sb.Append(shogiban.MotiSu[(int)Piece.B2]);
                     }
                     sb.Append("b");
                 }
 
                 //金
-                if (0 < shogiban.MotiSu[(int)Piece.g])
+                if (0 < shogiban.MotiSu[(int)Piece.G2])
                 {
-                    if (1 < shogiban.MotiSu[(int)Piece.g])
+                    if (1 < shogiban.MotiSu[(int)Piece.G2])
                     {
-                        sb.Append(shogiban.MotiSu[(int)Piece.g]);
+                        sb.Append(shogiban.MotiSu[(int)Piece.G2]);
                     }
                     sb.Append("g");
                 }
 
                 //銀
-                if (0 < shogiban.MotiSu[(int)Piece.s])
+                if (0 < shogiban.MotiSu[(int)Piece.S2])
                 {
-                    if (1 < shogiban.MotiSu[(int)Piece.s])
+                    if (1 < shogiban.MotiSu[(int)Piece.S2])
                     {
-                        sb.Append(shogiban.MotiSu[(int)Piece.s]);
+                        sb.Append(shogiban.MotiSu[(int)Piece.S2]);
                     }
                     sb.Append("s");
                 }
 
                 //桂馬
-                if (0 < shogiban.MotiSu[(int)Piece.n])
+                if (0 < shogiban.MotiSu[(int)Piece.N2])
                 {
-                    if (1 < shogiban.MotiSu[(int)Piece.n])
+                    if (1 < shogiban.MotiSu[(int)Piece.N2])
                     {
-                        sb.Append(shogiban.MotiSu[(int)Piece.n]);
+                        sb.Append(shogiban.MotiSu[(int)Piece.N2]);
                     }
                     sb.Append("n");
                 }
 
                 //香車
-                if (0 < shogiban.MotiSu[(int)Piece.l])
+                if (0 < shogiban.MotiSu[(int)Piece.L2])
                 {
-                    if (1 < shogiban.MotiSu[(int)Piece.l])
+                    if (1 < shogiban.MotiSu[(int)Piece.L2])
                     {
-                        sb.Append(shogiban.MotiSu[(int)Piece.l]);
+                        sb.Append(shogiban.MotiSu[(int)Piece.L2]);
                     }
                     sb.Append("l");
                 }
 
                 //歩
-                if (0 < shogiban.MotiSu[(int)Piece.p])
+                if (0 < shogiban.MotiSu[(int)Piece.P2])
                 {
-                    if (1 < shogiban.MotiSu[(int)Piece.p])
+                    if (1 < shogiban.MotiSu[(int)Piece.P2])
                     {
-                        sb.Append(shogiban.MotiSu[(int)Piece.p]);
+                        sb.Append(shogiban.MotiSu[(int)Piece.P2]);
                     }
                     sb.Append("p");
                 }

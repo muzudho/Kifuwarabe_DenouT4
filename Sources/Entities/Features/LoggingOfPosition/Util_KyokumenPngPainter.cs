@@ -1,7 +1,8 @@
-﻿using System.Drawing;
-
-namespace Grayscale.Kifuwaragyoku.Entities.Features
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
+    using System.Drawing;
+    using Grayscale.Kifuwaragyoku.Entities.Take1Base;
+
     public abstract class Util_KyokumenPngPainter
     {
 

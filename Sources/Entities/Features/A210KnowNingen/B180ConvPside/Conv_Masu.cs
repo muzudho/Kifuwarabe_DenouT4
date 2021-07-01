@@ -2,6 +2,7 @@
 using System.Text;
 using Grayscale.Kifuwaragyoku.Entities.Positioning;
 using Finger = ProjectDark.NamedInt.StrictNamedInt0; //フィンガー番号
+using Grayscale.Kifuwaragyoku.Entities.Take1Base;
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {

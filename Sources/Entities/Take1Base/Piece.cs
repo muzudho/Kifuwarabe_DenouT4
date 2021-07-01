@@ -1,4 +1,4 @@
-﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Take1Base
 {
     /// <summary>
     /// 駒の種類。先後を含む。持ち駒を指定するのに便利（配列のインデックス）。
@@ -15,82 +15,82 @@
         /// <summary>
         /// ▲王
         /// </summary>
-        K = 1,
+        K1 = 1,
 
         /// <summary>
         /// ▲飛車
         /// </summary>
-        R,
+        R1,
 
         /// <summary>
         /// ▲角
         /// </summary>
-        B,
+        B1,
 
         /// <summary>
         /// ▲金
         /// </summary>
-        G,
+        G1,
 
         /// <summary>
         /// ▲銀
         /// </summary>
-        S,
+        S1,
 
         /// <summary>
         /// ▲桂
         /// </summary>
-        N,
+        N1,
 
         /// <summary>
         /// ▲香
         /// </summary>
-        L,
+        L1,
 
         /// <summary>
         /// ▲歩
         /// </summary>
-        P,
+        P1,
 
         /// <summary>
         /// △王
         /// </summary>
-        k,
+        K2,
 
         /// <summary>
         /// △飛車
         /// </summary>
-        r,
+        R2,
 
         /// <summary>
         /// △角
         /// </summary>
-        b,
+        B2,
 
         /// <summary>
         /// △金
         /// </summary>
-        g,
+        G2,
 
         /// <summary>
         /// △銀
         /// </summary>
-        s,
+        S2,
 
         /// <summary>
         /// △桂
         /// </summary>
-        n,
+        N2,
 
         /// <summary>
         /// △香
         /// </summary>
-        l,
+        L2,
 
         /// <summary>
         /// △歩
         /// </summary>
-        p,
+        P2,
 
         /// <summary>
         /// 列挙型の配列要素部（データ部）のサイズ☆

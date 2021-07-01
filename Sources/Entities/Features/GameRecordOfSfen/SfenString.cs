@@ -1,7 +1,8 @@
-﻿using System.Text;
-
-namespace Grayscale.Kifuwaragyoku.Entities.Features
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
+    using System.Text;
+    using Grayscale.Kifuwaragyoku.Entities.Take1Base;
+
     /// <summary>
     /// SFEN文字列。
     /// </summary>
@@ -78,132 +79,132 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                     */
 
                 if (0 ==
-                    pos1.MotiSu[(int)Piece.K] +
-                    pos1.MotiSu[(int)Piece.R] +
-                    pos1.MotiSu[(int)Piece.B] +
-                    pos1.MotiSu[(int)Piece.G] +
-                    pos1.MotiSu[(int)Piece.S] +
-                    pos1.MotiSu[(int)Piece.N] +
-                    pos1.MotiSu[(int)Piece.L] +
-                    pos1.MotiSu[(int)Piece.P] +
-                    pos1.MotiSu[(int)Piece.k] +
-                    pos1.MotiSu[(int)Piece.r] +
-                    pos1.MotiSu[(int)Piece.b] +
-                    pos1.MotiSu[(int)Piece.g] +
-                    pos1.MotiSu[(int)Piece.s] +
-                    pos1.MotiSu[(int)Piece.n] +
-                    pos1.MotiSu[(int)Piece.l] +
-                    pos1.MotiSu[(int)Piece.p]
+                    pos1.MotiSu[(int)Piece.K1] +
+                    pos1.MotiSu[(int)Piece.R1] +
+                    pos1.MotiSu[(int)Piece.B1] +
+                    pos1.MotiSu[(int)Piece.G1] +
+                    pos1.MotiSu[(int)Piece.S1] +
+                    pos1.MotiSu[(int)Piece.N1] +
+                    pos1.MotiSu[(int)Piece.L1] +
+                    pos1.MotiSu[(int)Piece.P1] +
+                    pos1.MotiSu[(int)Piece.K2] +
+                    pos1.MotiSu[(int)Piece.R2] +
+                    pos1.MotiSu[(int)Piece.B2] +
+                    pos1.MotiSu[(int)Piece.G2] +
+                    pos1.MotiSu[(int)Piece.S2] +
+                    pos1.MotiSu[(int)Piece.N2] +
+                    pos1.MotiSu[(int)Piece.L2] +
+                    pos1.MotiSu[(int)Piece.P2]
                     )
                 {
                     sb.Append("-");
                 }
                 else
                 {
-                    if (0 < pos1.MotiSu[(int)Piece.K])
+                    if (0 < pos1.MotiSu[(int)Piece.K1])
                     {
-                        if (1 < pos1.MotiSu[(int)Piece.K])
+                        if (1 < pos1.MotiSu[(int)Piece.K1])
                         {
-                            sb.Append(pos1.MotiSu[(int)Piece.K]);
+                            sb.Append(pos1.MotiSu[(int)Piece.K1]);
                         }
                         sb.Append("K");
                     }
 
-                    if (0 < pos1.MotiSu[(int)Piece.R])
+                    if (0 < pos1.MotiSu[(int)Piece.R1])
                     {
-                        if (1 < pos1.MotiSu[(int)Piece.R])
+                        if (1 < pos1.MotiSu[(int)Piece.R1])
                         {
-                            sb.Append(pos1.MotiSu[(int)Piece.R]);
+                            sb.Append(pos1.MotiSu[(int)Piece.R1]);
                         }
                         sb.Append("R");
                     }
 
-                    if (0 < pos1.MotiSu[(int)Piece.B])
+                    if (0 < pos1.MotiSu[(int)Piece.B1])
                     {
-                        if (1 < pos1.MotiSu[(int)Piece.B])
+                        if (1 < pos1.MotiSu[(int)Piece.B1])
                         {
-                            sb.Append(pos1.MotiSu[(int)Piece.B]);
+                            sb.Append(pos1.MotiSu[(int)Piece.B1]);
                         }
                         sb.Append("B");
                     }
 
-                    if (0 < pos1.MotiSu[(int)Piece.G])
+                    if (0 < pos1.MotiSu[(int)Piece.G1])
                     {
-                        if (1 < pos1.MotiSu[(int)Piece.G])
+                        if (1 < pos1.MotiSu[(int)Piece.G1])
                         {
-                            sb.Append(pos1.MotiSu[(int)Piece.G]);
+                            sb.Append(pos1.MotiSu[(int)Piece.G1]);
                         }
                         sb.Append("G");
                     }
 
-                    if (0 < pos1.MotiSu[(int)Piece.S])
+                    if (0 < pos1.MotiSu[(int)Piece.S1])
                     {
-                        if (1 < pos1.MotiSu[(int)Piece.S])
+                        if (1 < pos1.MotiSu[(int)Piece.S1])
                         {
-                            sb.Append(pos1.MotiSu[(int)Piece.S]);
+                            sb.Append(pos1.MotiSu[(int)Piece.S1]);
                         }
                         sb.Append("S");
                     }
 
-                    if (0 < pos1.MotiSu[(int)Piece.N])
+                    if (0 < pos1.MotiSu[(int)Piece.N1])
                     {
-                        if (1 < pos1.MotiSu[(int)Piece.N])
+                        if (1 < pos1.MotiSu[(int)Piece.N1])
                         {
-                            sb.Append(pos1.MotiSu[(int)Piece.N]);
+                            sb.Append(pos1.MotiSu[(int)Piece.N1]);
                         }
                         sb.Append("N");
                     }
 
-                    if (0 < pos1.MotiSu[(int)Piece.L])
+                    if (0 < pos1.MotiSu[(int)Piece.L1])
                     {
-                        if (1 < pos1.MotiSu[(int)Piece.L])
+                        if (1 < pos1.MotiSu[(int)Piece.L1])
                         {
-                            sb.Append(pos1.MotiSu[(int)Piece.L]);
+                            sb.Append(pos1.MotiSu[(int)Piece.L1]);
                         }
                         sb.Append("L");
                     }
 
-                    if (0 < pos1.MotiSu[(int)Piece.P])
+                    if (0 < pos1.MotiSu[(int)Piece.P1])
                     {
-                        if (1 < pos1.MotiSu[(int)Piece.P])
+                        if (1 < pos1.MotiSu[(int)Piece.P1])
                         {
-                            sb.Append(pos1.MotiSu[(int)Piece.P]);
+                            sb.Append(pos1.MotiSu[(int)Piece.P1]);
                         }
                         sb.Append("P");
                     }
 
-                    if (0 < pos1.MotiSu[(int)Piece.k])
+                    if (0 < pos1.MotiSu[(int)Piece.K2])
                     {
-                        if (1 < pos1.MotiSu[(int)Piece.k])
+                        if (1 < pos1.MotiSu[(int)Piece.K2])
                         {
-                            sb.Append(pos1.MotiSu[(int)Piece.k]);
+                            sb.Append(pos1.MotiSu[(int)Piece.K2]);
                         }
                         sb.Append("k");
                     }
 
-                    if (0 < pos1.MotiSu[(int)Piece.r])
+                    if (0 < pos1.MotiSu[(int)Piece.R2])
                     {
-                        if (1 < pos1.MotiSu[(int)Piece.r])
+                        if (1 < pos1.MotiSu[(int)Piece.R2])
                         {
-                            sb.Append(pos1.MotiSu[(int)Piece.r]);
+                            sb.Append(pos1.MotiSu[(int)Piece.R2]);
                         }
                         sb.Append("r");
                     }
 
-                    if (0 < pos1.MotiSu[(int)Piece.b])
+                    if (0 < pos1.MotiSu[(int)Piece.B2])
                     {
-                        if (1 < pos1.MotiSu[(int)Piece.b])
+                        if (1 < pos1.MotiSu[(int)Piece.B2])
                         {
-                            sb.Append(pos1.MotiSu[(int)Piece.b]);
+                            sb.Append(pos1.MotiSu[(int)Piece.B2]);
                         }
                         sb.Append("b");
                     }
 
-                    if (0 < pos1.MotiSu[(int)Piece.g])
+                    if (0 < pos1.MotiSu[(int)Piece.G2])
                     {
-                        if (1 < pos1.MotiSu[(int)Piece.g])
+                        if (1 < pos1.MotiSu[(int)Piece.G2])
                         {
-                            sb.Append(pos1.MotiSu[(int)Piece.g]);
+                            sb.Append(pos1.MotiSu[(int)Piece.G2]);
                         }
                         sb.Append("g");
                     }

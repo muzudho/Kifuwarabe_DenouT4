@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Grayscale.Kifuwaragyoku.Entities.Positioning;
+using Grayscale.Kifuwaragyoku.Entities.Take1Base;
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {

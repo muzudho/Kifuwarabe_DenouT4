@@ -1,5 +1,6 @@
 ﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
+    using Grayscale.Kifuwaragyoku.Entities.Take1Base;
 
     /// <summary>
     /// 盤上の駒を２次元配列で。

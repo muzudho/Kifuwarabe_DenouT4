@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using Grayscale.Kifuwaragyoku.Entities.Logging;
+using Grayscale.Kifuwaragyoku.Entities.Take1Base;
 
 namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
@@ -81,28 +82,28 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 switch (Conv_Busstop.ToKomasyurui(koma))
                 {
                     case Komasyurui14.H01_Fu_____:
-                        this.m_motiSu_[(int)Piece.P]++;
+                        this.m_motiSu_[(int)Piece.P1]++;
                         break;
                     case Komasyurui14.H02_Kyo____:
-                        this.m_motiSu_[(int)Piece.L]++;
+                        this.m_motiSu_[(int)Piece.L1]++;
                         break;
                     case Komasyurui14.H03_Kei____:
-                        this.m_motiSu_[(int)Piece.N]++;
+                        this.m_motiSu_[(int)Piece.N1]++;
                         break;
                     case Komasyurui14.H04_Gin____:
-                        this.m_motiSu_[(int)Piece.S]++;
+                        this.m_motiSu_[(int)Piece.S1]++;
                         break;
                     case Komasyurui14.H05_Kin____:
-                        this.m_motiSu_[(int)Piece.G]++;
+                        this.m_motiSu_[(int)Piece.G1]++;
                         break;
                     case Komasyurui14.H06_Gyoku__:
-                        this.m_motiSu_[(int)Piece.K]++;
+                        this.m_motiSu_[(int)Piece.K1]++;
                         break;
                     case Komasyurui14.H07_Hisya__:
-                        this.m_motiSu_[(int)Piece.R]++;
+                        this.m_motiSu_[(int)Piece.R1]++;
                         break;
                     case Komasyurui14.H08_Kaku___:
-                        this.m_motiSu_[(int)Piece.B]++;
+                        this.m_motiSu_[(int)Piece.B1]++;
                         break;
                 }
             }
@@ -112,28 +113,28 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 switch (Conv_Busstop.ToKomasyurui(koma))
                 {
                     case Komasyurui14.H01_Fu_____:
-                        this.m_motiSu_[(int)Piece.p]++;
+                        this.m_motiSu_[(int)Piece.P2]++;
                         break;
                     case Komasyurui14.H02_Kyo____:
-                        this.m_motiSu_[(int)Piece.l]++;
+                        this.m_motiSu_[(int)Piece.L2]++;
                         break;
                     case Komasyurui14.H03_Kei____:
-                        this.m_motiSu_[(int)Piece.n]++;
+                        this.m_motiSu_[(int)Piece.N2]++;
                         break;
                     case Komasyurui14.H04_Gin____:
-                        this.m_motiSu_[(int)Piece.s]++;
+                        this.m_motiSu_[(int)Piece.S2]++;
                         break;
                     case Komasyurui14.H05_Kin____:
-                        this.m_motiSu_[(int)Piece.g]++;
+                        this.m_motiSu_[(int)Piece.G2]++;
                         break;
                     case Komasyurui14.H06_Gyoku__:
-                        this.m_motiSu_[(int)Piece.k]++;
+                        this.m_motiSu_[(int)Piece.K2]++;
                         break;
                     case Komasyurui14.H07_Hisya__:
-                        this.m_motiSu_[(int)Piece.r]++;
+                        this.m_motiSu_[(int)Piece.R2]++;
                         break;
                     case Komasyurui14.H08_Kaku___:
-                        this.m_motiSu_[(int)Piece.b]++;
+                        this.m_motiSu_[(int)Piece.B2]++;
                         break;
                 }
             }

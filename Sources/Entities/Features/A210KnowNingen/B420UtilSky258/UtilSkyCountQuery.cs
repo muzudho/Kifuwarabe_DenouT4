@@ -1,9 +1,10 @@
-﻿using Grayscale.Kifuwaragyoku.Entities.Logging;
-using Grayscale.Kifuwaragyoku.Entities.Positioning;
-using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
-
-namespace Grayscale.Kifuwaragyoku.Entities.Features
+﻿namespace Grayscale.Kifuwaragyoku.Entities.Features
 {
+    using Grayscale.Kifuwaragyoku.Entities.Logging;
+    using Grayscale.Kifuwaragyoku.Entities.Positioning;
+    using Finger = ProjectDark.NamedInt.StrictNamedInt0; //スプライト番号
+    using Grayscale.Kifuwaragyoku.Entities.Take1Base;
+
 
     /// <summary>
     /// 棋譜ノードのユーティリティー。
@@ -51,35 +52,35 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
                 Komasyurui14 syurui = Util_Komasyurui14.NarazuCaseHandle(Conv_Busstop.ToKomasyurui(busstop));
                 if (Komasyurui14.H06_Gyoku__ == syurui)
                 {
-                    motiSu[(int)Piece.K]++;
+                    motiSu[(int)Piece.K1]++;
                 }
                 else if (Komasyurui14.H07_Hisya__ == syurui)
                 {
-                    motiSu[(int)Piece.R]++;
+                    motiSu[(int)Piece.R1]++;
                 }
                 else if (Komasyurui14.H08_Kaku___ == syurui)
                 {
-                    motiSu[(int)Piece.B]++;
+                    motiSu[(int)Piece.B1]++;
                 }
                 else if (Komasyurui14.H05_Kin____ == syurui)
                 {
-                    motiSu[(int)Piece.G]++;
+                    motiSu[(int)Piece.G1]++;
                 }
                 else if (Komasyurui14.H04_Gin____ == syurui)
                 {
-                    motiSu[(int)Piece.S]++;
+                    motiSu[(int)Piece.S1]++;
                 }
                 else if (Komasyurui14.H03_Kei____ == syurui)
                 {
-                    motiSu[(int)Piece.N]++;
+                    motiSu[(int)Piece.N1]++;
                 }
                 else if (Komasyurui14.H02_Kyo____ == syurui)
                 {
-                    motiSu[(int)Piece.L]++;
+                    motiSu[(int)Piece.L1]++;
                 }
                 else if (Komasyurui14.H01_Fu_____ == syurui)
                 {
-                    motiSu[(int)Piece.P]++;
+                    motiSu[(int)Piece.P1]++;
                 }
                 else
                 {
@@ -96,35 +97,35 @@ namespace Grayscale.Kifuwaragyoku.Entities.Features
 
                 if (Komasyurui14.H06_Gyoku__ == syurui)
                 {
-                    motiSu[(int)Piece.k]++;
+                    motiSu[(int)Piece.K2]++;
                 }
                 else if (Komasyurui14.H07_Hisya__ == syurui)
                 {
-                    motiSu[(int)Piece.r]++;
+                    motiSu[(int)Piece.R2]++;
                 }
                 else if (Komasyurui14.H08_Kaku___ == syurui)
                 {
-                    motiSu[(int)Piece.b]++;
+                    motiSu[(int)Piece.B2]++;
                 }
                 else if (Komasyurui14.H05_Kin____ == syurui)
                 {
-                    motiSu[(int)Piece.g]++;
+                    motiSu[(int)Piece.G2]++;
                 }
                 else if (Komasyurui14.H04_Gin____ == syurui)
                 {
-                    motiSu[(int)Piece.s]++;
+                    motiSu[(int)Piece.S2]++;
                 }
                 else if (Komasyurui14.H03_Kei____ == syurui)
                 {
-                    motiSu[(int)Piece.n]++;
+                    motiSu[(int)Piece.N2]++;
                 }
                 else if (Komasyurui14.H02_Kyo____ == syurui)
                 {
-                    motiSu[(int)Piece.l]++;
+                    motiSu[(int)Piece.L2]++;
                 }
                 else if (Komasyurui14.H01_Fu_____ == syurui)
                 {
-                    motiSu[(int)Piece.p]++;
+                    motiSu[(int)Piece.P2]++;
                 }
                 else
                 {
